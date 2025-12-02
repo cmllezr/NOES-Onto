@@ -1,0 +1,49 @@
+id: noes
+title: "NOES Onto: Nonoriented Electrical Steel Ontology"
+github_org: cmllezr
+git_main_branch: main
+repo: NOES-Onto
+uribase: https://w3id.org/pmd
+uribase_suffix: noes
+preferredPrefix: NOES
+edit_format: owl
+
+# DISABLE Templates for now
+use_templates: false
+
+# Imports 
+import_group:
+  products:
+    - id: pmdco
+      title: "PMD Core Ontology"
+      mirror_from: https://materialdigital.github.io/core-ontology/ontology.owl
+
+# Components
+components:
+  products:
+    - filename: imports-edit.owl
+    - filename: noes-axioms-shared.owl
+    - filename: noes-characterization.owl
+    - filename: noes-manufacturing.owl
+    - filename: noes-materials.owl
+    - filename: noes-texture.owl
+    - filename: noes-shared.owl
+
+# Release
+primary_release: full
+release_artefacts:
+  - base
+  - full
+export_formats:
+  - owl
+  - ttl
+
+ci:
+  - github_actions
+
+namespaces:
+  - https://w3id.org/pmd/noes/
+idranges:
+  - idsfor: noes
+    idprefix: https://w3id.org/pmd/noes/NOES_
+    iddigits: 7
