@@ -1771,11 +1771,6 @@ obo:OBI_0001933 rdf:type owl:Class ;
                 rdfs:label "value specification" .
 
 
-###  https://w3id.org/pmd/NOES_0000000
-<https://w3id.org/pmd/NOES_0000000> rdf:type owl:Class ;
-                                    rdfs:label "root node"@en .
-
-
 ###  https://w3id.org/pmd/co/PMD_0000000
 co:PMD_0000000 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000001 ;
@@ -4441,6 +4436,118 @@ co:PMD_0050157 rdf:type owl:Class ;
                                "Eine 3D Geometrie ist eine geometrische Form, die in drei Dimensionen existiert, mit Länge, Breite und Höhe, und die durch ihre räumlichen Eigenschaften wie Volumen und Oberfläche definiert werden kann."@de ;
                skos:example "Beispiele sind Formen wie Würfel, Kugeln und Pyramiden."@de ,
                             "Examples include shapes like cubes, spheres, and pyramids."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000003
+<https://w3id.org/pmd/noes/NOES_0000003> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000008 ;
+                                         rdfs:label "magnetic field alternating frequency"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000004
+<https://w3id.org/pmd/noes/NOES_0000004> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000502 ;
+                                         rdfs:label "plot"@en ;
+                                         skos:definition "A plot is a 2-D information content entity describing a dependency of one variable on another."@en ;
+                                         skos:example "B-H curve, stress-strain curve"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000005
+<https://w3id.org/pmd/noes/NOES_0000005> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000004> ;
+                                         rdfs:label "B-H curve"@en ;
+                                         skos:definition "B-H curve is a plot which describes the dependency of magnetic flux density B on magnetic field strength H in soft and hard magnetic materials."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000006
+<https://w3id.org/pmd/noes/NOES_0000006> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000004> ;
+                                         rdfs:label "stress-strain curve"@en ;
+                                         skos:definition "Stress-strain curve is a plot which describes the dependency of deformation in a sample on the applied stress (force per unit area)."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000007
+<https://w3id.org/pmd/noes/NOES_0000007> rdf:type owl:Class ;
+                                         rdfs:subClassOf obo:IAO_0000030 ;
+                                         rdfs:label "3D"@en ;
+                                         skos:definition "A three-dimensional information content entity is a representation or analysis, commonly applied in studying material properties in its volume or describing a dependency of one variable on two other variables"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000008
+<https://w3id.org/pmd/noes/NOES_0000008> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000007> ;
+                                         rdfs:label "orientation distribution function"@en ;
+                                         skos:altLabel "ODF"@en ;
+                                         skos:definition "Orientation distrubution function (ODF) is a 3D information content entity which quantitively describes texture (preferred crystallographic orientation of grains) in polycrystalline materials. ODF can be caclulated from pole figures obtained from the diffraction patterns."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000009
+<https://w3id.org/pmd/noes/NOES_0000009> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000834 ;
+                                         rdfs:label "EBSD map"@en ;
+                                         skos:definition "EBSD (electron backscatter diffraction) map represents a information content entity which is determined analytically from data obtrained from EBSD characterization. EBSD map provides information about grain size and grain orientation."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000010
+<https://w3id.org/pmd/noes/NOES_0000010> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000829 ;
+                                         rdfs:comment """TODO: The definition has to be refined. 
+TODO: Write axioms based on the definition"""@en ;
+                                         rdfs:label "quasi-static (DC) characterization of magnetic properties"@en ;
+                                         skos:definition "Quasi-static (DC) characterization is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine a static magnetic curve of the tested material. During the test, the current in the primary winding is changed slowly, thus the frequency of a magnetic field remains low, i.e., below 0.01 Hz. The output of the quasi-static characterization of magnetic properties  is a static B-H curve, which  provides information on hysteresis loss Ph, saturation magnetization Bs, coercivity Hc, remanence Br, and maximum permeability µmax. During DC characterization primarily domain wall motion and pinning effects play role."@en ;
+                                         skos:example "Measurement of hysteresis losses; measurement of magnetic induction at specified magnetic field, e.g., 5000 A/m."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000011
+<https://w3id.org/pmd/noes/NOES_0000011> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000829 ;
+                                         rdfs:comment "Dynamic (AC) characterization of magnetic properties is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine the total energy loss of a tested material at specific frequency and magnetic flux density. During the test, the current in the primary winding is changed with frequency between 50-400 Hz to ensure sinusoidal waveform of the magnetic flux density at Bpeak. The output of the dynamic characterization of magnetic properties  is a  B-H curve, which  provides information on total core loss Ptot and dynamic permeability µdyn."@en ,
+                                                      """TODO: refine defintion
+TODO: write axioms"""@en ;
+                                         rdfs:label "dynamic (AC) characterization of magnetic properties"@en ;
+                                         skos:example "Measurement of total power (iron) loss at given current frequency and maximal magnetic induction, e.g. 50 Hz and 1.5 T, or 400 Hz and 1.0 T"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000012
+<https://w3id.org/pmd/noes/NOES_0000012> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000829 ;
+                                         rdfs:label "magnetic property analyzing process using Epstein frame"@en ;
+                                         skos:definition "Magnetic property analyzing process using Epstein frame is a standardized assay which uses Epstein frame to test magnetic properties of soft magnetic materials, where several (how many) strips are stacked."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000013
+<https://w3id.org/pmd/noes/NOES_0000013> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000829 ;
+                                         rdfs:label "magnetic property analyzing process using single sheet tester"@en ;
+                                         skos:definition "magnetic property analyzing process using single sheet tester is an assay for determining magnetic properties of soft mangetic materials, where magnetic field H is applied to a single sheet."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000014
+<https://w3id.org/pmd/noes/NOES_0000014> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000829 ;
+                                         rdfs:label "magnetic property analyzing process using thoroidal core"@en ;
+                                         skos:definition "Magnetic property analyzing process using thoroidal core is an assay for determing magnetic properties of soft magnetic materials, where the sample has closed wound ring core shape. As the ring shape does not have any air gaps or joint losses, this testing procedure provides information on most intrinsic material properties."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000017
+<https://w3id.org/pmd/noes/NOES_0000017> rdf:type owl:Class ;
+                                         rdfs:subClassOf obo:BFO_0000015 ;
+                                         rdfs:label "naturally occuring process"@en ;
+                                         skos:definition "Naturally occuring process is a process which occurs in materials due to external stimulus which is part of some planned process."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000021
+<https://w3id.org/pmd/noes/NOES_0000021> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000017> ;
+                                         rdfs:label "domain wall motion"@en ;
+                                         skos:definition "Domain wall motion is a naturally occuring process which occurs in ferromagnetic materials due to the external stimulus such as applied magnetic field."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000022
+<https://w3id.org/pmd/noes/NOES_0000022> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000017> ;
+                                         rdfs:label "domain wall pinning"@en ;
+                                         skos:definition "Domain wall pinning is a naturally occuring process which occurs in ferromagnetic materials when domain wall montion is temporally inhibited due to an energy barrier."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005
