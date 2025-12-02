@@ -1,0 +1,27 @@
+# PURL configuration for http://purl.obolibrary.org/obo/noes
+
+idspace: NOES
+base_url: /obo/noes
+
+products:
+- noes.owl: https://raw.githubusercontent.com/cmllezr/NOES-Onto/main/noes.owl
+- noes.obo: https://raw.githubusercontent.com/cmllezr/NOES-Onto/main/noes.obo
+
+term_browser: ontobee
+example_terms:
+- NOES_0000000
+
+entries:
+
+- prefix: /releases/
+  replacement: https://raw.githubusercontent.com/cmllezr/NOES-Onto/v
+
+- prefix: /tracker/
+  replacement: https://github.com/cmllezr/NOES-Onto/issues
+
+- prefix: /about/
+  replacement: http://www.ontobee.org/ontology/NOES?iri=http://purl.obolibrary.org/obo/
+
+## generic fall-through, serve direct from github by default
+- prefix: /
+  replacement: https://raw.githubusercontent.com/cmllezr/NOES-Onto/main/
