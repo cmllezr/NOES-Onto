@@ -11,12 +11,17 @@ edit_format: owl
 # DISABLE Templates for now
 use_templates: false
 
-# Imports 
+# Imports
 import_group:
+  annotation_properties: ['rdfs:label', 'IAO:0000119','IAO:0000115', 'IAO:0000116', 'IAO:0000112', 'skos:definition', 'skos:example', 'skos:comment', 'skos:altLabel' ]
+  
   products:
     - id: pmdco
       title: "PMD Core Ontology"
       mirror_from: https://materialdigital.github.io/core-ontology/ontology.owl
+    - id: tto
+      mirror_from: https://raw.githubusercontent.com/materialdigital/tensile-test-ontology/refs/heads/main/tto-full.owl 
+      module_type: custom
 
 # Components
 components:
