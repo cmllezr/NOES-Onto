@@ -12,11 +12,11 @@
 ONTOLOGY_IRI_BASE= https://w3id.org/pmd/noes/
 $(ONT).owl: $(ONT)-full.owl
 $(ROBOT) annotate --input $< --ontology-iri $(ONTOLOGY_IRI_BASE) $(ANNOTATE_ONTOLOGY_VERSION) \
-		 convert -o $@.tmp.owl && mv $@.tmp.owl $@
+		convert -o $@.tmp.owl && mv $@.tmp.owl $@
 
 $(ONT).ttl: $(ONT).owl
 $(ROBOT) annotate --input $< --ontology-iri $(ONTOLOGY_IRI_BASE) $(ANNOTATE_ONTOLOGY_VERSION) \
-		 convert --check false -f ttl -o $@.tmp.ttl && mv $@.tmp.ttl $@
+		convert --check false -f ttl -o $@.tmp.ttl && mv $@.tmp.ttl $@
 
 
 #$(IMPORTSEED): $(PRESEED) | $(TMPDIR)
