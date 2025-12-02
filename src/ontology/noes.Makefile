@@ -9,16 +9,16 @@
 ## changes here rather than in the main Makefile
 
 ## ONTOLOGY IRI FIX
-ONTBASE = https://w3id.org/pmd/noes
-ONTOLOGY_IRI_BASE = https://w3id.org/pmd/noes/
+## ONTBASE = https://w3id.org/pmd/noes
+## ONTOLOGY_IRI_BASE = https://w3id.org/pmd/noes/
 
-$(ONT).owl: $(ONT)-full.owl
-	$(ROBOT) annotate --input $< --ontology-iri $(ONTOLOGY_IRI_BASE) $(ANNOTATE_ONTOLOGY_VERSION) \
-		convert -o $@.tmp.owl && mv $@.tmp.owl $@
+## $(ONT).owl: $(ONT)-full.owl
+##	$(ROBOT) annotate --input $< --ontology-iri $(ONTOLOGY_IRI_BASE) $(ANNOTATE_ONTOLOGY_VERSION) \
+##		convert -o $@.tmp.owl && mv $@.tmp.owl $@
 
-$(ONT).ttl: $(ONT).owl
-	$(ROBOT) annotate --input $< --ontology-iri $(ONTOLOGY_IRI_BASE) $(ANNOTATE_ONTOLOGY_VERSION) \
-		convert --check false -f ttl -o $@.tmp.ttl && mv $@.tmp.ttl $@
+## $(ONT).ttl: $(ONT).owl
+##	$(ROBOT) annotate --input $< --ontology-iri $(ONTOLOGY_IRI_BASE) $(ANNOTATE_ONTOLOGY_VERSION) \
+##		convert --check false -f ttl -o $@.tmp.ttl && mv $@.tmp.ttl $@
 
 
 #$(IMPORTSEED): $(PRESEED) | $(TMPDIR)
