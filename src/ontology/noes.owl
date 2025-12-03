@@ -6499,16 +6499,19 @@ Typical configuration dependent contributions are interface energy contributions
     <!-- https://w3id.org/pmd/noes/NOES_0000000 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000000">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000026"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000026"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020003"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020003"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">TODO: refine the axiom to the object aggregates grains</rdfs:comment>
         <rdfs:label xml:lang="en">crystallographic direction</rdfs:label>
@@ -6521,19 +6524,58 @@ Typical configuration dependent contributions are interface energy contributions
     <!-- https://w3id.org/pmd/noes/NOES_0000001 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000001">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000002"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000026"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000026"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                    <owl:Class>
+                                        <owl:complementOf rdf:resource="https://w3id.org/pmd/co/PMD_0020003"/>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:complementOf rdf:resource="https://w3id.org/pmd/co/PMD_0020113"/>
+                                    </owl:Class>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">TODO: add device to the exception</rdfs:comment>
         <rdfs:label xml:lang="en">rolled sheet direction</rdfs:label>
         <skos:definition xml:lang="en">Rolled sheet direction is a one-dimensional spatial region which determines the directions in a sheet material in respect to the rolling direction. Rolled sheet direction is a part of material or object.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000002 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000002">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000028"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000029"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000030"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
+        <rdfs:label xml:lang="en">rolled sheet directions</rdfs:label>
+        <skos:definition xml:lang="en">Rolled sheet directions is a categorical value specification which specifies the rolled sheet direction. It  includes rolling direction (RD), transverse direction (TD), and normal direction (ND)</skos:definition>
     </owl:Class>
     
 
@@ -6795,6 +6837,45 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000779"/>
         <rdfs:label xml:lang="en">annealing</rdfs:label>
         <skos:definition xml:lang="en">Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000031 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000031">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000033"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000035"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000036"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
+        <rdfs:label xml:lang="en">noes characteristic texture components</rdfs:label>
+        <skos:definition xml:lang="en">NOES characteristic texture components are the texure components which most commonly found in non-oriented electrical sheets. These components form preferred grain orientations in NOES, characterized by family of planes {hkl} oriented parallel to the rolling plane (RP) and family of directions &lt;uvw&gt; oriented parallel to the rolling direction (RD).</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000037 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000037">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000038"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000039"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000040"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000041"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
+        <rdfs:label xml:lang="en">noes characteristic texture fibers</rdfs:label>
+        <skos:definition xml:lang="en">NOES characteristic texture fibers are the texure fibers which most commonly found in non-oriented electrical sheets. These fibers form preferred grain orientations in NOES, characterized by family of directions &lt;uvw&gt; oriented parallel to one of directions of a rolled sheet.</skos:definition>
     </owl:Class>
     
 
@@ -7456,6 +7537,86 @@ Note: The concept of parallel length is replaced by the concept of distance betw
         <rdfs:label xml:lang="en">aggregate state suprasolid</rdfs:label>
         <skos:definition xml:lang="en">A state that exhibits suprafluid and solid properties.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000028 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000028">
+        <rdfs:label xml:lang="en">rolling direction (RD)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000029 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000029">
+        <rdfs:label xml:lang="en">transverse direction (TD)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000030 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000030">
+        <rdfs:label xml:lang="en">normal direction (ND)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000033 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000033">
+        <rdfs:label xml:lang="en">cube texture component {001}&lt;001&gt;</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000035 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000035">
+        <rdfs:label xml:lang="en">goss texture component {110}&lt;001&gt;</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000036 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000036">
+        <rdfs:label xml:lang="en">rotated cube texture component {001}&lt;110&gt;</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000038 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000038">
+        <rdfs:label xml:lang="en">γ-fiber &lt;111&gt; || ND</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000039 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000039">
+        <rdfs:label xml:lang="en">α-fiber &lt;110&gt; || RD</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000040 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000040">
+        <rdfs:label xml:lang="en">λ-fiber &lt;100&gt; || ND</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000041 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000041">
+        <rdfs:label xml:lang="en">η-fiber &lt;100&gt; || RD</rdfs:label>
     </owl:NamedIndividual>
     
 

@@ -4756,13 +4756,14 @@ co:PMD_0050157 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000000
 <https://w3id.org/pmd/noes/NOES_0000000> rdf:type owl:Class ;
-                                         rdfs:subClassOf [ owl:intersectionOf ( obo:BFO_0000026
-                                                                                [ rdf:type owl:Restriction ;
-                                                                                  owl:onProperty obo:BFO_0000050 ;
-                                                                                  owl:someValuesFrom co:PMD_0020003
-                                                                                ]
-                                                                              ) ;
-                                                           rdf:type owl:Class
+                                         rdfs:subClassOf obo:BFO_0000026 ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:BFO_0000050 ;
+                                                           owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                owl:unionOf ( co:PMD_0020003
+                                                                                              co:PMD_0020106
+                                                                                            )
+                                                                              ]
                                                          ] ;
                                          rdfs:comment "TODO: refine the axiom to the object aggregates grains"@en ;
                                          rdfs:label "crystallographic direction"@en ;
@@ -4772,16 +4773,44 @@ co:PMD_0050157 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000001
 <https://w3id.org/pmd/noes/NOES_0000001> rdf:type owl:Class ;
-                                         rdfs:subClassOf [ owl:intersectionOf ( obo:BFO_0000026
-                                                                                [ rdf:type owl:Restriction ;
-                                                                                  owl:onProperty obo:BFO_0000050 ;
-                                                                                  owl:someValuesFrom co:PMD_0000000
-                                                                                ]
-                                                                              ) ;
-                                                           rdf:type owl:Class
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty co:PMD_0000077 ;
+                                                               owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000002>
+                                                             ] ;
+                                         rdfs:subClassOf obo:BFO_0000026 ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:BFO_0000050 ;
+                                                           owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                owl:unionOf ( co:PMD_0000000
+                                                                                              [ owl:intersectionOf ( obo:BFO_0000030
+                                                                                                                     [ rdf:type owl:Class ;
+                                                                                                                       owl:complementOf co:PMD_0020003
+                                                                                                                     ]
+                                                                                                                     [ rdf:type owl:Class ;
+                                                                                                                       owl:complementOf co:PMD_0020113
+                                                                                                                     ]
+                                                                                                                   ) ;
+                                                                                                rdf:type owl:Class
+                                                                                              ]
+                                                                                            )
+                                                                              ]
                                                          ] ;
+                                         rdfs:comment "TODO: add device to the exception"@en ;
                                          rdfs:label "rolled sheet direction"@en ;
                                          skos:definition "Rolled sheet direction is a one-dimensional spatial region which determines the directions in a sheet material in respect to the rolling direction. Rolled sheet direction is a part of material or object."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000002
+<https://w3id.org/pmd/noes/NOES_0000002> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Class ;
+                                                               owl:oneOf ( <https://w3id.org/pmd/noes/NOES_0000028>
+                                                                           <https://w3id.org/pmd/noes/NOES_0000029>
+                                                                           <https://w3id.org/pmd/noes/NOES_0000030>
+                                                                         )
+                                                             ] ;
+                                         rdfs:subClassOf obo:OBI_0001930 ;
+                                         rdfs:label "rolled sheet directions"@en ;
+                                         skos:definition "Rolled sheet directions is a categorical value specification which specifies the rolled sheet direction. It  includes rolling direction (RD), transverse direction (TD), and normal direction (ND)"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000003
@@ -4968,6 +4997,33 @@ Has part grain growth and recovery."""@en ;
                                          rdfs:subClassOf co:PMD_0000779 ;
                                          rdfs:label "annealing"@en ;
                                          skos:definition "Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000031
+<https://w3id.org/pmd/noes/NOES_0000031> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Class ;
+                                                               owl:oneOf ( <https://w3id.org/pmd/noes/NOES_0000033>
+                                                                           <https://w3id.org/pmd/noes/NOES_0000035>
+                                                                           <https://w3id.org/pmd/noes/NOES_0000036>
+                                                                         )
+                                                             ] ;
+                                         rdfs:subClassOf obo:OBI_0001930 ;
+                                         rdfs:label "noes characteristic texture components"@en ;
+                                         skos:definition "NOES characteristic texture components are the texure components which most commonly found in non-oriented electrical sheets. These components form preferred grain orientations in NOES, characterized by family of planes {hkl} oriented parallel to the rolling plane (RP) and family of directions <uvw> oriented parallel to the rolling direction (RD)."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000037
+<https://w3id.org/pmd/noes/NOES_0000037> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Class ;
+                                                               owl:oneOf ( <https://w3id.org/pmd/noes/NOES_0000038>
+                                                                           <https://w3id.org/pmd/noes/NOES_0000039>
+                                                                           <https://w3id.org/pmd/noes/NOES_0000040>
+                                                                           <https://w3id.org/pmd/noes/NOES_0000041>
+                                                                         )
+                                                             ] ;
+                                         rdfs:subClassOf obo:OBI_0001930 ;
+                                         rdfs:label "noes characteristic texture fibers"@en ;
+                                         skos:definition "NOES characteristic texture fibers are the texure fibers which most commonly found in non-oriented electrical sheets. These fibers form preferred grain orientations in NOES, characterized by family of directions <uvw> oriented parallel to one of directions of a rolled sheet."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005
@@ -5442,6 +5498,56 @@ co:PMD_0020125 rdf:type owl:NamedIndividual ;
                rdfs:label "aggregate state suprasolid"@en ;
                skos:definition "A state that exhibits suprafluid and solid properties."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000028
+<https://w3id.org/pmd/noes/NOES_0000028> rdf:type owl:NamedIndividual ;
+                                         rdfs:label "rolling direction (RD)"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000029
+<https://w3id.org/pmd/noes/NOES_0000029> rdf:type owl:NamedIndividual ;
+                                         rdfs:label "transverse direction (TD)"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000030
+<https://w3id.org/pmd/noes/NOES_0000030> rdf:type owl:NamedIndividual ;
+                                         rdfs:label "normal direction (ND)"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000033
+<https://w3id.org/pmd/noes/NOES_0000033> rdf:type owl:NamedIndividual ;
+                                         rdfs:label "cube texture component {001}<001>"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000035
+<https://w3id.org/pmd/noes/NOES_0000035> rdf:type owl:NamedIndividual ;
+                                         rdfs:label "goss texture component {110}<001>"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000036
+<https://w3id.org/pmd/noes/NOES_0000036> rdf:type owl:NamedIndividual ;
+                                         rdfs:label "rotated cube texture component {001}<110>"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000038
+<https://w3id.org/pmd/noes/NOES_0000038> rdf:type owl:NamedIndividual ;
+                                         rdfs:label "γ-fiber <111> || ND"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000039
+<https://w3id.org/pmd/noes/NOES_0000039> rdf:type owl:NamedIndividual ;
+                                         rdfs:label "α-fiber <110> || RD"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000040
+<https://w3id.org/pmd/noes/NOES_0000040> rdf:type owl:NamedIndividual ;
+                                         rdfs:label "λ-fiber <100> || ND"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000041
+<https://w3id.org/pmd/noes/NOES_0000041> rdf:type owl:NamedIndividual ;
+                                         rdfs:label "η-fiber <100> || RD"@en .
 
 
 #################################################################
