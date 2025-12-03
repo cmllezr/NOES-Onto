@@ -95,6 +95,10 @@ co:symbol rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000050
+obo:BFO_0000050 rdf:type owl:ObjectProperty .
+
+
 ###  http://purl.obolibrary.org/obo/BFO_0000051
 obo:BFO_0000051 rdf:type owl:ObjectProperty .
 
@@ -306,6 +310,14 @@ obo:BFO_0000020 rdf:type owl:Class .
 
 ###  http://purl.obolibrary.org/obo/BFO_0000023
 obo:BFO_0000023 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000026
+obo:BFO_0000026 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000027
+obo:BFO_0000027 rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000030
@@ -763,6 +775,54 @@ co:PMD_0000053 rdf:type owl:Class ;
                skos:example "The process of melting aluminum ingots in preparation for extrusion."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0000054
+co:PMD_0000054 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000969 ;
+               rdfs:label "Heizfunktion"@de ,
+                          "heating function"@en ;
+               skos:definition "A heating function is a (realizable) function that, when realized, enables a system or device to increase the thermal energy of a material, typically to reach temperatures required for processing, transformation, or reaction."@en ,
+                               "Eine Heizfunktion ist eine (realisierbare) Funktion, die ein System oder Gerät in die Lage versetzt, die Wärmeenergie eines Materials zu erhöhen, um die für die Verarbeitung, Umwandlung oder Reaktion erforderlichen Temperaturen zu erreichen."@de ;
+               skos:example "The function of a resistance heater in a vacuum furnace."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000055
+co:PMD_0000055 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000969 ;
+               rdfs:label "Kühlfunktion"@de ,
+                          "cooling function"@en ;
+               skos:definition "A cooling function is a (realizable) function that, when realized, enables a system or device to lower the temperature of a material, often to control solidification or maintain a stable state below a desired thermal threshold."@en ,
+                               "Eine Kühlfunktion ist eine (realisierbare) Funktion, die es einem System oder Gerät ermöglicht, die Temperatur eines Materials zu senken, häufig um die Erstarrung zu steuern oder einen stabilen Zustand unterhalb eines gewünschten thermischen Schwellenwerts aufrechtzuerhalten."@de ;
+               skos:example "The function of a water-cooled mold to solidify molten metal in casting."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000056
+co:PMD_0000056 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000780 ,
+                               [ owl:intersectionOf ( co:PMD_0000655
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:RO_0000085 ;
+                                                        owl:someValuesFrom co:PMD_0000057
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+               rdfs:comment "An electric arc furnace used in steelmaking."@en ;
+               rdfs:label "Schmelzofen"@de ,
+                          "melting furnace"@en ;
+               skos:definition "A melting furnace is a device that bears a melting function, typically designed to raise the temperature of a solid material to initiate and sustain its transformation into a melt."@en ,
+                               "Ein Schmelzofen ist ein Gerät, das eine Schmelzfunktion hat und in der Regel dazu dient, die Temperatur eines festen Materials zu erhöhen, um seine Umwandlung in eine Schmelze einzuleiten und aufrechtzuerhalten."@de .
+
+
+###  https://w3id.org/pmd/co/PMD_0000057
+co:PMD_0000057 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000054 ;
+               rdfs:label "Schmelzfunktion"@de ,
+                          "melting function"@en ;
+               skos:definition "A melting function is a heating function that, when realized, enables a device or system to initiate or sustain the phase transition of a solid material into a liquid by raising its temperature above the melting point."@en ,
+                               "Eine Schmelzfunktion ist eine Heizfunktion, die es einem Gerät oder System ermöglicht, den Phasenübergang eines festen Materials in eine Flüssigkeit einzuleiten oder aufrechtzuerhalten, indem seine Temperatur über den Schmelzpunkt angehoben wird."@de ;
+               skos:example "The function of an induction coil in a furnace to heat metal until it melts."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000068
 co:PMD_0000068 rdf:type owl:Class ;
                owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000004
@@ -802,6 +862,13 @@ co:PMD_0000068 rdf:type owl:Class ;
                rdfs:label "temporally qualified continuant"@en ;
                skos:definition "A temporally qualified continuant is a continuant that, by reference to a determinate temporal region, is such as to possess its properties only for so long as that period obtains, being otherwise in its essentiality unchanged."@en ;
                co:PMD_0001032 "https://github.com/materialdigital/core-ontology/issues/185" .
+
+
+###  https://w3id.org/pmd/co/PMD_0000075
+co:PMD_0000075 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000602 ;
+               rdfs:label "mold device"@en ;
+               skos:definition "A form used to cast an object of a desired shape."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000501
@@ -893,6 +960,16 @@ co:PMD_0000534 rdf:type owl:Class ;
                skos:example "Some portion of material, which to be made into something by a further operation."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0000544
+co:PMD_0000544 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000602 ;
+               obo:IAO_0000119 "https://www.merriam-webster.com/dictionary/caliper"@en ;
+               rdfs:label "Messschieber"@de ,
+                          "caliper"@en ;
+               skos:definition "A measuring device having two usually adjustable arms, legs, or jaws used especially to measure the dimensions of objects, such as diameters or thicknesses"@en ,
+                               "Messgerät mit zwei in der Regel verstellbaren Armen, Schenkeln oder Klemmbacken, das vor allem zur Messung der Abmessungen von Gegenständen, wie z. B. des Durchmessers oder der Dicke, verwendet wird"@de .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000549
 co:PMD_0000549 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000015 ;
@@ -950,6 +1027,15 @@ co:PMD_0000560 rdf:type owl:Class ;
                skos:definition "A Seperating process that involves removing unwanted material from a surface through cleaning methods, which may include processes like blasting, washing, or chemical cleaning."@en ,
                                "Ein Trennprozess, bei dem unerwünschtes Material von einer Oberfläche durch Reinigungsmethoden entfernt wird, die Verfahren wie Strahlen, Waschen oder chemische Reinigung umfassen können."@de ;
                skos:example "Chemical Cleaning, Mechanical Cleaning"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000561
+co:PMD_0000561 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000602 ;
+               rdfs:label "Reinigungsgerät"@de ,
+                          "cleaning device"@en ;
+               skos:definition "A device used for removing contaminants from materials or surfaces."@en ,
+                               "Ein Gerät zum Entfernen von Verunreinigungen von Materialien oder Oberflächen."@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000591
@@ -1064,6 +1150,14 @@ co:PMD_0000625 rdf:type owl:Class ;
                skos:example "An example of an electron microscopy process is Scanning Electron Microscopy (SEM), which provides detailed images of the surface topography and composition of a material. Another example is Transmission Electron Microscopy (TEM), which can visualize the internal structure of a sample at atomic resolution."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0000636
+co:PMD_0000636 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000602 ;
+               obo:IAO_0000119 "“Extensometer.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/extensometer. Accessed 5 Dec. 2022."@en ;
+               rdfs:label "extensometer"@en ;
+               skos:definition "A device for measuring minute deformations of test specimens caused by tension, compression, bending, or twisting."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000638
 co:PMD_0000638 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000849 ;
@@ -1099,6 +1193,15 @@ co:PMD_0000646 rdf:type owl:Class ;
                skos:example "Tension Forming, Compression Forming"@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0000648
+co:PMD_0000648 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000602 ;
+               rdfs:label "Formmaschine"@de ,
+                          "forming machine"@en ;
+               skos:definition "A device used for shaping materials under various conditions, including tensile, compressive, and shearing."@en ,
+                               "Ein Gerät zur Formgebung von Materialien unter verschiedenen Bedingungen, einschließlich Zug-, Druck- und Scherbedingungen."@de .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000649
 co:PMD_0000649 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000646 ;
@@ -1123,6 +1226,16 @@ co:PMD_0000650 rdf:type owl:Class ;
                skos:example "Rolling, Coining"@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0000655
+co:PMD_0000655 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000602 ;
+               obo:IAO_0000119 "“Furnace.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/furnace. Accessed 13 Jan. 2023."@en ;
+               rdfs:label "Ofen"@de ,
+                          "furnace"@en ;
+               skos:definition "An enclosed structure in which heat is produced (as for heating a house or for reducing ore)."@en ,
+                               "Eine geschlossene Struktur, in der Wärme erzeugt wird (z. B. zum Heizen eines Hauses oder zum Einschmelzen von Erz)."@de .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000663
 co:PMD_0000663 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020003 ;
@@ -1130,6 +1243,15 @@ co:PMD_0000663 rdf:type owl:Class ;
                           "crystal grain"@en ;
                skos:definition "A crystal grain is a crystal that is continuant part of a polycrystal."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0000667
+co:PMD_0000667 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000648 ;
+               rdfs:label "Schleifmaschine"@de ,
+                          "grinding machine"@en ;
+               skos:definition "A Grinding Machine is a Forming Machine that uses an abrasive wheel to remove material from the surface of a workpiece, typically for finishing or precision work."@en ,
+                               "Eine Schleifmaschine ist eine Formmaschine, die ein Schleifrad verwendet, um Material von der Oberfläche eines Werkstücks zu entfernen, typischerweise für Feinarbeiten oder Präzisionsarbeiten."@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000772
@@ -1173,11 +1295,58 @@ co:PMD_0000779 rdf:type owl:Class ;
                skos:example "Annealing, Ageing, Hardening"@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0000780
+co:PMD_0000780 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000602
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:RO_0000085 ;
+                                                            owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( co:PMD_0000054
+                                                                                               co:PMD_0000055
+                                                                                             )
+                                                                               ]
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf co:PMD_0000602 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000085 ;
+                                 owl:someValuesFrom [ rdf:type owl:Class ;
+                                                      owl:unionOf ( co:PMD_0000054
+                                                                    co:PMD_0000055
+                                                                  )
+                                                    ]
+                               ] ;
+               rdfs:label "Wärmebehandlungsgerät"@de ,
+                          "heat treatment device"@en ;
+               skos:definition "A device used for treating materials through heating and cooling processes to alter their properties."@en ,
+                               "Ein Gerät zur Behandlung von Materialien durch Erwärmungs- und Abkühlungsprozesse zur Veränderung ihrer Eigenschaften."@de .
+
+
+###  https://w3id.org/pmd/co/PMD_0000791
+co:PMD_0000791 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000655 ;
+               rdfs:label "Induktionsofen"@de ,
+                          "induction furnace"@en ;
+               skos:definition "An Induction Furnace is a Furnace that heats materials using electromagnetic induction, generating heat directly within the material."@en ,
+                               "Ein Induktionsofen ist ein Ofen, der Materialien durch elektromagnetische Induktion erhitzt, wobei die Wärme direkt im Material erzeugt wird."@de .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000802
 co:PMD_0000802 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000015 ;
                rdfs:label "irradiation process"@en ;
                skos:definition "An irradiation process is a process in which a radiation source (bearing a stimulus role) emits radiation towards a material entity (bearing the target role)"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000817
+co:PMD_0000817 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0001998 ;
+               rdfs:label "Laserschneider"@de ,
+                          "lasercutter"@en ;
+               skos:definition "A device that utilizes laser beams to create precise cuts in various materials such as wood, plastic, metal, etc."@en ,
+                               "Ein Gerät, das Laserstrahlen verwendet, um präzise Schnitte in verschiedenen Materialien wie Holz, Kunststoff, Metall usw. zu erzeugen."@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000819
@@ -1328,6 +1497,15 @@ co:PMD_0000853 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
+###  https://w3id.org/pmd/co/PMD_0000855
+co:PMD_0000855 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000602 ;
+               rdfs:label "Mikroskop"@de ,
+                          "microscope"@en ;
+               skos:definition "A device used to magnify and view small objects or details that are not visible to the naked eye."@en ,
+                               "Ein Gerät zur Vergrößerung und Betrachtung kleiner Objekte oder Details, die mit bloßem Auge nicht sichtbar sind."@de .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000856
 co:PMD_0000856 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000957 ;
@@ -1388,6 +1566,15 @@ co:PMD_0000885 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
+###  https://w3id.org/pmd/co/PMD_0000886
+co:PMD_0000886 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000648 ;
+               rdfs:label "Poliermaschine"@de ,
+                          "polishing machine"@en ;
+               skos:definition "A Polishing Machine is a Forming Machine that smooths the surface of a material by rubbing it with a tool, abrasive, or chemical."@en ,
+                               "Eine Poliermaschine ist eine Formmaschine, die die Oberfläche eines Materials durch Reiben mit einem Werkzeug, Schleifmittel oder Chemikalien glättet."@de .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000896
 co:PMD_0000896 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020131 ;
@@ -1440,6 +1627,15 @@ co:PMD_0000915 rdf:type owl:Class ;
                rdfs:label "responding process"@en ;
                skos:definition "The responding process is a process describing the reaction of a material or system to an applied stimulus."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0000922
+co:PMD_0000922 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000855 ;
+               rdfs:label "Rasterelektronenmikroskop"@de ,
+                          "scanning electron microscope"@en ;
+               skos:definition "A Scanning Electron Microscope (SEM) is a Measuring Device that produces high-resolution images of a sample surface by scanning it with a focused beam of electrons."@en ,
+                               "Ein Rasterelektronenmikroskop (REM) ist ein Messgerät, das hochauflösende Bilder einer Probenoberfläche erzeugt, indem es sie mit einem fokussierten Elektronenstrahl abtastet."@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000927
@@ -1527,6 +1723,25 @@ co:PMD_0000967 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
+###  https://w3id.org/pmd/co/PMD_0000969
+co:PMD_0000969 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000034 ;
+               rdfs:label "Temperaturänderungsfunktion"@de ,
+                          "temperature change function"@en ;
+               skos:definition "A subfunction of heat treatment performed to induce changes in temperature to alter material properties."@en ,
+                               "Eine Unterfunktion der Wärmebehandlung, die durchgeführt wird, um Temperaturänderungen hervorzurufen, um die Materialeigenschaften zu verändern."@de ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0000973
+co:PMD_0000973 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000602 ;
+               rdfs:label "Zugprüfmaschine"@de ,
+                          "tensile testing machine"@en ;
+               skos:definition "A device used to test the tensile strength and elongation of materials by applying a stretching force."@en ,
+                               "Ein Gerät zur Prüfung der Zugfestigkeit und Dehnung von Materialien durch Anwendung einer Dehnkraft."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000974
 co:PMD_0000974 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000849 ;
@@ -1563,6 +1778,26 @@ co:PMD_0000992 rdf:type owl:Class ;
                rdfs:label "time series"@en ;
                skos:definition "A time series is a 1-D information content entity defined by a sequence of data points collected or recorded at successive time intervals, used for analyzing temporal properties or trends."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0000997
+co:PMD_0000997 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000561 ;
+               rdfs:label "Ultraschallreiniger"@de ,
+                          "ultrasonic cleaner"@en ;
+               skos:definition "A device that uses ultrasound and a cleaning solvent to clean delicate or complex items."@en ,
+                               "An Ultrasonic Cleaner is a Cleaning Device that uses high-frequency sound waves and a cleaning solvent to remove contaminants from delicate or complex items."@en ,
+                               "Ein Gerät, das Ultraschall und ein Reinigungsmittel verwendet, um empfindliche oder komplexe Gegenstände zu reinigen."@de ,
+                               "Ein Ultraschallreiniger ist ein Reinigungsgerät, das Hochfrequenzschallwellen und ein Reinigungsmittel verwendet, um Verunreinigungen von empfindlichen oder komplexen Gegenständen zu entfernen."@de .
+
+
+###  https://w3id.org/pmd/co/PMD_0001007
+co:PMD_0001007 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0001998 ;
+               rdfs:label "Wasserstrahlschneider"@de ,
+                          "waterjet cutter"@en ;
+               skos:definition "A device that utilizes a high-pressure stream of water or a water stream with abrasive particles to cut materials such as metal, stone, plastic, etc."@en ,
+                               "Ein Gerät, das einen Hochdruckwasserstrahl oder einen Wasserstrahl mit abrasiven Partikeln verwendet, um Materialien wie Metall, Stein, Kunststoff usw. zu schneiden."@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0001014
@@ -1615,6 +1850,15 @@ co:PMD_0001019 rdf:type owl:Class ;
                skos:example "Examples are e.g. X-ray absorption spectroscopy, X-ray emission spectroscopy, and X-ray reflection spectroscopy."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0001020
+co:PMD_0001020 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000602 ;
+               rdfs:label "Röntgenbeugungsgerät"@de ,
+                          "x-ray diffractometer"@en ;
+               skos:definition "An X-Ray Diffractometer is a Measuring Device that determines the crystal structure of materials by analyzing the diffraction patterns of X-rays passed through a sample."@en ,
+                               "Ein Röntgenbeugungsgerät ist ein Messgerät, das die Kristallstruktur von Materialien durch Analyse der Beugungsmuster von durch eine Probe geleiteten Röntgenstrahlen bestimmt."@de .
+
+
 ###  https://w3id.org/pmd/co/PMD_0001998
 co:PMD_0001998 rdf:type owl:Class ;
                owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000602
@@ -1632,6 +1876,14 @@ co:PMD_0001998 rdf:type owl:Class ;
                                ] ;
                rdfs:label "cutting device"@en ;
                skos:definition "A device designed to cut, slice, divide, or sever objects."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020000
+co:PMD_0020000 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000040 ;
+               rdfs:label "phase (thermodynamic)"@en ;
+               skos:definition "A thermodynamic phase is portion of matter that is part of a thermodynamic system and has homogeneus thermodynamic properties."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020003
@@ -2875,6 +3127,14 @@ co:PMD_0020104 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
+###  https://w3id.org/pmd/co/PMD_0020106
+co:PMD_0020106 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000027 ;
+               rdfs:label "polycrystal"@en ;
+               skos:definition "Polycrystal is an object aggregate that has continuant part some crystal grains"@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020112
 co:PMD_0020112 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020131 ;
@@ -2911,6 +3171,14 @@ co:PMD_0020116 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
+###  https://w3id.org/pmd/co/PMD_0020128
+co:PMD_0020128 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000027 ;
+               rdfs:label "thermodynamic system"@en ;
+               skos:definition "A thermodynamic system is an object aggregate whose objects are bearer of  thermodynamic properties. A thermodynamic system environs a thermodynamic process by which the thermodynamic properties of the objects of the thermodynamic system change over time."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020131
 co:PMD_0020131 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ;
@@ -2944,6 +3212,17 @@ co:PMD_0020136 rdf:type owl:Class ;
                rdfs:comment "The number of phases involved can vary as well as the mechanisms involved can be different."@en ;
                rdfs:label "phase transformation"@en ;
                skos:definition "A thermodynamic phase transformation is a process in/of a thermodynamic system, that involves the transformation of phases of the system to other phases."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0020137
+co:PMD_0020137 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020000 ;
+               owl:disjointWith co:PMD_0020149 ;
+               rdfs:comment "See metastable phase"@en ;
+               rdfs:label "stable phase"@en ;
+               skos:definition "A stable phase is a phase that does not have a \"pmd:disposition of a phase to transform\" in the \"pmd:phase transformation\" it participates."@en ;
+               skos:example "A phase that participates in a phase transformation pt and pt that is not a metastable phase."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -2985,6 +3264,15 @@ co:PMD_0020148 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ;
                rdfs:label "extensive quality"@en ;
                skos:definition "An extensive quality is a qualty that inheres in only object or object aggregate or fiat object part or chemical entity and is dependent on the bearers (system-) size."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0020149
+co:PMD_0020149 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020000 ;
+               rdfs:comment "The stability of a phase can only be evaluated in the context of a (possibly unknown) phase transformation process."@en ;
+               rdfs:label "metastable phase"@en ;
+               skos:definition "A metastable phase phase_trans is a phase that has a \"pmd:disposition of a phase to transform\" disp_trans and disp_trans is realized in a \"pmd:phase transformation\" proc_trans and proc_trans has participant sys_trans and sys_trans has part phase_trans."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -3297,6 +3585,36 @@ co:PMD_0050157 rdf:type owl:Class ;
                                "Eine 3D Geometrie ist eine geometrische Form, die in drei Dimensionen existiert, mit Länge, Breite und Höhe, und die durch ihre räumlichen Eigenschaften wie Volumen und Oberfläche definiert werden kann."@de ;
                skos:example "Beispiele sind Formen wie Würfel, Kugeln und Pyramiden."@de ,
                             "Examples include shapes like cubes, spheres, and pyramids."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000000
+<https://w3id.org/pmd/noes/NOES_0000000> rdf:type owl:Class ;
+                                         rdfs:subClassOf [ owl:intersectionOf ( obo:BFO_0000026
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty obo:BFO_0000050 ;
+                                                                                  owl:someValuesFrom co:PMD_0020003
+                                                                                ]
+                                                                              ) ;
+                                                           rdf:type owl:Class
+                                                         ] ;
+                                         rdfs:comment "TODO: refine the axiom to the object aggregates grains"@en ;
+                                         rdfs:label "crystallographic direction"@en ;
+                                         skos:definition "Crystallographic direction is a vector within a crystal unit cell, which passes through the origin of crystal reference frame and a specified point in the unit cell. Crystallographic direction is a part of crystal or grain."@en ;
+                                         skos:example "[110] direction in a cubic unit cell, <110> family of directions in a cubic unit cell"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000001
+<https://w3id.org/pmd/noes/NOES_0000001> rdf:type owl:Class ;
+                                         rdfs:subClassOf [ owl:intersectionOf ( obo:BFO_0000026
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty obo:BFO_0000050 ;
+                                                                                  owl:someValuesFrom co:PMD_0000000
+                                                                                ]
+                                                                              ) ;
+                                                           rdf:type owl:Class
+                                                         ] ;
+                                         rdfs:label "rolled sheet direction"@en ;
+                                         skos:definition "Rolled sheet direction is a one-dimensional spatial region which determines the directions in a sheet material in respect to the rolling direction. Rolled sheet direction is a part of material or object."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000003

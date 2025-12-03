@@ -1282,6 +1282,17 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     
 
 
+    <!-- http://purl.obolibrary.org/obo/BFO_0000027 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000027">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:label xml:lang="en">object aggregate</rdfs:label>
+        <skos:definition xml:lang="en">(Elucidation) An object aggregate is a material entity consisting exactly of a plurality (≥1) of objects as member parts which together form a unit</skos:definition>
+        <skos:example xml:lang="en">The aggregate of the musicians in a symphony orchestra and their instruments; the aggregate of bearings in a constant velocity axle joint; the nitrogen atoms in the atmosphere; a collection of cells in a blood biobank</skos:example>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/BFO_0000028 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000028">
@@ -2653,6 +2664,69 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000054 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000054">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000969"/>
+        <rdfs:label xml:lang="de">Heizfunktion</rdfs:label>
+        <rdfs:label xml:lang="en">heating function</rdfs:label>
+        <skos:definition xml:lang="en">A heating function is a (realizable) function that, when realized, enables a system or device to increase the thermal energy of a material, typically to reach temperatures required for processing, transformation, or reaction.</skos:definition>
+        <skos:definition xml:lang="de">Eine Heizfunktion ist eine (realisierbare) Funktion, die ein System oder Gerät in die Lage versetzt, die Wärmeenergie eines Materials zu erhöhen, um die für die Verarbeitung, Umwandlung oder Reaktion erforderlichen Temperaturen zu erreichen.</skos:definition>
+        <skos:example xml:lang="en">The function of a resistance heater in a vacuum furnace.</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000055 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000055">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000969"/>
+        <rdfs:label xml:lang="de">Kühlfunktion</rdfs:label>
+        <rdfs:label xml:lang="en">cooling function</rdfs:label>
+        <skos:definition xml:lang="en">A cooling function is a (realizable) function that, when realized, enables a system or device to lower the temperature of a material, often to control solidification or maintain a stable state below a desired thermal threshold.</skos:definition>
+        <skos:definition xml:lang="de">Eine Kühlfunktion ist eine (realisierbare) Funktion, die es einem System oder Gerät ermöglicht, die Temperatur eines Materials zu senken, häufig um die Erstarrung zu steuern oder einen stabilen Zustand unterhalb eines gewünschten thermischen Schwellenwerts aufrechtzuerhalten.</skos:definition>
+        <skos:example xml:lang="en">The function of a water-cooled mold to solidify molten metal in casting.</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000056 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000056">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000780"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000655"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000085"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000057"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An electric arc furnace used in steelmaking.</rdfs:comment>
+        <rdfs:label xml:lang="de">Schmelzofen</rdfs:label>
+        <rdfs:label xml:lang="en">melting furnace</rdfs:label>
+        <skos:definition xml:lang="en">A melting furnace is a device that bears a melting function, typically designed to raise the temperature of a solid material to initiate and sustain its transformation into a melt.</skos:definition>
+        <skos:definition xml:lang="de">Ein Schmelzofen ist ein Gerät, das eine Schmelzfunktion hat und in der Regel dazu dient, die Temperatur eines festen Materials zu erhöhen, um seine Umwandlung in eine Schmelze einzuleiten und aufrechtzuerhalten.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000057 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000057">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000054"/>
+        <rdfs:label xml:lang="de">Schmelzfunktion</rdfs:label>
+        <rdfs:label xml:lang="en">melting function</rdfs:label>
+        <skos:definition xml:lang="en">A melting function is a heating function that, when realized, enables a device or system to initiate or sustain the phase transition of a solid material into a liquid by raising its temperature above the melting point.</skos:definition>
+        <skos:definition xml:lang="de">Eine Schmelzfunktion ist eine Heizfunktion, die es einem Gerät oder System ermöglicht, den Phasenübergang eines festen Materials in eine Flüssigkeit einzuleiten oder aufrechtzuerhalten, indem seine Temperatur über den Schmelzpunkt angehoben wird.</skos:definition>
+        <skos:example xml:lang="en">The function of an induction coil in a furnace to heat metal until it melts.</skos:example>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000068 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000068">
@@ -2706,6 +2780,16 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:label xml:lang="en">temporally qualified continuant</rdfs:label>
         <skos:definition xml:lang="en">A temporally qualified continuant is a continuant that, by reference to a determinate temporal region, is such as to possess its properties only for so long as that period obtains, being otherwise in its essentiality unchanged.</skos:definition>
         <co:PMD_0001032>https://github.com/materialdigital/core-ontology/issues/185</co:PMD_0001032>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000075 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000075">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:label xml:lang="en">mold device</rdfs:label>
+        <skos:definition xml:lang="en">A form used to cast an object of a desired shape.</skos:definition>
     </owl:Class>
     
 
@@ -2839,6 +2923,19 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000544 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000544">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <obo:IAO_0000119 xml:lang="en">https://www.merriam-webster.com/dictionary/caliper</obo:IAO_0000119>
+        <rdfs:label xml:lang="de">Messschieber</rdfs:label>
+        <rdfs:label xml:lang="en">caliper</rdfs:label>
+        <skos:definition xml:lang="en">A measuring device having two usually adjustable arms, legs, or jaws used especially to measure the dimensions of objects, such as diameters or thicknesses</skos:definition>
+        <skos:definition xml:lang="de">Messgerät mit zwei in der Regel verstellbaren Armen, Schenkeln oder Klemmbacken, das vor allem zur Messung der Abmessungen von Gegenständen, wie z. B. des Durchmessers oder der Dicke, verwendet wird</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000549 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000549">
@@ -2912,6 +3009,18 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <skos:definition xml:lang="en">A Seperating process that involves removing unwanted material from a surface through cleaning methods, which may include processes like blasting, washing, or chemical cleaning.</skos:definition>
         <skos:definition xml:lang="de">Ein Trennprozess, bei dem unerwünschtes Material von einer Oberfläche durch Reinigungsmethoden entfernt wird, die Verfahren wie Strahlen, Waschen oder chemische Reinigung umfassen können.</skos:definition>
         <skos:example xml:lang="en">Chemical Cleaning, Mechanical Cleaning</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000561 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000561">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:label xml:lang="de">Reinigungsgerät</rdfs:label>
+        <rdfs:label xml:lang="en">cleaning device</rdfs:label>
+        <skos:definition xml:lang="en">A device used for removing contaminants from materials or surfaces.</skos:definition>
+        <skos:definition xml:lang="de">Ein Gerät zum Entfernen von Verunreinigungen von Materialien oder Oberflächen.</skos:definition>
     </owl:Class>
     
 
@@ -3073,6 +3182,17 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000636 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000636">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <obo:IAO_0000119 xml:lang="en">“Extensometer.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/extensometer. Accessed 5 Dec. 2022.</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">extensometer</rdfs:label>
+        <skos:definition xml:lang="en">A device for measuring minute deformations of test specimens caused by tension, compression, bending, or twisting.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000638 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000638">
@@ -3119,6 +3239,18 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000648 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000648">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:label xml:lang="de">Formmaschine</rdfs:label>
+        <rdfs:label xml:lang="en">forming machine</rdfs:label>
+        <skos:definition xml:lang="en">A device used for shaping materials under various conditions, including tensile, compressive, and shearing.</skos:definition>
+        <skos:definition xml:lang="de">Ein Gerät zur Formgebung von Materialien unter verschiedenen Bedingungen, einschließlich Zug-, Druck- und Scherbedingungen.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000649 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000649">
@@ -3149,6 +3281,19 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000655 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000655">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <obo:IAO_0000119 xml:lang="en">“Furnace.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/furnace. Accessed 13 Jan. 2023.</obo:IAO_0000119>
+        <rdfs:label xml:lang="de">Ofen</rdfs:label>
+        <rdfs:label xml:lang="en">furnace</rdfs:label>
+        <skos:definition xml:lang="en">An enclosed structure in which heat is produced (as for heating a house or for reducing ore).</skos:definition>
+        <skos:definition xml:lang="de">Eine geschlossene Struktur, in der Wärme erzeugt wird (z. B. zum Heizen eines Hauses oder zum Einschmelzen von Erz).</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000663 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000663">
@@ -3157,6 +3302,18 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:label xml:lang="en">crystal grain</rdfs:label>
         <skos:definition xml:lang="en">A crystal grain is a crystal that is continuant part of a polycrystal.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000667 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000667">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000648"/>
+        <rdfs:label xml:lang="de">Schleifmaschine</rdfs:label>
+        <rdfs:label xml:lang="en">grinding machine</rdfs:label>
+        <skos:definition xml:lang="en">A Grinding Machine is a Forming Machine that uses an abrasive wheel to remove material from the surface of a workpiece, typically for finishing or precision work.</skos:definition>
+        <skos:definition xml:lang="de">Eine Schleifmaschine ist eine Formmaschine, die ein Schleifrad verwendet, um Material von der Oberfläche eines Werkstücks zu entfernen, typischerweise für Feinarbeiten oder Präzisionsarbeiten.</skos:definition>
     </owl:Class>
     
 
@@ -3214,12 +3371,79 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000780 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000780">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000602"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000085"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000054"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000055"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000085"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000054"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000055"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="de">Wärmebehandlungsgerät</rdfs:label>
+        <rdfs:label xml:lang="en">heat treatment device</rdfs:label>
+        <skos:definition xml:lang="en">A device used for treating materials through heating and cooling processes to alter their properties.</skos:definition>
+        <skos:definition xml:lang="de">Ein Gerät zur Behandlung von Materialien durch Erwärmungs- und Abkühlungsprozesse zur Veränderung ihrer Eigenschaften.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000791 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000791">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000655"/>
+        <rdfs:label xml:lang="de">Induktionsofen</rdfs:label>
+        <rdfs:label xml:lang="en">induction furnace</rdfs:label>
+        <skos:definition xml:lang="en">An Induction Furnace is a Furnace that heats materials using electromagnetic induction, generating heat directly within the material.</skos:definition>
+        <skos:definition xml:lang="de">Ein Induktionsofen ist ein Ofen, der Materialien durch elektromagnetische Induktion erhitzt, wobei die Wärme direkt im Material erzeugt wird.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000802 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000802">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:label xml:lang="en">irradiation process</rdfs:label>
         <skos:definition xml:lang="en">An irradiation process is a process in which a radiation source (bearing a stimulus role) emits radiation towards a material entity (bearing the target role)</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000817 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000817">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0001998"/>
+        <rdfs:label xml:lang="de">Laserschneider</rdfs:label>
+        <rdfs:label xml:lang="en">lasercutter</rdfs:label>
+        <skos:definition xml:lang="en">A device that utilizes laser beams to create precise cuts in various materials such as wood, plastic, metal, etc.</skos:definition>
+        <skos:definition xml:lang="de">Ein Gerät, das Laserstrahlen verwendet, um präzise Schnitte in verschiedenen Materialien wie Holz, Kunststoff, Metall usw. zu erzeugen.</skos:definition>
     </owl:Class>
     
 
@@ -3422,6 +3646,18 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000855 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000855">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:label xml:lang="de">Mikroskop</rdfs:label>
+        <rdfs:label xml:lang="en">microscope</rdfs:label>
+        <skos:definition xml:lang="en">A device used to magnify and view small objects or details that are not visible to the naked eye.</skos:definition>
+        <skos:definition xml:lang="de">Ein Gerät zur Vergrößerung und Betrachtung kleiner Objekte oder Details, die mit bloßem Auge nicht sichtbar sind.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000856 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000856">
@@ -3508,6 +3744,18 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000886 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000886">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000648"/>
+        <rdfs:label xml:lang="de">Poliermaschine</rdfs:label>
+        <rdfs:label xml:lang="en">polishing machine</rdfs:label>
+        <skos:definition xml:lang="en">A Polishing Machine is a Forming Machine that smooths the surface of a material by rubbing it with a tool, abrasive, or chemical.</skos:definition>
+        <skos:definition xml:lang="de">Eine Poliermaschine ist eine Formmaschine, die die Oberfläche eines Materials durch Reiben mit einem Werkzeug, Schleifmittel oder Chemikalien glättet.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000896 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000896">
@@ -3573,6 +3821,18 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
         <rdfs:label xml:lang="en">responding process</rdfs:label>
         <skos:definition xml:lang="en">The responding process is a process describing the reaction of a material or system to an applied stimulus.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000922 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000922">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000855"/>
+        <rdfs:label xml:lang="de">Rasterelektronenmikroskop</rdfs:label>
+        <rdfs:label xml:lang="en">scanning electron microscope</rdfs:label>
+        <skos:definition xml:lang="en">A Scanning Electron Microscope (SEM) is a Measuring Device that produces high-resolution images of a sample surface by scanning it with a focused beam of electrons.</skos:definition>
+        <skos:definition xml:lang="de">Ein Rasterelektronenmikroskop (REM) ist ein Messgerät, das hochauflösende Bilder einer Probenoberfläche erzeugt, indem es sie mit einem fokussierten Elektronenstrahl abtastet.</skos:definition>
     </owl:Class>
     
 
@@ -3691,6 +3951,31 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000969 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000969">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
+        <rdfs:label xml:lang="de">Temperaturänderungsfunktion</rdfs:label>
+        <rdfs:label xml:lang="en">temperature change function</rdfs:label>
+        <skos:definition xml:lang="en">A subfunction of heat treatment performed to induce changes in temperature to alter material properties.</skos:definition>
+        <skos:definition xml:lang="de">Eine Unterfunktion der Wärmebehandlung, die durchgeführt wird, um Temperaturänderungen hervorzurufen, um die Materialeigenschaften zu verändern.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000973 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000973">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:label xml:lang="de">Zugprüfmaschine</rdfs:label>
+        <rdfs:label xml:lang="en">tensile testing machine</rdfs:label>
+        <skos:definition xml:lang="en">A device used to test the tensile strength and elongation of materials by applying a stretching force.</skos:definition>
+        <skos:definition xml:lang="en">Ein Gerät zur Prüfung der Zugfestigkeit und Dehnung von Materialien durch Anwendung einer Dehnkraft.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000974 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000974">
@@ -3739,6 +4024,32 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
         <rdfs:label xml:lang="en">time series</rdfs:label>
         <skos:definition xml:lang="en">A time series is a 1-D information content entity defined by a sequence of data points collected or recorded at successive time intervals, used for analyzing temporal properties or trends.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000997 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000997">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000561"/>
+        <rdfs:label xml:lang="de">Ultraschallreiniger</rdfs:label>
+        <rdfs:label xml:lang="en">ultrasonic cleaner</rdfs:label>
+        <skos:definition xml:lang="en">A device that uses ultrasound and a cleaning solvent to clean delicate or complex items.</skos:definition>
+        <skos:definition xml:lang="en">An Ultrasonic Cleaner is a Cleaning Device that uses high-frequency sound waves and a cleaning solvent to remove contaminants from delicate or complex items.</skos:definition>
+        <skos:definition xml:lang="de">Ein Gerät, das Ultraschall und ein Reinigungsmittel verwendet, um empfindliche oder komplexe Gegenstände zu reinigen.</skos:definition>
+        <skos:definition xml:lang="de">Ein Ultraschallreiniger ist ein Reinigungsgerät, das Hochfrequenzschallwellen und ein Reinigungsmittel verwendet, um Verunreinigungen von empfindlichen oder komplexen Gegenständen zu entfernen.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0001007 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0001007">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0001998"/>
+        <rdfs:label xml:lang="de">Wasserstrahlschneider</rdfs:label>
+        <rdfs:label xml:lang="en">waterjet cutter</rdfs:label>
+        <skos:definition xml:lang="en">A device that utilizes a high-pressure stream of water or a water stream with abrasive particles to cut materials such as metal, stone, plastic, etc.</skos:definition>
+        <skos:definition xml:lang="de">Ein Gerät, das einen Hochdruckwasserstrahl oder einen Wasserstrahl mit abrasiven Partikeln verwendet, um Materialien wie Metall, Stein, Kunststoff usw. zu schneiden.</skos:definition>
     </owl:Class>
     
 
@@ -3808,6 +4119,18 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0001020 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0001020">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:label xml:lang="de">Röntgenbeugungsgerät</rdfs:label>
+        <rdfs:label xml:lang="en">x-ray diffractometer</rdfs:label>
+        <skos:definition xml:lang="en">An X-Ray Diffractometer is a Measuring Device that determines the crystal structure of materials by analyzing the diffraction patterns of X-rays passed through a sample.</skos:definition>
+        <skos:definition xml:lang="de">Ein Röntgenbeugungsgerät ist ein Messgerät, das die Kristallstruktur von Materialien durch Analyse der Beugungsmuster von durch eine Probe geleiteten Röntgenstrahlen bestimmt.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0001998 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0001998">
@@ -3831,6 +4154,17 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">cutting device</rdfs:label>
         <skos:definition xml:lang="en">A device designed to cut, slice, divide, or sever objects.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020000 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020000">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:label xml:lang="en">phase (thermodynamic)</rdfs:label>
+        <skos:definition xml:lang="en">A thermodynamic phase is portion of matter that is part of a thermodynamic system and has homogeneus thermodynamic properties.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
 
@@ -5533,6 +5867,17 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020106 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020106">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
+        <rdfs:label xml:lang="en">polycrystal</rdfs:label>
+        <skos:definition xml:lang="en">Polycrystal is an object aggregate that has continuant part some crystal grains</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020112 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020112">
@@ -5581,6 +5926,17 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020128 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020128">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
+        <rdfs:label xml:lang="en">thermodynamic system</rdfs:label>
+        <skos:definition xml:lang="en">A thermodynamic system is an object aggregate whose objects are bearer of  thermodynamic properties. A thermodynamic system environs a thermodynamic process by which the thermodynamic properties of the objects of the thermodynamic system change over time.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020131 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020131">
@@ -5624,6 +5980,20 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:comment xml:lang="en">The number of phases involved can vary as well as the mechanisms involved can be different.</rdfs:comment>
         <rdfs:label xml:lang="en">phase transformation</rdfs:label>
         <skos:definition xml:lang="en">A thermodynamic phase transformation is a process in/of a thermodynamic system, that involves the transformation of phases of the system to other phases.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020137 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020137">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020000"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0020149"/>
+        <rdfs:comment xml:lang="en">See metastable phase</rdfs:comment>
+        <rdfs:label xml:lang="en">stable phase</rdfs:label>
+        <skos:definition xml:lang="en">A stable phase is a phase that does not have a &quot;pmd:disposition of a phase to transform&quot; in the &quot;pmd:phase transformation&quot; it participates.</skos:definition>
+        <skos:example xml:lang="en">A phase that participates in a phase transformation pt and pt that is not a metastable phase.</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -5680,6 +6050,18 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
         <rdfs:label xml:lang="en">extensive quality</rdfs:label>
         <skos:definition xml:lang="en">An extensive quality is a qualty that inheres in only object or object aggregate or fiat object part or chemical entity and is dependent on the bearers (system-) size.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020149 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020149">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020000"/>
+        <rdfs:comment xml:lang="en">The stability of a phase can only be evaluated in the context of a (possibly unknown) phase transformation process.</rdfs:comment>
+        <rdfs:label xml:lang="en">metastable phase</rdfs:label>
+        <skos:definition xml:lang="en">A metastable phase phase_trans is a phase that has a &quot;pmd:disposition of a phase to transform&quot; disp_trans and disp_trans is realized in a &quot;pmd:phase transformation&quot; proc_trans and proc_trans has participant sys_trans and sys_trans has part phase_trans.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -6110,6 +6492,48 @@ Typical configuration dependent contributions are interface energy contributions
         <skos:definition xml:lang="de">Eine 3D Geometrie ist eine geometrische Form, die in drei Dimensionen existiert, mit Länge, Breite und Höhe, und die durch ihre räumlichen Eigenschaften wie Volumen und Oberfläche definiert werden kann.</skos:definition>
         <skos:example xml:lang="de">Beispiele sind Formen wie Würfel, Kugeln und Pyramiden.</skos:example>
         <skos:example xml:lang="en">Examples include shapes like cubes, spheres, and pyramids.</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000000 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000000">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000026"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020003"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">TODO: refine the axiom to the object aggregates grains</rdfs:comment>
+        <rdfs:label xml:lang="en">crystallographic direction</rdfs:label>
+        <skos:definition xml:lang="en">Crystallographic direction is a vector within a crystal unit cell, which passes through the origin of crystal reference frame and a specified point in the unit cell. Crystallographic direction is a part of crystal or grain.</skos:definition>
+        <skos:example xml:lang="en">[110] direction in a cubic unit cell, &lt;110&gt; family of directions in a cubic unit cell</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000001 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000001">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000026"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">rolled sheet direction</rdfs:label>
+        <skos:definition xml:lang="en">Rolled sheet direction is a one-dimensional spatial region which determines the directions in a sheet material in respect to the rolling direction. Rolled sheet direction is a part of material or object.</skos:definition>
     </owl:Class>
     
 
