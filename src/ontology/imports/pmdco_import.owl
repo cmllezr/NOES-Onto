@@ -7,9 +7,9 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<https://w3id.org/pmd/noes/imports/pmdco_import.owl>
-<https://w3id.org/pmd/noes/releases/2025-12-02/imports/pmdco_import.owl>
+<https://w3id.org/pmd/noes/releases/2025-12-03/imports/pmdco_import.owl>
 Annotation(<http://purl.org/dc/elements/1.1/source> <https://w3id.org/pmd/co/3.0.0-rc1>)
-Annotation(owl:versionInfo "2025-12-02")
+Annotation(owl:versionInfo "2025-12-03")
 
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000001>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000002>))
@@ -17,13 +17,17 @@ Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000003>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000004>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000006>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000008>))
+Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000009>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000011>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000015>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000016>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000017>))
+Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000018>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000019>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000020>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000023>))
+Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000026>))
+Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000028>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000030>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000031>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000034>))
@@ -949,6 +953,13 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://pur
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000008> "As for zero-dimensional temporal region and one-dimensional temporal region"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000008> <http://purl.obolibrary.org/obo/BFO_0000003>)
 
+# Class: <http://purl.obolibrary.org/obo/BFO_0000009> (two-dimensional spatial region)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000009> "two-dimensional spatial region"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000009> "(Elucidation) A two-dimensional spatial region is a spatial region that is a whole consisting of a surface together with zero or more surfaces which may have spatial regions of lower dimension as parts"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000009> "The surface of a sphere-shaped part of space; an infinitely thin plane in space"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000009> <http://purl.obolibrary.org/obo/BFO_0000006>)
+
 # Class: <http://purl.obolibrary.org/obo/BFO_0000011> (spatiotemporal region)
 
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000011> "spatiotemporal region"@en)
@@ -980,6 +991,13 @@ SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000017> <http://purl.obolibrary.
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000017> ObjectAllValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> <http://purl.obolibrary.org/obo/BFO_0000017>))
 DisjointClasses(<http://purl.obolibrary.org/obo/BFO_0000017> <http://purl.obolibrary.org/obo/BFO_0000019>)
 
+# Class: <http://purl.obolibrary.org/obo/BFO_0000018> (zero-dimensional spatial region)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000018> "zero-dimensional spatial region"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000018> "(Elucidation) A zero-dimensional spatial region is one or a collection of more than one spatially disjoint points in space"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000018> "The spatial region occupied at some time instant by the North Pole"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000018> <http://purl.obolibrary.org/obo/BFO_0000006>)
+
 # Class: <http://purl.obolibrary.org/obo/BFO_0000019> (quality)
 
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000019> "quality"@en)
@@ -1004,6 +1022,20 @@ AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000023> "rol
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000023> "(Elucidation) A role b is a realizable entity such that b exists because there is some single bearer that is in some special physical, social, or institutional set of circumstances in which this bearer does not have to be & b is not such that, if it ceases to exist, then the physical make-up of the bearer is thereby changed"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000023> "The priest role; the student role; the role of subject in a clinical trial; the role of a stone in marking a property boundary; the role of a boundary to demarcate two neighbouring administrative territories; the role of a building in serving as a military target"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000023> <http://purl.obolibrary.org/obo/BFO_0000017>)
+
+# Class: <http://purl.obolibrary.org/obo/BFO_0000026> (one-dimensional spatial region)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000026> "one-dimensional spatial region"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000026> "(Elucidation) A one-dimensional spatial region is a whole consisting of a line together with zero or more lines which may have points as parts"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000026> "An edge of a cube-shaped portion of space; a line connecting two points; two parallel lines extended in space"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000026> <http://purl.obolibrary.org/obo/BFO_0000006>)
+
+# Class: <http://purl.obolibrary.org/obo/BFO_0000028> (three-dimensional spatial region)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000028> "three-dimensional spatial region"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000028> "(Elucidation) A three-dimensional spatial region is a whole consisting of a spatial volume together with zero or more spatial volumes which may have spatial regions of lower dimension as parts"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000028> "A cube-shaped region of space; a sphere-shaped region of space; the region of space occupied by all and only the planets in the solar system at some point in time"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000028> <http://purl.obolibrary.org/obo/BFO_0000006>)
 
 # Class: <http://purl.obolibrary.org/obo/BFO_0000030> (object)
 
@@ -1965,7 +1997,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0000649> "Stripping, Deep Drawing, Spinning"@en)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000649> <https://w3id.org/pmd/co/PMD_0000646>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000650> (forming under compressive conditions)
+# Class: <https://w3id.org/pmd/co/PMD_0000650> (Druckumformen)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <https://w3id.org/pmd/co/PMD_0000650> "Official definition can be found in: DIN 8583-1"@en)
 AnnotationAssertion(<http://purl.org/dc/terms/source> <https://w3id.org/pmd/co/PMD_0000650> "Offizielle Definition findet man in: DIN 8583-1"@de)
@@ -2145,7 +2177,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0000857> "true"^^xsd:boolean)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000857> <https://w3id.org/pmd/co/PMD_0000001>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000875> (optical microscopy)
+# Class: <https://w3id.org/pmd/co/PMD_0000875> (Optische Mikroskopie)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "Ein Mikroskopieverfahren, das sichtbares Licht und Linsen verwendet, um eine Probe zu vergrößern und abzubilden, und weit verbreitet zur Untersuchung der Mikrostruktur und Morphologie von Materialien ist."@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "Optische Mikroskopie"@de)
@@ -2261,7 +2293,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0000952> "true"^^xsd:boolean)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000952> <https://w3id.org/pmd/co/PMD_0000848>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000957> (structural property analyzing process)
+# Class: <https://w3id.org/pmd/co/PMD_0000957> (Struktur Eigenschaften Analyseverfahren)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000957> "Struktur Eigenschaften Analyseverfahren"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000957> "structural property analyzing process"@en)
@@ -3474,6 +3506,7 @@ AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/
 SubClassOf(ObjectUnionOf(<https://w3id.org/pmd/co/PMD_0000773> <https://w3id.org/pmd/co/PMD_0000952>) <https://w3id.org/pmd/co/PMD_0000848>)
 DisjointClasses(<http://purl.obolibrary.org/obo/BFO_0000004> <http://purl.obolibrary.org/obo/BFO_0000020> <http://purl.obolibrary.org/obo/BFO_0000031>)
 DisjointClasses(<http://purl.obolibrary.org/obo/BFO_0000008> <http://purl.obolibrary.org/obo/BFO_0000011> <http://purl.obolibrary.org/obo/BFO_0000015> <http://purl.obolibrary.org/obo/BFO_0000035>)
+DisjointClasses(<http://purl.obolibrary.org/obo/BFO_0000009> <http://purl.obolibrary.org/obo/BFO_0000018> <http://purl.obolibrary.org/obo/BFO_0000026> <http://purl.obolibrary.org/obo/BFO_0000028>)
 DisjointClasses(<https://w3id.org/pmd/co/PMD_0000503> <https://w3id.org/pmd/co/PMD_0000512> <https://w3id.org/pmd/co/PMD_0000551> <https://w3id.org/pmd/co/PMD_0000591> <https://w3id.org/pmd/co/PMD_0000595> <https://w3id.org/pmd/co/PMD_0000597> <https://w3id.org/pmd/co/PMD_0000853> <https://w3id.org/pmd/co/PMD_0000896> <https://w3id.org/pmd/co/PMD_0000942> <https://w3id.org/pmd/co/PMD_0000967> <https://w3id.org/pmd/co/PMD_0020112>)
 DisjointClasses(<https://w3id.org/pmd/co/PMD_0000503> <https://w3id.org/pmd/co/PMD_0000512> <https://w3id.org/pmd/co/PMD_0000591> <https://w3id.org/pmd/co/PMD_0000595> <https://w3id.org/pmd/co/PMD_0000597> <https://w3id.org/pmd/co/PMD_0000853> <https://w3id.org/pmd/co/PMD_0000896> <https://w3id.org/pmd/co/PMD_0000942> <https://w3id.org/pmd/co/PMD_0000967> <https://w3id.org/pmd/co/PMD_0020112> <https://w3id.org/pmd/co/PMD_0025001>)
 DisjointClasses(<https://w3id.org/pmd/co/PMD_0000503> <https://w3id.org/pmd/co/PMD_0000512> <https://w3id.org/pmd/co/PMD_0000591> <https://w3id.org/pmd/co/PMD_0000595> <https://w3id.org/pmd/co/PMD_0000597> <https://w3id.org/pmd/co/PMD_0000853> <https://w3id.org/pmd/co/PMD_0000896> <https://w3id.org/pmd/co/PMD_0000942> <https://w3id.org/pmd/co/PMD_0000967> <https://w3id.org/pmd/co/PMD_0020112> <https://w3id.org/pmd/co/PMD_0025001> <https://w3id.org/pmd/co/PMD_0025003>)
