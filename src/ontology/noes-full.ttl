@@ -14,11 +14,11 @@
 @base <https://w3id.org/pmd/noes/noes-full.ttl> .
 
 <https://w3id.org/pmd/noes/noes-full.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2025-12-03/noes-full.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2025-12-04/noes-full.ttl> ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2025-12-03" .
+                                           owl:versionInfo "2025-12-04" .
 
 #################################################################
 #    Annotation properties
@@ -5024,6 +5024,37 @@ Has part grain growth and recovery."""@en ;
                                          rdfs:subClassOf obo:OBI_0001930 ;
                                          rdfs:label "noes characteristic texture fibers"@en ;
                                          skos:definition "NOES characteristic texture fibers are the texure fibers which most commonly found in non-oriented electrical sheets. These fibers form preferred grain orientations in NOES, characterized by family of directions <uvw> oriented parallel to one of directions of a rolled sheet."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000042
+<https://w3id.org/pmd/noes/NOES_0000042> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000853 ;
+                                         rdfs:label "grain orientation"@en ;
+                                         skos:definition "Grain orientation is an intensive quality of grains in material's microstructure, which describes the crystal orientation in respect to the external (sample's) reference frame. Grain orientation can be specified by either texture fibers or texture components. When several grains exhibit similar orientations, then the material exhibits a specific crystallographic texture."@en ;
+                                         skos:example "Cube orientation, λ-fiber orientation"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000043
+<https://w3id.org/pmd/noes/NOES_0000043> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000853 ;
+                                         rdfs:label "texture parameter Aθ"@en ;
+                                         rdfs:seeAlso "doi:10.1155/2008/173083" ;
+                                         skos:definition "Texture parameter is a intensive quality which quantifies crystallographic texture in materials. Texture parameter is defined as a minimun angle between the magnitization vector and the closest <100> direction in a crystal. Texture parameter can be derived from orientation distribution function (ODF) by integrating ODF f(g) multiplied by Aθ(g) over orientations dg."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000044
+<https://w3id.org/pmd/noes/NOES_0000044> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000853 ;
+                                         rdfs:label "direction averaged texture parameter A"@en ;
+                                         rdfs:seeAlso "doi:10.1155/2008/173083" ;
+                                         skos:definition "Direction averaged texture parameter A is a intensive quality which quantifies crystallographic texture in materials, which are utilized in applications where applied magnetic field is equally distributed in the rolling plane (RP) of the material. Direction averaged texture parameter A is derived from the texture parameter Aθ by integrating Aθ over dθ. For noriented electrical steels it can be simplified as (A0 + 2*A45 + A90) / 4, where A0, A45, and A90 are values of texture parameter Aθ for an applied magnetic field which encloses an angle of 0, 45, and 90 with the rolling direction, respectively."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000045
+<https://w3id.org/pmd/noes/NOES_0000045> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000853 ;
+                                         rdfs:label "texture factor"@en ;
+                                         skos:definition "Texture factor is an intensive quality used to quantify texture in materials. It is determined as sum of volume fractions of Goss and Cube texture components divided by the volume fraction of γ-fiber orientations."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005
