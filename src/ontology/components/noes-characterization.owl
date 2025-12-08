@@ -1826,6 +1826,12 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000552">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000957"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000551"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="de">Analyseverfahren für die chemische Zusammensetzung</rdfs:label>
         <rdfs:label xml:lang="en">chemical composition analyzing process</rdfs:label>
         <skos:definition xml:lang="en">A Structural Property Analyzing Process that determines the chemical composition of a material by identifying and quantifying its constituent elements and compounds.</skos:definition>
@@ -1841,6 +1847,20 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:label xml:lang="en">chemical potential</rdfs:label>
         <skos:definition xml:lang="en">The chemical potential is a thermodynamic quality describing the energy change associated with the addition of a small quantity of a substance to a system at constant temperature and pressure.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000583 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000583">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <obo:IAO_0000116 xml:lang="en">The subclass trees of &quot;Computing Process&quot; are currently still proposals and serve as a working basis for the discussion round with the simulation/workflow domain experts.</obo:IAO_0000116>
+        <rdfs:label xml:lang="de">Datenverarbeitung</rdfs:label>
+        <rdfs:label xml:lang="de">Rechenprozess</rdfs:label>
+        <rdfs:label xml:lang="en">computing process</rdfs:label>
+        <skos:definition xml:lang="en">A process that involves the systematic use of computational methods and tools to perform simulations, analyses, or data transformations to achieve specific scientific or engineering goals.</skos:definition>
+        <skos:definition xml:lang="de">Ein Prozess, der die systematische Verwendung von rechnerischen Methoden und Werkzeugen umfasst, um Simulationen, Analysen oder Datenumwandlungen durchzuführen, um spezifische wissenschaftliche oder technische Ziele zu erreichen.</skos:definition>
     </owl:Class>
     
 
@@ -2294,6 +2314,18 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000933 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000933">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000583"/>
+        <rdfs:label xml:lang="de">Simulationsprozess</rdfs:label>
+        <rdfs:label xml:lang="en">simulation process</rdfs:label>
+        <skos:definition xml:lang="en">A Computing Process that models the behavior of a system over time using mathematical or computational techniques.</skos:definition>
+        <skos:definition xml:lang="de">Ein Datenverarbeitungsprozess, der das Verhalten eines Systems im Laufe der Zeit mit mathematischen oder rechnerischen Techniken modelliert</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000942 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000942">
@@ -2444,6 +2476,12 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0001016">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0001014"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="de">Beugungsprozess</rdfs:label>
         <rdfs:label xml:lang="en">x-ray diffraction process</rdfs:label>
         <skos:definition xml:lang="en">An X-ray Analyzing Process, that involves the interaction of X-rays with the crystalline structure of a material.</skos:definition>
@@ -3382,10 +3420,65 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000034">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000032"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020112"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">electron backscatter diffraction</rdfs:label>
         <rdfs:seeAlso xml:lang="en">Electron Backscatter Diffraction (EBSD) is a SEM based technique for characterizing  material&apos;s local microstructure. EBSD provides an information about phases and their distribution in the material, grain structure, grain size, grain boundary, texture  (crystallographic orientation of individual grains), and local strain variation.</rdfs:seeAlso>
         <rdfs:seeAlso>https://www.ebsd.com/ebsd-explained/what-is-ebsd</rdfs:seeAlso>
         <skos:altLabel xml:lang="en">EBSD</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000042 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000042">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+        <rdfs:label xml:lang="en">grain orientation</rdfs:label>
+        <skos:definition xml:lang="en">Grain orientation is an intensive quality of grains in material&apos;s microstructure, which describes the crystal orientation in respect to the external (sample&apos;s) reference frame. Grain orientation can be specified by either texture fibers or texture components. When several grains exhibit similar orientations, then the material exhibits a specific crystallographic texture.</skos:definition>
+        <skos:example xml:lang="en">Cube orientation, λ-fiber orientation</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000043 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000043">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+        <rdfs:label xml:lang="en">texture parameter Aθ</rdfs:label>
+        <rdfs:seeAlso>doi:10.1155/2008/173083</rdfs:seeAlso>
+        <skos:definition xml:lang="en">Texture parameter is a intensive quality which quantifies crystallographic texture in materials. Texture parameter is defined as a minimun angle between the magnitization vector and the closest &lt;100&gt; direction in a crystal. Texture parameter can be derived from orientation distribution function (ODF) by integrating ODF f(g) multiplied by Aθ(g) over orientations dg.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000044 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000044">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+        <rdfs:label xml:lang="en">direction averaged texture parameter A</rdfs:label>
+        <rdfs:seeAlso>doi:10.1155/2008/173083</rdfs:seeAlso>
+        <skos:definition xml:lang="en">Direction averaged texture parameter A is a intensive quality which quantifies crystallographic texture in materials, which are utilized in applications where applied magnetic field is equally distributed in the rolling plane (RP) of the material. Direction averaged texture parameter A is derived from the texture parameter Aθ by integrating Aθ over dθ. For noriented electrical steels it can be simplified as (A0 + 2*A45 + A90) / 4, where A0, A45, and A90 are values of texture parameter Aθ for an applied magnetic field which encloses an angle of 0, 45, and 90 with the rolling direction, respectively.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000045 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000045">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+        <rdfs:label xml:lang="en">texture factor</rdfs:label>
+        <skos:definition xml:lang="en">Texture factor is an intensive quality used to quantify texture in materials. It is determined as sum of volume fractions of Goss and Cube texture components divided by the volume fraction of γ-fiber orientations.</skos:definition>
     </owl:Class>
     
 
@@ -3587,6 +3680,32 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000064">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:label xml:lang="en">reversible permeability</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000072 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000072">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000583"/>
+        <rdfs:comment xml:lang="en">TODO: refine defintion and maybe move it to PMDco</rdfs:comment>
+        <rdfs:label xml:lang="en">analytical calculation</rdfs:label>
+        <skos:definition xml:lang="en">Analytical calculation is a computing process which has value specification or measurement datum as a specified output. It applies a closed-form mathematical expression or formula to a set it specified inputs (value specifications) without requiring stochastic sampling, iterative numerical solving, or data-driven training.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000073 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000073">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000072"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">orientation distribution function calculation</rdfs:label>
     </owl:Class>
     
 
