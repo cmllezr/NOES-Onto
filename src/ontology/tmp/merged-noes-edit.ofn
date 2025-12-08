@@ -50,6 +50,7 @@ Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000027>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000030>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000033>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000104>))
+Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000109>))
 Declaration(Class(<http://purl.obolibrary.org/obo/OBI_0000011>))
 Declaration(Class(<http://purl.obolibrary.org/obo/OBI_0000067>))
 Declaration(Class(<http://purl.obolibrary.org/obo/OBI_0000070>))
@@ -275,6 +276,7 @@ Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/OBI_0000299>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/OBI_0000312>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/OBI_0000417>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/OBI_0001927>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/OBI_0001938>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/RO_0000052>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/RO_0000053>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/RO_0000056>))
@@ -1299,6 +1301,17 @@ SubClassOf(<http://purl.obolibrary.org/obo/IAO_0000104> <http://purl.obolibrary.
 SubClassOf(<http://purl.obolibrary.org/obo/IAO_0000104> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> <http://purl.obolibrary.org/obo/IAO_0000005>))
 SubClassOf(<http://purl.obolibrary.org/obo/IAO_0000104> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> <http://purl.obolibrary.org/obo/IAO_0000007>))
 
+# Class: <http://purl.obolibrary.org/obo/IAO_0000109> (measurement datum)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000112> <http://purl.obolibrary.org/obo/IAO_0000109> "Examples of measurement data are the recoding of the weight of a mouse as {40,mass,\"grams\"}, the recording of an observation of the behavior of the mouse {,process,\"agitated\"}, the recording of the expression level of a gene as measured through the process of microarray experiment {3.4,luminosity,}."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/IAO_0000109> "A measurement datum is an information content entity that is a recording of the output of a measurement such as produced by a device."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000109> "2/2/2009 is_specified_output of some assay?"@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <http://purl.obolibrary.org/obo/IAO_0000109> "OBI_0000305"@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <http://purl.obolibrary.org/obo/IAO_0000109> "group:OBI"@en)
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000109> "measurement datum"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/IAO_0000109> <http://purl.obolibrary.org/obo/IAO_0000027>)
+SubClassOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0001938> <http://purl.obolibrary.org/obo/OBI_0001933>))
+
 # Class: <http://purl.obolibrary.org/obo/OBI_0000011> (planned process)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000112> <http://purl.obolibrary.org/obo/OBI_0000011> "Injecting mice with a vaccine in order to test its efficacy")
@@ -1845,7 +1858,7 @@ AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> <https://w3id.org/pmd/co/PMD_0000005>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0001030> <https://w3id.org/pmd/co/PMD_0000522>))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000849> (Mechanische Eigenschaften Analyseverfahren)
+# Class: <https://w3id.org/pmd/co/PMD_0000849> (mechanical property analyzing process)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000849> "Mechanische Eigenschaften Analyseverfahren"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000849> "mechanical property analyzing process"@en)
@@ -2639,7 +2652,7 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000024> "strip-c
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000024> "Strip-casting is a primary shaping from fluid state process for metals and alloys. During Strip-casting the melt flows between two rolls resulting in the strip."@en)
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000024> <https://w3id.org/pmd/co/PMD_0000906>)
 
-# Class: <https://w3id.org/pmd/noes/NOES_0000025> (Schmieden)
+# Class: <https://w3id.org/pmd/noes/NOES_0000025> (forging)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000025> "Schmieden"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000025> "forging"@en)
@@ -2867,6 +2880,7 @@ SubClassOf(<https://w3id.org/pmd/noes/NOES_0000072> <https://w3id.org/pmd/co/PMD
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000073> "orientation distribution function calculation"@en)
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000073> <https://w3id.org/pmd/noes/NOES_0000072>)
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000073> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000299> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000136> <https://w3id.org/pmd/noes/NOES_0000008>))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000073> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0009006> <https://w3id.org/pmd/noes/NOES_0000042>))
 
 # Class: <https://w3id.org/pmd/tto/TTO_0000005> (extension)
@@ -2911,7 +2925,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<https://w3id.org/pmd/co/definitionSource> <https://w3id.org/pmd/tto/TTO_0000012> <https://www.merriam-webster.com/dictionary/cross%20section>)
 SubClassOf(<https://w3id.org/pmd/tto/TTO_0000012> <https://w3id.org/pmd/co/PMD_0020199>)
 
-# Class: <https://w3id.org/pmd/tto/TTO_0000017> (extensometer gauge length)
+# Class: <https://w3id.org/pmd/tto/TTO_0000017> (Extensometer-Messlänge)
 
 AnnotationAssertion(rdfs:isDefinedBy <https://w3id.org/pmd/tto/TTO_0000017> <https://w3id.org/pmd/tto>)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/tto/TTO_0000017> "Extensometer-Messlänge"@de)

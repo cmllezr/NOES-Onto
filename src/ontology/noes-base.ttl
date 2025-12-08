@@ -119,6 +119,10 @@ obo:BFO_0000108 rdf:type owl:ObjectProperty .
 obo:BFO_0000199 rdf:type owl:ObjectProperty .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000136
+obo:IAO_0000136 rdf:type owl:ObjectProperty .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0000235
 obo:IAO_0000235 rdf:type owl:ObjectProperty .
 
@@ -665,6 +669,10 @@ obo:CHEBI_60003 rdf:type owl:Class .
 
 ###  http://purl.obolibrary.org/obo/IAO_0000030
 obo:IAO_0000030 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000109
+obo:IAO_0000109 rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000011
@@ -4154,6 +4162,17 @@ Has part grain growth and recovery."""@en ;
 ###  https://w3id.org/pmd/noes/NOES_0000073
 <https://w3id.org/pmd/noes/NOES_0000073> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000072> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:OBI_0000299 ;
+                                                           owl:someValuesFrom [ owl:intersectionOf ( obo:IAO_0000109
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty obo:IAO_0000136 ;
+                                                                                                       owl:someValuesFrom <https://w3id.org/pmd/noes/NOES_0000008>
+                                                                                                     ]
+                                                                                                   ) ;
+                                                                                rdf:type owl:Class
+                                                                              ]
+                                                         ] ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:RO_0009006 ;
                                                            owl:someValuesFrom <https://w3id.org/pmd/noes/NOES_0000042>
