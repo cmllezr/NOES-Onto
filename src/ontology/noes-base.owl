@@ -12,12 +12,12 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/noes-base.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2025-12-07/noes-base.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2025-12-08/noes-base.owl"/>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:description>None</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/unspecified"/>
         <dcterms:title>NOES Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
-        <owl:versionInfo>2025-12-07</owl:versionInfo>
+        <owl:versionInfo>2025-12-08</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -179,6 +179,12 @@
     <!-- http://purl.obolibrary.org/obo/BFO_0000199 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000199"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000235 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
     
 
 
@@ -1526,6 +1532,20 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000583 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000583">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <obo:IAO_0000116 xml:lang="en">The subclass trees of &quot;Computing Process&quot; are currently still proposals and serve as a working basis for the discussion round with the simulation/workflow domain experts.</obo:IAO_0000116>
+        <rdfs:label xml:lang="de">Datenverarbeitung</rdfs:label>
+        <rdfs:label xml:lang="de">Rechenprozess</rdfs:label>
+        <rdfs:label xml:lang="en">computing process</rdfs:label>
+        <skos:definition xml:lang="en">A process that involves the systematic use of computational methods and tools to perform simulations, analyses, or data transformations to achieve specific scientific or engineering goals.</skos:definition>
+        <skos:definition xml:lang="de">Ein Prozess, der die systematische Verwendung von rechnerischen Methoden und Werkzeugen umfasst, um Simulationen, Analysen oder Datenumwandlungen durchzuführen, um spezifische wissenschaftliche oder technische Ziele zu erreichen.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000591 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000591">
@@ -2366,6 +2386,18 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
         <skos:definition xml:lang="de">Ein Herstellungsprozess, bei dem die Bindung zwischen Objekten aufgehoben wird, was zu einer teilweisen oder vollständigen Verringerung der Kohäsion führt.</skos:definition>
         <skos:example xml:lang="en">Disassembling, Removal</skos:example>
         <co:PMD_0050117 xml:lang="en">Cutting</co:PMD_0050117>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000933 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000933">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000583"/>
+        <rdfs:label xml:lang="de">Simulationsprozess</rdfs:label>
+        <rdfs:label xml:lang="en">simulation process</rdfs:label>
+        <skos:definition xml:lang="en">A Computing Process that models the behavior of a system over time using mathematical or computational techniques.</skos:definition>
+        <skos:definition xml:lang="de">Ein Datenverarbeitungsprozess, der das Verhalten eines Systems im Laufe der Zeit mit mathematischen oder rechnerischen Techniken modelliert</skos:definition>
     </owl:Class>
     
 
@@ -5649,6 +5681,28 @@ Has part grain growth and recovery.</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/pmd/noes/NOES_0000065 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000065">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
+        <rdfs:comment xml:lang="en">Crystallographic direction specification is a value specification which contains the exact type of a crystallographic direction [uwv] of family of directions &lt;uwv&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">crystallographic direction specification</rdfs:label>
+        <skos:example xml:lang="en">[111] or &lt;111&gt;</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000069 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000069">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
+        <rdfs:comment xml:lang="en">Crystallographic plane specification is a value specification which contains the exact type of a crystallographic plane (hkl) of family of planes {hkl}.</rdfs:comment>
+        <rdfs:label xml:lang="en">crystallographic plane specification</rdfs:label>
+        <skos:example xml:lang="en">(111) or {111}</skos:example>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/tto/TTO_0000005 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/tto/TTO_0000005">
@@ -6171,6 +6225,8 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000033 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000033">
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000070"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000076"/>
         <rdfs:label xml:lang="en">cube texture component {001}&lt;001&gt;</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6179,6 +6235,8 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000035 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000035">
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000071"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000076"/>
         <rdfs:label xml:lang="en">goss texture component {110}&lt;001&gt;</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6187,6 +6245,8 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000036 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000036">
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000070"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000078"/>
         <rdfs:label xml:lang="en">rotated cube texture component {001}&lt;110&gt;</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6195,6 +6255,8 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000038 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000038">
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000030"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000077"/>
         <rdfs:label xml:lang="en">γ-fiber &lt;111&gt; || ND</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6203,6 +6265,9 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000039 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000039">
+        <obo:BFO_0000051 rdf:resource="https://w3id.org/pmd/noes/NOES_0000036"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000078"/>
         <rdfs:label xml:lang="en">α-fiber &lt;110&gt; || RD</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6211,6 +6276,10 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000040 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000040">
+        <obo:BFO_0000051 rdf:resource="https://w3id.org/pmd/noes/NOES_0000033"/>
+        <obo:BFO_0000051 rdf:resource="https://w3id.org/pmd/noes/NOES_0000036"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000030"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000076"/>
         <rdfs:label xml:lang="en">λ-fiber &lt;100&gt; || ND</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6219,7 +6288,54 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000041 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000041">
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000076"/>
         <rdfs:label xml:lang="en">η-fiber &lt;100&gt; || RD</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000070 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000070">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
+        <rdfs:label xml:lang="en">{001} planes</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000071 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000071">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
+        <rdfs:label xml:lang="en">{110} planes</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000076 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000076">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
+        <rdfs:label xml:lang="en">&lt;001&gt; directions</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000077 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000077">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
+        <rdfs:label xml:lang="en">&lt;111&gt; directions</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000078 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000078">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
+        <rdfs:label xml:lang="en">&lt;110&gt; directions</rdfs:label>
     </owl:NamedIndividual>
     
 

@@ -14,11 +14,11 @@
 @base <https://w3id.org/pmd/noes.ttl> .
 
 <https://w3id.org/pmd/noes.ttl> rdf:type owl:Ontology ;
-                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2025-12-07/noes.ttl> ;
+                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2025-12-08/noes.ttl> ;
                                  dcterms:description "None" ;
                                  dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                  dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                 owl:versionInfo "2025-12-07" .
+                                 owl:versionInfo "2025-12-08" .
 
 #################################################################
 #    Annotation properties
@@ -2257,6 +2257,17 @@ co:PMD_0000561 rdf:type owl:Class ;
                                "Ein Gerät zum Entfernen von Verunreinigungen von Materialien oder Oberflächen."@de .
 
 
+###  https://w3id.org/pmd/co/PMD_0000583
+co:PMD_0000583 rdf:type owl:Class ;
+               rdfs:subClassOf obo:OBI_0000011 ;
+               obo:IAO_0000116 "The subclass trees of \"Computing Process\" are currently still proposals and serve as a working basis for the discussion round with the simulation/workflow domain experts."@en ;
+               rdfs:label "Datenverarbeitung"@de ,
+                          "Rechenprozess"@de ,
+                          "computing process"@en ;
+               skos:definition "A process that involves the systematic use of computational methods and tools to perform simulations, analyses, or data transformations to achieve specific scientific or engineering goals."@en ,
+                               "Ein Prozess, der die systematische Verwendung von rechnerischen Methoden und Werkzeugen umfasst, um Simulationen, Analysen oder Datenumwandlungen durchzuführen, um spezifische wissenschaftliche oder technische Ziele zu erreichen."@de .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000591
 co:PMD_0000591 rdf:type owl:Class ;
                owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -2879,6 +2890,15 @@ co:PMD_0000927 rdf:type owl:Class ;
                                "Ein Herstellungsprozess, bei dem die Bindung zwischen Objekten aufgehoben wird, was zu einer teilweisen oder vollständigen Verringerung der Kohäsion führt."@de ;
                skos:example "Disassembling, Removal"@en ;
                co:PMD_0050117 "Cutting"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000933
+co:PMD_0000933 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000583 ;
+               rdfs:label "Simulationsprozess"@de ,
+                          "simulation process"@en ;
+               skos:definition "A Computing Process that models the behavior of a system over time using mathematical or computational techniques."@en ,
+                               "Ein Datenverarbeitungsprozess, der das Verhalten eines Systems im Laufe der Zeit mit mathematischen oder rechnerischen Techniken modelliert"@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000942
@@ -5271,6 +5291,22 @@ Has part grain growth and recovery."""@en ;
                                          rdfs:label "reversible permeability"@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000065
+<https://w3id.org/pmd/noes/NOES_0000065> rdf:type owl:Class ;
+                                         rdfs:subClassOf obo:OBI_0001930 ;
+                                         rdfs:comment "Crystallographic direction specification is a value specification which contains the exact type of a crystallographic direction [uwv] of family of directions <uwv>."@en ;
+                                         rdfs:label "crystallographic direction specification"@en ;
+                                         skos:example "[111] or <111>"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000069
+<https://w3id.org/pmd/noes/NOES_0000069> rdf:type owl:Class ;
+                                         rdfs:subClassOf obo:OBI_0001930 ;
+                                         rdfs:comment "Crystallographic plane specification is a value specification which contains the exact type of a crystallographic plane (hkl) of family of planes {hkl}."@en ;
+                                         rdfs:label "crystallographic plane specification"@en ;
+                                         skos:example "(111) or {111}"@en .
+
+
 ###  https://w3id.org/pmd/tto/TTO_0000005
 <https://w3id.org/pmd/tto/TTO_0000005> rdf:type owl:Class ;
                                        rdfs:subClassOf co:PMD_0000848 ;
@@ -5762,37 +5798,84 @@ co:PMD_0020125 rdf:type owl:NamedIndividual ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000033
 <https://w3id.org/pmd/noes/NOES_0000033> rdf:type owl:NamedIndividual ;
+                                         obo:IAO_0000235 <https://w3id.org/pmd/noes/NOES_0000070> ,
+                                                         <https://w3id.org/pmd/noes/NOES_0000076> ;
                                          rdfs:label "cube texture component {001}<001>"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000035
 <https://w3id.org/pmd/noes/NOES_0000035> rdf:type owl:NamedIndividual ;
+                                         obo:IAO_0000235 <https://w3id.org/pmd/noes/NOES_0000071> ,
+                                                         <https://w3id.org/pmd/noes/NOES_0000076> ;
                                          rdfs:label "goss texture component {110}<001>"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000036
 <https://w3id.org/pmd/noes/NOES_0000036> rdf:type owl:NamedIndividual ;
+                                         obo:IAO_0000235 <https://w3id.org/pmd/noes/NOES_0000070> ,
+                                                         <https://w3id.org/pmd/noes/NOES_0000078> ;
                                          rdfs:label "rotated cube texture component {001}<110>"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000038
 <https://w3id.org/pmd/noes/NOES_0000038> rdf:type owl:NamedIndividual ;
+                                         obo:IAO_0000235 <https://w3id.org/pmd/noes/NOES_0000030> ,
+                                                         <https://w3id.org/pmd/noes/NOES_0000077> ;
                                          rdfs:label "γ-fiber <111> || ND"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000039
 <https://w3id.org/pmd/noes/NOES_0000039> rdf:type owl:NamedIndividual ;
+                                         obo:BFO_0000051 <https://w3id.org/pmd/noes/NOES_0000036> ;
+                                         obo:IAO_0000235 <https://w3id.org/pmd/noes/NOES_0000028> ,
+                                                         <https://w3id.org/pmd/noes/NOES_0000078> ;
                                          rdfs:label "α-fiber <110> || RD"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000040
 <https://w3id.org/pmd/noes/NOES_0000040> rdf:type owl:NamedIndividual ;
+                                         obo:BFO_0000051 <https://w3id.org/pmd/noes/NOES_0000033> ,
+                                                         <https://w3id.org/pmd/noes/NOES_0000036> ;
+                                         obo:IAO_0000235 <https://w3id.org/pmd/noes/NOES_0000030> ,
+                                                         <https://w3id.org/pmd/noes/NOES_0000076> ;
                                          rdfs:label "λ-fiber <100> || ND"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000041
 <https://w3id.org/pmd/noes/NOES_0000041> rdf:type owl:NamedIndividual ;
+                                         obo:IAO_0000235 <https://w3id.org/pmd/noes/NOES_0000028> ,
+                                                         <https://w3id.org/pmd/noes/NOES_0000076> ;
                                          rdfs:label "η-fiber <100> || RD"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000070
+<https://w3id.org/pmd/noes/NOES_0000070> rdf:type owl:NamedIndividual ,
+                                                  <https://w3id.org/pmd/noes/NOES_0000069> ;
+                                         rdfs:label "{001} planes"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000071
+<https://w3id.org/pmd/noes/NOES_0000071> rdf:type owl:NamedIndividual ,
+                                                  <https://w3id.org/pmd/noes/NOES_0000069> ;
+                                         rdfs:label "{110} planes"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000076
+<https://w3id.org/pmd/noes/NOES_0000076> rdf:type owl:NamedIndividual ,
+                                                  <https://w3id.org/pmd/noes/NOES_0000065> ;
+                                         rdfs:label "<001> directions"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000077
+<https://w3id.org/pmd/noes/NOES_0000077> rdf:type owl:NamedIndividual ,
+                                                  <https://w3id.org/pmd/noes/NOES_0000065> ;
+                                         rdfs:label "<111> directions"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000078
+<https://w3id.org/pmd/noes/NOES_0000078> rdf:type owl:NamedIndividual ,
+                                                  <https://w3id.org/pmd/noes/NOES_0000065> ;
+                                         rdfs:label "<110> directions"@en .
 
 
 #################################################################
