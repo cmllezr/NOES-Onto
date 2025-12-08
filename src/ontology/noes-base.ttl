@@ -167,6 +167,10 @@ obo:RO_0000087 rdf:type owl:ObjectProperty .
 obo:RO_0002351 rdf:type owl:ObjectProperty .
 
 
+###  http://purl.obolibrary.org/obo/RO_0009006
+obo:RO_0009006 rdf:type owl:ObjectProperty .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000004
 co:PMD_0000004 rdf:type owl:ObjectProperty ;
                rdfs:label "is subject of"@en ;
@@ -1037,7 +1041,11 @@ co:PMD_0000551 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000552
 co:PMD_0000552 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000957 ;
+               rdfs:subClassOf co:PMD_0000957 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0009006 ;
+                                 owl:someValuesFrom co:PMD_0000551
+                               ] ;
                rdfs:label "Analyseverfahren für die chemische Zusammensetzung"@de ,
                           "chemical composition analyzing process"@en ;
                skos:definition "A Structural Property Analyzing Process that determines the chemical composition of a material by identifying and quantifying its constituent elements and compounds."@en ,
@@ -1866,7 +1874,11 @@ co:PMD_0001014 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0001016
 co:PMD_0001016 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0001014 ;
+               rdfs:subClassOf co:PMD_0001014 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0009006 ;
+                                 owl:someValuesFrom <https://w3id.org/pmd/noes/NOES_0000042>
+                               ] ;
                rdfs:label "Beugungsprozess"@de ,
                           "x-ray diffraction process"@en ;
                skos:definition "An X-ray Analyzing Process, that involves the interaction of X-rays with the crystalline structure of a material."@en ,
@@ -3911,7 +3923,15 @@ Has part grain growth and recovery."""@en ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000034
 <https://w3id.org/pmd/noes/NOES_0000034> rdf:type owl:Class ;
-                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000032> ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000032> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0009006 ;
+                                                           owl:someValuesFrom co:PMD_0020112
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0009006 ;
+                                                           owl:someValuesFrom <https://w3id.org/pmd/noes/NOES_0000042>
+                                                         ] ;
                                          rdfs:label "electron backscatter diffraction"@en ;
                                          rdfs:seeAlso "Electron Backscatter Diffraction (EBSD) is a SEM based technique for characterizing  material's local microstructure. EBSD provides an information about phases and their distribution in the material, grain structure, grain size, grain boundary, texture  (crystallographic orientation of individual grains), and local strain variation."@en ,
                                                       "https://www.ebsd.com/ebsd-explained/what-is-ebsd" ;
@@ -4121,6 +4141,24 @@ Has part grain growth and recovery."""@en ;
                                          rdfs:comment "Crystallographic plane specification is a value specification which contains the exact type of a crystallographic plane (hkl) of family of planes {hkl}."@en ;
                                          rdfs:label "crystallographic plane specification"@en ;
                                          skos:example "(111) or {111}"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000072
+<https://w3id.org/pmd/noes/NOES_0000072> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000583 ;
+                                         rdfs:comment "TODO: refine defintion and maybe move it to PMDco"@en ;
+                                         rdfs:label "analytical calculation"@en ;
+                                         skos:definition "Analytical calculation is a computing process which has value specification or measurement datum as a specified output. It applies a closed-form mathematical expression or formula to a set it specified inputs (value specifications) without requiring stochastic sampling, iterative numerical solving, or data-driven training."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000073
+<https://w3id.org/pmd/noes/NOES_0000073> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000072> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0009006 ;
+                                                           owl:someValuesFrom <https://w3id.org/pmd/noes/NOES_0000042>
+                                                         ] ;
+                                         rdfs:label "orientation distribution function calculation"@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005

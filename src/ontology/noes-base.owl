@@ -254,6 +254,12 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0009006 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009006"/>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000004 -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0000004">
@@ -1486,6 +1492,12 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000552">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000957"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000551"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="de">Analyseverfahren für die chemische Zusammensetzung</rdfs:label>
         <rdfs:label xml:lang="en">chemical composition analyzing process</rdfs:label>
         <skos:definition xml:lang="en">A Structural Property Analyzing Process that determines the chemical composition of a material by identifying and quantifying its constituent elements and compounds.</skos:definition>
@@ -2603,6 +2615,12 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0001016">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0001014"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="de">Beugungsprozess</rdfs:label>
         <rdfs:label xml:lang="en">x-ray diffraction process</rdfs:label>
         <skos:definition xml:lang="en">An X-ray Analyzing Process, that involves the interaction of X-rays with the crystalline structure of a material.</skos:definition>
@@ -5409,6 +5427,18 @@ Has part grain growth and recovery.</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000034">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000032"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020112"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">electron backscatter diffraction</rdfs:label>
         <rdfs:seeAlso xml:lang="en">Electron Backscatter Diffraction (EBSD) is a SEM based technique for characterizing  material&apos;s local microstructure. EBSD provides an information about phases and their distribution in the material, grain structure, grain size, grain boundary, texture  (crystallographic orientation of individual grains), and local strain variation.</rdfs:seeAlso>
         <rdfs:seeAlso>https://www.ebsd.com/ebsd-explained/what-is-ebsd</rdfs:seeAlso>
@@ -5699,6 +5729,32 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:comment xml:lang="en">Crystallographic plane specification is a value specification which contains the exact type of a crystallographic plane (hkl) of family of planes {hkl}.</rdfs:comment>
         <rdfs:label xml:lang="en">crystallographic plane specification</rdfs:label>
         <skos:example xml:lang="en">(111) or {111}</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000072 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000072">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000583"/>
+        <rdfs:comment xml:lang="en">TODO: refine defintion and maybe move it to PMDco</rdfs:comment>
+        <rdfs:label xml:lang="en">analytical calculation</rdfs:label>
+        <skos:definition xml:lang="en">Analytical calculation is a computing process which has value specification or measurement datum as a specified output. It applies a closed-form mathematical expression or formula to a set it specified inputs (value specifications) without requiring stochastic sampling, iterative numerical solving, or data-driven training.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000073 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000073">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000072"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">orientation distribution function calculation</rdfs:label>
     </owl:Class>
     
 
