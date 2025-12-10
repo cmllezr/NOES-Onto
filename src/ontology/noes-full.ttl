@@ -2028,6 +2028,11 @@ obo:UO_0000076 rdf:type owl:Class ;
                rdfs:label "mole fraction" .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000106
+obo:UO_0000106 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_1000106 .
+
+
 ###  http://purl.obolibrary.org/obo/UO_0000164
 obo:UO_0000164 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_1000164 ;
@@ -2037,10 +2042,20 @@ obo:UO_0000164 rdf:type owl:Class ;
                rdfs:label "mass volume percentage" .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000228
+obo:UO_0000228 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_1000228 .
+
+
 ###  http://purl.obolibrary.org/obo/UO_1000076
 obo:UO_1000076 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000000 ;
                rdfs:label "mole fraction based unit" .
+
+
+###  http://purl.obolibrary.org/obo/UO_1000106
+obo:UO_1000106 rdf:type owl:Class ;
+               rdfs:label "hertz based unit" .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000163
@@ -2053,6 +2068,11 @@ obo:UO_1000163 rdf:type owl:Class ;
 obo:UO_1000164 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000000 ;
                rdfs:label "mass volume percentage based unit" .
+
+
+###  http://purl.obolibrary.org/obo/UO_1000228
+obo:UO_1000228 rdf:type owl:Class ;
+               rdfs:label "tesla based unit" .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000000
@@ -6172,6 +6192,14 @@ obo:OMO_0001000 rdf:type owl:NamedIndividual ;
                 rdfs:label "out of scope" .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000106
+obo:UO_0000106 rdf:type owl:NamedIndividual .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000228
+obo:UO_0000228 rdf:type owl:NamedIndividual .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020006
 co:PMD_0020006 rdf:type owl:NamedIndividual ;
                rdfs:label "bravais lattice triclinic primitve"@en ;
@@ -6456,6 +6484,22 @@ co:PMD_0020125 rdf:type owl:NamedIndividual ;
 <https://w3id.org/pmd/noes/NOES_0000078> rdf:type owl:NamedIndividual ,
                                                   obo:OBI_0001933 ;
                                          rdfs:label "<110>"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+obo:UO_0000106 oboInOwl:hasExactSynonym "Hz" ,
+                                        "s^1" ;
+               rdfs:comment "\"A frequency unit which is equal to 1 complete cycle of a recurring phenomenon in 1 second.\" [NIST:NIST]" ;
+               rdfs:label "hertz" .
+
+
+obo:UO_0000228 oboInOwl:hasExactSynonym "T" ,
+                                        "Wb/m2" ;
+               rdfs:comment "\"A magnetic flux density unit which is equal to one weber per square meter.\" [WordNet:WordNet]" ;
+               rdfs:label "tesla" .
 
 
 #################################################################
