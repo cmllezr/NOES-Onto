@@ -14,11 +14,11 @@
 @base <https://w3id.org/pmd/noes.ttl> .
 
 <https://w3id.org/pmd/noes.ttl> rdf:type owl:Ontology ;
-                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2025-12-08/noes.ttl> ;
+                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2025-12-10/noes.ttl> ;
                                  dcterms:description "None" ;
                                  dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                  dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                 owl:versionInfo "2025-12-08" .
+                                 owl:versionInfo "2025-12-10" .
 
 #################################################################
 #    Annotation properties
@@ -5375,6 +5375,89 @@ Has part grain growth and recovery."""@en ;
                                                            owl:someValuesFrom <https://w3id.org/pmd/noes/NOES_0000042>
                                                          ] ;
                                          rdfs:label "orientation distribution function calculation"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000074
+<https://w3id.org/pmd/noes/NOES_0000074> rdf:type owl:Class ;
+                                         rdfs:subClassOf obo:BFO_0000009 ;
+                                         rdfs:label "crystallographic plane"@en ;
+                                         skos:definition "Crystallographic plane is a an atomic plane within a crystal lattice defined by its orientation relative to the crystal axes. The orientation is specified by the set of Miller indices (hkl) for a single plane, and {hkl} for a set of equivalent planes."@en ;
+                                         skos:example "(111) plane, {110} set of planes"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000075
+<https://w3id.org/pmd/noes/NOES_0000075> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000501 ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:OBI_0001927 ;
+                                                           owl:allValuesFrom [ owl:intersectionOf ( <https://w3id.org/pmd/noes/NOES_0000042>
+                                                                                                    [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty obo:RO_0000080 ;
+                                                                                                      owl:someValuesFrom co:PMD_0000663
+                                                                                                    ]
+                                                                                                  ) ;
+                                                                               rdf:type owl:Class
+                                                                             ]
+                                                         ] ;
+                                         rdfs:label "Euler angles"@en ;
+                                         skos:definition "In crystallography Euler angles are three angles which describe orientation of a sinlge crystal in respect to the sample's coordinate system. By aligning coordinate system of every crystal in the sample to the sample's coordinate system, anisotropy of material's properties can be investigated."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000079
+<https://w3id.org/pmd/noes/NOES_0000079> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000075> ;
+                                         rdfs:label "Bunge Euler angles"@en ;
+                                         rdfs:seeAlso "https://mtex-toolbox.github.io/RotationDefinition.html" ;
+                                         skos:definition "Bunge Euler angles define the Euler angles according to the Bunge notations, which define the three subsequent rotations about fixed axes, namely ZXZ, i.e., the first rotation is around the z axis, second around the x axis and third again around the z."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000080
+<https://w3id.org/pmd/noes/NOES_0000080> rdf:type owl:Class ;
+                                         rdfs:subClassOf co:PMD_0000501 ;
+                                         rdfs:label "Miller indices"@en ;
+                                         skos:definition "In crystallography Miller indices is a notation of lattice planes, directions, and points within a crystal lattice, i.e., in respect to the crystal's coordinate system."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000081
+<https://w3id.org/pmd/noes/NOES_0000081> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ;
+                                         rdfs:label "point Miller indices"@en ;
+                                         skos:definition "Point Miller indices define the coordinates of a point within a unit cell of a crystal. Point Miller indices must be given in round brackets separated by commas, e.g., (x, y, z)."@en ;
+                                         skos:example "(1, 0, 0) point"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000082
+<https://w3id.org/pmd/noes/NOES_0000082> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ;
+                                         rdfs:label "plane Miller indices"@en ;
+                                         skos:example "(110) plane"@en ,
+                                                      """Plane Miller indices define the reciprocals of the fractional intercepts the plane makes with the crystallographic axes, reduced to the lowest set of integers. 
+For example, if a plane crosses [100] axis at 1/h, [010 ] axis at 1/k, and [001] axis at 1/l, then such plane is denoted as (hkl) plane. If a plane is parallel to one of the axes, then the corresponding Miller index is 0.
+Plane Miller indices must be written in round brackets, e.g., (hkl)."""@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000083
+<https://w3id.org/pmd/noes/NOES_0000083> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ;
+                                         rdfs:label "set of planes Miller indices"@en ;
+                                         skos:definition "Set of planes Miller indices define set of symmetrically equivalent planes. Set of planes must be written in curly brackets, e.g., {hkl}."@en ,
+                                                         "{111} set of planes"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000084
+<https://w3id.org/pmd/noes/NOES_0000084> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ;
+                                         rdfs:label "direction Miller indices"@en ;
+                                         skos:definition "Direction Miller indices define the components of a sinlge vector in the given direction in a crystal's unit cell. Usually, direction Miller indices are reduced to the lowest set of integers. direction Miller indices must be written in square brackets, e.g., [uvw]."@en ;
+                                         skos:example "[111] direction"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000085
+<https://w3id.org/pmd/noes/NOES_0000085> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ;
+                                         rdfs:label "set of directions Miller indices"@en ;
+                                         skos:definition "Set of directions Miller indices define the components of symmetrically equivalent directions in a crystal's unit cell. Set of directions Miller indices must be written as <uvw>."@en ;
+                                         skos:example "<110> set of directions"@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005
