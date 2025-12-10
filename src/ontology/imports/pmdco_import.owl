@@ -359,7 +359,11 @@ Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000055>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000108>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000136>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000219>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000221>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000235>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000417>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000418>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000419>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/OBI_0000293>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/OBI_0000295>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/OBI_0000299>))
@@ -555,12 +559,75 @@ InverseObjectProperties(<http://purl.obolibrary.org/obo/IAO_0000219> <http://pur
 ObjectPropertyDomain(<http://purl.obolibrary.org/obo/IAO_0000219> <http://purl.obolibrary.org/obo/IAO_0000030>)
 ObjectPropertyRange(<http://purl.obolibrary.org/obo/IAO_0000219> <http://purl.obolibrary.org/obo/BFO_0000001>)
 
+# Object Property: <http://purl.obolibrary.org/obo/IAO_0000221> (is quality measurement of)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/IAO_0000221> "m is a quality measurement of q at t. When q is a quality, there is a measurement process p that has specified output m, a measurement datum, that is about q"@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000221> "8/6/2009 Alan Ruttenberg: The strategy is to be rather specific with this relationship. There are other kinds of measurements that are not of qualities, such as those that measure time. We will add these as separate properties for the moment and see about generalizing later"@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000221> "From the second IAO workshop [Alan Ruttenberg 8/6/2009: not completely current, though bringing in comparison is probably important]
+
+This one is the one we are struggling with at the moment. The issue is what a measurement measures. On the one hand saying that it measures the quality would include it \"measuring\" the bearer = referring to the bearer in the measurement. However this makes comparisons of two different things not possible. On the other hand not having it inhere in the bearer, on the face of it, breaks the audit trail.
+
+Werner suggests a solution based on \"Magnitudes\" a proposal for which we are awaiting details.
+--
+From the second IAO workshop, various comments, [commented on by Alan Ruttenberg 8/6/2009]
+
+unit of measure is a quality, e.g. the length of a ruler.
+
+[We decided to hedge on what units of measure are, instead talking about measurement unit labels, which are the information content entities that are about whatever measurement units are. For IAO we need that information entity in any case. See the term measurement unit label]
+
+[Some struggling with the various subflavors of is_about. We subsequently removed the relation represents, and describes until and only when we have a better theory]
+
+a represents b means either a denotes b or a describes
+
+describe:
+a describes b means a is about b and a allows an inference of at least one quality of b
+
+We have had a long discussion about denotes versus describes."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000221> "From the second IAO workshop: An attempt at tieing the quality to the measurement datum more carefully.
+
+a is a magnitude means a is a determinate quality particular inhering in some bearer b existing at a time t that can be represented/denoted by an information content entity e that has parts denoting a unit of measure, a number, and b. The unit of measure is an instance of the determinable quality."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000221> "From the second meeting on IAO:
+
+An attempt at defining assay using Barry's \"reliability\" wording
+
+assay:
+process and has_input some material entity
+and has_output some information content entity 
+and which is such that instances of this process type reliably generate 
+outputs that describes the input."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000221> "This one is the one we are struggling with at the moment. The issue is what a measurement measures. On the one hand saying that it measures the quality would include it \"measuring\" the bearer = referring to the bearer in the measurement. However this makes comparisons of two different things not possible. On the other hand not having it inhere in the bearer, on the face of it, breaks the audit trail.
+
+Werner suggests a solution based on \"Magnitudes\" a proposal for which we are awaiting details."@en)
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000221> "is quality measurement of"@en)
+SubObjectPropertyOf(<http://purl.obolibrary.org/obo/IAO_0000221> <http://purl.obolibrary.org/obo/IAO_0000136>)
+InverseObjectProperties(<http://purl.obolibrary.org/obo/IAO_0000221> <http://purl.obolibrary.org/obo/IAO_0000417>)
+ObjectPropertyDomain(<http://purl.obolibrary.org/obo/IAO_0000221> <http://purl.obolibrary.org/obo/IAO_0000109>)
+
 # Object Property: <http://purl.obolibrary.org/obo/IAO_0000235> (denoted by)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/IAO_0000235> "inverse of the relation 'denotes'"@en)
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000235> "denoted by"@en)
 ObjectPropertyDomain(<http://purl.obolibrary.org/obo/IAO_0000235> <http://purl.obolibrary.org/obo/BFO_0000001>)
 ObjectPropertyRange(<http://purl.obolibrary.org/obo/IAO_0000235> <http://purl.obolibrary.org/obo/IAO_0000030>)
+
+# Object Property: <http://purl.obolibrary.org/obo/IAO_0000417> (is quality measured as)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/IAO_0000417> "inverse of the relation of is quality measurement of"@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000417> "2009/10/19 Alan Ruttenberg. Named 'junk' relation useful in restrictions, but not a real instance relationship"@en)
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000417> "is quality measured as"@en)
+
+# Object Property: <http://purl.obolibrary.org/obo/IAO_0000418> (is quality specification of)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/IAO_0000418> "A relation between a data item and a quality of a material entity where the material entity is the specified output of a material transformation which achieves an objective specification that indicates the intended value of the specified quality."@en)
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000418> "is quality specification of"@en)
+SubObjectPropertyOf(<http://purl.obolibrary.org/obo/IAO_0000418> <http://purl.obolibrary.org/obo/IAO_0000136>)
+InverseObjectProperties(<http://purl.obolibrary.org/obo/IAO_0000418> <http://purl.obolibrary.org/obo/IAO_0000419>)
+
+# Object Property: <http://purl.obolibrary.org/obo/IAO_0000419> (quality is specified as)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/IAO_0000419> "inverse of the relation of is quality specification of"@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000419> "2009/10/19 Alan Ruttenberg. Named 'junk' relation useful in restrictions, but not a real instance relationship"@en)
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000419> "quality is specified as"@en)
 
 # Object Property: <http://purl.obolibrary.org/obo/OBI_0000293> (has specified input)
 
@@ -1846,7 +1913,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000056> <https://w3id.org/pmd/co/PMD_0000780>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000056> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000655> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000085> <https://w3id.org/pmd/co/PMD_0000057>)))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000057> (melting function)
+# Class: <https://w3id.org/pmd/co/PMD_0000057> (Schmelzfunktion)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000057> "Schmelzfunktion"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000057> "melting function"@en)
@@ -2166,7 +2233,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0000649> "Stripping, Deep Drawing, Spinning"@en)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000649> <https://w3id.org/pmd/co/PMD_0000646>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000650> (Druckumformen)
+# Class: <https://w3id.org/pmd/co/PMD_0000650> (forming under compressive conditions)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <https://w3id.org/pmd/co/PMD_0000650> "Official definition can be found in: DIN 8583-1"@en)
 AnnotationAssertion(<http://purl.org/dc/terms/source> <https://w3id.org/pmd/co/PMD_0000650> "Offizielle Definition findet man in: DIN 8583-1"@de)
@@ -2177,7 +2244,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0000650> "Rolling, Coining"@en)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000650> <https://w3id.org/pmd/co/PMD_0000646>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000655> (furnace)
+# Class: <https://w3id.org/pmd/co/PMD_0000655> (Ofen)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <https://w3id.org/pmd/co/PMD_0000655> "“Furnace.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/furnace. Accessed 13 Jan. 2023."@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000655> "Ofen"@de)
@@ -2348,7 +2415,7 @@ AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> <https://w3id.org/pmd/co/PMD_0000005>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0001030> <https://w3id.org/pmd/co/PMD_0000522>))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000849> (mechanical property analyzing process)
+# Class: <https://w3id.org/pmd/co/PMD_0000849> (Mechanische Eigenschaften Analyseverfahren)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000849> "Mechanische Eigenschaften Analyseverfahren"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000849> "mechanical property analyzing process"@en)
@@ -2397,7 +2464,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0000857> "true"^^xsd:boolean)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000857> <https://w3id.org/pmd/co/PMD_0000001>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000875> (optical microscopy)
+# Class: <https://w3id.org/pmd/co/PMD_0000875> (Optische Mikroskopie)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "Ein Mikroskopieverfahren, das sichtbares Licht und Linsen verwendet, um eine Probe zu vergrößern und abzubilden, und weit verbreitet zur Untersuchung der Mikrostruktur und Morphologie von Materialien ist."@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "Optische Mikroskopie"@de)
@@ -2537,7 +2604,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0000952> "true"^^xsd:boolean)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000952> <https://w3id.org/pmd/co/PMD_0000848>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000957> (Struktur Eigenschaften Analyseverfahren)
+# Class: <https://w3id.org/pmd/co/PMD_0000957> (structural property analyzing process)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000957> "Struktur Eigenschaften Analyseverfahren"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000957> "structural property analyzing process"@en)

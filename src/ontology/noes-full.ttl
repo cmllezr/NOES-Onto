@@ -225,12 +225,79 @@ every c that is a concretization of g specifically denotes r"""@en ;
                 rdfs:label "denotes"@en .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000221
+obo:IAO_0000221 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:IAO_0000136 ;
+                owl:inverseOf obo:IAO_0000417 ;
+                rdfs:domain obo:IAO_0000109 ;
+                obo:IAO_0000115 "m is a quality measurement of q at t. When q is a quality, there is a measurement process p that has specified output m, a measurement datum, that is about q"@en ;
+                obo:IAO_0000116 "8/6/2009 Alan Ruttenberg: The strategy is to be rather specific with this relationship. There are other kinds of measurements that are not of qualities, such as those that measure time. We will add these as separate properties for the moment and see about generalizing later"@en ,
+                                """From the second IAO workshop [Alan Ruttenberg 8/6/2009: not completely current, though bringing in comparison is probably important]
+
+This one is the one we are struggling with at the moment. The issue is what a measurement measures. On the one hand saying that it measures the quality would include it \"measuring\" the bearer = referring to the bearer in the measurement. However this makes comparisons of two different things not possible. On the other hand not having it inhere in the bearer, on the face of it, breaks the audit trail.
+
+Werner suggests a solution based on \"Magnitudes\" a proposal for which we are awaiting details.
+--
+From the second IAO workshop, various comments, [commented on by Alan Ruttenberg 8/6/2009]
+
+unit of measure is a quality, e.g. the length of a ruler.
+
+[We decided to hedge on what units of measure are, instead talking about measurement unit labels, which are the information content entities that are about whatever measurement units are. For IAO we need that information entity in any case. See the term measurement unit label]
+
+[Some struggling with the various subflavors of is_about. We subsequently removed the relation represents, and describes until and only when we have a better theory]
+
+a represents b means either a denotes b or a describes
+
+describe:
+a describes b means a is about b and a allows an inference of at least one quality of b
+
+We have had a long discussion about denotes versus describes."""@en ,
+                                """From the second IAO workshop: An attempt at tieing the quality to the measurement datum more carefully.
+
+a is a magnitude means a is a determinate quality particular inhering in some bearer b existing at a time t that can be represented/denoted by an information content entity e that has parts denoting a unit of measure, a number, and b. The unit of measure is an instance of the determinable quality."""@en ,
+                                """From the second meeting on IAO:
+
+An attempt at defining assay using Barry's \"reliability\" wording
+
+assay:
+process and has_input some material entity
+and has_output some information content entity 
+and which is such that instances of this process type reliably generate 
+outputs that describes the input."""@en ,
+                                """This one is the one we are struggling with at the moment. The issue is what a measurement measures. On the one hand saying that it measures the quality would include it \"measuring\" the bearer = referring to the bearer in the measurement. However this makes comparisons of two different things not possible. On the other hand not having it inhere in the bearer, on the face of it, breaks the audit trail.
+
+Werner suggests a solution based on \"Magnitudes\" a proposal for which we are awaiting details."""@en ;
+                rdfs:label "is quality measurement of"@en .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0000235
 obo:IAO_0000235 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range obo:IAO_0000030 ;
                 obo:IAO_0000115 "inverse of the relation 'denotes'"@en ;
                 rdfs:label "denoted by"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000417
+obo:IAO_0000417 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000115 "inverse of the relation of is quality measurement of"@en ;
+                obo:IAO_0000116 "2009/10/19 Alan Ruttenberg. Named 'junk' relation useful in restrictions, but not a real instance relationship"@en ;
+                rdfs:label "is quality measured as"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000418
+obo:IAO_0000418 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:IAO_0000136 ;
+                owl:inverseOf obo:IAO_0000419 ;
+                obo:IAO_0000115 "A relation between a data item and a quality of a material entity where the material entity is the specified output of a material transformation which achieves an objective specification that indicates the intended value of the specified quality."@en ;
+                rdfs:label "is quality specification of"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000419
+obo:IAO_0000419 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000115 "inverse of the relation of is quality specification of"@en ;
+                obo:IAO_0000116 "2009/10/19 Alan Ruttenberg. Named 'junk' relation useful in restrictions, but not a real instance relationship"@en ;
+                rdfs:label "quality is specified as"@en .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000293

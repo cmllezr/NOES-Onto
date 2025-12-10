@@ -316,6 +316,54 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000221 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000221">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000417"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <obo:IAO_0000115 xml:lang="en">m is a quality measurement of q at t. When q is a quality, there is a measurement process p that has specified output m, a measurement datum, that is about q</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">8/6/2009 Alan Ruttenberg: The strategy is to be rather specific with this relationship. There are other kinds of measurements that are not of qualities, such as those that measure time. We will add these as separate properties for the moment and see about generalizing later</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">From the second IAO workshop [Alan Ruttenberg 8/6/2009: not completely current, though bringing in comparison is probably important]
+
+This one is the one we are struggling with at the moment. The issue is what a measurement measures. On the one hand saying that it measures the quality would include it &quot;measuring&quot; the bearer = referring to the bearer in the measurement. However this makes comparisons of two different things not possible. On the other hand not having it inhere in the bearer, on the face of it, breaks the audit trail.
+
+Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which we are awaiting details.
+--
+From the second IAO workshop, various comments, [commented on by Alan Ruttenberg 8/6/2009]
+
+unit of measure is a quality, e.g. the length of a ruler.
+
+[We decided to hedge on what units of measure are, instead talking about measurement unit labels, which are the information content entities that are about whatever measurement units are. For IAO we need that information entity in any case. See the term measurement unit label]
+
+[Some struggling with the various subflavors of is_about. We subsequently removed the relation represents, and describes until and only when we have a better theory]
+
+a represents b means either a denotes b or a describes
+
+describe:
+a describes b means a is about b and a allows an inference of at least one quality of b
+
+We have had a long discussion about denotes versus describes.</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">From the second IAO workshop: An attempt at tieing the quality to the measurement datum more carefully.
+
+a is a magnitude means a is a determinate quality particular inhering in some bearer b existing at a time t that can be represented/denoted by an information content entity e that has parts denoting a unit of measure, a number, and b. The unit of measure is an instance of the determinable quality.</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">From the second meeting on IAO:
+
+An attempt at defining assay using Barry&apos;s &quot;reliability&quot; wording
+
+assay:
+process and has_input some material entity
+and has_output some information content entity 
+and which is such that instances of this process type reliably generate 
+outputs that describes the input.</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">This one is the one we are struggling with at the moment. The issue is what a measurement measures. On the one hand saying that it measures the quality would include it &quot;measuring&quot; the bearer = referring to the bearer in the measurement. However this makes comparisons of two different things not possible. On the other hand not having it inhere in the bearer, on the face of it, breaks the audit trail.
+
+Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which we are awaiting details.</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">is quality measurement of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/IAO_0000235 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000235">
@@ -323,6 +371,37 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <obo:IAO_0000115 xml:lang="en">inverse of the relation &apos;denotes&apos;</obo:IAO_0000115>
         <rdfs:label xml:lang="en">denoted by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000417 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000417">
+        <obo:IAO_0000115 xml:lang="en">inverse of the relation of is quality measurement of</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">2009/10/19 Alan Ruttenberg. Named &apos;junk&apos; relation useful in restrictions, but not a real instance relationship</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">is quality measured as</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000418 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000418">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000419"/>
+        <obo:IAO_0000115 xml:lang="en">A relation between a data item and a quality of a material entity where the material entity is the specified output of a material transformation which achieves an objective specification that indicates the intended value of the specified quality.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">is quality specification of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000419 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000419">
+        <obo:IAO_0000115 xml:lang="en">inverse of the relation of is quality specification of</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">2009/10/19 Alan Ruttenberg. Named &apos;junk&apos; relation useful in restrictions, but not a real instance relationship</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">quality is specified as</rdfs:label>
     </owl:ObjectProperty>
     
 
