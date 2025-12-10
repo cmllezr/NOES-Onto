@@ -188,9 +188,21 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000219 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000219"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/IAO_0000235 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000418 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000418"/>
     
 
 
@@ -209,6 +221,12 @@
     <!-- http://purl.obolibrary.org/obo/OBI_0001927 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0001927"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0001938 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0001938"/>
     
 
 
@@ -5816,14 +5834,14 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000501"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001927"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000418"/>
                 <owl:allValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000042"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
+                                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -5851,6 +5869,20 @@ Has part grain growth and recovery.</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000080">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000501"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000074"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">TODO: the coordinate of a single atom in the axiom??</rdfs:comment>
         <rdfs:label xml:lang="en">Miller indices</rdfs:label>
         <skos:definition xml:lang="en">In crystallography Miller indices is a notation of lattice planes, directions, and points within a crystal lattice, i.e., in respect to the crystal&apos;s coordinate system.</skos:definition>
     </owl:Class>
@@ -5861,6 +5893,7 @@ Has part grain growth and recovery.</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000081">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:comment xml:lang="en">TODO: Think what is actually a poinr, does it characterize atom sitting somewhere?</rdfs:comment>
         <rdfs:label xml:lang="en">point Miller indices</rdfs:label>
         <skos:definition xml:lang="en">Point Miller indices define the coordinates of a point within a unit cell of a crystal. Point Miller indices must be given in round brackets separated by commas, e.g., (x, y, z).</skos:definition>
         <skos:example xml:lang="en">(1, 0, 0) point</skos:example>
@@ -5872,6 +5905,18 @@ Has part grain growth and recovery.</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000082">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000074"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">plane Miller indices</rdfs:label>
         <skos:example xml:lang="en">(110) plane</skos:example>
         <skos:example xml:lang="en">Plane Miller indices define the reciprocals of the fractional intercepts the plane makes with the crystallographic axes, reduced to the lowest set of integers. 
@@ -5885,6 +5930,19 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000083">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000074"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">TODO: crystallographic plane specification vs vector specification??</rdfs:comment>
         <rdfs:label xml:lang="en">set of planes Miller indices</rdfs:label>
         <skos:definition xml:lang="en">Set of planes Miller indices define set of symmetrically equivalent planes. Set of planes must be written in curly brackets, e.g., {hkl}.</skos:definition>
         <skos:definition xml:lang="en">{111} set of planes</skos:definition>
@@ -5896,6 +5954,18 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000084">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000000"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">direction Miller indices</rdfs:label>
         <skos:definition xml:lang="en">Direction Miller indices define the components of a sinlge vector in the given direction in a crystal&apos;s unit cell. Usually, direction Miller indices are reduced to the lowest set of integers. direction Miller indices must be written in square brackets, e.g., [uvw].</skos:definition>
         <skos:example xml:lang="en">[111] direction</skos:example>
@@ -5907,6 +5977,18 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000085">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000000"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">set of directions Miller indices</rdfs:label>
         <skos:definition xml:lang="en">Set of directions Miller indices define the components of symmetrically equivalent directions in a crystal&apos;s unit cell. Set of directions Miller indices must be written as &lt;uvw&gt;.</skos:definition>
         <skos:example xml:lang="en">&lt;110&gt; set of directions</skos:example>

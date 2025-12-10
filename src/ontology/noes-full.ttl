@@ -5456,11 +5456,11 @@ Has part grain growth and recovery."""@en ;
 <https://w3id.org/pmd/noes/NOES_0000075> rdf:type owl:Class ;
                                          rdfs:subClassOf co:PMD_0000501 ,
                                                          [ rdf:type owl:Restriction ;
-                                                           owl:onProperty obo:OBI_0001927 ;
+                                                           owl:onProperty obo:IAO_0000418 ;
                                                            owl:allValuesFrom [ owl:intersectionOf ( <https://w3id.org/pmd/noes/NOES_0000042>
                                                                                                     [ rdf:type owl:Restriction ;
                                                                                                       owl:onProperty obo:RO_0000080 ;
-                                                                                                      owl:someValuesFrom co:PMD_0000663
+                                                                                                      owl:allValuesFrom co:PMD_0000663
                                                                                                     ]
                                                                                                   ) ;
                                                                                rdf:type owl:Class
@@ -5480,7 +5480,16 @@ Has part grain growth and recovery."""@en ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000080
 <https://w3id.org/pmd/noes/NOES_0000080> rdf:type owl:Class ;
-                                         rdfs:subClassOf co:PMD_0000501 ;
+                                         rdfs:subClassOf co:PMD_0000501 ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:IAO_0000219 ;
+                                                           owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                               owl:unionOf ( <https://w3id.org/pmd/noes/NOES_0000000>
+                                                                                             <https://w3id.org/pmd/noes/NOES_0000074>
+                                                                                           )
+                                                                             ]
+                                                         ] ;
+                                         rdfs:comment "TODO: the coordinate of a single atom in the axiom??"@en ;
                                          rdfs:label "Miller indices"@en ;
                                          skos:definition "In crystallography Miller indices is a notation of lattice planes, directions, and points within a crystal lattice, i.e., in respect to the crystal's coordinate system."@en .
 
@@ -5488,6 +5497,7 @@ Has part grain growth and recovery."""@en ;
 ###  https://w3id.org/pmd/noes/NOES_0000081
 <https://w3id.org/pmd/noes/NOES_0000081> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ;
+                                         rdfs:comment "TODO: Think what is actually a poinr, does it characterize atom sitting somewhere?"@en ;
                                          rdfs:label "point Miller indices"@en ;
                                          skos:definition "Point Miller indices define the coordinates of a point within a unit cell of a crystal. Point Miller indices must be given in round brackets separated by commas, e.g., (x, y, z)."@en ;
                                          skos:example "(1, 0, 0) point"@en .
@@ -5495,7 +5505,15 @@ Has part grain growth and recovery."""@en ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000082
 <https://w3id.org/pmd/noes/NOES_0000082> rdf:type owl:Class ;
-                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:IAO_0000219 ;
+                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000074>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:OBI_0001938 ;
+                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000069>
+                                                         ] ;
                                          rdfs:label "plane Miller indices"@en ;
                                          skos:example "(110) plane"@en ,
                                                       """Plane Miller indices define the reciprocals of the fractional intercepts the plane makes with the crystallographic axes, reduced to the lowest set of integers. 
@@ -5505,7 +5523,16 @@ Plane Miller indices must be written in round brackets, e.g., (hkl)."""@en .
 
 ###  https://w3id.org/pmd/noes/NOES_0000083
 <https://w3id.org/pmd/noes/NOES_0000083> rdf:type owl:Class ;
-                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:IAO_0000219 ;
+                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000074>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:OBI_0001938 ;
+                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000069>
+                                                         ] ;
+                                         rdfs:comment "TODO: crystallographic plane specification vs vector specification??"@en ;
                                          rdfs:label "set of planes Miller indices"@en ;
                                          skos:definition "Set of planes Miller indices define set of symmetrically equivalent planes. Set of planes must be written in curly brackets, e.g., {hkl}."@en ,
                                                          "{111} set of planes"@en .
@@ -5513,7 +5540,15 @@ Plane Miller indices must be written in round brackets, e.g., (hkl)."""@en .
 
 ###  https://w3id.org/pmd/noes/NOES_0000084
 <https://w3id.org/pmd/noes/NOES_0000084> rdf:type owl:Class ;
-                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:IAO_0000219 ;
+                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000000>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:OBI_0001938 ;
+                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000065>
+                                                         ] ;
                                          rdfs:label "direction Miller indices"@en ;
                                          skos:definition "Direction Miller indices define the components of a sinlge vector in the given direction in a crystal's unit cell. Usually, direction Miller indices are reduced to the lowest set of integers. direction Miller indices must be written in square brackets, e.g., [uvw]."@en ;
                                          skos:example "[111] direction"@en .
@@ -5521,7 +5556,15 @@ Plane Miller indices must be written in round brackets, e.g., (hkl)."""@en .
 
 ###  https://w3id.org/pmd/noes/NOES_0000085
 <https://w3id.org/pmd/noes/NOES_0000085> rdf:type owl:Class ;
-                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:IAO_0000219 ;
+                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000000>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:OBI_0001938 ;
+                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000065>
+                                                         ] ;
                                          rdfs:label "set of directions Miller indices"@en ;
                                          skos:definition "Set of directions Miller indices define the components of symmetrically equivalent directions in a crystal's unit cell. Set of directions Miller indices must be written as <uvw>."@en ;
                                          skos:example "<110> set of directions"@en .
