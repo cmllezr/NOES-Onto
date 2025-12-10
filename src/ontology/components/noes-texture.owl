@@ -1568,6 +1568,17 @@ granularity. At these coarser levels, the individual molecules cannot be differe
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000501 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000501">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:label xml:lang="en">1D</rdfs:label>
+        <skos:definition xml:lang="en">1-D is an information content entity representing a one-dimensional structure or model representing a single linear dimension, often used in material science simulations or analysis.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000502 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000502">
@@ -2229,6 +2240,121 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:comment xml:lang="en">Crystallographic plane specification is a value specification which contains the exact type of a crystallographic plane (hkl) of family of planes {hkl}.</rdfs:comment>
         <rdfs:label xml:lang="en">crystallographic plane specification</rdfs:label>
         <skos:example xml:lang="en">(111) or {111}</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000074 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000074">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000009"/>
+        <rdfs:label xml:lang="en">crystallographic plane</rdfs:label>
+        <skos:definition xml:lang="en">Crystallographic plane is a an atomic plane within a crystal lattice defined by its orientation relative to the crystal axes. The orientation is specified by the set of Miller indices (hkl) for a single plane, and {hkl} for a set of equivalent planes.</skos:definition>
+        <skos:example xml:lang="en">(111) plane, {110} set of planes</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000075 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000075">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000501"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001927"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000042"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Euler angles</rdfs:label>
+        <skos:definition xml:lang="en">In crystallography Euler angles are three angles which describe orientation of a sinlge crystal in respect to the sample&apos;s coordinate system. By aligning coordinate system of every crystal in the sample to the sample&apos;s coordinate system, anisotropy of material&apos;s properties can be investigated.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000079 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000079">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000075"/>
+        <rdfs:label xml:lang="en">Bunge Euler angles</rdfs:label>
+        <rdfs:seeAlso>https://mtex-toolbox.github.io/RotationDefinition.html</rdfs:seeAlso>
+        <skos:definition xml:lang="en">Bunge Euler angles define the Euler angles according to the Bunge notations, which define the three subsequent rotations about fixed axes, namely ZXZ, i.e., the first rotation is around the z axis, second around the x axis and third again around the z.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000080 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000080">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000501"/>
+        <rdfs:label xml:lang="en">Miller indices</rdfs:label>
+        <skos:definition xml:lang="en">In crystallography Miller indices is a notation of lattice planes, directions, and points within a crystal lattice, i.e., in respect to the crystal&apos;s coordinate system.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000081 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000081">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:label xml:lang="en">point Miller indices</rdfs:label>
+        <skos:definition xml:lang="en">Point Miller indices define the coordinates of a point within a unit cell of a crystal. Point Miller indices must be given in round brackets separated by commas, e.g., (x, y, z).</skos:definition>
+        <skos:example xml:lang="en">(1, 0, 0) point</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000082 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000082">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:label xml:lang="en">plane Miller indices</rdfs:label>
+        <skos:example xml:lang="en">(110) plane</skos:example>
+        <skos:example xml:lang="en">Plane Miller indices define the reciprocals of the fractional intercepts the plane makes with the crystallographic axes, reduced to the lowest set of integers. 
+For example, if a plane crosses [100] axis at 1/h, [010 ] axis at 1/k, and [001] axis at 1/l, then such plane is denoted as (hkl) plane. If a plane is parallel to one of the axes, then the corresponding Miller index is 0.
+Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000083 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000083">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:label xml:lang="en">set of planes Miller indices</rdfs:label>
+        <skos:definition xml:lang="en">Set of planes Miller indices define set of symmetrically equivalent planes. Set of planes must be written in curly brackets, e.g., {hkl}.</skos:definition>
+        <skos:definition xml:lang="en">{111} set of planes</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000084 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000084">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:label xml:lang="en">direction Miller indices</rdfs:label>
+        <skos:definition xml:lang="en">Direction Miller indices define the components of a sinlge vector in the given direction in a crystal&apos;s unit cell. Usually, direction Miller indices are reduced to the lowest set of integers. direction Miller indices must be written in square brackets, e.g., [uvw].</skos:definition>
+        <skos:example xml:lang="en">[111] direction</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000085 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000085">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:label xml:lang="en">set of directions Miller indices</rdfs:label>
+        <skos:definition xml:lang="en">Set of directions Miller indices define the components of symmetrically equivalent directions in a crystal&apos;s unit cell. Set of directions Miller indices must be written as &lt;uvw&gt;.</skos:definition>
+        <skos:example xml:lang="en">&lt;110&gt; set of directions</skos:example>
     </owl:Class>
     
 
