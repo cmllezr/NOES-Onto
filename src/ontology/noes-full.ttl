@@ -5399,22 +5399,6 @@ Has part grain growth and recovery."""@en ;
                                          rdfs:label "reversible permeability"@en .
 
 
-###  https://w3id.org/pmd/noes/NOES_0000065
-<https://w3id.org/pmd/noes/NOES_0000065> rdf:type owl:Class ;
-                                         rdfs:subClassOf obo:OBI_0001930 ;
-                                         rdfs:comment "Crystallographic direction specification is a value specification which contains the exact type of a crystallographic direction [uwv] of family of directions <uwv>."@en ;
-                                         rdfs:label "crystallographic direction specification"@en ;
-                                         skos:example "[111] or <111>"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000069
-<https://w3id.org/pmd/noes/NOES_0000069> rdf:type owl:Class ;
-                                         rdfs:subClassOf obo:OBI_0001930 ;
-                                         rdfs:comment "Crystallographic plane specification is a value specification which contains the exact type of a crystallographic plane (hkl) of family of planes {hkl}."@en ;
-                                         rdfs:label "crystallographic plane specification"@en ;
-                                         skos:example "(111) or {111}"@en .
-
-
 ###  https://w3id.org/pmd/noes/NOES_0000072
 <https://w3id.org/pmd/noes/NOES_0000072> rdf:type owl:Class ;
                                          rdfs:subClassOf co:PMD_0000583 ;
@@ -5507,12 +5491,17 @@ Has part grain growth and recovery."""@en ;
 <https://w3id.org/pmd/noes/NOES_0000082> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ,
                                                          [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:OBI_0001938 ;
+                                                           owl:someValuesFrom obo:OBI_0001933
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:IAO_0000219 ;
                                                            owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000074>
                                                          ] ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:OBI_0001938 ;
-                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000069>
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass obo:OBI_0001933
                                                          ] ;
                                          rdfs:label "plane Miller indices"@en ;
                                          skos:example "(110) plane"@en ,
@@ -5525,12 +5514,17 @@ Plane Miller indices must be written in round brackets, e.g., (hkl)."""@en .
 <https://w3id.org/pmd/noes/NOES_0000083> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ,
                                                          [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:OBI_0001938 ;
+                                                           owl:someValuesFrom obo:OBI_0001933
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:IAO_0000219 ;
                                                            owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000074>
                                                          ] ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:OBI_0001938 ;
-                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000069>
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass obo:OBI_0001933
                                                          ] ;
                                          rdfs:comment "TODO: crystallographic plane specification vs vector specification??"@en ;
                                          rdfs:label "set of planes Miller indices"@en ;
@@ -5542,12 +5536,17 @@ Plane Miller indices must be written in round brackets, e.g., (hkl)."""@en .
 <https://w3id.org/pmd/noes/NOES_0000084> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ,
                                                          [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:OBI_0001938 ;
+                                                           owl:someValuesFrom obo:OBI_0001933
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:IAO_0000219 ;
                                                            owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000000>
                                                          ] ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:OBI_0001938 ;
-                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000065>
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass obo:OBI_0001933
                                                          ] ;
                                          rdfs:label "direction Miller indices"@en ;
                                          skos:definition "Direction Miller indices define the components of a sinlge vector in the given direction in a crystal's unit cell. Usually, direction Miller indices are reduced to the lowest set of integers. direction Miller indices must be written in square brackets, e.g., [uvw]."@en ;
@@ -5558,12 +5557,17 @@ Plane Miller indices must be written in round brackets, e.g., (hkl)."""@en .
 <https://w3id.org/pmd/noes/NOES_0000085> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000080> ,
                                                          [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:OBI_0001938 ;
+                                                           owl:someValuesFrom obo:OBI_0001933
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:IAO_0000219 ;
                                                            owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000000>
                                                          ] ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:OBI_0001938 ;
-                                                           owl:allValuesFrom <https://w3id.org/pmd/noes/NOES_0000065>
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass obo:OBI_0001933
                                                          ] ;
                                          rdfs:label "set of directions Miller indices"@en ;
                                          skos:definition "Set of directions Miller indices define the components of symmetrically equivalent directions in a crystal's unit cell. Set of directions Miller indices must be written as <uvw>."@en ;
@@ -6113,32 +6117,32 @@ co:PMD_0020125 rdf:type owl:NamedIndividual ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000070
 <https://w3id.org/pmd/noes/NOES_0000070> rdf:type owl:NamedIndividual ,
-                                                  <https://w3id.org/pmd/noes/NOES_0000069> ;
-                                         rdfs:label "{001} planes"@en .
+                                                  obo:OBI_0001933 ;
+                                         rdfs:label "{001}"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000071
 <https://w3id.org/pmd/noes/NOES_0000071> rdf:type owl:NamedIndividual ,
-                                                  <https://w3id.org/pmd/noes/NOES_0000069> ;
-                                         rdfs:label "{110} planes"@en .
+                                                  obo:OBI_0001933 ;
+                                         rdfs:label "{110}"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000076
 <https://w3id.org/pmd/noes/NOES_0000076> rdf:type owl:NamedIndividual ,
-                                                  <https://w3id.org/pmd/noes/NOES_0000065> ;
-                                         rdfs:label "<001> directions"@en .
+                                                  obo:OBI_0001933 ;
+                                         rdfs:label "<001>"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000077
 <https://w3id.org/pmd/noes/NOES_0000077> rdf:type owl:NamedIndividual ,
-                                                  <https://w3id.org/pmd/noes/NOES_0000065> ;
-                                         rdfs:label "<111> directions"@en .
+                                                  obo:OBI_0001933 ;
+                                         rdfs:label "<111>"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000078
 <https://w3id.org/pmd/noes/NOES_0000078> rdf:type owl:NamedIndividual ,
-                                                  <https://w3id.org/pmd/noes/NOES_0000065> ;
-                                         rdfs:label "<110> directions"@en .
+                                                  obo:OBI_0001933 ;
+                                         rdfs:label "<110>"@en .
 
 
 #################################################################

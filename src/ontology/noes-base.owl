@@ -5753,28 +5753,6 @@ Has part grain growth and recovery.</rdfs:comment>
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000065 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000065">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
-        <rdfs:comment xml:lang="en">Crystallographic direction specification is a value specification which contains the exact type of a crystallographic direction [uwv] of family of directions &lt;uwv&gt;.</rdfs:comment>
-        <rdfs:label xml:lang="en">crystallographic direction specification</rdfs:label>
-        <skos:example xml:lang="en">[111] or &lt;111&gt;</skos:example>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000069 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000069">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
-        <rdfs:comment xml:lang="en">Crystallographic plane specification is a value specification which contains the exact type of a crystallographic plane (hkl) of family of planes {hkl}.</rdfs:comment>
-        <rdfs:label xml:lang="en">crystallographic plane specification</rdfs:label>
-        <skos:example xml:lang="en">(111) or {111}</skos:example>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/noes/NOES_0000072 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000072">
@@ -5914,7 +5892,8 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">plane Miller indices</rdfs:label>
@@ -5939,7 +5918,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">TODO: crystallographic plane specification vs vector specification??</rdfs:comment>
@@ -5963,7 +5943,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">direction Miller indices</rdfs:label>
@@ -5986,7 +5967,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">set of directions Miller indices</rdfs:label>
@@ -6591,8 +6573,8 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000070 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000070">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
-        <rdfs:label xml:lang="en">{001} planes</rdfs:label>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label xml:lang="en">{001}</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6600,8 +6582,8 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000071 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000071">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
-        <rdfs:label xml:lang="en">{110} planes</rdfs:label>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label xml:lang="en">{110}</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6609,8 +6591,8 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000076 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000076">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
-        <rdfs:label xml:lang="en">&lt;001&gt; directions</rdfs:label>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label xml:lang="en">&lt;001&gt;</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6618,8 +6600,8 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000077 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000077">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
-        <rdfs:label xml:lang="en">&lt;111&gt; directions</rdfs:label>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label xml:lang="en">&lt;111&gt;</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6627,8 +6609,8 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000078 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000078">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
-        <rdfs:label xml:lang="en">&lt;110&gt; directions</rdfs:label>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label xml:lang="en">&lt;110&gt;</rdfs:label>
     </owl:NamedIndividual>
     
 
