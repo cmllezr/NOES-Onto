@@ -209,11 +209,6 @@ g denotes r =def
 r is a portion of reality
 there is some c that is a concretization of g 
 every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
-        <obo:IAO_0000116 xml:lang="en">2009-11-10 Alan Ruttenberg. Old definition said the following to emphasize the generic nature of this relation. We no longer have &apos;specifically denotes&apos;, which would have been primitive, so make this relation primitive.
-g denotes r =def 
-r is a portion of reality
-there is some c that is a concretization of g 
-every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
         <obo:IAO_0000119 xml:lang="en">Conversations with Barry Smith, Werner Ceusters, Bjoern Peters, Michel Dumontier, Melanie Courtot, James Malone, Bill Hogan</obo:IAO_0000119>
         <rdfs:label xml:lang="en">denotes</rdfs:label>
     </owl:ObjectProperty>
@@ -2321,28 +2316,6 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000065 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000065">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
-        <rdfs:comment xml:lang="en">Crystallographic direction specification is a value specification which contains the exact type of a crystallographic direction [uwv] of family of directions &lt;uwv&gt;.</rdfs:comment>
-        <rdfs:label xml:lang="en">crystallographic direction specification</rdfs:label>
-        <skos:example xml:lang="en">[111] or &lt;111&gt;</skos:example>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000069 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000069">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
-        <rdfs:comment xml:lang="en">Crystallographic plane specification is a value specification which contains the exact type of a crystallographic plane (hkl) of family of planes {hkl}.</rdfs:comment>
-        <rdfs:label xml:lang="en">crystallographic plane specification</rdfs:label>
-        <skos:example xml:lang="en">(111) or {111}</skos:example>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/noes/NOES_0000074 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000074">
@@ -2440,7 +2413,8 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">plane Miller indices</rdfs:label>
@@ -2465,7 +2439,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">TODO: crystallographic plane specification vs vector specification??</rdfs:comment>
@@ -2489,7 +2464,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">direction Miller indices</rdfs:label>
@@ -2512,7 +2488,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">set of directions Miller indices</rdfs:label>
@@ -2633,8 +2610,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
     <!-- https://w3id.org/pmd/noes/NOES_0000070 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000070">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
-        <rdfs:label xml:lang="en">{001} planes</rdfs:label>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label xml:lang="en">{001}</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2642,8 +2619,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
     <!-- https://w3id.org/pmd/noes/NOES_0000071 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000071">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000069"/>
-        <rdfs:label xml:lang="en">{110} planes</rdfs:label>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label xml:lang="en">{110}</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2651,8 +2628,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
     <!-- https://w3id.org/pmd/noes/NOES_0000076 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000076">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
-        <rdfs:label xml:lang="en">&lt;001&gt; directions</rdfs:label>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label xml:lang="en">&lt;001&gt;</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2660,8 +2637,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
     <!-- https://w3id.org/pmd/noes/NOES_0000077 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000077">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
-        <rdfs:label xml:lang="en">&lt;111&gt; directions</rdfs:label>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label xml:lang="en">&lt;111&gt;</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2669,8 +2646,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
     <!-- https://w3id.org/pmd/noes/NOES_0000078 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000078">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000065"/>
-        <rdfs:label xml:lang="en">&lt;110&gt; directions</rdfs:label>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label xml:lang="en">&lt;110&gt;</rdfs:label>
     </owl:NamedIndividual>
     
 
