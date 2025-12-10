@@ -334,6 +334,9 @@ Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0025999>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/noes/NOES_0000066>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/noes/NOES_0000067>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/noes/NOES_0000068>))
+Declaration(DataProperty(<http://purl.obolibrary.org/obo/OBI_0001937>))
+Declaration(DataProperty(<http://purl.obolibrary.org/obo/OBI_0002135>))
+Declaration(DataProperty(<https://w3id.org/pmd/co/PMD_0000006>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020006>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020007>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020008>))
@@ -992,6 +995,34 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000068> "normal 
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/noes/NOES_0000068> "Normal to is a object property which describes geometric relation between two spatial regions which are normal to each other"@en)
 SubObjectPropertyOf(<https://w3id.org/pmd/noes/NOES_0000068> <https://w3id.org/pmd/noes/NOES_0000066>)
 SymmetricObjectProperty(<https://w3id.org/pmd/noes/NOES_0000068>)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://purl.obolibrary.org/obo/OBI_0001937> (has specified numeric value)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/OBI_0001937> "A relation between a value specification and a number that quantifies it."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/OBI_0001937> "A range of 'real' might be better than 'float'. For now we follow 'has measurement value' until we can consider technical issues with SPARQL queries and reasoning.")
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <http://purl.obolibrary.org/obo/OBI_0001937> "OBI")
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/OBI_0001937> "has specified numeric value")
+SubDataPropertyOf(<http://purl.obolibrary.org/obo/OBI_0001937> <http://purl.obolibrary.org/obo/OBI_0002135>)
+DataPropertyDomain(<http://purl.obolibrary.org/obo/OBI_0001937> <http://purl.obolibrary.org/obo/OBI_0001933>)
+
+# Data Property: <http://purl.obolibrary.org/obo/OBI_0002135> (has specified value)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/OBI_0002135> "A relation between a value specification and a literal."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/OBI_0002135> "This is not an RDF/OWL object property. It is intended to link a value found in e.g. a database column of 'M' (the literal) to an instance of a value specification class, which can then be linked to indicate that this is about the biological gender of a human subject.")
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <http://purl.obolibrary.org/obo/OBI_0002135> "OBI")
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/OBI_0002135> "has specified value"@en)
+DataPropertyDomain(<http://purl.obolibrary.org/obo/OBI_0002135> <http://purl.obolibrary.org/obo/OBI_0001933>)
+
+# Data Property: <https://w3id.org/pmd/co/PMD_0000006> (has value)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000006> "has value"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000006> "data property that relates an information content entity to a literal"@en)
+DataPropertyDomain(<https://w3id.org/pmd/co/PMD_0000006> <http://purl.obolibrary.org/obo/IAO_0000030>)
 
 
 
@@ -2731,7 +2762,7 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000024> "strip-c
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000024> "Strip-casting is a primary shaping from fluid state process for metals and alloys. During Strip-casting the melt flows between two rolls resulting in the strip."@en)
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000024> <https://w3id.org/pmd/co/PMD_0000906>)
 
-# Class: <https://w3id.org/pmd/noes/NOES_0000025> (forging)
+# Class: <https://w3id.org/pmd/noes/NOES_0000025> (Schmieden)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000025> "Schmieden"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000025> "forging"@en)
@@ -2937,12 +2968,14 @@ SubClassOf(<https://w3id.org/pmd/noes/NOES_0000064> <https://w3id.org/pmd/noes/N
 # Class: <https://w3id.org/pmd/noes/NOES_0000065> (magnetic power loss at 1.5 T / 50 Hz)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000065> "magnetic power loss at 1.5 T / 50 Hz"@en)
+EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000065> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0009007> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000070> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000009> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000008> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "50"^^xsd:integer))))) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000009> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000008> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0020127> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000051> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "1.5"^^xsd:decimal))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000065> <https://w3id.org/pmd/noes/NOES_0000057>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000069> (magnetic power loss at 1.0 T / 400 Hz)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000069> "magnetic power loss at 1.0 T / 400 Hz"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000069> "Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field"@en)
+EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000069> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0009007> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0000070> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000009> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000008> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "400"^^xsd:integer))))) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000009> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000008> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0020127> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000051> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "1.0"^^xsd:decimal))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000069> <https://w3id.org/pmd/noes/NOES_0000057>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000072> (analytical calculation)
@@ -3077,7 +3110,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<https://w3id.org/pmd/co/definitionSource> <https://w3id.org/pmd/tto/TTO_0000012> <https://www.merriam-webster.com/dictionary/cross%20section>)
 SubClassOf(<https://w3id.org/pmd/tto/TTO_0000012> <https://w3id.org/pmd/co/PMD_0020199>)
 
-# Class: <https://w3id.org/pmd/tto/TTO_0000017> (Extensometer-Messlänge)
+# Class: <https://w3id.org/pmd/tto/TTO_0000017> (extensometer gauge length)
 
 AnnotationAssertion(rdfs:isDefinedBy <https://w3id.org/pmd/tto/TTO_0000017> <https://w3id.org/pmd/tto>)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/tto/TTO_0000017> "Extensometer-Messlänge"@de)

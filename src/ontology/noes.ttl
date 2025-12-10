@@ -11,6 +11,7 @@
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
 @base <https://w3id.org/pmd/noes.ttl> .
 
 <https://w3id.org/pmd/noes.ttl> rdf:type owl:Ontology ;
@@ -77,6 +78,10 @@ dcterms:source rdf:type owl:AnnotationProperty .
 ###  http://purl.org/dc/terms/title
 dcterms:title rdf:type owl:AnnotationProperty ;
               rdfs:label "title" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+oboInOwl:hasExactSynonym rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#altLabel
@@ -1698,6 +1703,20 @@ obo:CHEBI_60003 rdf:type owl:Class ;
                 co:PMD_0000060 "true"^^xsd:boolean .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000003
+obo:IAO_0000003 rdf:type owl:Class ;
+                rdfs:subClassOf obo:IAO_0000009 ;
+                obo:IAO_0000112 "Examples of measurement unit labels are liters, inches, weight per volume."@en ;
+                obo:IAO_0000115 "A measurement unit label is as a label that is part of a scalar measurement datum and denotes a unit of measure."@en ;
+                obo:IAO_0000116 """2009-03-16: provenance: a term measurement unit was
+proposed for OBI (OBI_0000176) , edited by Chris Stoeckert and
+Cristian Cocos, and subsequently moved to IAO where the objective for
+which the original term was defined was satisfied with the definition
+of this, different, term."""@en ,
+                                "2009-03-16: review of this term done during during the OBI workshop winter 2009 and the current definition was considered acceptable for use in OBI. If there is a need to modify this definition please notify OBI."@en ;
+                rdfs:label "measurement unit label"@en .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0000005
 obo:IAO_0000005 rdf:type owl:Class ;
                 rdfs:subClassOf obo:IAO_0000033 ;
@@ -1718,6 +1737,14 @@ obo:IAO_0000007 rdf:type owl:Class ;
                 obo:IAO_0000115 "A directive information entity that describes an action the bearer will take."@en ;
                 obo:IAO_0000119 "OBI Plan and Planned Process branch"@en ;
                 rdfs:label "action specification"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000009
+obo:IAO_0000009 rdf:type owl:Class ;
+                rdfs:subClassOf obo:IAO_0000030 ;
+                obo:IAO_0000115 "A label is a symbol that is part of some other datum and is used to either partially define  the denotation of that datum or to provide a means for identifying the datum as a member of the set of data with the same label"@en ;
+                obo:IAO_0000116 "http://www.golovchenko.org/cgi-bin/wnsearch?q=label#4n"@en ;
+                rdfs:label "datum label"@en .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000027
@@ -1983,6 +2010,49 @@ obo:OBI_0001933 rdf:type owl:Class ;
                 obo:IAO_0000115 "An information content entity that specifies a value within a classification scheme or on a quantitative scale."@en ;
                 obo:IAO_0000116 "This term is currently a descendant of 'information content entity', which requires that it 'is about' something. A value specification of '20g' for a measurement data item of the mass of a particular mouse 'is about' the mass of that mouse. However there are cases where a value specification is not clearly about any particular. In the future we may change 'value specification' to remove the 'is about' requirement." ;
                 rdfs:label "value specification" .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000000
+obo:UO_0000000 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
+               rdfs:comment "\"A unit of measurement is a standardized quantity of a physical quality.\" [Wikipedia:Wikipedia]" ;
+               rdfs:label "unit" .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000076
+obo:UO_0000076 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_1000076 ;
+               oboInOwl:hasExactSynonym "(x)" ,
+                                        "chi" ;
+               rdfs:comment "\"A concentration unit which denotes the number of moles of solute as a proportion of the total number of moles in a solution.\" [Wikipedia:Wikipedia]" ;
+               rdfs:label "mole fraction" .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000164
+obo:UO_0000164 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_1000164 ;
+               oboInOwl:hasExactSynonym "(w/v)" ,
+                                        "weight-volume percentage" ;
+               rdfs:comment "\"A dimensionless concentration unit which denotes the mass of the substance in a mixture as a percentage of the volume of the entire mixture.\" [UOC:GVG]" ;
+               rdfs:label "mass volume percentage" .
+
+
+###  http://purl.obolibrary.org/obo/UO_1000076
+obo:UO_1000076 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_0000000 ;
+               rdfs:label "mole fraction based unit" .
+
+
+###  http://purl.obolibrary.org/obo/UO_1000163
+obo:UO_1000163 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_0000000 ;
+               rdfs:label "mass percentage based unit" .
+
+
+###  http://purl.obolibrary.org/obo/UO_1000164
+obo:UO_1000164 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_0000000 ;
+               rdfs:label "mass volume percentage based unit" .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000000
@@ -5431,13 +5501,213 @@ Has part grain growth and recovery."""@en ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000065
 <https://w3id.org/pmd/noes/NOES_0000065> rdf:type owl:Class ;
-                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000057> ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000070
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty co:PMD_0000009 ;
+                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000008
+                                                                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
+                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0001931
+                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                                                                                   owl:onProperty obo:OBI_0001937 ;
+                                                                                                                                                                                                   owl:hasValue 50
+                                                                                                                                                                                                 ]
+                                                                                                                                                                                               ) ;
+                                                                                                                                                                            rdf:type owl:Class
+                                                                                                                                                                          ]
+                                                                                                                                                     ]
+                                                                                                                                                   ) ;
+                                                                                                                                rdf:type owl:Class
+                                                                                                                              ]
+                                                                                                         ]
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty co:PMD_0000009 ;
+                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000008
+                                                                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                                                                       owl:onProperty co:PMD_0020127 ;
+                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( <https://w3id.org/pmd/noes/NOES_0000051>
+                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
+                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0001931
+                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                                                                                                                                               owl:onProperty obo:OBI_0001937 ;
+                                                                                                                                                                                                                                               owl:hasValue 1.5
+                                                                                                                                                                                                                                             ]
+                                                                                                                                                                                                                                           ) ;
+                                                                                                                                                                                                                        rdf:type owl:Class
+                                                                                                                                                                                                                      ]
+                                                                                                                                                                                                 ]
+                                                                                                                                                                                               ) ;
+                                                                                                                                                                            rdf:type owl:Class
+                                                                                                                                                                          ]
+                                                                                                                                                     ]
+                                                                                                                                                   ) ;
+                                                                                                                                rdf:type owl:Class
+                                                                                                                              ]
+                                                                                                         ]
+                                                                                                       ) ;
+                                                                                    rdf:type owl:Class
+                                                                                  ]
+                                                             ] ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000057> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0009007 ;
+                                                           owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000070
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty co:PMD_0000009 ;
+                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000008
+                                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
+                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0001931
+                                                                                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                                                                                               owl:onProperty obo:OBI_0001937 ;
+                                                                                                                                                                                               owl:hasValue 50
+                                                                                                                                                                                             ]
+                                                                                                                                                                                           ) ;
+                                                                                                                                                                        rdf:type owl:Class
+                                                                                                                                                                      ]
+                                                                                                                                                 ]
+                                                                                                                                               ) ;
+                                                                                                                            rdf:type owl:Class
+                                                                                                                          ]
+                                                                                                     ]
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty co:PMD_0000009 ;
+                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000008
+                                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                                   owl:onProperty co:PMD_0020127 ;
+                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( <https://w3id.org/pmd/noes/NOES_0000051>
+                                                                                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                                                                                               owl:onProperty co:PMD_0000077 ;
+                                                                                                                                                                                               owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0001931
+                                                                                                                                                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                                                                                                                                                           owl:onProperty obo:OBI_0001937 ;
+                                                                                                                                                                                                                                           owl:hasValue 1.5
+                                                                                                                                                                                                                                         ]
+                                                                                                                                                                                                                                       ) ;
+                                                                                                                                                                                                                    rdf:type owl:Class
+                                                                                                                                                                                                                  ]
+                                                                                                                                                                                             ]
+                                                                                                                                                                                           ) ;
+                                                                                                                                                                        rdf:type owl:Class
+                                                                                                                                                                      ]
+                                                                                                                                                 ]
+                                                                                                                                               ) ;
+                                                                                                                            rdf:type owl:Class
+                                                                                                                          ]
+                                                                                                     ]
+                                                                                                   ) ;
+                                                                                rdf:type owl:Class
+                                                                              ]
+                                                         ] ;
                                          rdfs:label "magnetic power loss at 1.5 T / 50 Hz"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000069
 <https://w3id.org/pmd/noes/NOES_0000069> rdf:type owl:Class ;
-                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000057> ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000070
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty co:PMD_0000009 ;
+                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000008
+                                                                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
+                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0001931
+                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                                                                                   owl:onProperty obo:OBI_0001937 ;
+                                                                                                                                                                                                   owl:hasValue 400
+                                                                                                                                                                                                 ]
+                                                                                                                                                                                               ) ;
+                                                                                                                                                                            rdf:type owl:Class
+                                                                                                                                                                          ]
+                                                                                                                                                     ]
+                                                                                                                                                   ) ;
+                                                                                                                                rdf:type owl:Class
+                                                                                                                              ]
+                                                                                                         ]
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty co:PMD_0000009 ;
+                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000008
+                                                                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                                                                       owl:onProperty co:PMD_0020127 ;
+                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( <https://w3id.org/pmd/noes/NOES_0000051>
+                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
+                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0001931
+                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                                                                                                                                               owl:onProperty obo:OBI_0001937 ;
+                                                                                                                                                                                                                                               owl:hasValue 1.0
+                                                                                                                                                                                                                                             ]
+                                                                                                                                                                                                                                           ) ;
+                                                                                                                                                                                                                        rdf:type owl:Class
+                                                                                                                                                                                                                      ]
+                                                                                                                                                                                                 ]
+                                                                                                                                                                                               ) ;
+                                                                                                                                                                            rdf:type owl:Class
+                                                                                                                                                                          ]
+                                                                                                                                                     ]
+                                                                                                                                                   ) ;
+                                                                                                                                rdf:type owl:Class
+                                                                                                                              ]
+                                                                                                         ]
+                                                                                                       ) ;
+                                                                                    rdf:type owl:Class
+                                                                                  ]
+                                                             ] ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000057> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0009007 ;
+                                                           owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000070
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty co:PMD_0000009 ;
+                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000008
+                                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
+                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0001931
+                                                                                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                                                                                               owl:onProperty obo:OBI_0001937 ;
+                                                                                                                                                                                               owl:hasValue 400
+                                                                                                                                                                                             ]
+                                                                                                                                                                                           ) ;
+                                                                                                                                                                        rdf:type owl:Class
+                                                                                                                                                                      ]
+                                                                                                                                                 ]
+                                                                                                                                               ) ;
+                                                                                                                            rdf:type owl:Class
+                                                                                                                          ]
+                                                                                                     ]
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty co:PMD_0000009 ;
+                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000008
+                                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                                   owl:onProperty co:PMD_0020127 ;
+                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( <https://w3id.org/pmd/noes/NOES_0000051>
+                                                                                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                                                                                               owl:onProperty co:PMD_0000077 ;
+                                                                                                                                                                                               owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0001931
+                                                                                                                                                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                                                                                                                                                           owl:onProperty obo:OBI_0001937 ;
+                                                                                                                                                                                                                                           owl:hasValue 1.0
+                                                                                                                                                                                                                                         ]
+                                                                                                                                                                                                                                       ) ;
+                                                                                                                                                                                                                    rdf:type owl:Class
+                                                                                                                                                                                                                  ]
+                                                                                                                                                                                             ]
+                                                                                                                                                                                           ) ;
+                                                                                                                                                                        rdf:type owl:Class
+                                                                                                                                                                      ]
+                                                                                                                                                 ]
+                                                                                                                                               ) ;
+                                                                                                                            rdf:type owl:Class
+                                                                                                                          ]
+                                                                                                     ]
+                                                                                                   ) ;
+                                                                                rdf:type owl:Class
+                                                                              ]
+                                                         ] ;
                                          rdfs:label "magnetic power loss at 1.0 T / 400 Hz"@en ;
                                          skos:definition "Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field"@en .
 
