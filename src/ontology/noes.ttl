@@ -844,6 +844,36 @@ RO's 'quality of' is functional i.e., a->b, a->c => b=c. The functionality is re
 
 
 #################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/OBI_0001937
+obo:OBI_0001937 rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf obo:OBI_0002135 ;
+                rdfs:domain obo:OBI_0001933 ;
+                obo:IAO_0000115 "A relation between a value specification and a number that quantifies it."@en ;
+                obo:IAO_0000116 "A range of 'real' might be better than 'float'. For now we follow 'has measurement value' until we can consider technical issues with SPARQL queries and reasoning." ;
+                obo:IAO_0000119 "OBI" ;
+                rdfs:label "has specified numeric value" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0002135
+obo:OBI_0002135 rdf:type owl:DatatypeProperty ;
+                rdfs:domain obo:OBI_0001933 ;
+                obo:IAO_0000115 "A relation between a value specification and a literal."@en ;
+                obo:IAO_0000116 "This is not an RDF/OWL object property. It is intended to link a value found in e.g. a database column of 'M' (the literal) to an instance of a value specification class, which can then be linked to indicate that this is about the biological gender of a human subject." ;
+                obo:IAO_0000119 "OBI" ;
+                rdfs:label "has specified value"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000006
+co:PMD_0000006 rdf:type owl:DatatypeProperty ;
+               rdfs:domain obo:IAO_0000030 ;
+               rdfs:label "has value"@en ;
+               skos:definition "data property that relates an information content entity to a literal"@en .
+
+
+#################################################################
 #    Classes
 #################################################################
 
@@ -5397,6 +5427,19 @@ Has part grain growth and recovery."""@en ;
 <https://w3id.org/pmd/noes/NOES_0000064> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000052> ;
                                          rdfs:label "reversible permeability"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000065
+<https://w3id.org/pmd/noes/NOES_0000065> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000057> ;
+                                         rdfs:label "magnetic power loss at 1.5 T / 50 Hz"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000069
+<https://w3id.org/pmd/noes/NOES_0000069> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/noes/NOES_0000057> ;
+                                         rdfs:label "magnetic power loss at 1.0 T / 400 Hz"@en ;
+                                         skos:definition "Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000072

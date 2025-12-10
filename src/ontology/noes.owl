@@ -1135,6 +1135,52 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0001937 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0001937">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0002135"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <obo:IAO_0000115 xml:lang="en">A relation between a value specification and a number that quantifies it.</obo:IAO_0000115>
+        <obo:IAO_0000116>A range of &apos;real&apos; might be better than &apos;float&apos;. For now we follow &apos;has measurement value&apos; until we can consider technical issues with SPARQL queries and reasoning.</obo:IAO_0000116>
+        <obo:IAO_0000119>OBI</obo:IAO_0000119>
+        <rdfs:label>has specified numeric value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0002135 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0002135">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <obo:IAO_0000115 xml:lang="en">A relation between a value specification and a literal.</obo:IAO_0000115>
+        <obo:IAO_0000116>This is not an RDF/OWL object property. It is intended to link a value found in e.g. a database column of &apos;M&apos; (the literal) to an instance of a value specification class, which can then be linked to indicate that this is about the biological gender of a human subject.</obo:IAO_0000116>
+        <obo:IAO_0000119>OBI</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">has specified value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000006 -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/pmd/co/PMD_0000006">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:label xml:lang="en">has value</rdfs:label>
+        <skos:definition xml:lang="en">data property that relates an information content entity to a literal</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -7373,6 +7419,25 @@ Has part grain growth and recovery.</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000064">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:label xml:lang="en">reversible permeability</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000065 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000065">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000057"/>
+        <rdfs:label xml:lang="en">magnetic power loss at 1.5 T / 50 Hz</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000069 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000069">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000057"/>
+        <rdfs:label xml:lang="en">magnetic power loss at 1.0 T / 400 Hz</rdfs:label>
+        <skos:definition xml:lang="en">Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field</skos:definition>
     </owl:Class>
     
 
