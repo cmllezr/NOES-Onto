@@ -54,7 +54,6 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
 	  extract --term-file $(IMPORTDIR)/pmdco_terms.txt \
 	          --force true \
 	          --copy-ontology-annotations true \
-	          --individuals exclude \
 	          --intermediates all \
 	          --method BOT \
 	  \
