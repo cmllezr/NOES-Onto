@@ -75,7 +75,7 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 	$(ROBOT) filter --input $(MIRRORDIR)/uo.owl \
 		--term-file $(IMPORTDIR)/uo_terms.txt \
 		--allow-punning true \
-		--select "annotations minimal-subset" \
+		--select "annotations self parents" \
 		$(ANNOTATE_CONVERT_FILE)
 
 #.PHONY: autoshapes
