@@ -23,21 +23,12 @@ Annotation(dcterms:description "None")
 Annotation(dcterms:license <https://creativecommons.org/licenses/unspecified>)
 Annotation(dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology")
 
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/crystal_directions_in_gamma_fiber>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/cube_component_directions>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/cube_component_grain_orientation>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/cube_component_planes>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/e_sheet>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/gamma_fiber_orientation>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/microstructure_e_sheet>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/miller_indices_cube_direction>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/miller_indices_cube_plane>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/miller_indices_of_direction_in_gamma_fiber>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/polycrystal_with_cube_component>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/polycrystals_with_gamma_fiber>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/sample_direction_ND>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/sample_rolling_direction>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/sample_rolling_plane>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes/crystal_directions_lambda_fiber>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes/esheet>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes/esheet_microstructure>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes/grain_orientation_gamma_texture>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes/grains_with_lambda_texture>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes/sheet_normal_direction>))
 Declaration(AnnotationProperty(dcterms:description))
 Declaration(AnnotationProperty(dcterms:license))
 Declaration(AnnotationProperty(dcterms:title))
@@ -65,88 +56,38 @@ AnnotationAssertion(rdfs:label dcterms:title "title")
 #   Named Individuals
 ############################
 
-# Individual: <https://w3id.org/pmd/noes/crystal_directions_in_gamma_fiber> (<https://w3id.org/pmd/noes/crystal_directions_in_gamma_fiber>)
+# Individual: <https://w3id.org/pmd/noes/crystal_directions_lambda_fiber> (<https://w3id.org/pmd/noes/crystal_directions_lambda_fiber>)
 
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000000> <https://w3id.org/pmd/noes/crystal_directions_in_gamma_fiber>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/crystal_directions_in_gamma_fiber> <https://w3id.org/pmd/noes/polycrystals_with_gamma_fiber>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/noes/crystal_directions_in_gamma_fiber> <https://w3id.org/pmd/noes/miller_indices_of_direction_in_gamma_fiber>)
-ObjectPropertyAssertion(<https://w3id.org/pmd/noes/NOES_0000067> <https://w3id.org/pmd/noes/crystal_directions_in_gamma_fiber> <https://w3id.org/pmd/noes/sample_direction_ND>)
+ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000000> <https://w3id.org/pmd/noes/crystal_directions_lambda_fiber>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/crystal_directions_lambda_fiber> <https://w3id.org/pmd/noes/grains_with_lambda_texture>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/noes/crystal_directions_lambda_fiber> <https://w3id.org/pmd/noes/NOES_0000089>)
 
-# Individual: <https://w3id.org/pmd/noes/cube_component_directions> (<https://w3id.org/pmd/noes/cube_component_directions>)
+# Individual: <https://w3id.org/pmd/noes/esheet> (<https://w3id.org/pmd/noes/esheet>)
 
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000000> <https://w3id.org/pmd/noes/cube_component_directions>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/noes/cube_component_directions> <https://w3id.org/pmd/noes/miller_indices_cube_direction>)
-ObjectPropertyAssertion(<https://w3id.org/pmd/noes/NOES_0000067> <https://w3id.org/pmd/noes/cube_component_directions> <https://w3id.org/pmd/noes/sample_rolling_direction>)
+ClassAssertion(<http://purl.obolibrary.org/obo/BFO_0000030> <https://w3id.org/pmd/noes/esheet>)
+ClassAssertion(<https://w3id.org/pmd/co/PMD_0020096> <https://w3id.org/pmd/noes/esheet>)
 
-# Individual: <https://w3id.org/pmd/noes/cube_component_grain_orientation> (<https://w3id.org/pmd/noes/cube_component_grain_orientation>)
+# Individual: <https://w3id.org/pmd/noes/esheet_microstructure> (<https://w3id.org/pmd/noes/esheet_microstructure>)
 
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000042> <https://w3id.org/pmd/noes/cube_component_grain_orientation>)
+ClassAssertion(<https://w3id.org/pmd/co/PMD_0000857> <https://w3id.org/pmd/noes/esheet_microstructure>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/esheet_microstructure> <https://w3id.org/pmd/noes/esheet>)
 
-# Individual: <https://w3id.org/pmd/noes/cube_component_planes> (<https://w3id.org/pmd/noes/cube_component_planes>)
+# Individual: <https://w3id.org/pmd/noes/grain_orientation_gamma_texture> (<https://w3id.org/pmd/noes/grain_orientation_gamma_texture>)
 
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000074> <https://w3id.org/pmd/noes/cube_component_planes>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/noes/cube_component_planes> <https://w3id.org/pmd/noes/miller_indices_cube_plane>)
-ObjectPropertyAssertion(<https://w3id.org/pmd/noes/NOES_0000067> <https://w3id.org/pmd/noes/cube_component_planes> <https://w3id.org/pmd/noes/sample_rolling_plane>)
+ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000042> <https://w3id.org/pmd/noes/grain_orientation_gamma_texture>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000080> <https://w3id.org/pmd/noes/grain_orientation_gamma_texture> <https://w3id.org/pmd/noes/grains_with_lambda_texture>)
 
-# Individual: <https://w3id.org/pmd/noes/e_sheet> (<https://w3id.org/pmd/noes/e_sheet>)
+# Individual: <https://w3id.org/pmd/noes/grains_with_lambda_texture> (<https://w3id.org/pmd/noes/grains_with_lambda_texture>)
 
-ClassAssertion(<http://purl.obolibrary.org/obo/BFO_0000030> <https://w3id.org/pmd/noes/e_sheet>)
-ClassAssertion(<https://w3id.org/pmd/co/PMD_0020096> <https://w3id.org/pmd/noes/e_sheet>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000051> <https://w3id.org/pmd/noes/e_sheet> <https://w3id.org/pmd/noes/microstructure_e_sheet>)
+ClassAssertion(<https://w3id.org/pmd/co/PMD_0020106> <https://w3id.org/pmd/noes/grains_with_lambda_texture>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/grains_with_lambda_texture> <https://w3id.org/pmd/noes/esheet_microstructure>)
 
-# Individual: <https://w3id.org/pmd/noes/gamma_fiber_orientation> (<https://w3id.org/pmd/noes/gamma_fiber_orientation>)
+# Individual: <https://w3id.org/pmd/noes/sheet_normal_direction> (<https://w3id.org/pmd/noes/sheet_normal_direction>)
 
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000042> <https://w3id.org/pmd/noes/gamma_fiber_orientation>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000080> <https://w3id.org/pmd/noes/gamma_fiber_orientation> <https://w3id.org/pmd/noes/polycrystals_with_gamma_fiber>)
-
-# Individual: <https://w3id.org/pmd/noes/microstructure_e_sheet> (<https://w3id.org/pmd/noes/microstructure_e_sheet>)
-
-ClassAssertion(<https://w3id.org/pmd/co/PMD_0000857> <https://w3id.org/pmd/noes/microstructure_e_sheet>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000051> <https://w3id.org/pmd/noes/microstructure_e_sheet> <https://w3id.org/pmd/noes/polycrystals_with_gamma_fiber>)
-
-# Individual: <https://w3id.org/pmd/noes/miller_indices_cube_direction> (<https://w3id.org/pmd/noes/miller_indices_cube_direction>)
-
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000085> <https://w3id.org/pmd/noes/miller_indices_cube_direction>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/OBI_0001938> <https://w3id.org/pmd/noes/miller_indices_cube_direction> <https://w3id.org/pmd/noes/NOES_0000076>)
-
-# Individual: <https://w3id.org/pmd/noes/miller_indices_cube_plane> (<https://w3id.org/pmd/noes/miller_indices_cube_plane>)
-
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000083> <https://w3id.org/pmd/noes/miller_indices_cube_plane>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/OBI_0001938> <https://w3id.org/pmd/noes/miller_indices_cube_plane> <https://w3id.org/pmd/noes/NOES_0000070>)
-
-# Individual: <https://w3id.org/pmd/noes/miller_indices_of_direction_in_gamma_fiber> (<https://w3id.org/pmd/noes/miller_indices_of_direction_in_gamma_fiber>)
-
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000085> <https://w3id.org/pmd/noes/miller_indices_of_direction_in_gamma_fiber>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/OBI_0001938> <https://w3id.org/pmd/noes/miller_indices_of_direction_in_gamma_fiber> <https://w3id.org/pmd/noes/NOES_0000077>)
-
-# Individual: <https://w3id.org/pmd/noes/polycrystal_with_cube_component> (<https://w3id.org/pmd/noes/polycrystal_with_cube_component>)
-
-ClassAssertion(<https://w3id.org/pmd/co/PMD_0020106> <https://w3id.org/pmd/noes/polycrystal_with_cube_component>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/polycrystal_with_cube_component> <https://w3id.org/pmd/noes/microstructure_e_sheet>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000051> <https://w3id.org/pmd/noes/polycrystal_with_cube_component> <https://w3id.org/pmd/noes/cube_component_directions>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000051> <https://w3id.org/pmd/noes/polycrystal_with_cube_component> <https://w3id.org/pmd/noes/cube_component_planes>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000086> <https://w3id.org/pmd/noes/polycrystal_with_cube_component> <https://w3id.org/pmd/noes/cube_component_grain_orientation>)
-
-# Individual: <https://w3id.org/pmd/noes/polycrystals_with_gamma_fiber> (<https://w3id.org/pmd/noes/polycrystals_with_gamma_fiber>)
-
-ClassAssertion(<https://w3id.org/pmd/co/PMD_0020106> <https://w3id.org/pmd/noes/polycrystals_with_gamma_fiber>)
-
-# Individual: <https://w3id.org/pmd/noes/sample_direction_ND> (<https://w3id.org/pmd/noes/sample_direction_ND>)
-
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000001> <https://w3id.org/pmd/noes/sample_direction_ND>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/sample_direction_ND> <https://w3id.org/pmd/noes/e_sheet>)
-ObjectPropertyAssertion(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/noes/sample_direction_ND> <https://w3id.org/pmd/noes/NOES_0000030>)
-
-# Individual: <https://w3id.org/pmd/noes/sample_rolling_direction> (<https://w3id.org/pmd/noes/sample_rolling_direction>)
-
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000001> <https://w3id.org/pmd/noes/sample_rolling_direction>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/sample_rolling_direction> <https://w3id.org/pmd/noes/e_sheet>)
-ObjectPropertyAssertion(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/noes/sample_rolling_direction> <https://w3id.org/pmd/noes/NOES_0000028>)
-
-# Individual: <https://w3id.org/pmd/noes/sample_rolling_plane> (<https://w3id.org/pmd/noes/sample_rolling_plane>)
-
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000094> <https://w3id.org/pmd/noes/sample_rolling_plane>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/sample_rolling_plane> <https://w3id.org/pmd/noes/e_sheet>)
+ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000001> <https://w3id.org/pmd/noes/sheet_normal_direction>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/sheet_normal_direction> <https://w3id.org/pmd/noes/esheet>)
+ObjectPropertyAssertion(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/noes/sheet_normal_direction> <https://w3id.org/pmd/noes/NOES_0000030>)
+ObjectPropertyAssertion(<https://w3id.org/pmd/noes/NOES_0000067> <https://w3id.org/pmd/noes/sheet_normal_direction> <https://w3id.org/pmd/noes/crystal_directions_lambda_fiber>)
 
 
 )
