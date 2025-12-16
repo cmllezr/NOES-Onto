@@ -583,6 +583,12 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     
 
 
+    <!-- http://purl.obolibrary.org/obo/BFO_0000024 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000024"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/BFO_0000026 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000026"/>
@@ -1530,6 +1536,31 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000538 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000538">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000024"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0000965"/>
+        <rdfs:label xml:lang="en">bulk</rdfs:label>
+        <skos:definition xml:lang="en">The bulk is a fiat object part that describes the volume or mass of material considered as a whole, often in contrast to surface or interface phenomena.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000544 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000544">
@@ -1753,6 +1784,21 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:label xml:lang="en">dimension measuring process</rdfs:label>
         <skos:definition xml:lang="en">A Structural Property Analyzing Process that determines the physical dimensions of a material or object, such as length, width, height, diameter, and thickness, with high accuracy and precision.</skos:definition>
         <skos:definition xml:lang="de">Ein Struktur Eigenschaften Analyseverfahren, das die physikalischen Dimensionen eines Materials oder Objekts, wie Länge, Breite, Höhe, Durchmesser und Dicke, mit hoher Genauigkeit und Präzision bestimmt.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000614 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000614">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000927"/>
+        <obo:IAO_0000119 xml:lang="en">Official definition can be found in: DIN 8588</obo:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="de">Offizielle Definition findet man in: DIN 8588</obo:IAO_0000119>
+        <rdfs:label xml:lang="de">Zerteilen</rdfs:label>
+        <rdfs:label xml:lang="en">dividing</rdfs:label>
+        <skos:definition xml:lang="en">A Seperating process that involves separating material into distinct parts using techniques like shear cutting, splitting, tearing, or breaking, typically employed in processes where precise control over the cut is less critical.</skos:definition>
+        <skos:definition xml:lang="de">Ein Trennprozess, bei dem das Material durch Techniken wie Scherschneiden, Spalten, Reißen oder Brechen in verschiedene Teile zerlegt wird. Es wird in der Regel bei Prozessen eingesetzt, bei denen eine genaue Kontrolle über den Schnitt weniger wichtig ist.</skos:definition>
+        <skos:example xml:lang="en">Shearing, Cracking</skos:example>
     </owl:Class>
     
 
@@ -2311,6 +2357,18 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000874 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000874">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000855"/>
+        <rdfs:label xml:lang="de">Optisches Mikroskop</rdfs:label>
+        <rdfs:label xml:lang="en">optical microscope</rdfs:label>
+        <skos:definition xml:lang="en">A microscope that uses visible light and lenses to magnify and view small objects or details.</skos:definition>
+        <skos:definition xml:lang="de">Ein Mikroskop, das sichtbares Licht und Linsen verwendet, um kleine Objekte oder Details zu vergrößern und zu betrachten.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000875 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000875">
@@ -2573,6 +2631,31 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
         <rdfs:label xml:lang="en">structural property analyzing process</rdfs:label>
         <skos:definition xml:lang="en">An assay that examines the external and internal structure and morphology of materials, including the arrangement of atoms, crystals, grains, and phases, often using techniques like microscopy and diffraction.</skos:definition>
         <skos:definition xml:lang="de">Eine Analyse, die die äußere und innere Struktur und Morphologie von Materialien untersucht, einschließlich der Anordnung von Atomen, Kristallen, Körnern und Phasen, oft unter Verwendung von Techniken wie Mikroskopie und Beugung.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000965 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000965">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000024"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">surface layer (fiat object part)</rdfs:label>
+        <skos:definition xml:lang="en">A surface layer (fiat object part) is a fiat object part that is part of only object. The surface layer is the three dimensional region defining the outermost layer of an object, where surface-interactions with other material entities occur. What is considered as the surface is thus defined by the interaction process.</skos:definition>
+        <skos:example xml:lang="en">When considering optical properties of a surface layer (fiat object part) of a polished piece of metal we likely consider a different three dimensional spatial region than when considering the scratch hardness properties of the same polished piece of metal.</skos:example>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
 

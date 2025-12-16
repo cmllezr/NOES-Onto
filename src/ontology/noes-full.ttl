@@ -1117,6 +1117,14 @@ obo:BFO_0000023 rdf:type owl:Class ;
                 skos:example "The priest role; the student role; the role of subject in a clinical trial; the role of a stone in marking a property boundary; the role of a boundary to demarcate two neighbouring administrative territories; the role of a building in serving as a military target"@en .
 
 
+###  http://purl.obolibrary.org/obo/BFO_0000024
+obo:BFO_0000024 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000040 ;
+                rdfs:label "fiat object part"@en ;
+                skos:definition "(Elucidation) A fiat object part b is a material entity & such that if b exists then it is continuant part of some object c & demarcated from the remainder of c by one or more fiat surfaces"@en ;
+                skos:example "The upper and lower lobes of the left lung; the dorsal and ventral surfaces of the body; the Western hemisphere of the Earth; the FMA:regional parts of an intact human body"@en .
+
+
 ###  http://purl.obolibrary.org/obo/BFO_0000026
 obo:BFO_0000026 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000006 ;
@@ -2460,6 +2468,23 @@ co:PMD_0000534 rdf:type owl:Class ;
                skos:example "Some portion of material, which to be made into something by a further operation."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0000538
+co:PMD_0000538 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000024 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000050 ;
+                                 owl:allValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( obo:BFO_0000027
+                                                                   obo:BFO_0000030
+                                                                 )
+                                                   ]
+                               ] ;
+               owl:disjointWith co:PMD_0000965 ;
+               rdfs:label "bulk"@en ;
+               skos:definition "The bulk is a fiat object part that describes the volume or mass of material considered as a whole, often in contrast to surface or interface phenomena."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000544
 co:PMD_0000544 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000602 ;
@@ -2625,6 +2650,18 @@ co:PMD_0000611 rdf:type owl:Class ;
                           "dimension measuring process"@en ;
                skos:definition "A Structural Property Analyzing Process that determines the physical dimensions of a material or object, such as length, width, height, diameter, and thickness, with high accuracy and precision."@en ,
                                "Ein Struktur Eigenschaften Analyseverfahren, das die physikalischen Dimensionen eines Materials oder Objekts, wie Länge, Breite, Höhe, Durchmesser und Dicke, mit hoher Genauigkeit und Präzision bestimmt."@de .
+
+
+###  https://w3id.org/pmd/co/PMD_0000614
+co:PMD_0000614 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000927 ;
+               obo:IAO_0000119 "Official definition can be found in: DIN 8588"@en ,
+                               "Offizielle Definition findet man in: DIN 8588"@de ;
+               rdfs:label "Zerteilen"@de ,
+                          "dividing"@en ;
+               skos:definition "A Seperating process that involves separating material into distinct parts using techniques like shear cutting, splitting, tearing, or breaking, typically employed in processes where precise control over the cut is less critical."@en ,
+                               "Ein Trennprozess, bei dem das Material durch Techniken wie Scherschneiden, Spalten, Reißen oder Brechen in verschiedene Teile zerlegt wird. Es wird in der Regel bei Prozessen eingesetzt, bei denen eine genaue Kontrolle über den Schnitt weniger wichtig ist."@de ;
+               skos:example "Shearing, Cracking"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000619
@@ -3041,6 +3078,15 @@ co:PMD_0000857 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
+###  https://w3id.org/pmd/co/PMD_0000874
+co:PMD_0000874 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000855 ;
+               rdfs:label "Optisches Mikroskop"@de ,
+                          "optical microscope"@en ;
+               skos:definition "A microscope that uses visible light and lenses to magnify and view small objects or details."@en ,
+                               "Ein Mikroskop, das sichtbares Licht und Linsen verwendet, um kleine Objekte oder Details zu vergrößern und zu betrachten."@de .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000875
 co:PMD_0000875 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000856 ;
@@ -3235,6 +3281,23 @@ co:PMD_0000957 rdf:type owl:Class ;
                           "structural property analyzing process"@en ;
                skos:definition "An assay that examines the external and internal structure and morphology of materials, including the arrangement of atoms, crystals, grains, and phases, often using techniques like microscopy and diffraction."@en ,
                                "Eine Analyse, die die äußere und innere Struktur und Morphologie von Materialien untersucht, einschließlich der Anordnung von Atomen, Kristallen, Körnern und Phasen, oft unter Verwendung von Techniken wie Mikroskopie und Beugung."@de .
+
+
+###  https://w3id.org/pmd/co/PMD_0000965
+co:PMD_0000965 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000024 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000050 ;
+                                 owl:allValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( obo:BFO_0000027
+                                                                   obo:BFO_0000030
+                                                                 )
+                                                   ]
+                               ] ;
+               rdfs:label "surface layer (fiat object part)"@en ;
+               skos:definition "A surface layer (fiat object part) is a fiat object part that is part of only object. The surface layer is the three dimensional region defining the outermost layer of an object, where surface-interactions with other material entities occur. What is considered as the surface is thus defined by the interaction process."@en ;
+               skos:example "When considering optical properties of a surface layer (fiat object part) of a polished piece of metal we likely consider a different three dimensional spatial region than when considering the scratch hardness properties of the same polished piece of metal."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000967
