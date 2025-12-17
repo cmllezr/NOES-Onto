@@ -43,12 +43,12 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
 	          --intermediates all \
 	          --method BOT \
 	  \
-	  remove --term-file $(PMDCO_DISJOINTNESS_REMOVAL_TERMS) \
-			 --select disjoint-with \
 	  query --update ../sparql/inject-subset-declaration.ru \
 	        --update ../sparql/inject-synonymtype-declaration.ru \
 	        --update ../sparql/postprocess-module.ru \
 	  \
+	  remove --term-file $(PMDCO_DISJOINTNESS_REMOVAL_TERMS) \
+			 --select disjoint-with \
 	  remove --term http://purl.obolibrary.org/obo/IAO_0000412 \
              --select annotation \
 	  \
