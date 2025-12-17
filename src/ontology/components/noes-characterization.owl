@@ -178,6 +178,12 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     
 
 
+    <!-- http://purl.obolibrary.org/obo/BFO_0000066 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000066"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/BFO_0000108 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000108">
@@ -718,6 +724,7 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
     <!-- https://w3id.org/pmd/co/PMD_0000009 -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0000009">
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/PMD_0025006"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:range rdf:resource="https://w3id.org/pmd/co/PMD_0000008"/>
         <rdfs:label xml:lang="de">has process attribute</rdfs:label>
@@ -771,6 +778,12 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0001028 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0001028"/>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0001029 -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0001029"/>
@@ -797,6 +810,16 @@ An example of such case can be &quot;Temperature of during the annealing process
         <rdfs:label xml:lang="en">refers to</rdfs:label>
         <skos:definition xml:lang="en">a relation between a process attribute and an SDC of some participant in a process</skos:definition>
         <skos:example xml:lang="en">a relation to between a process attribute an a SDC of some participant in a process.</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0025006 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0025006">
+        <rdfs:label xml:lang="en">process attribute of</rdfs:label>
+        <skos:definition xml:lang="en">A relation between a process attribute and a process, which &quot;bears&quot; the attribute.</skos:definition>
+        <skos:example xml:lang="en">Tensile rate is a process attribute of tensile test</skos:example>
     </owl:ObjectProperty>
     
 
@@ -1422,6 +1445,7 @@ Previous. An information content entity is a non-realizable information entity t
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0025009"/>
         <obo:IAO_0000112>Injecting mice with a vaccine in order to test its efficacy</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">A process that realizes a plan which is the concretization of a plan specification.</obo:IAO_0000115>
         <obo:IAO_0000116>&apos;Plan&apos; includes a future direction sense. That can be problematic if plans are changed during their execution. There are however implicit contingencies for protocols that an agent has in his mind that can be considered part of the plan, even if the agent didn&apos;t have them in mind before. Therefore, a planned process can diverge from what the agent would have said the plan was before executing it, by adjusting to problems encountered during execution (e.g. choosing another reagent with equivalent properties, if the originally planned one has run out.)</obo:IAO_0000116>
@@ -1874,7 +1898,6 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <!-- https://w3id.org/pmd/co/PMD_0000519 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000519">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
         <rdfs:label xml:lang="en">application of electric field</rdfs:label>
         <skos:definition xml:lang="en">An application of (an) electric field is the process of subjecting a material to an electric field to observe its behavior or modify its properties.</skos:definition>
     </owl:Class>
@@ -1884,7 +1907,6 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <!-- https://w3id.org/pmd/co/PMD_0000520 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000520">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
         <rdfs:label xml:lang="en">application of heat flux</rdfs:label>
         <skos:definition xml:lang="en">An application of heat flux describes the process of transferring thermal energy to or from a material, often used in thermal property measurements.</skos:definition>
     </owl:Class>
@@ -1894,7 +1916,19 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <!-- https://w3id.org/pmd/co/PMD_0000521 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000521">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000009"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000003"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000009"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000070"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">application of magnetic field</rdfs:label>
         <skos:definition xml:lang="en">An application of (a) magnetic field is the process of subjecting a material to a magnetic field to study its magnetic properties or induce magnetization.</skos:definition>
     </owl:Class>
@@ -1905,7 +1939,6 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000522">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
         <rdfs:label xml:lang="en">application of mechanical load</rdfs:label>
         <skos:definition xml:lang="en">An application of mechanical load is the process of applying force or stress to a material to observe its response or measure its properties.</skos:definition>
     </owl:Class>
@@ -2495,7 +2528,54 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
     <!-- https://w3id.org/pmd/co/PMD_0000950 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000950">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000016"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000005"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000016"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000005"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">stimulating process</rdfs:label>
         <skos:definition xml:lang="en">The stimulating process is a process describing the application of an external influence, such as force, heat, or radiation, to study material response.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
@@ -3134,6 +3214,84 @@ Typical configuration dependent contributions are interface energy contributions
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0025007 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025007">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000008"/>
+        <rdfs:label xml:lang="en">frequency</rdfs:label>
+        <skos:definition xml:lang="en">frequency is a process attribute which characterizes the rate per second of oscillation or vibration.</skos:definition>
+        <skos:example xml:lang="en">Frequency of electromagnetic wave, Frequency of sound wave.</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0025009 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025009">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000066"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0001028"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000016"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000005"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000066"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0001028"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000016"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000005"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">material reacting process</rdfs:label>
+        <skos:definition xml:lang="en">Material reacting process is a process which occurs in a portion of matter due to some of its disposition or behavioral material property which has realization in some  stimulating process. Both the material reacting process and stimulating process must be occurent parts of a planned process, if the planned process takes place.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0025997 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025997">
@@ -3381,7 +3539,13 @@ Typical configuration dependent contributions are interface energy contributions
     <!-- https://w3id.org/pmd/noes/NOES_0000003 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000003">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000008"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025007"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000521"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">magnetic field alternating frequency</rdfs:label>
     </owl:Class>
     
@@ -3505,20 +3669,10 @@ TODO: write axioms</rdfs:comment>
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000017 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000017">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <rdfs:label xml:lang="en">naturally occuring process</rdfs:label>
-        <skos:definition xml:lang="en">Naturally occuring process is a process which occurs in materials due to external stimulus which is part of some planned process.</skos:definition>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/noes/NOES_0000021 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000021">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000017"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025009"/>
         <rdfs:label xml:lang="en">domain wall motion</rdfs:label>
         <skos:definition xml:lang="en">Domain wall motion is a naturally occuring process which occurs in ferromagnetic materials due to the external stimulus such as applied magnetic field.</skos:definition>
     </owl:Class>
@@ -3528,7 +3682,7 @@ TODO: write axioms</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000022 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000022">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000017"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025009"/>
         <rdfs:label xml:lang="en">domain wall pinning</rdfs:label>
         <skos:definition xml:lang="en">Domain wall pinning is a naturally occuring process which occurs in ferromagnetic materials when domain wall montion is temporally inhibited due to an energy barrier.</skos:definition>
     </owl:Class>
@@ -3994,7 +4148,13 @@ TODO: write axioms</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000070 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000070">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000003"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000008"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000521"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">magnetic field strength</rdfs:label>
         <skos:definition xml:lang="en">Magnetic field strength is a process attribute of an aplication of magnetic field process which characterizes the magnitude the external / applied magnetic field.</skos:definition>
         <co:symbol>H</co:symbol>

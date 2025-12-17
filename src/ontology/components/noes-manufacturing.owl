@@ -142,9 +142,6 @@ A continuant cannot be part of an occurrent: use &apos;participates in&apos;. An
         <obo:IAO_0000116 xml:lang="en">Parthood requires the part and the whole to have compatible classes: only an occurrent have an occurrent as part; only a process can have a process as part; only a continuant can have a continuant as part; only an independent continuant can have an independent continuant as part; only a specifically dependent continuant can have a specifically dependent continuant as part; only a generically dependent continuant can have a generically dependent continuant as part. (This list is not exhaustive.)
 
 A continuant cannot have an occurrent as part: use &apos;participates in&apos;. An occurrent cannot have a continuant as part: use &apos;has participant&apos;. An immaterial entity cannot have a material entity as part: use &apos;location of&apos;. An independent continuant cannot have a specifically dependent continuant as part: use &apos;bearer of&apos;. A specifically dependent continuant cannot have an independent continuant as part: use &apos;inheres in&apos;.</obo:IAO_0000116>
-        <obo:IAO_0000116 xml:lang="en">Parthood requires the part and the whole to have compatible classes: only an occurrent have an occurrent as part; only a process can have a process as part; only a continuant can have a continuant as part; only an independent continuant can have an independent continuant as part; only a specifically dependent continuant can have a specifically dependent continuant as part; only a generically dependent continuant can have a generically dependent continuant as part. (This list is not exhaustive.)
-
-A continuant cannot have an occurrent as part: use &apos;participates in&apos;. An occurrent cannot have a continuant as part: use &apos;has participant&apos;. An immaterial entity cannot have a material entity as part: use &apos;location of&apos;. An independent continuant cannot have a specifically dependent continuant as part: use &apos;bearer of&apos;. A specifically dependent continuant cannot have an independent continuant as part: use &apos;inheres in&apos;.</obo:IAO_0000116>
         <rdfs:label xml:lang="en">has part</rdfs:label>
     </owl:ObjectProperty>
     
@@ -194,11 +191,6 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <obo:IAO_0000112 xml:lang="en">This document is about information artifacts and their representations</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">A (currently) primitive relation that relates an information artifact to an entity.</obo:IAO_0000115>
-        <obo:IAO_0000116 xml:lang="en">7/6/2009 Alan Ruttenberg. Following discussion with Jonathan Rees, and introduction of &quot;mentions&quot; relation. Weaken the is_about relationship to be primitive. 
-
-We will try to build it back up by elaborating the various subproperties that are more precisely defined.
-
-Some currently missing phenomena that should be considered &quot;about&quot; are predications - &quot;The only person who knows the answer is sitting beside me&quot; , Allegory, Satire, and other literary forms that can be topical without explicitly mentioning the topic.</obo:IAO_0000116>
         <obo:IAO_0000116 xml:lang="en">7/6/2009 Alan Ruttenberg. Following discussion with Jonathan Rees, and introduction of &quot;mentions&quot; relation. Weaken the is_about relationship to be primitive. 
 
 We will try to build it back up by elaborating the various subproperties that are more precisely defined.
@@ -808,12 +800,6 @@ First, SDC is dependent on a IC. As RO does not have &quot;bearer of&quot; objec
 
 Second, characteristic of is a functional property. Thus, two triples SDC_1 characteristc of IC_1 and SDC_2  characteristc of Process_1 (where IC_1 participates in Process_1), cannot exist simultaneously. 
 An example of such case can be &quot;Temperature of during the annealing process was 1000°C&quot;. Temperature is an SDC of some participant of the annealing, however it is not clear whether it is an SDC of an oven or of a sample in the oven. If we assert triple Annealing--&gt; has characteristic --&gt; Temperature 1000°C, then the correct triple connecting temperature SDC with either oven or specimen cannot exist.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Despite has characteristic from RO does not have any domain constraints, it is still not possible to directly connect an instance of a process with an instance of a SDC. 
-
-First, SDC is dependent on a IC. As RO does not have &quot;bearer of&quot; object property, the &quot;has characteristic&quot; implies that the domain should be an IC. 
-
-Second, characteristic of is a functional property. Thus, two triples SDC_1 characteristc of IC_1 and SDC_2  characteristc of Process_1 (where IC_1 participates in Process_1), cannot exist simultaneously. 
-An example of such case can be &quot;Temperature of during the annealing process was 1000°C&quot;. Temperature is an SDC of some participant of the annealing, however it is not clear whether it is an SDC of an oven or of a sample in the oven. If we assert triple Annealing--&gt; has characteristic --&gt; Temperature 1000°C, then the correct triple connecting temperature SDC with either oven or specimen cannot exist.</rdfs:comment>
         <rdfs:label xml:lang="en">refers to</rdfs:label>
         <skos:definition xml:lang="en">a relation between a process attribute and an SDC of some participant in a process</skos:definition>
         <skos:example xml:lang="en">a relation to between a process attribute an a SDC of some participant in a process.</skos:example>
@@ -838,8 +824,6 @@ An example of such case can be &quot;Temperature of during the annealing process
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0025999">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <obo:IAO_0000116 xml:lang="en">The &apos;relational quality of&apos; is more strict that &apos;quality of&apos; from RO, since domain is &apos;relational quality&apos;. The motivtion to introduce an object property for relational qualities is the following:
-RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c. The functionality is relevant for most of the SDC -&gt; IC triples, expect for relational qualities, which per definiton can be simultaneously inherited in &gt;=2 ICs. Thus,  &apos;relational quality of&apos;  has the same intention to connect SDC to IC, however, without cardinality constraints.</obo:IAO_0000116>
         <obo:IAO_0000116 xml:lang="en">The &apos;relational quality of&apos; is more strict that &apos;quality of&apos; from RO, since domain is &apos;relational quality&apos;. The motivtion to introduce an object property for relational qualities is the following:
 RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c. The functionality is relevant for most of the SDC -&gt; IC triples, expect for relational qualities, which per definiton can be simultaneously inherited in &gt;=2 ICs. Thus,  &apos;relational quality of&apos;  has the same intention to connect SDC to IC, however, without cardinality constraints.</obo:IAO_0000116>
         <rdfs:label xml:lang="en">relational quality of</rdfs:label>
@@ -1325,13 +1309,6 @@ process... I would include lists, tables, sentences... I think I might
 defer to Barry, or to Brian Cantwell Smith
 
 JAR: A data item is an approximately justified approximately true approximate belief</obo:IAO_0000116>
-        <obo:IAO_0000116 xml:lang="en">JAR: datum     -- well, this will be very tricky to define, but maybe some 
-information-like stuff that might be put into a computer and that is 
-meant, by someone, to denote and/or to be interpreted by some 
-process... I would include lists, tables, sentences... I think I might 
-defer to Barry, or to Brian Cantwell Smith
-
-JAR: A data item is an approximately justified approximately true approximate belief</obo:IAO_0000116>
         <rdfs:label xml:lang="en">data item</rdfs:label>
     </owl:Class>
     
@@ -1350,9 +1327,6 @@ JAR: A data item is an approximately justified approximately true approximate be
         <obo:IAO_0000112 xml:lang="en">Examples of information content entites include journal articles, data, graphical layouts, and graphs.</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">A generically dependent continuant that is about some thing.</obo:IAO_0000115>
         <obo:IAO_0000116 xml:lang="en">2014-03-10: The use of &quot;thing&quot; is intended to be general enough to include universals and configurations (see https://groups.google.com/d/msg/information-ontology/GBxvYZCk1oc/-L6B5fSBBTQJ).</obo:IAO_0000116>
-        <obo:IAO_0000116 xml:lang="en">information_content_entity &apos;is_encoded_in&apos; some digital_entity in obi before split (040907). information_content_entity &apos;is_encoded_in&apos; some physical_document in obi before split (040907).
-
-Previous. An information content entity is a non-realizable information entity that &apos;is encoded in&apos; some digital or physical entity.</obo:IAO_0000116>
         <obo:IAO_0000116 xml:lang="en">information_content_entity &apos;is_encoded_in&apos; some digital_entity in obi before split (040907). information_content_entity &apos;is_encoded_in&apos; some physical_document in obi before split (040907).
 
 Previous. An information content entity is a non-realizable information entity that &apos;is encoded in&apos; some digital or physical entity.</obo:IAO_0000116>
@@ -1440,8 +1414,6 @@ Previous. An information content entity is a non-realizable information entity t
         <obo:IAO_0000112>Injecting mice with a vaccine in order to test its efficacy</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">A process that realizes a plan which is the concretization of a plan specification.</obo:IAO_0000115>
         <obo:IAO_0000116>&apos;Plan&apos; includes a future direction sense. That can be problematic if plans are changed during their execution. There are however implicit contingencies for protocols that an agent has in his mind that can be considered part of the plan, even if the agent didn&apos;t have them in mind before. Therefore, a planned process can diverge from what the agent would have said the plan was before executing it, by adjusting to problems encountered during execution (e.g. choosing another reagent with equivalent properties, if the originally planned one has run out.)</obo:IAO_0000116>
-        <obo:IAO_0000116>We are only considering successfully completed planned processes. A plan may be modified, and details added during execution. For a given planned process, the associated realized plan specification is the one encompassing all changes made during execution. This means that all processes in which an agent acts towards achieving some 
-objectives is a planned process.</obo:IAO_0000116>
         <obo:IAO_0000116>We are only considering successfully completed planned processes. A plan may be modified, and details added during execution. For a given planned process, the associated realized plan specification is the one encompassing all changes made during execution. This means that all processes in which an agent acts towards achieving some 
 objectives is a planned process.</obo:IAO_0000116>
         <obo:IAO_0000119>branch derived</obo:IAO_0000119>
@@ -1598,11 +1570,6 @@ objectives is a planned process.</obo:IAO_0000116>
         <rdfs:comment xml:lang="en">It is also representing a distinct physical or conceptual part of a material or substance.
 
 The open energy ontology OEO defines portion of matter as a subclass of object aggregate, which implies countability. Our portion is not (precisely) countable and thus bearer of intensive properties.</rdfs:comment>
-        <rdfs:comment xml:lang="en">It is also representing a distinct physical or conceptual part of a material or substance.
-
-The open energy ontology OEO defines portion of matter as a subclass of object aggregate, which implies countability. Our portion is not (precisely) countable and thus bearer of intensive properties.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Lome explanation for portion of matter: &quot;What is a molecule cluster at the cellular level? Contrary to the molecular level, at the cellular level of granularity the boundary of each molecule is outside of the level of granular focus. What forms a discontinuous cluster of countable individual molecules and thus bona fide objects at the molecular level, is a continuous and non-countable molecular substance at coarser levels of
-granularity. At these coarser levels, the individual molecules cannot be differentiated and demarcated anymore and the cluster as a whole possesses only fiat inner boundaries.&quot;</rdfs:comment>
         <rdfs:comment xml:lang="en">Lome explanation for portion of matter: &quot;What is a molecule cluster at the cellular level? Contrary to the molecular level, at the cellular level of granularity the boundary of each molecule is outside of the level of granular focus. What forms a discontinuous cluster of countable individual molecules and thus bona fide objects at the molecular level, is a continuous and non-countable molecular substance at coarser levels of
 granularity. At these coarser levels, the individual molecules cannot be differentiated and demarcated anymore and the cluster as a whole possesses only fiat inner boundaries.&quot;</rdfs:comment>
         <rdfs:label xml:lang="en">portion of matter</rdfs:label>
@@ -1629,9 +1596,6 @@ granularity. At these coarser levels, the individual molecules cannot be differe
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000008">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
         <obo:IAO_0000116>an attribute of a process</obo:IAO_0000116>
-        <rdfs:comment xml:lang="en">Process attribute for a process has a similar application to specifically dependened continuant (SDC) for an independent continuant (IC). Furthermore, process attribute describes how SDCs of some participants, i.e., ICs, change in a process. 
-
-Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subclasses of this class.</rdfs:comment>
         <rdfs:comment xml:lang="en">Process attribute for a process has a similar application to specifically dependened continuant (SDC) for an independent continuant (IC). Furthermore, process attribute describes how SDCs of some participants, i.e., ICs, change in a process. 
 
 Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subclasses of this class.</rdfs:comment>
@@ -2365,11 +2329,6 @@ A manufacturing process is always a transformative process.</skos:definition>
 TODO: possibly extend for 2D (Graphene etc)
 
 More elaborate crystal descriptions may be found in http://emmo.info/domain-crystallography/crystallography or https://purls.helmholtz-metadaten.de/disos/cso</skos:definition>
-        <skos:definition xml:lang="en">The Bravais Lattice is a nature constant that describes the possible geometric arrangement of lattice points in a crystal. The present descriptor is limited to the 14 possible three-dimensional arrangements. 
-
-TODO: possibly extend for 2D (Graphene etc)
-
-More elaborate crystal descriptions may be found in http://emmo.info/domain-crystallography/crystallography or https://purls.helmholtz-metadaten.de/disos/cso</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -2668,6 +2627,110 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
     
 
 
+    <!-- https://w3id.org/pmd/noes/NOES_0000015 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000015">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000023"/>
+        <rdfs:comment xml:lang="en">Cold rolling is a rolling process which aims to reduce thickness of a metallic sheet. Cold rolling takes place at room temperature.</rdfs:comment>
+        <rdfs:label xml:lang="en">cold rolling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000016 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000016">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000023"/>
+        <rdfs:comment xml:lang="en">Hot rolling is a rolling process which aims to reduce the thickness of a sheet material. Hot rolling  takes place at temperatures above alloy&apos;s recrystallization temperature.</rdfs:comment>
+        <rdfs:label xml:lang="en">hot rolling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000018 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000018">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:comment xml:lang="en">follows  Arrhenius equation.
+Has part grain growth and recovery.</rdfs:comment>
+        <rdfs:label xml:lang="en">recrystallization</rdfs:label>
+        <skos:definition xml:lang="en">Recrystallization is a naturally occuring process which occurs in metallic materials and during which deformed grains are replaced by new defect-free grains. Recrystallization is a thermally activated process, i.e., it requires sufficiently high temperatures for the process to occur. Thus, recrystallization is a process which is part of annealing heat treatment.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000019 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000019">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:label xml:lang="en">recovery</rdfs:label>
+        <skos:definition xml:lang="en">Recovery is a naturally occuring process which occurs in metallic materials and during which the reduction of stored deformation energy in grains occurs due to the removal and rearragement of crystal structure defects (dislocations). Recovery is a part of recrystallization process, thus it is a thermally activated process, which occurs during annealing heat treatment.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000020 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000020">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:label xml:lang="en">grain growth</rdfs:label>
+        <skos:definition xml:lang="en">Grain growth is a naturally occuring process which occurs in polycrystalline materials. The driving force of grain growth is reduction of the interal energy via reduction of the total grain boundary. Grain growth is a thermally activated process which occurs after recovery and (primary) recrystallization.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000023 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000023">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000649"/>
+        <rdfs:comment xml:lang="en">Rolling is a shaping process in which material is passed through under a roll with the goal of reducing the thickness of a semi-finished object. After rolling the mateiral deformed microstructure, which is characterized by elongated defomed grains, high dislocation density, high internal strains, and preferred grain orientation.</rdfs:comment>
+        <rdfs:label xml:lang="en">rolling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000024 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000024">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000906"/>
+        <rdfs:comment xml:lang="en">The defintion has potential</rdfs:comment>
+        <rdfs:label xml:lang="en">strip-casting</rdfs:label>
+        <skos:definition xml:lang="en">Strip-casting is a primary shaping from fluid state process for metals and alloys. During Strip-casting the melt flows between two rolls resulting in the strip.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000025 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000025">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000650"/>
+        <rdfs:label xml:lang="de">Schmieden</rdfs:label>
+        <rdfs:label xml:lang="en">forging</rdfs:label>
+        <skos:definition xml:lang="en">Forging is a pressure forming process of metals and alloys. During forging the material is heated to forging temperature and formed to the desired form using either hammers and anvils or heat-resistant upper and lower dies.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000026 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000026">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000779"/>
+        <rdfs:label xml:lang="en">normalizing</rdfs:label>
+        <skos:definition xml:lang="en">Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000027 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000027">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000779"/>
+        <rdfs:label xml:lang="en">annealing</rdfs:label>
+        <skos:definition xml:lang="en">Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -2856,118 +2919,6 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
     <!-- https://w3id.org/pmd/co/PMD_0020125 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020125"/>
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000027 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000027">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000779"/>
-        <rdfs:label xml:lang="en">annealing</rdfs:label>
-        <skos:definition xml:lang="en">Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000026 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000026">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000779"/>
-        <rdfs:label xml:lang="en">normalizing</rdfs:label>
-        <skos:definition xml:lang="en">Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000025 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000025">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000650"/>
-        <rdfs:label xml:lang="de">Schmieden</rdfs:label>
-        <rdfs:label xml:lang="en">forging</rdfs:label>
-        <skos:definition xml:lang="en">Forging is a pressure forming process of metals and alloys. During forging the material is heated to forging temperature and formed to the desired form using either hammers and anvils or heat-resistant upper and lower dies.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000024 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000024">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000906"/>
-        <rdfs:comment xml:lang="en">The defintion has potential</rdfs:comment>
-        <rdfs:label xml:lang="en">strip-casting</rdfs:label>
-        <skos:definition xml:lang="en">Strip-casting is a primary shaping from fluid state process for metals and alloys. During Strip-casting the melt flows between two rolls resulting in the strip.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000023 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000023">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000649"/>
-        <rdfs:comment xml:lang="en">Rolling is a shaping process in which material is passed through under a roll with the goal of reducing the thickness of a semi-finished object. After rolling the mateiral deformed microstructure, which is characterized by elongated defomed grains, high dislocation density, high internal strains, and preferred grain orientation.</rdfs:comment>
-        <rdfs:label xml:lang="en">rolling</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000015 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000015">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000023"/>
-        <rdfs:comment xml:lang="en">Cold rolling is a rolling process which aims to reduce thickness of a metallic sheet. Cold rolling takes place at room temperature.</rdfs:comment>
-        <rdfs:label xml:lang="en">cold rolling</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000016 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000016">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000023"/>
-        <rdfs:comment xml:lang="en">Hot rolling is a rolling process which aims to reduce the thickness of a sheet material. Hot rolling  takes place at temperatures above alloy&apos;s recrystallization temperature.</rdfs:comment>
-        <rdfs:label xml:lang="en">hot rolling</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000017 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000017">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <rdfs:label xml:lang="en">naturally occuring process</rdfs:label>
-        <skos:definition xml:lang="en">Naturally occuring process is a process which occurs in materials due to external stimulus which is part of some planned process.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000018 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000018">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000017"/>
-        <rdfs:comment xml:lang="en">follows  Arrhenius equation.
-Has part grain growth and recovery.</rdfs:comment>
-        <rdfs:label xml:lang="en">recrystallization</rdfs:label>
-        <skos:definition xml:lang="en">Recrystallization is a naturally occuring process which occurs in metallic materials and during which deformed grains are replaced by new defect-free grains. Recrystallization is a thermally activated process, i.e., it requires sufficiently high temperatures for the process to occur. Thus, recrystallization is a process which is part of annealing heat treatment.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000019 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000019">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000017"/>
-        <rdfs:label xml:lang="en">recovery</rdfs:label>
-        <skos:definition xml:lang="en">Recovery is a naturally occuring process which occurs in metallic materials and during which the reduction of stored deformation energy in grains occurs due to the removal and rearragement of crystal structure defects (dislocations). Recovery is a part of recrystallization process, thus it is a thermally activated process, which occurs during annealing heat treatment.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000020 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000020">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000017"/>
-        <rdfs:label xml:lang="en">grain growth</rdfs:label>
-        <skos:definition xml:lang="en">Grain growth is a naturally occuring process which occurs in polycrystalline materials. The driving force of grain growth is reduction of the interal energy via reduction of the total grain boundary. Grain growth is a thermally activated process which occurs after recovery and (primary) recrystallization.</skos:definition>
-    </owl:Class>
     
 
 
