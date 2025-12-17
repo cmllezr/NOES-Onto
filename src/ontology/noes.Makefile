@@ -45,10 +45,6 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
 	          --intermediates all \
 	          --method BOT \
 	  \
-	  remove --term-file $(PMDCO_DISJOINTNESS_REMOVAL_TERMS) \
-			 --select disjoint-with \
-	  remove --term-file $(PMDCO_INDIVIDUALS_TO_REMOVE) \
-			 --select individual-axioms \
 	  query --update ../sparql/inject-subset-declaration.ru \
 	        --update ../sparql/inject-synonymtype-declaration.ru \
 	        --update ../sparql/postprocess-module.ru \
@@ -56,6 +52,10 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
 	  remove --term http://purl.obolibrary.org/obo/IAO_0000412 \
              --select annotation \
 	  \
+	  remove --term-file $(PMDCO_DISJOINTNESS_REMOVAL_TERMS) \
+			 --select disjoint-with \
+	  remove --term-file $(PMDCO_INDIVIDUALS_TO_REMOVE) \
+			 --select individual-axioms \
 	  $(ANNOTATE_CONVERT_FILE); \
 	fi
 
