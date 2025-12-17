@@ -25,6 +25,8 @@ $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(I
 						--individuals exclude \
 						--intermediates all \
 						--method BOT \
+			remove --select individuals \
+			\
 			remove --term http://purl.obolibrary.org/obo/IAO_0000412 \
 					--select annotation \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
