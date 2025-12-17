@@ -25,6 +25,8 @@ $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(I
 						--individuals exclude \
 						--intermediates all \
 						--method BOT \
+			remove --term-file $(PMDCO_INDIVIDUALS_TO_REMOVE) \
+				   --select "individuals classes"\
 			remove --select individuals \
 			\
 			remove --term http://purl.obolibrary.org/obo/IAO_0000412 \
@@ -53,7 +55,7 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
              --select annotation \
 	  \
 	  remove --term-file $(PMDCO_DISJOINTNESS_REMOVAL_TERMS) \
-			 --axioms DisjointClasses \
+			 --axioms "DisjointClasses ClassAssertion" \
 	  remove --term-file $(PMDCO_INDIVIDUALS_TO_REMOVE) \
 			 --select "individuals classes"\
 	  $(ANNOTATE_CONVERT_FILE); \
