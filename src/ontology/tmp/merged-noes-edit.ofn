@@ -186,6 +186,8 @@ Declaration(Class(<https://w3id.org/pmd/co/PMD_0025002>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0025003>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0025004>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0025005>))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0025007>))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0025009>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0025997>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0040001>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0050000>))
@@ -213,7 +215,6 @@ Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000013>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000014>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000015>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000016>))
-Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000017>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000018>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000019>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000020>))
@@ -296,6 +297,7 @@ Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000050>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000051>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000054>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000055>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000066>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000108>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000199>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000039>))
@@ -349,9 +351,11 @@ Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0000009>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0000069>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0000070>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0000077>))
+Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0001028>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0001029>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0001030>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0020127>))
+Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0025006>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0025998>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0025999>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/noes/NOES_0000066>))
@@ -992,6 +996,7 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000009> "has proces
 AnnotationAssertion(rdfs:seeAlso <https://w3id.org/pmd/co/PMD_0000009> "has process attribute from OEO https://openenergyplatform.org/ontology/oeo/OEO_00000500"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000009> "A relation between a process and a process attribute that depends on it."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0000009> "Tensile testing process has process attribute tensile rate"@en)
+InverseObjectProperties(<https://w3id.org/pmd/co/PMD_0000009> <https://w3id.org/pmd/co/PMD_0025006>)
 ObjectPropertyDomain(<https://w3id.org/pmd/co/PMD_0000009> <http://purl.obolibrary.org/obo/BFO_0000015>)
 ObjectPropertyRange(<https://w3id.org/pmd/co/PMD_0000009> <https://w3id.org/pmd/co/PMD_0000008>)
 
@@ -1037,6 +1042,12 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0020127> "a relation to between a process attribute an a SDC of some participant in a process."@en)
 ObjectPropertyDomain(<https://w3id.org/pmd/co/PMD_0020127> <https://w3id.org/pmd/co/PMD_0000008>)
 ObjectPropertyRange(<https://w3id.org/pmd/co/PMD_0020127> <http://purl.obolibrary.org/obo/BFO_0000020>)
+
+# Object Property: <https://w3id.org/pmd/co/PMD_0025006> (process attribute of)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0025006> "process attribute of"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0025006> "A relation between a process attribute and a process, which \"bears\" the attribute."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0025006> "Tensile rate is a process attribute of tensile test"@en)
 
 # Object Property: <https://w3id.org/pmd/co/PMD_0025998> (has relational quality)
 
@@ -1518,6 +1529,7 @@ AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/OBI_0000011> "pla
 EquivalentClasses(<http://purl.obolibrary.org/obo/OBI_0000011> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000055> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <http://purl.obolibrary.org/obo/IAO_0000104>)))
 SubClassOf(<http://purl.obolibrary.org/obo/OBI_0000011> <http://purl.obolibrary.org/obo/BFO_0000015>)
 SubClassOf(<http://purl.obolibrary.org/obo/OBI_0000011> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000055> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000059> <http://purl.obolibrary.org/obo/IAO_0000104>)))
+DisjointClasses(<http://purl.obolibrary.org/obo/OBI_0000011> <https://w3id.org/pmd/co/PMD_0025009>)
 
 # Class: <http://purl.obolibrary.org/obo/OBI_0000067> (evaluant role)
 
@@ -1711,7 +1723,10 @@ SubClassOf(<https://w3id.org/pmd/co/PMD_0000520> <https://w3id.org/pmd/co/PMD_00
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000521> "application of magnetic field"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000521> "An application of (a) magnetic field is the process of subjecting a material to a magnetic field to study its magnetic properties or induce magnetization."@en)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0000521> <http://purl.obolibrary.org/obo/BFO_0000015>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000521> <https://w3id.org/pmd/co/PMD_0000950>)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0000521> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000009> <https://w3id.org/pmd/noes/NOES_0000003>))
+SubClassOf(<https://w3id.org/pmd/co/PMD_0000521> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000009> <https://w3id.org/pmd/noes/NOES_0000070>))
 
 # Class: <https://w3id.org/pmd/co/PMD_0000522> (application of mechanical load)
 
@@ -2068,7 +2083,7 @@ AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> <https://w3id.org/pmd/co/PMD_0000005>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0001030> <https://w3id.org/pmd/co/PMD_0000522>))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000849> (mechanical property analyzing process)
+# Class: <https://w3id.org/pmd/co/PMD_0000849> (Mechanische Eigenschaften Analyseverfahren)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000849> "Mechanische Eigenschaften Analyseverfahren"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000849> "mechanical property analyzing process"@en)
@@ -2109,7 +2124,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0000857> "true"^^xsd:boolean)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000857> <https://w3id.org/pmd/co/PMD_0000001>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000875> (optical microscopy)
+# Class: <https://w3id.org/pmd/co/PMD_0000875> (Optische Mikroskopie)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "Ein Mikroskopieverfahren, das sichtbares Licht und Linsen verwendet, um eine Probe zu vergrößern und abzubilden, und weit verbreitet zur Untersuchung der Mikrostruktur und Morphologie von Materialien ist."@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "Optische Mikroskopie"@de)
@@ -2228,7 +2243,9 @@ DisjointClasses(<https://w3id.org/pmd/co/PMD_0000946> <https://w3id.org/pmd/co/P
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000950> "stimulating process"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000950> "The stimulating process is a process describing the application of an external influence, such as force, heat, or radiation, to study material response."@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0000950> "true"^^xsd:boolean)
+EquivalentClasses(<https://w3id.org/pmd/co/PMD_0000950> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000015> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000055> ObjectIntersectionOf(ObjectUnionOf(<http://purl.obolibrary.org/obo/BFO_0000016> <https://w3id.org/pmd/co/PMD_0000005>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000052> <https://w3id.org/pmd/co/PMD_0000001>)))))
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000950> <http://purl.obolibrary.org/obo/BFO_0000015>)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0000950> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000055> ObjectIntersectionOf(ObjectUnionOf(<http://purl.obolibrary.org/obo/BFO_0000016> <https://w3id.org/pmd/co/PMD_0000005>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000052> <https://w3id.org/pmd/co/PMD_0000001>))))
 
 # Class: <https://w3id.org/pmd/co/PMD_0000952> (strength)
 
@@ -2608,6 +2625,22 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0025005> "γ-fibre g
 EquivalentClasses(<https://w3id.org/pmd/co/PMD_0025005> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000042> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000080> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0020106> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000000> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/noes/NOES_0000122>) ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000067> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> <https://w3id.org/pmd/co/PMD_0020106>))) ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/noes/NOES_0000030>)))))))))
 SubClassOf(<https://w3id.org/pmd/co/PMD_0025005> <https://w3id.org/pmd/noes/NOES_0000042>)
 
+# Class: <https://w3id.org/pmd/co/PMD_0025007> (frequency)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0025007> "frequency"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0025007> "frequency is a process attribute which characterizes the rate per second of oscillation or vibration."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0025007> "Frequency of electromagnetic wave, Frequency of sound wave."@en)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0025007> <https://w3id.org/pmd/co/PMD_0000008>)
+
+# Class: <https://w3id.org/pmd/co/PMD_0025009> (material reacting process)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0025009> "material reacting process"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0025009> "Material reacting process is a process which occurs in a portion of matter due to some of its disposition or behavioral material property which has realization in some  stimulating process. Both the material reacting process and stimulating process must be occurent parts of a planned process, if the planned process takes place."@en)
+EquivalentClasses(<https://w3id.org/pmd/co/PMD_0025009> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000015> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000066> <https://w3id.org/pmd/co/PMD_0000001>) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0001028> ObjectIntersectionOf(ObjectUnionOf(<http://purl.obolibrary.org/obo/BFO_0000016> <https://w3id.org/pmd/co/PMD_0000005>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000054> <https://w3id.org/pmd/co/PMD_0000950>)))))
+SubClassOf(<https://w3id.org/pmd/co/PMD_0025009> <http://purl.obolibrary.org/obo/BFO_0000015>)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0025009> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000066> <https://w3id.org/pmd/co/PMD_0000001>))
+SubClassOf(<https://w3id.org/pmd/co/PMD_0025009> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0001028> ObjectIntersectionOf(ObjectUnionOf(<http://purl.obolibrary.org/obo/BFO_0000016> <https://w3id.org/pmd/co/PMD_0000005>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000054> <https://w3id.org/pmd/co/PMD_0000950>))))
+
 # Class: <https://w3id.org/pmd/co/PMD_0025997> (fraction value specification)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0025997> "fraction value specification"@en)
@@ -2728,7 +2761,8 @@ SubClassOf(<https://w3id.org/pmd/noes/NOES_0000002> <http://purl.obolibrary.org/
 # Class: <https://w3id.org/pmd/noes/NOES_0000003> (magnetic field alternating frequency)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000003> "magnetic field alternating frequency"@en)
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000003> <https://w3id.org/pmd/co/PMD_0000008>)
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000003> <https://w3id.org/pmd/co/PMD_0025007>)
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000003> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025006> <https://w3id.org/pmd/co/PMD_0000521>))
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000004> (plot)
 
@@ -2816,43 +2850,37 @@ AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000016> "Hot r
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000016> "hot rolling"@en)
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000016> <https://w3id.org/pmd/noes/NOES_0000023>)
 
-# Class: <https://w3id.org/pmd/noes/NOES_0000017> (naturally occuring process)
-
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000017> "naturally occuring process"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000017> "Naturally occuring process is a process which occurs in materials due to external stimulus which is part of some planned process."@en)
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000017> <http://purl.obolibrary.org/obo/BFO_0000015>)
-
 # Class: <https://w3id.org/pmd/noes/NOES_0000018> (recrystallization)
 
 AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000018> "follows  Arrhenius equation.
 Has part grain growth and recovery."@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000018> "recrystallization"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000018> "Recrystallization is a naturally occuring process which occurs in metallic materials and during which deformed grains are replaced by new defect-free grains. Recrystallization is a thermally activated process, i.e., it requires sufficiently high temperatures for the process to occur. Thus, recrystallization is a process which is part of annealing heat treatment."@en)
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000018> <https://w3id.org/pmd/noes/NOES_0000017>)
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000018> <http://purl.obolibrary.org/obo/BFO_0000015>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000019> (recovery)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000019> "recovery"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000019> "Recovery is a naturally occuring process which occurs in metallic materials and during which the reduction of stored deformation energy in grains occurs due to the removal and rearragement of crystal structure defects (dislocations). Recovery is a part of recrystallization process, thus it is a thermally activated process, which occurs during annealing heat treatment."@en)
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000019> <https://w3id.org/pmd/noes/NOES_0000017>)
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000019> <http://purl.obolibrary.org/obo/BFO_0000015>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000020> (grain growth)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000020> "grain growth"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000020> "Grain growth is a naturally occuring process which occurs in polycrystalline materials. The driving force of grain growth is reduction of the interal energy via reduction of the total grain boundary. Grain growth is a thermally activated process which occurs after recovery and (primary) recrystallization."@en)
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000020> <https://w3id.org/pmd/noes/NOES_0000017>)
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000020> <http://purl.obolibrary.org/obo/BFO_0000015>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000021> (domain wall motion)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000021> "domain wall motion"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000021> "Domain wall motion is a naturally occuring process which occurs in ferromagnetic materials due to the external stimulus such as applied magnetic field."@en)
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000021> <https://w3id.org/pmd/noes/NOES_0000017>)
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000021> <https://w3id.org/pmd/co/PMD_0025009>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000022> (domain wall pinning)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000022> "domain wall pinning"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000022> "Domain wall pinning is a naturally occuring process which occurs in ferromagnetic materials when domain wall montion is temporally inhibited due to an energy barrier."@en)
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000022> <https://w3id.org/pmd/noes/NOES_0000017>)
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000022> <https://w3id.org/pmd/co/PMD_0025009>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000023> (rolling)
 
@@ -3091,7 +3119,8 @@ SubClassOf(<https://w3id.org/pmd/noes/NOES_0000069> <https://w3id.org/pmd/noes/N
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000070> "magnetic field strength"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000070> "Magnetic field strength is a process attribute of an aplication of magnetic field process which characterizes the magnitude the external / applied magnetic field."@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/symbol> <https://w3id.org/pmd/noes/NOES_0000070> "H")
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000070> <https://w3id.org/pmd/noes/NOES_0000003>)
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000070> <https://w3id.org/pmd/co/PMD_0000008>)
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000070> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025006> <https://w3id.org/pmd/co/PMD_0000521>))
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000071> (magnetic susceptibility)
 

@@ -2518,7 +2518,15 @@ co:PMD_0000520 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000521
 co:PMD_0000521 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000950 ;
+               rdfs:subClassOf co:PMD_0000950 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0000009 ;
+                                 owl:someValuesFrom noes:NOES_0000003
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0000009 ;
+                                 owl:someValuesFrom noes:NOES_0000070
+                               ] ;
                rdfs:label "application of magnetic field"@en ;
                skos:definition "An application of (a) magnetic field is the process of subjecting a material to a magnetic field to study its magnetic properties or induce magnetization."@en .
 
@@ -5724,7 +5732,11 @@ noes:NOES_0000002 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000003
 noes:NOES_0000003 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000008 ;
+                  rdfs:subClassOf co:PMD_0025007 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty co:PMD_0025006 ;
+                                    owl:someValuesFrom co:PMD_0000521
+                                  ] ;
                   rdfs:label "magnetic field alternating frequency"@en .
 
 
@@ -5827,16 +5839,9 @@ noes:NOES_0000016 rdf:type owl:Class ;
                   rdfs:label "hot rolling"@en .
 
 
-###  https://w3id.org/pmd/noes/NOES_0000017
-noes:NOES_0000017 rdf:type owl:Class ;
-                  rdfs:subClassOf obo:BFO_0000015 ;
-                  rdfs:label "naturally occuring process"@en ;
-                  skos:definition "Naturally occuring process is a process which occurs in materials due to external stimulus which is part of some planned process."@en .
-
-
 ###  https://w3id.org/pmd/noes/NOES_0000018
 noes:NOES_0000018 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000017 ;
+                  rdfs:subClassOf obo:BFO_0000015 ;
                   rdfs:comment """follows  Arrhenius equation.
 Has part grain growth and recovery."""@en ;
                   rdfs:label "recrystallization"@en ;
@@ -5845,28 +5850,28 @@ Has part grain growth and recovery."""@en ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000019
 noes:NOES_0000019 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000017 ;
+                  rdfs:subClassOf obo:BFO_0000015 ;
                   rdfs:label "recovery"@en ;
                   skos:definition "Recovery is a naturally occuring process which occurs in metallic materials and during which the reduction of stored deformation energy in grains occurs due to the removal and rearragement of crystal structure defects (dislocations). Recovery is a part of recrystallization process, thus it is a thermally activated process, which occurs during annealing heat treatment."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000020
 noes:NOES_0000020 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000017 ;
+                  rdfs:subClassOf obo:BFO_0000015 ;
                   rdfs:label "grain growth"@en ;
                   skos:definition "Grain growth is a naturally occuring process which occurs in polycrystalline materials. The driving force of grain growth is reduction of the interal energy via reduction of the total grain boundary. Grain growth is a thermally activated process which occurs after recovery and (primary) recrystallization."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000021
 noes:NOES_0000021 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000017 ;
+                  rdfs:subClassOf co:PMD_0025009 ;
                   rdfs:label "domain wall motion"@en ;
                   skos:definition "Domain wall motion is a naturally occuring process which occurs in ferromagnetic materials due to the external stimulus such as applied magnetic field."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000022
 noes:NOES_0000022 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000017 ;
+                  rdfs:subClassOf co:PMD_0025009 ;
                   rdfs:label "domain wall pinning"@en ;
                   skos:definition "Domain wall pinning is a naturally occuring process which occurs in ferromagnetic materials when domain wall montion is temporally inhibited due to an energy barrier."@en .
 
@@ -6386,7 +6391,11 @@ noes:NOES_0000069 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000070
 noes:NOES_0000070 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000003 ;
+                  rdfs:subClassOf co:PMD_0000008 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty co:PMD_0025006 ;
+                                    owl:someValuesFrom co:PMD_0000521
+                                  ] ;
                   rdfs:label "magnetic field strength"@en ;
                   skos:definition "Magnetic field strength is a process attribute of an aplication of magnetic field process which characterizes the magnitude the external / applied magnetic field."@en ;
                   co:symbol "H" .

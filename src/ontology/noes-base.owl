@@ -1555,6 +1555,18 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000521">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000009"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000003"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000009"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000070"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">application of magnetic field</rdfs:label>
         <skos:definition xml:lang="en">An application of (a) magnetic field is the process of subjecting a material to a magnetic field to study its magnetic properties or induce magnetization.</skos:definition>
     </owl:Class>
@@ -5950,7 +5962,13 @@ Typical configuration dependent contributions are interface energy contributions
     <!-- https://w3id.org/pmd/noes/NOES_0000003 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000003">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000008"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025007"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000521"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">magnetic field alternating frequency</rdfs:label>
     </owl:Class>
     
@@ -6094,20 +6112,10 @@ TODO: write axioms</rdfs:comment>
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000017 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000017">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <rdfs:label xml:lang="en">naturally occuring process</rdfs:label>
-        <skos:definition xml:lang="en">Naturally occuring process is a process which occurs in materials due to external stimulus which is part of some planned process.</skos:definition>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/noes/NOES_0000018 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000018">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000017"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:comment xml:lang="en">follows  Arrhenius equation.
 Has part grain growth and recovery.</rdfs:comment>
         <rdfs:label xml:lang="en">recrystallization</rdfs:label>
@@ -6119,7 +6127,7 @@ Has part grain growth and recovery.</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000019 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000019">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000017"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:label xml:lang="en">recovery</rdfs:label>
         <skos:definition xml:lang="en">Recovery is a naturally occuring process which occurs in metallic materials and during which the reduction of stored deformation energy in grains occurs due to the removal and rearragement of crystal structure defects (dislocations). Recovery is a part of recrystallization process, thus it is a thermally activated process, which occurs during annealing heat treatment.</skos:definition>
     </owl:Class>
@@ -6129,7 +6137,7 @@ Has part grain growth and recovery.</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000020 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000020">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000017"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:label xml:lang="en">grain growth</rdfs:label>
         <skos:definition xml:lang="en">Grain growth is a naturally occuring process which occurs in polycrystalline materials. The driving force of grain growth is reduction of the interal energy via reduction of the total grain boundary. Grain growth is a thermally activated process which occurs after recovery and (primary) recrystallization.</skos:definition>
     </owl:Class>
@@ -6139,7 +6147,7 @@ Has part grain growth and recovery.</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000021 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000021">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000017"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025009"/>
         <rdfs:label xml:lang="en">domain wall motion</rdfs:label>
         <skos:definition xml:lang="en">Domain wall motion is a naturally occuring process which occurs in ferromagnetic materials due to the external stimulus such as applied magnetic field.</skos:definition>
     </owl:Class>
@@ -6149,7 +6157,7 @@ Has part grain growth and recovery.</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000022 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000022">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000017"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025009"/>
         <rdfs:label xml:lang="en">domain wall pinning</rdfs:label>
         <skos:definition xml:lang="en">Domain wall pinning is a naturally occuring process which occurs in ferromagnetic materials when domain wall montion is temporally inhibited due to an energy barrier.</skos:definition>
     </owl:Class>
@@ -6864,7 +6872,13 @@ Grain orientation can be specified by either texture fibers or texture component
     <!-- https://w3id.org/pmd/noes/NOES_0000070 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000070">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000003"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000008"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000521"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">magnetic field strength</rdfs:label>
         <skos:definition xml:lang="en">Magnetic field strength is a process attribute of an aplication of magnetic field process which characterizes the magnitude the external / applied magnetic field.</skos:definition>
         <co:symbol>H</co:symbol>
