@@ -9,7 +9,9 @@
 ## changes here rather than in the main Makefile
 
 PMDCO_DISJOINTNESS_REMOVAL_TERMS = $(IMPORTDIR)/pmdco_remove_disjoint.txt
-PMDCO_INDIVIDUALS_TO_REMOVE = $(IMPORTDIR)/pmdco_individuals_to_remove.txt
+IAO_TO_REMOVE = $(IMPORTDIR)/iao_to_remove.txt
+PMDCO_CLASSES_TO_REMOVE = $(IMPORTDIR)/pmdco_classes_to_remove.txt
+
 
 $(ONTOLOGYTERMS): $(SRCMERGED)
 	$(ROBOT) query -f csv -i $< --query noes_terms.sparql $@
@@ -25,7 +27,7 @@ $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(I
 						--individuals exclude \
 						--intermediates all \
 						--method BOT \
-			remove --term-file $(PMDCO_INDIVIDUALS_TO_REMOVE) \
+			remove --term-file $(IAO_TO_REMOVE) \
 				   --select "individuals classes"\
 			remove --select individuals \
 			\
@@ -56,7 +58,9 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
 	  \
 	  remove --term-file $(PMDCO_DISJOINTNESS_REMOVAL_TERMS) \
 			 --axioms "DisjointClasses ClassAssertion" \
-	  remove --term-file $(PMDCO_INDIVIDUALS_TO_REMOVE) \
+	  remove --term-file $(PMDCO_CLASSES_TO_REMOVE) \
+			 --select "classes"\
+	  remove --term-file $(IAO_TO_REMOVE) \
 			 --select "individuals classes"\
 	  $(ANNOTATE_CONVERT_FILE); \
 	fi
