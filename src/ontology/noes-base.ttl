@@ -13,12 +13,12 @@
 @base <https://w3id.org/pmd/noes/noes-base.ttl> .
 
 <https://w3id.org/pmd/noes/noes-base.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2025-12-16/noes-base.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2025-12-17/noes-base.ttl> ;
                                            dce:type obo:IAO_8000001 ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2025-12-16" .
+                                           owl:versionInfo "2025-12-17" .
 
 #################################################################
 #    Annotation properties
@@ -110,6 +110,10 @@ obo:BFO_0000054 rdf:type owl:ObjectProperty .
 
 ###  http://purl.obolibrary.org/obo/BFO_0000055
 obo:BFO_0000055 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000066
+obo:BFO_0000066 rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000108
@@ -204,9 +208,11 @@ co:PMD_0000004 rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/pmd/co/PMD_0000009
 co:PMD_0000009 rdf:type owl:ObjectProperty ;
+               owl:inverseOf co:PMD_0025006 ;
                rdfs:domain obo:BFO_0000015 ;
                rdfs:range co:PMD_0000008 ;
-               rdfs:label "has process attribute"@de ;
+               rdfs:label "has process attribute"@de ,
+                          "has process attribute"@en ;
                rdfs:seeAlso "has process attribute from OEO https://openenergyplatform.org/ontology/oeo/OEO_00000500"@en ;
                skos:definition "A relation between a process and a process attribute that depends on it."@en ;
                skos:example "Tensile testing process has process attribute tensile rate"@en .
@@ -282,6 +288,10 @@ An example of such case can be \"Temperature of during the annealing process was
                skos:example "a relation to between a process attribute an a SDC of some participant in a process."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0025006
+co:PMD_0025006 rdf:type owl:ObjectProperty .
+
+
 ###  https://w3id.org/pmd/co/PMD_0025998
 co:PMD_0025998 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
@@ -298,6 +308,9 @@ co:PMD_0025998 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/co/PMD_0025999
 co:PMD_0025999 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
+               owl:propertyChainAxiom ( co:PMD_0025999
+                                        obo:BFO_0000050
+                                      ) ;
                obo:IAO_0000116 """The 'relational quality of' is more strict that 'quality of' from RO, since domain is 'relational quality'. The motivtion to introduce an object property for relational qualities is the following:
 RO's 'quality of' is functional i.e., a->b, a->c => b=c. The functionality is relevant for most of the SDC -> IC triples, expect for relational qualities, which per definiton can be simultaneously inherited in >=2 ICs. Thus,  'relational quality of'  has the same intention to connect SDC to IC, however, without cardinality constraints."""@en ;
                rdfs:label "relational quality of"@en ;
@@ -377,6 +390,10 @@ obo:BFO_0000009 rdf:type owl:Class .
 
 ###  http://purl.obolibrary.org/obo/BFO_0000015
 obo:BFO_0000015 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000016
+obo:BFO_0000016 rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000017
@@ -720,7 +737,8 @@ obo:IAO_0000109 rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000011
-obo:OBI_0000011 rdf:type owl:Class .
+obo:OBI_0000011 rdf:type owl:Class ;
+                owl:disjointWith co:PMD_0025009 .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000070
@@ -825,6 +843,10 @@ co:PMD_0000005 rdf:type owl:Class ;
                                  rdf:type owl:Class
                                ] ,
                                [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000054 ;
+                                 owl:someValuesFrom co:PMD_0000950
+                               ] ,
+                               [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000052 ;
                                  owl:allValuesFrom co:PMD_0000000
                                ] ;
@@ -859,7 +881,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
 ###  https://w3id.org/pmd/co/PMD_0000053
 co:PMD_0000053 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000833 ,
-                               [ owl:intersectionOf ( obo:BFO_0000015
+                               [ owl:intersectionOf ( co:PMD_0000547
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty obo:OBI_0000293 ;
                                                         owl:someValuesFrom obo:BFO_0000040
@@ -1001,12 +1023,21 @@ co:PMD_0000503 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0000512
 co:PMD_0000512 rdf:type owl:Class ;
                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty co:PMD_0000077 ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass co:PMD_0020116
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
                                      owl:onProperty [ owl:inverseOf obo:OBI_0001927
                                                     ] ;
                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                      owl:onClass co:PMD_0020116
                                    ] ;
                rdfs:subClassOf co:PMD_0020131 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0000077 ;
+                                 owl:someValuesFrom co:PMD_0020116
+                               ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty [ owl:inverseOf obo:OBI_0001927
                                                 ] ;
@@ -1015,6 +1046,13 @@ co:PMD_0000512 rdf:type owl:Class ;
                rdfs:label "aggregate state"@en ;
                skos:definition "The aggregate state is a morphological quality representing the physical state of a material, such as solid, liquid, or gas."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0000518
+co:PMD_0000518 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000522 ;
+               rdfs:label "application of elastic impact"@en ;
+               skos:definition "An application of (an) elastic impact represents an application of (a) mechanical load describing the process of applying a force or impact to a material to observe its elastic response."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000519
@@ -1088,6 +1126,14 @@ co:PMD_0000544 rdf:type owl:Class ;
                           "caliper"@en ;
                skos:definition "A measuring device having two usually adjustable arms, legs, or jaws used especially to measure the dimensions of objects, such as diameters or thicknesses"@en ,
                                "Messgerät mit zwei in der Regel verstellbaren Armen, Schenkeln oder Klemmbacken, das vor allem zur Messung der Abmessungen von Gegenständen, wie z. B. des Durchmessers oder der Dicke, verwendet wird"@de .
+
+
+###  https://w3id.org/pmd/co/PMD_0000547
+co:PMD_0000547 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020136 ;
+               rdfs:label "change of aggregate state"@en ;
+               skos:definition "A change of aggregate state is a phase transition (change of phase) involving the collective state of particles in a material, such as melting or condensation."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000549
@@ -1164,7 +1210,18 @@ co:PMD_0000561 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000583
 co:PMD_0000583 rdf:type owl:Class ;
-               rdfs:subClassOf obo:OBI_0000011 ;
+               rdfs:subClassOf obo:OBI_0000011 ,
+                               [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:OBI_0000293 ;
+                                                        owl:someValuesFrom obo:IAO_0000030
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:OBI_0000299 ;
+                                                        owl:someValuesFrom obo:IAO_0000030
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
                obo:IAO_0000116 "The subclass trees of \"Computing Process\" are currently still proposals and serve as a working basis for the discussion round with the simulation/workflow domain experts."@en ;
                rdfs:label "Datenverarbeitung"@de ,
                           "Rechenprozess"@de ,
@@ -1176,12 +1233,21 @@ co:PMD_0000583 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0000591
 co:PMD_0000591 rdf:type owl:Class ;
                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty co:PMD_0000077 ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass co:PMD_0020099
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
                                      owl:onProperty [ owl:inverseOf obo:OBI_0001927
                                                     ] ;
                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                      owl:onClass co:PMD_0020099
                                    ] ;
                rdfs:subClassOf co:PMD_0020131 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0000077 ;
+                                 owl:someValuesFrom co:PMD_0020099
+                               ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty [ owl:inverseOf obo:OBI_0001927
                                                 ] ;
@@ -1208,6 +1274,14 @@ co:PMD_0000595 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020131 ;
                rdfs:label "defect density"@en ;
                skos:definition "The defect density is a morphological quality describing the number of defects per unit volume or area in a material, which can affect its mechanical and electronic properties."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0000596
+co:PMD_0000596 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000015 ;
+               rdfs:label "deformation"@en ;
+               skos:definition "The deformation is a process describing a change in the shape, size, or structure of a material under the influence of stress or force."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -1240,7 +1314,11 @@ co:PMD_0000604 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000611
 co:PMD_0000611 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000957 ;
+               rdfs:subClassOf co:PMD_0000957 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0009006 ;
+                                 owl:someValuesFrom co:PMD_0020132
+                               ] ;
                rdfs:label "Dimensions Messprozess"@de ,
                           "dimension measuring process"@en ;
                skos:definition "A Structural Property Analyzing Process that determines the physical dimensions of a material or object, such as length, width, height, diameter, and thickness, with high accuracy and precision."@en ,
@@ -1279,12 +1357,27 @@ co:PMD_0000620 rdf:type owl:Class ;
 co:PMD_0000621 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000005 ,
                                [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000054 ;
+                                 owl:someValuesFrom co:PMD_0000519
+                               ] ,
+                               [ rdf:type owl:Restriction ;
                                  owl:onProperty co:PMD_0001030 ;
                                  owl:someValuesFrom co:PMD_0000519
                                ] ;
                rdfs:label "electrical property"@en ;
                skos:definition "An electrical property is a material property that represents the characteristics of a material that determine its behavior under the influence of an electric field, such as conductivity, resistivity, and permittivity."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0000624
+co:PMD_0000624 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000855 ;
+               obo:IAO_0000119 "“Electron microscope.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/electron%20microscope. Accessed 24 Nov. 2022."@en ;
+               rdfs:label "Elektronenmikroskop"@de ,
+                          "electron microscope"@en ;
+               skos:definition "A device that uses a beam of electrons to create high-resolution images of a sample's surface or structure."@en ,
+                               "An electron-optical instrument in which a beam of electrons is used to produce an enlarged image of a minute object."@en ,
+                               "Ein Gerät, das einen Elektronenstrahl verwendet, um hochauflösende Bilder der Oberfläche oder Struktur einer Probe zu erstellen."@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000625
@@ -1295,6 +1388,22 @@ co:PMD_0000625 rdf:type owl:Class ;
                skos:definition "A Microscopy Process that uses a beam of electrons to create an image of an object, allowing for high-resolution visualization of the material's surface and internal structures."@en ,
                                "Ein Mikroskopieverfahren, das einen Elektronenstrahl verwendet, um ein Bild eines Objekts zu erzeugen, wodurch eine hochauflösende Visualisierung der Oberfläche und der inneren Strukturen des Materials ermöglicht wird."@de ;
                skos:example "An example of an electron microscopy process is Scanning Electron Microscopy (SEM), which provides detailed images of the surface topography and composition of a material. Another example is Transmission Electron Microscopy (TEM), which can visualize the internal structure of a sample at atomic resolution."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000629
+co:PMD_0000629 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000015 ;
+               rdfs:label "emission of radiation"@en ;
+               skos:definition "The emission radiation is a process describing the release of energy in the form of electromagnetic waves or particles from a material."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0000635
+co:PMD_0000635 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000015 ;
+               rdfs:label "evolution of damage"@en ;
+               skos:definition "An evolution of damage is a process representing the progression of material degradation under mechanical, thermal, or chemical stresses."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000636
@@ -1544,7 +1653,11 @@ co:PMD_0000825 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000829
 co:PMD_0000829 rdf:type owl:Class ;
-               rdfs:subClassOf obo:OBI_0000070 ;
+               rdfs:subClassOf obo:OBI_0000070 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0009006 ;
+                                 owl:someValuesFrom co:PMD_0000825
+                               ] ;
                rdfs:label "Magnetische Elektrische Eigenschaften Analyseverfahren"@de ,
                           "magneto electrical property analyzing process"@en ;
                skos:definition "An assay that investigates the magnetic and electrical properties of materials, including conductivity, resistivity, permittivity, permeability, and magnetization."@en ,
@@ -1564,6 +1677,26 @@ co:PMD_0000833 rdf:type owl:Class ;
                                                           ]
                                                         ) ;
                                      rdf:type owl:Class
+                                   ] ,
+                                   [ owl:intersectionOf ( obo:OBI_0000011
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:OBI_0000293 ;
+                                                            owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( obo:BFO_0000027
+                                                                                               obo:BFO_0000030
+                                                                                             )
+                                                                               ]
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:OBI_0000299 ;
+                                                            owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( obo:BFO_0000027
+                                                                                               obo:BFO_0000030
+                                                                                             )
+                                                                               ]
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
                                    ] ;
                rdfs:subClassOf obo:OBI_0000011 ,
                                [ rdf:type owl:Restriction ;
@@ -1571,9 +1704,28 @@ co:PMD_0000833 rdf:type owl:Class ;
                                  owl:someValuesFrom obo:BFO_0000040
                                ] ,
                                [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:OBI_0000293 ;
+                                 owl:someValuesFrom [ rdf:type owl:Class ;
+                                                      owl:unionOf ( obo:BFO_0000027
+                                                                    obo:BFO_0000030
+                                                                  )
+                                                    ]
+                               ] ,
+                               [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:OBI_0000299 ;
                                  owl:someValuesFrom obo:BFO_0000040
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:OBI_0000299 ;
+                                 owl:someValuesFrom [ rdf:type owl:Class ;
+                                                      owl:unionOf ( obo:BFO_0000027
+                                                                    obo:BFO_0000030
+                                                                  )
+                                                    ]
                                ] ;
+               rdfs:comment """Manufacturing processes alternate qualities of materials, i.e., a value specification of some quality of a material entity, which is a specified input to the process, cannot be the same as a value specification of the same quality of another material entity, which is a specified output of the process. 
+
+Unfortunately is is not possible to write down such axiom based on OWL. Semi-working solution are the temporally qualified continuants + SPARQL constrains."""@en ;
                rdfs:label "Herstellungsprozess"@de ,
                           "manufacturing process"@en ;
                skos:definition """A planned process that is driven by the primary intent to transform objects
@@ -1594,6 +1746,10 @@ co:PMD_0000834 rdf:type owl:Class ;
 co:PMD_0000848 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000005 ,
                                [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000054 ;
+                                 owl:someValuesFrom co:PMD_0000522
+                               ] ,
+                               [ rdf:type owl:Restriction ;
                                  owl:onProperty co:PMD_0001030 ;
                                  owl:someValuesFrom co:PMD_0000522
                                ] ;
@@ -1606,7 +1762,11 @@ TODO: Check general class axiom and defintion altogether !!!"""@en ;
 
 ###  https://w3id.org/pmd/co/PMD_0000849
 co:PMD_0000849 rdf:type owl:Class ;
-               rdfs:subClassOf obo:OBI_0000070 ;
+               rdfs:subClassOf obo:OBI_0000070 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0009006 ;
+                                 owl:someValuesFrom co:PMD_0000848
+                               ] ;
                rdfs:label "Mechanische Eigenschaften Analyseverfahren"@de ,
                           "mechanical property analyzing process"@en ;
                skos:definition "An assay that evaluates the mechanical characteristics of materials, such as strength, hardness, elasticity, and tensile properties, often through tests that measure response to forces and loads."@en ,
@@ -1673,6 +1833,29 @@ co:PMD_0000857 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
+###  https://w3id.org/pmd/co/PMD_0000869
+co:PMD_0000869 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000015 ;
+               rdfs:label "occurence of chemical reaction"@en ;
+               skos:definition "The occurrence of (a) chemical reaction is the process in which substances interact to form new chemical compounds or alter their molecular structure."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000870
+co:PMD_0000870 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000015 ;
+               rdfs:label "occurence of electic field"@en ;
+               skos:definition "The occurrence of (an) electric field is a process describing the presence or generation of an electric field in a material or system."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0000871
+co:PMD_0000871 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000015 ;
+               rdfs:label "occurence of magnetic field"@en ;
+               skos:definition "The occurrence of (a) magenetic field is a process describing the presence or generation of a magnetic field in a material or system."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000874
 co:PMD_0000874 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000855 ;
@@ -1702,7 +1885,14 @@ co:PMD_0000880 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000885
 co:PMD_0000885 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000834 ,
+               rdfs:subClassOf [ owl:intersectionOf ( co:PMD_0000834
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:RO_0000058 ;
+                                                        owl:someValuesFrom co:PMD_0000853
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ,
                                [ owl:intersectionOf ( co:PMD_0000834
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty [ owl:inverseOf obo:RO_0000059
@@ -1787,7 +1977,7 @@ co:PMD_0000915 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000922
 co:PMD_0000922 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000855 ;
+               rdfs:subClassOf co:PMD_0000624 ;
                rdfs:label "Rasterelektronenmikroskop"@de ,
                           "scanning electron microscope"@en ;
                skos:definition "A Scanning Electron Microscope (SEM) is a Measuring Device that produces high-resolution images of a sample surface by scanning it with a focused beam of electrons."@en ,
@@ -1837,7 +2027,11 @@ co:PMD_0000942 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000945
 co:PMD_0000945 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000957 ;
+               rdfs:subClassOf co:PMD_0000957 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0009006 ;
+                                 owl:someValuesFrom co:PMD_0025001
+                               ] ;
                rdfs:label "Spektroskopie Verfahren"@de ,
                           "spectroscopy process"@en ;
                skos:definition "A Structural Property Analyzing Process that measures the interaction of electromagnetic radiation with matter to determine e.g. the composition, structure, and other properties of materials."@en ,
@@ -1855,7 +2049,41 @@ co:PMD_0000946 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000950
 co:PMD_0000950 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000015 ;
+               owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000015
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:BFO_0000055 ;
+                                                            owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                                                                        owl:unionOf ( obo:BFO_0000016
+                                                                                                                      co:PMD_0000005
+                                                                                                                    )
+                                                                                                      ]
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty obo:RO_0000052 ;
+                                                                                                        owl:someValuesFrom co:PMD_0000001
+                                                                                                      ]
+                                                                                                    ) ;
+                                                                                 rdf:type owl:Class
+                                                                               ]
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf obo:BFO_0000015 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000055 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                                             owl:unionOf ( obo:BFO_0000016
+                                                                                           co:PMD_0000005
+                                                                                         )
+                                                                           ]
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:RO_0000052 ;
+                                                                             owl:someValuesFrom co:PMD_0000001
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ;
                rdfs:label "stimulating process"@en ;
                skos:definition "The stimulating process is a process describing the application of an external influence, such as force, heat, or radiation, to study material response."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
@@ -1946,6 +2174,10 @@ co:PMD_0000978 rdf:type owl:Class ;
 co:PMD_0000981 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000005 ,
                                [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000054 ;
+                                 owl:someValuesFrom co:PMD_0000520
+                               ] ,
+                               [ rdf:type owl:Restriction ;
                                  owl:onProperty co:PMD_0001030 ;
                                  owl:someValuesFrom co:PMD_0000520
                                ] ;
@@ -1996,6 +2228,10 @@ co:PMD_0001016 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0001014 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0009006 ;
+                                 owl:someValuesFrom co:PMD_0000591
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0009006 ;
                                  owl:someValuesFrom noes:NOES_0000042
                                ] ;
                rdfs:label "Beugungsprozess"@de ,
@@ -2008,7 +2244,11 @@ co:PMD_0001016 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0001017
 co:PMD_0001017 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0001014 ;
+               rdfs:subClassOf co:PMD_0001014 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0009006 ;
+                                 owl:someValuesFrom co:PMD_0000551
+                               ] ;
                rdfs:label "Röntgen-Mapping"@de ,
                           "x-ray mapping"@en ;
                skos:definition "An X-ray Analyzing Process that generates a spatial distribution map of the elements within a specimen by scanning the sample with an electron or X-ray beam and detecting the emitted X-rays, providing detailed compositional information across the sample's surface."@en ,
@@ -2018,7 +2258,11 @@ co:PMD_0001017 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0001018
 co:PMD_0001018 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0001014 ;
+               rdfs:subClassOf co:PMD_0001014 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0009006 ;
+                                 owl:someValuesFrom co:PMD_0000551
+                               ] ;
                rdfs:label "Röntgen-Mikroanalyse"@de ,
                           "x-ray microanalysis"@en ;
                skos:definition "An X-ray Analyzing Process that determines the elemental composition and chemical properties of a specimen by detecting and analyzing the characteristic X-rays emitted from the sample when it is irradiated with a focused electron beam."@en ,
@@ -2090,14 +2334,25 @@ co:PMD_0020004 rdf:type owl:Class ;
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf obo:IAO_0000030 ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000058 ;
-                                 owl:someValuesFrom co:PMD_0025001
+               rdfs:subClassOf [ owl:intersectionOf ( obo:IAO_0000030
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:RO_0000058 ;
+                                                        owl:someValuesFrom co:PMD_0025001
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
                                ] ;
                rdfs:label "composition specification"@en ;
                skos:definition "Composition specification is an information content entity that is conretized by  composition of a portion of matter and has memebers fraction specifications of portions of other matters (but not chemical elements) of which the whole portion of matter consists of (has parts)."@en ;
                skos:example "Nitric acid solution has quality  composition , which concretizes the composition specification .The composition specification has parts fraction specifications of nitric acid, e.g., 4 vol.%, and distilled water. These fraction specifications specify value of pure substances of nitric acid and distilled water, respectively. Furthermore, these fraction specifications are conretized by relational qualities (volume) proportion of nitric acid and (volume) proportion of distilled water."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0020005
+co:PMD_0020005 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020131 ;
+               rdfs:label "porosity"@en ;
+               skos:definition "The porosity is a quality describing the fraction of the materials (enclosing) spatial region occupied by pores."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -2116,7 +2371,8 @@ co:PMD_0020023 rdf:type owl:Class ;
                rdfs:subClassOf obo:OBI_0001930 ,
                                co:PMD_0020098 ;
                rdfs:label "metallic grain structures"@en ;
-               skos:definition "Metallic grain structures are descriptors for the morphology of polycrystalline metallic materials. Polycrystalline metallic materials will typically form their grain structures as one of those categories or a transition or mixture state of those."@en ;
+               skos:definition "Metallic grain structures are descriptors for the morphology of polycrystalline metallic materials. Polycrystalline metallic materials will typically form their grain structures as one of those categories or a transition or mixture state of those."@en ,
+                               "The metallic grain structures is a categorical value specification that specifies value of the  metallic grain structure quality. It describes the morphology of polycrystalline metallic materials. Polycrystalline metallic materials will typically form their grain structures as one of those categories or a transition or mixture state of those."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -3266,12 +3522,16 @@ co:PMD_0020099 rdf:type owl:Class ;
                                    ] ;
                rdfs:subClassOf obo:OBI_0001930 ,
                                co:PMD_0020098 ;
+               rdfs:comment """TODO: possibly extend for 2D (Graphene etc)
+
+More elaborate crystal descriptions may be found in http://emmo.info/domain-crystallography/crystallography or https://purls.helmholtz-metadaten.de/disos/cso"""@en ;
                rdfs:label "bravais lattice (3d)"@en ;
                skos:definition """The Bravais Lattice is a nature constant that describes the possible geometric arrangement of lattice points in a crystal. The present descriptor is limited to the 14 possible three-dimensional arrangements. 
 
 TODO: possibly extend for 2D (Graphene etc)
 
-More elaborate crystal descriptions may be found in http://emmo.info/domain-crystallography/crystallography or https://purls.helmholtz-metadaten.de/disos/cso"""@en ;
+More elaborate crystal descriptions may be found in http://emmo.info/domain-crystallography/crystallography or https://purls.helmholtz-metadaten.de/disos/cso"""@en ,
+                               "The Bravais lattice is a categorical value specification that specifies value of the crystal structure quality. It describes the possible geometric arrangement of lattice points in a crystal. The present descriptor is limited to the 14 possible three-dimensional arrangements."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -3353,7 +3613,8 @@ co:PMD_0020116 rdf:type owl:Class ;
                rdfs:subClassOf obo:OBI_0001930 ,
                                co:PMD_0020098 ;
                rdfs:label "aggregate state value"@en ;
-               skos:definition "The aggregate state type is a nature constant that concretizes the aggregatge state quality."@en ;
+               skos:definition "The aggregate state type is a nature constant that concretizes the aggregatge state quality."@en ,
+                               "The aggregate state value is a categorical value specification that specifies value of the aggregatge state quality."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -3555,10 +3816,13 @@ co:PMD_0025002 rdf:type owl:Class ;
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf co:PMD_0020004 ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000058 ;
-                                 owl:someValuesFrom co:PMD_0000551
+               rdfs:subClassOf [ owl:intersectionOf ( co:PMD_0020004
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:RO_0000058 ;
+                                                        owl:someValuesFrom co:PMD_0000551
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
                                ] ;
                rdfs:label "chemical composition specification"@en ;
                skos:definition "Chemical composition specification is an information content entity that is conretized by chemical composition of a material and has memebers fraction specifications of portions of chemical elements of which the material consists of (has parts)."@en ;
@@ -3569,12 +3833,21 @@ co:PMD_0025002 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0025003
 co:PMD_0025003 rdf:type owl:Class ;
                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty co:PMD_0000077 ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass co:PMD_0020023
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
                                      owl:onProperty [ owl:inverseOf obo:OBI_0001927
                                                     ] ;
                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                      owl:onClass co:PMD_0020023
                                    ] ;
                rdfs:subClassOf co:PMD_0020131 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0000077 ;
+                                 owl:someValuesFrom co:PMD_0020023
+                               ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty [ owl:inverseOf obo:OBI_0001927
                                                 ] ;
@@ -3683,9 +3956,92 @@ co:PMD_0025005 rdf:type owl:Class ;
                rdfs:label "γ-fibre grain orientation"@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0025006
+co:PMD_0025006 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000008 .
+
+
+###  https://w3id.org/pmd/co/PMD_0025007
+co:PMD_0025007 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000016 ;
+               rdfs:label "magnetic susceptibility"@en ;
+               skos:definition "Magnetic susceptibility is a disposition of a material which describes how responsive the material is to an applied magnetic field. It is a relation between the induced magnetization M and the magnetic field H."@en ;
+               co:symbol "χ" .
+
+
+###  https://w3id.org/pmd/co/PMD_0025009
+co:PMD_0025009 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000015
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:BFO_0000066 ;
+                                                            owl:someValuesFrom co:PMD_0000001
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty co:PMD_0001028 ;
+                                                            owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                                                                        owl:unionOf ( obo:BFO_0000016
+                                                                                                                      co:PMD_0000005
+                                                                                                                    )
+                                                                                                      ]
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty obo:BFO_0000054 ;
+                                                                                                        owl:someValuesFrom co:PMD_0000950
+                                                                                                      ]
+                                                                                                    ) ;
+                                                                                 rdf:type owl:Class
+                                                                               ]
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf obo:BFO_0000015 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000066 ;
+                                 owl:someValuesFrom co:PMD_0000001
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0001028 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                                             owl:unionOf ( obo:BFO_0000016
+                                                                                           co:PMD_0000005
+                                                                                         )
+                                                                           ]
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:BFO_0000054 ;
+                                                                             owl:someValuesFrom co:PMD_0000950
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ;
+               rdfs:label "material reacting process"@en ;
+               skos:definition "Material reacting process is a process which occurs in a portion of matter due to some of its disposition or behavioral material property which has realization in some  stimulating process. Both the material reacting process and stimulating process must be occurent parts of a planned process, if the planned process takes place."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0025010
+co:PMD_0025010 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000549 ;
+               rdfs:label "heating"@en ;
+               skos:definition "Heating is a change of temperature which corresponds to the increase of temperature in the system or object."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0025011
+co:PMD_0025011 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000549 ;
+               rdfs:label "cooling"@en ;
+               skos:definition "Cooling is a change of temperature which corresponds to the decrease of temperature in the system or object."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0025012
+co:PMD_0025012 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000583 ;
+               rdfs:label "analytical calculation"@en ;
+               skos:definition "Analytical calculation is a computing process which has value specification or measurement datum as a specified output. It applies a closed-form mathematical expression or formula to a set it specified inputs (value specifications) without requiring stochastic sampling, iterative numerical solving, or data-driven training."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0025997
 co:PMD_0025997 rdf:type owl:Class ;
-               rdfs:subClassOf obo:OBI_0001933 ,
+               rdfs:subClassOf obo:OBI_0001931 ,
                                [ owl:intersectionOf ( [ owl:intersectionOf ( obo:OBI_0001933
                                                                              [ rdf:type owl:Restriction ;
                                                                                owl:onProperty obo:OBI_0001927 ;
@@ -3758,6 +4114,24 @@ co:PMD_0025997 rdf:type owl:Class ;
                                                                            [ rdf:type owl:Restriction ;
                                                                              owl:onProperty obo:BFO_0000051 ;
                                                                              owl:someValuesFrom co:PMD_0020140
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:OBI_0001927 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020101
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty co:PMD_0025999 ;
+                                                                             owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000040
+                                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                                         owl:onProperty obo:BFO_0000050 ;
+                                                                                                                         owl:someValuesFrom obo:BFO_0000040
+                                                                                                                       ]
+                                                                                                                     ) ;
+                                                                                                  rdf:type owl:Class
+                                                                                                ]
                                                                            ]
                                                                          ) ;
                                                       rdf:type owl:Class
@@ -4221,6 +4595,7 @@ noes:NOES_0000048 rdf:type owl:Class ;
 noes:NOES_0000049 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0000825 ;
                   rdfs:label "magnetic induction"@en ;
+                  skos:altLabel "magnetic flux density"@en ;
                   skos:definition "Magnetic induction is a magnetic property stimulated by an applied extermal magnetic field H. It characterizes the response of magnetic domains within a material to the applied magnetic field, i.e., the alignment of the magnetic domains and the stregnth of an induced magnetic field in the material."@en .
 
 
@@ -6515,6 +6890,17 @@ noes:sheet_normal_direction rdf:type owl:NamedIndividual ,
 
 
 #################################################################
+#    Annotations
+#################################################################
+
+co:PMD_0025006 rdfs:label "magnetic field strength"@en ,
+                          "process attribute of"@en ;
+               skos:definition "A relation between a process attribute and a process, which \"bears\" the attribute."@en ,
+                               "Magnetic field strength is a process attribute of an aplication of magnetic field process which characterizes the magnitude the external / applied magnetic field."@en ;
+               skos:example "Tensile rate is a process attribute of tensile test"@en .
+
+
+#################################################################
 #    General axioms
 #################################################################
 
@@ -6538,6 +6924,24 @@ noes:sheet_normal_direction rdf:type owl:NamedIndividual ,
                 co:PMD_0000942
                 co:PMD_0000967
                 co:PMD_0020112
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( co:PMD_0000503
+                co:PMD_0000512
+                co:PMD_0000591
+                co:PMD_0000595
+                co:PMD_0000597
+                co:PMD_0000853
+                co:PMD_0000896
+                co:PMD_0000942
+                co:PMD_0000967
+                co:PMD_0020005
+                co:PMD_0020112
+                co:PMD_0025001
+                co:PMD_0025003
               )
 ] .
 
@@ -6598,6 +7002,18 @@ noes:sheet_normal_direction rdf:type owl:NamedIndividual ,
 
 
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( co:PMD_0000549
+                co:PMD_0000596
+                co:PMD_0000629
+                co:PMD_0000635
+                co:PMD_0000869
+                co:PMD_0000870
+                co:PMD_0000871
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( co:PMD_0000553
                 co:PMD_0000619
                 co:PMD_0020132
@@ -6617,6 +7033,18 @@ noes:sheet_normal_direction rdf:type owl:NamedIndividual ,
                 co:PMD_0020142
                 co:PMD_0020151
                 co:PMD_0020155
+                co:PMD_0020161
+                co:PMD_0050155
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( co:PMD_0000553
+                co:PMD_0000619
+                co:PMD_0020132
+                co:PMD_0020133
+                co:PMD_0020142
                 co:PMD_0020161
                 co:PMD_0050155
               )
