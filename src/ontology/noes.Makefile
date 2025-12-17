@@ -9,7 +9,7 @@
 ## changes here rather than in the main Makefile
 
 PMDCO_DISJOINTNESS_REMOVAL_TERMS = $(IMPORTDIR)/pmdco_remove_disjoint.txt
-
+PMDCO_INDIVIDUALS_TO_REMOVE = $(IMPORTDIR)/pmdco_individuals_to_remove.txt
 
 $(ONTOLOGYTERMS): $(SRCMERGED)
 	$(ROBOT) query -f csv -i $< --query noes_terms.sparql $@
@@ -49,6 +49,8 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
 	  \
 	  remove --term-file $(PMDCO_DISJOINTNESS_REMOVAL_TERMS) \
 			 --select disjoint-with \
+	  remove --term-file $(PMDCO_INDIVIDUALS_TO_REMOVE) \
+			 --select individual-axioms \
 	  remove --term http://purl.obolibrary.org/obo/IAO_0000412 \
              --select annotation \
 	  \
