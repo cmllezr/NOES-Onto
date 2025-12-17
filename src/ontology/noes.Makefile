@@ -8,21 +8,7 @@
 ## If you need to customize your Makefile, make
 ## changes here rather than in the main Makefile
 
-## ONTOLOGY IRI FIX
-## ONTBASE = https://w3id.org/pmd/noes
-## ONTOLOGY_IRI_BASE = https://w3id.org/pmd/noes/
-
-## $(ONT).owl: $(ONT)-full.owl
-##	$(ROBOT) annotate --input $< --ontology-iri $(ONTOLOGY_IRI_BASE) $(ANNOTATE_ONTOLOGY_VERSION) \
-##		convert -o $@.tmp.owl && mv $@.tmp.owl $@
-
-## $(ONT).ttl: $(ONT).owl
-##	$(ROBOT) annotate --input $< --ontology-iri $(ONTOLOGY_IRI_BASE) $(ANNOTATE_ONTOLOGY_VERSION) \
-##		convert --check false -f ttl -o $@.tmp.ttl && mv $@.tmp.ttl $@
-
-
-#$(IMPORTSEED): $(PRESEED) | $(TMPDIR)
-#	echo "" > $@
+PMDCO_DISJOINTNESS_REMOVAL_TERMS = $(IMPORTDIR)/pmdco_remove_disjoint.txt
 
 
 $(ONTOLOGYTERMS): $(SRCMERGED)
@@ -57,6 +43,9 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
 	          --intermediates all \
 	          --method BOT \
 	  \
+	  # Remove Disjointness Axioms
+		remove --term-file $(PMDCO_DISJOINTNESS_REMOVAL_TERMS) \
+			   --select disjoint-with \
 	  query --update ../sparql/inject-subset-declaration.ru \
 	        --update ../sparql/inject-synonymtype-declaration.ru \
 	        --update ../sparql/postprocess-module.ru \
