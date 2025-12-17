@@ -53,9 +53,9 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
              --select annotation \
 	  \
 	  remove --term-file $(PMDCO_DISJOINTNESS_REMOVAL_TERMS) \
-			 --select disjoint-with \
+			 --select disjoint \
 	  remove --term-file $(PMDCO_INDIVIDUALS_TO_REMOVE) \
-			 --select individual-axioms \
+			 --select individuals\
 	  $(ANNOTATE_CONVERT_FILE); \
 	fi
 
