@@ -57,7 +57,7 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
              --select annotation \
 	  \
 	  remove --term-file $(PMDCO_DISJOINTNESS_REMOVAL_TERMS) \
-			 --axioms "DisjointClasses ClassAssertion" \
+			 --axioms DisjointClasses \
 	  remove --term-file $(PMDCO_CLASSES_TO_REMOVE) \
 			 --select "classes"\
 	  remove --term-file $(IAO_TO_REMOVE) \
