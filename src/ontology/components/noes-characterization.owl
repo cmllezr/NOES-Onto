@@ -3179,6 +3179,7 @@ Typical configuration dependent contributions are interface energy contributions
         <rdfs:label xml:lang="en">frequency</rdfs:label>
         <skos:definition xml:lang="en">frequency is a process attribute which characterizes the rate per second of oscillation or vibration.</skos:definition>
         <skos:example xml:lang="en">Frequency of electromagnetic wave, Frequency of sound wave.</skos:example>
+        <co:symbol>f</co:symbol>
     </owl:Class>
     
 
@@ -3575,11 +3576,29 @@ Typical configuration dependent contributions are interface energy contributions
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000010">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000829"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000051"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000056"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000009"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000156"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">TODO: The definition has to be refined. 
 TODO: Write axioms based on the definition</rdfs:comment>
         <rdfs:label xml:lang="en">quasi-static (DC) characterization of magnetic properties</rdfs:label>
-        <skos:definition xml:lang="en">Quasi-static (DC) characterization is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine a static magnetic curve of the tested material. During the test, the current in the primary winding is changed slowly, thus the frequency of a magnetic field remains low, i.e., below 0.01 Hz. The output of the quasi-static characterization of magnetic properties  is a static B-H curve, which  provides information on hysteresis loss Ph, saturation magnetization Bs, coercivity Hc, remanence Br, and maximum permeability µmax. During DC characterization primarily domain wall motion and pinning effects play role.</skos:definition>
-        <skos:example xml:lang="en">Measurement of hysteresis losses; measurement of magnetic induction at specified magnetic field, e.g., 5000 A/m.</skos:example>
+        <skos:definition xml:lang="en">Quasi-static (DC) characterization is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine a static magnetic curve of the tested material. During the test, the current in the primary winding is changed slowly, thus the frequency of a magnetic field remains low, i.e., below 0.01 Hz. The output of the quasi-static characterization of magnetic properties  is a static B-H curve, which  provides information on hysteresis loss Ph, saturation induction Bsat, coercivity Hc, remanence Br, and maximum permeability µmax. During DC characterization primarily domain wall motion and pinning effects play role.</skos:definition>
+        <skos:example xml:lang="en">Measurement of hysteresis losses; measurement of saturation magnetic induction at specified maximal magnetic field, e.g., 5000 A/m.</skos:example>
     </owl:Class>
     
 
@@ -3588,6 +3607,18 @@ TODO: Write axioms based on the definition</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000011">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000829"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000057"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000009"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000003"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Dynamic (AC) characterization of magnetic properties is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine the total energy loss of a tested material at specific frequency and magnetic flux density. During the test, the current in the primary winding is changed with frequency between 50-400 Hz to ensure sinusoidal waveform of the magnetic flux density at Bpeak. The output of the dynamic characterization of magnetic properties  is a  B-H curve, which  provides information on total core loss Ptot and dynamic permeability µdyn.</rdfs:comment>
         <rdfs:comment xml:lang="en">TODO: refine defintion
 TODO: write axioms</rdfs:comment>
@@ -3765,9 +3796,9 @@ TODO: write axioms</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000825"/>
         <rdfs:comment xml:lang="en">A low H_c​ is desirable for soft magnetic materials like electrical steel, indicating easy magnetization and demagnetization</rdfs:comment>
         <rdfs:label xml:lang="en">coercivity</rdfs:label>
-        <skos:altLabel xml:lang="en">Hc</skos:altLabel>
         <skos:altLabel xml:lang="en">coercive field strength</skos:altLabel>
         <skos:definition xml:lang="en">Coercivity is a magnetic property which is stimulated under an application of magnetic field. It describesthe value of the magnetic field strength H required to reduce the Magnetic Flux Density B back to zero after the material has been driven to the saturation of magnetic flux density B_sat.</skos:definition>
+        <co:symbol xml:lang="en">Hc</co:symbol>
     </owl:Class>
     
 
@@ -3779,6 +3810,7 @@ TODO: write axioms</rdfs:comment>
         <rdfs:label xml:lang="en">magnetic induction</rdfs:label>
         <skos:altLabel xml:lang="en">magnetic flux density</skos:altLabel>
         <skos:definition xml:lang="en">Magnetic induction is a magnetic property stimulated by an applied extermal magnetic field H. It characterizes the response of magnetic domains within a material to the applied magnetic field, i.e., the alignment of the magnetic domains and the stregnth of an induced magnetic field in the material.</skos:definition>
+        <co:symbol>B</co:symbol>
     </owl:Class>
     
 
@@ -3788,9 +3820,9 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000050">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000049"/>
         <rdfs:label xml:lang="en">remanence</rdfs:label>
-        <skos:altLabel xml:lang="en">Br</skos:altLabel>
         <skos:altLabel xml:lang="en">remnant Induction</skos:altLabel>
         <skos:definition xml:lang="en">Remanence is the magnetic induction B that remains in the material when the magnetic field strength H is reduced to zero.</skos:definition>
+        <co:symbol xml:lang="en">Br</co:symbol>
     </owl:Class>
     
 
@@ -3800,9 +3832,9 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000051">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000049"/>
         <rdfs:label xml:lang="en">saturation induction</rdfs:label>
-        <skos:altLabel xml:lang="en">Bsat</skos:altLabel>
         <skos:altLabel xml:lang="en">saturation magnetic flux density</skos:altLabel>
         <skos:definition xml:lang="en">Saturation induction is a magnetic property which is stimulated under an application of magnetic field. It characterizes the maximum induction B a material can achieve, i.e., the saturation induction is reached when it remains unchanged with increasing magnetic field strength H.</skos:definition>
+        <co:symbol xml:lang="en">Bsat</co:symbol>
     </owl:Class>
     
 
@@ -3849,6 +3881,7 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000056">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
         <rdfs:label xml:lang="en">hysteresis loss</rdfs:label>
+        <co:symbol xml:lang="en">Phys</co:symbol>
     </owl:Class>
     
 
@@ -3858,6 +3891,7 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000057">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
         <rdfs:label xml:lang="en">total magnetic power loss</rdfs:label>
+        <co:symbol xml:lang="en">Ptot</co:symbol>
     </owl:Class>
     
 
@@ -3878,8 +3912,8 @@ TODO: write axioms</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:comment xml:lang="en">Derivative dB/dH</rdfs:comment>
         <rdfs:label xml:lang="en">differential permeability</rdfs:label>
-        <skos:altLabel xml:lang="en">µ_d</skos:altLabel>
         <skos:definition xml:lang="en">Differential permeability is the instantaneous slope of the magnetization curve or hysteresis loop at any given point</skos:definition>
+        <co:symbol xml:lang="en">µd</co:symbol>
     </owl:Class>
     
 
@@ -3899,8 +3933,8 @@ TODO: write axioms</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:comment xml:lang="en">How easily the material magnetizes from rest</rdfs:comment>
         <rdfs:label xml:lang="en">initial permeability</rdfs:label>
-        <skos:altLabel xml:lang="en">µ_i</skos:altLabel>
         <skos:definition xml:lang="en">Initial permeability characterizes the slope of the tangent to the magnetization curve at the origin, i.e., H=0 and B=0. It represents the permeability in the weakest magnetic fields</skos:definition>
+        <co:symbol xml:lang="en">µi</co:symbol>
     </owl:Class>
     
 
@@ -3911,8 +3945,8 @@ TODO: write axioms</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:comment xml:lang="en">The maximum value of the normal permeability (the steepest line from the origin to the magnetization curve).</rdfs:comment>
         <rdfs:label xml:lang="en">maximum permeability</rdfs:label>
-        <skos:altLabel xml:lang="en">µ_max</skos:altLabel>
         <skos:definition xml:lang="en">Maximum permeability is the steepest part of the B-H curve, where the material most readily accepts field. it indicates the easiest magnetization point of the material,</skos:definition>
+        <co:symbol xml:lang="en">µmax</co:symbol>
     </owl:Class>
     
 
@@ -3923,8 +3957,8 @@ TODO: write axioms</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:comment xml:lang="en">A line from the origin to the loop tip</rdfs:comment>
         <rdfs:label xml:lang="en">normal permeability</rdfs:label>
-        <skos:altLabel xml:lang="en">μ_a</skos:altLabel>
         <skos:definition xml:lang="en">Normal permeabilty is the ratio of the peak magnetic induction B_peak to the peak magnetic field strength H_peak​ for a specific cycle</skos:definition>
+        <co:symbol xml:lang="en">μa</co:symbol>
     </owl:Class>
     
 
@@ -4021,6 +4055,7 @@ TODO: write axioms</rdfs:comment>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000057"/>
         <rdfs:label xml:lang="en">magnetic power loss at 1.5 T / 50 Hz</rdfs:label>
+        <co:symbol xml:lang="en">P1.5/50</co:symbol>
     </owl:Class>
     
 
@@ -4109,6 +4144,7 @@ TODO: write axioms</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000057"/>
         <rdfs:label xml:lang="en">magnetic power loss at 1.0 T / 400 Hz</rdfs:label>
         <skos:definition xml:lang="en">Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field</skos:definition>
+        <co:symbol xml:lang="en">P1.0/400</co:symbol>
     </owl:Class>
     
 
@@ -4255,6 +4291,17 @@ TODO: write axioms</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000154"/>
         <rdfs:label xml:lang="en">EBSD system</rdfs:label>
         <skos:definition xml:lang="en">Electron backscatter diffraction (EBSD) system is a diffractomter which detects diffracted electrons in the chamber of a scanning electron microscope.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000156 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000156">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000070"/>
+        <rdfs:label xml:lang="en">maximal magnetic field strength</rdfs:label>
+        <skos:definition xml:lang="en">Maximal magnetic field is a maximal value of a magnetic field has has to be achieved during characterization of magnetic properties</skos:definition>
+        <co:symbol xml:lang="en">Hmax</co:symbol>
     </owl:Class>
     
 
