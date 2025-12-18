@@ -2275,8 +2275,27 @@ obo:UO_1000228 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000000
 co:PMD_0000000 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000001 ;
+               rdfs:subClassOf [ owl:intersectionOf ( co:PMD_0000001
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:RO_0000053 ;
+                                                        owl:someValuesFrom co:PMD_0000005
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:RO_0000086 ;
+                                                        owl:someValuesFrom co:PMD_0020131
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:RO_0002353 ;
+                                                        owl:someValuesFrom obo:BFO_0000015
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
                rdfs:comment "Instances of Portions Of Matter whose shape is relevant for their dispostion to participate in a Manufacturing Process may be SemiFinishedProdcuts."@en ,
+                            "Instances of Portions Of Matter whose shape is relevant for their dispostion to participate in a manufacturing process may be (subclasses of) objects that bear a 'blank role' in the context of the manufacturing process."@en ,
+                            """Material is defined in terms of the three main perspectives that material specifications rely on: the structure of the material (\"intensive quality\"), the performance of the material (\"behavoiral material property\") and the processing the material must have undergone (\"output of some process\").
+
+When defining specific materials/material taxonomies, these three aspects shall be taken into account in the aristotelian (\"per genus et differentiam\") as differentiation."""@en ,
                             "The sum of portions of matter of the same type form a portion of matter of that type."@en ;
                rdfs:label "Material"@de ,
                           "material"@en ;
@@ -5160,13 +5179,16 @@ co:PMD_0020155 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020161
 co:PMD_0020161 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020148 ;
+               rdfs:subClassOf obo:BFO_0000145 ,
+                               co:PMD_0020148 ;
                obo:IAO_0000116 "Definition not final"@en ;
                rdfs:comment """Typical configuration independent contributions to the free energy are temperature, pressure, chemical composition and magnetic contributions.
 
 Typical configuration dependent contributions are interface energy contributions."""@en ;
-               rdfs:label "activity of a phase"@en ;
-               skos:definition "Quality of a thermodynamic phase that characterizes its free energy."@en .
+               rdfs:label "activity (thermodynamic)"@en ,
+                          "activity of a phase"@en ;
+               skos:definition "Activity (a_X) is a relational property between a chemical species X and a non-ideal solution. a_X is a measure of the effective concentration of a chemical species X in the non-ideal solution, accounting for interactions between particles. It is defined as the product of the concentration and an activity coefficient, where the activity coefficient corrects for non-ideal behavior."@en ,
+                               "Quality of a thermodynamic phase that characterizes its free energy."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020166
@@ -5380,7 +5402,8 @@ co:PMD_0025007 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000008 ;
                rdfs:label "frequency"@en ;
                skos:definition "frequency is a process attribute which characterizes the rate per second of oscillation or vibration."@en ;
-               skos:example "Frequency of electromagnetic wave, Frequency of sound wave."@en .
+               skos:example "Frequency of electromagnetic wave, Frequency of sound wave."@en ;
+               co:symbol "f" .
 
 
 ###  https://w3id.org/pmd/co/PMD_0025008
@@ -5771,17 +5794,37 @@ noes:NOES_0000009 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000010
 noes:NOES_0000010 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000829 ;
+                  rdfs:subClassOf co:PMD_0000829 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0009006 ;
+                                    owl:someValuesFrom noes:NOES_0000051
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0009006 ;
+                                    owl:someValuesFrom noes:NOES_0000056
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty co:PMD_0000009 ;
+                                    owl:someValuesFrom noes:NOES_0000156
+                                  ] ;
                   rdfs:comment """TODO: The definition has to be refined. 
 TODO: Write axioms based on the definition"""@en ;
                   rdfs:label "quasi-static (DC) characterization of magnetic properties"@en ;
-                  skos:definition "Quasi-static (DC) characterization is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine a static magnetic curve of the tested material. During the test, the current in the primary winding is changed slowly, thus the frequency of a magnetic field remains low, i.e., below 0.01 Hz. The output of the quasi-static characterization of magnetic properties  is a static B-H curve, which  provides information on hysteresis loss Ph, saturation magnetization Bs, coercivity Hc, remanence Br, and maximum permeability µmax. During DC characterization primarily domain wall motion and pinning effects play role."@en ;
-                  skos:example "Measurement of hysteresis losses; measurement of magnetic induction at specified magnetic field, e.g., 5000 A/m."@en .
+                  skos:definition "Quasi-static (DC) characterization is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine a static magnetic curve of the tested material. During the test, the current in the primary winding is changed slowly, thus the frequency of a magnetic field remains low, i.e., below 0.01 Hz. The output of the quasi-static characterization of magnetic properties  is a static B-H curve, which  provides information on hysteresis loss Ph, saturation induction Bsat, coercivity Hc, remanence Br, and maximum permeability µmax. During DC characterization primarily domain wall motion and pinning effects play role."@en ;
+                  skos:example "Measurement of hysteresis losses; measurement of saturation magnetic induction at specified maximal magnetic field, e.g., 5000 A/m."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000011
 noes:NOES_0000011 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000829 ;
+                  rdfs:subClassOf co:PMD_0000829 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0009006 ;
+                                    owl:someValuesFrom noes:NOES_0000057
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty co:PMD_0000009 ;
+                                    owl:someValuesFrom noes:NOES_0000003
+                                  ] ;
                   rdfs:comment "Dynamic (AC) characterization of magnetic properties is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine the total energy loss of a tested material at specific frequency and magnetic flux density. During the test, the current in the primary winding is changed with frequency between 50-400 Hz to ensure sinusoidal waveform of the magnetic flux density at Bpeak. The output of the dynamic characterization of magnetic properties  is a  B-H curve, which  provides information on total core loss Ptot and dynamic permeability µdyn."@en ,
                                """TODO: refine defintion
 TODO: write axioms"""@en ;
@@ -6013,9 +6056,9 @@ noes:NOES_0000048 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0000825 ;
                   rdfs:comment "A low H_c​ is desirable for soft magnetic materials like electrical steel, indicating easy magnetization and demagnetization"@en ;
                   rdfs:label "coercivity"@en ;
-                  skos:altLabel "Hc"@en ,
-                                "coercive field strength"@en ;
-                  skos:definition "Coercivity is a magnetic property which is stimulated under an application of magnetic field. It describesthe value of the magnetic field strength H required to reduce the Magnetic Flux Density B back to zero after the material has been driven to the saturation of magnetic flux density B_sat."@en .
+                  skos:altLabel "coercive field strength"@en ;
+                  skos:definition "Coercivity is a magnetic property which is stimulated under an application of magnetic field. It describesthe value of the magnetic field strength H required to reduce the Magnetic Flux Density B back to zero after the material has been driven to the saturation of magnetic flux density B_sat."@en ;
+                  co:symbol "Hc"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000049
@@ -6023,25 +6066,26 @@ noes:NOES_0000049 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0000825 ;
                   rdfs:label "magnetic induction"@en ;
                   skos:altLabel "magnetic flux density"@en ;
-                  skos:definition "Magnetic induction is a magnetic property stimulated by an applied extermal magnetic field H. It characterizes the response of magnetic domains within a material to the applied magnetic field, i.e., the alignment of the magnetic domains and the stregnth of an induced magnetic field in the material."@en .
+                  skos:definition "Magnetic induction is a magnetic property stimulated by an applied extermal magnetic field H. It characterizes the response of magnetic domains within a material to the applied magnetic field, i.e., the alignment of the magnetic domains and the stregnth of an induced magnetic field in the material."@en ;
+                  co:symbol "B" .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000050
 noes:NOES_0000050 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000049 ;
                   rdfs:label "remanence"@en ;
-                  skos:altLabel "Br"@en ,
-                                "remnant Induction"@en ;
-                  skos:definition "Remanence is the magnetic induction B that remains in the material when the magnetic field strength H is reduced to zero."@en .
+                  skos:altLabel "remnant Induction"@en ;
+                  skos:definition "Remanence is the magnetic induction B that remains in the material when the magnetic field strength H is reduced to zero."@en ;
+                  co:symbol "Br"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000051
 noes:NOES_0000051 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000049 ;
                   rdfs:label "saturation induction"@en ;
-                  skos:altLabel "Bsat"@en ,
-                                "saturation magnetic flux density"@en ;
-                  skos:definition "Saturation induction is a magnetic property which is stimulated under an application of magnetic field. It characterizes the maximum induction B a material can achieve, i.e., the saturation induction is reached when it remains unchanged with increasing magnetic field strength H."@en .
+                  skos:altLabel "saturation magnetic flux density"@en ;
+                  skos:definition "Saturation induction is a magnetic property which is stimulated under an application of magnetic field. It characterizes the maximum induction B a material can achieve, i.e., the saturation induction is reached when it remains unchanged with increasing magnetic field strength H."@en ;
+                  co:symbol "Bsat"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000052
@@ -6072,13 +6116,15 @@ noes:NOES_0000055 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/noes/NOES_0000056
 noes:NOES_0000056 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000053 ;
-                  rdfs:label "hysteresis loss"@en .
+                  rdfs:label "hysteresis loss"@en ;
+                  co:symbol "Phys"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000057
 noes:NOES_0000057 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000053 ;
-                  rdfs:label "total magnetic power loss"@en .
+                  rdfs:label "total magnetic power loss"@en ;
+                  co:symbol "Ptot"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000058
@@ -6093,8 +6139,8 @@ noes:NOES_0000059 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000052 ;
                   rdfs:comment "Derivative dB/dH"@en ;
                   rdfs:label "differential permeability"@en ;
-                  skos:altLabel "µ_d"@en ;
-                  skos:definition "Differential permeability is the instantaneous slope of the magnetization curve or hysteresis loop at any given point"@en .
+                  skos:definition "Differential permeability is the instantaneous slope of the magnetization curve or hysteresis loop at any given point"@en ;
+                  co:symbol "µd"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000060
@@ -6108,8 +6154,8 @@ noes:NOES_0000061 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000052 ;
                   rdfs:comment "How easily the material magnetizes from rest"@en ;
                   rdfs:label "initial permeability"@en ;
-                  skos:altLabel "µ_i"@en ;
-                  skos:definition "Initial permeability characterizes the slope of the tangent to the magnetization curve at the origin, i.e., H=0 and B=0. It represents the permeability in the weakest magnetic fields"@en .
+                  skos:definition "Initial permeability characterizes the slope of the tangent to the magnetization curve at the origin, i.e., H=0 and B=0. It represents the permeability in the weakest magnetic fields"@en ;
+                  co:symbol "µi"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000062
@@ -6117,8 +6163,8 @@ noes:NOES_0000062 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000052 ;
                   rdfs:comment "The maximum value of the normal permeability (the steepest line from the origin to the magnetization curve)."@en ;
                   rdfs:label "maximum permeability"@en ;
-                  skos:altLabel "µ_max"@en ;
-                  skos:definition "Maximum permeability is the steepest part of the B-H curve, where the material most readily accepts field. it indicates the easiest magnetization point of the material,"@en .
+                  skos:definition "Maximum permeability is the steepest part of the B-H curve, where the material most readily accepts field. it indicates the easiest magnetization point of the material,"@en ;
+                  co:symbol "µmax"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000063
@@ -6126,8 +6172,8 @@ noes:NOES_0000063 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000052 ;
                   rdfs:comment "A line from the origin to the loop tip"@en ;
                   rdfs:label "normal permeability"@en ;
-                  skos:altLabel "μ_a"@en ;
-                  skos:definition "Normal permeabilty is the ratio of the peak magnetic induction B_peak to the peak magnetic field strength H_peak​ for a specific cycle"@en .
+                  skos:definition "Normal permeabilty is the ratio of the peak magnetic induction B_peak to the peak magnetic field strength H_peak​ for a specific cycle"@en ;
+                  co:symbol "μa"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000064
@@ -6255,7 +6301,8 @@ noes:NOES_0000065 rdf:type owl:Class ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:label "magnetic power loss at 1.5 T / 50 Hz"@en .
+                  rdfs:label "magnetic power loss at 1.5 T / 50 Hz"@en ;
+                  co:symbol "P1.5/50"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000069
@@ -6378,7 +6425,8 @@ noes:NOES_0000069 rdf:type owl:Class ;
                                                        ]
                                   ] ;
                   rdfs:label "magnetic power loss at 1.0 T / 400 Hz"@en ;
-                  skos:definition "Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field"@en .
+                  skos:definition "Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field"@en ;
+                  co:symbol "P1.0/400"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000070
@@ -7624,6 +7672,14 @@ noes:NOES_0000155 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000154 ;
                   rdfs:label "EBSD system"@en ;
                   skos:definition "Electron backscatter diffraction (EBSD) system is a diffractomter which detects diffracted electrons in the chamber of a scanning electron microscope."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000156
+noes:NOES_0000156 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000070 ;
+                  rdfs:label "maximal magnetic field strength"@en ;
+                  skos:definition "Maximal magnetic field is a maximal value of a magnetic field has has to be achieved during characterization of magnetic properties"@en ;
+                  co:symbol "Hmax"@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005
