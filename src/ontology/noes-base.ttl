@@ -1835,7 +1835,9 @@ co:PMD_0000885 rdf:type owl:Class ;
                                  owl:someValuesFrom co:PMD_0000853
                                ] ;
                rdfs:label "pole figure"@en ;
-               skos:definition "A pole figure is a map representing a graphical representation of the orientation of crystallographic planes in a polycrystalline sample."@en ;
+               skos:definition "A pole figure is a map depicting a 2D stereographic projection which representes crystallographic orientations of grains in a polycrystalline material in respect to the sample's reference frame."@en ,
+                               "A pole figure is a map depicting a 2D stereographic projection which represents crystallographic orientations of grains in a polycrystalline material in respect to the sample's reference frame."@en ,
+                               "A pole figure is a map representing a graphical representation of the orientation of crystallographic planes in a polycrystalline sample."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -2145,6 +2147,7 @@ co:PMD_0001014 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0001016
 co:PMD_0001016 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0001014 ,
+                               noes:NOES_0000153 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0009006 ;
                                  owl:someValuesFrom co:PMD_0000591
@@ -2201,7 +2204,7 @@ co:PMD_0001019 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0001020
 co:PMD_0001020 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000602 ;
+               rdfs:subClassOf noes:NOES_0000154 ;
                rdfs:label "Röntgenbeugungsgerät"@de ,
                           "x-ray diffractometer"@en ;
                skos:definition "An X-Ray Diffractometer is a Measuring Device that determines the crystal structure of materials by analyzing the diffraction patterns of X-rays passed through a sample."@en ,
@@ -4429,7 +4432,7 @@ noes:NOES_0000032 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000034
 noes:NOES_0000034 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000032 ,
+                  rdfs:subClassOf noes:NOES_0000153 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0009006 ;
                                     owl:someValuesFrom co:PMD_0020112
@@ -4954,6 +4957,20 @@ noes:NOES_0000075 rdf:type owl:Class ;
                                   ] ;
                   rdfs:label "Euler angles"@en ;
                   skos:definition "In crystallography Euler angles are three angles which describe orientation of a sinlge crystal in respect to the sample's coordinate system. By aligning coordinate system of every crystal in the sample to the sample's coordinate system, anisotropy of material's properties can be investigated."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000076
+noes:NOES_0000076 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000885 ;
+                  rdfs:label "incomplete pole figure"@en ;
+                  skos:definition "Incomplete pole figure is a pole figure that lacks intensity data for high tilt angles α."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000077
+noes:NOES_0000077 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000885 ;
+                  rdfs:label "complete pole figure"@en ;
+                  skos:definition "Complete pole figure is a pole figure which covers the full 0° - 90° range of tilt angles α"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000078
@@ -6089,6 +6106,27 @@ noes:NOES_0000152 rdf:type owl:Class ;
  and ('has member' value '(1-1-1)')
  and ('has member' value '(-1-1-1)'))""" ;
                   rdfs:label "{111}"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000153
+noes:NOES_0000153 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000957 ;
+                  rdfs:label "diffraction process"@en ;
+                  skos:definition "Diffraction process is a structural property analyzing process which utilizes diffraction of either electron, x-ray, or neutron waves to determine material's crystal structure, crystallographic texture, (phase) composition, and presence of defects."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000154
+noes:NOES_0000154 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000602 ;
+                  rdfs:label "diffractometer"@en ;
+                  skos:definition "Diffractometer is a device which detects the intensity of a beam of either electrons, x-rays, or neutrons scattered from a material during a diffraction process."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000155
+noes:NOES_0000155 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000154 ;
+                  rdfs:label "EBSD system"@en ;
+                  skos:definition "Electron backscatter diffraction (EBSD) system is a diffractomter which detects diffracted electrons in the chamber of a scanning electron microscope."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005

@@ -195,6 +195,59 @@ obo:BFO_0000108 rdf:type owl:ObjectProperty ;
                 skos:example "First World War exists at 1914-1916; Mexico exists at January 1, 2000"@en .
 
 
+###  http://purl.obolibrary.org/obo/BFO_0000117
+obo:BFO_0000117 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000051 ;
+                owl:inverseOf obo:BFO_0000132 ;
+                rdf:type owl:TransitiveProperty ;
+                rdfs:domain obo:BFO_0000003 ;
+                rdfs:range obo:BFO_0000003 ;
+                rdfs:label "has occurrent part"@en ;
+                skos:definition "b has occurrent part c =Def c occurrent part of b"@en ;
+                skos:example "Mary's life has occurrent part Mary's 5th birthday"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000118
+obo:BFO_0000118 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000117 ;
+                owl:inverseOf obo:BFO_0000138 ;
+                rdf:type owl:TransitiveProperty ;
+                rdfs:domain obo:BFO_0000003 ;
+                rdfs:range obo:BFO_0000003 ;
+                rdfs:label "has proper occurrent part"@en ;
+                skos:definition "b has proper occurrent part c =Def b has occurrent part c & b and c are not identical"@en ;
+                skos:example "As for has occurrent part."@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000132
+obo:BFO_0000132 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000050 ;
+                rdf:type owl:TransitiveProperty ;
+                rdfs:domain obo:BFO_0000003 ;
+                rdfs:range obo:BFO_0000003 ;
+                rdfs:label "occurrent part of"@en ;
+                skos:definition "(Elucidation) occurrent part of is a relation between occurrents b and c when b is part of c"@en ;
+                skos:example "Mary's 5th birthday is an occurrent part of Mary's life; the first set of the tennis match is an occurrent part of the tennis match"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:BFO_0000132 ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000050 ;
+   rdfs:comment "\"occurrent part of\" is not a BFO2020 temporalized relation. It just restricts the domain and range to \"occurrent\". That's why is should be OK to make it sub property of RO \"part of\""
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000138
+obo:BFO_0000138 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000132 ;
+                rdf:type owl:TransitiveProperty ;
+                rdfs:domain obo:BFO_0000003 ;
+                rdfs:range obo:BFO_0000003 ;
+                rdfs:label "proper occurrent part of"@en ;
+                skos:definition "b proper occurrent part of c =Def b occurrent part of c & b and c are not identical"@en ;
+                skos:example "As for occurrent part of."@en .
+
+
 ###  http://purl.obolibrary.org/obo/BFO_0000183
 obo:BFO_0000183 rdf:type owl:ObjectProperty ;
                 rdfs:domain [ rdf:type owl:Class ;
@@ -1015,7 +1068,11 @@ obo:BFO_0000006 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/BFO_0000008
 obo:BFO_0000008 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000003 ;
+                rdfs:subClassOf obo:BFO_0000003 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000132 ;
+                                  owl:allValuesFrom obo:BFO_0000008
+                                ] ;
                 rdfs:label "temporal region"@en ;
                 skos:definition "(Elucidation) A temporal region is an occurrent over which processes can unfold"@en ;
                 skos:example "As for zero-dimensional temporal region and one-dimensional temporal region"@en .
@@ -1031,7 +1088,11 @@ obo:BFO_0000009 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/BFO_0000011
 obo:BFO_0000011 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000003 ;
+                rdfs:subClassOf obo:BFO_0000003 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000132 ;
+                                  owl:allValuesFrom obo:BFO_0000011
+                                ] ;
                 rdfs:label "spatiotemporal region"@en ;
                 skos:definition "(Elucidation) A spatiotemporal region is an occurrent that is an occurrent part of spacetime"@en ;
                 skos:example "The spatiotemporal region occupied by the development of a cancer tumour; the spatiotemporal region occupied by an orbiting satellite"@en .
@@ -1039,7 +1100,19 @@ obo:BFO_0000011 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/BFO_0000015
 obo:BFO_0000015 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000003 ;
+                rdfs:subClassOf obo:BFO_0000003 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000117 ;
+                                  owl:allValuesFrom [ rdf:type owl:Class ;
+                                                      owl:unionOf ( obo:BFO_0000015
+                                                                    obo:BFO_0000035
+                                                                  )
+                                                    ]
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000132 ;
+                                  owl:allValuesFrom obo:BFO_0000015
+                                ] ;
                 obo:IAO_0000112 "a process of cell-division, \\ a beating of the heart"@en ,
                                 "a process of meiosis"@en ,
                                 "a process of sleeping"@en ,
@@ -1234,7 +1307,19 @@ obo:BFO_0000034 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/BFO_0000035
 obo:BFO_0000035 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000003 ;
+                rdfs:subClassOf obo:BFO_0000003 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000117 ;
+                                  owl:allValuesFrom obo:BFO_0000035
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000132 ;
+                                  owl:allValuesFrom [ rdf:type owl:Class ;
+                                                      owl:unionOf ( obo:BFO_0000015
+                                                                    obo:BFO_0000035
+                                                                  )
+                                                    ]
+                                ] ;
                 rdfs:label "process boundary"@en ;
                 skos:definition "p is a process boundary =Def p is a temporal part of a process & p has no proper temporal parts"@en ;
                 skos:example "The boundary between the 2nd and 3rd year of your life"@en .
@@ -3247,7 +3332,9 @@ co:PMD_0000885 rdf:type owl:Class ;
                                  owl:someValuesFrom co:PMD_0000853
                                ] ;
                rdfs:label "pole figure"@en ;
-               skos:definition "A pole figure is a map representing a graphical representation of the orientation of crystallographic planes in a polycrystalline sample."@en ;
+               skos:definition "A pole figure is a map depicting a 2D stereographic projection which representes crystallographic orientations of grains in a polycrystalline material in respect to the sample's reference frame."@en ,
+                               "A pole figure is a map depicting a 2D stereographic projection which represents crystallographic orientations of grains in a polycrystalline material in respect to the sample's reference frame."@en ,
+                               "A pole figure is a map representing a graphical representation of the orientation of crystallographic planes in a polycrystalline sample."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -3557,6 +3644,7 @@ co:PMD_0001014 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0001016
 co:PMD_0001016 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0001014 ,
+                               noes:NOES_0000153 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0009006 ;
                                  owl:someValuesFrom co:PMD_0000591
@@ -3613,7 +3701,7 @@ co:PMD_0001019 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0001020
 co:PMD_0001020 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000602 ;
+               rdfs:subClassOf noes:NOES_0000154 ;
                rdfs:label "Röntgenbeugungsgerät"@de ,
                           "x-ray diffractometer"@en ;
                skos:definition "An X-Ray Diffractometer is a Measuring Device that determines the crystal structure of materials by analyzing the diffraction patterns of X-rays passed through a sample."@en ,
@@ -5841,7 +5929,7 @@ noes:NOES_0000032 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000034
 noes:NOES_0000034 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000032 ,
+                  rdfs:subClassOf noes:NOES_0000153 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0009006 ;
                                     owl:someValuesFrom co:PMD_0020112
@@ -6366,6 +6454,20 @@ noes:NOES_0000075 rdf:type owl:Class ;
                                   ] ;
                   rdfs:label "Euler angles"@en ;
                   skos:definition "In crystallography Euler angles are three angles which describe orientation of a sinlge crystal in respect to the sample's coordinate system. By aligning coordinate system of every crystal in the sample to the sample's coordinate system, anisotropy of material's properties can be investigated."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000076
+noes:NOES_0000076 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000885 ;
+                  rdfs:label "incomplete pole figure"@en ;
+                  skos:definition "Incomplete pole figure is a pole figure that lacks intensity data for high tilt angles α."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000077
+noes:NOES_0000077 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000885 ;
+                  rdfs:label "complete pole figure"@en ;
+                  skos:definition "Complete pole figure is a pole figure which covers the full 0° - 90° range of tilt angles α"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000078
@@ -7501,6 +7603,27 @@ noes:NOES_0000152 rdf:type owl:Class ;
  and ('has member' value '(1-1-1)')
  and ('has member' value '(-1-1-1)'))""" ;
                   rdfs:label "{111}"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000153
+noes:NOES_0000153 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000957 ;
+                  rdfs:label "diffraction process"@en ;
+                  skos:definition "Diffraction process is a structural property analyzing process which utilizes diffraction of either electron, x-ray, or neutron waves to determine material's crystal structure, crystallographic texture, (phase) composition, and presence of defects."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000154
+noes:NOES_0000154 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000602 ;
+                  rdfs:label "diffractometer"@en ;
+                  skos:definition "Diffractometer is a device which detects the intensity of a beam of either electrons, x-rays, or neutrons scattered from a material during a diffraction process."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000155
+noes:NOES_0000155 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000154 ;
+                  rdfs:label "EBSD system"@en ;
+                  skos:definition "Electron backscatter diffraction (EBSD) system is a diffractomter which detects diffracted electrons in the chamber of a scanning electron microscope."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005

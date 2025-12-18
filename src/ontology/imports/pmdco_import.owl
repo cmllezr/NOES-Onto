@@ -8,7 +8,7 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 Ontology(<https://w3id.org/pmd/noes/imports/pmdco_import.owl>
 <https://w3id.org/pmd/noes/releases/2025-12-18/imports/pmdco_import.owl>
-Annotation(<http://purl.org/dc/elements/1.1/source> <https://w3id.org/pmd/co/releases/2025-12-17/pmdco.ttl>)
+Annotation(<http://purl.org/dc/elements/1.1/source> <https://w3id.org/pmd/co/releases/2025-12-18/pmdco.ttl>)
 Annotation(owl:versionInfo "2025-12-18")
 
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000001>))
@@ -379,6 +379,10 @@ Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000054>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000055>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000066>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000108>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000117>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000118>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000132>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000138>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000183>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000039>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000136>))
@@ -557,6 +561,49 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://pur
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000108> "First World War exists at 1914-1916; Mexico exists at January 1, 2000"@en)
 ObjectPropertyDomain(<http://purl.obolibrary.org/obo/BFO_0000108> <http://purl.obolibrary.org/obo/BFO_0000001>)
 ObjectPropertyRange(<http://purl.obolibrary.org/obo/BFO_0000108> <http://purl.obolibrary.org/obo/BFO_0000008>)
+
+# Object Property: <http://purl.obolibrary.org/obo/BFO_0000117> (has occurrent part)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000117> "has occurrent part"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000117> "b has occurrent part c =Def c occurrent part of b"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000117> "Mary's life has occurrent part Mary's 5th birthday"@en)
+SubObjectPropertyOf(<http://purl.obolibrary.org/obo/BFO_0000117> <http://purl.obolibrary.org/obo/BFO_0000051>)
+InverseObjectProperties(<http://purl.obolibrary.org/obo/BFO_0000117> <http://purl.obolibrary.org/obo/BFO_0000132>)
+TransitiveObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000117>)
+ObjectPropertyDomain(<http://purl.obolibrary.org/obo/BFO_0000117> <http://purl.obolibrary.org/obo/BFO_0000003>)
+ObjectPropertyRange(<http://purl.obolibrary.org/obo/BFO_0000117> <http://purl.obolibrary.org/obo/BFO_0000003>)
+
+# Object Property: <http://purl.obolibrary.org/obo/BFO_0000118> (has proper occurrent part)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000118> "has proper occurrent part"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000118> "b has proper occurrent part c =Def b has occurrent part c & b and c are not identical"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000118> "As for has occurrent part."@en)
+SubObjectPropertyOf(<http://purl.obolibrary.org/obo/BFO_0000118> <http://purl.obolibrary.org/obo/BFO_0000117>)
+InverseObjectProperties(<http://purl.obolibrary.org/obo/BFO_0000118> <http://purl.obolibrary.org/obo/BFO_0000138>)
+TransitiveObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000118>)
+ObjectPropertyDomain(<http://purl.obolibrary.org/obo/BFO_0000118> <http://purl.obolibrary.org/obo/BFO_0000003>)
+ObjectPropertyRange(<http://purl.obolibrary.org/obo/BFO_0000118> <http://purl.obolibrary.org/obo/BFO_0000003>)
+
+# Object Property: <http://purl.obolibrary.org/obo/BFO_0000132> (occurrent part of)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000132> "occurrent part of"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000132> "(Elucidation) occurrent part of is a relation between occurrents b and c when b is part of c"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000132> "Mary's 5th birthday is an occurrent part of Mary's life; the first set of the tennis match is an occurrent part of the tennis match"@en)
+SubObjectPropertyOf(<http://purl.obolibrary.org/obo/BFO_0000132> <http://purl.obolibrary.org/obo/BFO_0000050>)
+SubObjectPropertyOf(Annotation(rdfs:comment "\"occurrent part of\" is not a BFO2020 temporalized relation. It just restricts the domain and range to \"occurrent\". That's why is should be OK to make it sub property of RO \"part of\"") <http://purl.obolibrary.org/obo/BFO_0000132> <http://purl.obolibrary.org/obo/BFO_0000050>)
+TransitiveObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000132>)
+ObjectPropertyDomain(<http://purl.obolibrary.org/obo/BFO_0000132> <http://purl.obolibrary.org/obo/BFO_0000003>)
+ObjectPropertyRange(<http://purl.obolibrary.org/obo/BFO_0000132> <http://purl.obolibrary.org/obo/BFO_0000003>)
+
+# Object Property: <http://purl.obolibrary.org/obo/BFO_0000138> (proper occurrent part of)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000138> "proper occurrent part of"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000138> "b proper occurrent part of c =Def b occurrent part of c & b and c are not identical"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000138> "As for occurrent part of."@en)
+SubObjectPropertyOf(<http://purl.obolibrary.org/obo/BFO_0000138> <http://purl.obolibrary.org/obo/BFO_0000132>)
+TransitiveObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000138>)
+ObjectPropertyDomain(<http://purl.obolibrary.org/obo/BFO_0000138> <http://purl.obolibrary.org/obo/BFO_0000003>)
+ObjectPropertyRange(<http://purl.obolibrary.org/obo/BFO_0000138> <http://purl.obolibrary.org/obo/BFO_0000003>)
 
 # Object Property: <http://purl.obolibrary.org/obo/BFO_0000183> (environs)
 
@@ -1155,6 +1202,7 @@ AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000008> "tem
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000008> "(Elucidation) A temporal region is an occurrent over which processes can unfold"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000008> "As for zero-dimensional temporal region and one-dimensional temporal region"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000008> <http://purl.obolibrary.org/obo/BFO_0000003>)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000008> ObjectAllValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000132> <http://purl.obolibrary.org/obo/BFO_0000008>))
 
 # Class: <http://purl.obolibrary.org/obo/BFO_0000009> (two-dimensional spatial region)
 
@@ -1169,6 +1217,7 @@ AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000011> "spa
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000011> "(Elucidation) A spatiotemporal region is an occurrent that is an occurrent part of spacetime"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000011> "The spatiotemporal region occupied by the development of a cancer tumour; the spatiotemporal region occupied by an orbiting satellite"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000011> <http://purl.obolibrary.org/obo/BFO_0000003>)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000011> ObjectAllValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000132> <http://purl.obolibrary.org/obo/BFO_0000011>))
 
 # Class: <http://purl.obolibrary.org/obo/BFO_0000015> (process)
 
@@ -1176,6 +1225,8 @@ AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000015> "pro
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000015> "(Elucidation) p is a process means p is an occurrent that has some temporal proper part and for some time t, p has some material entity as participant"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000015> "An act of selling; the life of an organism; a process of sleeping; a process of cell-division; a beating of the heart; a process of meiosis; the taxiing of an aircraft; the programming of a computer"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000015> <http://purl.obolibrary.org/obo/BFO_0000003>)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000015> ObjectAllValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> ObjectUnionOf(<http://purl.obolibrary.org/obo/BFO_0000015> <http://purl.obolibrary.org/obo/BFO_0000035>)))
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000015> ObjectAllValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000132> <http://purl.obolibrary.org/obo/BFO_0000015>))
 
 # Class: <http://purl.obolibrary.org/obo/BFO_0000016> (disposition)
 
@@ -1289,6 +1340,8 @@ AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000035> "pro
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000035> "p is a process boundary =Def p is a temporal part of a process & p has no proper temporal parts"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000035> "The boundary between the 2nd and 3rd year of your life"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000035> <http://purl.obolibrary.org/obo/BFO_0000003>)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000035> ObjectAllValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> <http://purl.obolibrary.org/obo/BFO_0000035>))
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000035> ObjectAllValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000132> ObjectUnionOf(<http://purl.obolibrary.org/obo/BFO_0000015> <http://purl.obolibrary.org/obo/BFO_0000035>)))
 
 # Class: <http://purl.obolibrary.org/obo/BFO_0000038> (one-dimensional temporal region)
 
@@ -2048,7 +2101,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000053> <http://purl.obolibrary.org/obo/OBI_0000011>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000053> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000547> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> <http://purl.obolibrary.org/obo/BFO_0000040>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000299> <https://w3id.org/pmd/co/PMD_0020139>)))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000054> (Heizfunktion)
+# Class: <https://w3id.org/pmd/co/PMD_0000054> (heating function)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000054> "Heizfunktion"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000054> "heating function"@en)
@@ -2440,7 +2493,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0000650> "Rolling, Coining"@en)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000650> <https://w3id.org/pmd/co/PMD_0000646>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000655> (furnace)
+# Class: <https://w3id.org/pmd/co/PMD_0000655> (Ofen)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <https://w3id.org/pmd/co/PMD_0000655> "“Furnace.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/furnace. Accessed 13 Jan. 2023."@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000655> "Ofen"@de)
@@ -2678,7 +2731,7 @@ SubClassOf(<https://w3id.org/pmd/co/PMD_0000875> <https://w3id.org/pmd/co/PMD_00
 # Class: <https://w3id.org/pmd/co/PMD_0000885> (pole figure)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000885> "pole figure"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000885> "A pole figure is a map representing a graphical representation of the orientation of crystallographic planes in a polycrystalline sample."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000885> "A pole figure is a map depicting a 2D stereographic projection which represents crystallographic orientations of grains in a polycrystalline material in respect to the sample's reference frame."@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0000885> "true"^^xsd:boolean)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000885> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000834> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000058> <https://w3id.org/pmd/co/PMD_0000853>)))
 

@@ -2591,6 +2591,8 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">pole figure</rdfs:label>
+        <skos:definition xml:lang="en">A pole figure is a map depicting a 2D stereographic projection which representes crystallographic orientations of grains in a polycrystalline material in respect to the sample&apos;s reference frame.</skos:definition>
+        <skos:definition xml:lang="en">A pole figure is a map depicting a 2D stereographic projection which represents crystallographic orientations of grains in a polycrystalline material in respect to the sample&apos;s reference frame.</skos:definition>
         <skos:definition xml:lang="en">A pole figure is a map representing a graphical representation of the orientation of crystallographic planes in a polycrystalline sample.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -3007,6 +3009,7 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0001016">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0001014"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000153"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
@@ -3083,7 +3086,7 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
     <!-- https://w3id.org/pmd/co/PMD_0001020 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0001020">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000154"/>
         <rdfs:label xml:lang="de">Röntgenbeugungsgerät</rdfs:label>
         <rdfs:label xml:lang="en">x-ray diffractometer</rdfs:label>
         <skos:definition xml:lang="en">An X-Ray Diffractometer is a Measuring Device that determines the crystal structure of materials by analyzing the diffraction patterns of X-rays passed through a sample.</skos:definition>
@@ -6142,7 +6145,7 @@ Has part grain growth and recovery.</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000034 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000034">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000032"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000153"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
@@ -6864,6 +6867,26 @@ Grain orientation can be specified by either texture fibers or texture component
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Euler angles</rdfs:label>
         <skos:definition xml:lang="en">In crystallography Euler angles are three angles which describe orientation of a sinlge crystal in respect to the sample&apos;s coordinate system. By aligning coordinate system of every crystal in the sample to the sample&apos;s coordinate system, anisotropy of material&apos;s properties can be investigated.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000076 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000076">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000885"/>
+        <rdfs:label xml:lang="en">incomplete pole figure</rdfs:label>
+        <skos:definition xml:lang="en">Incomplete pole figure is a pole figure that lacks intensity data for high tilt angles α.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000077 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000077">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000885"/>
+        <rdfs:label xml:lang="en">complete pole figure</rdfs:label>
+        <skos:definition xml:lang="en">Complete pole figure is a pole figure which covers the full 0° - 90° range of tilt angles α</skos:definition>
     </owl:Class>
     
 
@@ -8376,6 +8399,36 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
  and (&apos;has member&apos; value &apos;(1-1-1)&apos;)
  and (&apos;has member&apos; value &apos;(-1-1-1)&apos;))</rdfs:comment>
         <rdfs:label xml:lang="en">{111}</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000153 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000153">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000957"/>
+        <rdfs:label xml:lang="en">diffraction process</rdfs:label>
+        <skos:definition xml:lang="en">Diffraction process is a structural property analyzing process which utilizes diffraction of either electron, x-ray, or neutron waves to determine material&apos;s crystal structure, crystallographic texture, (phase) composition, and presence of defects.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000154 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000154">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:label xml:lang="en">diffractometer</rdfs:label>
+        <skos:definition xml:lang="en">Diffractometer is a device which detects the intensity of a beam of either electrons, x-rays, or neutrons scattered from a material during a diffraction process.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000155 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000155">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000154"/>
+        <rdfs:label xml:lang="en">EBSD system</rdfs:label>
+        <skos:definition xml:lang="en">Electron backscatter diffraction (EBSD) system is a diffractomter which detects diffracted electrons in the chamber of a scanning electron microscope.</skos:definition>
     </owl:Class>
     
 
