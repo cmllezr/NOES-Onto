@@ -1194,7 +1194,12 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000145 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000145"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000145">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+        <rdfs:label xml:lang="en">relational quality</rdfs:label>
+        <skos:definition xml:lang="en">b is a relational quality =Def b is a quality &amp; there exists c and d such that c and d are not identical &amp; b specifically depends on c &amp; b specifically depends on d</skos:definition>
+        <skos:example xml:lang="en">A marriage bond; an instance of love; an obligation between one person and another</skos:example>
+    </owl:Class>
     
 
 
@@ -2278,6 +2283,58 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020101 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020101">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000145"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0050000"/>
+        <rdfs:label xml:lang="en">proportion</rdfs:label>
+        <skos:altLabel xml:lang="en">concentration</skos:altLabel>
+        <skos:altLabel xml:lang="en">fraction</skos:altLabel>
+        <skos:definition xml:lang="en">A Proportion is a relational quality between two entites (the whole and the part) which quantifies the relation between the whole and its part.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020102 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020102">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020101"/>
+        <rdfs:label xml:lang="en">mass proportion</rdfs:label>
+        <skos:definition xml:lang="en">The Mass Proportion is a Proportion which quantifies the mass of the part relative to the mass of the whole.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020103 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020103">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020101"/>
+        <rdfs:label xml:lang="en">molar proportion</rdfs:label>
+        <skos:altLabel xml:lang="en">Molar Ratio</skos:altLabel>
+        <skos:definition xml:lang="en">The Molar Proportion is the proportion which quantifies the entities count of the part in relation to the entites count of the whole.</skos:definition>
+        <skos:example xml:lang="en">The molar ratio of hydrogen gas H2 molecules to water H2O molecules is 1/1 in the oxyhydrogen reaction. The molar ratio of oxigen molecules O2 to water molecules is 2/1.
+The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 2022 AD.</skos:example>
+        <skos:example xml:lang="en">The molar ratio of hydrogen gas H2 molecules to water H2O molecules is 1/1 in the oxyhydrogen reaction. The molar ratio of oxigen molecules O2 to water molecules is 2/1.
+The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 2022 AD.</skos:example>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020104 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020104">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020101"/>
+        <rdfs:label xml:lang="en">volume proportion</rdfs:label>
+        <skos:definition xml:lang="en">The Mass Proportion is a Proportion which quantifies the volume of the part relative to the volume of the whole.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020113 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020113">
@@ -2387,6 +2444,16 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
         <skos:definition xml:lang="en">A defect role is a role of an independent continuant C indicating that C may affect a material entity E&apos;s ability to realize a function. C is continuant part of E.</skos:definition>
         <skos:example xml:lang="en">A crack in an structural member may affect its ability to carry a load.</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020207 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020207">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020103"/>
+        <rdfs:label xml:lang="en">amount of substance</rdfs:label>
+        <skos:definition xml:lang="en">Amount of substance n is a molar propotion when the whole is a object aggregate N, which has Avogadro number objects (of same type) as parts (n = N/N_A).</skos:definition>
     </owl:Class>
     
 
@@ -2564,6 +2631,12 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0050000 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0050000"/>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0050002 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0050002"/>
@@ -2670,6 +2743,51 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000779"/>
         <rdfs:label xml:lang="en">annealing</rdfs:label>
         <skos:definition xml:lang="en">Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000072 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000072">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000145"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000295"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000023"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000023"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">reduction of thickness</rdfs:label>
+        <skos:definition xml:lang="en">Reduction of thickness is a relational quality between a sheet material before and after a rolling process. Reduction of thickness characterizes relation between the final and initial sheet thickness usually given in percent.</skos:definition>
+        <skos:example xml:lang="en">90% reduction of thickess during cold rolling from 3 mm to 0.30 mm.</skos:example>
     </owl:Class>
     
 
@@ -2888,6 +3006,14 @@ Has part grain growth and recovery.</rdfs:comment>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000011"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000035"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020102"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020103"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020104"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
