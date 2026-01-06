@@ -16,11 +16,11 @@
 @base <https://w3id.org/pmd/noes/noes-full.ttl> .
 
 <https://w3id.org/pmd/noes/noes-full.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2025-12-21/noes-full.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-06/noes-full.ttl> ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2025-12-21" .
+                                           owl:versionInfo "2026-01-06" .
 
 #################################################################
 #    Annotation properties
@@ -6449,6 +6449,39 @@ noes:NOES_0000071 rdf:type owl:Class ;
                   co:symbol "χ"@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000072
+noes:NOES_0000072 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000145 ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty co:PMD_0025999 ;
+                                                           owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty obo:OBI_0000295 ;
+                                                                                                       owl:someValuesFrom noes:NOES_0000023
+                                                                                                     ]
+                                                                                                   ) ;
+                                                                                rdf:type owl:Class
+                                                                              ]
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty co:PMD_0025999 ;
+                                                           owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty obo:OBI_0000312 ;
+                                                                                                       owl:someValuesFrom noes:NOES_0000023
+                                                                                                     ]
+                                                                                                   ) ;
+                                                                                rdf:type owl:Class
+                                                                              ]
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:label "reduction of thickness"@en ;
+                  skos:definition "Reduction of thickness is a relational quality between a sheet material before and after a rolling process. Reduction of thickness characterizes relation between the final and initial sheet thickness usually given in percent."@en ;
+                  skos:example "90% reduction of thickess during cold rolling from 3 mm to 0.30 mm."@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000073
 noes:NOES_0000073 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0025012 ,
@@ -7683,6 +7716,14 @@ noes:NOES_0000159 rdf:type owl:Class ;
                                   ] ;
                   rdfs:label "electron microscope accelerating voltage"@en ;
                   skos:definition "Electron microscope accelerating voltage is a process attribute of an electron microscopy assay which describes the value of a voltage applied to the electron source to extract electrons from the source and accelerate them in the direction of a sample"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000160
+noes:NOES_0000160 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000078 ;
+                  rdfs:label "angle to rolling direction"@en ;
+                  skos:definition "Angle to rolling direction is a relational quality which characterizes the orientation of a sample cut from a rolled material in respect to the rolling direction (RD) of this material."@en ;
+                  skos:example "Sample cut at 30° to rolling direction of a annealed nonoriented electrical steel."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000163
