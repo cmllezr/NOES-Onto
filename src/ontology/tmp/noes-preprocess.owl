@@ -23,12 +23,12 @@ Annotation(dcterms:description "None")
 Annotation(dcterms:license <https://creativecommons.org/licenses/unspecified>)
 Annotation(dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology")
 
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/NOES_0000157>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/NOES_0000158>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/noes/crystal_directions_lambda_fiber>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes/crystal_structure_gamma_grains>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes/crystal_structure_lambda_grains>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/noes/esheet>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/noes/esheet_microstructure>))
-Declaration(NamedIndividual(<https://w3id.org/pmd/noes/grain_orientation_gamma_texture>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes/grain_orientation_lambda_texture>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/noes/grains_with_lambda_texture>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/noes/sheet_normal_direction>))
 Declaration(AnnotationProperty(dcterms:description))
@@ -58,19 +58,21 @@ AnnotationAssertion(rdfs:label dcterms:title "title")
 #   Named Individuals
 ############################
 
-# Individual: <https://w3id.org/pmd/noes/NOES_0000157> ({200})
-
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000157> "{200}"@en)
-
-# Individual: <https://w3id.org/pmd/noes/NOES_0000158> ({211})
-
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000158> "{211}"@en)
-
 # Individual: <https://w3id.org/pmd/noes/crystal_directions_lambda_fiber> (<https://w3id.org/pmd/noes/crystal_directions_lambda_fiber>)
 
 ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000000> <https://w3id.org/pmd/noes/crystal_directions_lambda_fiber>)
 ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/crystal_directions_lambda_fiber> <https://w3id.org/pmd/noes/grains_with_lambda_texture>)
 ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/noes/crystal_directions_lambda_fiber> <https://w3id.org/pmd/noes/NOES_0000089>)
+
+# Individual: <https://w3id.org/pmd/noes/crystal_structure_gamma_grains> (<https://w3id.org/pmd/noes/crystal_structure_gamma_grains>)
+
+ClassAssertion(<https://w3id.org/pmd/co/PMD_0000591> <https://w3id.org/pmd/noes/crystal_structure_gamma_grains>)
+ObjectPropertyAssertion(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/noes/crystal_structure_gamma_grains> <https://w3id.org/pmd/co/PMD_0020018>)
+
+# Individual: <https://w3id.org/pmd/noes/crystal_structure_lambda_grains> (<https://w3id.org/pmd/noes/crystal_structure_lambda_grains>)
+
+ClassAssertion(<https://w3id.org/pmd/co/PMD_0000591> <https://w3id.org/pmd/noes/crystal_structure_lambda_grains>)
+ObjectPropertyAssertion(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/noes/crystal_structure_lambda_grains> <https://w3id.org/pmd/co/PMD_0020018>)
 
 # Individual: <https://w3id.org/pmd/noes/esheet> (<https://w3id.org/pmd/noes/esheet>)
 
@@ -82,15 +84,16 @@ ClassAssertion(<https://w3id.org/pmd/co/PMD_0020096> <https://w3id.org/pmd/noes/
 ClassAssertion(<https://w3id.org/pmd/co/PMD_0000857> <https://w3id.org/pmd/noes/esheet_microstructure>)
 ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/esheet_microstructure> <https://w3id.org/pmd/noes/esheet>)
 
-# Individual: <https://w3id.org/pmd/noes/grain_orientation_gamma_texture> (<https://w3id.org/pmd/noes/grain_orientation_gamma_texture>)
+# Individual: <https://w3id.org/pmd/noes/grain_orientation_lambda_texture> (<https://w3id.org/pmd/noes/grain_orientation_lambda_texture>)
 
-ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000042> <https://w3id.org/pmd/noes/grain_orientation_gamma_texture>)
-ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000080> <https://w3id.org/pmd/noes/grain_orientation_gamma_texture> <https://w3id.org/pmd/noes/grains_with_lambda_texture>)
+ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000042> <https://w3id.org/pmd/noes/grain_orientation_lambda_texture>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000080> <https://w3id.org/pmd/noes/grain_orientation_lambda_texture> <https://w3id.org/pmd/noes/grains_with_lambda_texture>)
 
 # Individual: <https://w3id.org/pmd/noes/grains_with_lambda_texture> (<https://w3id.org/pmd/noes/grains_with_lambda_texture>)
 
 ClassAssertion(<https://w3id.org/pmd/co/PMD_0020106> <https://w3id.org/pmd/noes/grains_with_lambda_texture>)
 ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/grains_with_lambda_texture> <https://w3id.org/pmd/noes/esheet_microstructure>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000086> <https://w3id.org/pmd/noes/grains_with_lambda_texture> <https://w3id.org/pmd/noes/crystal_structure_lambda_grains>)
 
 # Individual: <https://w3id.org/pmd/noes/sheet_normal_direction> (<https://w3id.org/pmd/noes/sheet_normal_direction>)
 

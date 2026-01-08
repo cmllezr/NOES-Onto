@@ -16,11 +16,11 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/noes-full.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-01-07/noes-full.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-01-08/noes-full.owl"/>
         <dcterms:description>None</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/unspecified"/>
         <dcterms:title>NOES Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
-        <owl:versionInfo>2026-01-07</owl:versionInfo>
+        <owl:versionInfo>2026-01-08</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -537,6 +537,7 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000295"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <obo:IAO_0000112 xml:lang="en">see is_input_of example_of_usage</obo:IAO_0000112>
+        <obo:IAO_0000115>The inverse property of is specified input of</obo:IAO_0000115>
         <obo:IAO_0000115 xml:lang="en">The inverse property of is specified input of</obo:IAO_0000115>
         <obo:IAO_0000116>8/17/09: specified inputs of one process are not necessarily specified inputs of a larger process that it is part of. This is in contrast to how &apos;has participant&apos; works.</obo:IAO_0000116>
         <rdfs:label xml:lang="en">has specified input</rdfs:label>
@@ -550,6 +551,7 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <obo:IAO_0000112 xml:lang="en">some Autologous EBV(Epstein-Barr virus)-transformed B-LCL (B lymphocyte cell line) is_input_for instance of Chromum Release Assay described at https://wiki.cbil.upenn.edu/obiwiki/index.php/Chromium_Release_assay</obo:IAO_0000112>
+        <obo:IAO_0000115>A relation between a completely executed planned process and a continuant participating in that process that is not created during the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of.</obo:IAO_0000115>
         <obo:IAO_0000115 xml:lang="en">A relation between a planned process and a continuant participating in that process that is not created during  the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">is specified input of</rdfs:label>
     </owl:ObjectProperty>
@@ -567,6 +569,7 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <obo:IAO_0000115>The inverse property of is specified output of</obo:IAO_0000115>
         <obo:IAO_0000115 xml:lang="en">The inverse property of is specified output of</obo:IAO_0000115>
         <rdfs:label xml:lang="en">has specified output</rdfs:label>
     </owl:ObjectProperty>
@@ -578,6 +581,7 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0000312">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <obo:IAO_0000115 xml:lang="en">A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of.</obo:IAO_0000115>
         <obo:IAO_0000115 xml:lang="en">A relation between a planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">is specified output of</rdfs:label>
     </owl:ObjectProperty>
@@ -1010,6 +1014,7 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002351">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000167"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <obo:IAO_0000115>has member is a mereological relation between a collection and an item.</obo:IAO_0000115>
         <obo:IAO_0000119>SIO</obo:IAO_0000119>
@@ -1272,6 +1277,145 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     
 
 
+    <!-- https://w3id.org/pmd/noes/NOES_0000152 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000152">
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000157"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/noes/NOES_0000124"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000083"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000085"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:label xml:lang="en">has Miller indices family</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000157 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000157">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">Miller indices family of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000158 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000158">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/noes/NOES_0000124"/>
+        <rdfs:range rdf:resource="https://w3id.org/pmd/co/PMD_0020099"/>
+        <rdfs:label xml:lang="en">under symmetry</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000162 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000162">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/noes/NOES_0000143"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000124"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000158"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000158"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000170"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000152"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label xml:lang="en">has Miller indices family under cubic symmetry</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000164 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000164">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000083"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000085"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:label xml:lang="en">denoted by family</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000167 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000167">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+        <rdfs:label xml:lang="en">member of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000168 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000168">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000164"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000167"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000162"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label xml:lang="en">denoted by family under cubic symmetry</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000170 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000170">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000124"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000158"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000158"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:label xml:lang="en">is_cubic_context</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -1314,6 +1458,43 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdfs:label xml:lang="en">has value</rdfs:label>
         <skos:definition xml:lang="en">data property that relates an information content entity to a literal</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000031 -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000031">
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/noes/NOES_0000080"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="en">has Miller index</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000033 -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000033">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000031"/>
+        <rdfs:label xml:lang="en">has h</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000035 -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000035">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000031"/>
+        <rdfs:label xml:lang="en">has k</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000036 -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000036">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000031"/>
+        <rdfs:label xml:lang="en">has l</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -2806,7 +2987,9 @@ Previous. An information content entity is a non-realizable information entity t
         <obo:IAO_0000116>&apos;Plan&apos; includes a future direction sense. That can be problematic if plans are changed during their execution. There are however implicit contingencies for protocols that an agent has in his mind that can be considered part of the plan, even if the agent didn&apos;t have them in mind before. Therefore, a planned process can diverge from what the agent would have said the plan was before executing it, by adjusting to problems encountered during execution (e.g. choosing another reagent with equivalent properties, if the originally planned one has run out.)</obo:IAO_0000116>
         <obo:IAO_0000116>We are only considering successfully completed planned processes. A plan may be modified, and details added during execution. For a given planned process, the associated realized plan specification is the one encompassing all changes made during execution. This means that all processes in which an agent acts towards achieving some 
 objectives is a planned process.</obo:IAO_0000116>
+        <obo:IAO_0000116>We are only considering successfully completed planned processes. A plan may be modified, and details added during execution. For a given planned process, the associated realized plan specification is the one encompassing all changes made during execution. This means that all processes in which an agent acts towards achieving some objectives is a planned process.</obo:IAO_0000116>
         <obo:IAO_0000119>branch derived</obo:IAO_0000119>
+        <rdfs:label>obsolete planned process</rdfs:label>
         <rdfs:label xml:lang="en">planned process</rdfs:label>
     </owl:Class>
     
@@ -7283,10 +7466,6 @@ Typical configuration dependent contributions are interface energy contributions
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000122"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -7314,6 +7493,24 @@ Typical configuration dependent contributions are interface energy contributions
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
                                                     </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000037"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                                                    </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
                                         </owl:someValuesFrom>
@@ -7339,10 +7536,6 @@ Typical configuration dependent contributions are interface energy contributions
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000122"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -7370,6 +7563,24 @@ Typical configuration dependent contributions are interface energy contributions
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000037"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -8153,25 +8364,6 @@ Has part grain growth and recovery.</rdfs:comment>
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000031 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000031">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000033"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000035"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000036"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
-        <rdfs:label xml:lang="en">noes characteristic texture components</rdfs:label>
-        <skos:definition xml:lang="en">NOES characteristic texture components are the texure components which most commonly found in non-oriented electrical sheets. These components form preferred grain orientations in NOES, characterized by family of planes {hkl} oriented parallel to the rolling plane (RP) and family of directions &lt;uvw&gt; oriented parallel to the rolling direction (RD).</skos:definition>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/noes/NOES_0000032 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000032">
@@ -8204,26 +8396,6 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:seeAlso xml:lang="en">Electron Backscatter Diffraction (EBSD) is a SEM based technique for characterizing  material&apos;s local microstructure. EBSD provides an information about phases and their distribution in the material, grain structure, grain size, grain boundary, texture  (crystallographic orientation of individual grains), and local strain variation.</rdfs:seeAlso>
         <rdfs:seeAlso>https://www.ebsd.com/ebsd-explained/what-is-ebsd</rdfs:seeAlso>
         <skos:altLabel xml:lang="en">EBSD</skos:altLabel>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000037 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000037">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000038"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000039"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000040"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000041"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
-        <rdfs:label xml:lang="en">noes characteristic texture fibers</rdfs:label>
-        <skos:definition xml:lang="en">NOES characteristic texture fibers are the texure fibers which most commonly found in non-oriented electrical sheets. These fibers form preferred grain orientations in NOES, characterized by family of directions &lt;uvw&gt; oriented parallel to one of directions of a rolled sheet.</skos:definition>
     </owl:Class>
     
 
@@ -9016,6 +9188,12 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000031"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">TODO: the coordinate of a single atom in the axiom??</rdfs:comment>
         <rdfs:label xml:lang="en">Miller indices</rdfs:label>
         <skos:definition xml:lang="en">In crystallography Miller indices is a notation of lattice planes, directions, and points within a crystal lattice, i.e., in respect to the crystal&apos;s coordinate system.</skos:definition>
@@ -9126,10 +9304,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -9157,6 +9331,24 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
                                                     </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000038"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                                                    </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
                                         </owl:someValuesFrom>
@@ -9182,10 +9374,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -9213,6 +9401,24 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000038"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -9250,10 +9456,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000100"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -9281,6 +9483,24 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
                                                     </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000039"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                                                    </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
                                         </owl:someValuesFrom>
@@ -9306,10 +9526,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000100"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -9338,6 +9554,24 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
                                             </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000039"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                                            </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
@@ -9347,6 +9581,9 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Note on a crystal structure: 
+theoretically possible in both bcc and fcc because &lt;100&gt; are the same types of directions
+practically lambda fiber is not stable in fcc because of the slip systems</rdfs:comment>
         <rdfs:label xml:lang="en">λ-fibre grain orientation</rdfs:label>
         <skos:altLabel>&lt;100&gt; || ND</skos:altLabel>
         <skos:definition xml:lang="en">λ-fibre grain orientation is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: &lt;100&gt; family of crystallographic directions are oriented parallel to the normal direction (ND) of a sheet material, i,e., normal to the rolling plane.</skos:definition>
@@ -9373,10 +9610,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000100"/>
-                                                    </owl:Restriction>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
@@ -9405,6 +9638,24 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
                                                     </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000039"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                                                    </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
                                         </owl:someValuesFrom>
@@ -9430,10 +9681,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000100"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -9461,6 +9708,24 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000039"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -9498,10 +9763,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000100"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -9529,6 +9790,10 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
                                                     </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000039"/>
+                                                    </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
                                         </owl:someValuesFrom>
@@ -9539,10 +9804,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000074"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000124"/>
-                                                    </owl:Restriction>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
@@ -9567,6 +9828,32 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
                                                     </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                                                            </owl:Restriction>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
+                                                            </owl:Restriction>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
                                                 </owl:intersectionOf>
                                             </owl:Class>
                                         </owl:someValuesFrom>
@@ -9578,7 +9865,7 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000088"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
@@ -9592,10 +9879,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000100"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -9624,6 +9907,10 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
                                             </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000039"/>
+                                            </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
@@ -9634,10 +9921,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000074"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000124"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -9662,6 +9945,32 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
                                             </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                                                    </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
+                                                    </owl:Restriction>
+                                                </owl:unionOf>
+                                            </owl:Class>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
@@ -9699,10 +10008,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -9730,6 +10035,10 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
                                                     </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000038"/>
+                                                    </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
                                         </owl:someValuesFrom>
@@ -9740,10 +10049,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000074"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000124"/>
-                                                    </owl:Restriction>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
@@ -9767,6 +10072,24 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
@@ -9793,10 +10116,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -9825,6 +10144,10 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
                                             </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000038"/>
+                                            </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
@@ -9835,10 +10158,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000074"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000124"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -9862,6 +10181,24 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -9899,10 +10236,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000100"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -9930,6 +10263,10 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
                                                     </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000039"/>
+                                                    </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
                                         </owl:someValuesFrom>
@@ -9940,10 +10277,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000074"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000143"/>
-                                                    </owl:Restriction>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
@@ -9968,6 +10301,32 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
                                                     </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000041"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                                                            </owl:Restriction>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
+                                                            </owl:Restriction>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
                                                 </owl:intersectionOf>
                                             </owl:Class>
                                         </owl:someValuesFrom>
@@ -9979,7 +10338,7 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000088"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
@@ -9993,10 +10352,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000100"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -10025,6 +10380,10 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
                                             </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000039"/>
+                                            </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
@@ -10035,10 +10394,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000074"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000143"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -10063,6 +10418,32 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
                                             </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000041"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                                                    </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
+                                                    </owl:Restriction>
+                                                </owl:unionOf>
+                                            </owl:Class>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
@@ -10099,10 +10480,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -10130,6 +10507,10 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
                                                     </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000038"/>
+                                                    </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
                                         </owl:someValuesFrom>
@@ -10140,10 +10521,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000074"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000143"/>
-                                                    </owl:Restriction>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                         <owl:someValuesFrom>
@@ -10167,6 +10544,24 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000041"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
@@ -10193,10 +10588,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -10225,6 +10616,10 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
                                             </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000038"/>
+                                            </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
@@ -10235,10 +10630,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000074"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000235"/>
-                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000143"/>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                 <owl:someValuesFrom>
@@ -10262,6 +10653,24 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000168"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000041"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -10289,106 +10698,6 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000100 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000100">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000089"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000095"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000096"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000097"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000098"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000099"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000085"/>
-        <rdfs:comment>Potential axiom: &apos;set of directions Miller indices&apos;
- and ((&apos;has member&apos; value &apos;[100]&apos;)
- and (&apos;has member&apos; value &apos;[010]&apos;)
- and (&apos;has member&apos; value &apos;[001]&apos;)
- and (&apos;has member&apos; value &apos;[-100]&apos;)
- and (&apos;has member&apos; value &apos;[0-10]&apos;)
- and (&apos;has member&apos; value &apos;[00-1]&apos;))</rdfs:comment>
-        <rdfs:label xml:lang="en">&lt;100&gt;</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000113 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000113">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000101"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000102"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000103"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000104"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000105"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000106"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000107"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000108"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000109"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000110"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000111"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000112"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000085"/>
-        <rdfs:comment>&apos;set of directions Miller indices&apos;
- and ((&apos;has member&apos; value &apos;[110]&apos;)
- and (&apos;has member&apos; value &apos;[101]&apos;)
- and (&apos;has member&apos; value &apos;[011]&apos;)
- and (&apos;has member&apos; value &apos;[-10-1]&apos;)
- and (&apos;has member&apos; value &apos;[-1-10]&apos;)
- and (&apos;has member&apos; value &apos;[0-1-1]&apos;)
- and (&apos;has member&apos; value &apos;[-110]&apos;)
- and (&apos;has member&apos; value &apos;[1-10]&apos;)
- and (&apos;has member&apos; value &apos;[-101]&apos;)
- and (&apos;has member&apos; value &apos;[10-1]&apos;)
- and (&apos;has member&apos; value &apos;[0-11]&apos;)
- and (&apos;has member&apos; value &apos;[01-1]&apos;))</rdfs:comment>
-        <rdfs:label xml:lang="en">&lt;110&gt;</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000122 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000122">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000114"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000115"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000116"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000117"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000118"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000119"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000120"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000121"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000085"/>
-        <rdfs:comment>&apos;set of directions Miller indices&apos;
- and ((&apos;has member&apos; value &apos;[111]&apos;)
- and (&apos;has member&apos; value &apos;[-111]&apos;)
- and (&apos;has member&apos; value &apos;[1-11]&apos;)
- and (&apos;has member&apos; value &apos;[11-1]&apos;)
- and (&apos;has member&apos; value &apos;[-1-11]&apos;)
- and (&apos;has member&apos; value &apos;[-11-1]&apos;)
- and (&apos;has member&apos; value &apos;[1-1-1]&apos;)
- and (&apos;has member&apos; value &apos;[-1-1-1]&apos;))</rdfs:comment>
-        <rdfs:label xml:lang="en">&lt;111&gt;</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/noes/NOES_0000123 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000123">
@@ -10402,27 +10711,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
     <!-- https://w3id.org/pmd/noes/NOES_0000124 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000124">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000125"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000126"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000127"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000128"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000129"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000130"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000083"/>
-        <rdfs:comment>&apos;set of planes Miller indices&apos;
- and ((&apos;has member&apos; value &apos;(100)&apos;)
- and (&apos;has member&apos; value &apos;(010)&apos;)
- and (&apos;has member&apos; value &apos;(001)&apos;)
- and (&apos;has member&apos; value &apos;(-100)&apos;)
- and (&apos;has member&apos; value &apos;(0-10)&apos;)
- and (&apos;has member&apos; value &apos;(00-1)&apos;))</rdfs:comment>
-        <rdfs:label xml:lang="en">{100}</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:label xml:lang="en">symmetry equivalency assertion</rdfs:label>
     </owl:Class>
     
 
@@ -10432,69 +10722,69 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:examp
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000143">
         <owl:equivalentClass>
             <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000131"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000132"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000133"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000134"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000135"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000136"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000137"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000138"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000139"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000140"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000142"/>
-                </owl:oneOf>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000124"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000158"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000158"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000083"/>
-        <rdfs:comment>&apos;set of planes Miller indices&apos;
- and ((&apos;has member&apos; value &apos;(110)&apos;)
- and (&apos;has member&apos; value &apos;(-110)&apos;)
- and (&apos;has member&apos; value &apos;(1-10)&apos;)
- and (&apos;has member&apos; value &apos;(-1-10)&apos;)
- and (&apos;has member&apos; value &apos;(101)&apos;)
- and (&apos;has member&apos; value &apos;(-101)&apos;)
- and (&apos;has member&apos; value &apos;(10-1)&apos;)
- and (&apos;has member&apos; value &apos;(-10-1)&apos;)
- and (&apos;has member&apos; value &apos;(011)&apos;)
- and (&apos;has member&apos; value &apos;(0-11)&apos;)
- and (&apos;has member&apos; value &apos;(01-1)&apos;)
- and (&apos;has member&apos; value &apos;(0-1-1)&apos;))</rdfs:comment>
-        <rdfs:label xml:lang="en">{110}</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000152 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000152">
-        <owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000124"/>
+        <rdfs:subClassOf>
             <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000144"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000145"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000146"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000147"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000148"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000149"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000150"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000151"/>
-                </owl:oneOf>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000089"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000095"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000096"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000097"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000098"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000099"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000152"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000039"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
             </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000083"/>
-        <rdfs:comment>&apos;set of planes Miller indices&apos;
- and ((&apos;has member&apos; value &apos;(111)&apos;)
- and (&apos;has member&apos; value &apos;(-111)&apos;)
- and (&apos;has member&apos; value &apos;(1-11)&apos;)
- and (&apos;has member&apos; value &apos;(11-1)&apos;)
- and (&apos;has member&apos; value &apos;(-1-11)&apos;)
- and (&apos;has member&apos; value &apos;(-11-1)&apos;)
- and (&apos;has member&apos; value &apos;(1-1-1)&apos;)
- and (&apos;has member&apos; value &apos;(-1-1-1)&apos;))</rdfs:comment>
-        <rdfs:label xml:lang="en">{111}</rdfs:label>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000170"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">cubic equivalency assertion</rdfs:label>
     </owl:Class>
     
 
@@ -11176,26 +11466,14 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000033 -->
+    <!-- https://w3id.org/pmd/noes/NOES_0000037 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000033">
-        <rdfs:label xml:lang="en">cube texture component {001}&lt;001&gt;</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000035 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000035">
-        <rdfs:label xml:lang="en">goss texture component {110}&lt;001&gt;</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000036 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000036">
-        <rdfs:label xml:lang="en">rotated cube texture component {001}&lt;110&gt;</rdfs:label>
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000037">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000085"/>
+        <noes:NOES_0000033 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000033>
+        <noes:NOES_0000035 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000035>
+        <noes:NOES_0000036 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000036>
+        <rdfs:label xml:lang="en">&lt;111&gt;</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -11203,7 +11481,11 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000038 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000038">
-        <rdfs:label xml:lang="en">γ-fiber &lt;111&gt; || ND</rdfs:label>
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000085"/>
+        <noes:NOES_0000033 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000033>
+        <noes:NOES_0000035 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000035>
+        <noes:NOES_0000036 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</noes:NOES_0000036>
+        <rdfs:label xml:lang="en">&lt;110&gt;</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -11211,15 +11493,30 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000039 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000039">
-        <rdfs:label xml:lang="en">α-fiber &lt;110&gt; || RD</rdfs:label>
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000085"/>
+        <owl:sameAs rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
+        <noes:NOES_0000033 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000033>
+        <noes:NOES_0000035 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</noes:NOES_0000035>
+        <noes:NOES_0000036 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</noes:NOES_0000036>
+        <rdfs:label xml:lang="en">&lt;100&gt;</rdfs:label>
     </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000113 -->
+
+    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000113"/>
     
 
 
     <!-- https://w3id.org/pmd/noes/NOES_0000040 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000040">
-        <rdfs:label xml:lang="en">λ-fiber &lt;100&gt; || ND</rdfs:label>
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000083"/>
+        <noes:NOES_0000035 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</noes:NOES_0000035>
+        <noes:NOES_0000035 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000035>
+        <noes:NOES_0000036 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</noes:NOES_0000036>
+        <rdfs:label xml:lang="en">{100}</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -11227,7 +11524,11 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <!-- https://w3id.org/pmd/noes/NOES_0000041 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000041">
-        <rdfs:label xml:lang="en">η-fiber &lt;100&gt; || RD</rdfs:label>
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000083"/>
+        <noes:NOES_0000033 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000033>
+        <noes:NOES_0000035 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000035>
+        <noes:NOES_0000036 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</noes:NOES_0000036>
+        <rdfs:label xml:lang="en">{110}</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -11282,6 +11583,18 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000099">
         <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000084"/>
         <rdfs:label xml:lang="en">[00-1]</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000100 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000100">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000083"/>
+        <noes:NOES_0000033 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000033>
+        <noes:NOES_0000035 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000035>
+        <noes:NOES_0000036 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000036>
+        <rdfs:label xml:lang="en">{111}</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -11390,6 +11703,18 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000112">
         <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000084"/>
         <rdfs:label xml:lang="en">[01-1]</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000113 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000113">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000085"/>
+        <noes:NOES_0000033 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</noes:NOES_0000033>
+        <noes:NOES_0000035 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</noes:NOES_0000035>
+        <noes:NOES_0000035 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</noes:NOES_0000035>
+        <rdfs:label xml:lang="en">&lt;001&gt;</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -11695,25 +12020,27 @@ Note: The concept of parallel length is replaced by the concept of distance betw
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000151">
         <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000082"/>
+        <noes:NOES_0000033 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</noes:NOES_0000033>
+        <noes:NOES_0000035 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</noes:NOES_0000035>
+        <noes:NOES_0000036 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</noes:NOES_0000036>
         <rdfs:label xml:lang="en">(-1-1-1)</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000157 -->
+    <!-- https://w3id.org/pmd/noes/NOES_0000169 -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000157">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000083"/>
-        <rdfs:label xml:lang="en">{200}</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000158 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000158">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000083"/>
-        <rdfs:label xml:lang="en">{211}</rdfs:label>
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000169">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000124"/>
+        <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/noes/NOES_0000089"/>
+        <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/noes/NOES_0000095"/>
+        <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/noes/NOES_0000096"/>
+        <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/noes/NOES_0000097"/>
+        <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/noes/NOES_0000098"/>
+        <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/noes/NOES_0000099"/>
+        <noes:NOES_0000152 rdf:resource="https://w3id.org/pmd/noes/NOES_0000039"/>
+        <noes:NOES_0000158 rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+        <rdfs:label xml:lang="en">cubic &lt;100&gt; equivalence</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -11724,6 +12051,24 @@ Note: The concept of parallel length is replaced by the concept of distance betw
         <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000000"/>
         <obo:BFO_0000050 rdf:resource="https://w3id.org/pmd/noes/grains_with_lambda_texture"/>
         <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/noes/NOES_0000089"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/crystal_structure_gamma_grains -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/crystal_structure_gamma_grains">
+        <rdf:type rdf:resource="https://w3id.org/pmd/co/PMD_0000591"/>
+        <co:PMD_0000077 rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/crystal_structure_lambda_grains -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/crystal_structure_lambda_grains">
+        <rdf:type rdf:resource="https://w3id.org/pmd/co/PMD_0000591"/>
+        <co:PMD_0000077 rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
     </owl:NamedIndividual>
     
 
@@ -11746,9 +12091,9 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     
 
 
-    <!-- https://w3id.org/pmd/noes/grain_orientation_gamma_texture -->
+    <!-- https://w3id.org/pmd/noes/grain_orientation_lambda_texture -->
 
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/grain_orientation_gamma_texture">
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/grain_orientation_lambda_texture">
         <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
         <obo:RO_0000080 rdf:resource="https://w3id.org/pmd/noes/grains_with_lambda_texture"/>
     </owl:NamedIndividual>
@@ -11760,6 +12105,7 @@ Note: The concept of parallel length is replaced by the concept of distance betw
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/grains_with_lambda_texture">
         <rdf:type rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
         <obo:BFO_0000050 rdf:resource="https://w3id.org/pmd/noes/esheet_microstructure"/>
+        <obo:RO_0000086 rdf:resource="https://w3id.org/pmd/noes/crystal_structure_lambda_grains"/>
     </owl:NamedIndividual>
     
 
