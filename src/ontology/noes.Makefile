@@ -65,12 +65,18 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
 	  $(ANNOTATE_CONVERT_FILE); \
 	fi
 
-# $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt 
-#	$(ROBOT) filter --input mirror/uo.owl --term-file imports/uo_terms.txt --allow-punning true --select "annotations self parents" \
-#		 $(ANNOTATE_CONVERT_FILE)
+
 $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 	$(ROBOT) filter --input $(MIRRORDIR)/uo.owl \
 		--term-file $(IMPORTDIR)/uo_terms.txt \
+		--allow-punning true \
+		--select "annotations self parents" \
+		$(ANNOTATE_CONVERT_FILE)
+
+
+$(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl $(IMPORTDIR)/cryo_terms.txt
+	$(ROBOT) filter --input $(MIRRORDIR)/cryo.owl \
+		--term-file $(IMPORTDIR)/cryo_terms.txt \
 		--allow-punning true \
 		--select "annotations self parents" \
 		$(ANNOTATE_CONVERT_FILE)
