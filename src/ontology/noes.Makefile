@@ -12,6 +12,30 @@ PMDCO_DISJOINTNESS_REMOVAL_TERMS = $(IMPORTDIR)/pmdco_remove_disjoint.txt
 IAO_TO_REMOVE = $(IMPORTDIR)/iao_to_remove.txt
 PMDCO_CLASSES_TO_REMOVE = $(IMPORTDIR)/pmdco_classes_to_remove.txt
 
+# Import CryO from private repo. NOTE MUST BE REMOVED ONCE CRYO IS PUBLIC
+CRYO_PRIVATE_URL = $(shell grep -A 3 "id: cryo" ../ontology-config.yaml | grep "mirror_from:" | sed 's/.*mirror_from: //')
+CRYO_MIRROR = $(MIRRORDIR)/cryo.owl
+
+# 2. Add a rule to download the file using curl with a token header
+# This assumes you have a CRYO_TOKEN environment variable set in your 
+# GitHub Actions or local environment.
+$(CRYO_MIRROR):
+	@echo "Downloading private ontology from GitHub..."
+	@if [ -z "$(CRYO_TOKEN)" ]; then \
+		echo "ERROR: CRYO_TOKEN is not set."; \
+		echo "Please set this as a Secret in your NOES-Onto repo or export it locally."; \
+		exit 1; \
+	fi
+	# We strip any trailing tokens or whitespace from the URL and use the secure header.
+	curl -H "Authorization: token $(CRYO_TOKEN)" \
+		-H "Accept: application/vnd.github.v3.raw" \
+		-L "$(shell echo $(CRYO_PRIVATE_URL) | cut -d'?' -f1 | tr -d '\r')" \
+		-o $@
+
+# 3. Override mirror-cryo to ensure the download happens first
+mirror-cryo: $(CRYO_MIRROR)
+	@echo "Mirroring local private cryo file..."
+	$(ROBOT) convert -i $(CRYO_MIRROR) -o $(TMPDIR)/mirror-cryo.owl
 
 $(ONTOLOGYTERMS): $(SRCMERGED)
 	$(ROBOT) query -f csv -i $< --query noes_terms.sparql $@
@@ -75,7 +99,8 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 
 
 # Import CryO classes preserving subclass hierarchy to PMDco
-$(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
+#$(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
+$(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
 
 	$(ROBOT) annotate --input $< --remove-annotations \
 			odk:normalize --add-source true \
