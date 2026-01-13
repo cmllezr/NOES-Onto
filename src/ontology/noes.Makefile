@@ -74,12 +74,22 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 		$(ANNOTATE_CONVERT_FILE)
 
 
-$(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl $(IMPORTDIR)/cryo_terms.txt
-	$(ROBOT) filter --input $(MIRRORDIR)/cryo.owl \
-		--term-file $(IMPORTDIR)/cryo_terms.txt \
-		--allow-punning true \
-		--select "annotations self parents" \
-		$(ANNOTATE_CONVERT_FILE)
+# Import CryO classes preserving subclass hierarchy to PMDco
+$(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
+
+	$(ROBOT) annotate --input $< --remove-annotations \
+			odk:normalize --add-source true \
+			extract --term-file $(IMPORTDIR)/cryo_terms.txt \
+						--force true \
+						--copy-ontology-annotations true \
+						--individuals exclude \
+						--intermediates all \
+						--method BOT \
+			remove --select individuals \
+			odk:normalize --base-iri https://w3id.org/pmd/noes \
+							--subset-decls true --synonym-decls true \
+			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
+			convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
 
 #.PHONY: autoshapes
 #autoshapes: 
