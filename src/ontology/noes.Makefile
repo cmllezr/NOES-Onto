@@ -13,23 +13,25 @@ IAO_TO_REMOVE = $(IMPORTDIR)/iao_to_remove.txt
 PMDCO_CLASSES_TO_REMOVE = $(IMPORTDIR)/pmdco_classes_to_remove.txt
 
 # Import CryO from private repo. NOTE MUST BE REMOVED ONCE CRYO IS PUBLIC
-CRYO_PRIVATE_URL = $(shell grep -A 3 "id: cryo" ../ontology-config.yaml | grep "mirror_from:" | sed 's/.*mirror_from: //')
+CRYO_PRIVATE_URL = $(shell awk '/id: cryo/{f=1} f&&/mirror_from:/{print $$2; exit}' ../noes-odk.yaml | tr -d '\r' | xargs)
 CRYO_MIRROR = $(MIRRORDIR)/cryo.owl
 
-# 2. Add a rule to download the file using curl with a token header
-# This assumes you have a CRYO_TOKEN environment variable set in your 
-# GitHub Actions or local environment.
+# 2. Updated download rule using CRYO_TOKEN
 $(CRYO_MIRROR):
 	@echo "Downloading private ontology from GitHub..."
 	@if [ -z "$(CRYO_TOKEN)" ]; then \
 		echo "ERROR: CRYO_TOKEN is not set."; \
-		echo "Please set this as a Secret in your NOES-Onto repo or export it locally."; \
+		echo "Please ensure the GitHub Action workflow has 'env: CRYO_TOKEN: \$${{ secrets.CRYO_TOKEN }}'"; \
 		exit 1; \
 	fi
-	# We strip any trailing tokens or whitespace from the URL and use the secure header.
+	@if [ -z "$(CRYO_PRIVATE_URL)" ]; then \
+		echo "ERROR: Could not extract mirror_from URL for 'id: cryo' from noes-odk.yaml"; \
+		exit 1; \
+	fi
+	# Strip any trailing tokens and use the secure Authorization header.
 	curl -H "Authorization: token $(CRYO_TOKEN)" \
 		-H "Accept: application/vnd.github.v3.raw" \
-		-L "$(shell echo $(CRYO_PRIVATE_URL) | cut -d'?' -f1 | tr -d '\r')" \
+		-L "$(shell echo $(CRYO_PRIVATE_URL) | cut -d'?' -f1)" \
 		-o $@
 
 # 3. Override mirror-cryo to ensure the download happens first
