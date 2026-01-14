@@ -139,16 +139,13 @@ $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
 		--output $@.tmp.owl && mv $@.tmp.owl $@
 
 
-CITATION="'noes: Nonoriented Electrical Steel Ontology. Version $(VERSION), https://w3id.org/pmd/noes/'"
-
-
-#ALL_ANNOTATIONS=--annotate-defined-by true \
+CITATION="noes: Nonoriented Electrical Steel Ontology. Version $(VERSION), https://w3id.org/pmd/noes/"
 
 ALL_ANNOTATIONS=--ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pmd/noes/$(VERSION) \
 	--annotation http://purl.org/dc/terms/created "$(TODAY)" \
 	--annotation owl:versionInfo "$(VERSION)" \
-	--annotation http://purl.org/dc/terms/bibliographicCitation "$(CITATION)"  \
-	--link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION) \
+	--annotation http://purl.org/dc/terms/bibliographicCitation "$(CITATION)" \
+	--link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION)
 
 	
 update-ontology-annotations: 
