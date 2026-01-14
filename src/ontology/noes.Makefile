@@ -13,12 +13,14 @@ IAO_TO_REMOVE = $(IMPORTDIR)/iao_to_remove.txt
 PMDCO_CLASSES_TO_REMOVE = $(IMPORTDIR)/pmdco_classes_to_remove.txt
 
 # Import CryO from private repo. NOTE MUST BE REMOVED ONCE CRYO IS PUBLIC
-CONFIG_FILE := $(shell ls ../noes-odk.yaml 2>/dev/null || ls noes-odk.yaml 2>/dev/null)
-CRYO_PRIVATE_URL = $(shell awk '/id: cryo/{f=1} f&&/mirror_from:/{print $$2; exit}' ../noes-odk.yaml | tr -d '\r' | xargs)
+CONFIG_FILE := $(firstword $(wildcard ../../noes-odk.yaml ../noes-odk.yaml noes-odk.yaml ../../ontology-config.yaml ../ontology-config.yaml ontology-config.yaml))
+# Robust extraction: Finds the 'id: cryo' line and grabs the first 'mirror_from' that follows it.
+CRYO_PRIVATE_URL = $(shell awk '/id: cryo/{f=1} f&&/mirror_from:/{print $$2; exit}' $(CONFIG_FILE) | tr -d '\r' | xargs)
 CRYO_MIRROR = $(MIRRORDIR)/cryo.owl
 
 # 2. Updated download rule using CRYO_TOKEN
 $(CRYO_MIRROR):
+	@echo "Detected Config File: $(CONFIG_FILE)"
 	@echo "Downloading private ontology from GitHub..."
 	@if [ -z "$(CRYO_TOKEN)" ]; then \
 		echo "ERROR: CRYO_TOKEN is not set."; \
@@ -104,7 +106,7 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 # Import CryO classes preserving subclass hierarchy to PMDco
 #$(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
 $(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
-
+	@echo "Generating import module from private CryO mirror..."
 	$(ROBOT) annotate --input $< --remove-annotations \
 			odk:normalize --add-source true \
 			extract --term-file $(IMPORTDIR)/cryo_terms.txt \
