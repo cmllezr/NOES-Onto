@@ -150,6 +150,7 @@ ALL_ANNOTATIONS=--ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pm
 	--annotation http://purl.org/dc/terms/bibliographicCitation "$(CITATION)"  \
 	--link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION) \
 
+	
 update-ontology-annotations: 
 	$(ROBOT) annotate --input ../../noes.owl $(ALL_ANNOTATIONS) --output ../../noes.owl && \
 	$(ROBOT) annotate --input ../../noes.ttl $(ALL_ANNOTATIONS) --output ../../noes.ttl && \
@@ -157,4 +158,5 @@ update-ontology-annotations:
 	$(ROBOT) annotate --input ../../noes-full.ttl $(ALL_ANNOTATIONS) --output ../../noes-full.ttl && \
 	$(ROBOT) annotate --input ../../noes-base.owl $(ALL_ANNOTATIONS) --output ../../noes-base.owl && \
 	$(ROBOT) annotate --input ../../noes-base.ttl $(ALL_ANNOTATIONS) --output ../../noes-base.ttl && \
-	
+
+all_assets: update-ontology-annotations
