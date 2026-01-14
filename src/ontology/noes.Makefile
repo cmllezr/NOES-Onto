@@ -14,34 +14,36 @@ PMDCO_CLASSES_TO_REMOVE = $(IMPORTDIR)/pmdco_classes_to_remove.txt
 
 # Import CryO from private repo. NOTE MUST BE REMOVED ONCE CRYO IS PUBLIC
 CONFIG_FILE := $(firstword $(wildcard ../../noes-odk.yaml ../noes-odk.yaml noes-odk.yaml ../../ontology-config.yaml ../ontology-config.yaml ontology-config.yaml))
-RAW_URL = $(shell grep -A 5 "id: cryo" $(CONFIG_FILE) | grep "mirror_from:" | head -n 1 | sed 's/.*mirror_from:[[:space:]]*//' | sed 's/[[:space:]]//g' | cut -d'?' -f1)
-CRYO_PRIVATE_URL = $(shell echo $(RAW_URL) | sed -E 's|https://raw.githubusercontent.com/([^/]+)/([^/]+)/([^/]+)/(.*)|https://api.github.com/repos/\1/\2/contents/\4?ref=\3|')
+RAW_URL = $(shell grep -A 5 "id: cryo" $(CONFIG_FILE) | grep "mirror_from:" | head -n 1 | sed 's/.*mirror_from:[[:space:]]*//' | sed 's/[[:space:]]//g')
 CRYO_MIRROR = $(MIRRORDIR)/cryo.owl
 
 # 2. Updated download rule using CRYO_TOKEN
 $(CRYO_MIRROR):
 	@echo "Detected Config File: $(CONFIG_FILE)"
-	@echo "Downloading private ontology from GitHub..."
-	@if [ -z "$(CRYO_TOKEN)" ]; then \
-		echo "ERROR: CRYO_TOKEN is not set."; \
-		echo "Please ensure the GitHub Action workflow has 'env: CRYO_TOKEN: \$${{ secrets.CRYO_TOKEN }}'"; \
-		exit 1; \
-	fi
-	@if [ -z "$(CRYO_PRIVATE_URL)" ]; then \
+	@echo "Fetching from URL: $(RAW_URL)"
+	@if [ -z "$(RAW_URL)" ]; then \
 		echo "ERROR: Could not extract mirror_from URL for 'id: cryo' from $(CONFIG_FILE)"; \
 		exit 1; \
 	fi
-	# Strip any trailing tokens and use the secure Authorization header.
-	curl -f -sS -L -H "Authorization: token $(CRYO_TOKEN)" \
-		-H "Accept: application/vnd.github.v3.raw" \
-		"$(shell echo $(CRYO_PRIVATE_URL) | cut -d'?' -f1)" \
-		-o $@
-	# Verify the file is not empty
+	# Determine if we need to inject the CRYO_TOKEN or if the URL is self-contained
+	@if echo "$(RAW_URL)" | grep -q "token="; then \
+		echo "Using self-contained token from URL..."; \
+		curl -f -sS -L "$(RAW_URL)" -o $@; \
+	else \
+		echo "Using CRYO_TOKEN from environment..."; \
+		$(MAKE) download-with-token; \
+	fi
 	@if [ ! -s $@ ]; then \
-		echo "ERROR: Downloaded cryo.owl is empty. Check if the URL is correct and the token has access."; \
+		echo "ERROR: Downloaded cryo.owl is empty. Check URL/Token."; \
 		rm -f $@; \
 		exit 1; \
 	fi
+
+download-with-token:
+	$(eval API_URL=$(shell echo $(RAW_URL) | sed -E 's|https://raw.githubusercontent.com/([^/]+)/([^/]+)/([^/]+)/(.*)|https://api.github.com/repos/\1/\2/contents/\4?ref=\3|'))
+	curl -f -sS -L -H "Authorization: Bearer $(CRYO_TOKEN)" \
+		-H "Accept: application/vnd.github.v3.raw" \
+		"$(API_URL)" -o $(CRYO_MIRROR)
 
 # 3. Override mirror-cryo to ensure the download happens first
 mirror-cryo: $(CRYO_MIRROR)
@@ -50,6 +52,23 @@ mirror-cryo: $(CRYO_MIRROR)
 
 $(ONTOLOGYTERMS): $(SRCMERGED)
 	$(ROBOT) query -f csv -i $< --query noes_terms.sparql $@
+
+# Import CryO classes preserving subclass hierarchy to PMDco
+$(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
+	@echo "Generating import module from private CryO mirror..."
+	$(ROBOT) annotate --input $< --remove-annotations \
+			odk:normalize --add-source true \
+			extract --term-file $(IMPORTDIR)/cryo_terms.txt \
+						--force true \
+						--copy-ontology-annotations true \
+						--individuals exclude \
+						--intermediates all \
+						--method BOT \
+			remove --select individuals \
+			odk:normalize --base-iri https://w3id.org/pmd/noes \
+							--subset-decls true --synonym-decls true \
+			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
+			convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
 
 # Import TTO classes preserving subclass hierarchy to PMDco
 $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(IMPORTSEED) | all_robot_plugins
@@ -109,24 +128,6 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 		$(ANNOTATE_CONVERT_FILE)
 
 
-# Import CryO classes preserving subclass hierarchy to PMDco
-#$(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
-$(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
-	@echo "Generating import module from private CryO mirror..."
-	$(ROBOT) annotate --input $< --remove-annotations \
-			odk:normalize --add-source true \
-			extract --term-file $(IMPORTDIR)/cryo_terms.txt \
-						--force true \
-						--copy-ontology-annotations true \
-						--individuals exclude \
-						--intermediates all \
-						--method BOT \
-			remove --select individuals \
-			odk:normalize --base-iri https://w3id.org/pmd/noes \
-							--subset-decls true --synonym-decls true \
-			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
-			convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
-
 #.PHONY: autoshapes
 #autoshapes: 
 #	echo "please run manually: sh utils/generate-auto-shapes.sh"
@@ -153,10 +154,7 @@ ALL_ANNOTATIONS=--ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pm
 	--annotation http://purl.org/dc/terms/bibliographicCitation "$(CITATION)" \
 	--link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION)
 
-# This target moves files to the root.
-# Each command is on its own line without '&& \' to prevent shell syntax errors.
 update-ontology-annotations: 
-	@echo "Publishing assets to root directory..."
 	$(ROBOT) annotate --input noes.owl $(ALL_ANNOTATIONS) --output ../../noes.owl
 	$(ROBOT) annotate --input noes.ttl $(ALL_ANNOTATIONS) --output ../../noes.ttl
 	$(ROBOT) annotate --input noes-full.owl $(ALL_ANNOTATIONS) --output ../../noes-full.owl
@@ -165,7 +163,4 @@ update-ontology-annotations:
 	$(ROBOT) annotate --input noes-base.ttl $(ALL_ANNOTATIONS) --output ../../noes-base.ttl
 	@if [ -f noes-simple.owl ]; then $(ROBOT) annotate --input noes-simple.owl $(ALL_ANNOTATIONS) --output ../../noes-simple.owl; fi
 
-# --- THE FIX: Hooking into the ODK build process ---
-# We force 'all_assets' to depend on 'update-ontology-annotations'.
-# This ensures that whenever 'make all_assets' is called, our root-copying logic runs last.
 all_assets: update-ontology-annotations
