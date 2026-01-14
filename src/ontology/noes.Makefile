@@ -14,7 +14,6 @@ PMDCO_CLASSES_TO_REMOVE = $(IMPORTDIR)/pmdco_classes_to_remove.txt
 
 # Import CryO from private repo. NOTE MUST BE REMOVED ONCE CRYO IS PUBLIC
 CONFIG_FILE := $(firstword $(wildcard ../../noes-odk.yaml ../noes-odk.yaml noes-odk.yaml ../../ontology-config.yaml ../ontology-config.yaml ontology-config.yaml))
-# Robust extraction: Finds the 'id: cryo' line and grabs the first 'mirror_from' that follows it.
 RAW_URL = $(shell grep -A 5 "id: cryo" $(CONFIG_FILE) | grep "mirror_from:" | head -n 1 | sed 's/.*mirror_from:[[:space:]]*//' | sed 's/[[:space:]]//g' | cut -d'?' -f1)
 CRYO_PRIVATE_URL = $(shell echo $(RAW_URL) | sed 's|https://raw.githubusercontent.com/\([^/]*\)/\([^/]*\)/\([^/]*\)/\(.*\)|https://api.github.com/repos/\1/\2/contents/\4?ref=\3|')
 CRYO_MIRROR = $(MIRRORDIR)/cryo.owl
