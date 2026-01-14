@@ -15,7 +15,7 @@ PMDCO_CLASSES_TO_REMOVE = $(IMPORTDIR)/pmdco_classes_to_remove.txt
 # Import CryO from private repo. NOTE MUST BE REMOVED ONCE CRYO IS PUBLIC
 CONFIG_FILE := $(firstword $(wildcard ../../noes-odk.yaml ../noes-odk.yaml noes-odk.yaml ../../ontology-config.yaml ../ontology-config.yaml ontology-config.yaml))
 RAW_URL = $(shell grep -A 5 "id: cryo" $(CONFIG_FILE) | grep "mirror_from:" | head -n 1 | sed 's/.*mirror_from:[[:space:]]*//' | sed 's/[[:space:]]//g' | cut -d'?' -f1)
-CRYO_PRIVATE_URL = $(shell echo $(RAW_URL) | sed 's|https://raw.githubusercontent.com/\([^/]*\)/\([^/]*\)/\([^/]*\)/\(.*\)|https://api.github.com/repos/\1/\2/contents/\4?ref=\3|')
+CRYO_PRIVATE_URL = $(shell echo $(RAW_URL) | sed -E 's|https://raw.githubusercontent.com/([^/]+)/([^/]+)/([^/]+)/(.*)|https://api.github.com/repos/\1/\2/contents/\4?ref=\3|')
 CRYO_MIRROR = $(MIRRORDIR)/cryo.owl
 
 # 2. Updated download rule using CRYO_TOKEN
@@ -158,8 +158,11 @@ ALL_ANNOTATIONS=--ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pm
 update-ontology-annotations: 
 	@echo "Publishing assets to root directory..."
 	$(ROBOT) annotate --input noes.owl $(ALL_ANNOTATIONS) --output ../../noes.owl
+	$(ROBOT) annotate --input noes.ttl $(ALL_ANNOTATIONS) --output ../../noes.ttl
 	$(ROBOT) annotate --input noes-full.owl $(ALL_ANNOTATIONS) --output ../../noes-full.owl
+	$(ROBOT) annotate --input noes-full.ttl $(ALL_ANNOTATIONS) --output ../../noes-full.ttl
 	$(ROBOT) annotate --input noes-base.owl $(ALL_ANNOTATIONS) --output ../../noes-base.owl
+	$(ROBOT) annotate --input noes-base.ttl $(ALL_ANNOTATIONS) --output ../../noes-base.ttl
 	@if [ -f noes-simple.owl ]; then $(ROBOT) annotate --input noes-simple.owl $(ALL_ANNOTATIONS) --output ../../noes-simple.owl; fi
 
 # --- THE FIX: Hooking into the ODK build process ---
