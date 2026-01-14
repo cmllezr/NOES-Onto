@@ -32,10 +32,16 @@ $(CRYO_MIRROR):
 		exit 1; \
 	fi
 	# Strip any trailing tokens and use the secure Authorization header.
-	curl -H "Authorization: token $(CRYO_TOKEN)" \
+	curl -f -sS -L -H "Authorization: token $(CRYO_TOKEN)" \
 		-H "Accept: application/vnd.github.v3.raw" \
-		-L "$(shell echo $(CRYO_PRIVATE_URL) | cut -d'?' -f1)" \
+		"$(shell echo $(CRYO_PRIVATE_URL) | cut -d'?' -f1)" \
 		-o $@
+	# Verify the file is not empty
+	@if [ ! -s $@ ]; then \
+		echo "ERROR: Downloaded cryo.owl is empty. Check if the URL is correct and the token has access."; \
+		rm -f $@; \
+		exit 1; \
+	fi
 
 # 3. Override mirror-cryo to ensure the download happens first
 mirror-cryo: $(CRYO_MIRROR)
