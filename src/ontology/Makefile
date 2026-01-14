@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                6f9d7ab2ccbc21886fa9f857c66596c850acdbdb0ebf72f2322881c098a84514
+CONFIG_HASH=                8e585a4780b199828db0c46e243f7285a2f39c37d0efcf907794a01f33515a9b
 
 
 # ----------------------------------------
@@ -541,7 +541,7 @@ mirror-uo: | $(TMPDIR)
 .PHONY: mirror-cryo
 .PRECIOUS: $(MIRRORDIR)/cryo.owl
 mirror-cryo: | $(TMPDIR)
-	$(ROBOT) convert -I https://raw.githubusercontent.com/cmllezr/crystallography-subdomain-ontology/refs/heads/main/src/ontology/cryo-full.owl -o $(TMPDIR)/$@.owl
+	$(ROBOT) convert -I https://raw.githubusercontent.com/cmllezr/crystallography-subdomain-ontology/refs/heads/main/cryo-full.owl -o $(TMPDIR)/$@.owl
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)
