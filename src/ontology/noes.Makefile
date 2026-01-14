@@ -13,6 +13,7 @@ IAO_TO_REMOVE = $(IMPORTDIR)/iao_to_remove.txt
 PMDCO_CLASSES_TO_REMOVE = $(IMPORTDIR)/pmdco_classes_to_remove.txt
 
 # Import CryO from private repo. NOTE MUST BE REMOVED ONCE CRYO IS PUBLIC
+CONFIG_FILE := $(shell ls ../noes-odk.yaml 2>/dev/null || ls noes-odk.yaml 2>/dev/null)
 CRYO_PRIVATE_URL = $(shell awk '/id: cryo/{f=1} f&&/mirror_from:/{print $$2; exit}' ../noes-odk.yaml | tr -d '\r' | xargs)
 CRYO_MIRROR = $(MIRRORDIR)/cryo.owl
 
@@ -25,7 +26,7 @@ $(CRYO_MIRROR):
 		exit 1; \
 	fi
 	@if [ -z "$(CRYO_PRIVATE_URL)" ]; then \
-		echo "ERROR: Could not extract mirror_from URL for 'id: cryo' from noes-odk.yaml"; \
+		echo "ERROR: Could not extract mirror_from URL for 'id: cryo' from $(CONFIG_FILE)"; \
 		exit 1; \
 	fi
 	# Strip any trailing tokens and use the secure Authorization header.
