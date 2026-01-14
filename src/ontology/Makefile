@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                1da4886e89836d2a0aeffaa51ebe9fe84a2bbf27db0d5fcd946f46e0963539a5
+CONFIG_HASH=                6f9d7ab2ccbc21886fa9f857c66596c850acdbdb0ebf72f2322881c098a84514
 
 
 # ----------------------------------------
@@ -187,7 +187,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  pmdco
+IMPORTS =  pmdco tto uo cryo
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -379,7 +379,7 @@ $(IMPORTSEED): $(PRESEED) | $(TMPDIR)
 
 T_IMPORTSEED = --term-file $(IMPORTSEED)
 
-ANNOTATION_PROPERTIES=rdfs:label IAO:0000115 OMO:0002000 
+ANNOTATION_PROPERTIES=rdfs:label IAO:0000119 IAO:0000115 IAO:0000116 IAO:0000112 skos:definition skos:example skos:comment skos:altLabel 
 
 # ----------------------------------------
 # Import modules
@@ -408,6 +408,30 @@ $(IMPORTDIR)/%_import.owl: $(MIRRORDIR)/%.owl $(IMPORTDIR)/%_terms.txt \
 		 $(ANNOTATE_CONVERT_FILE)
 
 .PRECIOUS: $(IMPORTDIR)/%_import.owl
+
+## Module for ontology: pmdco (custom)
+$(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl
+	@echo "ERROR: You have configured pmdco as a custom module;"
+	@echo "       This rule needs to be overwritten in noes.Makefile!"
+	@false
+
+## Module for ontology: tto (custom)
+$(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl
+	@echo "ERROR: You have configured tto as a custom module;"
+	@echo "       This rule needs to be overwritten in noes.Makefile!"
+	@false
+
+## Module for ontology: uo (custom)
+$(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
+	@echo "ERROR: You have configured uo as a custom module;"
+	@echo "       This rule needs to be overwritten in noes.Makefile!"
+	@false
+
+## Module for ontology: cryo (custom)
+$(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl
+	@echo "ERROR: You have configured cryo as a custom module;"
+	@echo "       This rule needs to be overwritten in noes.Makefile!"
+	@false
 
 endif # IMP=true
 
@@ -496,7 +520,28 @@ ifeq ($(MIR),true)
 .PHONY: mirror-pmdco
 .PRECIOUS: $(MIRRORDIR)/pmdco.owl
 mirror-pmdco: | $(TMPDIR)
-	$(ROBOT) convert -I https://materialdigital.github.io/core-ontology/ontology.owl -o $(TMPDIR)/$@.owl
+	$(ROBOT) convert -I https://raw.githubusercontent.com/materialdigital/core-ontology/refs/heads/main/src/ontology/pmdco.ttl -o $(TMPDIR)/$@.owl
+
+
+## ONTOLOGY: tto
+.PHONY: mirror-tto
+.PRECIOUS: $(MIRRORDIR)/tto.owl
+mirror-tto: | $(TMPDIR)
+	$(ROBOT) convert -I https://raw.githubusercontent.com/materialdigital/tensile-test-ontology/refs/heads/main/tto-full.owl -o $(TMPDIR)/$@.owl
+
+
+## ONTOLOGY: uo
+.PHONY: mirror-uo
+.PRECIOUS: $(MIRRORDIR)/uo.owl
+mirror-uo: | $(TMPDIR)
+	$(ROBOT) convert -I https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/refs/heads/master/uo-full.owl -o $(TMPDIR)/$@.owl
+
+
+## ONTOLOGY: cryo
+.PHONY: mirror-cryo
+.PRECIOUS: $(MIRRORDIR)/cryo.owl
+mirror-cryo: | $(TMPDIR)
+	$(ROBOT) convert -I https://raw.githubusercontent.com/cmllezr/crystallography-subdomain-ontology/refs/heads/main/src/ontology/cryo-full.owl -o $(TMPDIR)/$@.owl
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)
@@ -653,6 +698,8 @@ update_repo:
 	odk.py update
 	
 
+update_docs:
+	mkdocs gh-deploy --config-file ../../mkdocs.yaml
 
 # Note to future generations: computing the real path relative to the
 # current directory is a way to ensure we only clean up directories that
