@@ -139,7 +139,7 @@ $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
 		--output $@.tmp.owl && mv $@.tmp.owl $@
 
 
-CITATION="noes: Nonoriented Electrical Steel Ontology. Version $(VERSION), https://w3id.org/pmd/noes/"
+CITATION=noes: Nonoriented Electrical Steel Ontology. Version $(VERSION), https://w3id.org/pmd/noes/
 
 ALL_ANNOTATIONS=--ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pmd/noes/$(VERSION) \
 	--annotation http://purl.org/dc/terms/created "$(TODAY)" \
@@ -147,13 +147,16 @@ ALL_ANNOTATIONS=--ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pm
 	--annotation http://purl.org/dc/terms/bibliographicCitation "$(CITATION)" \
 	--link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION)
 
-	
+# This target moves files to the root.
+# Each command is on its own line without '&& \' to prevent shell syntax errors.
 update-ontology-annotations: 
-	$(ROBOT) annotate --input ../../noes.owl $(ALL_ANNOTATIONS) --output ../../noes.owl && \
-	$(ROBOT) annotate --input ../../noes.ttl $(ALL_ANNOTATIONS) --output ../../noes.ttl && \
-	$(ROBOT) annotate --input ../../noes-full.owl $(ALL_ANNOTATIONS) --output ../../noes-full.owl && \
-	$(ROBOT) annotate --input ../../noes-full.ttl $(ALL_ANNOTATIONS) --output ../../noes-full.ttl && \
-	$(ROBOT) annotate --input ../../noes-base.owl $(ALL_ANNOTATIONS) --output ../../noes-base.owl && \
-	$(ROBOT) annotate --input ../../noes-base.ttl $(ALL_ANNOTATIONS) --output ../../noes-base.ttl && \
+	@echo "Publishing assets to root directory..."
+	$(ROBOT) annotate --input noes.owl $(ALL_ANNOTATIONS) --output ../../noes.owl
+	$(ROBOT) annotate --input noes-full.owl $(ALL_ANNOTATIONS) --output ../../noes-full.owl
+	$(ROBOT) annotate --input noes-base.owl $(ALL_ANNOTATIONS) --output ../../noes-base.owl
+	@if [ -f noes-simple.owl ]; then $(ROBOT) annotate --input noes-simple.owl $(ALL_ANNOTATIONS) --output ../../noes-simple.owl; fi
 
+# --- THE FIX: Hooking into the ODK build process ---
+# We force 'all_assets' to depend on 'update-ontology-annotations'.
+# This ensures that whenever 'make all_assets' is called, our root-copying logic runs last.
 all_assets: update-ontology-annotations
