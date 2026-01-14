@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://purl.obolibrary.org/obo/uo/uo-full.owl#"
      xml:base="http://purl.obolibrary.org/obo/uo/uo-full.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -8,8 +9,8 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/uo/uo-full.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/uo/releases/2023-05-25/uo-full.owl"/>
-        <owl:versionInfo>2023-05-25</owl:versionInfo>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/uo/releases/2026-01-09/uo-full.owl"/>
+        <owl:versionInfo>2026-01-09</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -25,15 +26,25 @@
     
 
 
+    <!-- http://purl.org/dc/elements/1.1/source -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    
+
+
     <!-- http://www.geneontology.org/formats/oboInOwl#hasExactSynonym -->
 
-    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym">
+        <rdfs:label>has_exact_synonym</rdfs:label>
+    </owl:AnnotationProperty>
     
 
 
     <!-- http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym -->
 
-    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym">
+        <rdfs:label>has_related_synonym</rdfs:label>
+    </owl:AnnotationProperty>
     
 
 
@@ -3283,7 +3294,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_1000175"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_1000173"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/has_prefix"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UO_0000297"/>
@@ -3298,7 +3309,7 @@
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000175"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000173"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/has_prefix"/>
@@ -6434,29 +6445,12 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0010048">
         <owl:equivalentClass>
             <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_1000013"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/has_prefix"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UO_0000299"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Class>
                 <owl:oneOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0010048"/>
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000013"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/has_prefix"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UO_0000299"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000006"/>
     </owl:Class>
     
 
@@ -6890,6 +6884,95 @@
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UO_0000299"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0010070 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0010070">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000173"/>
+        <oboInOwl:hasExactSynonym xml:lang="en">pg/mL</oboInOwl:hasExactSynonym>
+        <rdfs:comment xml:lang="en">A gram per milliliter unit which is equal to one picogram per one milliliter.</rdfs:comment>
+        <rdfs:label xml:lang="en">picogram per milliliter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0010072 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0010072">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000052"/>
+        <oboInOwl:hasExactSynonym xml:lang="en">mcg/mcL</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">ug/uL</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">µg/µL</oboInOwl:hasExactSynonym>
+        <rdfs:comment xml:lang="en">&quot;A mass unit density which is equal to mass of an object in nanograms divided by the volume in microliters.&quot; [UOB:LTS]</rdfs:comment>
+        <rdfs:label xml:lang="en">microgram per microliter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0010073 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0010073">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000189"/>
+        <rdfs:comment xml:lang="en">A count unit that denotes a count of cells.</rdfs:comment>
+        <rdfs:label xml:lang="en">cell count</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0010074 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0010074">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000280"/>
+        <oboInOwl:hasExactSynonym xml:lang="en">BPM</oboInOwl:hasExactSynonym>
+        <rdfs:comment xml:lang="en">A rate unit which represents a measurement of the number of an organism&apos;s heartbeats per one minute.</rdfs:comment>
+        <rdfs:label xml:lang="en">heartbeats per minute</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0010075 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0010075">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000190"/>
+        <oboInOwl:hasExactSynonym xml:lang="en">MOI</oboInOwl:hasExactSynonym>
+        <rdfs:comment xml:lang="en">A ratio unit which denotes the quantity of infectious agents to infection targets.</rdfs:comment>
+        <rdfs:label xml:lang="en">multiplicity of infection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0010076 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0010076">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000280"/>
+        <oboInOwl:hasExactSynonym xml:lang="en">br/min</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">brpm</oboInOwl:hasExactSynonym>
+        <rdfs:comment xml:lang="en">A rate unit which represents a measurement of the number of breaths taken by an organism per one minute.</rdfs:comment>
+        <rdfs:label xml:lang="en">breaths per minute</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0010077 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0010077">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000189"/>
+        <oboInOwl:hasExactSynonym xml:lang="en">Ct</oboInOwl:hasExactSynonym>
+        <rdfs:comment xml:lang="en">A count unit of how many Polymerase Chain Reaction (PCR) cycles it took to detect a real signal from a sample. Equivalent to the PCR cycle number at which a sample&apos;s reaction curve intersects the threshold line.</rdfs:comment>
+        <rdfs:label xml:lang="en">PCR quantification cycle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0010080 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0010080">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000051"/>
+        <rdfs:comment xml:lang="en">A concentration unit which denotes the minimum amount of a substance in a solution that still yields a positive reading, as determined by serial dilution.</rdfs:comment>
+        <rdfs:label xml:lang="en">titer</rdfs:label>
     </owl:Class>
     
 
@@ -11397,6 +11480,7 @@
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0010048">
         <rdfs:comment>&quot;DEPRECATED: Duplicate of http://purl.obolibrary.org/obo/UO_0000039. A substance unit which is equal to one millionth of a mole.&quot; [UOB:LTS]</rdfs:comment>
         <rdfs:label>micromole</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0010049">
         <oboInOwl:hasExactSynonym>g/m^[2]</oboInOwl:hasExactSynonym>
