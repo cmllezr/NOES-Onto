@@ -40,10 +40,15 @@ $(CRYO_MIRROR):
 	fi
 
 download-with-token:
-	$(eval API_URL=$(shell echo $(RAW_URL) | sed -E 's|https://raw.githubusercontent.com/([^/]+)/([^/]+)/([^/]+)/(.*)|https://api.github.com/repos/\1/\2/contents/\4?ref=\3|'))
+	$(eval OWNER=$(shell echo $(RAW_URL) | cut -d'/' -f4))
+	$(eval REPO=$(shell echo $(RAW_URL) | cut -d'/' -f5))
+	# Identify if 'refs/heads/' is in the URL to determine path and ref
+	$(eval REF=$(shell echo $(RAW_URL) | grep -oP '(?<=refs/heads/)[^/]+' || echo $(RAW_URL) | cut -d'/' -f6))
+	$(eval FILE_PATH=$(shell echo $(RAW_URL) | sed -E 's|.*(refs/heads/[^/]+/\|[^/]+/[^/]+/[^/]+/)(.*)|\2|'))
+	@echo "Targeting Repo: $(OWNER)/$(REPO) Path: $(FILE_PATH) Ref: $(REF)"
 	curl -f -sS -L -H "Authorization: Bearer $(CRYO_TOKEN)" \
 		-H "Accept: application/vnd.github.v3.raw" \
-		"$(API_URL)" -o $(CRYO_MIRROR)
+		"https://api.github.com/repos/$(OWNER)/$(REPO)/contents/$(FILE_PATH)?ref=$(REF)" -o $(CRYO_MIRROR)
 
 # 3. Override mirror-cryo to ensure the download happens first
 mirror-cryo: $(CRYO_MIRROR)
