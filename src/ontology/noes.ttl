@@ -16,11 +16,11 @@
 @base <https://w3id.org/pmd/noes.ttl> .
 
 <https://w3id.org/pmd/noes.ttl> rdf:type owl:Ontology ;
-                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-14/noes.ttl> ;
+                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-15/noes.ttl> ;
                                  dcterms:description "None" ;
                                  dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                  dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                 owl:versionInfo "2026-01-14" .
+                                 owl:versionInfo "2026-01-15" .
 
 #################################################################
 #    Annotation properties
@@ -3871,6 +3871,10 @@ co:PMD_0001016 rdf:type owl:Class ;
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0009006 ;
+                                 owl:someValuesFrom co:PMD_0000853
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0009006 ;
                                  owl:someValuesFrom noes:NOES_0000042
                                ] ;
                rdfs:label "Beugungsprozess"@de ,
@@ -5511,7 +5515,7 @@ co:PMD_0025004 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0025005
 co:PMD_0025005 rdf:type owl:Class ;
-               owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000042
+               owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty obo:RO_0000080 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -5566,7 +5570,7 @@ co:PMD_0025005 rdf:type owl:Class ;
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf noes:NOES_0000042 ,
+               rdfs:subClassOf noes:NOES_0000176 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000080 ;
                                  owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -6357,7 +6361,11 @@ noes:NOES_0000034 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000042
 noes:NOES_0000042 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000853 ;
+                  rdfs:subClassOf co:PMD_0020148 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:allValuesFrom co:PMD_0000663
+                                  ] ;
                   rdfs:label "grain orientation"@en ;
                   skos:definition "Grain orientation is an intensive quality of grains in material's microstructure, which describes the crystal orientation in respect to the external (sample's) reference frame. Grain orientation can be specified by either texture fibers or texture components. When several grains exhibit similar orientations, then the material exhibits a specific crystallographic texture."@en ,
                                   """Grain orientation is an intensive quality of grains in material's microstructure, which describes the crystallographic orientation in respect to the external (sample's) reference frame. Grain orientation can be a quality of an individual grain / crystallite or of a polycrystal, i.e., several grsins with similar crystallographic orientations.
@@ -6998,7 +7006,7 @@ noes:NOES_0000085 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000086
 noes:NOES_0000086 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000042
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty obo:RO_0000080 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7053,7 +7061,7 @@ noes:NOES_0000086 rdf:type owl:Class ;
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
-                  rdfs:subClassOf noes:NOES_0000042 ,
+                  rdfs:subClassOf noes:NOES_0000176 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7112,7 +7120,7 @@ noes:NOES_0000086 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000087
 noes:NOES_0000087 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000042
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty obo:RO_0000080 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7167,7 +7175,7 @@ noes:NOES_0000087 rdf:type owl:Class ;
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
-                  rdfs:subClassOf noes:NOES_0000042 ,
+                  rdfs:subClassOf noes:NOES_0000176 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7229,7 +7237,7 @@ practically lambda fiber is not stable in fcc because of the slip systems"""@en 
 
 ###  https://w3id.org/pmd/noes/NOES_0000088
 noes:NOES_0000088 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000042
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty obo:RO_0000080 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7284,7 +7292,7 @@ noes:NOES_0000088 rdf:type owl:Class ;
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
-                  rdfs:subClassOf noes:NOES_0000042 ,
+                  rdfs:subClassOf noes:NOES_0000176 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7343,7 +7351,7 @@ noes:NOES_0000088 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000090
 noes:NOES_0000090 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000042
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty obo:RO_0000080 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7434,7 +7442,7 @@ noes:NOES_0000090 rdf:type owl:Class ;
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
-                  rdfs:subClassOf noes:NOES_0000042 ,
+                  rdfs:subClassOf noes:NOES_0000176 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7530,7 +7538,7 @@ noes:NOES_0000090 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000091
 noes:NOES_0000091 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000042
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty obo:RO_0000080 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7702,7 +7710,7 @@ noes:NOES_0000091 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000092
 noes:NOES_0000092 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000042
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty obo:RO_0000080 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7793,7 +7801,7 @@ noes:NOES_0000092 rdf:type owl:Class ;
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
-                  rdfs:subClassOf noes:NOES_0000042 ,
+                  rdfs:subClassOf noes:NOES_0000176 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -7888,7 +7896,7 @@ noes:NOES_0000092 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000093
 noes:NOES_0000093 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000042
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty obo:RO_0000080 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
@@ -8297,7 +8305,7 @@ noes:NOES_0000160 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000161
 noes:NOES_0000161 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000042 ;
+                  rdfs:subClassOf noes:NOES_0000176 ;
                   rdfs:comment """The axiom is not expressible in OWL. 
 TODO: write a SWIRL rule"""@en ;
                   rdfs:label "α*-fibre grain orientation"@en ;
@@ -8325,6 +8333,13 @@ noes:NOES_0000166 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0020131 ;
                   rdfs:label "average grain size"@en ;
                   skos:example "Average grain size is an intensive quality of a material which describes the average diameter of grains in the material's microstructure."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000176
+noes:NOES_0000176 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0020131 ;
+                  rdfs:comment "PreferredPreferred crystallographic orientation is a intensive quality of a grain population which is denoted by / is about the orientation distribution function (ODF) of the textured material. Preferred crystallographic orientation describes a crystallographic orientation of several grains in a volume, from which the ODF has been determined, while these grains have similar grain orienientations within the given tolerance."@en ;
+                  rdfs:label "preferred crystallographic orientation"@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005
