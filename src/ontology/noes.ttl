@@ -6,6 +6,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix noes: <https://w3id.org/pmd/noes/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -71,6 +72,10 @@ dcterms:source rdf:type owl:AnnotationProperty .
 ###  http://purl.org/dc/terms/title
 dcterms:title rdf:type owl:AnnotationProperty ;
               rdfs:label "title" .
+
+
+###  http://usefulinc.com/ns/doap#repository
+doap:repository rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
@@ -6488,7 +6493,7 @@ noes:NOES_0000049 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0000825 ;
                   rdfs:label "magnetic induction"@en ;
                   skos:altLabel "magnetic flux density"@en ;
-                  skos:definition "Magnetic induction is a magnetic property stimulated by an applied extermal magnetic field H. It characterizes the response of magnetic domains within a material to the applied magnetic field, i.e., the alignment of the magnetic domains and the stregnth of an induced magnetic field in the material."@en ;
+                  skos:definition "Magnetic induction is a magnetic property stimulated by an applied extermal magnetic field H. It characterizes the response of magnetic domains within a material to the applied magnetic field, i.e., the alignment of the magnetic domains and the stregnth of the total induced magnetic field in the material."@en ;
                   co:symbol "B" .
 
 
@@ -8413,6 +8418,14 @@ noes:NOES_0000177 rdf:type owl:Class ;
                   rdfs:label "grain population"@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000178
+noes:NOES_0000178 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000825 ;
+                  rdfs:label "magnetic polarization"@en ;
+                  co:symbol "J" ,
+                            "Magnetic polarization is a magnetic property which is a measure of intrinsic magnetization of a material (alignment of magnetic dipoles) as a response to the externaly applied magnetic field H. It is determined as a difference between magnetic induction B and the external field µ0*H."@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000179
 noes:NOES_0000179 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0020096 ,
@@ -8555,6 +8568,14 @@ noes:NOES_0000181 rdf:type owl:Class ;
 3. Think of adding nomical thickness class"""@en ;
                   rdfs:label "NO27-14"@en ;
                   skos:altLabel "NO27-14 is a non-oriented electrical steel which has characteristic total magnetic losses P1.0/400 of max 14 W/kg and a quality thickness of 0.27 mm."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000182
+noes:NOES_0000182 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000178 ;
+                  rdfs:label "peak magnetic polarization"@en ;
+                  co:symbol "Jsat"@en ,
+                            "Peak magnetic polarization is a maximum magnetic polarization that a material exhibits under the applied external magnetic field Hmax."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005

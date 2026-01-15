@@ -253,7 +253,6 @@ Declaration(Class(<https://w3id.org/pmd/co/PMD_0001017>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0001018>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0001019>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0001020>))
-Declaration(Class(<https://w3id.org/pmd/co/PMD_0001998>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020000>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020003>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020004>))
@@ -387,6 +386,7 @@ Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000118>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000132>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000138>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/BFO_0000183>))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000039>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000136>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000219>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000221>))
@@ -487,6 +487,7 @@ Declaration(AnnotationProperty(<http://purl.org/dc/terms/description>))
 Declaration(AnnotationProperty(<http://purl.org/dc/terms/license>))
 Declaration(AnnotationProperty(<http://purl.org/dc/terms/source>))
 Declaration(AnnotationProperty(<http://purl.org/dc/terms/title>))
+Declaration(AnnotationProperty(<http://usefulinc.com/ns/doap#repository>))
 Declaration(AnnotationProperty(<http://www.geneontology.org/formats/oboInOwl#hasExactSynonym>))
 Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#altLabel>))
 Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#definition>))
@@ -614,6 +615,13 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://pur
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000183> "Mouth environs process of mastication; city environs traffic"@en)
 ObjectPropertyDomain(<http://purl.obolibrary.org/obo/BFO_0000183> ObjectUnionOf(<http://purl.obolibrary.org/obo/BFO_0000029> <http://purl.obolibrary.org/obo/BFO_0000040>))
 ObjectPropertyRange(<http://purl.obolibrary.org/obo/BFO_0000183> ObjectUnionOf(<http://purl.obolibrary.org/obo/BFO_0000015> <http://purl.obolibrary.org/obo/BFO_0000035>))
+
+# Object Property: <http://purl.obolibrary.org/obo/IAO_0000039> (has measurement unit label)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000039> "has measurement unit label"@en)
+SubObjectPropertyOf(<http://purl.obolibrary.org/obo/IAO_0000039> <http://purl.obolibrary.org/obo/BFO_0000051>)
+FunctionalObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000039>)
+ObjectPropertyRange(<http://purl.obolibrary.org/obo/IAO_0000039> <http://purl.obolibrary.org/obo/IAO_0000003>)
 
 # Object Property: <http://purl.obolibrary.org/obo/IAO_0000136> (is about)
 
@@ -2134,7 +2142,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000056> <https://w3id.org/pmd/co/PMD_0000780>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000056> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000655> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000085> <https://w3id.org/pmd/co/PMD_0000057>)))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000057> (Schmelzfunktion)
+# Class: <https://w3id.org/pmd/co/PMD_0000057> (melting function)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000057> "Schmelzfunktion"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000057> "melting function"@en)
@@ -2586,7 +2594,7 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000817> "Laserschne
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000817> "lasercutter"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000817> "A device that utilizes laser beams to create precise cuts in various materials such as wood, plastic, metal, etc."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000817> "Ein Gerät, das Laserstrahlen verwendet, um präzise Schnitte in verschiedenen Materialien wie Holz, Kunststoff, Metall usw. zu erzeugen."@de)
-SubClassOf(<https://w3id.org/pmd/co/PMD_0000817> <https://w3id.org/pmd/co/PMD_0001998>)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0000817> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000602> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000085> <https://w3id.org/pmd/co/PMD_0000592>)))
 
 # Class: <https://w3id.org/pmd/co/PMD_0000819> (light microscopy)
 
@@ -2727,7 +2735,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000874> "Ein Mikroskop, das sichtbares Licht und Linsen verwendet, um kleine Objekte oder Details zu vergrößern und zu betrachten."@de)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000874> <https://w3id.org/pmd/co/PMD_0000855>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000875> (Optische Mikroskopie)
+# Class: <https://w3id.org/pmd/co/PMD_0000875> (optical microscopy)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "Ein Mikroskopieverfahren, das sichtbares Licht und Linsen verwendet, um eine Probe zu vergrößern und abzubilden, und weit verbreitet zur Untersuchung der Mikrostruktur und Morphologie von Materialien ist."@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "Optische Mikroskopie"@de)
@@ -2966,7 +2974,7 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0001007> "Wasserstra
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0001007> "waterjet cutter"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0001007> "A device that utilizes a high-pressure stream of water or a water stream with abrasive particles to cut materials such as metal, stone, plastic, etc."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0001007> "Ein Gerät, das einen Hochdruckwasserstrahl oder einen Wasserstrahl mit abrasiven Partikeln verwendet, um Materialien wie Metall, Stein, Kunststoff usw. zu schneiden."@de)
-SubClassOf(<https://w3id.org/pmd/co/PMD_0001007> <https://w3id.org/pmd/co/PMD_0001998>)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0001007> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000602> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000085> <https://w3id.org/pmd/co/PMD_0000592>)))
 
 # Class: <https://w3id.org/pmd/co/PMD_0001014> (x-ray analyzing process)
 
@@ -3024,14 +3032,6 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0001020> "x-ray diff
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0001020> "An X-Ray Diffractometer is a Measuring Device that determines the crystal structure of materials by analyzing the diffraction patterns of X-rays passed through a sample."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0001020> "Ein Röntgenbeugungsgerät ist ein Messgerät, das die Kristallstruktur von Materialien durch Analyse der Beugungsmuster von durch eine Probe geleiteten Röntgenstrahlen bestimmt."@de)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0001020> <https://w3id.org/pmd/co/PMD_0000602>)
-
-# Class: <https://w3id.org/pmd/co/PMD_0001998> (cutting device)
-
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0001998> "cutting device"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0001998> "A device designed to cut, slice, divide, or sever objects."@en)
-EquivalentClasses(<https://w3id.org/pmd/co/PMD_0001998> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000602> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000085> <https://w3id.org/pmd/co/PMD_0000592>)))
-SubClassOf(<https://w3id.org/pmd/co/PMD_0001998> <https://w3id.org/pmd/co/PMD_0000602>)
-SubClassOf(<https://w3id.org/pmd/co/PMD_0001998> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000085> <https://w3id.org/pmd/co/PMD_0000592>))
 
 # Class: <https://w3id.org/pmd/co/PMD_0020000> (phase (thermodynamic))
 
