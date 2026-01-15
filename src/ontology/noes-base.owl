@@ -2787,6 +2787,12 @@ TODO: Check general class axiom and defintion altogether !!!</skos:definition>
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000853">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000857"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">crystallographic texture</rdfs:label>
         <skos:definition xml:lang="en">The crystallographic texture is a morphological quality describing the arrangement and orientation of grains in a metallic material, observed through crystallographic analysis.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
@@ -6762,6 +6768,12 @@ Has part grain growth and recovery.</rdfs:comment>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000075"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">grain orientation</rdfs:label>
         <skos:definition xml:lang="en">Grain orientation is an intensive quality of grains in material&apos;s microstructure, which describes the crystal orientation in respect to the external (sample&apos;s) reference frame. Grain orientation can be specified by either texture fibers or texture components. When several grains exhibit similar orientations, then the material exhibits a specific crystallographic texture.</skos:definition>
         <skos:definition xml:lang="en">Grain orientation is an intensive quality of grains in material&apos;s microstructure, which describes the crystallographic orientation in respect to the external (sample&apos;s) reference frame. Grain orientation can be a quality of an individual grain / crystallite or of a polycrystal, i.e., several grsins with similar crystallographic orientations.
@@ -6774,7 +6786,13 @@ Grain orientation can be specified by either texture fibers or texture component
     <!-- https://w3id.org/pmd/noes/NOES_0000043 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000043">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000857"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">texture parameter Aθ</rdfs:label>
         <rdfs:seeAlso>doi:10.1155/2008/173083</rdfs:seeAlso>
         <skos:definition xml:lang="en">Texture parameter is a intensive quality which quantifies crystallographic texture in materials. Texture parameter is defined as a minimun angle between the magnitization vector and the closest &lt;100&gt; direction in a crystal. Texture parameter can be derived from orientation distribution function (ODF) by integrating ODF f(g) multiplied by Aθ(g) over orientations dg.</skos:definition>
@@ -6785,7 +6803,13 @@ Grain orientation can be specified by either texture fibers or texture component
     <!-- https://w3id.org/pmd/noes/NOES_0000044 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000044">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000857"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">direction averaged texture parameter A</rdfs:label>
         <rdfs:seeAlso>doi:10.1155/2008/173083</rdfs:seeAlso>
         <skos:definition xml:lang="en">Direction averaged texture parameter A is a intensive quality which quantifies crystallographic texture in materials, which are utilized in applications where applied magnetic field is equally distributed in the rolling plane (RP) of the material. Direction averaged texture parameter A is derived from the texture parameter Aθ by integrating Aθ over dθ. For noriented electrical steels it can be simplified as (A0 + 2*A45 + A90) / 4, where A0, A45, and A90 are values of texture parameter Aθ for an applied magnetic field which encloses an angle of 0, 45, and 90 with the rolling direction, respectively.</skos:definition>
@@ -6796,7 +6820,13 @@ Grain orientation can be specified by either texture fibers or texture component
     <!-- https://w3id.org/pmd/noes/NOES_0000045 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000045">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000857"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">texture factor</rdfs:label>
         <skos:definition xml:lang="en">Texture factor is an intensive quality used to quantify texture in materials. It is determined as sum of volume fractions of Goss and Cube texture components divided by the volume fraction of γ-fiber orientations.</skos:definition>
     </owl:Class>
@@ -9378,8 +9408,24 @@ TODO: write a SWIRL rule</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000176">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
-        <rdfs:comment xml:lang="en">PreferredPreferred crystallographic orientation is a intensive quality of a grain population which is denoted by / is about the orientation distribution function (ODF) of the textured material. Preferred crystallographic orientation describes a crystallographic orientation of several grains in a volume, from which the ODF has been determined, while these grains have similar grain orienientations within the given tolerance.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Preferred crystallographic orientation is a intensive quality of a grain population which is denoted by / is about the orientation distribution function (ODF) of the textured material. Preferred crystallographic orientation describes a crystallographic orientation of several grains in a volume, from which the ODF has been determined, while these grains have similar grain orienientations within the given tolerance.</rdfs:comment>
         <rdfs:label xml:lang="en">preferred crystallographic orientation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000177 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000177">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
+        <rdfs:comment xml:lang="en">Grain population is a disconnected material aggregate which has crystallites ias parts.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation.</rdfs:comment>
+        <rdfs:label xml:lang="en">grain population</rdfs:label>
     </owl:Class>
     
 
