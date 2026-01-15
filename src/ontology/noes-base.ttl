@@ -1972,7 +1972,11 @@ co:PMD_0000852 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000853
 co:PMD_0000853 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020131 ;
+               rdfs:subClassOf co:PMD_0020131 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000080 ;
+                                 owl:someValuesFrom co:PMD_0000857
+                               ] ;
                rdfs:label "crystallographic texture"@en ;
                skos:definition "The crystallographic texture is a morphological quality describing the arrangement and orientation of grains in a metallic material, observed through crystallographic analysis."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
@@ -4873,6 +4877,10 @@ noes:NOES_0000042 rdf:type owl:Class ;
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:allValuesFrom co:PMD_0000663
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty co:PMD_0000004 ;
+                                    owl:allValuesFrom noes:NOES_0000075
                                   ] ;
                   rdfs:label "grain orientation"@en ;
                   skos:definition "Grain orientation is an intensive quality of grains in material's microstructure, which describes the crystal orientation in respect to the external (sample's) reference frame. Grain orientation can be specified by either texture fibers or texture components. When several grains exhibit similar orientations, then the material exhibits a specific crystallographic texture."@en ,
@@ -4883,7 +4891,11 @@ Grain orientation can be specified by either texture fibers or texture component
 
 ###  https://w3id.org/pmd/noes/NOES_0000043
 noes:NOES_0000043 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000853 ;
+                  rdfs:subClassOf co:PMD_0020131 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom co:PMD_0000857
+                                  ] ;
                   rdfs:label "texture parameter Aθ"@en ;
                   rdfs:seeAlso "doi:10.1155/2008/173083" ;
                   skos:definition "Texture parameter is a intensive quality which quantifies crystallographic texture in materials. Texture parameter is defined as a minimun angle between the magnitization vector and the closest <100> direction in a crystal. Texture parameter can be derived from orientation distribution function (ODF) by integrating ODF f(g) multiplied by Aθ(g) over orientations dg."@en .
@@ -4891,7 +4903,11 @@ noes:NOES_0000043 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000044
 noes:NOES_0000044 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000853 ;
+                  rdfs:subClassOf co:PMD_0020131 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom co:PMD_0000857
+                                  ] ;
                   rdfs:label "direction averaged texture parameter A"@en ;
                   rdfs:seeAlso "doi:10.1155/2008/173083" ;
                   skos:definition "Direction averaged texture parameter A is a intensive quality which quantifies crystallographic texture in materials, which are utilized in applications where applied magnetic field is equally distributed in the rolling plane (RP) of the material. Direction averaged texture parameter A is derived from the texture parameter Aθ by integrating Aθ over dθ. For noriented electrical steels it can be simplified as (A0 + 2*A45 + A90) / 4, where A0, A45, and A90 are values of texture parameter Aθ for an applied magnetic field which encloses an angle of 0, 45, and 90 with the rolling direction, respectively."@en .
@@ -4899,7 +4915,11 @@ noes:NOES_0000044 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000045
 noes:NOES_0000045 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000853 ;
+                  rdfs:subClassOf co:PMD_0020131 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom co:PMD_0000857
+                                  ] ;
                   rdfs:label "texture factor"@en ;
                   skos:definition "Texture factor is an intensive quality used to quantify texture in materials. It is determined as sum of volume fractions of Goss and Cube texture components divided by the volume fraction of γ-fiber orientations."@en .
 
@@ -6845,9 +6865,20 @@ noes:NOES_0000166 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000176
 noes:NOES_0000176 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0020131 ;
-                  rdfs:comment "PreferredPreferred crystallographic orientation is a intensive quality of a grain population which is denoted by / is about the orientation distribution function (ODF) of the textured material. Preferred crystallographic orientation describes a crystallographic orientation of several grains in a volume, from which the ODF has been determined, while these grains have similar grain orienientations within the given tolerance."@en ;
+                  rdfs:subClassOf co:PMD_0020131 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:allValuesFrom noes:NOES_0000177
+                                  ] ;
+                  rdfs:comment "Preferred crystallographic orientation is a intensive quality of a grain population which is denoted by / is about the orientation distribution function (ODF) of the textured material. Preferred crystallographic orientation describes a crystallographic orientation of several grains in a volume, from which the ODF has been determined, while these grains have similar grain orienientations within the given tolerance."@en ;
                   rdfs:label "preferred crystallographic orientation"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000177
+noes:NOES_0000177 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000027 ;
+                  rdfs:comment "Grain population is a disconnected material aggregate which has crystallites ias parts.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation."@en ;
+                  rdfs:label "grain population"@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005
