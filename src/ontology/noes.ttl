@@ -406,8 +406,7 @@ obo:OBI_0000293 rdf:type owl:ObjectProperty ;
                 owl:inverseOf obo:OBI_0000295 ;
                 rdfs:domain obo:OBI_0000011 ;
                 obo:IAO_0000112 "see is_input_of example_of_usage"@en ;
-                obo:IAO_0000115 "The inverse property of is specified input of" ,
-                                "The inverse property of is specified input of"@en ;
+                obo:IAO_0000115 "The inverse property of is specified input of"@en ;
                 obo:IAO_0000116 "8/17/09: specified inputs of one process are not necessarily specified inputs of a larger process that it is part of. This is in contrast to how 'has participant' works." ;
                 rdfs:label "has specified input"@en .
 
@@ -417,8 +416,7 @@ obo:OBI_0000295 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:range obo:OBI_0000011 ;
                 obo:IAO_0000112 "some Autologous EBV(Epstein-Barr virus)-transformed B-LCL (B lymphocyte cell line) is_input_for instance of Chromum Release Assay described at https://wiki.cbil.upenn.edu/obiwiki/index.php/Chromium_Release_assay"@en ;
-                obo:IAO_0000115 "A relation between a completely executed planned process and a continuant participating in that process that is not created during the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of." ,
-                                "A relation between a planned process and a continuant participating in that process that is not created during  the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of."@en ;
+                obo:IAO_0000115 "A relation between a planned process and a continuant participating in that process that is not created during  the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of."@en ;
                 rdfs:label "is specified input of"@en .
 
 
@@ -429,8 +427,7 @@ obo:OBI_0000299 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000057 ;
                 owl:inverseOf obo:OBI_0000312 ;
                 rdfs:domain obo:OBI_0000011 ;
-                obo:IAO_0000115 "The inverse property of is specified output of" ,
-                                "The inverse property of is specified output of"@en ;
+                obo:IAO_0000115 "The inverse property of is specified output of"@en ;
                 rdfs:label "has specified output"@en .
 
 
@@ -438,8 +435,7 @@ obo:OBI_0000299 rdf:type owl:ObjectProperty ;
 obo:OBI_0000312 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:range obo:OBI_0000011 ;
-                obo:IAO_0000115 "A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."@en ,
-                                "A relation between a planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."@en ;
+                obo:IAO_0000115 "A relation between a planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."@en ;
                 rdfs:label "is specified output of"@en .
 
 
@@ -2234,11 +2230,9 @@ obo:OBI_0000011 rdf:type owl:Class ;
                 obo:IAO_0000115 "A process that realizes a plan which is the concretization of a plan specification."@en ;
                 obo:IAO_0000116 "'Plan' includes a future direction sense. That can be problematic if plans are changed during their execution. There are however implicit contingencies for protocols that an agent has in his mind that can be considered part of the plan, even if the agent didn't have them in mind before. Therefore, a planned process can diverge from what the agent would have said the plan was before executing it, by adjusting to problems encountered during execution (e.g. choosing another reagent with equivalent properties, if the originally planned one has run out.)" ,
                                 """We are only considering successfully completed planned processes. A plan may be modified, and details added during execution. For a given planned process, the associated realized plan specification is the one encompassing all changes made during execution. This means that all processes in which an agent acts towards achieving some 
-objectives is a planned process.""" ,
-                                "We are only considering successfully completed planned processes. A plan may be modified, and details added during execution. For a given planned process, the associated realized plan specification is the one encompassing all changes made during execution. This means that all processes in which an agent acts towards achieving some objectives is a planned process." ;
+objectives is a planned process.""" ;
                 obo:IAO_0000119 "branch derived" ;
-                rdfs:label "obsolete planned process" ,
-                           "planned process"@en .
+                rdfs:label "planned process"@en .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000067
@@ -3187,8 +3181,13 @@ co:PMD_0000655 rdf:type owl:Class ;
 co:PMD_0000663 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020003 ;
                rdfs:label "Korn"@de ,
-                          "crystal grain"@en ;
-               skos:definition "A crystal grain is a crystal that is continuant part of a polycrystal."@en ;
+                          "crystal grain"@en ,
+                          "crystallite"@en ,
+                          "kristallit"@de ;
+               skos:altLabel "Korn"@de ,
+                             "grain"@en ;
+               skos:definition "A crystal grain is a crystal that is continuant part of a polycrystal."@en ,
+                               "A crystal grain is a crystal that is part of a polycrystal."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -3482,6 +3481,10 @@ co:PMD_0000853 rdf:type owl:Class ;
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000080 ;
                                  owl:someValuesFrom co:PMD_0000857
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000080 ;
+                                 owl:someValuesFrom co:PMD_0020106
                                ] ;
                rdfs:label "crystallographic texture"@en ;
                skos:definition "The crystallographic texture is a morphological quality describing the arrangement and orientation of grains in a metallic material, observed through crystallographic analysis."@en ;
@@ -3574,6 +3577,15 @@ co:PMD_0000886 rdf:type owl:Class ;
                           "polishing machine"@en ;
                skos:definition "A Polishing Machine is a Forming Machine that smooths the surface of a material by rubbing it with a tool, abrasive, or chemical."@en ,
                                "Eine Poliermaschine ist eine Formmaschine, die die Oberfläche eines Materials durch Reiben mit einem Werkzeug, Schleifmittel oder Chemikalien glättet."@de .
+
+
+###  https://w3id.org/pmd/co/PMD_0000890
+co:PMD_0000890 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000027 ;
+               rdfs:label "connected material entity aggregate"@en ;
+               skos:definition "A material entity aggregate that is a mereological sum of separate material entities, which adhere to one another through chemical bonds or physical junctions that go beyond gravity."@en ;
+               skos:example "the atoms of a molecule, the molecules forming the membrane of a cell, the epidermis in a human body"@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000891
@@ -5237,9 +5249,15 @@ co:PMD_0020104 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020106
 co:PMD_0020106 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000027 ;
+               rdfs:subClassOf co:PMD_0000890 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000051 ;
+                                 owl:someValuesFrom co:PMD_0000663
+                               ] ;
                rdfs:label "polycrystal"@en ;
-               skos:definition "Polycrystal is an object aggregate that has continuant part some crystal grains"@en ;
+               skos:altLabel "Polycrystalline structure"@en ;
+               skos:definition "Polycrystal is a connected object aggregate that has continuant part some crystal grains"@en ,
+                               "Polycrystal is an object aggregate that has continuant part some crystal grains"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -5382,6 +5400,14 @@ co:PMD_0020149 rdf:type owl:Class ;
                rdfs:comment "The stability of a phase can only be evaluated in the context of a (possibly unknown) phase transformation process."@en ;
                rdfs:label "metastable phase"@en ;
                skos:definition "A metastable phase phase_trans is a phase that has a \"pmd:disposition of a phase to transform\" disp_trans and disp_trans is realized in a \"pmd:phase transformation\" proc_trans and proc_trans has participant sys_trans and sys_trans has part phase_trans."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0020150
+co:PMD_0020150 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020132 ;
+               rdfs:label "volume"@en ;
+               skos:definition "Volume is a three dimensional size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
