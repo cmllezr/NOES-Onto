@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                8e585a4780b199828db0c46e243f7285a2f39c37d0efcf907794a01f33515a9b
+CONFIG_HASH=                d82a9a9b97d2e7c2cb628858fd81eb67e57ebfa1598f0326f028b927180931ee
 
 
 # ----------------------------------------
@@ -187,7 +187,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  pmdco tto uo cryo
+IMPORTS =  pmdco tto uo cryo obi
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -433,6 +433,12 @@ $(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl
 	@echo "       This rule needs to be overwritten in noes.Makefile!"
 	@false
 
+## Module for ontology: obi (custom)
+$(IMPORTDIR)/obi_import.owl: $(MIRRORDIR)/obi.owl
+	@echo "ERROR: You have configured obi as a custom module;"
+	@echo "       This rule needs to be overwritten in noes.Makefile!"
+	@false
+
 endif # IMP=true
 
 .PHONY: refresh-imports
@@ -542,6 +548,13 @@ mirror-uo: | $(TMPDIR)
 .PRECIOUS: $(MIRRORDIR)/cryo.owl
 mirror-cryo: | $(TMPDIR)
 	$(ROBOT) convert -I https://raw.githubusercontent.com/cmllezr/crystallography-subdomain-ontology/refs/heads/main/cryo-full.owl -o $(TMPDIR)/$@.owl
+
+
+## ONTOLOGY: obi
+.PHONY: mirror-obi
+.PRECIOUS: $(MIRRORDIR)/obi.owl
+mirror-obi: | $(TMPDIR)
+	$(ROBOT) convert -I https://raw.githubusercontent.com/obi-ontology/obi/refs/tags/v2025-10-14/views/obi-base.owl -o $(TMPDIR)/$@.owl
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)
