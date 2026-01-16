@@ -8,6 +8,7 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:doap="http://usefulinc.com/ns/doap#"
      xmlns:noes="https://w3id.org/pmd/noes/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
@@ -105,6 +106,12 @@
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title">
         <rdfs:label>title</rdfs:label>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- http://usefulinc.com/ns/doap#repository -->
+
+    <owl:AnnotationProperty rdf:about="http://usefulinc.com/ns/doap#repository"/>
     
 
 
@@ -8896,7 +8903,7 @@ Grain orientation can be specified by either texture fibers or texture component
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000825"/>
         <rdfs:label xml:lang="en">magnetic induction</rdfs:label>
         <skos:altLabel xml:lang="en">magnetic flux density</skos:altLabel>
-        <skos:definition xml:lang="en">Magnetic induction is a magnetic property stimulated by an applied extermal magnetic field H. It characterizes the response of magnetic domains within a material to the applied magnetic field, i.e., the alignment of the magnetic domains and the stregnth of an induced magnetic field in the material.</skos:definition>
+        <skos:definition xml:lang="en">Magnetic induction is a magnetic property stimulated by an applied extermal magnetic field H. It characterizes the response of magnetic domains within a material to the applied magnetic field, i.e., the alignment of the magnetic domains and the stregnth of the total induced magnetic field in the material.</skos:definition>
         <co:symbol>B</co:symbol>
     </owl:Class>
     
@@ -11451,6 +11458,17 @@ TODO: write a SWIRL rule</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/pmd/noes/NOES_0000178 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000178">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000825"/>
+        <rdfs:label xml:lang="en">magnetic polarization</rdfs:label>
+        <co:symbol>J</co:symbol>
+        <co:symbol xml:lang="en">Magnetic polarization is a magnetic property which is a measure of intrinsic magnetization of a material (alignment of magnetic dipoles) as a response to the externaly applied magnetic field H. It is determined as a difference between magnetic induction B and the external field µ0*H.</co:symbol>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/noes/NOES_0000179 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000179">
@@ -11657,6 +11675,17 @@ TODO: write a SWIRL rule</rdfs:comment>
 3. Think of adding nomical thickness class</rdfs:comment>
         <rdfs:label xml:lang="en">NO27-14</rdfs:label>
         <skos:altLabel xml:lang="en">NO27-14 is a non-oriented electrical steel which has characteristic total magnetic losses P1.0/400 of max 14 W/kg and a quality thickness of 0.27 mm.</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000182 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000182">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000178"/>
+        <rdfs:label xml:lang="en">peak magnetic polarization</rdfs:label>
+        <co:symbol xml:lang="en">Jsat</co:symbol>
+        <co:symbol xml:lang="en">Peak magnetic polarization is a maximum magnetic polarization that a material exhibits under the applied external magnetic field Hmax.</co:symbol>
     </owl:Class>
     
 
