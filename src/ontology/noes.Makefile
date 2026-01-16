@@ -66,10 +66,8 @@ $(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPOR
 			extract --term-file $(IMPORTDIR)/cryo_terms.txt \
 						--force true \
 						--copy-ontology-annotations true \
-						--individuals exclude \
 						--intermediates all \
 						--method BOT \
-			remove --select individuals \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
 			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
