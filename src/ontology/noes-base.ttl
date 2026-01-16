@@ -13,12 +13,12 @@
 @base <https://w3id.org/pmd/noes/noes-base.ttl> .
 
 <https://w3id.org/pmd/noes/noes-base.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-15/noes-base.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-16/noes-base.ttl> ;
                                            dce:type obo:IAO_8000001 ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-01-15" .
+                                           owl:versionInfo "2026-01-16" .
 
 #################################################################
 #    Annotation properties
@@ -4259,6 +4259,24 @@ co:PMD_0025012 rdf:type owl:Class ;
                skos:definition "Analytical calculation is a computing process which has value specification or measurement datum as a specified output. It applies a closed-form mathematical expression or formula to a set it specified inputs (value specifications) without requiring stochastic sampling, iterative numerical solving, or data-driven training."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0025016
+co:PMD_0025016 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0050051 ;
+               rdfs:label "Innendurchmesser"@de ,
+                          "inner diameter"@en ;
+               skos:definition "Der Innendurchmesser ist die Länge einer geraden Linie von einer Innenfläche eines Objekts oder Raums zur anderen Seite seiner Innenfläche durch den Mittelpunkt eines Objekts oder Raums, wenn es eine Innen- und Außenfläche hat."@de ,
+                               "Inner diameter is a length of a straight line from one inner surface of an object or space to the other side of its inner surface through the center of an object or space when it has the inside and outside surface."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0025017
+co:PMD_0025017 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0050051 ;
+               rdfs:label "Außendurchmesser"@de ,
+                          "outer diameter"@en ;
+               skos:definition "Der Außendurchmesser ist die Länge einer geraden Linie von einer Außenfläche eines Objekts oder Raums zur anderen Seite seiner Außenfläche durch den Mittelpunkt eines Objekts oder Raums, wenn es eine Innen- und Außenfläche hat."@de ,
+                               "Outer diameter is a length of a straight line from one outer surface of an object or space to the other side of its outer surface through the center of an object or space when it has the inside and outside surface."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0025997
 co:PMD_0025997 rdf:type owl:Class ;
                rdfs:subClassOf obo:OBI_0001931 ,
@@ -6916,6 +6934,9 @@ noes:NOES_0000177 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/noes/NOES_0000178
 noes:NOES_0000178 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0000825 ;
+                  rdfs:comment """TODO add axioms
+1. When the magnetic qualities are realized
+2. Especially for peak values that would be interesting"""@en ;
                   rdfs:label "magnetic polarization"@en ;
                   co:symbol "J" ,
                             "Magnetic polarization is a magnetic property which is a measure of intrinsic magnetization of a material (alignment of magnetic dipoles) as a response to the externaly applied magnetic field H. It is determined as a difference between magnetic induction B and the external field µ0*H."@en .
