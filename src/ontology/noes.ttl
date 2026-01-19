@@ -18,11 +18,11 @@
 @base <https://w3id.org/pmd/noes.ttl> .
 
 <https://w3id.org/pmd/noes.ttl> rdf:type owl:Ontology ;
-                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-16/noes.ttl> ;
+                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-19/noes.ttl> ;
                                  dcterms:description "None" ;
                                  dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                  dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                 owl:versionInfo "2026-01-16" .
+                                 owl:versionInfo "2026-01-19" .
 
 #################################################################
 #    Annotation properties
@@ -78,6 +78,10 @@ dcterms:title rdf:type owl:AnnotationProperty ;
 
 ###  http://usefulinc.com/ns/doap#repository
 doap:repository rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasDbXref
+oboInOwl:hasDbXref rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
@@ -2560,9 +2564,16 @@ obo:OBI_0001933 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/UO_0000000
 obo:UO_0000000 rdf:type owl:Class ;
                rdfs:subClassOf obo:IAO_0000003 ;
-               rdfs:comment "\"A unit of measurement is a standardized quantity of a physical quality.\" [Wikipedia:Wikipedia]" ;
+               obo:IAO_0000115 "A unit of measurement is a standardized quantity of a physical quality." ;
                rdfs:label "unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000000 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A unit of measurement is a standardized quantity of a physical quality." ;
+   oboInOwl:hasDbXref "Wikipedia:Wikipedia"
+ ] .
 
 
 ###  http://purl.obolibrary.org/obo/UO_0000012
@@ -2589,9 +2600,16 @@ obo:UO_0000031 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/UO_0000045
 obo:UO_0000045 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000000 ;
-               rdfs:comment "\"A unit which is one of a particular measure to which all measures of that type can be related.\" [NIST:NIST]" ;
+               obo:IAO_0000115 "A unit which is one of a particular measure to which all measures of that type can be related." ;
                rdfs:label "base unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000045 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A unit which is one of a particular measure to which all measures of that type can be related." ;
+   oboInOwl:hasDbXref "NIST:NIST"
+ ] .
 
 
 ###  http://purl.obolibrary.org/obo/UO_0000076
@@ -2617,9 +2635,16 @@ obo:UO_0000164 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/UO_0000190
 obo:UO_0000190 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000000 ;
-               rdfs:comment "\"A dimensionless unit which denotes an amount or magnitude of one quantity relative to another.\" [Wikipedia:Wikipedia]" ;
+               obo:IAO_0000115 "A dimensionless unit which denotes an amount or magnitude of one quantity relative to another." ;
                rdfs:label "ratio unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000190 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A dimensionless unit which denotes an amount or magnitude of one quantity relative to another." ;
+   oboInOwl:hasDbXref "Wikipedia:Wikipedia"
+ ] .
 
 
 ###  http://purl.obolibrary.org/obo/UO_0000228
@@ -2630,8 +2655,15 @@ obo:UO_0000228 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/UO_0010006
 obo:UO_0010006 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000190 ;
-               rdfs:comment "\"A dimensionless ratio unit which, given a pair of quantities a and b, for which b is a multiple of a, denotes b by giving the multiplier (coefficient) c for a to result in b.\" [UOB:LKSR]" ;
+               obo:IAO_0000115 "A dimensionless ratio unit which, given a pair of quantities a and b, for which b is a multiple of a, denotes b by giving the multiplier (coefficient) c for a to result in b." ;
                rdfs:label "ratio" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0010006 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A dimensionless ratio unit which, given a pair of quantities a and b, for which b is a multiple of a, denotes b by giving the multiplier (coefficient) c for a to result in b." ;
+   oboInOwl:hasDbXref "UOB:LKSR"
+ ] .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000008
@@ -3556,6 +3588,15 @@ co:PMD_0000825 rdf:type owl:Class ;
                rdfs:label "magnetic property"@en ;
                skos:definition "A magnetic property is a material property representing characteristics that describe how a material responds to magnetic fields, such as permeability and coercivity."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0000827
+co:PMD_0000827 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000602 ;
+               rdfs:label "Magnetisierungsgerät"@de ,
+                          "magnetizing device"@en ;
+               skos:definition "A device used for inducing a magnetic field in materials to alter their magnetic properties."@en ,
+                               "Ein Gerät zur Induktion eines Magnetfelds in Materialien, um deren magnetische Eigenschaften zu verändern."@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000829
@@ -5999,6 +6040,14 @@ co:PMD_0025017 rdf:type owl:Class ;
                           "outer diameter"@en ;
                skos:definition "Der Außendurchmesser ist die Länge einer geraden Linie von einer Außenfläche eines Objekts oder Raums zur anderen Seite seiner Außenfläche durch den Mittelpunkt eines Objekts oder Raums, wenn es eine Innen- und Außenfläche hat."@de ,
                                "Outer diameter is a length of a straight line from one outer surface of an object or space to the other side of its outer surface through the center of an object or space when it has the inside and outside surface."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0025018
+co:PMD_0025018 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000145 ;
+               rdfs:label "geometric relational quality"@en ;
+               skos:definition "Geometric relational quality is a relational quality describing the geometric relation between two or more independent continuants."@en ;
+               skos:example "Elongation of a specimen after a tensile step, i.e., the specimen before and after the test. Angle between a rolling direction of a rolled material and the longitudinal side of a specimen."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0025997
@@ -10748,55 +10797,121 @@ noes:NOES_0000175 rdf:type owl:NamedIndividual ,
 #    Annotations
 #################################################################
 
-obo:UO_0000012 oboInOwl:hasExactSynonym "K" ;
-               rdfs:comment "\"A thermodynamic temperature unit which is equal to the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.\" [BIPM:BIPM, NIST:NIST]" ;
+obo:UO_0000012 obo:IAO_0000115 "A thermodynamic temperature unit which is equal to the fraction 1/273.16 of the thermodynamic temperature of the triple point of water." ;
+               oboInOwl:hasExactSynonym "K" ;
                rdfs:label "kelvin" .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000012 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A thermodynamic temperature unit which is equal to the fraction 1/273.16 of the thermodynamic temperature of the triple point of water." ;
+   oboInOwl:hasDbXref "BIPM:BIPM" ,
+                      "NIST:NIST"
+ ] .
 
-obo:UO_0000016 oboInOwl:hasExactSynonym "millimetre" ,
+
+obo:UO_0000016 obo:IAO_0000115 "A length unit which is equal to one thousandth of a meter or 10^[-3] m." ;
+               oboInOwl:hasExactSynonym "millimetre" ,
                                         "mm" ;
-               rdfs:comment "\"A length unit which is equal to one thousandth of a meter or 10^[-3] m.\" [NIST:NIST]" ;
                rdfs:label "millimeter" .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000016 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A length unit which is equal to one thousandth of a meter or 10^[-3] m." ;
+   oboInOwl:hasDbXref "NIST:NIST"
+ ] .
 
-obo:UO_0000027 oboInOwl:hasExactSynonym "C" ;
-               rdfs:comment "\"A temperature unit which is equal to one kelvin degree. However, they have their zeros at different points. The centigrade scale has its zero at 273.15 K.\" [NIST:NIST]" ;
+
+obo:UO_0000027 obo:IAO_0000115 "A temperature unit which is equal to one kelvin degree. However, they have their zeros at different points. The centigrade scale has its zero at 273.15 K." ;
+               oboInOwl:hasExactSynonym "C" ;
                rdfs:label "degree Celsius" .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000027 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A temperature unit which is equal to one kelvin degree. However, they have their zeros at different points. The centigrade scale has its zero at 273.15 K." ;
+   oboInOwl:hasDbXref "NIST:NIST"
+ ] .
 
-obo:UO_0000031 oboInOwl:hasExactSynonym "min" ;
-               rdfs:comment "\"A time unit which is equal to 60 seconds.\" [Wikipedia:Wikipedia]" ;
+
+obo:UO_0000031 obo:IAO_0000115 "A time unit which is equal to 60 seconds." ;
+               oboInOwl:hasExactSynonym "min" ;
                rdfs:label "minute" .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000031 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A time unit which is equal to 60 seconds." ;
+   oboInOwl:hasDbXref "Wikipedia:Wikipedia"
+ ] .
 
-obo:UO_0000076 oboInOwl:hasExactSynonym "(x)" ,
+
+obo:UO_0000076 obo:IAO_0000115 "A concentration unit which denotes the number of moles of solute as a proportion of the total number of moles in a solution." ;
+               oboInOwl:hasExactSynonym "(x)" ,
                                         "chi" ;
-               rdfs:comment "\"A concentration unit which denotes the number of moles of solute as a proportion of the total number of moles in a solution.\" [Wikipedia:Wikipedia]" ;
                rdfs:label "mole fraction" .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000076 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A concentration unit which denotes the number of moles of solute as a proportion of the total number of moles in a solution." ;
+   oboInOwl:hasDbXref "Wikipedia:Wikipedia"
+ ] .
 
-obo:UO_0000106 oboInOwl:hasExactSynonym "Hz" ,
+
+obo:UO_0000106 obo:IAO_0000115 "A frequency unit which is equal to 1 complete cycle of a recurring phenomenon in 1 second." ;
+               oboInOwl:hasExactSynonym "Hz" ,
                                         "s^1" ;
                rdfs:comment "\"A frequency unit which is equal to 1 complete cycle of a recurring phenomenon in 1 second.\" [NIST:NIST]" ;
                rdfs:label "hertz" .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000106 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A frequency unit which is equal to 1 complete cycle of a recurring phenomenon in 1 second." ;
+   oboInOwl:hasDbXref "NIST:NIST"
+ ] .
 
-obo:UO_0000163 oboInOwl:hasExactSynonym "w/w" ,
+
+obo:UO_0000163 obo:IAO_0000115 "A dimensionless concentration unit which denotes the mass of a substance in a mixture as a percentage of the mass of the entire mixture." ;
+               oboInOwl:hasExactSynonym "w/w" ,
                                         "weight-weight percentage" ;
-               rdfs:comment "\"A dimensionless concentration unit which denotes the mass of a substance in a mixture as a percentage of the mass of the entire mixture.\" [Wikipedia:Wikipedia]" ;
                rdfs:label "mass percentage" .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000163 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A dimensionless concentration unit which denotes the mass of a substance in a mixture as a percentage of the mass of the entire mixture." ;
+   oboInOwl:hasDbXref "Wikipedia:Wikipedia"
+ ] .
 
-obo:UO_0000164 oboInOwl:hasExactSynonym "(w/v)" ,
+
+obo:UO_0000164 obo:IAO_0000115 "A dimensionless concentration unit which denotes the mass of the substance in a mixture as a percentage of the volume of the entire mixture." ;
+               oboInOwl:hasExactSynonym "(w/v)" ,
                                         "weight-volume percentage" ;
-               rdfs:comment "\"A dimensionless concentration unit which denotes the mass of the substance in a mixture as a percentage of the volume of the entire mixture.\" [UOC:GVG]" ;
                rdfs:label "mass volume percentage" .
 
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000164 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A dimensionless concentration unit which denotes the mass of the substance in a mixture as a percentage of the volume of the entire mixture." ;
+   oboInOwl:hasDbXref "UOC:GVG"
+ ] .
 
-obo:UO_0000228 oboInOwl:hasExactSynonym "T" ,
+
+obo:UO_0000228 obo:IAO_0000115 "A magnetic flux density unit which is equal to one weber per square meter." ;
+               oboInOwl:hasExactSynonym "T" ,
                                         "Wb/m2" ;
                rdfs:comment "\"A magnetic flux density unit which is equal to one weber per square meter.\" [WordNet:WordNet]" ;
                rdfs:label "tesla" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000228 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A magnetic flux density unit which is equal to one weber per square meter." ;
+   oboInOwl:hasDbXref "WordNet:WordNet"
+ ] .
 
 
 #################################################################
