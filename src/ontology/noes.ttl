@@ -6719,21 +6719,57 @@ TODO: write axioms"""@en ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000012
 noes:NOES_0000012 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000829 ;
+                  owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000829
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:RO_0000057 ;
+                                                               owl:someValuesFrom noes:NOES_0000183
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf co:PMD_0000829 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000057 ;
+                                    owl:someValuesFrom noes:NOES_0000183
+                                  ] ;
                   rdfs:label "magnetic property analyzing process using Epstein frame"@en ;
                   skos:definition "Magnetic property analyzing process using Epstein frame is a standardized assay which uses Epstein frame to test magnetic properties of soft magnetic materials, where several (how many) strips are stacked."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000013
 noes:NOES_0000013 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000829 ;
+                  owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000829
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:RO_0000057 ;
+                                                               owl:someValuesFrom noes:NOES_0000184
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf co:PMD_0000829 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000057 ;
+                                    owl:someValuesFrom noes:NOES_0000184
+                                  ] ;
                   rdfs:label "magnetic property analyzing process using single sheet tester"@en ;
                   skos:definition "magnetic property analyzing process using single sheet tester is an assay for determining magnetic properties of soft mangetic materials, where magnetic field H is applied to a single sheet."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000014
 noes:NOES_0000014 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000829 ;
+                  owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000829
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:RO_0000057 ;
+                                                               owl:someValuesFrom noes:NOES_0000185
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf co:PMD_0000829 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000057 ;
+                                    owl:someValuesFrom noes:NOES_0000185
+                                  ] ;
                   rdfs:label "magnetic property analyzing process using thoroidal core"@en ;
                   skos:definition "Magnetic property analyzing process using thoroidal core is an assay for determing magnetic properties of soft magnetic materials, where the sample has closed wound ring core shape. As the ring shape does not have any air gaps or joint losses, this testing procedure provides information on most intrinsic material properties."@en .
 
@@ -9058,6 +9094,32 @@ noes:NOES_0000182 rdf:type owl:Class ;
                   rdfs:label "peak magnetic polarization"@en ;
                   co:symbol "Jsat"@en ,
                             "Peak magnetic polarization is a maximum magnetic polarization that a material exhibits under the applied external magnetic field Hmax."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000183
+noes:NOES_0000183 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000163 ;
+                  obo:IAO_0000119 """https://de.wikipedia.org/wiki/Epsteinrahmen
+TODO: change to defintion source""" ;
+                  rdfs:comment "Epstein frame is a measuring device of magnetic properties of soft magnetic materials, especially electrical steels. It consists of outer primary (magnetizing) winding, which surrounds the inner secondary (measuring) winding, and both windings are distributed across the four coils of the  frame. The steel strips are inserted pairwise into the opposite coils."@en ;
+                  rdfs:label "Epstein frame"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000184
+noes:NOES_0000184 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000163 ;
+                  obo:IAO_0000119 "https://www.magnet-physik.de/wp-content/uploads/2023/08/MJC-210-e-3236.pdf" ;
+                  rdfs:comment "Single sheet tester is a measuring device of soft magnetic properties of sheet materials, especially electrical steels. It consists of a single coil system to magnetize the sample with and and a pick-up coil to detect  polarization in the material."@en ;
+                  rdfs:label "sinlge sheet tester"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000185
+noes:NOES_0000185 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000163 ;
+                  obo:IAO_0000119 "https://en.wikipedia.org/wiki/Rowland_ring" ;
+                  rdfs:label "thoroidal core setup"@en ;
+                  skos:altLabel "Thoroidal core setup is a measuring device of a hysteresis curve of magnetic materials. The specimen shape is a thoroid, around which a magnitization coil is closely wound."@en ,
+                                "ring core setup"@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000005
