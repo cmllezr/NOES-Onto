@@ -18,11 +18,11 @@
 @base <https://w3id.org/pmd/noes/noes-full.ttl> .
 
 <https://w3id.org/pmd/noes/noes-full.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-19/noes-full.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-22/noes-full.ttl> ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-01-19" .
+                                           owl:versionInfo "2026-01-22" .
 
 #################################################################
 #    Annotation properties
@@ -1092,68 +1092,6 @@ noes:NOES_0000068 rdf:type owl:ObjectProperty ;
                   skos:example "Normal to is a object property which describes geometric relation between two spatial regions which are normal to each other"@en .
 
 
-###  https://w3id.org/pmd/noes/NOES_0000152
-noes:NOES_0000152 rdf:type owl:ObjectProperty ;
-                  owl:inverseOf noes:NOES_0000157 ;
-                  rdfs:domain noes:NOES_0000124 ;
-                  rdfs:range [ rdf:type owl:Class ;
-                               owl:unionOf ( noes:NOES_0000083
-                                             noes:NOES_0000085
-                                           )
-                             ] ;
-                  rdfs:label "has Miller indices family"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000157
-noes:NOES_0000157 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:label "Miller indices family of"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000158
-noes:NOES_0000158 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:domain noes:NOES_0000124 ;
-                  rdfs:range co:PMD_0020099 ;
-                  rdfs:label "under symmetry"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000162
-noes:NOES_0000162 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:domain noes:NOES_0000143 ,
-                              [ owl:intersectionOf ( noes:NOES_0000124
-                                                     [ rdf:type owl:Class ;
-                                                       owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                       owl:onProperty noes:NOES_0000158 ;
-                                                                       owl:hasValue co:PMD_0020018
-                                                                     ]
-                                                                     [ rdf:type owl:Restriction ;
-                                                                       owl:onProperty noes:NOES_0000158 ;
-                                                                       owl:hasValue co:PMD_0020019
-                                                                     ]
-                                                                   )
-                                                     ]
-                                                   ) ;
-                                rdf:type owl:Class
-                              ] ;
-                  owl:propertyChainAxiom ( noes:NOES_0000170
-                                           noes:NOES_0000152
-                                         ) ;
-                  rdfs:label "has Miller indices family under cubic symmetry"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000164
-noes:NOES_0000164 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:range [ rdf:type owl:Class ;
-                               owl:unionOf ( noes:NOES_0000083
-                                             noes:NOES_0000085
-                                           )
-                             ] ;
-                  rdfs:label "denoted by family"@en .
-
-
 ###  https://w3id.org/pmd/noes/NOES_0000167
 noes:NOES_0000167 rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf obo:BFO_0000050 ;
@@ -1162,33 +1100,12 @@ noes:NOES_0000167 rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000168
 noes:NOES_0000168 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf noes:NOES_0000164 ;
+                  rdfs:subPropertyOf cryo:CRYO_0000164 ;
                   owl:propertyChainAxiom ( obo:IAO_0000235
                                            noes:NOES_0000167
-                                           noes:NOES_0000162
+                                           cryo:CRYO_0000162
                                          ) ;
                   rdfs:label "denoted by family under cubic symmetry"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000170
-noes:NOES_0000170 rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:domain [ owl:intersectionOf ( noes:NOES_0000124
-                                                     [ rdf:type owl:Class ;
-                                                       owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                       owl:onProperty noes:NOES_0000158 ;
-                                                                       owl:hasValue co:PMD_0020018
-                                                                     ]
-                                                                     [ rdf:type owl:Restriction ;
-                                                                       owl:onProperty noes:NOES_0000158 ;
-                                                                       owl:hasValue co:PMD_0020019
-                                                                     ]
-                                                                   )
-                                                     ]
-                                                   ) ;
-                                rdf:type owl:Class
-                              ] ;
-                  rdfs:label "is_cubic_context"@en .
 
 
 #################################################################
@@ -8660,181 +8577,6 @@ noes:NOES_0000123 rdf:type owl:Class ;
                   skos:definition "Deviation angle is a geometric relational quality relevant for the crystallographic texture analysis. Deviation angle  represents an angle between two crystallographic planes which are denoted by the same Miller indices, namely a crystallographic plane which is perfectly parallel to the rolling plane of a sheet material and a crystallographic plane in a crystal grain which is a part of the material."@en .
 
 
-###  https://w3id.org/pmd/noes/NOES_0000124
-noes:NOES_0000124 rdf:type owl:Class ;
-                  rdfs:subClassOf obo:IAO_0000030 ;
-                  rdfs:comment """DO NOT INITIALIZE THIS CLASS OR ANY OF THIS SUBCLASSES
-The symmetry equivalency assertion class is meant to enable assertions of  crystollograhpic equivalence between single crystallographic direction /plane and family of directions/planes if the equivalence applies for the given crystal symmetry. This class is part of the \"inference engine\""""@en ;
-                  rdfs:label "symmetry equivalency assertion"@en ;
-                  skos:definition "Symmetry equivalency assertion is an information content entity which is used to infer crystallographic equivalence between single crystallographic direction /plane and family of directions/planes if the equivalence applies for the given crystal symmetry."@en ;
-                  noes:NOES_0000122 "false"^^xsd:boolean .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000143
-noes:NOES_0000143 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000124
-                                                             [ rdf:type owl:Class ;
-                                                               owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty noes:NOES_0000158 ;
-                                                                               owl:hasValue co:PMD_0020018
-                                                                             ]
-                                                                             [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty noes:NOES_0000158 ;
-                                                                               owl:hasValue co:PMD_0020019
-                                                                             ]
-                                                                           )
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
-                  rdfs:subClassOf noes:NOES_0000124 ,
-                                  [ rdf:type owl:Class ;
-                                    owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                           owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000089
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000095
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000096
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000097
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000098
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000099
-                                                                                         ]
-                                                                                       )
-                                                                         ]
-                                                                         [ rdf:type owl:Restriction ;
-                                                                           owl:onProperty noes:NOES_0000152 ;
-                                                                           owl:hasValue noes:NOES_0000039
-                                                                         ]
-                                                                       ) ;
-                                                    rdf:type owl:Class
-                                                  ]
-                                                  [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                           owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000101
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000102
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000103
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000104
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000105
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000106
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000107
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000108
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000109
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000110
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000111
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000112
-                                                                                         ]
-                                                                                       )
-                                                                         ]
-                                                                         [ rdf:type owl:Restriction ;
-                                                                           owl:onProperty noes:NOES_0000152 ;
-                                                                           owl:hasValue noes:NOES_0000038
-                                                                         ]
-                                                                       ) ;
-                                                    rdf:type owl:Class
-                                                  ]
-                                                  [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                           owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000114
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000115
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000116
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000117
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000118
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000119
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000120
-                                                                                         ]
-                                                                                         [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty obo:RO_0002351 ;
-                                                                                           owl:hasValue noes:NOES_0000121
-                                                                                         ]
-                                                                                       )
-                                                                         ]
-                                                                         [ rdf:type owl:Restriction ;
-                                                                           owl:onProperty noes:NOES_0000152 ;
-                                                                           owl:hasValue noes:NOES_0000037
-                                                                         ]
-                                                                       ) ;
-                                                    rdf:type owl:Class
-                                                  ]
-                                                )
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty noes:NOES_0000170 ;
-                                    owl:hasSelf "true"^^xsd:boolean
-                                  ] ;
-                  rdfs:label "cubic equivalency assertion"@en ;
-                  skos:definition """cubic equivalency assertion is a symmetry equivalency assertion which is used to infer crystallographic equivalence between single crystallographic direction /plane and family of directions/planes under the cubic crystal symmetry.
-In particular, it considers <100>, <110>, and <111> families of crystallographic directions, as well as {100}, {110}, {111} families of crystallographic planes"""@en ;
-                  noes:NOES_0000122 "false"^^xsd:boolean .
-
-
 ###  https://w3id.org/pmd/noes/NOES_0000153
 noes:NOES_0000153 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0000957 ;
@@ -10755,106 +10497,6 @@ noes:NOES_0000151 rdf:type owl:NamedIndividual ,
                   rdfs:label "(-1-1-1)"@en .
 
 
-###  https://w3id.org/pmd/noes/NOES_0000169
-noes:NOES_0000169 rdf:type owl:NamedIndividual ,
-                           noes:NOES_0000124 ;
-                  obo:RO_0002351 noes:NOES_0000089 ,
-                                 noes:NOES_0000095 ,
-                                 noes:NOES_0000096 ,
-                                 noes:NOES_0000097 ,
-                                 noes:NOES_0000098 ,
-                                 noes:NOES_0000099 ;
-                  noes:NOES_0000152 noes:NOES_0000039 ;
-                  noes:NOES_0000158 co:PMD_0020018 ;
-                  rdfs:label "cubic <100> equivalence"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000171
-noes:NOES_0000171 rdf:type owl:NamedIndividual ,
-                           noes:NOES_0000124 ;
-                  obo:RO_0002351 noes:NOES_0000101 ,
-                                 noes:NOES_0000102 ,
-                                 noes:NOES_0000103 ,
-                                 noes:NOES_0000104 ,
-                                 noes:NOES_0000105 ,
-                                 noes:NOES_0000106 ,
-                                 noes:NOES_0000107 ,
-                                 noes:NOES_0000108 ,
-                                 noes:NOES_0000109 ,
-                                 noes:NOES_0000110 ,
-                                 noes:NOES_0000111 ,
-                                 noes:NOES_0000112 ;
-                  noes:NOES_0000152 noes:NOES_0000038 ;
-                  noes:NOES_0000158 co:PMD_0020018 ;
-                  rdfs:label "cubic <110> equivalence"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000172
-noes:NOES_0000172 rdf:type owl:NamedIndividual ,
-                           noes:NOES_0000124 ;
-                  obo:RO_0002351 noes:NOES_0000114 ,
-                                 noes:NOES_0000115 ,
-                                 noes:NOES_0000116 ,
-                                 noes:NOES_0000117 ,
-                                 noes:NOES_0000118 ,
-                                 noes:NOES_0000119 ,
-                                 noes:NOES_0000120 ,
-                                 noes:NOES_0000121 ;
-                  noes:NOES_0000152 noes:NOES_0000037 ;
-                  noes:NOES_0000158 co:PMD_0020018 ;
-                  rdfs:label "cubic <111> equivalence"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000173
-noes:NOES_0000173 rdf:type owl:NamedIndividual ,
-                           noes:NOES_0000124 ;
-                  obo:RO_0002351 noes:NOES_0000125 ,
-                                 noes:NOES_0000126 ,
-                                 noes:NOES_0000127 ,
-                                 noes:NOES_0000128 ,
-                                 noes:NOES_0000129 ,
-                                 noes:NOES_0000130 ;
-                  noes:NOES_0000152 noes:NOES_0000040 ;
-                  noes:NOES_0000158 co:PMD_0020018 ;
-                  rdfs:label "cubic {100} equivalence"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000174
-noes:NOES_0000174 rdf:type owl:NamedIndividual ,
-                           noes:NOES_0000124 ;
-                  obo:RO_0002351 noes:NOES_0000131 ,
-                                 noes:NOES_0000132 ,
-                                 noes:NOES_0000133 ,
-                                 noes:NOES_0000134 ,
-                                 noes:NOES_0000135 ,
-                                 noes:NOES_0000136 ,
-                                 noes:NOES_0000137 ,
-                                 noes:NOES_0000138 ,
-                                 noes:NOES_0000139 ,
-                                 noes:NOES_0000140 ,
-                                 noes:NOES_0000141 ,
-                                 noes:NOES_0000142 ;
-                  noes:NOES_0000152 noes:NOES_0000041 ;
-                  noes:NOES_0000158 co:PMD_0020018 ;
-                  rdfs:label "cubic {110} equivalence"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000175
-noes:NOES_0000175 rdf:type owl:NamedIndividual ,
-                           noes:NOES_0000124 ;
-                  obo:RO_0002351 noes:NOES_0000144 ,
-                                 noes:NOES_0000145 ,
-                                 noes:NOES_0000146 ,
-                                 noes:NOES_0000147 ,
-                                 noes:NOES_0000148 ,
-                                 noes:NOES_0000149 ,
-                                 noes:NOES_0000150 ,
-                                 noes:NOES_0000151 ;
-                  noes:NOES_0000152 noes:NOES_0000037 ;
-                  noes:NOES_0000158 co:PMD_0020018 ;
-                  rdfs:label "cubic {111} equivalence"@en .
-
-
 #################################################################
 #    Annotations
 #################################################################
@@ -10974,6 +10616,12 @@ obo:UO_0000228 obo:IAO_0000115 "A magnetic flux density unit which is equal to o
    owl:annotatedTarget "A magnetic flux density unit which is equal to one weber per square meter." ;
    oboInOwl:hasDbXref "WordNet:WordNet"
  ] .
+
+
+noes:NOES_0000124 noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+noes:NOES_0000143 noes:NOES_0000122 "false"^^xsd:boolean .
 
 
 #################################################################

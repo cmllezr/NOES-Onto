@@ -16,7 +16,7 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/pmdco.ttl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/co/releases/2026-01-19/pmdco.ttl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/co/releases/2026-01-21/pmdco.ttl"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0001-6772-1943"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0001-7192-7143"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0002-1058-3102"/>
@@ -43,7 +43,7 @@ Documentation: https://materialdigital.github.io/core-ontology/docs/</dcterms:de
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <dcterms:title>PMD Core Ontology</dcterms:title>
         <doap:repository rdf:resource="https://github.com/materialdigital/core-ontology"/>
-        <owl:versionInfo>2026-01-19</owl:versionInfo>
+        <owl:versionInfo>2026-01-21</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -886,6 +886,18 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <obo:IAO_0000115 xml:lang="en">The inverse property of is specified output of</obo:IAO_0000115>
         <rdfs:label xml:lang="en">has specified output</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000304 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0000304">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0000835"/>
+        <obo:IAO_0000112 xml:lang="en">http://www.affymetrix.com/products/arrays/specific/hgu133.affx is_manufactered_by http://www.affymetrix.com/ (if we decide to use these URIs for the actual entities)</obo:IAO_0000112>
+        <obo:IAO_0000115 xml:lang="en">c is_manufactured_by o means that there was a process p in which c was built in which a person, or set of people or machines did the work(bore the &quot;Manufacturer Role&quot;, and those people/and or machines were members or of directed by the organization to do this.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">is_manufactured_by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -12337,6 +12349,18 @@ Martensite is a microconstituent that has as part the thermodynamic ferrite phas
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020170 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020170">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:comment xml:lang="en">The ingot may be hot rolled after casting...</rdfs:comment>
+        <rdfs:label xml:lang="de">Bramme</rdfs:label>
+        <rdfs:label xml:lang="en">ingot</rdfs:label>
+        <skos:definition xml:lang="en">An ingot is an object that has a thick section and may bear a semi finished product role and that is the specified output of a casting process. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020171 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020171">
@@ -12346,6 +12370,151 @@ Martensite is a microconstituent that has as part the thermodynamic ferrite phas
         <skos:definition xml:lang="en">A fiat surface separating one phase from another phase.</skos:definition>
         <skos:example xml:lang="en">The phase boundary between liquid and the gaseous phase in at ank. 
 The phase boundary between Fe3C and Fe of a pearlite lamellae.</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020172 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020172">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="de">sheet</rdfs:label>
+        <skos:definition xml:lang="en">A plate is a thin rectangular object that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020173 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020173">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="de">billet</rdfs:label>
+        <skos:definition xml:lang="en">An billet is a relatively compact object that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020174 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020174">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="de">foil</rdfs:label>
+        <skos:definition xml:lang="en">A plate is a very thin rectangular object that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020175 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020175">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:comment xml:lang="en">Coils may have several sheets that are joined together.</rdfs:comment>
+        <rdfs:label xml:lang="de">coil (coiled sheet)</rdfs:label>
+        <skos:definition xml:lang="en">A coil is an object that has part some sheets or foils.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020176 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020176">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="de">plate</rdfs:label>
+        <skos:definition xml:lang="en">A plate is a thick rectangular object that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020177 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020177">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="de">bar</rdfs:label>
+        <skos:definition xml:lang="en">A bar is a long object with rectangular section that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020178 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020178">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="de">rod</rdfs:label>
+        <skos:definition xml:lang="en">A rod is a long object with oval or round section that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020179 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020179">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:comment xml:lang="en">This class does not include cables or other compound structures.</rdfs:comment>
+        <rdfs:label xml:lang="en">wire (semi finished product)</rdfs:label>
+        <skos:definition xml:lang="en">A wire is a long and somewhat flexible object that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020180 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020180">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="de">tube</rdfs:label>
+        <skos:definition xml:lang="en">A tube is a long object with a hollow section and moderate wall thickness that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020181 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020181">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="de">pipe</rdfs:label>
+        <skos:definition xml:lang="en">A tube is a long object with a hollow section and pronounced wall thickness that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020182 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020182">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="de">profile (semi finished product)</rdfs:label>
+        <skos:definition xml:lang="en">A profile is a long object with determined section shape that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020183 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020183">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000648"/>
+        <rdfs:label xml:lang="de">Recker</rdfs:label>
+        <rdfs:label xml:lang="en">stretch straightener machine</rdfs:label>
+        <skos:definition xml:lang="en">A strech straightener machine is a forming machine that is used in a &quot;forming under tensile conditions&quot; process.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020184 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020184">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:label xml:lang="de">Walzwerk</rdfs:label>
+        <rdfs:label xml:lang="en">rolling mill</rdfs:label>
+        <skos:definition xml:lang="en">A rolling mill is a device that has part some rolling stand and whose specified input participates in some forming process.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020185 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020185">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:label xml:lang="en">rolling stand</rdfs:label>
+        <skos:definition xml:lang="en">A rolling stand is a device that is part of a rolling mill, has some work rolls and participates in a rolling pass.</skos:definition>
+        <skos:definition xml:lang="de">Ein Walzstock ist ein Teil eines Walzwerks, hat als Teil Arbeitswalzen und nimmt Teil an einen Walzstich.</skos:definition>
     </owl:Class>
     
 
@@ -15376,6 +15545,24 @@ The phase boundary between Fe3C and Fe of a pearlite lamellae.</skos:example>
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020102"/>
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020103"/>
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020104"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020113"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020170"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020172"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020173"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020174"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020175"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020176"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020177"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020178"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020179"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020180"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020181"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020182"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
