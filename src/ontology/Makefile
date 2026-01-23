@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                d82a9a9b97d2e7c2cb628858fd81eb67e57ebfa1598f0326f028b927180931ee
+CONFIG_HASH=                45bc7003a4db900437b0bd692564c46959bacd60460ad18cae9708858110935b
 
 
 # ----------------------------------------
@@ -187,7 +187,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  pmdco tto uo cryo obi
+IMPORTS =  pmdco tto uo cryo qudt
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -379,7 +379,7 @@ $(IMPORTSEED): $(PRESEED) | $(TMPDIR)
 
 T_IMPORTSEED = --term-file $(IMPORTSEED)
 
-ANNOTATION_PROPERTIES=rdfs:label IAO:0000119 IAO:0000115 IAO:0000116 IAO:0000112 skos:definition skos:example skos:comment skos:altLabel 
+ANNOTATION_PROPERTIES=rdfs:label skos:definition skos:example skos:comment skos:altLabel 
 
 # ----------------------------------------
 # Import modules
@@ -433,9 +433,9 @@ $(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl
 	@echo "       This rule needs to be overwritten in noes.Makefile!"
 	@false
 
-## Module for ontology: obi (custom)
-$(IMPORTDIR)/obi_import.owl: $(MIRRORDIR)/obi.owl
-	@echo "ERROR: You have configured obi as a custom module;"
+## Module for ontology: qudt (custom)
+$(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl
+	@echo "ERROR: You have configured qudt as a custom module;"
 	@echo "       This rule needs to be overwritten in noes.Makefile!"
 	@false
 
@@ -550,11 +550,11 @@ mirror-cryo: | $(TMPDIR)
 	$(ROBOT) convert -I https://raw.githubusercontent.com/cmllezr/crystallography-subdomain-ontology/refs/heads/main/cryo-full.owl -o $(TMPDIR)/$@.owl
 
 
-## ONTOLOGY: obi
-.PHONY: mirror-obi
-.PRECIOUS: $(MIRRORDIR)/obi.owl
-mirror-obi: | $(TMPDIR)
-	$(ROBOT) convert -I https://raw.githubusercontent.com/obi-ontology/obi/refs/tags/v2025-10-14/views/obi-base.owl -o $(TMPDIR)/$@.owl
+## ONTOLOGY: qudt
+.PHONY: mirror-qudt
+.PRECIOUS: $(MIRRORDIR)/qudt.owl
+mirror-qudt: | $(TMPDIR)
+	$(ROBOT) convert -I https://qudt.org/qudt-all -o $(TMPDIR)/$@.owl
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)
