@@ -209,6 +209,10 @@ obo:RO_0000087 rdf:type owl:ObjectProperty .
 obo:RO_0001015 rdf:type owl:ObjectProperty .
 
 
+###  http://purl.obolibrary.org/obo/RO_0001025
+obo:RO_0001025 rdf:type owl:ObjectProperty .
+
+
 ###  http://purl.obolibrary.org/obo/RO_0002351
 obo:RO_0002351 rdf:type owl:ObjectProperty .
 
@@ -5319,17 +5323,6 @@ noes:NOES_0000077 rdf:type owl:Class ;
                   skos:definition "Complete pole figure is a pole figure which covers the full 0° - 90° range of tilt angles α"@en .
 
 
-###  https://w3id.org/pmd/noes/NOES_0000078
-noes:NOES_0000078 rdf:type owl:Class ;
-                  rdfs:subClassOf obo:BFO_0000145 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty co:PMD_0025999 ;
-                                    owl:someValuesFrom obo:BFO_0000004
-                                  ] ;
-                  rdfs:label "geometric relational quality"@en ;
-                  skos:definition "Geometric relational quality is a relational quality which desribes spatial relation between independent continuants."@en .
-
-
 ###  https://w3id.org/pmd/noes/NOES_0000086
 noes:NOES_0000086 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
@@ -6543,7 +6536,7 @@ noes:NOES_0000095 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000123
 noes:NOES_0000123 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000078 ;
+                  rdfs:subClassOf co:PMD_0025018 ;
                   rdfs:label "deviation angle"@en ;
                   skos:definition "Deviation angle is a geometric relational quality relevant for the crystallographic texture analysis. Deviation angle  represents an angle between two crystallographic planes which are denoted by the same Miller indices, namely a crystallographic plane which is perfectly parallel to the rolling plane of a sheet material and a crystallographic plane in a crystal grain which is a part of the material."@en .
 
@@ -6590,7 +6583,39 @@ noes:NOES_0000159 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000160
 noes:NOES_0000160 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000078 ;
+                  rdfs:subClassOf co:PMD_0025018 ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty co:PMD_0025999 ;
+                                                           owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000142
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty obo:RO_0001025 ;
+                                                                                                       owl:someValuesFrom obo:BFO_0000030
+                                                                                                     ]
+                                                                                                   ) ;
+                                                                                rdf:type owl:Class
+                                                                              ]
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty co:PMD_0025999 ;
+                                                           owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty obo:RO_0001025 ;
+                                                                                                       owl:someValuesFrom co:PMD_0000000
+                                                                                                     ]
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty co:PMD_0000077 ;
+                                                                                                       owl:hasValue noes:NOES_0000028
+                                                                                                     ]
+                                                                                                   ) ;
+                                                                                rdf:type owl:Class
+                                                                              ]
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:comment """TODO refine the axiom: 
+1. Add reference frames for sample and material?
+2. longitudinal direction as sublcass of fiat line?""" ;
                   rdfs:label "angle to rolling direction"@en ;
                   skos:definition "Angle to rolling direction is a relational quality which characterizes the orientation of a sample cut from a rolled material in respect to the rolling direction (RD) of this material."@en ;
                   skos:example "Sample cut at 30° to rolling direction of a annealed nonoriented electrical steel."@en .

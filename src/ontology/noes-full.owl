@@ -9619,22 +9619,6 @@ Grain orientation can be specified by either texture fibers or texture component
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000078 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000078">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000145"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">geometric relational quality</rdfs:label>
-        <skos:definition xml:lang="en">Geometric relational quality is a relational quality which desribes spatial relation between independent continuants.</skos:definition>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/noes/NOES_0000086 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000086">
@@ -11236,7 +11220,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
     <!-- https://w3id.org/pmd/noes/NOES_0000123 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000123">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000078"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025018"/>
         <rdfs:label xml:lang="en">deviation angle</rdfs:label>
         <skos:definition xml:lang="en">Deviation angle is a geometric relational quality relevant for the crystallographic texture analysis. Deviation angle  represents an angle between two crystallographic planes which are denoted by the same Miller indices, namely a crystallographic plane which is perfectly parallel to the rolling plane of a sheet material and a crystallographic plane in a crystal grain which is a part of the material.</skos:definition>
     </owl:Class>
@@ -11303,7 +11287,48 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
     <!-- https://w3id.org/pmd/noes/NOES_0000160 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000160">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000078"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025018"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000142"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>TODO refine the axiom: 
+1. Add reference frames for sample and material?
+2. longitudinal direction as sublcass of fiat line?</rdfs:comment>
         <rdfs:label xml:lang="en">angle to rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Angle to rolling direction is a relational quality which characterizes the orientation of a sample cut from a rolled material in respect to the rolling direction (RD) of this material.</skos:definition>
         <skos:example xml:lang="en">Sample cut at 30° to rolling direction of a annealed nonoriented electrical steel.</skos:example>
