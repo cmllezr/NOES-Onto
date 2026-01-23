@@ -923,8 +923,7 @@ obo:UO_0000228 rdf:type owl:Class .
 
 ###  https://w3id.org/pmd/co/PMD_0000000
 co:PMD_0000000 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000001 ,
-                               [ owl:intersectionOf ( co:PMD_0000001
+               rdfs:subClassOf [ owl:intersectionOf ( co:PMD_0000001
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty obo:RO_0000053 ;
                                                         owl:someValuesFrom co:PMD_0000005
@@ -1021,17 +1020,6 @@ co:PMD_0000005 rdf:type owl:Class ;
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:BFO_0000054 ;
                                  owl:someValuesFrom co:PMD_0000950
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000052 ;
-                                 owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000040
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty obo:RO_0000056 ;
-                                                                             owl:someValuesFrom obo:BFO_0000015
-                                                                           ]
-                                                                         ) ;
-                                                      rdf:type owl:Class
-                                                    ]
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000052 ;
@@ -1185,8 +1173,7 @@ co:PMD_0000075 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000501
 co:PMD_0000501 rdf:type owl:Class ;
-               rdfs:subClassOf obo:IAO_0000027 ,
-                               obo:IAO_0000030 ;
+               rdfs:subClassOf obo:IAO_0000027 ;
                rdfs:label "1D"@en ;
                skos:definition "1-D is an information content entity representing a one-dimensional structure or model representing a single linear dimension, often used in material science simulations or analysis."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
@@ -1234,7 +1221,15 @@ co:PMD_0000518 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000521
 co:PMD_0000521 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000015 ;
+               rdfs:subClassOf obo:BFO_0000015 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0000009 ;
+                                 owl:someValuesFrom noes:NOES_0000003
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0000009 ;
+                                 owl:someValuesFrom noes:NOES_0000070
+                               ] ;
                rdfs:label "application of magnetic field"@en ;
                skos:definition "An application of (a) magnetic field is the process of subjecting a material to a magnetic field to study its magnetic properties or induce magnetization."@en .
 
@@ -3966,16 +3961,14 @@ co:PMD_0025009 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0025010
 co:PMD_0025010 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000015 ,
-                               co:PMD_0000549 ;
+               rdfs:subClassOf co:PMD_0000549 ;
                rdfs:label "heating"@en ;
                skos:definition "Heating is a change of temperature which corresponds to the increase of temperature in the system or object."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0025011
 co:PMD_0025011 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000015 ,
-                               co:PMD_0000549 ;
+               rdfs:subClassOf co:PMD_0000549 ;
                rdfs:label "cooling"@en ;
                skos:definition "Cooling is a change of temperature which corresponds to the decrease of temperature in the system or object."@en .
 
@@ -6689,10 +6682,7 @@ noes:NOES_0000179 rdf:type owl:Class ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:comment """'has part' some 
-(microstructure and ('has quality' some 
-('metallic grain structure' and ('specified by value' value ferrite))))""" ,
-                               "Electrical steel is a steel material which has only ferritic metallic grain structure and uses silicon as the main alloying element. It manufactured in a form of a sheet and designed to exibit superior magenetic properties either in all directions (non-orieneted) or in a sinlge direction (oriented)."@en ;
+                  rdfs:comment "Electrical steel is a steel material which has only ferritic metallic grain structure and uses silicon as the main alloying element. It manufactured in a form of a sheet and designed to exibit superior magenetic properties either in all directions (non-orieneted) or in a sinlge direction (oriented)."@en ;
                   rdfs:label "electrical steel"@en .
 
 
