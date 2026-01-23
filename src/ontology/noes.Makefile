@@ -137,22 +137,6 @@ $(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl $(IMPORTDIR)/qudt_terms.txt
 		--select "annotations self" \
 		$(ANNOTATE_CONVERT_FILE)
 
-#$(IMPORTDIR)/obi_import.owl: $(MIRRORDIR)/obi.owl $(IMPORTDIR)/obi_terms.txt \
-#			   $(IMPORTSEED) | all_robot_plugins
-#	$(ROBOT) annotate --input $< --remove-annotations \
-#		 odk:normalize --add-source true \
-#		 extract --term-file $(IMPORTDIR)/obi_terms.txt $(T_IMPORTSEED) \
-#		         --force true --copy-ontology-annotations true \
-#		         --individuals exclude \
-#		         --method SUBSET \
-#		 remove --term IAO:0000416 \
-#		 remove $(foreach p, $(ANNOTATION_PROPERTIES), --term $(p)) \
-#		        --term-file $(IMPORTDIR)/obi_terms.txt $(T_IMPORTSEED) \
-#		        --select complement --select annotation-properties \
-#		 odk:normalize --base-iri https://w3id.org/pmd \
-#		               --subset-decls true --synonym-decls true \
-#		 repair --merge-axiom-annotations true \
-#		 $(ANNOTATE_CONVERT_FILE)
 
 
 #.PHONY: autoshapes
