@@ -130,12 +130,12 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 		--select "annotations self parents" \
 		$(ANNOTATE_CONVERT_FILE)
 
-$(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl $(IMPORTDIR)/qudt_terms.txt
-	$(ROBOT) filter --input $(MIRRORDIR)/qudt.owl \
-		--term-file $(IMPORTDIR)/qudt_terms.txt \
-		--allow-punning true \
-		--select "annotations self" \
-		$(ANNOTATE_CONVERT_FILE)
+#$(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl $(IMPORTDIR)/qudt_terms.txt
+#	$(ROBOT) filter --input $(MIRRORDIR)/qudt.owl \
+#		--term-file $(IMPORTDIR)/qudt_terms.txt \
+#		--allow-punning true \
+#		--select "annotations self" \
+#		$(ANNOTATE_CONVERT_FILE)
 
 #.PHONY: autoshapes
 #autoshapes: 
