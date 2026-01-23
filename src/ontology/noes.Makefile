@@ -130,22 +130,29 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 		--select "annotations self parents" \
 		$(ANNOTATE_CONVERT_FILE)
 
-$(IMPORTDIR)/obi_import.owl: $(MIRRORDIR)/obi.owl $(IMPORTDIR)/obi_terms.txt \
-			   $(IMPORTSEED) | all_robot_plugins
-	$(ROBOT) annotate --input $< --remove-annotations \
-		 odk:normalize --add-source true \
-		 extract --term-file $(IMPORTDIR)/obi_terms.txt $(T_IMPORTSEED) \
-		         --force true --copy-ontology-annotations true \
-		         --individuals exclude \
-		         --method SUBSET \
-		 remove --term IAO:0000416 \
-		 remove $(foreach p, $(ANNOTATION_PROPERTIES), --term $(p)) \
-		        --term-file $(IMPORTDIR)/obi_terms.txt $(T_IMPORTSEED) \
-		        --select complement --select annotation-properties \
-		 odk:normalize --base-iri https://w3id.org/pmd \
-		               --subset-decls true --synonym-decls true \
-		 repair --merge-axiom-annotations true \
-		 $(ANNOTATE_CONVERT_FILE)
+$(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl $(IMPORTDIR)/qudt_terms.txt
+	$(ROBOT) filter --input $(MIRRORDIR)/qudt.owl \
+		--term-file $(IMPORTDIR)/qudt_terms.txt \
+		--allow-punning true \
+		--select "annotations self" \
+		$(ANNOTATE_CONVERT_FILE)
+
+#$(IMPORTDIR)/obi_import.owl: $(MIRRORDIR)/obi.owl $(IMPORTDIR)/obi_terms.txt \
+#			   $(IMPORTSEED) | all_robot_plugins
+#	$(ROBOT) annotate --input $< --remove-annotations \
+#		 odk:normalize --add-source true \
+#		 extract --term-file $(IMPORTDIR)/obi_terms.txt $(T_IMPORTSEED) \
+#		         --force true --copy-ontology-annotations true \
+#		         --individuals exclude \
+#		         --method SUBSET \
+#		 remove --term IAO:0000416 \
+#		 remove $(foreach p, $(ANNOTATION_PROPERTIES), --term $(p)) \
+#		        --term-file $(IMPORTDIR)/obi_terms.txt $(T_IMPORTSEED) \
+#		        --select complement --select annotation-properties \
+#		 odk:normalize --base-iri https://w3id.org/pmd \
+#		               --subset-decls true --synonym-decls true \
+#		 repair --merge-axiom-annotations true \
+#		 $(ANNOTATE_CONVERT_FILE)
 
 
 #.PHONY: autoshapes
@@ -156,9 +163,9 @@ $(IMPORTDIR)/obi_import.owl: $(MIRRORDIR)/obi.owl $(IMPORTDIR)/obi_terms.txt \
 
 $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
 	$(ROBOT_RELEASE_IMPORT_MODE) \
-	reason --reasoner ELK --equivalent-classes-allowed asserted-only --exclude-tautologies structural --annotate-inferred-axioms False \
 	relax \
-	reduce -r ELK \
+#	reason --reasoner ELK --equivalent-classes-allowed asserted-only --exclude-tautologies structural --annotate-inferred-axioms False \
+#	reduce -r ELK \
 	remove --base-iri $(URIBASE)/ --axioms external --preserve-structure false --trim false \
 	$(SHARED_ROBOT_COMMANDS) \
 	annotate --link-annotation http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 \

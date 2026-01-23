@@ -13,12 +13,13 @@ use_templates: false
 
 # Imports
 import_group:
-  annotation_properties: ['rdfs:label', 'IAO:0000119','IAO:0000115', 'IAO:0000116', 'IAO:0000112', 'skos:definition', 'skos:example', 'skos:comment', 'skos:altLabel' ]
+  annotation_properties: ['rdfs:label', 'skos:definition', 'skos:example', 'skos:comment', 'skos:altLabel' ]
   
   products:
     - id: pmdco
       title: "PMD Core Ontology"
       # mirror_from: https://materialdigital.github.io/core-ontology/ontology.owl
+      # TODO change to full at somepoint
       mirror_from: https://raw.githubusercontent.com/materialdigital/core-ontology/refs/heads/main/src/ontology/pmdco.ttl
       module_type: custom
     - id: tto
@@ -31,8 +32,11 @@ import_group:
       title: "Crystallography Ontology"
       mirror_from: https://raw.githubusercontent.com/cmllezr/crystallography-subdomain-ontology/refs/heads/main/cryo-full.owl
       module_type: custom
-    - id: obi
-      mirror_from: https://raw.githubusercontent.com/obi-ontology/obi/refs/tags/v2025-10-14/views/obi-base.owl
+    #- id: obi
+    #  mirror_from: https://raw.githubusercontent.com/obi-ontology/obi/refs/tags/v2025-10-14/views/obi-base.owl
+    #  module_type: custom
+    - id: qudt
+      mirror_from: https://qudt.org/qudt-all
       module_type: custom
 
 
