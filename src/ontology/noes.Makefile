@@ -130,12 +130,12 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 		--select "annotations self parents" \
 		$(ANNOTATE_CONVERT_FILE)
 
-#$(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl $(IMPORTDIR)/qudt_terms.txt
-#	$(ROBOT) filter --input $(MIRRORDIR)/qudt.owl \
-#		--term-file $(IMPORTDIR)/qudt_terms.txt \
-#		--allow-punning true \
-#		--select "annotations self" \
-#		$(ANNOTATE_CONVERT_FILE)
+$(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl $(IMPORTDIR)/qudt_terms.txt
+	$(ROBOT) filter --input $(MIRRORDIR)/qudt.owl \
+		--term-file $(IMPORTDIR)/qudt_terms.txt \
+		--allow-punning true \
+		--select "annotations self" \
+		$(ANNOTATE_CONVERT_FILE)
 
 #.PHONY: autoshapes
 #autoshapes: 
@@ -145,7 +145,20 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 #	reason --reasoner ELK --equivalent-classes-allowed asserted-only --exclude-tautologies structural --annotate-inferred-axioms False \
 #	reduce -r ELK \
 # with relax in between
+#$(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
+#	$(ROBOT_RELEASE_IMPORT_MODE) \
+#	relax \
+#	remove --base-iri $(URIBASE)/ --axioms external --preserve-structure false --trim false \
+#	$(SHARED_ROBOT_COMMANDS) \
+#	annotate --link-annotation http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 \
+#		--ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
+#		--output $@.tmp.owl && mv $@.tmp.owl $@
+
+# --- Overriding Main Makefile Reasoning Steps ---
+
+# 1. Override Base (remove reason/reduce)
 $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
+	@echo "BUILDING BASE WITHOUT REASONING..."
 	$(ROBOT_RELEASE_IMPORT_MODE) \
 	relax \
 	remove --base-iri $(URIBASE)/ --axioms external --preserve-structure false --trim false \
@@ -153,6 +166,22 @@ $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
 	annotate --link-annotation http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 \
 		--ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
 		--output $@.tmp.owl && mv $@.tmp.owl $@
+
+# 2. Override Full (remove reason/reduce)
+$(ONT)-full.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
+	@echo "BUILDING FULL WITHOUT REASONING..."
+	$(ROBOT_RELEASE_IMPORT_MODE) \
+	relax \
+	$(SHARED_ROBOT_COMMANDS) \
+	annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
+	--output $@.tmp.owl && mv $@.tmp.owl $@
+
+# --- Debugging: Explain Unsatisfiability ---
+# Run this via: make explain_noes
+explain_noes: $(EDIT_PREPROCESSED)
+	@echo "Generating explanations for unsatisfiable classes..."
+	$(ROBOT) explain -i $< -M unsatisfiability --unsatisfiable random:10 --explanation $(TMPDIR)/unsat_explanation.md
+	cat $(TMPDIR)/unsat_explanation.md
 
 
 CITATION=noes: Nonoriented Electrical Steel Ontology. Version $(VERSION), https://w3id.org/pmd/noes/
