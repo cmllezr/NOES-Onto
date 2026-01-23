@@ -137,8 +137,6 @@ $(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl $(IMPORTDIR)/qudt_terms.txt
 		--select "annotations self" \
 		$(ANNOTATE_CONVERT_FILE)
 
-
-
 #.PHONY: autoshapes
 #autoshapes: 
 #	echo "please run manually: sh utils/generate-auto-shapes.sh"
