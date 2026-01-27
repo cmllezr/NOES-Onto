@@ -14,12 +14,12 @@
 @base <https://w3id.org/pmd/noes/noes-base.ttl> .
 
 <https://w3id.org/pmd/noes/noes-base.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-24/noes-base.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-27/noes-base.ttl> ;
                                            dce:type obo:IAO_8000001 ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-01-24" .
+                                           owl:versionInfo "2026-01-27" .
 
 #################################################################
 #    Annotation properties
@@ -275,6 +275,16 @@ co:PMD_0000077 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf co:PMD_0000004 ;
                rdfs:label "specified by value"@en ;
                skos:definition "A relation between an entity and a value specification which is about this entity."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0001026
+co:PMD_0001026 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf co:PMD_0000004 ;
+               rdfs:domain obo:BFO_0000004 ;
+               rdfs:range obo:IAO_0000030 ;
+               rdfs:label "complies with"@en ,
+                          "entspricht"@de ;
+               skos:definition "complies with is a relation between an independent continuant and an information content entity (e.g., specification or objective) that it conforms to."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0001028
@@ -4477,6 +4487,14 @@ cryo:CRYO_0000143 rdf:type owl:Class ;
 In particular, it considers <100>, <110>, and <111> families of crystallographic directions, as well as {100}, {110}, {111} families of crystallographic planes"""@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000000
+noes:NOES_0000000 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000052 ;
+                  rdfs:label "relative permeability"@en ;
+                  skos:definition "Relative permeability  is type of magnetic permeability which is defined as a ratio of the material's permeability µ to that of free space µ0."@en ;
+                  co:symbol "µr" .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000001
 noes:NOES_0000001 rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000142 ,
@@ -4761,6 +4779,12 @@ noes:NOES_0000027 rdf:type owl:Class ;
                   skos:definition "Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000031
+noes:NOES_0000031 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000001 ;
+                  rdfs:label "longitudinal direction"@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000032
 noes:NOES_0000032 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0000625 ;
@@ -4768,6 +4792,24 @@ noes:NOES_0000032 rdf:type owl:Class ;
                   rdfs:seeAlso "https://www.thermofisher.com/de/de/home/materials-science/learning-center/applications/sem-tem-difference.html" ;
                   skos:altLabel "SEM"@en ;
                   skos:definition "Scanning electron microscopy (SEM) is a type of electron microscopy where a focused beam of electrons scans the surface of an object. An image is created by detecting electrons reflected from the surface. Thus, SEM provides information on the surface and composition of the sample."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000033
+noes:NOES_0000033 rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000001
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty co:PMD_0000077 ;
+                                                               owl:hasValue noes:NOES_0000028
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf noes:NOES_0000001 ;
+                  rdfs:comment """TODO: 
+1. Refine definition
+2. Maybe remove the categorical values""" ;
+                  rdfs:label "rolling direction"@en ;
+                  skos:definition "Rolling direction is a rolled sheet direction that is specified by rolling direction (RD)."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000034
@@ -4785,6 +4827,77 @@ noes:NOES_0000034 rdf:type owl:Class ;
                   rdfs:seeAlso "Electron Backscatter Diffraction (EBSD) is a SEM based technique for characterizing  material's local microstructure. EBSD provides an information about phases and their distribution in the material, grain structure, grain size, grain boundary, texture  (crystallographic orientation of individual grains), and local strain variation."@en ,
                                "https://www.ebsd.com/ebsd-explained/what-is-ebsd" ;
                   skos:altLabel "EBSD"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000035
+noes:NOES_0000035 rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000001
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty co:PMD_0000077 ;
+                                                               owl:hasValue noes:NOES_0000029
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf noes:NOES_0000001 ;
+                  rdfs:label "transverse direction"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000036
+noes:NOES_0000036 rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000001
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty co:PMD_0000077 ;
+                                                               owl:hasValue noes:NOES_0000030
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf noes:NOES_0000001 ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty noes:NOES_0000068 ;
+                                                           owl:allValuesFrom noes:NOES_0000033
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty noes:NOES_0000068 ;
+                                                           owl:allValuesFrom noes:NOES_0000035
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:label "normal direction"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000037
+noes:NOES_0000037 rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000927
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:RO_0000057 ;
+                                                               owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0001007
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty obo:BFO_0000055 ;
+                                                                                                           owl:allValuesFrom co:PMD_0000592
+                                                                                                         ]
+                                                                                                       ) ;
+                                                                                    rdf:type owl:Class
+                                                                                  ]
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf co:PMD_0000927 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000057 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0001007
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:BFO_0000055 ;
+                                                                                owl:allValuesFrom co:PMD_0000592
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                  ] ;
+                  rdfs:label "waterjet cutting"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000042
@@ -6415,7 +6528,22 @@ noes:NOES_0000093 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000094
 noes:NOES_0000094 rdf:type owl:Class ;
-                  rdfs:subClassOf obo:BFO_0000146 ;
+                  rdfs:subClassOf obo:BFO_0000146 ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty noes:NOES_0000067 ;
+                                                           owl:allValuesFrom noes:NOES_0000033
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty noes:NOES_0000067 ;
+                                                           owl:allValuesFrom noes:NOES_0000035
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty noes:NOES_0000068 ;
+                                                           owl:allValuesFrom noes:NOES_0000036
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
                   rdfs:label "rolled sheet plane"@en ;
                   skos:definition "Rolled sheet plane is a two-dimensional spatial region which determines the rolling plane in a rolled material. Rolled sheet plane ction is a part of material or object."@en .
 
