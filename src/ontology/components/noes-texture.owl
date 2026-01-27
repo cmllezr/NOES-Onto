@@ -156,7 +156,11 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000001"/>
+        <rdfs:comment>TODO: 
+1. Refine definition
+2. Maybe remove the categorical values</rdfs:comment>
         <rdfs:label xml:lang="en">rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Rolling direction is a rolled sheet direction that is specified by rolling direction (RD).</skos:definition>
     </owl:Class>
     
 
@@ -1069,6 +1073,24 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000094">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000146"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000033"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000035"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000036"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">rolled sheet plane</rdfs:label>
         <skos:definition xml:lang="en">Rolled sheet plane is a two-dimensional spatial region which determines the rolling plane in a rolled material. Rolled sheet plane ction is a part of material or object.</skos:definition>
     </owl:Class>
