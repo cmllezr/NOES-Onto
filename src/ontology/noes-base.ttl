@@ -14,12 +14,12 @@
 @base <https://w3id.org/pmd/noes/noes-base.ttl> .
 
 <https://w3id.org/pmd/noes/noes-base.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-27/noes-base.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-01-28/noes-base.ttl> ;
                                            dce:type obo:IAO_8000001 ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-01-27" .
+                                           owl:versionInfo "2026-01-28" .
 
 #################################################################
 #    Annotation properties
@@ -187,6 +187,10 @@ obo:RO_0000056 rdf:type owl:ObjectProperty .
 
 ###  http://purl.obolibrary.org/obo/RO_0000057
 obo:RO_0000057 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000058
+obo:RO_0000058 rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.obolibrary.org/obo/RO_0000080
@@ -1191,7 +1195,7 @@ co:PMD_0000075 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000501
 co:PMD_0000501 rdf:type owl:Class ;
-               rdfs:subClassOf obo:IAO_0000027 ;
+               rdfs:subClassOf obo:IAO_0000030 ;
                rdfs:label "1D"@en ;
                skos:definition "1-D is an information content entity representing a one-dimensional structure or model representing a single linear dimension, often used in material science simulations or analysis."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
@@ -1199,7 +1203,7 @@ co:PMD_0000501 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000502
 co:PMD_0000502 rdf:type owl:Class ;
-               rdfs:subClassOf obo:IAO_0000027 ;
+               rdfs:subClassOf obo:IAO_0000030 ;
                rdfs:label "2D"@en ;
                skos:definition "A two-dimensional information content entity is a representation or analysis, commonly applied in studying planar material properties or surface phenomena."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
@@ -1987,7 +1991,7 @@ co:PMD_0000875 rdf:type owl:Class ;
 co:PMD_0000885 rdf:type owl:Class ;
                rdfs:subClassOf [ owl:intersectionOf ( co:PMD_0000834
                                                       [ rdf:type owl:Restriction ;
-                                                        owl:onProperty obo:IAO_0000136 ;
+                                                        owl:onProperty obo:RO_0000058 ;
                                                         owl:someValuesFrom co:PMD_0000853
                                                       ]
                                                     ) ;
@@ -4910,6 +4914,13 @@ noes:NOES_0000037 rdf:type owl:Class ;
                                                        ]
                                   ] ;
                   rdfs:label "waterjet cutting"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000038
+noes:NOES_0000038 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0020148 ;
+                  rdfs:label "number of strips"@en ;
+                  skos:definition "Number of strips is a extensive quality of a disconnected material entity aggregate which has parts individual strips of an electrical sheet and characterizes how many strips or sheets are present in a packet, used for Epstein or thoroidal core measurement or construction of stators and rotors"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000042
