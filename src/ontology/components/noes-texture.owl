@@ -94,10 +94,17 @@
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
                                     <owl:Class>
-                                        <owl:complementOf rdf:resource="https://w3id.org/pmd/co/PMD_0020003"/>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+                                            </owl:Class>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://w3id.org/pmd/co/PMD_0020113"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
                                     </owl:Class>
                                     <owl:Class>
-                                        <owl:complementOf rdf:resource="https://w3id.org/pmd/co/PMD_0020113"/>
+                                        <owl:complementOf rdf:resource="https://w3id.org/pmd/co/PMD_0020003"/>
                                     </owl:Class>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -106,9 +113,10 @@
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">TODO: add device to the exception</rdfs:comment>
+        <rdfs:comment xml:lang="en">TODO: 
+which determines the directions in a sheet material in respect to the rolling direction. Rolled sheet direction is a part of material or object.</rdfs:comment>
         <rdfs:label xml:lang="en">rolled sheet direction</rdfs:label>
-        <skos:definition xml:lang="en">Rolled sheet direction is a one-dimensional spatial region which determines the directions in a sheet material in respect to the rolling direction. Rolled sheet direction is a part of material or object.</skos:definition>
+        <skos:definition xml:lang="en">Rolled sheet direction is a fiat line which is part of rolled material&apos;s intrinsic reference frame.</skos:definition>
     </owl:Class>
     
 
@@ -126,7 +134,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
-        <rdfs:label xml:lang="en">rolled sheet directions</rdfs:label>
+        <rdfs:label xml:lang="en">rolled sheet direction value</rdfs:label>
         <skos:definition xml:lang="en">Rolled sheet directions is a categorical value specification which specifies the rolled sheet direction. It  includes rolling direction (RD), transverse direction (TD), and normal direction (ND)</skos:definition>
     </owl:Class>
     
