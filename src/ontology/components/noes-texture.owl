@@ -144,6 +144,12 @@ which determines the directions in a sheet material in respect to the rolling di
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000031">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000094"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">longitudinal direction</rdfs:label>
     </owl:Class>
     
@@ -164,6 +170,12 @@ which determines the directions in a sheet material in respect to the rolling di
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000094"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>TODO: 
 1. Refine definition
 2. Maybe remove the categorical values</rdfs:comment>
@@ -188,6 +200,12 @@ which determines the directions in a sheet material in respect to the rolling di
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000094"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">transverse direction</rdfs:label>
     </owl:Class>
     
@@ -210,16 +228,48 @@ which determines the directions in a sheet material in respect to the rolling di
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000001"/>
         <rdfs:subClassOf>
             <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000031"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000033"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000031"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000035"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000033"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000035"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000033"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000094"/>
                     </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000035"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
+                </owl:unionOf>
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">normal direction</rdfs:label>
@@ -1085,22 +1135,52 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000033"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000031"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000035"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000036"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000031"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">rolled sheet plane</rdfs:label>
-        <skos:definition xml:lang="en">Rolled sheet plane is a two-dimensional spatial region which determines the rolling plane in a rolled material. Rolled sheet plane ction is a part of material or object.</skos:definition>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000033"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000033"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000035"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000035"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000068"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000036"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">rolling plane</rdfs:label>
+        <skos:definition xml:lang="en">Rolling plane is a fiat surface which is a geometric basis of a rolled material. Rolling plane is normal to the normal direction. Rolling plane is a parallel to and has parts rolling, transverse, and longitudinal directions.</skos:definition>
     </owl:Class>
     
 
@@ -1205,7 +1285,7 @@ TODO: write a SWIRL rule</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000176 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000176">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
         <rdfs:comment xml:lang="en">Preferred crystallographic orientation is a intensive quality of a grain population which is denoted by / is about the orientation distribution function (ODF) of the textured material. Preferred crystallographic orientation describes a crystallographic orientation of several grains in a volume, from which the ODF has been determined, while these grains have similar grain orienientations within the given tolerance.</rdfs:comment>
         <rdfs:label xml:lang="en">preferred crystallographic orientation</rdfs:label>
     </owl:Class>

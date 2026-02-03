@@ -24,6 +24,56 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000040 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000040">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000140"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000041"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000040"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">The initial idea was to use &quot;has part&quot; to express that intrinsic reference frame belongs to its material. However, it did not feel semantically correct. Then, the idea was to use &quot;located in&quot;, but the property chain would infer relations which are not wrong but semantically irrelevant in the context.</rdfs:comment>
+        <rdfs:label xml:lang="en">has geometric basis</rdfs:label>
+        <skos:definition xml:lang="en">Has geometric basis is an object property which connects a material entity, e.g., a material or an object, to its intrinsic reference frame or parts of the  intrinsic reference frame, i.e., specific directions (fiat  lines).</skos:definition>
+        <skos:example xml:lang="en">Rolled material has geometric basis intrinsic reference frame, and the intrinsic reference frame has part rolling direction. Thus, Rolled material has geometric part rolling direction.</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000074 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000074">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000074"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label xml:lang="en">geometric basis of</rdfs:label>
+        <skos:example xml:lang="en">Geometric basis of is an inverse object property of a has geometric basic</skos:example>
+        <skos:example xml:lang="en">Rolling direction is a part of intrinsic reference frame, which is geometric basis of rolled material. Thus, the rolling direction is a geometric basis of rolled material</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -311,6 +361,29 @@ TODO: write axioms</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <rdfs:label xml:lang="en">number of strips</rdfs:label>
         <skos:definition xml:lang="en">Number of strips is a extensive quality of a disconnected material entity aggregate which has parts individual strips of an electrical sheet and characterizes how many strips or sheets are present in a packet, used for Epstein or thoroidal core measurement or construction of stators and rotors</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000041 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000041">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000141"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000140"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000074"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Note that intrinsic reference frame is &quot;grounded into&quot; the material entity, i.e., it moves with it, and if material entity ceases to exist so will its intrinsic reference frame.</rdfs:comment>
+        <rdfs:label xml:lang="en">intrinsic reference frame</rdfs:label>
+        <skos:definition xml:lang="en">Intrinsic reference frame is an immaterial entity  which is geometric basis of some material entity, e.g., material or an object. Intrinsic reference frame has parts continuant fiat boundaries, e.g., specific directions or planes which uniquely define this reference frame.</skos:definition>
     </owl:Class>
     
 
