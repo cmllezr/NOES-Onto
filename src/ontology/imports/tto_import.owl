@@ -13,9 +13,9 @@
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/imports/tto_import.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-02/imports/tto_import.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-04/imports/tto_import.owl"/>
         <dc:source rdf:resource="https://w3id.org/pmd/tto/3.0.0-alpha4"/>
-        <owl:versionInfo>2026-02-02</owl:versionInfo>
+        <owl:versionInfo>2026-02-04</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -1133,6 +1133,44 @@ Note: The concept of parallel length is replaced by the concept of distance betw
         <rdfs:seeAlso rdf:resource="https://w3id.org/pmd/tto/ProofStrength"/>
         <skos:definition xml:lang="de">Spannung, bei der ein bestimmter Dehnungswert gleich einem bestimmten Prozentsatz der Messlänge des Dehnungsmessers ist</skos:definition>
         <skos:definition xml:lang="en">stress at which the a specific extension value is equal to a specified percentage of the extensometer gauge length</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/tto/TTO_0000044 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/tto/TTO_0000044">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000043"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/pmd/tto"/>
+        <rdfs:label xml:lang="de">Dehngrenze bei plastischer Extensometer-Dehnung</rdfs:label>
+        <rdfs:label xml:lang="en">proof strength plastic extension</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/pmd/tto/ProofStrengthPlasticExtension"/>
+        <skos:definition xml:lang="de">Spannung, bei der die plastische Extensometer-Dehnung einem vorgegebenen Prozentanteil der Extensometer-Messlänge entspricht
+
+Anmerkung: Der Index wird durch den Zahlenwert ergänzt, der den vorgegebenen Zahlenwert der plastischen Extensometer-Dehnung in Prozent angibt, z. B. R_p_0,2.</skos:definition>
+        <skos:definition xml:lang="en">stress at which the plastic extension is equal to a specified percentage of the extensometer gauge length
+
+Note: A suffix is added to the subscript to indicate the prescribed percentage, e.g. R_p_0.2.
+
+Source: ISO 6892-1:2019</skos:definition>
+        <co:definitionSource xml:lang="en">DIN EN ISO 6892-1:2019</co:definitionSource>
+        <co:symbol xml:lang="en">R_p</co:symbol>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/tto/TTO_0000047 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/tto/TTO_0000047">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000044"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/pmd/tto"/>
+        <rdfs:label xml:lang="de">Dehngrenze bei plastischer Extensometer-Dehnung Rp02</rdfs:label>
+        <rdfs:label xml:lang="en">proof strength plastic extension rp02</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/pmd/tto/Rp02"/>
+        <skos:definition xml:lang="de">Spannung bei einer plastischen Extensometer-Dehnung, die 0,2 Prozent der Extensometer-Messlänge entspricht</skos:definition>
+        <skos:definition xml:lang="en">stress at which the plastic extension is equal to 0.2 percent of the extensometer gauge length</skos:definition>
+        <co:definitionSource xml:lang="en">DIN EN ISO 6892-1:2019</co:definitionSource>
+        <co:symbol xml:lang="en">R_p_0.2</co:symbol>
     </owl:Class>
     
 
