@@ -169,7 +169,5 @@ update-ontology-annotations:
 	$(ROBOT) annotate --input noes-full.ttl $(ALL_ANNOTATIONS) --output ../../noes-full.ttl
 	$(ROBOT) annotate --input noes-base.owl $(ALL_ANNOTATIONS) --output ../../noes-base.owl
 	$(ROBOT) annotate --input noes-base.ttl $(ALL_ANNOTATIONS) --output ../../noes-base.ttl
-	$(ROBOT) annotate --input noes-simple.owl $(ALL_ANNOTATIONS) --output ../../noes-simple.owl
-	$(ROBOT) annotate --input noes-simple.ttl $(ALL_ANNOTATIONS) --output ../../noes-simple.ttl
 
 all_assets: update-ontology-annotations
