@@ -14,9 +14,9 @@
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/imports/cryo_import.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-08/imports/cryo_import.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-09/imports/cryo_import.owl"/>
         <dc:source rdf:resource="https://w3id.org/pmd/cryo/2026-02-02"/>
-        <owl:versionInfo>2026-02-08</owl:versionInfo>
+        <owl:versionInfo>2026-02-09</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -59,6 +59,12 @@
     <!-- http://purl.org/dc/elements/1.1/source -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
     
 
 
@@ -973,6 +979,20 @@ Previous. An information content entity is a non-realizable information entity t
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000663 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000663">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020003"/>
+        <rdfs:label xml:lang="en">crystallite</rdfs:label>
+        <rdfs:label xml:lang="de">kristallit</rdfs:label>
+        <skos:altLabel xml:lang="de">Korn</skos:altLabel>
+        <skos:altLabel xml:lang="en">grain</skos:altLabel>
+        <skos:definition xml:lang="en">A crystal grain is a crystal that is part of a polycrystal.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020003 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020003">
@@ -1063,6 +1083,17 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
         <rdfs:label xml:lang="en">aggregate state value</rdfs:label>
         <skos:definition xml:lang="en">The aggregate state value is a categorical value specification that specifies value of the aggregatge state quality.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020148 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020148">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+        <rdfs:label xml:lang="en">extensive quality</rdfs:label>
+        <skos:definition xml:lang="en">An extensive quality is a qualty that inheres in only object or object aggregate or fiat object part or chemical entity and is dependent on the bearers (system-) size.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1268,6 +1299,29 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:defin
         <rdfs:label xml:lang="en">point Miller indices</rdfs:label>
         <skos:definition xml:lang="en">Point Miller indices define the coordinates of a point within a unit cell of a crystal. Point Miller indices must be given in round brackets separated by commas, e.g., (h, k, l).</skos:definition>
         <skos:example>(1,1,1)</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000042 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000042">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000075"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">grain orientation</rdfs:label>
+        <skos:definition xml:lang="en">Grain orientation is an intensive quality of grains in material&apos;s microstructure, which describes the crystallographic orientation in respect to the external (sample&apos;s) reference frame. Grain orientation can be a quality of an individual grain / crystallite or of a polycrystal, i.e., several grsins with similar crystallographic orientations.
+Grain orientation can be specified by either texture fibers or texture components. When several grains exhibit similar orientations, then the material exhibits a specific crystallographic texture.</skos:definition>
     </owl:Class>
     
 

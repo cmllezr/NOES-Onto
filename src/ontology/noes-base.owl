@@ -14,12 +14,12 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/noes-base.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-08/noes-base.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-09/noes-base.owl"/>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:description>None</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/unspecified"/>
         <dcterms:title>NOES Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
-        <owl:versionInfo>2026-02-08</owl:versionInfo>
+        <owl:versionInfo>2026-02-09</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -1817,16 +1817,6 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:label xml:lang="en">aggregate state</rdfs:label>
         <skos:definition xml:lang="en">The aggregate state is a morphological quality representing the physical state of a material, such as solid, liquid, or gas.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0000518 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000518">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000522"/>
-        <rdfs:label xml:lang="en">application of elastic impact</rdfs:label>
-        <skos:definition xml:lang="en">An application of (an) elastic impact represents an application of (a) mechanical load describing the process of applying a force or impact to a material to observe its elastic response.</skos:definition>
     </owl:Class>
     
 
@@ -6141,6 +6131,29 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:defin
     
 
 
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000042 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000042">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000075"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">grain orientation</rdfs:label>
+        <skos:definition xml:lang="en">Grain orientation is an intensive quality of grains in material&apos;s microstructure, which describes the crystallographic orientation in respect to the external (sample&apos;s) reference frame. Grain orientation can be a quality of an individual grain / crystallite or of a polycrystal, i.e., several grsins with similar crystallographic orientations.
+Grain orientation can be specified by either texture fibers or texture components. When several grains exhibit similar orientations, then the material exhibits a specific crystallographic texture.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/cryo/CRYO_0000075 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000075">
@@ -6439,6 +6452,8 @@ which determines the directions in a sheet material in respect to the rolling di
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">magnetic field alternating frequency</rdfs:label>
+        <skos:definition xml:lang="en">Magnetic field alternating current is a process attribute of an application of magnetic field describing how many times per second the applied magnetic field changes its direction.</skos:definition>
+        <skos:example xml:lang="en">400 Hz frequency of an Epstein measurment</skos:example>
     </owl:Class>
     
 
@@ -6668,6 +6683,7 @@ TODO: write axioms</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:comment xml:lang="en">Occurence of magnetic flux  is a process that (realizes??) responds with magnetic flux in the material when some magnetic field is applied.</rdfs:comment>
         <rdfs:label xml:lang="en">occurence of magnetic flux</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -6699,7 +6715,7 @@ Has part grain growth and recovery.</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000020">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:label xml:lang="en">grain growth</rdfs:label>
-        <skos:definition xml:lang="en">Grain growth is a naturally occuring process which occurs in polycrystalline materials. The driving force of grain growth is reduction of the interal energy via reduction of the total grain boundary. Grain growth is a thermally activated process which occurs after recovery and (primary) recrystallization.</skos:definition>
+        <skos:definition xml:lang="en">Grain growth is a process which occurs in polycrystalline materials. The driving force of grain growth is reduction of the interal energy via reduction of the total grain boundary. Grain growth is a thermally activated process which occurs after recovery and (primary) recrystallization.</skos:definition>
     </owl:Class>
     
 
@@ -6842,12 +6858,6 @@ Has part grain growth and recovery.</rdfs:comment>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020112"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">electron backscatter diffraction</rdfs:label>
@@ -7182,7 +7192,9 @@ Has part grain growth and recovery.</rdfs:comment>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">tensile strength in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Tensile strength in to the rolling direction is a tensile strength which is measured on a sample cut parallel to the rolling direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -7207,31 +7219,6 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:comment xml:lang="en">Note that intrinsic reference frame is &quot;grounded into&quot; the material entity, i.e., it moves with it, and if material entity ceases to exist so will its intrinsic reference frame.</rdfs:comment>
         <rdfs:label xml:lang="en">intrinsic reference frame</rdfs:label>
         <skos:definition xml:lang="en">Intrinsic reference frame is an immaterial entity  which is geometric basis of some material entity, e.g., material or an object. Intrinsic reference frame has parts continuant fiat boundaries, e.g., specific directions or planes which uniquely define this reference frame.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000042 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000042">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000075"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">grain orientation</rdfs:label>
-        <skos:definition xml:lang="en">Grain orientation is an intensive quality of grains in material&apos;s microstructure, which describes the crystal orientation in respect to the external (sample&apos;s) reference frame. Grain orientation can be specified by either texture fibers or texture components. When several grains exhibit similar orientations, then the material exhibits a specific crystallographic texture.</skos:definition>
-        <skos:definition xml:lang="en">Grain orientation is an intensive quality of grains in material&apos;s microstructure, which describes the crystallographic orientation in respect to the external (sample&apos;s) reference frame. Grain orientation can be a quality of an individual grain / crystallite or of a polycrystal, i.e., several grsins with similar crystallographic orientations.
-Grain orientation can be specified by either texture fibers or texture components. When several grains exhibit similar orientations, then the material exhibits a specific crystallographic texture.</skos:definition>
-        <skos:example xml:lang="en">Cube orientation, λ-fiber orientation</skos:example>
     </owl:Class>
     
 
@@ -7374,6 +7361,7 @@ Grain orientation can be specified by either texture fibers or texture component
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000053">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000825"/>
         <rdfs:label xml:lang="en">magnetic power loss</rdfs:label>
+        <skos:definition xml:lang="en">Magnetic power loss is a magnetic property of materials which describes dissipated energy due to application of an external magnetic field H.</skos:definition>
     </owl:Class>
     
 
@@ -7382,7 +7370,21 @@ Grain orientation can be specified by either texture fibers or texture component
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000054">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000021"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Anamalous loss is propotional to the frequency of the alternating magnetic field f^3/2.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Anomalous loss can be reduced byy minimizing domain wall spacing to ensure more uniform magnetization. This can be achieved by controlling grain size and crystallographic texure.</rdfs:comment>
         <rdfs:label xml:lang="en">anomalous loss</rdfs:label>
+        <co:symbol xml:lang="en">Anomalous loss is a type of a magnetic power loss which is determined as a difference between total magnetic power loss P_tot and the sum of both hysteresis loss P_hys and eddy current loss  P_e. Anomalous loss is attributed to the localized, microscopic eddy currents generated by the motion of individual magnetic domain walls.</co:symbol>
+        <co:symbol>P_a</co:symbol>
     </owl:Class>
     
 
@@ -7391,7 +7393,12 @@ Grain orientation can be specified by either texture fibers or texture component
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000055">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
-        <rdfs:label xml:lang="en">eddy current Loss</rdfs:label>
+        <rdfs:comment xml:lang="en">Eddy current loss can be reduced by using thinner sheets and increasing Si content, which raises resistivity ρ.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The value of eddy current loss is proportional to the alternating frequency of an applied magnetic field f, sheet thickness d, and the peak induction Bsat, and inversely proportinal to the electric resistivity ρ. 
+Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
+        <rdfs:label xml:lang="en">eddy current loss</rdfs:label>
+        <skos:definition xml:lang="en">Eddy current loss is a type of magnetic power loss which is attributed to the macroscopic circulating electrical currents which are induced  by the change of the magnetic flux dB/dt in the bulk of a material.</skos:definition>
+        <co:symbol>P_e</co:symbol>
     </owl:Class>
     
 
@@ -7400,7 +7407,19 @@ Grain orientation can be specified by either texture fibers or texture component
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000056">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000021"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Hysteresis loss can be reduced by controlling chemical composition, i.e., reducing nonmetallic impurities and increasing Si content, and by controlling microstructure, i.e., achieving large uniform grains with minimizing inclusions and precipitates.</rdfs:comment>
         <rdfs:label xml:lang="en">hysteresis loss</rdfs:label>
+        <skos:definition xml:lang="en">Hysteresis loss is a type of magnetic power lossses attributed dissipation of energy due to the irreversible motion of a magnetic domain wall. The value of hystereis loss is equivalent to the area of a static B-H curve.</skos:definition>
         <co:symbol xml:lang="en">Phys</co:symbol>
     </owl:Class>
     
@@ -7410,8 +7429,9 @@ Grain orientation can be specified by either texture fibers or texture component
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000057">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
+        <rdfs:comment xml:lang="en">Total magnetic power loss is magnetic property of a material which describes its performance in an external magnetic field. Total magnetic power loss is a sum of hysteresis P_hys, eddy current P_e, and anomalous losses P_a.</rdfs:comment>
         <rdfs:label xml:lang="en">total magnetic power loss</rdfs:label>
-        <co:symbol xml:lang="en">Ptot</co:symbol>
+        <co:symbol xml:lang="en">P_tot</co:symbol>
     </owl:Class>
     
 
@@ -7443,6 +7463,7 @@ Grain orientation can be specified by either texture fibers or texture component
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000060">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:label xml:lang="en">incremental permeability</rdfs:label>
+        <owl:deprecated></owl:deprecated>
     </owl:Class>
     
 
@@ -7477,7 +7498,7 @@ Grain orientation can be specified by either texture fibers or texture component
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:comment xml:lang="en">A line from the origin to the loop tip</rdfs:comment>
         <rdfs:label xml:lang="en">normal permeability</rdfs:label>
-        <skos:definition xml:lang="en">Normal permeabilty is the ratio of the peak magnetic induction B_peak to the peak magnetic field strength H_peak​ for a specific cycle</skos:definition>
+        <skos:definition xml:lang="en">Normal permeabilty is the ratio of the peak magnetic induction B_max to the peak magnetic field strength H_max for a specific magnitization cycle.</skos:definition>
         <co:symbol xml:lang="en">μa</co:symbol>
     </owl:Class>
     
@@ -7488,6 +7509,7 @@ Grain orientation can be specified by either texture fibers or texture component
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000064">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:label xml:lang="en">reversible permeability</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -7819,7 +7841,6 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment>review the axiom</rdfs:comment>
         <rdfs:label xml:lang="en">magnetic power loss at 1.0 T / 400 Hz</rdfs:label>
         <skos:definition xml:lang="en">Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field</skos:definition>
         <co:symbol xml:lang="en">P1.0/400</co:symbol>
@@ -7921,12 +7942,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:comment>Fix axiom&quot;!!</rdfs:comment>
         <rdfs:label xml:lang="en">orientation distribution function calculation</rdfs:label>
     </owl:Class>
     
@@ -8101,7 +8117,9 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">tensile strength in the transversal direction</rdfs:label>
+        <skos:definition>Tensile strength in to the transversal direction is a tensile strength which is measured on a sample cut parallel to the transversal direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -8296,7 +8314,9 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">tensile strength at the 45° to the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Tensile strength at the 45° to the rolling direction is a tensile strength which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -8471,6 +8491,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">total magnetic power loss in the rolling direction</rdfs:label>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
@@ -8646,6 +8667,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">total magnetic power loss in the transversal direction</rdfs:label>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
@@ -8822,7 +8844,9 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength at the 45° to the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength at the 45° to the rolling direction is a yield strength which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -8998,7 +9022,9 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength in to the rolling direction is a yield strength which is measured on a sample cut parallel to the rolling direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -9174,7 +9200,9 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength in to the transversal direction is a yield strength which is measured on a sample cut parallel to the transversal direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -9350,6 +9378,7 @@ Grain orientation can be specified by either texture fibers or texture component
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">peak magnetic polarization in the rolling direction</rdfs:label>
+        <skos:altLabel xml:lang="en">Peak magnetic polarization in the rolling direction is a peak magnetic polarization measured exclusively in the rolling direction of an electrical sheet.</skos:altLabel>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -9525,6 +9554,7 @@ Grain orientation can be specified by either texture fibers or texture component
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">peak magnetic polarization in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Peak magnetic polarization in the transversal direction is a peak magnetic polarization measured exclusively in the transversal direction of an electrical sheet.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -10158,7 +10188,9 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength ratio at 45° to the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength ratio at the 45° to the rolling direction is a Yield strength ratio which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -10176,28 +10208,52 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000177"/>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
+                                                        <owl:someValuesFrom>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000033"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
+                                                                        <owl:someValuesFrom>
+                                                                            <owl:Class>
+                                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
+                                                                                    <owl:Restriction>
+                                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                    </owl:Restriction>
+                                                                                </owl:intersectionOf>
+                                                                            </owl:Class>
+                                                                        </owl:someValuesFrom>
+                                                                    </owl:Restriction>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000094"/>
                                                                     <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                                         <owl:someValuesFrom>
                                                                             <owl:Class>
                                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
                                                                                     <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
+                                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -10206,52 +10262,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
@@ -10293,28 +10303,52 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000177"/>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000033"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
+                                                                <owl:someValuesFrom>
+                                                                    <owl:Class>
+                                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
+                                                                            <owl:Restriction>
+                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                            </owl:Restriction>
+                                                                        </owl:intersectionOf>
+                                                                    </owl:Class>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
                                                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000094"/>
                                                             <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
                                                                 <owl:someValuesFrom>
                                                                     <owl:Class>
                                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
                                                                             <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
+                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -10323,52 +10357,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -11520,7 +11508,9 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength ratio in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength ratio in to the rolling direction is a Yield strength ratio which is measured on a sample cut parallel to the rolling direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -11695,7 +11685,9 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength ratio in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength ratio in to the transversal direction is a Yield strength ratio which is measured on a sample cut parallel to the transversal direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -11870,7 +11862,9 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage elongation after fracture at 45° to the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage elongation after fracture at 45° to the rolling direction is percentage elongation after fracture which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -12045,7 +12039,9 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage elongation after fracture in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage elongation after fracture in the rolling direction is percentage elongation after fracture which is measured on a sample cut parallel to the rolling direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -12220,7 +12216,9 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage elongation after fracture in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage elongation after fracture in the transversal direction is percentage elongation after fracture which is measured on a sample cut parallel to the transversal direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -12395,7 +12393,9 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at maximum force at 45° to the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage plastic extension at maximum force at 45° to the rolling direction is percentage elongation at maximum force which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -12570,7 +12570,9 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at maximum force in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage plastic extension at maximum force in the rolling direction is percentage elongation at maximum force which is measured on a sample cut parallel to the rolling direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -12745,7 +12747,9 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at maximum force in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage plastic extension at maximum force in the transversal direction is percentage elongation at maximum force which is measured on a sample cut parallel the transversal direction.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -12920,7 +12924,10 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">saturation induction in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Saturation induction in the rolling direction is a saturation induction measured exclusively in the rolling direction of an electrical sheet.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -13094,7 +13101,10 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">saturation induction in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Saturation induction in the transversal direction is a saturation induction measured exclusively in the transversal direction of an electrical sheet.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -14662,12 +14672,33 @@ TODO: write a SWIRL rule</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000176">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
         <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000885"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000008"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Preferred crystallographic orientation is a intensive quality of a grain population which is denoted by / is about the orientation distribution function (ODF) of the textured material. Preferred crystallographic orientation describes a crystallographic orientation of several grains in a volume, from which the ODF has been determined, while these grains have similar grain orienientations within the given tolerance.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Preferred crystallographic orientation is a intensive quality of a grain population which is a subject of t the orientation distribution function (ODF)  or pole figure of the textured material. Preferred crystallographic orientation describes a crystallographic orientation of several grains in a volume, from which the ODF has been determined, while these grains have similar grain orienientations within the given tolerance.</rdfs:comment>
         <rdfs:label xml:lang="en">preferred crystallographic orientation</rdfs:label>
     </owl:Class>
     
@@ -14691,8 +14722,8 @@ TODO: write a SWIRL rule</rdfs:comment>
 1. When the magnetic qualities are realized
 2. Especially for peak values that would be interesting</rdfs:comment>
         <rdfs:label xml:lang="en">magnetic polarization</rdfs:label>
+        <skos:definition xml:lang="en">Magnetic polarization is a magnetic property which is a measure of intrinsic magnetization of a material (alignment of magnetic dipoles) as a response to the externaly applied magnetic field H. It is determined as a difference between magnetic induction B and the external field µ0*H.</skos:definition>
         <co:symbol>J</co:symbol>
-        <co:symbol xml:lang="en">Magnetic polarization is a magnetic property which is a measure of intrinsic magnetization of a material (alignment of magnetic dipoles) as a response to the externaly applied magnetic field H. It is determined as a difference between magnetic induction B and the external field µ0*H.</co:symbol>
     </owl:Class>
     
 
@@ -14913,9 +14944,10 @@ TODO: write a SWIRL rule</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000182">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000178"/>
         <rdfs:label xml:lang="en">peak magnetic polarization</rdfs:label>
+        <skos:altLabel xml:lang="en">saturation polatization</skos:altLabel>
+        <skos:definition xml:lang="en">Peak magnetic polarization is a maximum magnetic polarization that a material exhibits under the applied external magnetic field Hmax.</skos:definition>
         <co:symbol>Jmax</co:symbol>
         <co:symbol xml:lang="en">Jsat</co:symbol>
-        <co:symbol xml:lang="en">Peak magnetic polarization is a maximum magnetic polarization that a material exhibits under the applied external magnetic field Hmax.</co:symbol>
     </owl:Class>
     
 
@@ -16521,6 +16553,78 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000030">
         <rdfs:label xml:lang="en">normal direction (ND)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/RD -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/RD">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000033"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/RP -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/RP">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000094"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crys_direction -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crys_direction">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000012"/>
+        <cryo:CRYO_0000168 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+        <noes:NOES_0000067 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crys_direction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crys_plane -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crys_plane">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000011"/>
+        <cryo:CRYO_0000168 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
+        <noes:NOES_0000067 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/RP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crystal_structure -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crystal_structure">
+        <rdf:type rdf:resource="https://w3id.org/pmd/co/PMD_0000591"/>
+        <co:PMD_0000077 rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_orinetation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_orinetation">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
+        <obo:RO_0000080 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_population"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_population -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_population">
+        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
+        <obo:BFO_0000050 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/material_x"/>
+        <obo:RO_0000086 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crystal_structure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/material_x -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/material_x">
+        <rdf:type rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
     </owl:NamedIndividual>
     
 
