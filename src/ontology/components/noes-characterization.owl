@@ -104,6 +104,8 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">magnetic field alternating frequency</rdfs:label>
+        <skos:definition xml:lang="en">Magnetic field alternating current is a process attribute of an application of magnetic field describing how many times per second the applied magnetic field changes its direction.</skos:definition>
+        <skos:example xml:lang="en">400 Hz frequency of an Epstein measurment</skos:example>
     </owl:Class>
     
 
@@ -341,12 +343,6 @@ TODO: write axioms</rdfs:comment>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020112"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">electron backscatter diffraction</rdfs:label>
         <rdfs:seeAlso xml:lang="en">Electron Backscatter Diffraction (EBSD) is a SEM based technique for characterizing  material&apos;s local microstructure. EBSD provides an information about phases and their distribution in the material, grain structure, grain size, grain boundary, texture  (crystallographic orientation of individual grains), and local strain variation.</rdfs:seeAlso>
         <rdfs:seeAlso>https://www.ebsd.com/ebsd-explained/what-is-ebsd</rdfs:seeAlso>
@@ -369,7 +365,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000039">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000053"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">tensile strength in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Tensile strength in to the rolling direction is a tensile strength which is measured on a sample cut parallel to the rolling direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -397,23 +396,9 @@ TODO: write axioms</rdfs:comment>
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000042 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000042">
-        <rdfs:label xml:lang="en">grain orientation</rdfs:label>
-        <skos:definition xml:lang="en">Grain orientation is an intensive quality of grains in material&apos;s microstructure, which describes the crystal orientation in respect to the external (sample&apos;s) reference frame. Grain orientation can be specified by either texture fibers or texture components. When several grains exhibit similar orientations, then the material exhibits a specific crystallographic texture.</skos:definition>
-        <skos:example xml:lang="en">Cube orientation, λ-fiber orientation</skos:example>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/noes/NOES_0000043 -->
 
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000043">
-        <rdfs:label xml:lang="en">texture parameter Aθ</rdfs:label>
-        <rdfs:seeAlso>doi:10.1155/2008/173083</rdfs:seeAlso>
-        <skos:definition xml:lang="en">Texture parameter is a intensive quality which quantifies crystallographic texture in materials. Texture parameter is defined as a minimun angle between the magnitization vector and the closest &lt;100&gt; direction in a crystal. Texture parameter can be derived from orientation distribution function (ODF) by integrating ODF f(g) multiplied by Aθ(g) over orientations dg.</skos:definition>
-    </owl:Class>
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000043"/>
     
 
 
@@ -429,10 +414,7 @@ TODO: write axioms</rdfs:comment>
 
     <!-- https://w3id.org/pmd/noes/NOES_0000045 -->
 
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000045">
-        <rdfs:label xml:lang="en">texture factor</rdfs:label>
-        <skos:definition xml:lang="en">Texture factor is an intensive quality used to quantify texture in materials. It is determined as sum of volume fractions of Goss and Cube texture components divided by the volume fraction of γ-fiber orientations.</skos:definition>
-    </owl:Class>
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000045"/>
     
 
 
@@ -503,8 +485,8 @@ TODO: write axioms</rdfs:comment>
         <rdfs:label xml:lang="en">saturation induction</rdfs:label>
         <skos:altLabel xml:lang="en">saturation magnetic flux density</skos:altLabel>
         <skos:definition xml:lang="en">Saturation induction is a magnetic property which is stimulated under an application of magnetic field. It characterizes the maximum induction B a material can achieve, i.e., the saturation induction is reached when it remains unchanged with increasing magnetic field strength H.</skos:definition>
-        <co:symbol xml:lang="en">Bsat</co:symbol>
         <co:symbol>Bmax</co:symbol>
+        <co:symbol xml:lang="en">Bsat</co:symbol>
     </owl:Class>
     
 
@@ -524,6 +506,7 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000053">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000825"/>
         <rdfs:label xml:lang="en">magnetic power loss</rdfs:label>
+        <skos:definition xml:lang="en">Magnetic power loss is a magnetic property of materials which describes dissipated energy due to application of an external magnetic field H.</skos:definition>
     </owl:Class>
     
 
@@ -532,7 +515,21 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000054">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000021"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Anamalous loss is propotional to the frequency of the alternating magnetic field f^3/2.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Anomalous loss can be reduced byy minimizing domain wall spacing to ensure more uniform magnetization. This can be achieved by controlling grain size and crystallographic texure.</rdfs:comment>
         <rdfs:label xml:lang="en">anomalous loss</rdfs:label>
+        <co:symbol xml:lang="en">Anomalous loss is a type of a magnetic power loss which is determined as a difference between total magnetic power loss P_tot and the sum of both hysteresis loss P_hys and eddy current loss  P_e. Anomalous loss is attributed to the localized, microscopic eddy currents generated by the motion of individual magnetic domain walls.</co:symbol>
+        <co:symbol>P_a</co:symbol>
     </owl:Class>
     
 
@@ -541,7 +538,12 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000055">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
-        <rdfs:label xml:lang="en">eddy current Loss</rdfs:label>
+        <rdfs:comment xml:lang="en">Eddy current loss can be reduced by using thinner sheets and increasing Si content, which raises resistivity ρ.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The value of eddy current loss is proportional to the alternating frequency of an applied magnetic field f, sheet thickness d, and the peak induction Bsat, and inversely proportinal to the electric resistivity ρ. 
+Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
+        <rdfs:label xml:lang="en">eddy current loss</rdfs:label>
+        <skos:definition xml:lang="en">Eddy current loss is a type of magnetic power loss which is attributed to the macroscopic circulating electrical currents which are induced  by the change of the magnetic flux dB/dt in the bulk of a material.</skos:definition>
+        <co:symbol>P_e</co:symbol>
     </owl:Class>
     
 
@@ -550,7 +552,19 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000056">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000021"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Hysteresis loss can be reduced by controlling chemical composition, i.e., reducing nonmetallic impurities and increasing Si content, and by controlling microstructure, i.e., achieving large uniform grains with minimizing inclusions and precipitates.</rdfs:comment>
         <rdfs:label xml:lang="en">hysteresis loss</rdfs:label>
+        <skos:definition xml:lang="en">Hysteresis loss is a type of magnetic power lossses attributed dissipation of energy due to the irreversible motion of a magnetic domain wall. The value of hystereis loss is equivalent to the area of a static B-H curve.</skos:definition>
         <co:symbol xml:lang="en">Phys</co:symbol>
     </owl:Class>
     
@@ -560,8 +574,9 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000057">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
+        <rdfs:comment xml:lang="en">Total magnetic power loss is magnetic property of a material which describes its performance in an external magnetic field. Total magnetic power loss is a sum of hysteresis P_hys, eddy current P_e, and anomalous losses P_a.</rdfs:comment>
         <rdfs:label xml:lang="en">total magnetic power loss</rdfs:label>
-        <co:symbol xml:lang="en">Ptot</co:symbol>
+        <co:symbol xml:lang="en">P_tot</co:symbol>
     </owl:Class>
     
 
@@ -593,6 +608,7 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000060">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:label xml:lang="en">incremental permeability</rdfs:label>
+        <owl:deprecated></owl:deprecated>
     </owl:Class>
     
 
@@ -627,7 +643,7 @@ TODO: write axioms</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:comment xml:lang="en">A line from the origin to the loop tip</rdfs:comment>
         <rdfs:label xml:lang="en">normal permeability</rdfs:label>
-        <skos:definition xml:lang="en">Normal permeabilty is the ratio of the peak magnetic induction B_peak to the peak magnetic field strength H_peak​ for a specific cycle</skos:definition>
+        <skos:definition xml:lang="en">Normal permeabilty is the ratio of the peak magnetic induction B_max to the peak magnetic field strength H_max for a specific magnitization cycle.</skos:definition>
         <co:symbol xml:lang="en">μa</co:symbol>
     </owl:Class>
     
@@ -638,6 +654,7 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000064">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000052"/>
         <rdfs:label xml:lang="en">reversible permeability</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -813,7 +830,6 @@ TODO: write axioms</rdfs:comment>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000057"/>
-        <rdfs:comment>review the axiom</rdfs:comment>
         <rdfs:label xml:lang="en">magnetic power loss at 1.0 T / 400 Hz</rdfs:label>
         <skos:definition xml:lang="en">Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field</skos:definition>
         <co:symbol xml:lang="en">P1.0/400</co:symbol>
@@ -870,12 +886,7 @@ TODO: write axioms</rdfs:comment>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000042"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:comment>Fix axiom&quot;!!</rdfs:comment>
         <rdfs:label xml:lang="en">orientation distribution function calculation</rdfs:label>
     </owl:Class>
     
@@ -885,7 +896,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000075">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000053"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">tensile strength in the transversal direction</rdfs:label>
+        <skos:definition>Tensile strength in to the transversal direction is a tensile strength which is measured on a sample cut parallel to the transversal direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -914,7 +928,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000078">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000053"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">tensile strength at the 45° to the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Tensile strength at the 45° to the rolling direction is a tensile strength which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -923,6 +940,7 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000079">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000057"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">total magnetic power loss in the rolling direction</rdfs:label>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
@@ -933,6 +951,7 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000080">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000057"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">total magnetic power loss in the transversal direction</rdfs:label>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
@@ -943,7 +962,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000081">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000047"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength at the 45° to the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength at the 45° to the rolling direction is a yield strength which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -952,7 +974,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000082">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000047"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength in to the rolling direction is a yield strength which is measured on a sample cut parallel to the rolling direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -961,7 +986,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000083">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000047"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength in to the transversal direction is a yield strength which is measured on a sample cut parallel to the transversal direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -971,6 +999,7 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000084">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000182"/>
         <rdfs:label xml:lang="en">peak magnetic polarization in the rolling direction</rdfs:label>
+        <skos:altLabel xml:lang="en">Peak magnetic polarization in the rolling direction is a peak magnetic polarization measured exclusively in the rolling direction of an electrical sheet.</skos:altLabel>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -981,6 +1010,7 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000085">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000182"/>
         <rdfs:label xml:lang="en">peak magnetic polarization in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Peak magnetic polarization in the transversal direction is a peak magnetic polarization measured exclusively in the transversal direction of an electrical sheet.</skos:definition>
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
@@ -990,7 +1020,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000089">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_1000000"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength ratio at 45° to the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength ratio at the 45° to the rolling direction is a Yield strength ratio which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -999,7 +1032,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000096">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_1000000"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength ratio in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength ratio in to the rolling direction is a Yield strength ratio which is measured on a sample cut parallel to the rolling direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -1008,7 +1044,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000097">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_1000000"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength ratio in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Yield strength ratio in to the transversal direction is a Yield strength ratio which is measured on a sample cut parallel to the transversal direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -1017,7 +1056,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000098">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000033"/>
+        <rdfs:comment>An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage elongation after fracture at 45° to the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage elongation after fracture at 45° to the rolling direction is percentage elongation after fracture which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -1026,7 +1068,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000099">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000033"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage elongation after fracture in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage elongation after fracture in the rolling direction is percentage elongation after fracture which is measured on a sample cut parallel to the rolling direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -1035,7 +1080,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000100">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000033"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage elongation after fracture in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage elongation after fracture in the transversal direction is percentage elongation after fracture which is measured on a sample cut parallel to the transversal direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -1044,7 +1092,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000101">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000037"/>
+        <rdfs:comment>An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at maximum force at 45° to the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage plastic extension at maximum force at 45° to the rolling direction is percentage elongation at maximum force which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -1053,7 +1104,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000102">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000037"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at maximum force in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage plastic extension at maximum force in the rolling direction is percentage elongation at maximum force which is measured on a sample cut parallel to the rolling direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -1062,7 +1116,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000103">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000037"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at maximum force in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Percentage plastic extension at maximum force in the transversal direction is percentage elongation at maximum force which is measured on a sample cut parallel the transversal direction.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -1071,7 +1128,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000104">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000051"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">saturation induction in the rolling direction</rdfs:label>
+        <skos:definition xml:lang="en">Saturation induction in the rolling direction is a saturation induction measured exclusively in the rolling direction of an electrical sheet.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -1080,7 +1140,10 @@ TODO: write axioms</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000105">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000051"/>
+        <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">saturation induction in the transversal direction</rdfs:label>
+        <skos:definition xml:lang="en">Saturation induction in the transversal direction is a saturation induction measured exclusively in the transversal direction of an electrical sheet.</skos:definition>
+        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
     </owl:Class>
     
 
@@ -1280,8 +1343,8 @@ TODO: write axioms</rdfs:comment>
 1. When the magnetic qualities are realized
 2. Especially for peak values that would be interesting</rdfs:comment>
         <rdfs:label xml:lang="en">magnetic polarization</rdfs:label>
+        <skos:definition xml:lang="en">Magnetic polarization is a magnetic property which is a measure of intrinsic magnetization of a material (alignment of magnetic dipoles) as a response to the externaly applied magnetic field H. It is determined as a difference between magnetic induction B and the external field µ0*H.</skos:definition>
         <co:symbol>J</co:symbol>
-        <co:symbol xml:lang="en">Magnetic polarization is a magnetic property which is a measure of intrinsic magnetization of a material (alignment of magnetic dipoles) as a response to the externaly applied magnetic field H. It is determined as a difference between magnetic induction B and the external field µ0*H.</co:symbol>
     </owl:Class>
     
 
@@ -1291,8 +1354,9 @@ TODO: write axioms</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000182">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000178"/>
         <rdfs:label xml:lang="en">peak magnetic polarization</rdfs:label>
+        <skos:altLabel xml:lang="en">saturation polatization</skos:altLabel>
+        <skos:definition xml:lang="en">Peak magnetic polarization is a maximum magnetic polarization that a material exhibits under the applied external magnetic field Hmax.</skos:definition>
         <co:symbol xml:lang="en">Jsat</co:symbol>
-        <co:symbol xml:lang="en">Peak magnetic polarization is a maximum magnetic polarization that a material exhibits under the applied external magnetic field Hmax.</co:symbol>
     </owl:Class>
     
 
