@@ -15,7 +15,7 @@
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/imports/cryo_import.owl">
         <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-09/imports/cryo_import.owl"/>
-        <dc:source rdf:resource="https://w3id.org/pmd/cryo/2026-02-02"/>
+        <dc:source rdf:resource="https://w3id.org/pmd/cryo/2026-02-09"/>
         <owl:versionInfo>2026-02-09</owl:versionInfo>
     </owl:Ontology>
     
@@ -197,6 +197,27 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <obo:IAO_0000115 xml:lang="en">inverse of the relation &apos;denotes&apos;</obo:IAO_0000115>
         <rdfs:label xml:lang="en">denoted by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000418 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000418">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000419"/>
+        <obo:IAO_0000115 xml:lang="en">A relation between a data item and a quality of a material entity where the material entity is the specified output of a material transformation which achieves an objective specification that indicates the intended value of the specified quality.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">is quality specification of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000419 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000419">
+        <obo:IAO_0000115 xml:lang="en">inverse of the relation of is quality specification of</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">2009/10/19 Alan Ruttenberg. Named &apos;junk&apos; relation useful in restrictions, but not a real instance relationship</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">quality is specified as</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1082,7 +1103,7 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
         <rdfs:label xml:lang="en">aggregate state value</rdfs:label>
-        <skos:definition xml:lang="en">The aggregate state value is a categorical value specification that specifies value of the aggregatge state quality.</skos:definition>
+        <skos:definition xml:lang="en">The aggregate state value is a categorical value specification that specifies value of the aggregate state quality.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1310,13 +1331,7 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:defin
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000075"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">grain orientation</rdfs:label>
@@ -1330,6 +1345,22 @@ Grain orientation can be specified by either texture fibers or texture component
 
     <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000075">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000501"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000418"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000042"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Euler angles</rdfs:label>
         <skos:definition xml:lang="en">In crystallography Euler angles are three angles which describe orientation of a sinlge crystal in respect to the sample&apos;s coordinate system. By aligning coordinate system of every crystal in the sample to the sample&apos;s coordinate system, anisotropy of material&apos;s properties can be investigated.</skos:definition>
     </owl:Class>
@@ -1745,7 +1776,7 @@ In particular, it considers &lt;100&gt;, &lt;110&gt;, and &lt;111&gt; families o
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020117">
         <rdfs:label xml:lang="en">aggregate state solid</rdfs:label>
-        <skos:definition xml:lang="en">A state where the bonds between entites trasmit shear forces.</skos:definition>
+        <skos:definition xml:lang="en">A state where the bonds between entities transmit shear forces.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
     
@@ -1755,7 +1786,7 @@ In particular, it considers &lt;100&gt;, &lt;110&gt;, and &lt;111&gt; families o
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020118">
         <rdfs:label xml:lang="en">aggregate state liquid</rdfs:label>
-        <skos:definition xml:lang="en">A state where the bonds of the entites transmit no shear force.</skos:definition>
+        <skos:definition xml:lang="en">A state where the bonds of the entities transmit no shear force.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
     
@@ -1764,7 +1795,7 @@ In particular, it considers &lt;100&gt;, &lt;110&gt;, and &lt;111&gt; families o
     <!-- https://w3id.org/pmd/co/PMD_0020119 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020119">
-        <rdfs:label xml:lang="en">aggregate state gasous</rdfs:label>
+        <rdfs:label xml:lang="en">aggregate state gaseous</rdfs:label>
         <skos:definition xml:lang="en">A state where the entities have no bonding.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
@@ -1775,7 +1806,7 @@ In particular, it considers &lt;100&gt;, &lt;110&gt;, and &lt;111&gt; families o
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020120">
         <rdfs:label xml:lang="en">aggregate state plasma</rdfs:label>
-        <skos:definition xml:lang="en">An aggregate state where the entites are atom nuclei and have no bonds.</skos:definition>
+        <skos:definition xml:lang="en">An aggregate state where the entities are atom nuclei and have no bonds.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
     
@@ -1795,7 +1826,7 @@ In particular, it considers &lt;100&gt;, &lt;110&gt;, and &lt;111&gt; families o
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020122">
         <rdfs:label xml:lang="en">aggregate state supercritical fluid</rdfs:label>
-        <skos:definition xml:lang="en">A state with strong bindings between entites that do not transmit shear force.</skos:definition>
+        <skos:definition xml:lang="en">A state with strong bindings between entities that do not transmit shear force.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
     
@@ -1815,7 +1846,7 @@ In particular, it considers &lt;100&gt;, &lt;110&gt;, and &lt;111&gt; families o
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020124">
         <rdfs:label xml:lang="en">aggregate state suprafluid</rdfs:label>
-        <skos:definition xml:lang="en">A state with frictionless binding that transmits no shear force between entites.</skos:definition>
+        <skos:definition xml:lang="en">A state with frictionless binding that transmits no shear force between entities.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
     

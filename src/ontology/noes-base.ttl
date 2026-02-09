@@ -153,6 +153,10 @@ obo:IAO_0000136 rdf:type owl:ObjectProperty .
 obo:IAO_0000219 rdf:type owl:ObjectProperty .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000418
+obo:IAO_0000418 rdf:type owl:ObjectProperty .
+
+
 ###  http://purl.obolibrary.org/obo/OBI_0000293
 obo:OBI_0000293 rdf:type owl:ObjectProperty .
 
@@ -3784,8 +3788,7 @@ co:PMD_0020116 rdf:type owl:Class ;
                                    ] ;
                rdfs:subClassOf obo:OBI_0001930 ;
                rdfs:label "aggregate state value"@en ;
-               skos:definition "The aggregate state value is a categorical value specification that specifies value of the aggregate state quality."@en ,
-                               "The aggregate state value is a categorical value specification that specifies value of the aggregatge state quality."@en ;
+               skos:definition "The aggregate state value is a categorical value specification that specifies value of the aggregate state quality."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -4441,11 +4444,7 @@ cryo:CRYO_0000042 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0020148 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
-                                    owl:allValuesFrom co:PMD_0000663
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty co:PMD_0000004 ;
-                                    owl:allValuesFrom cryo:CRYO_0000075
+                                    owl:someValuesFrom co:PMD_0000663
                                   ] ;
                   rdfs:label "grain orientation"@en ;
                   skos:definition """Grain orientation is an intensive quality of grains in material's microstructure, which describes the crystallographic orientation in respect to the external (sample's) reference frame. Grain orientation can be a quality of an individual grain / crystallite or of a polycrystal, i.e., several grsins with similar crystallographic orientations.
@@ -4454,7 +4453,18 @@ Grain orientation can be specified by either texture fibers or texture component
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000075
 cryo:CRYO_0000075 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000501 ;
+                  rdfs:subClassOf co:PMD_0000501 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:IAO_0000418 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000042
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0000080 ;
+                                                                                owl:someValuesFrom co:PMD_0000663
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                  ] ;
                   rdfs:label "Euler angles"@en ;
                   skos:definition "In crystallography Euler angles are three angles which describe orientation of a sinlge crystal in respect to the sample's coordinate system. By aligning coordinate system of every crystal in the sample to the sample's coordinate system, anisotropy of material's properties can be investigated."@en .
 
@@ -6883,113 +6893,7 @@ noes:NOES_0000085 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000086
 noes:NOES_0000086 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0000080 ;
-                                                               owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000051 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                                               owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                                                   owl:hasValue noes:NOES_0000028
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                       owl:hasValue cryo:CRYO_0000038
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:RO_0000086 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                       owl:hasValue co:PMD_0020018
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                       ) ;
-                                                                                    rdf:type owl:Class
-                                                                                  ]
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
-                  rdfs:subClassOf noes:NOES_0000176 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000080 ;
-                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000051 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000067 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                    owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                        owl:hasValue noes:NOES_0000028
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                            owl:hasValue cryo:CRYO_0000038
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000086 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                            owl:hasValue co:PMD_0020018
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                            ) ;
-                                                         rdf:type owl:Class
-                                                       ]
-                                  ] ;
+                  rdfs:subClassOf noes:NOES_0000176 ;
                   rdfs:label "α-fibre grain orientation"@en ;
                   skos:altLabel "<110> || RD" ;
                   skos:definition "α-fibre grain orientation is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: <110> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material."@en .
@@ -6997,113 +6901,7 @@ noes:NOES_0000086 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000087
 noes:NOES_0000087 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0000080 ;
-                                                               owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000051 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                                               owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                                                   owl:hasValue noes:NOES_0000030
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                       owl:hasValue cryo:CRYO_0000039
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:RO_0000086 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                       owl:hasValue co:PMD_0020018
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                       ) ;
-                                                                                    rdf:type owl:Class
-                                                                                  ]
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
-                  rdfs:subClassOf noes:NOES_0000176 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000080 ;
-                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000051 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000067 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                    owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                        owl:hasValue noes:NOES_0000030
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                            owl:hasValue cryo:CRYO_0000039
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000086 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                            owl:hasValue co:PMD_0020018
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                            ) ;
-                                                         rdf:type owl:Class
-                                                       ]
-                                  ] ;
+                  rdfs:subClassOf noes:NOES_0000176 ;
                   rdfs:comment """Note on a crystal structure: 
 theoretically possible in both bcc and fcc because <100> are the same types of directions
 practically lambda fiber is not stable in fcc because of the slip systems"""@en ;
@@ -7114,113 +6912,7 @@ practically lambda fiber is not stable in fcc because of the slip systems"""@en 
 
 ###  https://w3id.org/pmd/noes/NOES_0000088
 noes:NOES_0000088 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0000080 ;
-                                                               owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000051 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                                               owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                                                   owl:hasValue noes:NOES_0000028
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                       owl:hasValue cryo:CRYO_0000039
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:RO_0000086 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                       owl:hasValue co:PMD_0020018
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                       ) ;
-                                                                                    rdf:type owl:Class
-                                                                                  ]
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
-                  rdfs:subClassOf noes:NOES_0000176 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000080 ;
-                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000051 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000067 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                    owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                        owl:hasValue noes:NOES_0000028
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                            owl:hasValue cryo:CRYO_0000039
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000086 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                            owl:hasValue co:PMD_0020018
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                            ) ;
-                                                         rdf:type owl:Class
-                                                       ]
-                                  ] ;
+                  rdfs:subClassOf noes:NOES_0000176 ;
                   rdfs:label "η-fibre grain orientation"@en ;
                   skos:altLabel "<100> || RD" ;
                   skos:definition "η-fibre grain orientation is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: <100> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material."@en .
@@ -7355,64 +7047,7 @@ noes:NOES_0000090 rdf:type owl:Class ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000177
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:BFO_0000050 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000000
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000040 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000033
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                                                                                                               owl:hasValue cryo:CRYO_0000039
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000040 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000094
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000011
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                                                                                                               owl:hasValue cryo:CRYO_0000040
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:RO_0000086 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                                                     [ rdf:type owl:Class ;
-                                                                                                                                                       owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                       owl:hasValue co:PMD_0020018
-                                                                                                                                                                     ]
-                                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                       owl:hasValue co:PMD_0020019
-                                                                                                                                                                     ]
-                                                                                                                                                                   )
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
+                                                                                                           owl:someValuesFrom co:PMD_0000000
                                                                                                          ]
                                                                                                        ) ;
                                                                                     rdf:type owl:Class
@@ -7427,70 +7062,31 @@ noes:NOES_0000090 rdf:type owl:Class ;
                                     owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000177
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:BFO_0000050 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000000
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000040 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000033
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                                                                                    owl:hasValue cryo:CRYO_0000039
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000040 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000094
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000011
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                                                                                    owl:hasValue cryo:CRYO_0000040
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000086 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                          [ rdf:type owl:Class ;
-                                                                                                                            owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                                            owl:hasValue co:PMD_0020018
-                                                                                                                                          ]
-                                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                                            owl:hasValue co:PMD_0020019
-                                                                                                                                          ]
-                                                                                                                                        )
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
+                                                                                owl:someValuesFrom co:PMD_0000000
                                                                               ]
                                                                             ) ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:comment "NOTE: fcc bs bcc" ;
+                  rdfs:comment """'preferred crystallographic orientation'
+ and ('quality of' some 
+    ('grain population'
+     and ('part of' some 
+        (material
+         and ('has geometric basis' some 
+            ('rolling direction'
+             and ('parallel to' some 
+                ('crystallographic direction'
+                 and ('denoted by family under cubic symmetry' value '<100>')))))
+         and ('has geometric basis' some 
+            ('rolling plane'
+             and ('parallel to' some 
+                ('crystallographic plane'
+                 and ('denoted by family under cubic symmetry' value '{100}')))))))
+     and ('has quality' some 
+        ('crystal structure'
+         and (('specified by value' value 'bravais lattice cubic body-centered') or ('specified by value' value 'bravais lattice cubic face-centered'))))))""" ,
+                               "NOTE: fcc bs bcc" ;
                   rdfs:label "cube texture component"@en ;
                   skos:altLabel "{100}<100>" ;
                   skos:definition "Cube texture component is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: <100> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {100} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material."@en .
@@ -7498,185 +7094,7 @@ noes:NOES_0000090 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000091
 noes:NOES_0000091 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0000080 ;
-                                                               owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000051 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000011
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000094
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                                               owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                       owl:hasValue cryo:CRYO_0000040
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000051 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                                               owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                                                   owl:hasValue noes:NOES_0000028
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                       owl:hasValue cryo:CRYO_0000038
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:RO_0000086 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                                                     [ rdf:type owl:Class ;
-                                                                                                                                                       owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                       owl:hasValue co:PMD_0020018
-                                                                                                                                                                     ]
-                                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                       owl:hasValue co:PMD_0020019
-                                                                                                                                                                     ]
-                                                                                                                                                                   )
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                       ) ;
-                                                                                    rdf:type owl:Class
-                                                                                  ]
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
-                  rdfs:subClassOf noes:NOES_0000176 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000080 ;
-                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000051 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000011
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000067 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000094
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                    owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                            owl:hasValue cryo:CRYO_0000040
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000051 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000067 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                    owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                        owl:hasValue noes:NOES_0000028
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                            owl:hasValue cryo:CRYO_0000038
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000086 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                          [ rdf:type owl:Class ;
-                                                                                                                            owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                                            owl:hasValue co:PMD_0020018
-                                                                                                                                          ]
-                                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                                            owl:hasValue co:PMD_0020019
-                                                                                                                                          ]
-                                                                                                                                        )
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                            ) ;
-                                                         rdf:type owl:Class
-                                                       ]
-                                  ] ;
+                  rdfs:subClassOf noes:NOES_0000176 ;
                   rdfs:label "rotated cube texture component"@en ;
                   skos:altLabel "{100}<110>" ;
                   skos:definition "Rotated cube texture component is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: <110> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {100} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material."@en .
@@ -7684,185 +7102,7 @@ noes:NOES_0000091 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000092
 noes:NOES_0000092 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0000080 ;
-                                                               owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000051 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000011
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000094
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                                               owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                       owl:hasValue cryo:CRYO_0000041
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000051 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                                               owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                                                   owl:hasValue noes:NOES_0000028
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                       owl:hasValue cryo:CRYO_0000039
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:RO_0000086 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                                                     [ rdf:type owl:Class ;
-                                                                                                                                                       owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                       owl:hasValue co:PMD_0020018
-                                                                                                                                                                     ]
-                                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                       owl:hasValue co:PMD_0020019
-                                                                                                                                                                     ]
-                                                                                                                                                                   )
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                       ) ;
-                                                                                    rdf:type owl:Class
-                                                                                  ]
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
-                  rdfs:subClassOf noes:NOES_0000176 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000080 ;
-                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000051 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000011
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000067 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000094
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                    owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                            owl:hasValue cryo:CRYO_0000041
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000051 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000067 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                    owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                        owl:hasValue noes:NOES_0000028
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                            owl:hasValue cryo:CRYO_0000039
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000086 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                          [ rdf:type owl:Class ;
-                                                                                                                            owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                                            owl:hasValue co:PMD_0020018
-                                                                                                                                          ]
-                                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                                            owl:hasValue co:PMD_0020019
-                                                                                                                                          ]
-                                                                                                                                        )
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                            ) ;
-                                                         rdf:type owl:Class
-                                                       ]
-                                  ] ;
+                  rdfs:subClassOf noes:NOES_0000176 ;
                   rdfs:label "Goss texture component"@en ;
                   skos:altLabel "{110}<100>" ;
                   skos:definition "Goss texture component is a type of grain orientation which is a quality of some polycrystal, i.e., several grains, oriented in the following way: <100> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {110} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material."@en .
@@ -7870,185 +7110,7 @@ noes:NOES_0000092 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000093
 noes:NOES_0000093 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0000080 ;
-                                                               owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000051 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000011
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000094
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                                               owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                       owl:hasValue cryo:CRYO_0000041
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000051 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                                               owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                                                   owl:hasValue noes:NOES_0000028
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                       owl:hasValue cryo:CRYO_0000038
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:RO_0000086 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                                                     [ rdf:type owl:Class ;
-                                                                                                                                                       owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                       owl:hasValue co:PMD_0020018
-                                                                                                                                                                     ]
-                                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                       owl:hasValue co:PMD_0020019
-                                                                                                                                                                     ]
-                                                                                                                                                                   )
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                       ) ;
-                                                                                    rdf:type owl:Class
-                                                                                  ]
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
-                  rdfs:subClassOf noes:NOES_0000176 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000080 ;
-                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000051 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000011
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000067 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000094
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                    owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                            owl:hasValue cryo:CRYO_0000041
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000051 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000067 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                    owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                        owl:hasValue noes:NOES_0000028
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                            owl:hasValue cryo:CRYO_0000038
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000086 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                          [ rdf:type owl:Class ;
-                                                                                                                            owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                                            owl:hasValue co:PMD_0020018
-                                                                                                                                          ]
-                                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                                            owl:hasValue co:PMD_0020019
-                                                                                                                                          ]
-                                                                                                                                        )
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                            ) ;
-                                                         rdf:type owl:Class
-                                                       ]
-                                  ] ;
+                  rdfs:subClassOf noes:NOES_0000176 ;
                   rdfs:label "rotated Goss texture component"@en ;
                   skos:altLabel "{110}<110>" ;
                   skos:definition "Rotated Goss texture component is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: <110> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {110} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material."@en .
@@ -8100,113 +7162,7 @@ noes:NOES_0000094 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000095
 noes:NOES_0000095 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000176
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0000080 ;
-                                                               owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000051 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty noes:NOES_0000067 ;
-                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                                               owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                                               owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                                             ]
-                                                                                                                                                                                                                                           ) ;
-                                                                                                                                                                                                                        rdf:type owl:Class
-                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                   owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                                                   owl:hasValue noes:NOES_0000030
-                                                                                                                                                                                                 ]
-                                                                                                                                                                                               ) ;
-                                                                                                                                                                            rdf:type owl:Class
-                                                                                                                                                                          ]
-                                                                                                                                                     ]
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                                                       owl:hasValue cryo:CRYO_0000037
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:RO_0000086 ;
-                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                       owl:hasValue co:PMD_0020018
-                                                                                                                                                     ]
-                                                                                                                                                   ) ;
-                                                                                                                                rdf:type owl:Class
-                                                                                                                              ]
-                                                                                                         ]
-                                                                                                       ) ;
-                                                                                    rdf:type owl:Class
-                                                                                  ]
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
-                  rdfs:subClassOf noes:NOES_0000176 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000080 ;
-                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020106
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000051 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000012
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty noes:NOES_0000067 ;
-                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000001
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty obo:BFO_0000050 ;
-                                                                                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000030
-                                                                                                                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                    owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                                                                                    owl:someValuesFrom co:PMD_0020106
-                                                                                                                                                                                                                  ]
-                                                                                                                                                                                                                ) ;
-                                                                                                                                                                                             rdf:type owl:Class
-                                                                                                                                                                                           ]
-                                                                                                                                                                      ]
-                                                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                                                        owl:onProperty co:PMD_0000077 ;
-                                                                                                                                                                        owl:hasValue noes:NOES_0000030
-                                                                                                                                                                      ]
-                                                                                                                                                                    ) ;
-                                                                                                                                                 rdf:type owl:Class
-                                                                                                                                               ]
-                                                                                                                          ]
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty cryo:CRYO_0000168 ;
-                                                                                                                            owl:hasValue cryo:CRYO_0000037
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000086 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000591
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                            owl:hasValue co:PMD_0020018
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                            ) ;
-                                                         rdf:type owl:Class
-                                                       ]
-                                  ] ;
+                  rdfs:subClassOf noes:NOES_0000176 ;
                   rdfs:label "γ-fibre grain orientation"@en ;
                   skos:altLabel "<111> || ND" ;
                   skos:definition "γ-fibre grain orientation is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: <111> family of crystallographic directions are oriented parallel to the normal direction (ND) of a sheet material, i.e., normal to the rolling plane."@en .
@@ -11170,23 +10126,20 @@ co:PMD_0020111 rdf:type owl:NamedIndividual ;
 ###  https://w3id.org/pmd/co/PMD_0020117
 co:PMD_0020117 rdf:type owl:NamedIndividual ;
                rdfs:label "aggregate state solid"@en ;
-               skos:definition "A state where the bonds between entites trasmit shear forces."@en ,
-                               "A state where the bonds between entities transmit shear forces."@en ;
+               skos:definition "A state where the bonds between entities transmit shear forces."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020118
 co:PMD_0020118 rdf:type owl:NamedIndividual ;
                rdfs:label "aggregate state liquid"@en ;
-               skos:definition "A state where the bonds of the entites transmit no shear force."@en ,
-                               "A state where the bonds of the entities transmit no shear force."@en ;
+               skos:definition "A state where the bonds of the entities transmit no shear force."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020119
 co:PMD_0020119 rdf:type owl:NamedIndividual ;
-               rdfs:label "aggregate state gaseous"@en ,
-                          "aggregate state gasous"@en ;
+               rdfs:label "aggregate state gaseous"@en ;
                skos:definition "A state where the entities have no bonding."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
@@ -11194,8 +10147,7 @@ co:PMD_0020119 rdf:type owl:NamedIndividual ;
 ###  https://w3id.org/pmd/co/PMD_0020120
 co:PMD_0020120 rdf:type owl:NamedIndividual ;
                rdfs:label "aggregate state plasma"@en ;
-               skos:definition "An aggregate state where the entites are atom nuclei and have no bonds."@en ,
-                               "An aggregate state where the entities are atom nuclei and have no bonds."@en ;
+               skos:definition "An aggregate state where the entities are atom nuclei and have no bonds."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -11209,8 +10161,7 @@ co:PMD_0020121 rdf:type owl:NamedIndividual ;
 ###  https://w3id.org/pmd/co/PMD_0020122
 co:PMD_0020122 rdf:type owl:NamedIndividual ;
                rdfs:label "aggregate state supercritical fluid"@en ;
-               skos:definition "A state with strong bindings between entites that do not transmit shear force."@en ,
-                               "A state with strong bindings between entities that do not transmit shear force."@en ;
+               skos:definition "A state with strong bindings between entities that do not transmit shear force."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -11224,8 +10175,7 @@ co:PMD_0020123 rdf:type owl:NamedIndividual ;
 ###  https://w3id.org/pmd/co/PMD_0020124
 co:PMD_0020124 rdf:type owl:NamedIndividual ;
                rdfs:label "aggregate state suprafluid"@en ;
-               skos:definition "A state with frictionless binding that transmits no shear force between entites."@en ,
-                               "A state with frictionless binding that transmits no shear force between entities."@en ;
+               skos:definition "A state with frictionless binding that transmits no shear force between entities."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 

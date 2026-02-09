@@ -231,6 +231,12 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000418 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000418"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OBI_0000293 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0000293"/>
@@ -5242,7 +5248,6 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
         <rdfs:label xml:lang="en">aggregate state value</rdfs:label>
         <skos:definition xml:lang="en">The aggregate state value is a categorical value specification that specifies value of the aggregate state quality.</skos:definition>
-        <skos:definition xml:lang="en">The aggregate state value is a categorical value specification that specifies value of the aggregatge state quality.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -6138,13 +6143,7 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:defin
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000075"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">grain orientation</rdfs:label>
@@ -6158,6 +6157,22 @@ Grain orientation can be specified by either texture fibers or texture component
 
     <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000075">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000501"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000418"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000042"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Euler angles</rdfs:label>
         <skos:definition xml:lang="en">In crystallography Euler angles are three angles which describe orientation of a sinlge crystal in respect to the sample&apos;s coordinate system. By aligning coordinate system of every crystal in the sample to the sample&apos;s coordinate system, anisotropy of material&apos;s properties can be investigated.</skos:definition>
     </owl:Class>
@@ -9563,148 +9578,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000086 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000086">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">α-fibre grain orientation</rdfs:label>
         <skos:altLabel>&lt;110&gt; || RD</skos:altLabel>
         <skos:definition xml:lang="en">α-fibre grain orientation is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: &lt;110&gt; family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material.</skos:definition>
@@ -9715,148 +9589,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000087 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000087">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000030"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000030"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Note on a crystal structure: 
 theoretically possible in both bcc and fcc because &lt;100&gt; are the same types of directions
 practically lambda fiber is not stable in fcc because of the slip systems</rdfs:comment>
@@ -9870,148 +9603,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
     <!-- https://w3id.org/pmd/noes/NOES_0000088 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000088">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">η-fibre grain orientation</rdfs:label>
         <skos:altLabel>&lt;100&gt; || RD</skos:altLabel>
         <skos:definition xml:lang="en">η-fibre grain orientation is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: &lt;100&gt; family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material.</skos:definition>
@@ -10211,83 +9803,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000177"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000033"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000094"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                    <owl:Class>
-                                                        <owl:unionOf rdf:parseType="Collection">
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                            </owl:Restriction>
-                                                        </owl:unionOf>
-                                                    </owl:Class>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10306,89 +9822,31 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000177"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000033"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000094"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                            <owl:Class>
-                                                <owl:unionOf rdf:parseType="Collection">
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                    </owl:Restriction>
-                                                </owl:unionOf>
-                                            </owl:Class>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>&apos;preferred crystallographic orientation&apos;
+ and (&apos;quality of&apos; some 
+    (&apos;grain population&apos;
+     and (&apos;part of&apos; some 
+        (material
+         and (&apos;has geometric basis&apos; some 
+            (&apos;rolling direction&apos;
+             and (&apos;parallel to&apos; some 
+                (&apos;crystallographic direction&apos;
+                 and (&apos;denoted by family under cubic symmetry&apos; value &apos;&lt;100&gt;&apos;)))))
+         and (&apos;has geometric basis&apos; some 
+            (&apos;rolling plane&apos;
+             and (&apos;parallel to&apos; some 
+                (&apos;crystallographic plane&apos;
+                 and (&apos;denoted by family under cubic symmetry&apos; value &apos;{100}&apos;)))))))
+     and (&apos;has quality&apos; some 
+        (&apos;crystal structure&apos;
+         and ((&apos;specified by value&apos; value &apos;bravais lattice cubic body-centered&apos;) or (&apos;specified by value&apos; value &apos;bravais lattice cubic face-centered&apos;))))))</rdfs:comment>
         <rdfs:comment>NOTE: fcc bs bcc</rdfs:comment>
         <rdfs:label xml:lang="en">cube texture component</rdfs:label>
         <skos:altLabel>{100}&lt;100&gt;</skos:altLabel>
@@ -10400,240 +9858,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
     <!-- https://w3id.org/pmd/noes/NOES_0000091 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000091">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000094"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                    <owl:Class>
-                                                        <owl:unionOf rdf:parseType="Collection">
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                            </owl:Restriction>
-                                                        </owl:unionOf>
-                                                    </owl:Class>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000094"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                            <owl:Class>
-                                                <owl:unionOf rdf:parseType="Collection">
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                    </owl:Restriction>
-                                                </owl:unionOf>
-                                            </owl:Class>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">rotated cube texture component</rdfs:label>
         <skos:altLabel>{100}&lt;110&gt;</skos:altLabel>
         <skos:definition xml:lang="en">Rotated cube texture component is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: &lt;110&gt; family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {100} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material.</skos:definition>
@@ -10644,240 +9869,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
     <!-- https://w3id.org/pmd/noes/NOES_0000092 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000092">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000094"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                    <owl:Class>
-                                                        <owl:unionOf rdf:parseType="Collection">
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                            </owl:Restriction>
-                                                        </owl:unionOf>
-                                                    </owl:Class>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000094"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                            <owl:Class>
-                                                <owl:unionOf rdf:parseType="Collection">
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                    </owl:Restriction>
-                                                </owl:unionOf>
-                                            </owl:Class>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Goss texture component</rdfs:label>
         <skos:altLabel>{110}&lt;100&gt;</skos:altLabel>
         <skos:definition xml:lang="en">Goss texture component is a type of grain orientation which is a quality of some polycrystal, i.e., several grains, oriented in the following way: &lt;100&gt; family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {110} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material.</skos:definition>
@@ -10888,240 +9880,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
     <!-- https://w3id.org/pmd/noes/NOES_0000093 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000093">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000094"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                    <owl:Class>
-                                                        <owl:unionOf rdf:parseType="Collection">
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                            </owl:Restriction>
-                                                        </owl:unionOf>
-                                                    </owl:Class>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000094"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                            <owl:Class>
-                                                <owl:unionOf rdf:parseType="Collection">
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                    </owl:Restriction>
-                                                </owl:unionOf>
-                                            </owl:Class>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">rotated Goss texture component</rdfs:label>
         <skos:altLabel>{110}&lt;110&gt;</skos:altLabel>
         <skos:definition xml:lang="en">Rotated Goss texture component is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: &lt;110&gt; family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {110} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material.</skos:definition>
@@ -11190,148 +9949,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
     <!-- https://w3id.org/pmd/noes/NOES_0000095 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000095">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                        <owl:someValuesFrom>
-                                                                            <owl:Class>
-                                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                                    <owl:Restriction>
-                                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                                    </owl:Restriction>
-                                                                                </owl:intersectionOf>
-                                                                            </owl:Class>
-                                                                        </owl:someValuesFrom>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000030"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020106"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000067"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                                <owl:someValuesFrom>
-                                                                    <owl:Class>
-                                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:intersectionOf>
-                                                                    </owl:Class>
-                                                                </owl:someValuesFrom>
-                                                            </owl:Restriction>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000030"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">γ-fibre grain orientation</rdfs:label>
         <skos:altLabel>&lt;111&gt; || ND</skos:altLabel>
         <skos:definition xml:lang="en">γ-fibre grain orientation is a type of grain orientation which is quality of polycrystal, i.e., several grains, oriented in the following way: &lt;111&gt; family of crystallographic directions are oriented parallel to the normal direction (ND) of a sheet material, i.e., normal to the rolling plane.</skos:definition>
@@ -15589,7 +14207,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020117">
         <rdfs:label xml:lang="en">aggregate state solid</rdfs:label>
-        <skos:definition xml:lang="en">A state where the bonds between entites trasmit shear forces.</skos:definition>
         <skos:definition xml:lang="en">A state where the bonds between entities transmit shear forces.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
@@ -15600,7 +14217,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020118">
         <rdfs:label xml:lang="en">aggregate state liquid</rdfs:label>
-        <skos:definition xml:lang="en">A state where the bonds of the entites transmit no shear force.</skos:definition>
         <skos:definition xml:lang="en">A state where the bonds of the entities transmit no shear force.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
@@ -15611,7 +14227,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020119">
         <rdfs:label xml:lang="en">aggregate state gaseous</rdfs:label>
-        <rdfs:label xml:lang="en">aggregate state gasous</rdfs:label>
         <skos:definition xml:lang="en">A state where the entities have no bonding.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
@@ -15622,7 +14237,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020120">
         <rdfs:label xml:lang="en">aggregate state plasma</rdfs:label>
-        <skos:definition xml:lang="en">An aggregate state where the entites are atom nuclei and have no bonds.</skos:definition>
         <skos:definition xml:lang="en">An aggregate state where the entities are atom nuclei and have no bonds.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
@@ -15643,7 +14257,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020122">
         <rdfs:label xml:lang="en">aggregate state supercritical fluid</rdfs:label>
-        <skos:definition xml:lang="en">A state with strong bindings between entites that do not transmit shear force.</skos:definition>
         <skos:definition xml:lang="en">A state with strong bindings between entities that do not transmit shear force.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
@@ -15664,7 +14277,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020124">
         <rdfs:label xml:lang="en">aggregate state suprafluid</rdfs:label>
-        <skos:definition xml:lang="en">A state with frictionless binding that transmits no shear force between entites.</skos:definition>
         <skos:definition xml:lang="en">A state with frictionless binding that transmits no shear force between entities.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:NamedIndividual>
