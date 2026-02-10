@@ -5174,11 +5174,15 @@ noes:NOES_0000036 rdf:type owl:Class ;
 noes:NOES_0000037 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000927
                                                              [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:BFO_0000055 ;
+                                                               owl:someValuesFrom co:PMD_0000592
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
                                                                owl:onProperty obo:RO_0000057 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0001007
                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty obo:BFO_0000055 ;
-                                                                                                           owl:allValuesFrom co:PMD_0000592
+                                                                                                           owl:onProperty obo:RO_0000085 ;
+                                                                                                           owl:someValuesFrom co:PMD_0000592
                                                                                                          ]
                                                                                                        ) ;
                                                                                     rdf:type owl:Class
@@ -5192,14 +5196,15 @@ noes:NOES_0000037 rdf:type owl:Class ;
                                     owl:onProperty obo:RO_0000057 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0001007
                                                                               [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000055 ;
-                                                                                owl:allValuesFrom co:PMD_0000592
+                                                                                owl:onProperty obo:RO_0000085 ;
+                                                                                owl:someValuesFrom co:PMD_0000592
                                                                               ]
                                                                             ) ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:label "waterjet cutting"@en .
+                  rdfs:label "waterjet cutting"@en ;
+                  skos:definition "Waterjet cutting is a cutting process, where waterjet cutter is a participant and it realizes some cutting function."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000038
@@ -5348,6 +5353,43 @@ noes:NOES_0000041 rdf:type owl:Class ;
                   rdfs:comment "Note that intrinsic reference frame is \"grounded into\" the material entity, i.e., it moves with it, and if material entity ceases to exist so will its intrinsic reference frame."@en ;
                   rdfs:label "intrinsic reference frame"@en ;
                   skos:definition "Intrinsic reference frame is an immaterial entity  which is geometric basis of some material entity, e.g., material or an object. Intrinsic reference frame has parts continuant fiat boundaries, e.g., specific directions or planes which uniquely define this reference frame."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000042
+noes:NOES_0000042 rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000927
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:BFO_0000055 ;
+                                                               owl:someValuesFrom co:PMD_0000592
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:RO_0000057 ;
+                                                               owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000817
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty obo:RO_0000085 ;
+                                                                                                           owl:someValuesFrom co:PMD_0000592
+                                                                                                         ]
+                                                                                                       ) ;
+                                                                                    rdf:type owl:Class
+                                                                                  ]
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf co:PMD_0000927 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000057 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000817
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0000085 ;
+                                                                                owl:someValuesFrom co:PMD_0000592
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                  ] ;
+                  rdfs:label "laser cutting"@en ;
+                  skos:definition "Laser cutting is a cutting process, where lasercutter is a participant and it realizes some cutting function."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000043
@@ -10363,6 +10405,44 @@ noes:NOES_0000113 rdf:type owl:Class ;
                                   ] ;
                   rdfs:label "reversible permeability in the transversal direction"@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000114
+noes:NOES_0000114 rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000927
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:BFO_0000055 ;
+                                                               owl:someValuesFrom co:PMD_0000592
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:RO_0000057 ;
+                                                               owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0025021
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty obo:RO_0000085 ;
+                                                                                                           owl:someValuesFrom co:PMD_0000592
+                                                                                                         ]
+                                                                                                       ) ;
+                                                                                    rdf:type owl:Class
+                                                                                  ]
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf co:PMD_0000927 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000057 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0025021
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0000085 ;
+                                                                                owl:someValuesFrom co:PMD_0000592
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                  ] ;
+                  rdfs:label "Stanzen"@de ,
+                             "stamping"@en ;
+                  skos:definition "Stamping is a separating process, a stamping press is a participant and it realizes some cutting function."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000123
