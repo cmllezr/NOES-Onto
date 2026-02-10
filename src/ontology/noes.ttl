@@ -6477,8 +6477,13 @@ noes:NOES_0000003 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0025007 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty co:PMD_0025006 ;
-                                    owl:someValuesFrom co:PMD_0000521
+                                    owl:someValuesFrom [ rdf:type owl:Class ;
+                                                         owl:unionOf ( co:PMD_0000521
+                                                                       co:PMD_0000829
+                                                                     )
+                                                       ]
                                   ] ;
+                  rdfs:comment "TODO: the axiom is a thin ice. Decide if application of the MF MUST be a part of an assay" ;
                   rdfs:label "magnetic field alternating frequency"@en ;
                   skos:definition "Magnetic field alternating current is a process attribute of an application of magnetic field describing how many times per second the applied magnetic field changes its direction."@en ;
                   skos:example "400 Hz frequency of an Epstein measurment"@en .
@@ -7554,7 +7559,11 @@ noes:NOES_0000070 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0000008 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty co:PMD_0025006 ;
-                                    owl:someValuesFrom co:PMD_0000521
+                                    owl:someValuesFrom [ rdf:type owl:Class ;
+                                                         owl:unionOf ( co:PMD_0000521
+                                                                       co:PMD_0000829
+                                                                     )
+                                                       ]
                                   ] ;
                   rdfs:label "magnetic field strength"@en ;
                   skos:definition "Magnetic field strength is a process attribute of an aplication of magnetic field process which characterizes the magnitude the external / applied magnetic field."@en ;

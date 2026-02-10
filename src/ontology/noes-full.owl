@@ -8804,9 +8804,17 @@ which determines the directions in a sheet material in respect to the rolling di
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025006"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000521"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000521"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000829"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>TODO: the axiom is a thin ice. Decide if application of the MF MUST be a part of an assay</rdfs:comment>
         <rdfs:label xml:lang="en">magnetic field alternating frequency</rdfs:label>
         <skos:definition xml:lang="en">Magnetic field alternating current is a process attribute of an application of magnetic field describing how many times per second the applied magnetic field changes its direction.</skos:definition>
         <skos:example xml:lang="en">400 Hz frequency of an Epstein measurment</skos:example>
@@ -10302,7 +10310,14 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025006"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000521"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000521"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000829"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">magnetic field strength</rdfs:label>
