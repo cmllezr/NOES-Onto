@@ -129,6 +129,18 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000232 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000232"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000233 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000233"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/IAO_0000235 -->
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000235">
@@ -757,6 +769,7 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <obo:IAO_0000112>A cell sorting process achieves the objective specification &apos;material separation objective&apos;</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">This relation obtains between a planned process and a objective specification when the criteria specified in the objective specification are met at the end of the planned process.</obo:IAO_0000115>
         <obo:IAO_0000119>PPPB branch derived</obo:IAO_0000119>
+        <obo:IAO_0000232>modified according to email thread from 1/23/09 in accordince with DT and PPPB branch</obo:IAO_0000232>
         <rdfs:label>achieves_planned_objective</rdfs:label>
         <co:PMD_0000064>https://github.com/search?q=repo%3Amaterialdigital%2Fcore-ontology+path%3A%2F%5Epatterns%5C%2F%2F+OBI_0000417&amp;type=code</co:PMD_0000064>
     </owl:ObjectProperty>
@@ -1260,12 +1273,6 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#broader -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broader"/>
-    
-
-
     <!-- https://w3id.org/pmd/co/PMD_0000004 -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0000004">
@@ -1432,190 +1439,12 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     
 
 
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000037 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037">
-        <rdfs:domain rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000014"/>
-        <rdfs:range rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000050 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000050">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
-        <rdfs:label xml:lang="en">is tetragonal</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000051 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000051">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000164"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000050"/>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            </rdf:Description>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002351"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
-        </owl:propertyChainAxiom>
-        <rdfs:comment>&apos;denoted by&apos; o &apos;member of&apos; o &apos;has Miller indices family under tetragonal symmetry&apos;</rdfs:comment>
-        <rdfs:label xml:lang="en">denoted by family under tetragonal symmetry</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/pmd/cryo/CRYO_0000053 -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000053">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
         <rdfs:label xml:lang="de">has symmetry</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000054 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000054">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
-        <rdfs:label xml:lang="de">is triclinic</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000055 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000055">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
-        <rdfs:label xml:lang="de">is monoclinic</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000056 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000056">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
-        <rdfs:label xml:lang="de">is orthorhombic</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000057 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000057">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
-        <rdfs:label xml:lang="de">is rhombohedral</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000058 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000058">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
-        <rdfs:label xml:lang="de">is hexagonal</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000059 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000059">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000164"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000054"/>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            </rdf:Description>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002351"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
-        </owl:propertyChainAxiom>
-        <rdfs:label xml:lang="en">denoted by family under triclinic symmetry</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000060 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000060">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000164"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000055"/>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            </rdf:Description>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002351"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
-        </owl:propertyChainAxiom>
-        <rdfs:label xml:lang="de">denoted by family under monoclinic symmetry</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000061 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000061">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000164"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000056"/>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            </rdf:Description>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002351"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
-        </owl:propertyChainAxiom>
-        <rdfs:label xml:lang="de">denoted by family under orthorhombic symmetry</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000062 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000062">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000164"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000057"/>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            </rdf:Description>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002351"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
-        </owl:propertyChainAxiom>
-        <rdfs:label xml:lang="de">denoted by family under rhombohedral symmetry</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000063 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000063">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000164"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000058"/>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            </rdf:Description>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002351"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
-        </owl:propertyChainAxiom>
-        <rdfs:label xml:lang="de">denoted by family under hexagonal symmetry</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1632,10 +1461,6 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
-        </owl:propertyChainAxiom>
         <rdfs:label xml:lang="en">denoted by family</rdfs:label>
     </owl:ObjectProperty>
     
@@ -1645,17 +1470,15 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000168">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000164"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037"/>
             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170"/>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-            </rdf:Description>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002351"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170"/>
         </owl:propertyChainAxiom>
         <rdfs:comment>&apos;denoted by&apos; o &apos;member of&apos; o &apos;has Miller indices family under cubic symmetry&apos;</rdfs:comment>
+        <rdfs:comment>&apos;denoted by&apos; o &apos;under  symmetry&apos; o &apos;is cubic&apos; o  inverse (&apos;under  symmetry&apos;) o &apos;has member&apos; o &apos;member of&apos;</rdfs:comment>
         <rdfs:comment>&apos;denoted by&apos; o &apos;under cubic symmetry&apos; o &apos;member of&apos; o &apos;under cubic symmetry&apos;</rdfs:comment>
         <rdfs:label xml:lang="en">denoted by family under cubic symmetry</rdfs:label>
     </owl:ObjectProperty>
@@ -3167,6 +2990,8 @@ of this, different, term.</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <obo:IAO_0000115 xml:lang="en">A label is a symbol that is part of some other datum and is used to either partially define  the denotation of that datum or to provide a means for identifying the datum as a member of the set of data with the same label</obo:IAO_0000115>
         <obo:IAO_0000116 xml:lang="en">http://www.golovchenko.org/cgi-bin/wnsearch?q=label#4n</obo:IAO_0000116>
+        <obo:IAO_0000232>9/22/11 BP: changed the rdfs:label for this class from &apos;label&apos; to &apos;datum label&apos; to convey that this class is not intended to cover all kinds of labels (stickers, radiolabels, etc.), and not even all kind of textual labels, but rather the kind of labels occuring in a datum. 
+</obo:IAO_0000232>
         <rdfs:label xml:lang="en">datum label</rdfs:label>
     </owl:Class>
     
@@ -3325,6 +3150,7 @@ Request that IAO either clarify these or change definitions not to use them</rdf
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 xml:lang="en">An information content entity that is the outcome of a dubbing process and is used to refer to one instance of entity shared by a group of people to refer to that individual entity.</obo:IAO_0000115>
+        <obo:IAO_0000233 xml:lang="en">https://github.com/information-artifact-ontology/IAO/issues/237</obo:IAO_0000233>
         <rdfs:comment xml:lang="en">Sep 29, 2016: The current definition has been amended from the previous version: &quot;A proper name is an information content entity that is the outcome of a dubbing process and is used to refer to one instance of entity shared by a group of people to refer to that individual entity.&quot; to more accuratly reflect the necessary and sufficient condition on the class. (MB)</rdfs:comment>
         <rdfs:label xml:lang="en">identifier</rdfs:label>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
@@ -3354,6 +3180,7 @@ Request that IAO either clarify these or change definitions not to use them</rdf
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 xml:lang="en">A planned process that provides a reference to an individual entity shared by a group of subscribers to refer to that individual entity.</obo:IAO_0000115>
+        <obo:IAO_0000233 xml:lang="en">https://github.com/information-artifact-ontology/IAO/issues/237</obo:IAO_0000233>
         <rdfs:label xml:lang="en">identifier creating process</rdfs:label>
     </owl:Class>
     
@@ -3390,6 +3217,7 @@ Request that IAO either clarify these or change definitions not to use them</rdf
         <obo:IAO_0000116 xml:lang="en">Role call - 17nov-08: JF and MC think an evaluant role is always specified input of a process. Even in the case where we have an assay taking blood as evaluant and outputting blood, the blood is not the specified output at the end of the assay (the concentration of glucose in the blood is)</obo:IAO_0000116>
         <obo:IAO_0000116 xml:lang="en">examples of features that could be described in an evaluant: quality.... e.g. &quot;contains 10 pg/ml IL2&quot;, or &quot;no glucose detected&quot;)</obo:IAO_0000116>
         <obo:IAO_0000119>OBI</obo:IAO_0000119>
+        <obo:IAO_0000232>Feb 10, 2009.  changes after discussion at OBI Consortium Workshop Feb 2-6, 2009.  accepted as core term.</obo:IAO_0000232>
         <rdfs:label xml:lang="en">evaluant role</rdfs:label>
     </owl:Class>
     
@@ -3905,224 +3733,6 @@ for now.</obo:IAO_0000116>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.allmeasures.com/Fullconversion.asp</qudt:informativeReference>
         <rdfs:isDefinedBy rdf:resource="http://qudt.org/schema/qudt"/>
         <rdfs:label>Unit</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000004 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000004">
-        <rdfs:subClassOf rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000102"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
-                        <owl:someValuesFrom rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000229"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">An object that represents a single human individual.</rdfs:comment>
-        <rdfs:label xml:lang="en">person</rdfs:label>
-        <skos:example>Harald Sack, Tabea Tietz, Sasha Bruns, Etienne Posthumus</skos:example>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdfs:comment xml:lang="en">An information content entity that specifies the subject area, domain or academic discipline of an entity. An academic discipline, a research field or domain of an entity, e.g. a domain of a data portal or a field of study of a person.</rdfs:comment>
-        <rdfs:label xml:lang="en">academic discipline</rdfs:label>
-        <skos:example rdf:resource="https://www.wikidata.org/entity/Q12271"/>
-        <skos:example xml:lang="en">Architecture, Art History, Musicology, Media Studies, Performing Arts</skos:example>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000102 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000102">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000004"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
-                        <owl:someValuesFrom rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000229"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
-                <owl:someValuesFrom rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000229"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">An independent continuant that acts autonomously and is entrusted with the authority to represent, negotiate, or act on behalf of another agent.</rdfs:comment>
-        <rdfs:label xml:lang="en">agent</rdfs:label>
-        <skos:example xml:lang="en">Torsten Schrade, Linnaea Söhn, Academy of Sciences and Literature Mainz</skos:example>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000131 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000131">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <rdfs:comment xml:lang="en">An process that represents an organized happening that unfolds in time.</rdfs:comment>
-        <rdfs:label xml:lang="en">event</rdfs:label>
-        <skos:example xml:lang="en">conferences, celebrations, workshops, meetings, or any other specific incident or happening that has been planned somehow.</skos:example>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000203 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000203">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000033"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000033"/>
-                    <owl:Restriction>
-                        <owl:onProperty>
-                            <rdf:Description>
-                                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002234"/>
-                            </rdf:Description>
-                        </owl:onProperty>
-                        <owl:someValuesFrom rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000224"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty>
-                    <rdf:Description>
-                        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002234"/>
-                    </rdf:Description>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000224"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A directive information entity that defines the requirements, characteristics, or standards for the design, implementation, or operation of a system, product, or process.Specification is a set of requirements, guidelines, standards contributed by an organization or a person.</rdfs:comment>
-        <rdfs:label xml:lang="en">specification</rdfs:label>
-        <skos:example xml:lang="en">Guidelines, technical specifications, design specifications</skos:example>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000224 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000224">
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
-                        <owl:someValuesFrom rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000004"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A process that involves generating, developing, and refining original ideas or concepts through exploration, experimentation, and problem-solving, aiming to produce innovative or expressive outcomes in artistic, scientific, or other creative fields.</rdfs:comment>
-        <rdfs:label xml:lang="en">creative process</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000229 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000229">
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000023"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000081"/>
-                        <owl:someValuesFrom rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000102"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Role of an independent continuant that is realized through an agent&apos;s actions, enabling the agent to perform specific functions or achieve particular outcomes within a system or context.</rdfs:comment>
-        <rdfs:label xml:lang="en">agent role</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0020000"/>
-        <rdfs:comment>An academic title is an identifier that denotes an individual’s academic rank, qualification, or honorary designation within educational and research institutions.</rdfs:comment>
-        <rdfs:label xml:lang="en">academic title</rdfs:label>
-        <skos:example>Professor, Associate Professor, Dr., PhD, Dr. Ing.</skos:example>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001050 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001050">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000203"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
-                        <owl:someValuesFrom rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000131"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000203"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000219"/>
-                <owl:someValuesFrom rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000131"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment>An event implementation specification is a type of Directive Information Entity that provides formal guidelines, constraints, and details on how an event should be executed. It specifies the mode of implementation, including logistical, technical, and procedural aspects required to carry out an event successfully.</rdfs:comment>
-        <rdfs:label xml:lang="en">event implementation specification</rdfs:label>
-        <skos:example>Specifications for organizing conferences, training workshops, and academic seminars in different formats such as virtual, in-person, or hybrid settings.</skos:example>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001051 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001051">
-        <rdfs:subClassOf rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000203"/>
-        <rdfs:comment>A funding specification is a directive information entity that provides structured guidelines, policies, and requirements for securing, managing, and allocating financial resources for various activities, projects, or organizations.</rdfs:comment>
-        <rdfs:label xml:lang="en">funding specification</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001052 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001052">
-        <rdfs:subClassOf rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000203"/>
-        <rdfs:comment>An information access specification is a directive information entity that defines the policies, conditions, and mechanisms governing the accessibility of digital or physical information resources for users or organizations.</rdfs:comment>
-        <rdfs:label xml:lang="en">information access specification</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001056 -->
-
-    <owl:Class rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001056">
-        <rdfs:subClassOf rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000203"/>
-        <rdfs:comment>A status specification is a directive information entity that defines the current state, progress, or condition of an entity, process, or project based on predefined criteria and operational guidelines.</rdfs:comment>
-        <rdfs:label xml:lang="en">status specification</rdfs:label>
     </owl:Class>
     
 
@@ -8731,19 +8341,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
 
     <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000014">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000501"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000016"/>
@@ -9006,6 +8604,71 @@ crystal structures according to the axial system used to describe their lattice 
     
 
 
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000041 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000041">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000140"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000140"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/cryo/CRYO_0000042 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000042">
@@ -9056,6 +8719,402 @@ Grain orientation can be specified by either texture fibers or texture component
         <rdfs:label xml:lang="en">Bunge Euler angles</rdfs:label>
         <rdfs:seeAlso>https://mtex-toolbox.github.io/RotationDefinition.html</rdfs:seeAlso>
         <skos:definition xml:lang="en">Bunge Euler angles define the Euler angles according to the Bunge notations, which define the three subsequent rotations about fixed axes, namely ZXZ, i.e., the first rotation is around the z axis, second around the x axis and third again around the z.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000119 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000119">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000140"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000029"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000140"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000029"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="de">crystallographic entity in triclinic system</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000120 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000120">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000140"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000140"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="de">crystallographic entity in monoclinic system</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000121 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000121">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000140"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000140"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="de">crystallographic entity in orthorhombic system</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000122 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000122">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000140"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000140"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="de">crystallographic entity in tetragonal system</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000123 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000123">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000140"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000140"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="de">crystallographic entity in rhombohedral system</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000129 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000129">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000140"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000140"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="de">crystallographic entity in hexagonal system</rdfs:label>
     </owl:Class>
     
 
@@ -12422,20 +12481,6 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -12463,6 +12508,20 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -12484,20 +12543,6 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                 <owl:someValuesFrom>
@@ -12521,6 +12566,20 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -12558,20 +12617,6 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -12599,6 +12644,20 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -12620,20 +12679,6 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                 <owl:someValuesFrom>
@@ -12657,6 +12702,20 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -12697,20 +12756,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -12738,6 +12783,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -12759,20 +12818,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                 <owl:someValuesFrom>
@@ -12796,6 +12841,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -13082,7 +13141,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000088"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
@@ -13213,20 +13272,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -13278,6 +13323,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -13299,20 +13358,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                 <owl:someValuesFrom>
@@ -13365,6 +13410,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                     </owl:Class>
                                 </owl:someValuesFrom>
                             </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -13396,20 +13455,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                         <owl:someValuesFrom>
@@ -13462,6 +13507,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -13483,20 +13542,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                 <owl:someValuesFrom>
@@ -13549,6 +13594,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                     </owl:Class>
                                 </owl:someValuesFrom>
                             </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -13580,20 +13639,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                         <owl:someValuesFrom>
@@ -13646,6 +13691,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -13667,20 +13726,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                 <owl:someValuesFrom>
@@ -13728,6 +13773,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -13823,20 +13882,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                                    </owl:Restriction>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
-                                                    <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
@@ -13864,6 +13909,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -13885,20 +13944,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
-                                                            <owl:Restriction>
-                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
-                                                            </owl:Restriction>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                 <owl:someValuesFrom>
@@ -13922,6 +13967,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -18185,479 +18244,6 @@ Source: ISO 6892-1:2019</skos:definition>
     
 
 
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000157 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000157">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment>An academic discipline that focuses on the study, design, and application of electrical systems and technologies. Electrical engineering involves the development of devices, circuits, and systems for power generation, communication, electronics, and automation.</rdfs:comment>
-        <rdfs:label xml:lang="en">electrical engineering</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000159 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000159">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that focuses on the design, optimization, and operation of industrial processes to transform raw materials into valuable products. Process engineering applies principles of chemistry, physics, and engineering to improve efficiency, sustainability, and safety in industries such as manufacturing, energy, and pharmaceuticals.</rdfs:comment>
-        <rdfs:label xml:lang="en">process engineering</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001063 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001063">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <skos:broader rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010017"/>
-        <obo:IAO_0000119>Russell, S., &amp; Norvig, P. (2020). Artificial Intelligence: A Modern Approach. Pearson.</obo:IAO_0000119>
-        <rdfs:comment>Artificial Intelligence (AI) is a sub-discipline of Computer Science that focuses on creating systems capable of performing tasks that require human-like intelligence, such as learning, reasoning, and problem-solving.</rdfs:comment>
-        <rdfs:label xml:lang="en">artificial intelligence</rdfs:label>
-        <skos:example>Deep learning for image recognition, reinforcement learning in robotics, and natural language processing fall under Artificial Intelligence.</skos:example>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001064 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001064">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <skos:broader rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010017"/>
-        <rdfs:comment>Theoretical Computer Science is a sub-discipline of Computer Science that focuses on mathematical models of computation, computational complexity, and algorithmic problem-solving</rdfs:comment>
-        <rdfs:label xml:lang="en">theoretical computer science</rdfs:label>
-        <skos:example>Studies on Turing machines, complexity classes (P vs NP), and formal languages belong to Theoretical Computer Science.</skos:example>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001065 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001065">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <skos:broader rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010017"/>
-        <rdfs:comment>Software Engineering is a sub-discipline of Computer Science that applies engineering principles to the design, development, testing, and maintenance of software systems.</rdfs:comment>
-        <rdfs:label xml:lang="en">software engineering</rdfs:label>
-        <skos:example>Agile software development, DevOps practices, and software architecture design fall under Software Engineering.</skos:example>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001066 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001066">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <skos:broader rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010017"/>
-        <obo:IAO_0000119>Provost, F., &amp; Fawcett, T. (2013). Data Science for Business. O&apos;Reilly Media.</obo:IAO_0000119>
-        <rdfs:comment>Data Science is a sub-discipline of Computer Science that integrates statistical methods, machine learning, and data processing techniques to extract insights and knowledge from structured and unstructured data.</rdfs:comment>
-        <rdfs:label xml:lang="en">data science</rdfs:label>
-        <skos:example>Predictive analytics, big data visualization, and recommendation systems are part of Data Science.</skos:example>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001067 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001067">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <skos:broader rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010017"/>
-        <obo:IAO_0000119>Stallings, W. (2020). Network Security Essentials. Pearson.</obo:IAO_0000119>
-        <rdfs:comment>Cybersecurity is a sub-discipline of Computer Science that focuses on protecting computer systems, networks, and data from cyber threats, vulnerabilities, and unauthorized access.</rdfs:comment>
-        <rdfs:label xml:lang="en">cybersecurity</rdfs:label>
-        <skos:example>Encryption techniques, intrusion detection systems, and ethical hacking studies belong to Cybersecurity.</skos:example>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001070 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001070">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001056"/>
-        <rdfs:comment>Active Status is a status specification that indicates an entity, process, or project is currently operational, ongoing, or in execution.</rdfs:comment>
-        <rdfs:label xml:lang="en">active status</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001071 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001071">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001056"/>
-        <rdfs:comment>Cancelled Status is a status specification that indicates an entity, process, or project has been terminated before reaching completion due to internal or external factors.</rdfs:comment>
-        <rdfs:label xml:lang="en">cancelled status</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001072 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001072">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040"/>
-        <rdfs:comment>Doctor (PhD or equivalent academic doctorate)</rdfs:comment>
-        <rdfs:label xml:lang="en">Dr.</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001073 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001073">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040"/>
-        <rdfs:comment>Doctor of Engineering (German doctorate in engineering).</rdfs:comment>
-        <rdfs:label xml:lang="en">Dr.-Ing.</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001074 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001074">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001056"/>
-        <rdfs:comment>Finished Status is a status specification that indicates an entity, process, or project has successfully reached its intended goal and is considered complete.</rdfs:comment>
-        <rdfs:label xml:lang="en">finished status</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001075 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001075">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001050"/>
-        <rdfs:comment>Hybrid Implementation is an event implementation specification that defines the organization of an event that integrates both physical (on-site) and virtual (online) participation modes</rdfs:comment>
-        <rdfs:label xml:lang="en">hybrid implementation</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001076 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001076">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001052"/>
-        <rdfs:comment>Internal Access is an information access specification that defines policies and mechanisms restricting access to information exclusively within an organization, institution, or research group.</rdfs:comment>
-        <rdfs:label xml:lang="en">internal access</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001077 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001077">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040"/>
-        <rdfs:comment>Master of Science (graduate degree in science/engineering).</rdfs:comment>
-        <rdfs:label xml:lang="en">M.Sc.</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001078 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001078">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001050"/>
-        <rdfs:comment>On-Site Implementation is an event implementation specification that defines the organization of an event that occurs exclusively at a physical location with in-person attendance.</rdfs:comment>
-        <rdfs:label xml:lang="en">on site implementation</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001079 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001079">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001050"/>
-        <rdfs:comment>Online Implementation is an event implementation specification that defines the organization of an event conducted entirely through virtual platforms, enabling remote participation via digital communication technologies.</rdfs:comment>
-        <rdfs:label xml:lang="en">online implementation</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001080 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001080">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001052"/>
-        <rdfs:comment>Open Access is an information access specification that defines policies allowing unrestricted public access to information resources, ensuring free availability without subscription or payment barriers.</rdfs:comment>
-        <rdfs:label xml:lang="en">open access</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001081 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001081">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001051"/>
-        <rdfs:comment>Organizational Funding is a funding specification that defines the financial structures, budgets, and resource allocation strategies for sustaining the operations of an organization or institution.</rdfs:comment>
-        <rdfs:label xml:lang="en">organizational funding</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001082 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001082">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001056"/>
-        <rdfs:comment>Paused Status is a status specification that indicates an entity, process, or project is temporarily halted but may resume at a later stage.</rdfs:comment>
-        <rdfs:label xml:lang="en">paused status</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001083 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001083">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001052"/>
-        <rdfs:comment>Paywall Access is an information access specification that defines policies requiring users to purchase, subscribe, or obtain institutional licenses to access digital or physical information resources.</rdfs:comment>
-        <rdfs:label xml:lang="en">paywall access</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001084 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001084">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040"/>
-        <rdfs:comment>Privatdozent (Dr. with habilitation, qualified to teach at a university)</rdfs:comment>
-        <rdfs:label xml:lang="en">PD. Dr.</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001085 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001085">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040"/>
-        <rdfs:comment>Privatdozent with Habilitation (higher academic qualification in Germany)</rdfs:comment>
-        <rdfs:label xml:lang="en">PD. Dr. habil.</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001086 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001086">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001056"/>
-        <rdfs:comment>Planning Status is a status specification that indicates an entity, process, or project is in a preparatory or strategic development phase before execution.</rdfs:comment>
-        <rdfs:label xml:lang="en">planning status</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001087 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001087">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040"/>
-        <rdfs:comment>Professor (academic title for a senior faculty member).</rdfs:comment>
-        <rdfs:label xml:lang="en">Prof.</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001088 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001088">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040"/>
-        <rdfs:comment>Professor with a doctorate.</rdfs:comment>
-        <rdfs:label xml:lang="en">Prof. Dr.</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001089 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001089">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040"/>
-        <rdfs:comment>Professor with a doctorate in engineering.</rdfs:comment>
-        <rdfs:label xml:lang="en">Prof. Dr.-Ing.</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001090 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001090">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001051"/>
-        <rdfs:comment>Project Funding is a funding specification that defines the financial mechanisms, grants, and investment strategies used to support specific research, development, or innovation projects.</rdfs:comment>
-        <rdfs:label xml:lang="en">project funding</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001091 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001091">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001052"/>
-        <rdfs:comment>Restricted Access is an information access specification that defines policies limiting access to specific users, organizations, or groups based on predefined criteria such as confidentiality, security, or legal regulations.</rdfs:comment>
-        <rdfs:label xml:lang="en">restricted access</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001092 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001092">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001051"/>
-        <rdfs:comment>Self-Funding is a funding specification that defines the use of personal, internal, or independently generated financial resources to support activities, projects, or organizations without relying on external funding sources.</rdfs:comment>
-        <rdfs:label xml:lang="en">self funding</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001093 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001093">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001056"/>
-        <rdfs:comment>Test Phase Status is a status specification that indicates an entity, process, or project is undergoing testing, evaluation, or validation before finalization.</rdfs:comment>
-        <rdfs:label xml:lang="en">test phase status</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001094 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001094">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0001040"/>
-        <rdfs:comment xml:lang="en">Two Doctor degrees (PhD or equivalent academic doctorate)</rdfs:comment>
-        <rdfs:label xml:lang="en">Dr. Dr.</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010001 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010001">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline focused on human culture, thought, and creativity, encompassing disciplines like literature, philosophy, and the arts.</rdfs:comment>
-        <rdfs:label xml:lang="en">humanity</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010002 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010002">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that studies society and human behavior through disciplines like sociology, psychology, and economics.</rdfs:comment>
-        <rdfs:label xml:lang="en">social science</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010004 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010004">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that studies living organisms, their structures, functions, growth, and interactions with their environment. Biology explores the diversity of life, from microscopic organisms to complex ecosystems, and seeks to understand the underlying processes of life, evolution, and heredity.</rdfs:comment>
-        <rdfs:label xml:lang="en">biology</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010005 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010005">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that focuses on the science and practice of diagnosing, treating, and preventing illnesses and injuries. Medicine involves the study of human health, medical technologies, pharmaceuticals, and patient care to improve well-being and extend life.</rdfs:comment>
-        <rdfs:label xml:lang="en">medicine</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010006 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010006">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that focuses on the science, practice, and business of cultivating plants, raising animals, and producing food, fiber, and other products. Agriculture involves the study of soil management, crop production, livestock care, and sustainable farming practices to ensure food security and environmental sustainability.</rdfs:comment>
-        <rdfs:label xml:lang="en">agriculture</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010007 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010007">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment>An academic discipline that studies the natural world through observation, experimentation, and analysis. Natural science includes fields such as physics, chemistry, biology, and earth sciences, aiming to understand the laws and processes governing the universe and life on Earth.</rdfs:comment>
-        <rdfs:label xml:lang="en">natural science</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010008 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010008">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that studies the composition, structure, properties, and reactions of matter. Chemistry focuses on understanding how substances interact, transform, and combine to form new materials, playing a crucial role in fields such as medicine, energy, and environmental science.</rdfs:comment>
-        <rdfs:label xml:lang="en">chemistry</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010010 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010010">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that explores the fundamental principles governing the behavior of matter, energy, and the forces of nature. Physics seeks to understand the laws of the universe, from subatomic particles to cosmic phenomena, through experimentation, observation, and mathematical modeling.</rdfs:comment>
-        <rdfs:label xml:lang="en">physics</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010011 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010011">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment>An academic discipline that involves the study of numbers, quantities, shapes, and patterns, using abstract concepts and logical reasoning. Mathematics is fundamental to various fields, including science, engineering, economics, and technology, providing tools for problem-solving, analysis, and modeling.</rdfs:comment>
-        <rdfs:label xml:lang="en">mathematics</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010012 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010012">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that focuses on the study of the Earth’s structure, processes, and materials, including the atmosphere, oceans, and landforms. Geoscience encompasses fields such as geology, meteorology, and environmental science to understand Earth’s history, natural resources, and natural hazards.</rdfs:comment>
-        <rdfs:label xml:lang="en">geoscience</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010014 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010014">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that focuses on the design, analysis, manufacturing, and maintenance of mechanical systems. Mechanical engineering applies principles of physics, materials science, and mathematics to develop machines, tools, and devices used in industries such as transportation, energy, and robotics.</rdfs:comment>
-        <rdfs:label xml:lang="en">mechanical engineering</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010016 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010016">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that explores the properties, performance, and applications of materials, focusing on the relationship between a material&apos;s structure and its characteristics. Materials science and engineering involves the design, development, and testing of materials for use in a wide range of industries, including aerospace, electronics, and manufacturing.</rdfs:comment>
-        <rdfs:label xml:lang="en">materials science</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010017 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010017">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that focuses on the study of algorithms, data structures, programming, and computational systems. Computer science explores how to design, develop, and analyze software and hardware solutions to solve complex problems and advance technology.</rdfs:comment>
-        <rdfs:label xml:lang="en">computer science</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010018 -->
-
-    <owl:NamedIndividual rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0010018">
-        <rdf:type rdf:resource="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000100"/>
-        <rdfs:comment xml:lang="en">An academic discipline that focuses on the planning, design, and management of construction projects, including buildings, infrastructure, and other structures. Construction engineering integrates principles of civil engineering, project management, and materials science to ensure safety, efficiency, and sustainability in construction processes.</rdfs:comment>
-        <rdfs:label xml:lang="en">construction engineering</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- https://w3id.org/pmd/co/PMD_0020006 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020006">
@@ -18940,7 +18526,12 @@ Source: ISO 6892-1:2019</skos:definition>
     <!-- https://w3id.org/pmd/cryo/CRYO_0000029 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000029">
-        <cryo:CRYO_0000054 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000029"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <rdfs:label xml:lang="en">triclinic</rdfs:label>
         <skos:definition xml:lang="en">Triclinic crystal system is a crystal system with only translational symmetry.</skos:definition>
     </owl:NamedIndividual>
@@ -18950,7 +18541,11 @@ Source: ISO 6892-1:2019</skos:definition>
     <!-- https://w3id.org/pmd/cryo/CRYO_0000030 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000030">
-        <cryo:CRYO_0000055 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <rdfs:label xml:lang="en">monoclinic</rdfs:label>
         <skos:definition xml:lang="en">Monoclinic crystal system is a crystal system with one twofold rotation axis or one mirror plane.</skos:definition>
     </owl:NamedIndividual>
@@ -18960,7 +18555,10 @@ Source: ISO 6892-1:2019</skos:definition>
     <!-- https://w3id.org/pmd/cryo/CRYO_0000031 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000031">
-        <cryo:CRYO_0000056 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <rdfs:label xml:lang="en">orthorhombic</rdfs:label>
         <skos:definition xml:lang="en">Orthorhombic crystal system is a crystal system with three twofold rotation axes or one twofold rotation axis and two mirror planes</skos:definition>
     </owl:NamedIndividual>
@@ -18970,7 +18568,9 @@ Source: ISO 6892-1:2019</skos:definition>
     <!-- https://w3id.org/pmd/cryo/CRYO_0000032 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000032">
-        <cryo:CRYO_0000050 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <rdfs:label xml:lang="en">tetragonal</rdfs:label>
         <skos:definition xml:lang="en">Tetragonal crystal system is a crystal system with one fourfold rotation axis.</skos:definition>
     </owl:NamedIndividual>
@@ -18980,7 +18580,8 @@ Source: ISO 6892-1:2019</skos:definition>
     <!-- https://w3id.org/pmd/cryo/CRYO_0000033 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000033">
-        <cryo:CRYO_0000057 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <rdfs:label xml:lang="en">rhombohedral</rdfs:label>
         <skos:altLabel xml:lang="en">trigonal</skos:altLabel>
         <skos:definition xml:lang="en">Rhombohedral ( trigonal) crystal system is a crystal system with one threefold rotation axis.</skos:definition>
@@ -18991,7 +18592,7 @@ Source: ISO 6892-1:2019</skos:definition>
     <!-- https://w3id.org/pmd/cryo/CRYO_0000034 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000034">
-        <cryo:CRYO_0000058 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
+        <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <rdfs:label xml:lang="en">hexagonal</rdfs:label>
         <skos:definition xml:lang="en">Hexagonal crystal system is a crystal system with one sixfold rotation axis.</skos:definition>
     </owl:NamedIndividual>
@@ -19001,7 +18602,6 @@ Source: ISO 6892-1:2019</skos:definition>
     <!-- https://w3id.org/pmd/cryo/CRYO_0000035 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000035">
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <rdfs:label xml:lang="en">cubic</rdfs:label>
         <skos:definition xml:lang="en">Cubic crystal system is a crystal system with fourfold rotation axes.</skos:definition>
     </owl:NamedIndividual>
@@ -19039,7 +18639,7 @@ Source: ISO 6892-1:2019</skos:definition>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000128"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000130"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/components/cryo-individuals.owl/CRYO_0000000"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19099,6 +18699,7 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000047">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000011"/>
+        <obo:BFO_0000050 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000103"/>
         <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000128"/>
         <rdfs:label xml:lang="en">some plane</rdfs:label>
     </owl:NamedIndividual>
@@ -19121,7 +18722,7 @@ Source: ISO 6892-1:2019</skos:definition>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000080"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000081"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000082"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000064"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19142,7 +18743,7 @@ Source: ISO 6892-1:2019</skos:definition>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000100"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000101"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000102"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000065"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19161,7 +18762,6 @@ Source: ISO 6892-1:2019</skos:definition>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000115"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000116"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000117"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19186,7 +18786,6 @@ Source: ISO 6892-1:2019</skos:definition>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000092"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000093"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000094"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19207,7 +18806,6 @@ Source: ISO 6892-1:2019</skos:definition>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000109"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000110"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000111"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19220,7 +18818,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000069">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19233,7 +18830,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000070">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19246,7 +18842,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000071">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19259,7 +18854,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000072">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19272,7 +18866,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000073">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19285,7 +18878,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000074">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19298,7 +18890,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000076">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19311,7 +18902,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000077">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19324,7 +18914,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000078">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19337,7 +18926,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000080">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19350,7 +18938,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000081">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19363,7 +18950,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000082">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19376,7 +18962,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000083">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19389,7 +18974,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000084">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19402,7 +18986,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000085">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19415,7 +18998,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000086">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19428,7 +19010,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000087">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19441,7 +19022,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000088">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19454,7 +19034,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000089">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19467,7 +19046,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000090">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19480,7 +19058,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000091">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19493,7 +19070,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000092">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19506,7 +19082,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000093">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19519,7 +19094,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000094">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19532,7 +19106,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000095">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19545,7 +19118,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000096">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19558,7 +19130,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000097">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19571,7 +19142,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000098">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19584,7 +19154,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000099">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19597,7 +19166,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000100">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19610,7 +19178,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000101">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19623,7 +19190,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000102">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19632,11 +19198,21 @@ Source: ISO 6892-1:2019</skos:definition>
     
 
 
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000103 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000103">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+        <obo:RO_0000086 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000118"/>
+        <rdfs:label xml:lang="de">cubic lattice</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/pmd/cryo/CRYO_0000104 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000104">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000104"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19649,7 +19225,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000105">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19662,7 +19237,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000106">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19675,7 +19249,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000107">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19688,7 +19261,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000108">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19701,7 +19273,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000109">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19714,7 +19285,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000110">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19727,7 +19297,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000111">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19740,7 +19309,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000112">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19753,7 +19321,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000113">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19766,7 +19333,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000114">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19779,7 +19345,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000115">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19792,7 +19357,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000116">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19805,7 +19369,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000117">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19814,11 +19377,20 @@ Source: ISO 6892-1:2019</skos:definition>
     
 
 
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000118 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000118">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+        <co:PMD_0000077 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+        <rdfs:label xml:lang="de">cubic system</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/pmd/cryo/CRYO_0000125 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000125">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19831,7 +19403,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000126">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19844,7 +19415,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000127">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -19857,7 +19427,7 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000128">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000128"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19870,7 +19440,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000130">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
@@ -19883,7 +19452,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/components/cryo-individuals.owl/CRYO_0000000">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000037 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -19957,8 +19525,8 @@ Source: ISO 6892-1:2019</skos:definition>
     <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crystal_structure -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crystal_structure">
-        <rdf:type rdf:resource="https://w3id.org/pmd/co/PMD_0000591"/>
-        <co:PMD_0000077 rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+        <co:PMD_0000077 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
     </owl:NamedIndividual>
     
 
@@ -19977,6 +19545,7 @@ Source: ISO 6892-1:2019</skos:definition>
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_population">
         <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
         <obo:BFO_0000050 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/material_x"/>
+        <obo:RO_0000086 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crystal_structure"/>
     </owl:NamedIndividual>
     
 
@@ -19985,7 +19554,7 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/material_x">
         <rdf:type rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
-        <obo:RO_0000086 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crystal_structure"/>
+        <obo:BFO_0000051 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_population"/>
         <NOES_0000040 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/RD"/>
         <NOES_0000040 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/RP"/>
     </owl:NamedIndividual>
@@ -20002,6 +19571,7 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235">
         <obo:IAO_0000115 xml:lang="en">inverse of the relation &apos;denotes&apos;</obo:IAO_0000115>
+        <obo:IAO_0000233 rdf:resource="https://github.com/information-artifact-ontology/IAO/issues/206"/>
         <rdfs:label xml:lang="en">denoted by</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0000012">
@@ -20113,8 +19683,8 @@ Source: ISO 6892-1:2019</skos:definition>
     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020098">
         <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </rdf:Description>
-    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037">
-        <rdfs:label xml:lang="de">under  symmetry</rdfs:label>
+    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000041">
+        <rdfs:label xml:lang="en">crystallographic entity in cubic system</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000124">
         <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
