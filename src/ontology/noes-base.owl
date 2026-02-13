@@ -2890,6 +2890,33 @@ A manufacturing process is always a transformative process.</skos:definition>
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000853">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000885"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000008"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">crystallographic texture</rdfs:label>
         <skos:definition xml:lang="en">The crystallographic texture is a morphological quality describing the arrangement and orientation of grains in a metallic material, observed through crystallographic analysis.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
@@ -6293,32 +6320,19 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:defin
     <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000001"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000001"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>(&apos;quality of&apos; some &apos;crystal lattice&apos;) potentially crystal system is a quality of a crystal lattice. But then we need the connection between crystal lattice, grains, etc. and its complicated</rdfs:comment>
         <rdfs:comment xml:lang="en">defintion from Introduction to Textur Analysis. TODO: add proper annnotation property</rdfs:comment>
         <rdfs:label xml:lang="en">crystal system</rdfs:label>
         <skos:altLabel xml:lang="en">lattice type</skos:altLabel>
@@ -9816,7 +9830,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -9834,19 +9848,11 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -9865,7 +9871,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000067"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -9886,7 +9892,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
@@ -9905,19 +9911,11 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                            <owl:Class>
-                                                                <owl:unionOf rdf:parseType="Collection">
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                    </owl:Restriction>
-                                                                </owl:unionOf>
-                                                            </owl:Class>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                            </owl:Restriction>
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
@@ -9936,7 +9934,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                                             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                             <owl:Restriction>
                                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000067"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -9968,7 +9966,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -9986,19 +9984,11 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -10017,7 +10007,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -10038,7 +10028,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
@@ -10057,19 +10047,11 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                            <owl:Class>
-                                                                <owl:unionOf rdf:parseType="Collection">
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                    </owl:Restriction>
-                                                                </owl:unionOf>
-                                                            </owl:Class>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                            </owl:Restriction>
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
@@ -10088,7 +10070,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                                                                             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                             <owl:Restriction>
                                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -10123,7 +10105,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -10141,19 +10123,11 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -10172,7 +10146,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -10193,7 +10167,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
@@ -10212,19 +10186,11 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                            <owl:Class>
-                                                                <owl:unionOf rdf:parseType="Collection">
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                    </owl:Restriction>
-                                                                </owl:unionOf>
-                                                            </owl:Class>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                            </owl:Restriction>
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
@@ -10243,7 +10209,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                             <owl:Restriction>
                                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -10452,7 +10418,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -10465,28 +10431,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                         <owl:someValuesFrom>
@@ -10501,7 +10445,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -10539,6 +10483,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -10546,7 +10504,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000088"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
@@ -10561,28 +10519,6 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                         <owl:intersectionOf rdf:parseType="Collection">
                                             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                <owl:someValuesFrom>
-                                                    <owl:Class>
-                                                        <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                            <owl:Class>
-                                                                <owl:unionOf rdf:parseType="Collection">
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                    </owl:Restriction>
-                                                                </owl:unionOf>
-                                                            </owl:Class>
-                                                        </owl:intersectionOf>
-                                                    </owl:Class>
-                                                </owl:someValuesFrom>
-                                            </owl:Restriction>
-                                            <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
@@ -10596,7 +10532,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                             <owl:Restriction>
                                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -10629,6 +10565,20 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -10671,7 +10621,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -10689,19 +10639,11 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -10720,7 +10662,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000067"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -10784,19 +10726,11 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                            <owl:Class>
-                                                                <owl:unionOf rdf:parseType="Collection">
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                    </owl:Restriction>
-                                                                </owl:unionOf>
-                                                            </owl:Class>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                            </owl:Restriction>
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
@@ -10815,7 +10749,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                             <owl:Restriction>
                                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000067"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -10871,7 +10805,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -10889,19 +10823,11 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -10920,7 +10846,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -10944,7 +10870,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000064"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -10984,19 +10910,11 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                            <owl:Class>
-                                                                <owl:unionOf rdf:parseType="Collection">
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                    </owl:Restriction>
-                                                                </owl:unionOf>
-                                                            </owl:Class>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                            </owl:Restriction>
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
@@ -11015,7 +10933,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                             <owl:Restriction>
                                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -11039,7 +10957,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
                                                                             <owl:Restriction>
                                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000064"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -11071,7 +10989,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -11089,19 +11007,11 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -11120,7 +11030,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000067"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -11144,7 +11054,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000064"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -11184,19 +11094,11 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                            <owl:Class>
-                                                                <owl:unionOf rdf:parseType="Collection">
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                    </owl:Restriction>
-                                                                </owl:unionOf>
-                                                            </owl:Class>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                            </owl:Restriction>
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
@@ -11215,7 +11117,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                             <owl:Restriction>
                                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000067"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -11239,7 +11141,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
                                                                             <owl:Restriction>
                                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000064"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -11329,7 +11231,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -11347,19 +11249,11 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -11378,7 +11272,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000068"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -11399,7 +11293,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
@@ -11418,19 +11312,11 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                            <owl:Class>
-                                                                <owl:unionOf rdf:parseType="Collection">
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                    </owl:Restriction>
-                                                                    <owl:Restriction>
-                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                    </owl:Restriction>
-                                                                </owl:unionOf>
-                                                            </owl:Class>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                            </owl:Restriction>
                                                         </owl:intersectionOf>
                                                     </owl:Class>
                                                 </owl:someValuesFrom>
@@ -11449,7 +11335,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                                                                             <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                             <owl:Restriction>
                                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
+                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000068"/>
                                                                             </owl:Restriction>
                                                                         </owl:intersectionOf>
                                                                     </owl:Class>
@@ -14814,7 +14700,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
     <!-- https://w3id.org/pmd/noes/NOES_0000161 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000161">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
         <rdfs:comment xml:lang="en">The axiom is not expressible in OWL. 
 TODO: write a SWIRL rule</rdfs:comment>
         <rdfs:label xml:lang="en">α*-fibre grain orientation</rdfs:label>
@@ -14851,43 +14737,6 @@ TODO: write a SWIRL rule</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <rdfs:label xml:lang="en">average grain size</rdfs:label>
         <skos:example xml:lang="en">Average grain size is an intensive quality of a material which describes the average diameter of grains in the material&apos;s microstructure.</skos:example>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/noes/NOES_0000176 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000176">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000885"/>
-                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000008"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Preferred crystallographic orientation is a intensive quality of a grain population which is a subject of t the orientation distribution function (ODF)  or pole figure of the textured material. Preferred crystallographic orientation describes a crystallographic orientation of several grains in a volume, from which the ODF has been determined, while these grains have similar grain orienientations within the given tolerance.</rdfs:comment>
-        <rdfs:label xml:lang="en">preferred crystallographic orientation</rdfs:label>
     </owl:Class>
     
 
@@ -16897,7 +16746,7 @@ Source: ISO 6892-1:2019</skos:definition>
     <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_orinetation -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_orinetation">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
+        <rdf:type rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
         <obo:RO_0000080 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_population"/>
     </owl:NamedIndividual>
     
