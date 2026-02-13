@@ -28,6 +28,23 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000235 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -49,6 +66,40 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000009"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000070"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000853 -->
+
+    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000885"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000008"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
     </rdf:Description>
@@ -1000,7 +1051,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -1018,19 +1069,11 @@
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -1049,7 +1092,7 @@
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000067"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -1080,7 +1123,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -1098,19 +1141,11 @@
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -1129,7 +1164,7 @@
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -1160,7 +1195,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -1178,19 +1213,11 @@
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -1209,7 +1236,7 @@
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -1333,7 +1360,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -1346,28 +1373,6 @@
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
                                                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                                                        <owl:someValuesFrom>
-                                                            <owl:Class>
-                                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
-                                                                </owl:intersectionOf>
-                                                            </owl:Class>
-                                                        </owl:someValuesFrom>
-                                                    </owl:Restriction>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000040"/>
                                                         <owl:someValuesFrom>
@@ -1382,7 +1387,7 @@
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -1415,6 +1420,20 @@
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
@@ -1455,7 +1474,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -1473,19 +1492,11 @@
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -1504,7 +1515,7 @@
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000067"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -1559,7 +1570,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -1577,19 +1588,11 @@
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -1608,7 +1611,7 @@
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000066"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -1632,7 +1635,7 @@
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000064"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -1663,7 +1666,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -1681,19 +1684,11 @@
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -1712,7 +1707,7 @@
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000038"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000067"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -1736,7 +1731,7 @@
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000011"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000064"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -1767,7 +1762,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
                         <owl:someValuesFrom>
@@ -1785,19 +1780,11 @@
                                                         <owl:someValuesFrom>
                                                             <owl:Class>
                                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
-                                                                    <owl:Class>
-                                                                        <owl:unionOf rdf:parseType="Collection">
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020018"/>
-                                                                            </owl:Restriction>
-                                                                            <owl:Restriction>
-                                                                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                                                                <owl:hasValue rdf:resource="https://w3id.org/pmd/co/PMD_0020019"/>
-                                                                            </owl:Restriction>
-                                                                        </owl:unionOf>
-                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                                                    </owl:Restriction>
                                                                 </owl:intersectionOf>
                                                             </owl:Class>
                                                         </owl:someValuesFrom>
@@ -1816,7 +1803,7 @@
                                                                                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000012"/>
                                                                                     <owl:Restriction>
                                                                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000168"/>
-                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000037"/>
+                                                                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000068"/>
                                                                                     </owl:Restriction>
                                                                                 </owl:intersectionOf>
                                                                             </owl:Class>
@@ -3549,27 +3536,6 @@
     
 
 
-    <!-- https://w3id.org/pmd/noes/NOES_0000176 -->
-
-    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000176">
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-    </rdf:Description>
-    
-
-
     <!-- https://w3id.org/pmd/noes/NOES_0000182 -->
 
     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000182">
@@ -3586,6 +3552,24 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000037 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037"/>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000039 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000039"/>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000041 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000041"/>
     
 
 
@@ -3611,8 +3595,8 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crys_direction">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000012"/>
-        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000089"/>
         <noes:NOES_0000067 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crys_direction"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000089"/>
     </owl:NamedIndividual>
     
 
@@ -3621,8 +3605,8 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crys_plane">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000011"/>
-        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000125"/>
         <noes:NOES_0000067 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/RP"/>
+        <obo:IAO_0000235 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000125"/>
     </owl:NamedIndividual>
     
 
@@ -3639,7 +3623,7 @@
     <!-- https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_orinetation -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_orinetation">
-        <rdf:type rdf:resource="https://w3id.org/pmd/noes/NOES_0000176"/>
+        <rdf:type rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
         <obo:RO_0000080 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/grain_population"/>
     </owl:NamedIndividual>
     
@@ -3658,9 +3642,9 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/material_x">
         <rdf:type rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
-        <obo:RO_0000086 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crystal_structure"/>
         <noes:NOES_0000040 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/RD"/>
         <noes:NOES_0000040 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/RP"/>
+        <obo:RO_0000086 rdf:resource="https://w3id.org/pmd/noes/components/noes-axioms-shared.owl/crystal_structure"/>
     </owl:NamedIndividual>
     
 
