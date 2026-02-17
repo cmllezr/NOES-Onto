@@ -14,12 +14,12 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/noes-base.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-13/noes-base.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-17/noes-base.owl"/>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:description>None</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/unspecified"/>
         <dcterms:title>NOES Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
-        <owl:versionInfo>2026-02-13</owl:versionInfo>
+        <owl:versionInfo>2026-02-17</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -533,7 +533,6 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000053">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
         <rdfs:label xml:lang="de">has symmetry</rdfs:label>
     </owl:ObjectProperty>
     
@@ -562,10 +561,9 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000164"/>
         <rdfs:domain rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170"/>
         </owl:propertyChainAxiom>
         <rdfs:comment>&apos;denoted by&apos; o &apos;member of&apos; o &apos;has Miller indices family under cubic symmetry&apos;</rdfs:comment>
         <rdfs:comment>&apos;denoted by&apos; o &apos;under  symmetry&apos; o &apos;is cubic&apos; o  inverse (&apos;under  symmetry&apos;) o &apos;has member&apos; o &apos;member of&apos;</rdfs:comment>
@@ -1777,8 +1775,8 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000070"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">application of magnetic field</rdfs:label>
-        <skos:definition xml:lang="en">An application of (a) magnetic field is the process of subjecting a material to a magnetic field to study its magnetic properties or induce magnetization.</skos:definition>
+        <rdfs:label xml:lang="en">generation of magnetic field</rdfs:label>
+        <skos:definition xml:lang="en">reaction to change of elctric field or movement of charges</skos:definition>
     </owl:Class>
     
 
@@ -1788,7 +1786,9 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000522">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:label xml:lang="en">application of mechanical load</rdfs:label>
+        <rdfs:label xml:lang="en">mechanical loading</rdfs:label>
         <skos:definition xml:lang="en">An application of mechanical load is the process of applying force or stress to a material to observe its response or measure its properties.</skos:definition>
+        <skos:definition xml:lang="en">application of external forces, moments, or imposed displacements to objects or the equivalent loadings (stresses, strains) to materials.</skos:definition>
     </owl:Class>
     
 
@@ -1860,7 +1860,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000549">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:label xml:lang="en">change of temperature</rdfs:label>
-        <skos:definition xml:lang="en">A change of temperature is a process describing the variation in thermal energy within a material or system over time or due to external influences.</skos:definition>
+        <skos:definition xml:lang="en">change of temperature is a process in which a particpant changes its temperature</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -2032,7 +2032,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000596">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:label xml:lang="en">deformation</rdfs:label>
-        <skos:definition xml:lang="en">The deformation is a process describing a change in the shape, size, or structure of a material under the influence of stress or force.</skos:definition>
+        <skos:definition xml:lang="en">The deformation is a process describing a change in the shape, size, or structure of a material often under the influence of stress or force.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -5086,6 +5086,7 @@ NOTE: The wording used in EN 10021 was generalized.</obo:IAO_0000116>
         <rdfs:comment xml:lang="en">TODO: possibly extend for 2D (Graphene etc)
 
 More elaborate crystal descriptions may be found in http://emmo.info/domain-crystallography/crystallography or https://purls.helmholtz-metadaten.de/disos/cso</rdfs:comment>
+        <rdfs:label xml:lang="en">bravais lattice (3D)</rdfs:label>
         <rdfs:label xml:lang="en">bravais lattice (3d)</rdfs:label>
         <skos:definition xml:lang="en">The Bravais lattice is a categorical value specification that specifies value of the crystal structure quality. It describes the possible geometric arrangement of lattice points in a crystal. The present descriptor is limited to the 14 possible three-dimensional arrangements.</skos:definition>
         <skos:definition xml:lang="en">The bravais lattice is a categorical value specification that specifies value of the crystal structure quality. It describes the possible geometric arrangement of lattice points in a crystal. The present descriptor is limited to the 14 possible three-dimensional arrangements.</skos:definition>
@@ -5436,6 +5437,72 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020210 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020210">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020003"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">elemental crystal</rdfs:label>
+        <skos:definition xml:lang="en">a crystal that consists of exactly one atomic species</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020216 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020216">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020217"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020218"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020219"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020242"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
+        <rdfs:label xml:lang="en">order scale value</rdfs:label>
+        <skos:definition xml:lang="en">possible values of characteristic length over which structural correlations persist in a material</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020220 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020220">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/pmd/co/PMD_0020216"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020216"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">order scale</rdfs:label>
+        <skos:definition xml:lang="en">characteristic length over which structural correlations persist in a material</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0025001 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025001">
@@ -5601,6 +5668,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">material reacting process has always energy minimization as a driving force.</rdfs:comment>
         <rdfs:label xml:lang="en">material reacting process</rdfs:label>
         <skos:definition xml:lang="en">Material reacting process is a process which occurs in a portion of matter due to some of its disposition or behavioral material property which has realization in some  stimulating process. Both the material reacting process and stimulating process must be occurent parts of a planned process, if the planned process takes place.</skos:definition>
     </owl:Class>
@@ -5973,7 +6041,12 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
 
     <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000014">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000501"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000016"/>
@@ -6295,6 +6368,12 @@ crystal structures according to the axial system used to describe their lattice 
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000170"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -15986,6 +16065,42 @@ Source: ISO 6892-1:2019</skos:definition>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020217 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020217">
+        <rdfs:label xml:lang="en">short range order</rdfs:label>
+        <skos:definition xml:lang="en">periodic arrangement of structural features up to a few entities</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020218 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020218">
+        <rdfs:label xml:lang="en">medium range order</rdfs:label>
+        <skos:definition xml:lang="en">periodic arrangement of structural features of many entities</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020219 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020219">
+        <rdfs:label xml:lang="en">long range order</rdfs:label>
+        <skos:definition xml:lang="en">periodic arrangement of structural features of virtually all entities</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020242 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020242">
+        <rdfs:label xml:lang="en">no range order</rdfs:label>
+        <skos:definition xml:lang="en">no periodic arrangement of structural features of entites</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/pmd/cryo/CRYO_0000029 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000029">
@@ -16081,7 +16196,6 @@ Source: ISO 6892-1:2019</skos:definition>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000128"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000130"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/components/cryo-individuals.owl/CRYO_0000000"/>
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -16164,7 +16278,6 @@ Source: ISO 6892-1:2019</skos:definition>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000080"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000081"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000082"/>
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000064"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -16185,7 +16298,6 @@ Source: ISO 6892-1:2019</skos:definition>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000100"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000101"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000102"/>
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000065"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -16654,7 +16766,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000104">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000104"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -16869,7 +16980,6 @@ Source: ISO 6892-1:2019</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000128">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000128"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>

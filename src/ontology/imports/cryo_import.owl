@@ -14,9 +14,9 @@
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/imports/cryo_import.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-13/imports/cryo_import.owl"/>
-        <dc:source rdf:resource="https://w3id.org/pmd/cryo/2026-02-13"/>
-        <owl:versionInfo>2026-02-13</owl:versionInfo>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-17/imports/cryo_import.owl"/>
+        <dc:source rdf:resource="https://w3id.org/pmd/cryo/2026-02-17"/>
+        <owl:versionInfo>2026-02-17</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -490,7 +490,6 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000053">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
         <rdfs:label xml:lang="de">has symmetry</rdfs:label>
     </owl:ObjectProperty>
     
@@ -519,10 +518,9 @@ every c that is a concretization of g specifically denotes r</obo:IAO_0000116>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000164"/>
         <rdfs:domain rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000041"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170"/>
         </owl:propertyChainAxiom>
         <rdfs:comment>&apos;denoted by&apos; o &apos;member of&apos; o &apos;has Miller indices family under cubic symmetry&apos;</rdfs:comment>
         <rdfs:comment>&apos;denoted by&apos; o &apos;under  symmetry&apos; o &apos;is cubic&apos; o  inverse (&apos;under  symmetry&apos;) o &apos;has member&apos; o &apos;member of&apos;</rdfs:comment>
@@ -1181,7 +1179,7 @@ Previous. An information content entity is a non-realizable information entity t
         <rdfs:comment xml:lang="en">TODO: possibly extend for 2D (Graphene etc)
 
 More elaborate crystal descriptions may be found in http://emmo.info/domain-crystallography/crystallography or https://purls.helmholtz-metadaten.de/disos/cso</rdfs:comment>
-        <rdfs:label xml:lang="en">bravais lattice (3d)</rdfs:label>
+        <rdfs:label xml:lang="en">bravais lattice (3D)</rdfs:label>
         <skos:definition xml:lang="en">The bravais lattice is a categorical value specification that specifies value of the crystal structure quality. It describes the possible geometric arrangement of lattice points in a crystal. The present descriptor is limited to the 14 possible three-dimensional arrangements.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -1245,6 +1243,49 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
         <rdfs:label xml:lang="en">extensive quality</rdfs:label>
         <skos:definition xml:lang="en">An extensive quality is a quality that inheres in only object or object aggregate or fiat object part or chemical entity and is dependent on the bearers (system-) size.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020216 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020216">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020217"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020218"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020219"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020242"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
+        <rdfs:label xml:lang="en">order scale value</rdfs:label>
+        <skos:definition xml:lang="en">possible values of characteristic length over which structural correlations persist in a material</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020220 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020220">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/pmd/co/PMD_0020216"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020216"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">order scale</rdfs:label>
+        <skos:definition xml:lang="en">characteristic length over which structural correlations persist in a material</skos:definition>
     </owl:Class>
     
 
@@ -1356,7 +1397,12 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
 
     <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000014">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000501"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000016"/>
@@ -1678,6 +1724,12 @@ crystal structures according to the axial system used to describe their lattice 
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000170"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">crystallographic entity in cubic system</rdfs:label>
@@ -2425,6 +2477,42 @@ Grain orientation can be specified by either texture fibers or texture component
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020217 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020217">
+        <rdfs:label xml:lang="en">short range order</rdfs:label>
+        <skos:definition xml:lang="en">periodic arrangement of structural features up to a few entities</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020218 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020218">
+        <rdfs:label xml:lang="en">medium range order</rdfs:label>
+        <skos:definition xml:lang="en">periodic arrangement of structural features of many entities</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020219 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020219">
+        <rdfs:label xml:lang="en">long range order</rdfs:label>
+        <skos:definition xml:lang="en">periodic arrangement of structural features of virtually all entities</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020242 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0020242">
+        <rdfs:label xml:lang="en">no range order</rdfs:label>
+        <skos:definition xml:lang="en">no periodic arrangement of structural features of entites</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/pmd/cryo/CRYO_0000029 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000029">
@@ -2529,7 +2617,6 @@ Grain orientation can be specified by either texture fibers or texture component
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000128"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000130"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/components/cryo-individuals.owl/CRYO_0000000"/>
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000040"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -2606,7 +2693,6 @@ Grain orientation can be specified by either texture fibers or texture component
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000080"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000081"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000082"/>
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000064"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
@@ -2627,7 +2713,6 @@ Grain orientation can be specified by either texture fibers or texture component
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000100"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000101"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000102"/>
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000065"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -3096,7 +3181,6 @@ Grain orientation can be specified by either texture fibers or texture component
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000104">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000104"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
@@ -3311,7 +3395,6 @@ Grain orientation can be specified by either texture fibers or texture component
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000128">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000170 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000128"/>
         <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
         <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
