@@ -14,12 +14,12 @@
 @base <https://w3id.org/pmd/noes/noes-base.ttl> .
 
 <https://w3id.org/pmd/noes/noes-base.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-02-17/noes-base.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-02-23/noes-base.ttl> ;
                                            dce:type obo:IAO_8000001 ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-02-17" .
+                                           owl:versionInfo "2026-02-23" .
 
 #################################################################
 #    Annotation properties
@@ -157,6 +157,10 @@ obo:IAO_0000219 rdf:type owl:ObjectProperty .
 obo:IAO_0000235 rdf:type owl:ObjectProperty .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000417
+obo:IAO_0000417 rdf:type owl:ObjectProperty .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0000418
 obo:IAO_0000418 rdf:type owl:ObjectProperty .
 
@@ -239,6 +243,10 @@ obo:RO_0009006 rdf:type owl:ObjectProperty .
 
 ###  http://purl.obolibrary.org/obo/RO_0009007
 obo:RO_0009007 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/STATO_0000102
+obo:STATO_0000102 rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000004
@@ -747,6 +755,10 @@ obo:CHEBI_30440 rdf:type owl:Class .
 obo:CHEBI_30441 rdf:type owl:Class .
 
 
+###  http://purl.obolibrary.org/obo/CHEBI_30452
+obo:CHEBI_30452 rdf:type owl:Class .
+
+
 ###  http://purl.obolibrary.org/obo/CHEBI_30501
 obo:CHEBI_30501 rdf:type owl:Class .
 
@@ -821,6 +833,10 @@ obo:CHEBI_33348 rdf:type owl:Class .
 
 ###  http://purl.obolibrary.org/obo/CHEBI_33355
 obo:CHEBI_33355 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/CHEBI_33359
+obo:CHEBI_33359 rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/CHEBI_33363
@@ -902,6 +918,10 @@ obo:IAO_0000030 rdf:type owl:Class .
 
 ###  http://purl.obolibrary.org/obo/IAO_0000033
 obo:IAO_0000033 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000104
+obo:IAO_0000104 rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000109
@@ -1198,9 +1218,29 @@ co:PMD_0000502 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000503
 co:PMD_0000503 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020131 ;
+               rdfs:subClassOf co:PMD_0020243 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:IAO_0000417 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( obo:IAO_0000109
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:OBI_0000312 ;
+                                                                             owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000015
+                                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                                         owl:onProperty obo:STATO_0000102 ;
+                                                                                                                         owl:someValuesFrom obo:IAO_0000104
+                                                                                                                       ]
+                                                                                                                     ) ;
+                                                                                                  rdf:type owl:Class
+                                                                                                ]
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ;
+               obo:IAO_0000116 "TODO: axiom needs refinement"@en ;
                rdfs:label "ASTM grainsize"@en ;
-               skos:definition "The ASTM grain size is a scalar specifically describing the size of grains in a crystalline material as defined by ASTM standards."@en ;
+               skos:definition "The ASTM grain size is a quality that is measured through a process that follows the ASTM standard."@en ,
+                               "The ASTM grain size is a scalar specifically describing the size of grains in a crystalline material as defined by ASTM standards."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -1217,7 +1257,8 @@ co:PMD_0000512 rdf:type owl:Class ;
                                  owl:someValuesFrom co:PMD_0020116
                                ] ;
                rdfs:label "aggregate state"@en ;
-               skos:definition "The aggregate state is a morphological quality representing the physical state of a material, such as solid, liquid, or gas."@en ;
+               skos:definition "The aggregate state is a morphological quality representing the physical state of a material, such as solid, liquid, or gas."@en ,
+                               "an intensive quality representing the physical state of a material, such as solid, liquid, or gasous"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -1314,10 +1355,18 @@ co:PMD_0000550 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000551
 co:PMD_0000551 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0025001 ;
+               rdfs:subClassOf co:PMD_0025001 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0000004 ;
+                                 owl:someValuesFrom co:PMD_0025002
+                               ] ;
+               rdfs:comment """See the editor note of composition to understand the difference between composition and chemical composition.
+
+See the pattern example of composition to underatand the difference between composition and proportion."""@en ;
                rdfs:label "chemical composition"@en ;
-               skos:definition "The chemical composition is a quality describing the types and proportions of elements or compounds present in a material."@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
+               skos:definition "The chemical composition is an intensive quality of a portion of matter which describes the types and proportions of pure chemical elements in the portion of matter, and it is a subject of some chemical composition data item."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean ;
+               co:PMD_0000064 "Material has quality chemical composition. Chemical composition is a subject of chemical composition data item. Chemical composition data item has members fraction value specifications (which have a numeral and a unit). Material has part portion of carbon. Material has relational quality mass proportion. Portion of carbon  has relational quality mass proportion. Mass propotion is specified by value fraction value specification. Same approach for all chemical elements."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000552
@@ -1416,7 +1465,8 @@ co:PMD_0000592 rdf:type owl:Class ;
 co:PMD_0000595 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020131 ;
                rdfs:label "defect density"@en ;
-               skos:definition "The defect density is a morphological quality describing the number of defects per unit volume or area in a material, which can affect its mechanical and electronic properties."@en ;
+               skos:definition "The defect density is a morphological quality describing the number of defects per unit volume or area in a material, which can affect its mechanical and electronic properties."@en ,
+                               "an intensive quality describing the number of defects per unit volume or area in a material, which can affect its mechanical and electronic properties"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -1551,14 +1601,13 @@ co:PMD_0000638 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000639
 co:PMD_0000639 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0025004 ,
+               rdfs:subClassOf co:PMD_0000852 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:BFO_0000051 ;
                                  owl:someValuesFrom co:PMD_0020026
                                ] ;
-               rdfs:label "ferrous alloy"@en ;
-               skos:definition "A ferrous alloy is a metal describing an alloy containing iron as its principal element, often combined with other elements for enhanced properties."@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
+               rdfs:label "ferrous metal"@en ;
+               skos:definition "metal that has iron as primary constituent"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000646
@@ -1945,8 +1994,10 @@ co:PMD_0000853 rdf:type owl:Class ;
                                                                   )
                                                     ]
                                ] ;
+               rdfs:comment "typically observed through crystallographic analysis"@en ;
                rdfs:label "crystallographic texture"@en ;
-               skos:definition "The crystallographic texture is a morphological quality describing the arrangement and orientation of grains in a metallic material, observed through crystallographic analysis."@en ;
+               skos:definition "The crystallographic texture is a morphological quality describing the arrangement and orientation of grains in a metallic material, observed through crystallographic analysis."@en ,
+                               "an intensive quality describing the arrangement and orientation of grains in a polychrystal"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -2465,6 +2516,38 @@ co:PMD_0001020 rdf:type owl:Class ;
                                "Ein Röntgenbeugungsgerät ist ein Messgerät, das die Kristallstruktur von Materialien durch Analyse der Beugungsmuster von durch eine Probe geleiteten Röntgenstrahlen bestimmt."@de .
 
 
+###  https://w3id.org/pmd/co/PMD_0010020
+co:PMD_0010020 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0020140
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:BFO_0000051 ;
+                                                            owl:allValuesFrom obo:CHEBI_33359
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf co:PMD_0020140 ;
+               rdfs:comment "A Portion Of Matter that consists of only rhodium atoms."@en ;
+               rdfs:label "portion of rhodium"@en ;
+               skos:definition "A 'Portion Of Rhodium' is a 'Portion Of Pure Substance' that 'consists of' only chebi:rhodium atom."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0010021
+co:PMD_0010021 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0020140
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:BFO_0000051 ;
+                                                            owl:allValuesFrom obo:CHEBI_30452
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf co:PMD_0020140 ;
+               rdfs:comment "A Portion Of Matter that consists of only tellurium atoms."@en ;
+               rdfs:label "portion of tellurium"@en ;
+               skos:definition "A 'Portion Of Tellurium' is a 'Portion Of Pure Substance' that 'consists of' only chebi:tellurium atom."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020000
 co:PMD_0020000 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000040 ;
@@ -2475,9 +2558,14 @@ co:PMD_0020000 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020003
 co:PMD_0020003 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:subClassOf obo:BFO_0000030 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000086 ;
+                                 owl:someValuesFrom co:PMD_0000591
+                               ] ;
                rdfs:label "crystal"@en ;
-               skos:definition "A crystal is an object that has part some entities that concretize a Bravais lattice."@en ;
+               skos:definition "A crystal is an object that has a quality \"crystal structure\"."@en ,
+                               "A crystal is an object that has part some entities that concretize a Bravais lattice."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
@@ -2495,10 +2583,13 @@ co:PMD_0020004 rdf:type owl:Class ;
                                  owl:onProperty obo:RO_0002351 ;
                                  owl:someValuesFrom co:PMD_0025997
                                ] ;
+               obo:IAO_0000116 """See editior note of composition to underatand the difference between composition and chemical composition data items.
+
+To understand the difference between the composition and the composition data item, one has to understand the difference between SDCs and GDCs in BFO. A triple \"material entity has quality compsition\", conveys the fact such quality exists without telling us what are fractions of compounds in this material entity. A triple \"compostion is subject of composition data item\" conveys that there's an information about values of these fractions. Think of comosition data item as a pdf where the composition is documented."""@en ;
                rdfs:comment "These portions of other matters do not have to be portions of specific chemical elements, i.e., atomic composition, but rather portions of other substances, such as nitric acid and water."@en ;
                rdfs:label "composition data item"@en ;
                skos:altLabel "composition specification"@en ;
-               skos:definition "Composition data item is an information content entity that is about composition of a portion of matter, and it has members fraction specifications of portions of other matters, which are parts of the whole portion of matter."@en ;
+               skos:definition "Composition data item is an information content entity that is about composition of a material enity. It has members fraction value specifications which specifiy values of propotions of compounds, which are parts of the material enity."@en ;
                skos:example "Nitric acid solution has quality  composition, and  the composition data item is about this composition.The composition data item has members fraction specifications of nitric acid, e.g., 4 vol.%, and distilled water. These fraction specifications specify value of pure substances of nitric acid and distilled water, respectively. Furthermore, these fraction specifications specify values of relational qualities (volume) proportion of nitric acid and (volume) proportion of distilled water."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
@@ -3641,8 +3732,7 @@ co:PMD_0020096 rdf:type owl:Class ;
                                  owl:someValuesFrom co:PMD_0020030
                                ] ;
                rdfs:label "steel"@en ;
-               skos:definition "Steel is a ferrous alloy that consists of iron and carbon and possibly other alloying elements (and possibly impurities)."@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
+               skos:definition "steel is a ferrous metal that consists of iron and carbon and possibly other alloying elements (and possibly impurities)."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020099
@@ -3696,7 +3786,6 @@ co:PMD_0020102 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020103
 co:PMD_0020103 rdf:type owl:Class ;
-               owl:equivalentClass co:PMD_0020207 ;
                rdfs:subClassOf co:PMD_0020101 ;
                rdfs:label "molar proportion"@en ;
                skos:altLabel "Molar Ratio"@en ;
@@ -3904,6 +3993,94 @@ co:PMD_0020166 rdf:type owl:Class ;
                skos:definition "A heat is a fixed amount of metallic alloy that may be input to some manufacturing process."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0020170
+co:PMD_0020170 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:comment "The ingot may be hot rolled after casting..."@en ;
+               rdfs:label "Bramme"@de ,
+                          "ingot"@en ;
+               skos:definition "An ingot is an object that has a thick section and may bear a semi finished product role and that is the specified output of a casting process. At the same time it is a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020172
+co:PMD_0020172 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:label "sheet"@en ;
+               skos:definition "A plate is a thin rectangular object that may bear a semi finished product role. At the same time it is a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020173
+co:PMD_0020173 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:label "billet"@en ;
+               skos:definition "A billet is a relatively compact object that may bear a semi finished product role. At the same time it is a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020174
+co:PMD_0020174 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:label "foil"@en ;
+               skos:definition "A plate is a very thin rectangular object that may bear a semi finished product role. At the same time it may be a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020175
+co:PMD_0020175 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:comment "Coils may have several sheets that are joined together."@en ;
+               rdfs:label "coil (coiled sheet)"@en ;
+               skos:definition "A coil is an object that has part some sheets or foils. At the same time it may be a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020176
+co:PMD_0020176 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:label "plate"@en ;
+               skos:definition "A plate is a thick rectangular object that may bear a semi finished product role. At the same time it may be a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020177
+co:PMD_0020177 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:label "bar"@en ;
+               skos:definition "A bar is a long object with rectangular section that may bear a semi finished product role. At the same time it may be a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020178
+co:PMD_0020178 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:label "rod"@en ;
+               skos:definition "A rod is a long object with oval or round section that may bear a semi finished product role. At the same time it may be a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020179
+co:PMD_0020179 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:comment "This class does not include cables or other compound structures."@en ;
+               rdfs:label "wire (semi finished product)"@en ;
+               skos:definition "A wire is a long and somewhat flexible object that may bear a semi finished product role. At the same time it is a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020180
+co:PMD_0020180 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:label "tube"@en ;
+               skos:definition "A tube is a long object with a hollow section and moderate wall thickness that may bear a semi finished product role. At the same time it may be a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020181
+co:PMD_0020181 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:label "pipe"@en ;
+               skos:definition "A tube is a long object with a hollow section and pronounced wall thickness that may bear a semi finished product role. At the same time it may be a material."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020182
+co:PMD_0020182 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ;
+               rdfs:label "profile (semi finished product)"@en ;
+               skos:definition "A profile is a long object with determined section shape that may bear a semi finished product role. At the same time it may be a material."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020200
 co:PMD_0020200 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000017 ;
@@ -3923,7 +4100,7 @@ co:PMD_0020205 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020207
 co:PMD_0020207 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020101 ;
+               rdfs:subClassOf co:PMD_0020103 ;
                rdfs:label "amount of substance"@en ;
                skos:definition "Amount of substance n is a molar proportion when the whole is an object aggregate N, which has avogadro number objects (of same type) as parts (n = N/N_A)."@en .
 
@@ -3974,13 +4151,32 @@ co:PMD_0020220 rdf:type owl:Class ;
                skos:definition "characteristic length over which structural correlations persist in a material"@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0020243
+co:PMD_0020243 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020131 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000080 ;
+                                 owl:someValuesFrom co:PMD_0020106
+                               ] ;
+               obo:IAO_0000116 "size values of indiviudal grains are properties of the respective objects"@en ;
+               rdfs:label "grain size"@en ;
+               skos:definition "an average size of the grains of a polycrystal"@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0025001
 co:PMD_0025001 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020131 ;
+               rdfs:subClassOf co:PMD_0020131 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0000004 ;
+                                 owl:someValuesFrom co:PMD_0020004
+                               ] ;
+               obo:IAO_0000116 "There's a dfference between composition and chemical compositon for the following reason: chemical compositon is relevant when the mass/volume/mole proportions of chemical elements(!) are identified, whlist composition includes proportions of molecules, other pure chemical substances, or even proptions of objects (in an object aggregate)."@en ;
                rdfs:label "composition"@en ;
-               skos:definition "Composition is a morphological quality describing the types and proportions of compounds (but not chemical elements) present in a portion of matter."@en ;
+               skos:definition "Composition is a morphological quality describing the types and proportions of compounds (but not chemical elements) present in a portion of matter."@en ,
+                               "Composition is an intensive quality which defines types and proportions of compounds present in a material entity and is subject of some composition data item."@en ;
                skos:example "4 vol.% nitric acid solution, Styrene-Butadiene-Styrene (SBS) Block Copolymer with 50 vol.% of both styrene and butadiene"@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
+               co:PMD_0000060 "true"^^xsd:boolean ;
+               co:PMD_0000064 "Composition is a collective property of a portion of matter, i.e., the triple portion of matter has quality composition holds. As \"has quality\" is an inverse  functional property, only one instance of portion of matter can have this specific composition. However, proportions describe the relation between the prortion of matter (the whole) and some compound (the part). Thus, the following triples hold: portion of matter has relational quality proportion; portion of matter has part some substance (or whatever is your part); substance has relational quality proportion. \"Has relational quality\" is not inverse functional, i.e., it can point to a single object from 2 distinct subjects."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0025002
@@ -3995,7 +4191,7 @@ co:PMD_0025002 rdf:type owl:Class ;
                                ] ;
                rdfs:label "chemical composition data item"@en ;
                skos:altLabel "chemical composition specification"@en ;
-               skos:definition "Chemical composition data item is an information content entity that is about chemical composition of a material and has members fraction specifications of portions of chemical elements, which are parts of the material."@en ;
+               skos:definition "Chemical composition data item is an information content entity that is about composition of a portion of matter. It has members fraction value specifications which specifiy values of propotions of portions of (pure) chemical elements, which are parts of the portion of matter."@en ;
                skos:example "Steel has quality chemical composition , and the chemical composition data item is about the chemical composition .The chemical composition data item has members fraction specifications of iron and carbon. These fraction specifications specify value of portion of iron and portion of carbon respectively. Furthermore, these fraction specifications specify  values of relational qualities (mass) proportion of iron and (mass) proportion of carbon."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
@@ -4015,14 +4211,6 @@ co:PMD_0025003 rdf:type owl:Class ;
                rdfs:label "metallic grain structure"@en ;
                skos:definition "metallic grain structure characterizes the distinct phases in the microscopic structure of a metallic material. It concretizes ferrite, austenite, martensite, etc."@en ;
                co:PMD_0000060 "false"^^xsd:boolean .
-
-
-###  https://w3id.org/pmd/co/PMD_0025004
-co:PMD_0025004 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000852 ;
-               rdfs:label "alloy"@en ;
-               skos:definition "An alloy is a material containing any metallic element as its principal element, often combined with other elements for enhanced properties."@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0025005
@@ -12261,6 +12449,24 @@ noes:NOES_0000143 noes:NOES_0000122 "false"^^xsd:boolean .
   owl:members ( co:PMD_0020102
                 co:PMD_0020103
                 co:PMD_0020104
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( co:PMD_0020113
+                co:PMD_0020170
+                co:PMD_0020172
+                co:PMD_0020173
+                co:PMD_0020174
+                co:PMD_0020175
+                co:PMD_0020176
+                co:PMD_0020177
+                co:PMD_0020178
+                co:PMD_0020179
+                co:PMD_0020180
+                co:PMD_0020181
+                co:PMD_0020182
               )
 ] .
 

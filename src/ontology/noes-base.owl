@@ -14,12 +14,12 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/noes-base.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-17/noes-base.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-23/noes-base.owl"/>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:description>None</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/unspecified"/>
         <dcterms:title>NOES Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
-        <owl:versionInfo>2026-02-17</owl:versionInfo>
+        <owl:versionInfo>2026-02-23</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -237,6 +237,12 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000417 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000417"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/IAO_0000418 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000418"/>
@@ -360,6 +366,12 @@
     <!-- http://purl.obolibrary.org/obo/RO_0009007 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009007"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000102 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/STATO_0000102"/>
     
 
 
@@ -1101,6 +1113,12 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CHEBI_30452 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_30452"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CHEBI_30501 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_30501"/>
@@ -1212,6 +1230,12 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     <!-- http://purl.obolibrary.org/obo/CHEBI_33355 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_33355"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CHEBI_33359 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_33359"/>
     
 
 
@@ -1334,6 +1358,12 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     <!-- http://purl.obolibrary.org/obo/IAO_0000033 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000033"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000104 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000104"/>
     
 
 
@@ -1727,8 +1757,36 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <!-- https://w3id.org/pmd/co/PMD_0000503 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000503">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020243"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000417"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000109"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/STATO_0000102"/>
+                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000116 xml:lang="en">TODO: axiom needs refinement</obo:IAO_0000116>
         <rdfs:label xml:lang="en">ASTM grainsize</rdfs:label>
+        <skos:definition xml:lang="en">The ASTM grain size is a quality that is measured through a process that follows the ASTM standard.</skos:definition>
         <skos:definition xml:lang="en">The ASTM grain size is a scalar specifically describing the size of grains in a crystalline material as defined by ASTM standards.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -1754,6 +1812,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">aggregate state</rdfs:label>
         <skos:definition xml:lang="en">The aggregate state is a morphological quality representing the physical state of a material, such as solid, liquid, or gas.</skos:definition>
+        <skos:definition xml:lang="en">an intensive quality representing the physical state of a material, such as solid, liquid, or gasous</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1887,9 +1946,19 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000551">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0025002"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">See the editor note of composition to understand the difference between composition and chemical composition.
+
+See the pattern example of composition to underatand the difference between composition and proportion.</rdfs:comment>
         <rdfs:label xml:lang="en">chemical composition</rdfs:label>
-        <skos:definition xml:lang="en">The chemical composition is a quality describing the types and proportions of elements or compounds present in a material.</skos:definition>
+        <skos:definition xml:lang="en">The chemical composition is an intensive quality of a portion of matter which describes the types and proportions of pure chemical elements in the portion of matter, and it is a subject of some chemical composition data item.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+        <co:PMD_0000064 xml:lang="en">Material has quality chemical composition. Chemical composition is a subject of chemical composition data item. Chemical composition data item has members fraction value specifications (which have a numeral and a unit). Material has part portion of carbon. Material has relational quality mass proportion. Portion of carbon  has relational quality mass proportion. Mass propotion is specified by value fraction value specification. Same approach for all chemical elements.</co:PMD_0000064>
     </owl:Class>
     
 
@@ -2022,6 +2091,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <rdfs:label xml:lang="en">defect density</rdfs:label>
         <skos:definition xml:lang="en">The defect density is a morphological quality describing the number of defects per unit volume or area in a material, which can affect its mechanical and electronic properties.</skos:definition>
+        <skos:definition xml:lang="en">an intensive quality describing the number of defects per unit volume or area in a material, which can affect its mechanical and electronic properties</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -2202,16 +2272,15 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <!-- https://w3id.org/pmd/co/PMD_0000639 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000639">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025004"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000852"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020026"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">ferrous alloy</rdfs:label>
-        <skos:definition xml:lang="en">A ferrous alloy is a metal describing an alloy containing iron as its principal element, often combined with other elements for enhanced properties.</skos:definition>
-        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+        <rdfs:label xml:lang="en">ferrous metal</rdfs:label>
+        <skos:definition xml:lang="en">metal that has iron as primary constituent</skos:definition>
     </owl:Class>
     
 
@@ -2737,8 +2806,10 @@ A manufacturing process is always a transformative process.</skos:definition>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">typically observed through crystallographic analysis</rdfs:comment>
         <rdfs:label xml:lang="en">crystallographic texture</rdfs:label>
         <skos:definition xml:lang="en">The crystallographic texture is a morphological quality describing the arrangement and orientation of grains in a metallic material, observed through crystallographic analysis.</skos:definition>
+        <skos:definition xml:lang="en">an intensive quality describing the arrangement and orientation of grains in a polychrystal</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -3437,6 +3508,50 @@ NOTE: The wording used in EN 10021 was generalized.</obo:IAO_0000116>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0010020 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0010020">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020140"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_33359"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
+        <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only rhodium atoms.</rdfs:comment>
+        <rdfs:label xml:lang="en">portion of rhodium</rdfs:label>
+        <skos:definition xml:lang="en">A &apos;Portion Of Rhodium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:rhodium atom.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0010021 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0010021">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020140"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_30452"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
+        <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only tellurium atoms.</rdfs:comment>
+        <rdfs:label xml:lang="en">portion of tellurium</rdfs:label>
+        <skos:definition xml:lang="en">A &apos;Portion Of Tellurium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:tellurium atom.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020000 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020000">
@@ -3452,7 +3567,14 @@ NOTE: The wording used in EN 10021 was generalized.</obo:IAO_0000116>
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020003">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000591"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">crystal</rdfs:label>
+        <skos:definition xml:lang="en">A crystal is an object that has a quality &quot;crystal structure&quot;.</skos:definition>
         <skos:definition xml:lang="en">A crystal is an object that has part some entities that concretize a Bravais lattice.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -3479,10 +3601,13 @@ NOTE: The wording used in EN 10021 was generalized.</obo:IAO_0000116>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0025997"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000116 xml:lang="en">See editior note of composition to underatand the difference between composition and chemical composition data items.
+
+To understand the difference between the composition and the composition data item, one has to understand the difference between SDCs and GDCs in BFO. A triple &quot;material entity has quality compsition&quot;, conveys the fact such quality exists without telling us what are fractions of compounds in this material entity. A triple &quot;compostion is subject of composition data item&quot; conveys that there&apos;s an information about values of these fractions. Think of comosition data item as a pdf where the composition is documented.</obo:IAO_0000116>
         <rdfs:comment xml:lang="en">These portions of other matters do not have to be portions of specific chemical elements, i.e., atomic composition, but rather portions of other substances, such as nitric acid and water.</rdfs:comment>
         <rdfs:label xml:lang="en">composition data item</rdfs:label>
         <skos:altLabel xml:lang="en">composition specification</skos:altLabel>
-        <skos:definition xml:lang="en">Composition data item is an information content entity that is about composition of a portion of matter, and it has members fraction specifications of portions of other matters, which are parts of the whole portion of matter.</skos:definition>
+        <skos:definition xml:lang="en">Composition data item is an information content entity that is about composition of a material enity. It has members fraction value specifications which specifiy values of propotions of compounds, which are parts of the material enity.</skos:definition>
         <skos:example xml:lang="en">Nitric acid solution has quality  composition, and  the composition data item is about this composition.The composition data item has members fraction specifications of nitric acid, e.g., 4 vol.%, and distilled water. These fraction specifications specify value of pure substances of nitric acid and distilled water, respectively. Furthermore, these fraction specifications specify values of relational qualities (volume) proportion of nitric acid and (volume) proportion of distilled water.</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -5053,8 +5178,7 @@ NOTE: The wording used in EN 10021 was generalized.</obo:IAO_0000116>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">steel</rdfs:label>
-        <skos:definition xml:lang="en">Steel is a ferrous alloy that consists of iron and carbon and possibly other alloying elements (and possibly impurities).</skos:definition>
-        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+        <skos:definition xml:lang="en">steel is a ferrous metal that consists of iron and carbon and possibly other alloying elements (and possibly impurities).</skos:definition>
     </owl:Class>
     
 
@@ -5123,7 +5247,6 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
     <!-- https://w3id.org/pmd/co/PMD_0020103 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020103">
-        <owl:equivalentClass rdf:resource="https://w3id.org/pmd/co/PMD_0020207"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020101"/>
         <rdfs:label xml:lang="en">molar proportion</rdfs:label>
         <skos:altLabel xml:lang="en">Molar Ratio</skos:altLabel>
@@ -5404,6 +5527,130 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020170 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020170">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:comment xml:lang="en">The ingot may be hot rolled after casting...</rdfs:comment>
+        <rdfs:label xml:lang="de">Bramme</rdfs:label>
+        <rdfs:label xml:lang="en">ingot</rdfs:label>
+        <skos:definition xml:lang="en">An ingot is an object that has a thick section and may bear a semi finished product role and that is the specified output of a casting process. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020172 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020172">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="en">sheet</rdfs:label>
+        <skos:definition xml:lang="en">A plate is a thin rectangular object that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020173 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020173">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="en">billet</rdfs:label>
+        <skos:definition xml:lang="en">A billet is a relatively compact object that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020174 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020174">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="en">foil</rdfs:label>
+        <skos:definition xml:lang="en">A plate is a very thin rectangular object that may bear a semi finished product role. At the same time it may be a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020175 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020175">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:comment xml:lang="en">Coils may have several sheets that are joined together.</rdfs:comment>
+        <rdfs:label xml:lang="en">coil (coiled sheet)</rdfs:label>
+        <skos:definition xml:lang="en">A coil is an object that has part some sheets or foils. At the same time it may be a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020176 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020176">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="en">plate</rdfs:label>
+        <skos:definition xml:lang="en">A plate is a thick rectangular object that may bear a semi finished product role. At the same time it may be a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020177 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020177">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="en">bar</rdfs:label>
+        <skos:definition xml:lang="en">A bar is a long object with rectangular section that may bear a semi finished product role. At the same time it may be a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020178 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020178">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="en">rod</rdfs:label>
+        <skos:definition xml:lang="en">A rod is a long object with oval or round section that may bear a semi finished product role. At the same time it may be a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020179 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020179">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:comment xml:lang="en">This class does not include cables or other compound structures.</rdfs:comment>
+        <rdfs:label xml:lang="en">wire (semi finished product)</rdfs:label>
+        <skos:definition xml:lang="en">A wire is a long and somewhat flexible object that may bear a semi finished product role. At the same time it is a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020180 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020180">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="en">tube</rdfs:label>
+        <skos:definition xml:lang="en">A tube is a long object with a hollow section and moderate wall thickness that may bear a semi finished product role. At the same time it may be a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020181 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020181">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="en">pipe</rdfs:label>
+        <skos:definition xml:lang="en">A tube is a long object with a hollow section and pronounced wall thickness that may bear a semi finished product role. At the same time it may be a material.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020182 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020182">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="en">profile (semi finished product)</rdfs:label>
+        <skos:definition xml:lang="en">A profile is a long object with determined section shape that may bear a semi finished product role. At the same time it may be a material.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020200 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020200">
@@ -5430,7 +5677,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
     <!-- https://w3id.org/pmd/co/PMD_0020207 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020207">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020101"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020103"/>
         <rdfs:label xml:lang="en">amount of substance</rdfs:label>
         <skos:definition xml:lang="en">Amount of substance n is a molar proportion when the whole is an object aggregate N, which has avogadro number objects (of same type) as parts (n = N/N_A).</skos:definition>
     </owl:Class>
@@ -5503,14 +5750,40 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020243 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020243">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020106"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000116 xml:lang="en">size values of indiviudal grains are properties of the respective objects</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">grain size</rdfs:label>
+        <skos:definition xml:lang="en">an average size of the grains of a polycrystal</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0025001 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025001">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020004"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000116 xml:lang="en">There&apos;s a dfference between composition and chemical compositon for the following reason: chemical compositon is relevant when the mass/volume/mole proportions of chemical elements(!) are identified, whlist composition includes proportions of molecules, other pure chemical substances, or even proptions of objects (in an object aggregate).</obo:IAO_0000116>
         <rdfs:label xml:lang="en">composition</rdfs:label>
         <skos:definition xml:lang="en">Composition is a morphological quality describing the types and proportions of compounds (but not chemical elements) present in a portion of matter.</skos:definition>
+        <skos:definition xml:lang="en">Composition is an intensive quality which defines types and proportions of compounds present in a material entity and is subject of some composition data item.</skos:definition>
         <skos:example xml:lang="en">4 vol.% nitric acid solution, Styrene-Butadiene-Styrene (SBS) Block Copolymer with 50 vol.% of both styrene and butadiene</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+        <co:PMD_0000064 xml:lang="en">Composition is a collective property of a portion of matter, i.e., the triple portion of matter has quality composition holds. As &quot;has quality&quot; is an inverse  functional property, only one instance of portion of matter can have this specific composition. However, proportions describe the relation between the prortion of matter (the whole) and some compound (the part). Thus, the following triples hold: portion of matter has relational quality proportion; portion of matter has part some substance (or whatever is your part); substance has relational quality proportion. &quot;Has relational quality&quot; is not inverse functional, i.e., it can point to a single object from 2 distinct subjects.</co:PMD_0000064>
     </owl:Class>
     
 
@@ -5531,7 +5804,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">chemical composition data item</rdfs:label>
         <skos:altLabel xml:lang="en">chemical composition specification</skos:altLabel>
-        <skos:definition xml:lang="en">Chemical composition data item is an information content entity that is about chemical composition of a material and has members fraction specifications of portions of chemical elements, which are parts of the material.</skos:definition>
+        <skos:definition xml:lang="en">Chemical composition data item is an information content entity that is about composition of a portion of matter. It has members fraction value specifications which specifiy values of propotions of portions of (pure) chemical elements, which are parts of the portion of matter.</skos:definition>
         <skos:example xml:lang="en">Steel has quality chemical composition , and the chemical composition data item is about the chemical composition .The chemical composition data item has members fraction specifications of iron and carbon. These fraction specifications specify value of portion of iron and portion of carbon respectively. Furthermore, these fraction specifications specify  values of relational qualities (mass) proportion of iron and (mass) proportion of carbon.</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -5558,17 +5831,6 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:label xml:lang="en">metallic grain structure</rdfs:label>
         <skos:definition xml:lang="en">metallic grain structure characterizes the distinct phases in the microscopic structure of a metallic material. It concretizes ferrite, austenite, martensite, etc.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</co:PMD_0000060>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0025004 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025004">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000852"/>
-        <rdfs:label xml:lang="en">alloy</rdfs:label>
-        <skos:definition xml:lang="en">An alloy is a material containing any metallic element as its principal element, often combined with other elements for enhanced properties.</skos:definition>
-        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
 
@@ -17187,6 +17449,24 @@ Source: ISO 6892-1:2019</skos:definition>
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020102"/>
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020103"/>
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020104"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020113"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020170"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020172"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020173"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020174"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020175"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020176"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020177"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020178"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020179"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020180"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020181"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020182"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
