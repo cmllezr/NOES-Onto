@@ -16,7 +16,7 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/pmdco.ttl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/co/releases/2026-02-23/pmdco.ttl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/co/releases/2026-02-24/pmdco.ttl"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0001-6772-1943"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0001-7192-7143"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0002-1058-3102"/>
@@ -43,7 +43,7 @@ Documentation: https://materialdigital.github.io/core-ontology/docs/</dcterms:de
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <dcterms:title>PMD Core Ontology</dcterms:title>
         <doap:repository rdf:resource="https://github.com/materialdigital/core-ontology"/>
-        <owl:versionInfo>2026-02-23</owl:versionInfo>
+        <owl:versionInfo>2026-02-24</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -4634,22 +4634,7 @@ granularity. At these coarser levels, the individual molecules cannot be differe
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
-                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:nodeID="genid170"/>
         <rdfs:comment xml:lang="en">Technical materials are complex object aggregates. The properties that are determined for those object aggregates are intrinsically associated with the methodologies employed in the measurement process. This is in contrast to typical &apos;physical&apos; properties, which like e.g. mass that can be determined to high accuracy independently of the measurement process. 
 As a consequence, the behavoiral material properties in the ontology are differeciated according to their measurement method, e.g. Brinell hardness and Vickers hardness are different types of indentation hardness rather than different measures/quantification (GDC) of the materials property &apos;indentation hardness&apos;.
  The &apos;unit idenifieres&apos; of such properties (e.g. &quot;HV1&quot;, &quot;HV10&quot;, &quot;HBW&quot;) are strictly speaking not units but rather references to the measurement methodology used to determine a numeric value that quantifies the property.</rdfs:comment>
@@ -4661,6 +4646,26 @@ As a consequence, the behavoiral material properties in the ontology are differe
 We only deal with intensive (system-size independent) material properties. Extensive properties that depend on the testpiece/specimen/probe size should be found in the respective testing method modules.</skos:definition>
         <pmd:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</pmd:PMD_0000060>
     </owl:Class>
+    <owl:Restriction rdf:nodeID="genid170">
+        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+        <owl:someValuesFrom>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000001"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:someValuesFrom>
+    </owl:Restriction>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000005"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:nodeID="genid170"/>
+        <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
+    </owl:Axiom>
     
 
 
@@ -5741,7 +5746,7 @@ See the pattern example of composition to underatand the difference between comp
     <!-- https://w3id.org/pmd/co/PMD_0000553 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000553">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <rdfs:label xml:lang="en">chemical potential</rdfs:label>
         <skos:definition xml:lang="en">The chemical potential is a thermodynamic quality describing the energy change associated with the addition of a small quantity of a substance to a system at constant temperature and pressure.</skos:definition>
         <pmd:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</pmd:PMD_0000060>
@@ -11728,7 +11733,7 @@ To understand the difference between the composition and the composition data it
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020094"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only phosphorus atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of phosphorus</rdfs:label>
         <skos:definition xml:lang="en">A &apos;Portion Of Phosphorus&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:phosphorus atom.</skos:definition>
@@ -12036,7 +12041,7 @@ To understand the difference between the composition and the composition data it
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020037"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only krypton atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of krypton</rdfs:label>
         <skos:definition xml:lang="en">A &apos;Portion Of Krypton&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:krypton atom.</skos:definition>
@@ -13068,12 +13073,23 @@ Depending on the interconnectedness of the pores the foam is open- or closed-cel
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020131">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+        <rdfs:subClassOf rdf:nodeID="genid867"/>
         <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <rdfs:label xml:lang="en">intensive quality</rdfs:label>
         <skos:altLabel xml:lang="en">Point property</skos:altLabel>
         <skos:definition xml:lang="en">An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size.</skos:definition>
         <pmd:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</pmd:PMD_0000060>
     </owl:Class>
+    <owl:Restriction rdf:nodeID="genid867">
+        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
+    </owl:Restriction>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:nodeID="genid867"/>
+        <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
+    </owl:Axiom>
     
 
 

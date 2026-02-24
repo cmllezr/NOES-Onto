@@ -19,11 +19,11 @@
 @base <https://w3id.org/pmd/noes/noes-full.ttl> .
 
 <https://w3id.org/pmd/noes/noes-full.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-02-23/noes-full.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-02-24/noes-full.ttl> ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-02-23" .
+                                           owl:versionInfo "2026-02-24" .
 
 #################################################################
 #    Annotation properties
@@ -148,10 +148,6 @@ dcterms:title rdf:type owl:AnnotationProperty ;
 qudt:dbpediaMatch rdf:type owl:AnnotationProperty .
 
 
-###  http://qudt.org/schema/qudt/expression
-qudt:expression rdf:type owl:AnnotationProperty .
-
-
 ###  http://qudt.org/schema/qudt/informativeReference
 qudt:informativeReference rdf:type owl:AnnotationProperty .
 
@@ -221,12 +217,12 @@ co:symbol rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/pmd/noes/NOES_0000115
 noes:NOES_0000115 rdf:type owl:AnnotationProperty ;
-                  rdfs:label "extracted entity"@en .
+                  rdfs:label "explicit"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000116
 noes:NOES_0000116 rdf:type owl:AnnotationProperty ;
-                  rdfs:label "extracted triple"@en .
+                  rdfs:label "implicit"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000122
@@ -2558,6 +2554,12 @@ obo:UO_0000000 rdf:type owl:Class ;
  ] .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000010
+obo:UO_0000010 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_0000045 ,
+                               obo:UO_1000010 .
+
+
 ###  http://purl.obolibrary.org/obo/UO_0000012
 obo:UO_0000012 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000045 ,
@@ -2577,6 +2579,11 @@ obo:UO_0000027 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/UO_0000031
 obo:UO_0000031 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_1000031 .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000032
+obo:UO_0000032 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_1000032 .
 
 
 ###  http://purl.obolibrary.org/obo/UO_0000045
@@ -2604,6 +2611,11 @@ obo:UO_0000106 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_1000106 .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000110
+obo:UO_0000110 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_1000110 .
+
+
 ###  http://purl.obolibrary.org/obo/UO_0000163
 obo:UO_0000163 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_1000163 .
@@ -2612,6 +2624,26 @@ obo:UO_0000163 rdf:type owl:Class ;
 ###  http://purl.obolibrary.org/obo/UO_0000164
 obo:UO_0000164 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_1000164 .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000185
+obo:UO_0000185 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_1000185 .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000187
+obo:UO_0000187 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_0000190 ;
+               obo:IAO_0000115 "A dimensionless ratio unit which denotes numbers as fractions of 100." ;
+               oboInOwl:hasExactSynonym "%" ;
+               rdfs:label "percent" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000187 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A dimensionless ratio unit which denotes numbers as fractions of 100." ;
+   oboInOwl:hasDbXref "Wikipedia:Wikipedia"
+ ] .
 
 
 ###  http://purl.obolibrary.org/obo/UO_0000190
@@ -2655,6 +2687,12 @@ obo:UO_1000008 rdf:type owl:Class ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
 
+###  http://purl.obolibrary.org/obo/UO_1000010
+obo:UO_1000010 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_0000000 ;
+               rdfs:label "second based unit" .
+
+
 ###  http://purl.obolibrary.org/obo/UO_1000012
 obo:UO_1000012 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000000 ;
@@ -2676,6 +2714,12 @@ obo:UO_1000031 rdf:type owl:Class ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
 
+###  http://purl.obolibrary.org/obo/UO_1000032
+obo:UO_1000032 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_0000000 ;
+               rdfs:label "hour based unit" .
+
+
 ###  http://purl.obolibrary.org/obo/UO_1000076
 obo:UO_1000076 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000000 ;
@@ -2690,9 +2734,15 @@ obo:UO_1000106 rdf:type owl:Class ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
 
+###  http://purl.obolibrary.org/obo/UO_1000110
+obo:UO_1000110 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_0000000 ;
+               rdfs:label "pascal based unit" .
+
+
 ###  http://purl.obolibrary.org/obo/UO_1000163
 obo:UO_1000163 rdf:type owl:Class ;
-               rdfs:subClassOf obo:UO_0000190 ;
+               rdfs:subClassOf obo:UO_0000187 ;
                rdfs:label "mass percentage based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
@@ -2702,6 +2752,12 @@ obo:UO_1000164 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000000 ;
                rdfs:label "mass volume percentage based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  http://purl.obolibrary.org/obo/UO_1000185
+obo:UO_1000185 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_0000000 ;
+               rdfs:label "degree based unit" .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000228
@@ -2830,17 +2886,7 @@ co:PMD_0000005 rdf:type owl:Class ;
                                  owl:onProperty obo:BFO_0000054 ;
                                  owl:someValuesFrom co:PMD_0000950
                                ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000052 ;
-                                 owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000040
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty obo:RO_0000056 ;
-                                                                             owl:someValuesFrom obo:BFO_0000015
-                                                                           ]
-                                                                         ) ;
-                                                      rdf:type owl:Class
-                                                    ]
-                               ] ;
+                               _:genid165 ;
                rdfs:comment """Technical materials are complex object aggregates. The properties that are determined for those object aggregates are intrinsically associated with the methodologies employed in the measurement process. This is in contrast to typical 'physical' properties, which like e.g. mass that can be determined to high accuracy independently of the measurement process. 
 As a consequence, the behavoiral material properties in the ontology are differeciated according to their measurement method, e.g. Brinell hardness and Vickers hardness are different types of indentation hardness rather than different measures/quantification (GDC) of the materials property 'indentation hardness'.
  The 'unit idenifieres' of such properties (e.g. \"HV1\", \"HV10\", \"HBW\") are strictly speaking not units but rather references to the measurement methodology used to determine a numeric value that quantifies the property."""@en ;
@@ -2851,6 +2897,24 @@ As a consequence, the behavoiral material properties in the ontology are differe
 
 We only deal with intensive (system-size independent) material properties. Extensive properties that depend on the testpiece/specimen/probe size should be found in the respective testing method modules."""@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+_:genid165 rdf:type owl:Restriction ;
+            owl:onProperty obo:RO_0000052 ;
+            owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000001
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:RO_0000056 ;
+                                                        owl:someValuesFrom obo:BFO_0000015
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource co:PMD_0000005 ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget _:genid165 ;
+   rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
+ ] .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000008
@@ -3171,7 +3235,7 @@ co:PMD_0000552 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000553
 co:PMD_0000553 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020148 ;
+               rdfs:subClassOf co:PMD_0020131 ;
                rdfs:label "chemical potential"@en ;
                skos:definition "The chemical potential is a thermodynamic quality describing the energy change associated with the addition of a small quantity of a substance to a system at constant temperature and pressure."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
@@ -4741,7 +4805,7 @@ co:PMD_0020047 rdf:type owl:Class ;
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf co:PMD_0020094 ;
+               rdfs:subClassOf co:PMD_0020140 ;
                rdfs:comment "A Portion Of Matter that consists of only phosphorus atoms."@en ;
                rdfs:label "portion of phosphorus"@en ;
                skos:definition "A 'Portion Of Phosphorus' is a 'Portion Of Pure Substance' that 'consists of' only chebi:phosphorus atom."@en .
@@ -4965,7 +5029,7 @@ co:PMD_0020061 rdf:type owl:Class ;
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf co:PMD_0020037 ;
+               rdfs:subClassOf co:PMD_0020140 ;
                rdfs:comment "A Portion Of Matter that consists of only krypton atoms."@en ;
                rdfs:label "portion of krypton"@en ;
                skos:definition "A 'Portion Of Krypton' is a 'Portion Of Pure Substance' that 'consists of' only chebi:krypton atom."@en .
@@ -5652,12 +5716,24 @@ co:PMD_0020128 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020131
 co:PMD_0020131 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000019 ;
+               rdfs:subClassOf obo:BFO_0000019 ,
+                               _:genid674 ;
                owl:disjointWith co:PMD_0020148 ;
                rdfs:label "intensive quality"@en ;
                skos:altLabel "Point property"@en ;
                skos:definition "An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+_:genid674 rdf:type owl:Restriction ;
+            owl:onProperty obo:RO_0000080 ;
+            owl:someValuesFrom co:PMD_0000001 .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource co:PMD_0020131 ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget _:genid674 ;
+   rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
+ ] .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020132
@@ -12565,6 +12641,31 @@ noes:NOES_0000114 rdf:type owl:Class ;
                   skos:definition "Stamping is a separating process, a stamping press is a participant and it realizes some cutting function."@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000117
+noes:NOES_0000117 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000602 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000085 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000118
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:BFO_0000054 ;
+                                                                                owl:someValuesFrom noes:NOES_0000023
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                  ] ;
+                  rdfs:label "rolling mill"@en ;
+                  skos:definition "Rolling mill is device which is a participant in a rolling process, has a function of reducing thickness of an object that is specified input to the rolling process, and this function is realized in the rolling process."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000118
+noes:NOES_0000118 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000034 ;
+                  rdfs:label "thickness reduction function"@en ;
+                  skos:definition "Thickness reduction function is a function to reduce thickness of a material."@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000123
 noes:NOES_0000123 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0025018 ;
@@ -13207,6 +13308,10 @@ Source: ISO 6892-1:2019"""@en ;
 #    Individuals
 #################################################################
 
+###  http://purl.obolibrary.org/obo/UO_0000010
+obo:UO_0000010 rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.obolibrary.org/obo/UO_0000012
 obo:UO_0000012 rdf:type owl:NamedIndividual .
 
@@ -13223,12 +13328,20 @@ obo:UO_0000027 rdf:type owl:NamedIndividual .
 obo:UO_0000031 rdf:type owl:NamedIndividual .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000032
+obo:UO_0000032 rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.obolibrary.org/obo/UO_0000076
 obo:UO_0000076 rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.obolibrary.org/obo/UO_0000106
 obo:UO_0000106 rdf:type owl:NamedIndividual .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000110
+obo:UO_0000110 rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.obolibrary.org/obo/UO_0000163
@@ -13239,21 +13352,12 @@ obo:UO_0000163 rdf:type owl:NamedIndividual .
 obo:UO_0000164 rdf:type owl:NamedIndividual .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000185
+obo:UO_0000185 rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.obolibrary.org/obo/UO_0000228
 obo:UO_0000228 rdf:type owl:NamedIndividual .
-
-
-###  http://qudt.org/vocab/unit/GRAD
-<http://qudt.org/vocab/unit/GRAD> rdf:type owl:NamedIndividual ,
-                                           qudt:Unit ;
-                                  dcterms:description "\"Grad\" is a unit for  'Plane Angle' expressed as $grad$."^^qudt:LatexString ;
-                                  qudt:dbpediaMatch "http://dbpedia.org/resource/Grad"^^xsd:anyURI ;
-                                  qudt:informativeReference "http://en.wikipedia.org/wiki/Grad?oldid=490906645"^^xsd:anyURI ,
-                                                            "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA522"^^xsd:anyURI ;
-                                  qudt:wikidataMatch <http://www.wikidata.org/entity/Q208528> ;
-                                  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
-                                  rdfs:label "Grad" ,
-                                             "Grad"@en .
 
 
 ###  http://qudt.org/vocab/unit/MegaPA
@@ -13276,34 +13380,6 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                "Megapascal"@sl ,
                                                "Megapascal"@tr ,
                                                "Megapaskal"@pl .
-
-
-###  http://qudt.org/vocab/unit/MilliM
-<http://qudt.org/vocab/unit/MilliM> rdf:type owl:NamedIndividual ,
-                                             qudt:DerivedUnit ,
-                                             qudt:Unit ;
-                                    dcterms:description "The millimetre (International spelling as used by the International Bureau of Weights and Measures) or millimeter (American spelling) (SI unit symbol mm) is a unit of length in the metric system, equal to one thousandth of a metre, which is the SI base unit of length. It is equal to 1000 micrometres or 1000000 nanometres. A millimetre is equal to exactly 5/127 (approximately 0.039370) of an inch."^^rdf:HTML ;
-                                    qudt:dbpediaMatch "http://dbpedia.org/resource/Millimetre"^^xsd:anyURI ;
-                                    qudt:expression "$mm$"^^qudt:LatexString ;
-                                    qudt:informativeReference "http://en.wikipedia.org/wiki/Millimetre?oldid=493032457"^^xsd:anyURI ,
-                                                              "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA862"^^xsd:anyURI ;
-                                    qudt:wikidataMatch <http://www.wikidata.org/entity/Q174789> ;
-                                    rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
-                                    rdfs:label "Millimeter"@de ,
-                                               "Millimeter"@en-us ,
-                                               "Millimeter"@ms ,
-                                               "Millimeter"@sl ,
-                                               "Millimetr"@cs ,
-                                               "Millimetr"@pl ,
-                                               "Millimetre" ,
-                                               "Millimetre"@en ,
-                                               "Millimetre"@tr ,
-                                               "Millimetro"@es ,
-                                               "Millimetro"@it ,
-                                               "Millimetru"@ro ,
-                                               "Millimètre"@fr ,
-                                               "Milliméter"@hu ;
-                                    skos:altLabel "mil"@en-gb .
 
 
 ###  http://qudt.org/vocab/unit/N-PER-M2
@@ -13336,17 +13412,30 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                  "Нютон на Квадратен Метър"@bg .
 
 
-###  http://qudt.org/vocab/unit/PERCENT
-<http://qudt.org/vocab/unit/PERCENT> rdf:type owl:NamedIndividual ,
-                                              qudt:Unit ;
-                                     dcterms:description "\"Percent\" is a unit for  'Dimensionless Ratio' expressed as $\\%$."^^qudt:LatexString ;
-                                     qudt:dbpediaMatch "http://dbpedia.org/resource/Percentage"^^xsd:anyURI ;
-                                     qudt:informativeReference "http://en.wikipedia.org/wiki/Percentage?oldid=495284540"^^xsd:anyURI ,
-                                                               "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA000"^^xsd:anyURI ;
-                                     qudt:wikidataMatch <http://www.wikidata.org/entity/Q11229> ;
-                                     rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
-                                     rdfs:label "Percent" ,
-                                                "Percent"@en .
+###  http://qudt.org/vocab/unit/W-PER-KiloGM
+<http://qudt.org/vocab/unit/W-PER-KiloGM> rdf:type owl:NamedIndividual ,
+                                                   qudt:Unit ;
+                                          dcterms:description "SI derived unit watt divided by the SI base unit kilogram"^^rdf:HTML ;
+                                          qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA316"^^xsd:anyURI ;
+                                          qudt:wikidataMatch <http://www.wikidata.org/entity/Q67060736> ;
+                                          rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                          rdfs:label "Vatio por Kilogramo"@es ,
+                                                     "Wat na Kilogram"@pl ,
+                                                     "Watt na Kilogram"@cs ,
+                                                     "Watt na Kilogram"@sl ,
+                                                     "Watt par Kilogramme"@fr ,
+                                                     "Watt pe Kilogram"@ro ,
+                                                     "Watt per Chilogrammo"@it ,
+                                                     "Watt per Kilogram" ,
+                                                     "Watt per Kilogram"@en ,
+                                                     "Watt per Kilogram"@ms ,
+                                                     "Watt per Kilogram"@tr ,
+                                                     "Watt por Quilograma"@pt ,
+                                                     "Watt pro Kilogramm"@de ,
+                                                     "Wattium per Chiliogramma"@la ,
+                                                     "Βατ ανά Χιλιόγραμμο"@el ,
+                                                     "Ват на Килограм"@bg ,
+                                                     "Ватт на Килограмм"@ru .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020006
@@ -14346,6 +14435,19 @@ obo:IAO_0000235 obo:IAO_0000115 "inverse of the relation 'denotes'"@en ;
                 rdfs:label "denoted by"@en .
 
 
+obo:UO_0000010 obo:IAO_0000115 "A time unit which is equal to the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom." ;
+               oboInOwl:hasExactSynonym "s" ;
+               rdfs:label "second" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000010 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A time unit which is equal to the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom." ;
+   oboInOwl:hasDbXref "BIPM:BIPM" ,
+                      "NIST:NIST"
+ ] .
+
+
 obo:UO_0000012 obo:IAO_0000115 "A thermodynamic temperature unit which is equal to the fraction 1/273.16 of the thermodynamic temperature of the triple point of water." ;
                oboInOwl:hasExactSynonym "K" ;
                rdfs:label "kelvin" .
@@ -14396,6 +14498,18 @@ obo:UO_0000031 obo:IAO_0000115 "A time unit which is equal to 60 seconds." ;
  ] .
 
 
+obo:UO_0000032 obo:IAO_0000115 "A time unit which is equal to 3600 seconds or 60 minutes." ;
+               oboInOwl:hasExactSynonym "h" ;
+               rdfs:label "hour" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000032 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A time unit which is equal to 3600 seconds or 60 minutes." ;
+   oboInOwl:hasDbXref "Wikipedia:Wikipedia"
+ ] .
+
+
 obo:UO_0000076 obo:IAO_0000115 "A concentration unit which denotes the number of moles of solute as a proportion of the total number of moles in a solution." ;
                oboInOwl:hasExactSynonym "(x)" ,
                                         "chi" ;
@@ -14418,6 +14532,18 @@ obo:UO_0000106 obo:IAO_0000115 "A frequency unit which is equal to 1 complete cy
    owl:annotatedSource obo:UO_0000106 ;
    owl:annotatedProperty obo:IAO_0000115 ;
    owl:annotatedTarget "A frequency unit which is equal to 1 complete cycle of a recurring phenomenon in 1 second." ;
+   oboInOwl:hasDbXref "NIST:NIST"
+ ] .
+
+
+obo:UO_0000110 obo:IAO_0000115 "A pressure unit which is equal to the pressure or stress on a surface caused by a force of 1 newton spread over a surface of 1 m^[2]." ;
+               oboInOwl:hasExactSynonym "Pa" ;
+               rdfs:label "pascal" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000110 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A pressure unit which is equal to the pressure or stress on a surface caused by a force of 1 newton spread over a surface of 1 m^[2]." ;
    oboInOwl:hasDbXref "NIST:NIST"
  ] .
 
@@ -14445,6 +14571,17 @@ obo:UO_0000164 obo:IAO_0000115 "A dimensionless concentration unit which denotes
    owl:annotatedProperty obo:IAO_0000115 ;
    owl:annotatedTarget "A dimensionless concentration unit which denotes the mass of the substance in a mixture as a percentage of the volume of the entire mixture." ;
    oboInOwl:hasDbXref "UOC:GVG"
+ ] .
+
+
+obo:UO_0000185 obo:IAO_0000115 "A plane angle unit which is equal to 1/360 of a full rotation or 1.7453310^[-2] rad." ;
+               rdfs:label "degree" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000185 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A plane angle unit which is equal to 1/360 of a full rotation or 1.7453310^[-2] rad." ;
+   oboInOwl:hasDbXref "Wikipedia:Wikipedia"
  ] .
 
 

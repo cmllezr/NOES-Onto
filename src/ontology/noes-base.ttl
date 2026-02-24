@@ -14,12 +14,12 @@
 @base <https://w3id.org/pmd/noes/noes-base.ttl> .
 
 <https://w3id.org/pmd/noes/noes-base.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-02-23/noes-base.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-02-24/noes-base.ttl> ;
                                            dce:type obo:IAO_8000001 ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-02-23" .
+                                           owl:versionInfo "2026-02-24" .
 
 #################################################################
 #    Annotation properties
@@ -106,12 +106,12 @@ co:symbol rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/pmd/noes/NOES_0000115
 noes:NOES_0000115 rdf:type owl:AnnotationProperty ;
-                  rdfs:label "extracted entity"@en .
+                  rdfs:label "explicit"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000116
 noes:NOES_0000116 rdf:type owl:AnnotationProperty ;
-                  rdfs:label "extracted triple"@en .
+                  rdfs:label "implicit"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000122
@@ -1053,17 +1053,7 @@ co:PMD_0000005 rdf:type owl:Class ;
                                  owl:onProperty obo:BFO_0000054 ;
                                  owl:someValuesFrom co:PMD_0000950
                                ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000052 ;
-                                 owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000040
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty obo:RO_0000056 ;
-                                                                             owl:someValuesFrom obo:BFO_0000015
-                                                                           ]
-                                                                         ) ;
-                                                      rdf:type owl:Class
-                                                    ]
-                               ] ;
+                               _:genid36 ;
                rdfs:comment """Technical materials are complex object aggregates. The properties that are determined for those object aggregates are intrinsically associated with the methodologies employed in the measurement process. This is in contrast to typical 'physical' properties, which like e.g. mass that can be determined to high accuracy independently of the measurement process. 
 As a consequence, the behavoiral material properties in the ontology are differeciated according to their measurement method, e.g. Brinell hardness and Vickers hardness are different types of indentation hardness rather than different measures/quantification (GDC) of the materials property 'indentation hardness'.
  The 'unit idenifieres' of such properties (e.g. \"HV1\", \"HV10\", \"HBW\") are strictly speaking not units but rather references to the measurement methodology used to determine a numeric value that quantifies the property."""@en ;
@@ -1074,6 +1064,24 @@ As a consequence, the behavoiral material properties in the ontology are differe
 
 We only deal with intensive (system-size independent) material properties. Extensive properties that depend on the testpiece/specimen/probe size should be found in the respective testing method modules."""@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+_:genid36 rdf:type owl:Restriction ;
+           owl:onProperty obo:RO_0000052 ;
+           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000001
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty obo:RO_0000056 ;
+                                                       owl:someValuesFrom obo:BFO_0000015
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource co:PMD_0000005 ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget _:genid36 ;
+   rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
+ ] .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000008
@@ -1394,7 +1402,7 @@ co:PMD_0000552 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000553
 co:PMD_0000553 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020148 ;
+               rdfs:subClassOf co:PMD_0020131 ;
                rdfs:label "chemical potential"@en ;
                skos:definition "The chemical potential is a thermodynamic quality describing the energy change associated with the addition of a small quantity of a substance to a system at constant temperature and pressure."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
@@ -2960,7 +2968,7 @@ co:PMD_0020047 rdf:type owl:Class ;
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf co:PMD_0020094 ;
+               rdfs:subClassOf co:PMD_0020140 ;
                rdfs:comment "A Portion Of Matter that consists of only phosphorus atoms."@en ;
                rdfs:label "portion of phosphorus"@en ;
                skos:definition "A 'Portion Of Phosphorus' is a 'Portion Of Pure Substance' that 'consists of' only chebi:phosphorus atom."@en .
@@ -3184,7 +3192,7 @@ co:PMD_0020061 rdf:type owl:Class ;
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf co:PMD_0020037 ;
+               rdfs:subClassOf co:PMD_0020140 ;
                rdfs:comment "A Portion Of Matter that consists of only krypton atoms."@en ;
                rdfs:label "portion of krypton"@en ;
                skos:definition "A 'Portion Of Krypton' is a 'Portion Of Pure Substance' that 'consists of' only chebi:krypton atom."@en .
@@ -3871,12 +3879,24 @@ co:PMD_0020128 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020131
 co:PMD_0020131 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000019 ;
+               rdfs:subClassOf obo:BFO_0000019 ,
+                               _:genid544 ;
                owl:disjointWith co:PMD_0020148 ;
                rdfs:label "intensive quality"@en ;
                skos:altLabel "Point property"@en ;
                skos:definition "An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+_:genid544 rdf:type owl:Restriction ;
+            owl:onProperty obo:RO_0000080 ;
+            owl:someValuesFrom co:PMD_0000001 .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource co:PMD_0020131 ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget _:genid544 ;
+   rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
+ ] .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020132
@@ -10782,6 +10802,31 @@ noes:NOES_0000114 rdf:type owl:Class ;
                   rdfs:label "Stanzen"@de ,
                              "stamping"@en ;
                   skos:definition "Stamping is a separating process, a stamping press is a participant and it realizes some cutting function."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000117
+noes:NOES_0000117 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000602 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000085 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000118
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:BFO_0000054 ;
+                                                                                owl:someValuesFrom noes:NOES_0000023
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                  ] ;
+                  rdfs:label "rolling mill"@en ;
+                  skos:definition "Rolling mill is device which is a participant in a rolling process, has a function of reducing thickness of an object that is specified input to the rolling process, and this function is realized in the rolling process."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000118
+noes:NOES_0000118 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000034 ;
+                  rdfs:label "thickness reduction function"@en ;
+                  skos:definition "Thickness reduction function is a function to reduce thickness of a material."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000123

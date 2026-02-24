@@ -14,15 +14,15 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/2026-02-23"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/2026-02-24"/>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
-        <dcterms:bibliographicCitation>noes: Nonoriented Electrical Steel Ontology. Version 2026-02-23, https://w3id.org/pmd/noes/</dcterms:bibliographicCitation>
-        <dcterms:created>2026-02-23</dcterms:created>
+        <dcterms:bibliographicCitation>noes: Nonoriented Electrical Steel Ontology. Version 2026-02-24, https://w3id.org/pmd/noes/</dcterms:bibliographicCitation>
+        <dcterms:created>2026-02-24</dcterms:created>
         <dcterms:description>None</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/unspecified"/>
         <dcterms:title>NOES Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
         <owl:priorVersion rdf:resource="https://w3id.org/pmd/noes/"/>
-        <owl:versionInfo>2026-02-23</owl:versionInfo>
+        <owl:versionInfo>2026-02-24</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -170,7 +170,7 @@
     <!-- https://w3id.org/pmd/noes/NOES_0000115 -->
 
     <owl:AnnotationProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000115">
-        <rdfs:label xml:lang="en">extracted entity</rdfs:label>
+        <rdfs:label xml:lang="en">explicit</rdfs:label>
     </owl:AnnotationProperty>
     
 
@@ -178,7 +178,7 @@
     <!-- https://w3id.org/pmd/noes/NOES_0000116 -->
 
     <owl:AnnotationProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000116">
-        <rdfs:label xml:lang="en">extracted triple</rdfs:label>
+        <rdfs:label xml:lang="en">implicit</rdfs:label>
     </owl:AnnotationProperty>
     
 
@@ -1556,22 +1556,7 @@ granularity. At these coarser levels, the individual molecules cannot be differe
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
-                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:nodeID="genid36"/>
         <rdfs:comment xml:lang="en">Technical materials are complex object aggregates. The properties that are determined for those object aggregates are intrinsically associated with the methodologies employed in the measurement process. This is in contrast to typical &apos;physical&apos; properties, which like e.g. mass that can be determined to high accuracy independently of the measurement process. 
 As a consequence, the behavoiral material properties in the ontology are differeciated according to their measurement method, e.g. Brinell hardness and Vickers hardness are different types of indentation hardness rather than different measures/quantification (GDC) of the materials property &apos;indentation hardness&apos;.
  The &apos;unit idenifieres&apos; of such properties (e.g. &quot;HV1&quot;, &quot;HV10&quot;, &quot;HBW&quot;) are strictly speaking not units but rather references to the measurement methodology used to determine a numeric value that quantifies the property.</rdfs:comment>
@@ -1583,6 +1568,26 @@ As a consequence, the behavoiral material properties in the ontology are differe
 We only deal with intensive (system-size independent) material properties. Extensive properties that depend on the testpiece/specimen/probe size should be found in the respective testing method modules.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
+    <owl:Restriction rdf:nodeID="genid36">
+        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+        <owl:someValuesFrom>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000001"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:someValuesFrom>
+    </owl:Restriction>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000005"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:nodeID="genid36"/>
+        <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
+    </owl:Axiom>
     
 
 
@@ -2015,7 +2020,7 @@ See the pattern example of composition to underatand the difference between comp
     <!-- https://w3id.org/pmd/co/PMD_0000553 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000553">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <rdfs:label xml:lang="en">chemical potential</rdfs:label>
         <skos:definition xml:lang="en">The chemical potential is a thermodynamic quality describing the energy change associated with the addition of a small quantity of a substance to a system at constant temperature and pressure.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
@@ -4134,7 +4139,7 @@ To understand the difference between the composition and the composition data it
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020094"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only phosphorus atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of phosphorus</rdfs:label>
         <skos:definition xml:lang="en">A &apos;Portion Of Phosphorus&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:phosphorus atom.</skos:definition>
@@ -4442,7 +4447,7 @@ To understand the difference between the composition and the composition data it
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020037"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only krypton atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of krypton</rdfs:label>
         <skos:definition xml:lang="en">A &apos;Portion Of Krypton&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:krypton atom.</skos:definition>
@@ -5380,12 +5385,23 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020131">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+        <rdfs:subClassOf rdf:nodeID="genid544"/>
         <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <rdfs:label xml:lang="en">intensive quality</rdfs:label>
         <skos:altLabel xml:lang="en">Point property</skos:altLabel>
         <skos:definition xml:lang="en">An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
+    <owl:Restriction rdf:nodeID="genid544">
+        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
+    </owl:Restriction>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:nodeID="genid544"/>
+        <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
+    </owl:Axiom>
     
 
 
@@ -15218,6 +15234,42 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:label xml:lang="de">Stanzen</rdfs:label>
         <rdfs:label xml:lang="en">stamping</rdfs:label>
         <skos:definition xml:lang="en">Stamping is a separating process, a stamping press is a participant and it realizes some cutting function.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000117 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000117">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000085"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000118"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000023"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">rolling mill</rdfs:label>
+        <skos:definition xml:lang="en">Rolling mill is device which is a participant in a rolling process, has a function of reducing thickness of an object that is specified input to the rolling process, and this function is realized in the rolling process.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000118 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000118">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
+        <rdfs:label xml:lang="en">thickness reduction function</rdfs:label>
+        <skos:definition xml:lang="en">Thickness reduction function is a function to reduce thickness of a material.</skos:definition>
     </owl:Class>
     
 
