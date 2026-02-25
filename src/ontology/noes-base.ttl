@@ -14,12 +14,12 @@
 @base <https://w3id.org/pmd/noes/noes-base.ttl> .
 
 <https://w3id.org/pmd/noes/noes-base.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-02-24/noes-base.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-02-25/noes-base.ttl> ;
                                            dce:type obo:IAO_8000001 ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-02-24" .
+                                           owl:versionInfo "2026-02-25" .
 
 #################################################################
 #    Annotation properties
@@ -1048,7 +1048,7 @@ co:PMD_0000002 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0000005
 co:PMD_0000005 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000017 ,
+               rdfs:subClassOf obo:BFO_0000016 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:BFO_0000054 ;
                                  owl:someValuesFrom co:PMD_0000950
@@ -1057,7 +1057,8 @@ co:PMD_0000005 rdf:type owl:Class ;
                rdfs:comment """Technical materials are complex object aggregates. The properties that are determined for those object aggregates are intrinsically associated with the methodologies employed in the measurement process. This is in contrast to typical 'physical' properties, which like e.g. mass that can be determined to high accuracy independently of the measurement process. 
 As a consequence, the behavoiral material properties in the ontology are differeciated according to their measurement method, e.g. Brinell hardness and Vickers hardness are different types of indentation hardness rather than different measures/quantification (GDC) of the materials property 'indentation hardness'.
  The 'unit idenifieres' of such properties (e.g. \"HV1\", \"HV10\", \"HBW\") are strictly speaking not units but rather references to the measurement methodology used to determine a numeric value that quantifies the property."""@en ;
-               rdfs:label "behavioral material property"@en ;
+               rdfs:label "behavioral material property"@en ,
+                          "material property"@en ;
                skos:definition """A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
 
 (Callister, W.D., Rethwisch, D.G., Materials Science and Engineering, Wiley, 2014)
@@ -10856,6 +10857,24 @@ noes:NOES_0000118 rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000034 ;
                   rdfs:label "thickness reduction function"@en ;
                   skos:definition "Thickness reduction function is a function to reduce thickness of a material."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000119
+noes:NOES_0000119 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000008 ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty co:PMD_0025006 ;
+                                                           owl:someValuesFrom noes:NOES_0000023
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty co:PMD_0025006 ;
+                                                           owl:allValuesFrom noes:NOES_0000023
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:comment "Number of rolling passes is a process attribute of a rolling process which specifies how many times a piece of material have been passed between rolling mills to achieve desired thickness."@en ;
+                  rdfs:label "number of rolling passes"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000123
