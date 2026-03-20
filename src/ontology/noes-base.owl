@@ -14,12 +14,12 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/noes-base.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-02-25/noes-base.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-03-20/noes-base.owl"/>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:description>None</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/unspecified"/>
         <dcterms:title>NOES Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
-        <owl:versionInfo>2026-02-25</owl:versionInfo>
+        <owl:versionInfo>2026-03-20</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -1027,12 +1027,6 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     
 
 
-    <!-- http://purl.obolibrary.org/obo/CHEBI_27573 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_27573"/>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/CHEBI_27594 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_27594"/>
@@ -1522,7 +1516,24 @@ granularity. At these coarser levels, the individual molecules cannot be differe
     <!-- https://w3id.org/pmd/co/PMD_0000002 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000002">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000833"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000833"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">We recognize that some of the materials in the subclasses also occur naturally. However, these are not within the scope of our consideration for technical use.</rdfs:comment>
         <rdfs:label xml:lang="en">engineered material</rdfs:label>
         <skos:definition xml:lang="en">An engineered material is a material that is output of a manufacturing process.</skos:definition>
@@ -1541,7 +1552,15 @@ granularity. At these coarser levels, the individual molecules cannot be differe
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf rdf:nodeID="genid36"/>
+        <rdfs:subClassOf rdf:nodeID="genid41"/>
+        <rdfs:comment xml:lang="en">A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
+(Callister, W.D., Rethwisch, D.G., Materials Science and Engineering, Wiley, 2014)
+
+Technical materials are complex aggregates. Many properties that are determined for those aggregates are intrinsically associated with the methodologies employed in the measurement process. This is in contrast to typical &apos;physical&apos; properties, which like e.g. mass that can be determined to high accuracy independently of the measurement process. 
+As a consequence, material properties in the ontology are differeciated according to their measurement method, e.g. Brinell hardness and Vickers hardness are different types of indentation hardness rather than different measures/quantification (GDC) of the materials property &apos;indentation hardness&apos;.
+ The &apos;unit idenifieres&apos; of such properties (e.g. &quot;HV1&quot;, &quot;HV10&quot;, &quot;HBW&quot;) are strictly speaking not units but rather references to the measurement methodology used to determine a numeric value that quantifies the property.
+
+Extensive properties that depend on the object being tested rather than on the portion of matter are (extensive) object- or system-properties.</rdfs:comment>
         <rdfs:comment xml:lang="en">Technical materials are complex object aggregates. The properties that are determined for those object aggregates are intrinsically associated with the methodologies employed in the measurement process. This is in contrast to typical &apos;physical&apos; properties, which like e.g. mass that can be determined to high accuracy independently of the measurement process. 
 As a consequence, the behavoiral material properties in the ontology are differeciated according to their measurement method, e.g. Brinell hardness and Vickers hardness are different types of indentation hardness rather than different measures/quantification (GDC) of the materials property &apos;indentation hardness&apos;.
  The &apos;unit idenifieres&apos; of such properties (e.g. &quot;HV1&quot;, &quot;HV10&quot;, &quot;HBW&quot;) are strictly speaking not units but rather references to the measurement methodology used to determine a numeric value that quantifies the property.</rdfs:comment>
@@ -1552,9 +1571,10 @@ As a consequence, the behavoiral material properties in the ontology are differe
 (Callister, W.D., Rethwisch, D.G., Materials Science and Engineering, Wiley, 2014)
 
 We only deal with intensive (system-size independent) material properties. Extensive properties that depend on the testpiece/specimen/probe size should be found in the respective testing method modules.</skos:definition>
+        <skos:definition xml:lang="en">a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid36">
+    <owl:Restriction rdf:nodeID="genid41">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
         <owl:someValuesFrom>
             <owl:Class>
@@ -1571,7 +1591,7 @@ We only deal with intensive (system-size independent) material properties. Exten
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000005"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid36"/>
+        <owl:annotatedTarget rdf:nodeID="genid41"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -1617,8 +1637,8 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         </rdfs:subClassOf>
         <rdfs:label xml:lang="de">Schmelzprozess</rdfs:label>
         <rdfs:label xml:lang="en">melting process</rdfs:label>
-        <skos:definition xml:lang="en">A melting process is a thermally induced process during which a solid material undergoes a phase transition into a liquid state. It involves the absorption of heat and occurs at or above the material&apos;s melting point.</skos:definition>
         <skos:definition xml:lang="de">Ein Schmelzvorgang ist ein thermisch induzierter Prozess, bei dem ein festes Material einen Phasenübergang in einen flüssigen Zustand erfährt. Er beinhaltet die Absorption von Wärme und findet bei oder oberhalb des Schmelzpunkts des Materials statt.</skos:definition>
+        <skos:definition xml:lang="en">a thermally induced change of aggregate state during which a solid material undergoes a phase transition into a liquid state. It involves the absorption of heat and occurs at or above the material&apos;s melting point.</skos:definition>
         <skos:example xml:lang="en">The process of melting aluminum ingots in preparation for extrusion.</skos:example>
     </owl:Class>
     
@@ -1630,7 +1650,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000969"/>
         <rdfs:label xml:lang="de">Heizfunktion</rdfs:label>
         <rdfs:label xml:lang="en">heating function</rdfs:label>
-        <skos:definition xml:lang="en">A heating function is a (realizable) function that, when realized, enables a system or device to increase the thermal energy of a material, typically to reach temperatures required for processing, transformation, or reaction.</skos:definition>
+        <skos:definition xml:lang="en">A temperature change function that, when realized, enables a system or device to increase the thermal energy of a material, typically to reach temperatures required for processing, transformation, or reaction.</skos:definition>
         <skos:definition xml:lang="de">Eine Heizfunktion ist eine (realisierbare) Funktion, die ein System oder Gerät in die Lage versetzt, die Wärmeenergie eines Materials zu erhöhen, um die für die Verarbeitung, Umwandlung oder Reaktion erforderlichen Temperaturen zu erreichen.</skos:definition>
         <skos:example xml:lang="en">The function of a resistance heater in a vacuum furnace.</skos:example>
     </owl:Class>
@@ -1643,7 +1663,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000969"/>
         <rdfs:label xml:lang="de">Kühlfunktion</rdfs:label>
         <rdfs:label xml:lang="en">cooling function</rdfs:label>
-        <skos:definition xml:lang="en">A cooling function is a (realizable) function that, when realized, enables a system or device to lower the temperature of a material, often to control solidification or maintain a stable state below a desired thermal threshold.</skos:definition>
+        <skos:definition xml:lang="en">A temperature change function that enables a system or device to lower the temperature of a material, often to control solidification or maintain a stable state below a desired thermal threshold.</skos:definition>
         <skos:definition xml:lang="de">Eine Kühlfunktion ist eine (realisierbare) Funktion, die es einem System oder Gerät ermöglicht, die Temperatur eines Materials zu senken, häufig um die Erstarrung zu steuern oder einen stabilen Zustand unterhalb eines gewünschten thermischen Schwellenwerts aufrechtzuerhalten.</skos:definition>
         <skos:example xml:lang="en">The function of a water-cooled mold to solidify molten metal in casting.</skos:example>
     </owl:Class>
@@ -1680,7 +1700,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000054"/>
         <rdfs:label xml:lang="de">Schmelzfunktion</rdfs:label>
         <rdfs:label xml:lang="en">melting function</rdfs:label>
-        <skos:definition xml:lang="en">A melting function is a heating function that, when realized, enables a device or system to initiate or sustain the phase transition of a solid material into a liquid by raising its temperature above the melting point.</skos:definition>
+        <skos:definition xml:lang="en">A heating function that, when realized, enables a device or system to initiate or sustain the phase transition of a solid material into a liquid by raising its temperature above the melting point.</skos:definition>
         <skos:definition xml:lang="de">Eine Schmelzfunktion ist eine Heizfunktion, die es einem Gerät oder System ermöglicht, den Phasenübergang eines festen Materials in eine Flüssigkeit einzuleiten oder aufrechtzuerhalten, indem seine Temperatur über den Schmelzpunkt angehoben wird.</skos:definition>
         <skos:example xml:lang="en">The function of an induction coil in a furnace to heat metal until it melts.</skos:example>
     </owl:Class>
@@ -1748,8 +1768,9 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000075">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000602"/>
-        <rdfs:label xml:lang="en">mold device</rdfs:label>
-        <skos:definition xml:lang="en">A form used to cast an object of a desired shape.</skos:definition>
+        <rdfs:label xml:lang="en-us">mold</rdfs:label>
+        <rdfs:label xml:lang="en">mould</rdfs:label>
+        <skos:definition xml:lang="en">A device consisting of a hollowed-out cavity that shapes fluid or plastic material into a specific form through the process of solidification or cooling.</skos:definition>
     </owl:Class>
     
 
@@ -1760,6 +1781,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
         <rdfs:label xml:lang="en">1D</rdfs:label>
         <skos:definition xml:lang="en">1-D is an information content entity representing a one-dimensional structure or model representing a single linear dimension, often used in material science simulations or analysis.</skos:definition>
+        <skos:definition xml:lang="en">1D is a data item representing a one-dimensional structure or model representing a single linear dimension, often used in material science simulations or analysis.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1770,7 +1792,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000502">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
         <rdfs:label xml:lang="en">2D</rdfs:label>
-        <skos:definition xml:lang="en">A two-dimensional information content entity is a representation or analysis, commonly applied in studying planar material properties or surface phenomena.</skos:definition>
+        <skos:definition xml:lang="en">A two-dimensional data item is a representation or analysis, commonly applied in studying planar material properties or surface phenomena.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1855,7 +1877,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">generation of magnetic field</rdfs:label>
-        <skos:definition xml:lang="en">reaction to change of elctric field or movement of charges</skos:definition>
+        <skos:definition xml:lang="en">is a process that occurs as a reaction to change of elctric field or movement of charges and produces a magnetic field</skos:definition>
     </owl:Class>
     
 
@@ -1865,9 +1887,9 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000522">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:label xml:lang="en">application of mechanical load</rdfs:label>
-        <rdfs:label xml:lang="en">mechanical loading</rdfs:label>
+        <rdfs:label xml:lang="en">mechanical process</rdfs:label>
         <skos:definition xml:lang="en">An application of mechanical load is the process of applying force or stress to a material to observe its response or measure its properties.</skos:definition>
-        <skos:definition xml:lang="en">application of external forces, moments, or imposed displacements to objects or the equivalent loadings (stresses, strains) to materials.</skos:definition>
+        <skos:definition xml:lang="en">is a process in which forces, moments, or imposed displacements to objects or object aggregates occur and/or the equivalent (stresses, strains) to materials or portions of matter</skos:definition>
     </owl:Class>
     
 
@@ -1928,7 +1950,7 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000547">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020136"/>
         <rdfs:label xml:lang="en">change of aggregate state</rdfs:label>
-        <skos:definition xml:lang="en">A change of aggregate state is a phase transition (change of phase) involving the collective state of particles in a material, such as melting or condensation.</skos:definition>
+        <skos:definition xml:lang="en">a phase transformation (change of phase) involving the collective state of particles in portion of matter</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1966,12 +1988,6 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000551">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025001"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0025002"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">See the editor note of composition to understand the difference between composition and chemical composition.
 
 See the pattern example of composition to underatand the difference between composition and proportion.</rdfs:comment>
@@ -2006,7 +2022,7 @@ See the pattern example of composition to underatand the difference between comp
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000553">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <rdfs:label xml:lang="en">chemical potential</rdfs:label>
-        <skos:definition xml:lang="en">The chemical potential is a thermodynamic quality describing the energy change associated with the addition of a small quantity of a substance to a system at constant temperature and pressure.</skos:definition>
+        <skos:definition xml:lang="en">an intensive quality of a thermodynamic system describing the energy change associated with the addition of a small quantity of a substance to a system at constant temperature and pressure.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -2084,8 +2100,10 @@ See the pattern example of composition to underatand the difference between comp
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020099"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The finite set of periodic geometric arrangements is described e.g. by the 14 possible Bravais Lattices in three-dimensional space.</rdfs:comment>
         <rdfs:label xml:lang="en">crystal structure</rdfs:label>
         <skos:definition xml:lang="en">The crystal structure is a morphologic quality that describes the periodic geometric arrangement of entities in a crystalline material. The finite set of periodic geometric arrangements is described by the 14 possible Bravais Lattices in three-dimensional space.</skos:definition>
+        <skos:definition xml:lang="en">an intensive qualtty of a crystal that embodies the periodic geometric arrangement of entities in a crystal lattice.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -2144,6 +2162,7 @@ See the pattern example of composition to underatand the difference between comp
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
         <rdfs:label xml:lang="de">Gerät</rdfs:label>
         <rdfs:label xml:lang="en">device</rdfs:label>
+        <skos:definition xml:lang="en">A device is an object that is designed to perform a specific function or task involving measurement, manipulation, processing, or analysis.</skos:definition>
         <skos:definition xml:lang="en">A physical or virtual entity used to perform a specific function or task, often involving measurement, manipulation, or analysis of materials.</skos:definition>
         <skos:definition xml:lang="de">Ein physisches oder virtuelles Objekt, das verwendet wird, um eine bestimmte Funktion oder Aufgabe auszuführen, häufig im Zusammenhang mit der Messung, Manipulation oder Analyse von Materialien.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
@@ -2201,7 +2220,7 @@ See the pattern example of composition to underatand the difference between comp
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000619">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <rdfs:label xml:lang="en">electric potential</rdfs:label>
-        <skos:definition xml:lang="en">The electric potential is a thermodynamic quality describing the amount of work needed to move a unit charge from a reference point to a specific location in an electric field.</skos:definition>
+        <skos:definition xml:lang="en">an extensvie quality describing the amount of work needed to move a unit charge from a reference point to a specific location in an electric field.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -2236,7 +2255,7 @@ See the pattern example of composition to underatand the difference between comp
         <obo:IAO_0000119 xml:lang="en">“Electron microscope.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/electron%20microscope. Accessed 24 Nov. 2022.</obo:IAO_0000119>
         <rdfs:label xml:lang="de">Elektronenmikroskop</rdfs:label>
         <rdfs:label xml:lang="en">electron microscope</rdfs:label>
-        <skos:definition xml:lang="en">A device that uses a beam of electrons to create high-resolution images of a sample&apos;s surface or structure.</skos:definition>
+        <skos:definition xml:lang="en">A microscope that uses a beam of electrons to create high-resolution images of a sample&apos;s surface or structure.</skos:definition>
         <skos:definition xml:lang="en">An electron-optical instrument in which a beam of electrons is used to produce an enlarged image of a minute object.</skos:definition>
         <skos:definition xml:lang="de">Ein Gerät, das einen Elektronenstrahl verwendet, um hochauflösende Bilder der Oberfläche oder Struktur einer Probe zu erstellen.</skos:definition>
     </owl:Class>
@@ -2368,7 +2387,7 @@ See the pattern example of composition to underatand the difference between comp
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000002"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
                         <owl:someValuesFrom>
@@ -2386,7 +2405,7 @@ See the pattern example of composition to underatand the difference between comp
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000002"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
@@ -2418,8 +2437,8 @@ See the pattern example of composition to underatand the difference between comp
         <obo:IAO_0000119 xml:lang="en">“Furnace.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/furnace. Accessed 13 Jan. 2023.</obo:IAO_0000119>
         <rdfs:label xml:lang="de">Ofen</rdfs:label>
         <rdfs:label xml:lang="en">furnace</rdfs:label>
-        <skos:definition xml:lang="en">An enclosed structure in which heat is produced (as for heating a house or for reducing ore).</skos:definition>
-        <skos:definition xml:lang="de">Eine geschlossene Struktur, in der Wärme erzeugt wird (z. B. zum Heizen eines Hauses oder zum Einschmelzen von Erz).</skos:definition>
+        <skos:definition xml:lang="en">A device that generates and contains high-intensity thermal energy within an insulated enclosure.</skos:definition>
+        <skos:definition xml:lang="de">Ein Gerät, das hochintensive thermische Energie innerhalb eines isolierten Gehäuses erzeugt und speichert.</skos:definition>
     </owl:Class>
     
 
@@ -2753,7 +2772,7 @@ A manufacturing process is always a transformative process.</skos:definition>
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000834">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000502"/>
         <rdfs:label xml:lang="en">map</rdfs:label>
-        <skos:definition xml:lang="en">A map is a 2-D information content entity describing a representation of spatial data or relationships, often used in material science for visualizing properties or distributions.</skos:definition>
+        <skos:definition xml:lang="en">A map is a 2D information content entity describing a representation of spatial data or relationships, often used in material science for visualizing properties or distributions.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -2807,7 +2826,7 @@ A manufacturing process is always a transformative process.</skos:definition>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000002"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
                         <owl:someValuesFrom>
@@ -2897,7 +2916,7 @@ A manufacturing process is always a transformative process.</skos:definition>
     <!-- https://w3id.org/pmd/co/PMD_0000856 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000856">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000957"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
         <rdfs:label xml:lang="de">Mikroskopie Verfahren</rdfs:label>
         <rdfs:label xml:lang="en">microscopy process</rdfs:label>
         <skos:definition xml:lang="de">Ein Struktur Eigenschaften Analyseverfahren, das verschiedene Arten von Mikroskopietechniken verwendet, um die Mikrostruktur und Morphologie von Materialien auf verschiedenen Ebenen zu visualisieren und zu analysieren.</skos:definition>
@@ -2914,7 +2933,7 @@ A manufacturing process is always a transformative process.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
         <rdfs:comment xml:lang="en">The focus of interest when looking at an object through the microstructure perspective is often its morphology.</rdfs:comment>
         <rdfs:label xml:lang="en">microstructure</rdfs:label>
-        <skos:definition xml:lang="en">The microstructure represents the small-scale structure of a material, including grains, phases, and defects, visible under a microscope.</skos:definition>
+        <skos:definition xml:lang="en">A microstructure is a portion of matter that represents the small-scale structure of a material, including grains, phases, and defects, visible under a microscope.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -2984,6 +3003,7 @@ A manufacturing process is always a transformative process.</skos:definition>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
         <rdfs:label xml:lang="en">connected material entity aggregate</rdfs:label>
         <skos:definition xml:lang="en">A material entity aggregate that is a mereological sum of separate material entities, which adhere to one another through chemical bonds or physical junctions that go beyond gravity.</skos:definition>
+        <skos:definition xml:lang="en">An object aggregate that is a mereological sum of separate material entities, which adhere to one another through chemical bonds or physical junctions that go beyond gravity.</skos:definition>
         <skos:example xml:lang="en">the atoms of a molecule, the molecules forming the membrane of a cell, the epidermis in a human body</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -2995,7 +3015,7 @@ A manufacturing process is always a transformative process.</skos:definition>
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000891">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
         <rdfs:label xml:lang="en">disconnected material entity aggregate</rdfs:label>
-        <skos:definition xml:lang="en">A material entity aggregate that is a mereological sum of scattered (i.e. spatially separated) material entities, which do not adhere to one another through chemical bonds or physical junctions but, instead, relate to one another merely on grounds of metric proximity. The material entities are separated from one another through space or through other material entities that do not belong to the group.</skos:definition>
+        <skos:definition xml:lang="en">An object aggregate that is a mereological sum of scattered (i.e. spatially separated) material entities, which do not adhere to one another through chemical bonds or physical junctions but, instead, relate to one another merely on grounds of metric proximity. The material entities are separated from one another through space or through other material entities that do not belong to the group.</skos:definition>
         <skos:example xml:lang="en">a heap of stones, a colony of honeybees, a group of synapses, the trees of a forest, the canopy of a forest, the fish of a shoal, a group of commuters on the subway, the patients in a hospital</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -3010,6 +3030,7 @@ A manufacturing process is always a transformative process.</skos:definition>
         <rdfs:comment xml:lang="en">The pressure is commonly measured in Pascals.</rdfs:comment>
         <rdfs:label xml:lang="en">pressure</rdfs:label>
         <skos:definition xml:lang="en">The pressure is a thermodynamic quality describing the force exerted per unit area on a material.</skos:definition>
+        <skos:definition xml:lang="en">an intensive quality describing the force exerted per unit area in or on a material.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -3121,6 +3142,7 @@ A manufacturing process is always a transformative process.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <rdfs:label xml:lang="en">specific surface area</rdfs:label>
         <skos:definition xml:lang="en">The specific surface area is a morphologic quality describing the total surface area of a material per unit of mass or volume.</skos:definition>
+        <skos:definition xml:lang="en">an intensive quality embodying the total surface area of a material per unit of mass or volume.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -3219,6 +3241,7 @@ A manufacturing process is always a transformative process.</skos:definition>
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000952">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000848"/>
         <rdfs:label xml:lang="en">strength</rdfs:label>
+        <skos:definition xml:lang="en">The strength is a material property describing the maximum stress a material can withstand before failure.</skos:definition>
         <skos:definition xml:lang="en">The strength is a mechanical property describing the maximum stress a material can withstand before failure.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -3281,7 +3304,7 @@ A manufacturing process is always a transformative process.</skos:definition>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
         <rdfs:label xml:lang="de">Temperaturänderungsfunktion</rdfs:label>
         <rdfs:label xml:lang="en">temperature change function</rdfs:label>
-        <skos:definition xml:lang="en">A subfunction of heat treatment performed to induce changes in temperature to alter material properties.</skos:definition>
+        <skos:definition xml:lang="en">A function in heat treatment performed to induce changes in temperature to alter material properties.</skos:definition>
         <skos:definition xml:lang="de">Eine Unterfunktion der Wärmebehandlung, die durchgeführt wird, um Temperaturänderungen hervorzurufen, um die Materialeigenschaften zu verändern.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -3309,6 +3332,7 @@ A manufacturing process is always a transformative process.</skos:definition>
         <rdfs:label xml:lang="de">Zugprüfmaschine</rdfs:label>
         <rdfs:label xml:lang="en">tensile testing machine</rdfs:label>
         <skos:definition xml:lang="en">A device used to test the tensile strength and elongation of materials by applying a stretching force.</skos:definition>
+        <skos:definition xml:lang="de">Ein Gerät zur Prüfung der Zugfestigkeit und Dehnung von Materialien durch Anwendung einer Dehnkraft.</skos:definition>
         <skos:definition xml:lang="en">Ein Gerät zur Prüfung der Zugfestigkeit und Dehnung von Materialien durch Anwendung einer Dehnkraft.</skos:definition>
     </owl:Class>
     
@@ -3592,7 +3616,7 @@ NOTE: The wording used in EN 10021 was generalized.</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only rhodium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of rhodium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Rhodium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:rhodium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of rhodium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:rhodium atom.</skos:definition>
     </owl:Class>
     
 
@@ -3614,7 +3638,7 @@ NOTE: The wording used in EN 10021 was generalized.</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only tellurium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of tellurium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Tellurium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:tellurium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of tellurium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:tellurium atom.</skos:definition>
     </owl:Class>
     
 
@@ -3624,7 +3648,7 @@ NOTE: The wording used in EN 10021 was generalized.</obo:IAO_0000116>
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020000">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
         <rdfs:label xml:lang="en">phase (thermodynamic)</rdfs:label>
-        <skos:definition xml:lang="en">A thermodynamic phase is portion of matter that is part of a thermodynamic system and has homogeneus thermodynamic properties.</skos:definition>
+        <skos:definition xml:lang="en">A thermodynamic phase is a material entity that forms a homogeneous portion of matter within a thermodynamic system and is characterized by uniform thermodynamic properties.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -3686,6 +3710,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <rdfs:label xml:lang="en">porosity</rdfs:label>
         <skos:definition xml:lang="en">The porosity is a quality describing the fraction of the materials (enclosing) spatial region occupied by pores.</skos:definition>
+        <skos:definition xml:lang="en">itensive quality embodiying the fraction of the materials (enclosing) spatial region occupied by pores.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -3732,7 +3757,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only Iron atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of iron</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Iron&apos; is a &apos;Poriton Of Pure Substance&apos; that &apos;consists of&apos; only chebi:iron atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of iron&apos; is a &apos;Poriton Of Pure Substance&apos; that &apos;consists of&apos; only chebi:iron atom.</skos:definition>
     </owl:Class>
     
 
@@ -3754,7 +3779,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only indium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of indium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Indium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:indium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of indium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:indium atom.</skos:definition>
     </owl:Class>
     
 
@@ -3776,7 +3801,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only chromium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of chromium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Chromium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:chromium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of chromium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:chromium atom.</skos:definition>
     </owl:Class>
     
 
@@ -3798,7 +3823,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only carbon atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of carbon</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Carbon&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:carbon atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of carbon&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:carbon atom.</skos:definition>
     </owl:Class>
     
 
@@ -3820,7 +3845,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only germanium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of germanium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Germanium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:germanium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of germanium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:germanium atom.</skos:definition>
     </owl:Class>
     
 
@@ -3842,7 +3867,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only tungsten atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of tungsten</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Tungsten&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:tungsten.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of tungsten&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:tungsten.</skos:definition>
     </owl:Class>
     
 
@@ -3864,7 +3889,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only erbium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of erbium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Erbium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:erbium.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of erbium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:erbium.</skos:definition>
     </owl:Class>
     
 
@@ -3886,7 +3911,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only molybdenum atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of molybdenum</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Molybdenum&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:molybdenum atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of molybdenum&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:molybdenum atom.</skos:definition>
     </owl:Class>
     
 
@@ -3908,7 +3933,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only niobium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of niobium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Niobium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:niobium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of niobium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:niobium atom.</skos:definition>
     </owl:Class>
     
 
@@ -3930,7 +3955,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only rhenium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of rhenium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Rhenium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:rhenium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of rhenium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:rhenium atom.</skos:definition>
     </owl:Class>
     
 
@@ -3952,7 +3977,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only lithium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of lithium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Lithium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:lithium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of lithium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:lithium atom.</skos:definition>
     </owl:Class>
     
 
@@ -3974,7 +3999,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only nitrogen atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of nitrogen</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Nitrogen&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:nitrogen atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of nitrogen&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:nitrogen atom.</skos:definition>
     </owl:Class>
     
 
@@ -3996,7 +4021,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only cobalt atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of cobalt</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Cobalt&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:cobalt atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of cobalt&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:cobalt atom.</skos:definition>
     </owl:Class>
     
 
@@ -4018,7 +4043,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only gold atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of gold</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Gold&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:gold atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of gold&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:gold atom.</skos:definition>
     </owl:Class>
     
 
@@ -4040,7 +4065,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only argon atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of argon</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Argon&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:argon atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of argon&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:argon atom.</skos:definition>
     </owl:Class>
     
 
@@ -4062,7 +4087,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only cadmium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of cadmium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Cadmium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:cadmium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of cadmium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:cadmium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4084,7 +4109,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only barium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of barium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Barium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:barium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of barium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:barium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4106,7 +4131,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only tantalum atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of tantalum</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Tantalum&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:tantalum atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of tantalum&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:tantalum atom.</skos:definition>
     </owl:Class>
     
 
@@ -4128,7 +4153,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only antimony atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of antimony</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Antimony&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:antimony atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of antimony&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:antimony atom.</skos:definition>
     </owl:Class>
     
 
@@ -4150,7 +4175,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only potassium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of potassium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Potassium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:potassium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of potassium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:potassium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4172,7 +4197,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only phosphorus atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of phosphorus</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Phosphorus&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:phosphorus atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of phosphorus&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:phosphorus atom.</skos:definition>
     </owl:Class>
     
 
@@ -4194,7 +4219,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only boron atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of boron</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Boron&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:boron atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of boron&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:boron atom.</skos:definition>
     </owl:Class>
     
 
@@ -4216,30 +4241,14 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only helium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of helium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Helium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:helium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of helium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:helium atom.</skos:definition>
     </owl:Class>
     
 
 
     <!-- https://w3id.org/pmd/co/PMD_0020050 -->
 
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020050">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020140"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                        <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_27573"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
-        <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only silicon atoms.</rdfs:comment>
-        <rdfs:label xml:lang="en">portion of silicon</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Silicon&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:silicon atom.</skos:definition>
-    </owl:Class>
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020050"/>
     
 
 
@@ -4260,7 +4269,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only nickel atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of nickel</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Nickel&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:nickel atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of nickel&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:nickel atom.</skos:definition>
     </owl:Class>
     
 
@@ -4282,7 +4291,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only yttrium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of yttrium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Yttrium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:yttrium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of yttrium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:yttrium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4304,7 +4313,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only zirconium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of zirconium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Zirconium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:zirconium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of zirconium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:zirconium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4326,7 +4335,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only copper atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of copper</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Copper&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:copper atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of copper&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:copper atom.</skos:definition>
     </owl:Class>
     
 
@@ -4348,7 +4357,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only bohrium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of bohrium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Bohrium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:bohrium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of bohrium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:bohrium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4370,7 +4379,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only fluorine atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of fluorine</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Fluorine&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:fluorine atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of fluorine&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:fluorine atom.</skos:definition>
     </owl:Class>
     
 
@@ -4392,7 +4401,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only platinum atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of platinum</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Platinum&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:platinum.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of platinum&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:platinum.</skos:definition>
     </owl:Class>
     
 
@@ -4414,7 +4423,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only cerium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of cerium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Cerium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:cerium.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of cerium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:cerium.</skos:definition>
     </owl:Class>
     
 
@@ -4436,7 +4445,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only sulfur atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of sulfur</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Sulfur&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:sulfur atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of sulfur&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:sulfur atom.</skos:definition>
     </owl:Class>
     
 
@@ -4458,7 +4467,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only lead atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of lead</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Lead&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:lead atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of lead&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:lead atom.</skos:definition>
     </owl:Class>
     
 
@@ -4480,7 +4489,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only krypton atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of krypton</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Krypton&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:krypton atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of krypton&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:krypton atom.</skos:definition>
     </owl:Class>
     
 
@@ -4502,7 +4511,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only bismuth atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of bismuth</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Bismuth&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:bismuth atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of bismuth&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:bismuth atom.</skos:definition>
     </owl:Class>
     
 
@@ -4524,7 +4533,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only neon atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of neon</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Neon&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:neon atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of neon&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:neon atom.</skos:definition>
     </owl:Class>
     
 
@@ -4546,7 +4555,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only thallium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of thallium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Thallium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:thallium.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of thallium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:thallium.</skos:definition>
     </owl:Class>
     
 
@@ -4568,7 +4577,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only selenium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of selenium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Selenium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:selenium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of selenium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:selenium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4590,7 +4599,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only ruthenium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of ruthenium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Ruthenium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:ruthenium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of ruthenium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:ruthenium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4612,7 +4621,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only magnesium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of magnesium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Magnesium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:magnesium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of magnesium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:magnesium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4634,7 +4643,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only zinc atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of zinc</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Zinc&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:zinc atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of zinc&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:zinc atom.</skos:definition>
     </owl:Class>
     
 
@@ -4656,7 +4665,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only mercury atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of mercury</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Mercury&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:mercury atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of mercury&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:mercury atom.</skos:definition>
     </owl:Class>
     
 
@@ -4678,7 +4687,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only xenon atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of xenon</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Xenon&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:xenon atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of xenon&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:xenon atom.</skos:definition>
     </owl:Class>
     
 
@@ -4700,7 +4709,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only aluminium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of aluminium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Aluminium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:aluminium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of aluminium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:aluminium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4722,7 +4731,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only sodium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of sodium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Sodium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:sodium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of sodium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:sodium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4744,7 +4753,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only iodine atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of iodine</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Iodine&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:iodine atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of iodine&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:iodine atom.</skos:definition>
     </owl:Class>
     
 
@@ -4766,7 +4775,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only caesium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of caesium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Caesium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:caesium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of caesium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:caesium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4788,7 +4797,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only chlorine atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of chlorine</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Chlorine&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:chlorine atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of chlorine&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:chlorine atom.</skos:definition>
     </owl:Class>
     
 
@@ -4810,7 +4819,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only silver atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of silver</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Silver&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:silver atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of silver&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:silver atom.</skos:definition>
     </owl:Class>
     
 
@@ -4832,7 +4841,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only samarium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of samarium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Samarium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:samarium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of samarium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:samarium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4854,7 +4863,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only manganese atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of manganese</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Manganese&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:manganese atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of manganese&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:manganese atom.</skos:definition>
     </owl:Class>
     
 
@@ -4876,7 +4885,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only arsenic atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of arsenic</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Arsenic&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:arsenic atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of arsenic&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:arsenic atom.</skos:definition>
     </owl:Class>
     
 
@@ -4898,7 +4907,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only beryllium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of beryllium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Beryllium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:beryllium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of beryllium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:beryllium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4920,7 +4929,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only calcium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of calcium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Calcium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:calcium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of calcium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:calcium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4942,7 +4951,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only neodymium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of neodymium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Neodymium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:neodymium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of neodymium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:neodymium atom.</skos:definition>
     </owl:Class>
     
 
@@ -4964,7 +4973,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only hydrogen atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of hydrogen</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Hydrogen&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:hydrogen atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of hydrogen&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:hydrogen atom.</skos:definition>
     </owl:Class>
     
 
@@ -4986,7 +4995,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only osmium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of osmium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Osmium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:osmium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of osmium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:osmium atom.</skos:definition>
     </owl:Class>
     
 
@@ -5008,7 +5017,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only iridium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of iridium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Iridium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:iridium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of iridium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:iridium atom.</skos:definition>
     </owl:Class>
     
 
@@ -5030,7 +5039,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only gallium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of gallium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Gallium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:gallium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of gallium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:gallium atom.</skos:definition>
     </owl:Class>
     
 
@@ -5052,7 +5061,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only bromine atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of bromine</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Bromine&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:bromine atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of bromine&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:bromine atom.</skos:definition>
     </owl:Class>
     
 
@@ -5074,7 +5083,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only tin atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of tin</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Tin&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:tin atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of tin&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:tin atom.</skos:definition>
     </owl:Class>
     
 
@@ -5096,7 +5105,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only hafnium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of hafnium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Hafnium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:hafnium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of hafnium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:hafnium atom.</skos:definition>
     </owl:Class>
     
 
@@ -5118,7 +5127,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only uranium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of uranium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Uranium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:uranium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of uranium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:uranium atom.</skos:definition>
     </owl:Class>
     
 
@@ -5140,7 +5149,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only oxygen atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of oxygen</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Oxygen&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:oxygen atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of oxygen&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:oxygen atom.</skos:definition>
     </owl:Class>
     
 
@@ -5162,7 +5171,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only palladium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of palladium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Palladium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:palladium.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of palladium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:palladium.</skos:definition>
     </owl:Class>
     
 
@@ -5184,7 +5193,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only vanadium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of vanadium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Vanadium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:vanadium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of vanadium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:vanadium atom.</skos:definition>
     </owl:Class>
     
 
@@ -5206,7 +5215,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only scandium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of scandium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Scandium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:scandium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of scandium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:scandium atom.</skos:definition>
     </owl:Class>
     
 
@@ -5228,7 +5237,7 @@ To understand the difference between the composition and the composition data it
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020140"/>
         <rdfs:comment xml:lang="en">A Portion Of Matter that consists of only titanium atoms.</rdfs:comment>
         <rdfs:label xml:lang="en">portion of titanium</rdfs:label>
-        <skos:definition xml:lang="en">A &apos;Portion Of Titanium&apos; is a &apos;Portion Of Pure Substance&apos; that &apos;consists of&apos; only chebi:titanium atom.</skos:definition>
+        <skos:definition xml:lang="en">A &apos;portion of titanium&apos; is a &apos;portion of pure chemical element&apos; that &apos;consists of&apos; only chebi:titanium atom.</skos:definition>
     </owl:Class>
     
 
@@ -5237,14 +5246,8 @@ To understand the difference between the composition and the composition data it
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020096">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000639"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020030"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">steel</rdfs:label>
-        <skos:definition xml:lang="en">steel is a ferrous metal that consists of iron and carbon and possibly other alloying elements (and possibly impurities).</skos:definition>
+        <skos:definition xml:lang="en">ferrous metal that consists of iron and carbon and possibly other alloying elements (and possibly impurities)</skos:definition>
     </owl:Class>
     
 
@@ -5347,6 +5350,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">polycrystal</rdfs:label>
         <skos:altLabel xml:lang="en">Polycrystalline structure</skos:altLabel>
+        <skos:definition xml:lang="en">A polycrystal is a connected material entity aggregate that consists of multiple crystal grains joined through crystallographic interfaces.</skos:definition>
         <skos:definition xml:lang="en">Polycrystal is a connected object aggregate that has continuant part some crystal grains</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -5415,21 +5419,21 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020131">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <rdfs:subClassOf rdf:nodeID="genid557"/>
+        <rdfs:subClassOf rdf:nodeID="genid556"/>
         <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <rdfs:label xml:lang="en">intensive quality</rdfs:label>
         <skos:altLabel xml:lang="en">Point property</skos:altLabel>
         <skos:definition xml:lang="en">An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid557">
+    <owl:Restriction rdf:nodeID="genid556">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
     </owl:Restriction>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid557"/>
+        <owl:annotatedTarget rdf:nodeID="genid556"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -5441,6 +5445,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <rdfs:label xml:lang="en">size</rdfs:label>
         <skos:definition xml:lang="en">Size is the quality of a material entity that describes its spatial extend.</skos:definition>
+        <skos:definition xml:lang="en">an extensive quality of a material entity that describes its spatial extend.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -5500,9 +5505,8 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020113"/>
         <rdfs:label xml:lang="de">Schmelze</rdfs:label>
         <rdfs:label xml:lang="en">melt</rdfs:label>
-        <skos:definition xml:lang="en">A melt is an object (material entity) that exists in a liquid state as a result of the phase transition from solid due to thermal energy input. In materials science, it typically refers to metals, alloys, or other substances maintained above their melting point.</skos:definition>
-        <skos:definition xml:lang="de">Eine Schmelze ist ein Objekt (eine materielle Einheit), das aufgrund des Phasenübergangs von einem Festkörper durch thermische Energiezufuhr in einem flüssigen Zustand vorliegt. In der Werkstoffkunde bezieht sich der Begriff in der Regel auf Metalle, Legierungen oder andere Stoffe, die oberhalb ihres Schmelzpunkts gehalten werden.</skos:definition>
-        <skos:example xml:lang="en">A pool of molten steel during casting.</skos:example>
+        <skos:definition xml:lang="en">is a fluid (object) with a disposition to realize a blank role in a manufacturing process</skos:definition>
+        <skos:example xml:lang="en">molten PLA in a 3D printing process</skos:example>
     </owl:Class>
     
 
@@ -5523,7 +5527,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <obo:IAO_0000119 rdf:resource="http://openenergy-platform.org/ontology/oeo/OEO_00000150"/>
         <rdfs:label xml:lang="en">energy</rdfs:label>
-        <skos:definition xml:lang="en">Energy is a quality of material entities which manifests as a capacity to perform work (such as causing motion or the interaction of molecules)</skos:definition>
+        <skos:definition xml:lang="en">an extensive quality of material entities which manifests as a capacity to perform work (such as causing motion or the interaction of molecules)</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -5578,8 +5582,10 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020161">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000145"/>
+        <obo:IAO_0000119>old defintion: 
+Activity (a_X) is a relational property between a chemical species X and a non-ideal solution. a_X is a measure of the effective concentration of a chemical species X in the non-ideal solution, accounting for interactions between particles. It is defined as the product of the concentration and an activity coefficient, where the activity coefficient corrects for non-ideal behavior.</obo:IAO_0000119>
         <rdfs:label xml:lang="en">activity (thermodynamic)</rdfs:label>
-        <skos:definition xml:lang="en">Activity (a_X) is a relational property between a chemical species X and a non-ideal solution. a_X is a measure of the effective concentration of a chemical species X in the non-ideal solution, accounting for interactions between particles. It is defined as the product of the concentration and an activity coefficient, where the activity coefficient corrects for non-ideal behavior.</skos:definition>
+        <skos:definition xml:lang="en">Thermodynamic activity is a relational quality that inheres between a chemical species and a non-ideal solution and represents the effective concentration of the species accounting for particle interactions.</skos:definition>
     </owl:Class>
     
 
@@ -5840,6 +5846,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <obo:IAO_0000116 xml:lang="en">size values of indiviudal grains are properties of the respective objects</obo:IAO_0000116>
         <rdfs:label xml:lang="en">grain size</rdfs:label>
         <skos:definition xml:lang="en">an average size of the grains of a polycrystal</skos:definition>
+        <skos:definition xml:lang="en">an intensive quality epitomizing the average size of the grains of a polycrystal</skos:definition>
     </owl:Class>
     
 
@@ -5875,6 +5882,10 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000551"/>
                     </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0025997"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
@@ -5904,7 +5915,9 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020023"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">ferrite, austenite, martensite, etc.</rdfs:comment>
         <rdfs:label xml:lang="en">metallic grain structure</rdfs:label>
+        <skos:definition xml:lang="en">intensive quality epitomizing the distinct phases in the microscopic structure of a metallic material.</skos:definition>
         <skos:definition xml:lang="en">metallic grain structure characterizes the distinct phases in the microscopic structure of a metallic material. It concretizes ferrite, austenite, martensite, etc.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</co:PMD_0000060>
     </owl:Class>
@@ -5916,7 +5929,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025005">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
         <rdfs:label xml:lang="en">3D</rdfs:label>
-        <skos:definition xml:lang="en">A three-dimensional information content entity is a representation or analysis, commonly applied in studying material properties in its volume or describing a dependency of one variable on two other variables.</skos:definition>
+        <skos:definition xml:lang="en">A three-dimensional data item is a representation or analysis, commonly applied in studying material properties in its volume or describing a dependency of one variable on two other variables.</skos:definition>
         <skos:example xml:lang="en">Orientation distribution function (ODF), potential energy landscape</skos:example>
     </owl:Class>
     
@@ -5939,8 +5952,9 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000624"/>
         <rdfs:label xml:lang="de">Transmissionselektronenmikroskop</rdfs:label>
         <rdfs:label xml:lang="en">transmission electron microscope</rdfs:label>
-        <skos:definition xml:lang="en">A transmission electron microscope (SEM) is a measuring device that produces high-resolution images of a sample&apos;s internal structure by transmitting electrons through the sample.</skos:definition>
-        <skos:definition xml:lang="de">Ein Transmissionselektronenmikroskop (TEM) ist ein Messgerät, das hochauflösende Bilder der inneren Struktur einer Probe erzeugt, indem es Elektronen durch die Probe strahlt.</skos:definition>
+        <skos:definition xml:lang="en">An electron microscope that produces high-resolution images of a sample&apos;s internal structure by transmitting electrons through the sample.</skos:definition>
+        <skos:definition xml:lang="de">Ein Elektronenmikroskop, das hochauflösende Bilder der inneren Struktur einer Probe erzeugt, indem es Elektronen durch die Probe strahlt.</skos:definition>
+        <co:PMD_0050117>TEM</co:PMD_0050117>
     </owl:Class>
     
 
@@ -6105,7 +6119,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025020">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000849"/>
         <rdfs:label xml:lang="en">single fatigue testing process</rdfs:label>
-        <skos:definition xml:lang="en">A single fatigue testing process is a occurent part of a fatigue testing process (S-N testing process). A single fatigue testing process assesses how many cycles a material can withstand under the given loading.</skos:definition>
+        <skos:definition xml:lang="en">Mechanical property analyzing process that is an occurent part of a fatigue testing process (S-N testing process). A single fatigue testing process assesses how many cycles a material can withstand under the given loading.</skos:definition>
     </owl:Class>
     
 
@@ -6117,8 +6131,8 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <obo:IAO_0000119>https://en.wikipedia.org/wiki/Stamping_press</obo:IAO_0000119>
         <rdfs:label xml:lang="de">Stanzmachine</rdfs:label>
         <rdfs:label xml:lang="en">stamping press</rdfs:label>
-        <skos:definition xml:lang="de">Eine Stanzmachine ist ein Werkzeug zur Metallbearbeitung, das dazu dient, geschnittenes Metall durch Verformung mit einer Matrize zu formen.</skos:definition>
-        <skos:definition xml:lang="en">Stamping press is a metalworking tool which is used to shape a cut metal by deforming it with a die.</skos:definition>
+        <skos:definition xml:lang="de">Eine Stanzmachine ist ein Werkzeug/Gerät zur Metallbearbeitung, das dazu dient, geschnittenes Metall durch Verformung mit einer Matrize zu formen.</skos:definition>
+        <skos:definition xml:lang="en">Stamping press is a metalworking device which is used to shape a cut metal by deforming it with a die.</skos:definition>
     </owl:Class>
     
 
@@ -6223,9 +6237,8 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0040001"/>
         <rdfs:label xml:lang="de">Dicke</rdfs:label>
         <rdfs:label xml:lang="en">thickness</rdfs:label>
-        <rdfs:seeAlso rdf:resource="https://w3id.org/pmd/co/2.0.8/Thickness"/>
+        <skos:definition xml:lang="en">A length that describes the measured dimension in one direction of a test piece.</skos:definition>
         <skos:definition xml:lang="de">Diese Klasse beschreibt das gemessene Maß in einer Richtung eines Prüfkörpers.</skos:definition>
-        <skos:definition xml:lang="en">This class describes the measured dimension in one direction of a test piece.</skos:definition>
     </owl:Class>
     
 
@@ -6252,7 +6265,7 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
         <rdfs:label xml:lang="de">Form</rdfs:label>
         <rdfs:label xml:lang="en">shape</rdfs:label>
         <skos:definition xml:lang="de">Das sichtbare Ausstattungsmerkmal (räumliche Form oder Kontur) eines bestimmten Objektes oder einer Art von Objekt.</skos:definition>
-        <skos:definition xml:lang="en">The visible makeup characteristic (spatial form or contour) of a particular item or kind of item.a</skos:definition>
+        <skos:definition xml:lang="en">Extemsive quality, the visible makeup characteristic (spatial form or contour) of a particular item or kind of item.</skos:definition>
     </owl:Class>
     
 
@@ -6299,9 +6312,9 @@ The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 202
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0060009">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000033"/>
-        <rdfs:comment xml:lang="en">The intend of the specification datum is to express the &quot;Sollwert&quot; of some qualitiy or behavioral material property. Then, the specification datum can be further specified by  some value specification.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The intent of the specification datum is to express the &quot;Sollwert&quot; of some qualitiy or behavioral material property. Then, the specification datum can be further specified by  some value specification.</rdfs:comment>
         <rdfs:label xml:lang="en">specification datum</rdfs:label>
-        <skos:definition xml:lang="en">Specification datum is a data item that provides an information of a setpoint of some value, i.e., it is an intended value.</skos:definition>
+        <skos:definition xml:lang="en">A directive information entity that provides information of a setpoint of some value, i.e., it is an intended value.</skos:definition>
         <skos:example xml:lang="en">The setpoint value of a ultimate tensile strength of some steel material</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
