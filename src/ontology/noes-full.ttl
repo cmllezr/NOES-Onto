@@ -19,11 +19,11 @@
 @base <https://w3id.org/pmd/noes/noes-full.ttl> .
 
 <https://w3id.org/pmd/noes/noes-full.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-03-20/noes-full.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-03-25/noes-full.ttl> ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-03-20" .
+                                           owl:versionInfo "2026-03-25" .
 
 #################################################################
 #    Annotation properties
@@ -144,12 +144,20 @@ dcterms:title rdf:type owl:AnnotationProperty ;
               rdfs:label "title" .
 
 
-###  http://qudt.org/schema/qudt/dbpediaMatch
-qudt:dbpediaMatch rdf:type owl:AnnotationProperty .
-
-
 ###  http://qudt.org/schema/qudt/informativeReference
 qudt:informativeReference rdf:type owl:AnnotationProperty .
+
+
+###  http://qudt.org/schema/qudt/omUnit
+qudt:omUnit rdf:type owl:AnnotationProperty .
+
+
+###  http://qudt.org/schema/qudt/plainTextDescription
+qudt:plainTextDescription rdf:type owl:AnnotationProperty .
+
+
+###  http://qudt.org/schema/qudt/symbol
+qudt:symbol rdf:type owl:AnnotationProperty .
 
 
 ###  http://qudt.org/schema/qudt/wikidataMatch
@@ -2795,11 +2803,7 @@ obo:UO_1000228 rdf:type owl:Class ;
 
 ###  http://qudt.org/schema/qudt/DerivedUnit
 qudt:DerivedUnit rdf:type owl:Class ;
-                 rdfs:subClassOf qudt:Unit ;
-                 qudt:dbpediaMatch "http://dbpedia.org/resource/Category:SI_derived_units"^^xsd:anyURI ;
-                 rdfs:comment "A DerivedUnit is a type specification for units that are derived from other units."^^rdf:HTML ;
-                 rdfs:isDefinedBy <http://qudt.org/schema/qudt> ;
-                 rdfs:label "Derived Unit" .
+                 rdfs:subClassOf qudt:Unit .
 
 
 ###  http://qudt.org/schema/qudt/Unit
@@ -6388,8 +6392,10 @@ co:PMD_0050153 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0040001 ;
                rdfs:label "Dicke"@de ,
                           "thickness"@en ;
+               rdfs:seeAlso <https://w3id.org/pmd/co/2.0.8/Thickness> ;
                skos:definition "A length that describes the measured dimension in one direction of a test piece."@en ,
-                               "Diese Klasse beschreibt das gemessene Maß in einer Richtung eines Prüfkörpers."@de .
+                               "Diese Klasse beschreibt das gemessene Maß in einer Richtung eines Prüfkörpers."@de ,
+                               "This class describes the measured dimension in one direction of a test piece."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0050154
@@ -13119,7 +13125,6 @@ noes:NOES_0000185 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/tto/TTO_0000005
 <https://w3id.org/pmd/tto/TTO_0000005> rdf:type owl:Class ;
-                                       rdfs:subClassOf co:PMD_0000848 ;
                                        rdfs:comment """Dimensional analysis: L
 Unit (e.g. SI): mm"""@en ,
                                                     """Hinweis: Die Dehnung kann mit verschiedenen Kanälen gemessen werden (z. B. bei Verwendung von einem oder zwei Dehnungsmesserkanälen); in der Regel wird als Dehnungswert der mittlere Durchschnittswert der beteiligten Kanäle angegeben, falls zutreffend.
@@ -13151,7 +13156,6 @@ Note: Optical extensometry may require a specific data storage method."""@en ;
 
 ###  https://w3id.org/pmd/tto/TTO_0000012
 <https://w3id.org/pmd/tto/TTO_0000012> rdf:type owl:Class ;
-                                       rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0050000> ;
                                        rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
                                        rdfs:label "Querschnittsfläche"@de ,
                                                   "cross section area"@en ;
@@ -13159,6 +13163,17 @@ Note: Optical extensometry may require a specific data storage method."""@en ;
                                        skos:definition "Die Querschnittsfläche ist die Fläche eines Schnittes oder eines rechtwinklig geschnittenen oder gebrochenen Stücks eines Objektes in Bezug auf eine Achse."@de ,
                                                        "The cross section area is an area of a cutting or piece of an object cut off or broken at right angles or related to an axis."@en ;
                                        co:definitionSource <https://www.merriam-webster.com/dictionary/cross%20section> .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000015
+<https://w3id.org/pmd/tto/TTO_0000015> rdf:type owl:Class ;
+                                       rdfs:subClassOf co:PMD_0050051 ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "End-Probendurchmesser"@de ,
+                                                  "diameter after fracture"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/DiameterAfterFracture> ;
+                                       skos:definition "Die Länge einer geraden Linie durch den Mittelpunkt eines Objekts (Zugprüfstücks), gemessen nach einem Bruch, der während einer Prüfung aufgetreten ist."@de ,
+                                                       "The length of a straight line through the center of an object (tensile test piece) as measured after a fracture occured during a test."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000017
@@ -13238,6 +13253,88 @@ Note: For materials which display discontinuous yielding, but where no work-hard
                                        co:definitionSource "DIN EN ISO 6892-1:2019"@en .
 
 
+###  https://w3id.org/pmd/tto/TTO_0000024
+<https://w3id.org/pmd/tto/TTO_0000024> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000012> ,
+                                                       [ rdf:type owl:Class ;
+                                                         owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty co:relatesTo ;
+                                                                                                owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000056>
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty co:relatesTo ;
+                                                                                                owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000060>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ]
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty co:relatesTo ;
+                                                                         owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000015>
+                                                                       ]
+                                                                     )
+                                                       ] ;
+                                       rdfs:comment "Symbol: S_u" ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Kleinster Querschnitt nach dem Bruch"@de ,
+                                                  "minimum cross-sectional area after fracture"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/MinimumCrossSectionalAreaAfterFracture> ;
+                                       skos:definition """Dieses Konzept beschreibt die kleinste Querschnittsfläche des Zugprüfkörers, die nach dem Bruch infolge der aufgebrachten Zugkraft erhalten wird.
+
+Anmerkung: Sie wird in der Regel senkrecht zur Richtung der aufgebrachten Kraft gemessen und dient zur Berechnung der technischen Spannung während der Prüfung.
+
+Anmerkung: Es wird empfohlen, den Anfangsquerschnitt innerhalb der parallelen Länge mit einer Genauigkeit von ±2 % zu messen. Bei runden Prüfkörpern mit kleinem Durchmesser oder Prüfkörpern mit anderen Querschnittsgeometrien ist es jedoch möglicherweise nicht möglich, den Anfangsquerschnitt innerhalb der parallelen Länge mit einer Genauigkeit von ±2 % zu messen."""@de ,
+                                                       """This concept describes the smallest cross-sectional area of the tensile test piece observed after it has fractured under the applied tensile force.
+
+Note: It is typically measured perpendicular to the direction of the applied force and is used to calculate engineering stress during the test.
+
+Note: It is recommended to measure the original cross-sectional area of the parallel length to an accuracy of ±2 %. However, measuring the original cross-sectional area of the parallel length with an accuracy of ±2 % on small diameter round test pieces, or test pieces with other cross-sectional geometries, may not be possible."""@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019" .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000026
+<https://w3id.org/pmd/tto/TTO_0000026> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000012> ,
+                                                       [ rdf:type owl:Class ;
+                                                         owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty co:relatesTo ;
+                                                                                                owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000029>
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty co:relatesTo ;
+                                                                                                owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000030>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ]
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty co:relatesTo ;
+                                                                         owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000027>
+                                                                       ]
+                                                                     )
+                                                       ] ;
+                                       rdfs:comment "Symbol: S_o" ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Anfangsquerschnitt innerhalb der parallelen Länge"@de ,
+                                                  "original cross-sectional area of the parallel length"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/OriginalCrossSectionalArea> ;
+                                       skos:definition "Dieses Konzept beschreibt die initiale Querschnittsfläche des Zugprüfkörpers entlang seiner parallelen Länge, bevor eine Verformung auftritt."@de ,
+                                                       "This concept describes the initial area of the tensile test piece before any deformation occurs."@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019" .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000027
+<https://w3id.org/pmd/tto/TTO_0000027> rdf:type owl:Class ;
+                                       rdfs:subClassOf co:PMD_0050051 ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Anfangs-Probendurchmesser"@de ,
+                                                  "original diameter"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/OriginalDiameter> ;
+                                       skos:definition "Die Länge einer geraden Linie durch den Mittelpunkt eines Objekts (Zugprüfkörpers), die vor einer Prüfung gemessen wird."@de ,
+                                                       "The length of a straight line through the center of an object (tensile test piece) as measured prior to a tensile test."@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en .
+
+
 ###  https://w3id.org/pmd/tto/TTO_0000028
 <https://w3id.org/pmd/tto/TTO_0000028> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000019> ;
@@ -13249,6 +13346,28 @@ Note: For materials which display discontinuous yielding, but where no work-hard
                                                        "length between gauge length marks on the test piece measured at room temperature before the test"@en ;
                                        co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
                                        co:symbol "L_o"@en .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000029
+<https://w3id.org/pmd/tto/TTO_0000029> rdf:type owl:Class ;
+                                       rdfs:subClassOf co:PMD_0050153 ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Anfangs-Dicke"@de ,
+                                                  "original thickness"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/OriginalThickness> ;
+                                       skos:definition "Diese Entität beschreibt die gemessene Dimension in einer Richtung eines Prüfstücks, wie sie vor der Prüfung gemessen wurde."@de ,
+                                                       "This entity describes the measured dimension in one direction of a test piece, as measured before the test."@en .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000030
+<https://w3id.org/pmd/tto/TTO_0000030> rdf:type owl:Class ;
+                                       rdfs:subClassOf co:PMD_0050154 ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Anfangs-Breite"@de ,
+                                                  "original width"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/OriginalWidth> ;
+                                       skos:definition "Diese Entität beschreibt eine horizontale Messung eines Objekts (Prüfkörpers) im rechten Winkel zur Länge des Objekts (Prüfkörpers), wie sie vor einer Prüfung gemessen wird."@de ,
+                                                       "This entity describes a horizontal measurement of an object (test piece) taken at right angles to the length of the object (test piece), as measured before a test."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000031
@@ -13268,6 +13387,22 @@ Note: The concept of parallel length is replaced by the concept of distance betw
                                        co:symbol "L_c"@en .
 
 
+###  https://w3id.org/pmd/tto/TTO_0000032
+<https://w3id.org/pmd/tto/TTO_0000032> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000004> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty co:relatesTo ;
+                                                         owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000028>
+                                                       ] ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Dehnung"@de ,
+                                                  "percentage elongation"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/PercentageElongation> ;
+                                       skos:definition "Verlängerung, angegeben in Prozent, bezogen auf die Anfangsmesslänge"@de ,
+                                                       "elongation expressed as a percentage of the original gauge length"@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en .
+
+
 ###  https://w3id.org/pmd/tto/TTO_0000033
 <https://w3id.org/pmd/tto/TTO_0000033> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000004> ;
@@ -13281,9 +13416,90 @@ Note: The concept of parallel length is replaced by the concept of distance betw
                                        co:symbol "A"@en .
 
 
+###  https://w3id.org/pmd/tto/TTO_0000034
+<https://w3id.org/pmd/tto/TTO_0000034> rdf:type owl:Class ;
+                                       rdfs:subClassOf obo:BFO_0000017 ,
+                                                       <https://w3id.org/pmd/tto/TTO_0000005> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000522
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000950
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:RO_0000052 ;
+                                                         owl:someValuesFrom co:PMD_0000000
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty co:relatesTo ;
+                                                         owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000017>
+                                                       ] ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Extensometer-Dehnung"@de ,
+                                                  "percentage extension"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/co/2.0.8/PercentageExtension> ;
+                                       skos:altLabel "(engineering) strain"@en ,
+                                                     "technische Dehnung"@de ;
+                                       skos:definition """extension expressed as a percentage of the extensometer gauge length
+
+Note: The percentage extension is commonly called engineering strain."""@en ,
+                                                       """in Prozent angegebene Verlängerung der Extensometer-Messlänge
+
+Anmerkung: Die Extensometer-Dehnung wird oftmals auch als technische Dehnung bezeichnet.""" ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019" .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000035
+<https://w3id.org/pmd/tto/TTO_0000035> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000004> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty co:relatesTo ;
+                                                         owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000028>
+                                                       ] ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Bleibende Dehnung"@de ,
+                                                  "percentage permanent elongation"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/PercentagePermanentElongation> ;
+                                       skos:definition "Zunahme der Anfangsmesslänge einer Probe nach Entfernen einer festgelegten Zugspannung, angegeben in Prozent, bezogen auf die Anfangsmesslänge"@de ,
+                                                       "increase in the original gauge length of a test piece after removal of a specified stress, expressed as a percentage of the original gauge length"@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000036
+<https://w3id.org/pmd/tto/TTO_0000036> rdf:type owl:Class ;
+                                       rdfs:subClassOf obo:BFO_0000017 ,
+                                                       <https://w3id.org/pmd/tto/TTO_0000005> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000522
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000950
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:RO_0000052 ;
+                                                         owl:someValuesFrom co:PMD_0000000
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty co:relatesTo ;
+                                                         owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000017>
+                                                       ] ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Bleibende Extensometer-Dehnung"@de ,
+                                                  "percentage permanent extension"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/PercentagePermanentExtension> ;
+                                       skos:definition "Vergrößerung der Extensometer-Messlänge nach Entfernen einer festgelegten, auf die Probe aufgebrachten Zugspannung, angegeben in Prozent, bezogen auf die Extensometer-Messlänge"@de ,
+                                                       "increase in the extensometer gauge length, after removal of a specified stress from the test piece, expressed as a percentage of the extensometer gauge length"@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en .
+
+
 ###  https://w3id.org/pmd/tto/TTO_0000037
 <https://w3id.org/pmd/tto/TTO_0000037> rdf:type owl:Class ;
-                                       rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000005> ,
+                                       rdfs:subClassOf obo:BFO_0000017 ,
+                                                       <https://w3id.org/pmd/tto/TTO_0000005> ,
                                                        [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty co:relatesTo ;
                                                                                 owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000017>
@@ -13294,6 +13510,18 @@ Note: The concept of parallel length is replaced by the concept of distance betw
                                                                               ]
                                                                             ) ;
                                                          rdf:type owl:Class
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000522
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000950
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:RO_0000052 ;
+                                                         owl:someValuesFrom co:PMD_0000000
                                                        ] ;
                                        rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
                                        rdfs:label "Plastische Extensometer-Dehnung bei Höchstkraft"@de ,
@@ -13303,6 +13531,123 @@ Note: The concept of parallel length is replaced by the concept of distance betw
                                                        "plastische Verlängerung der Extensometer-Messlänge bei Höchstkraft, angegeben in Prozent, bezogen auf die Extensometer-Messlänge"@de ;
                                        co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
                                        co:symbol "A_g"@en .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000038
+<https://w3id.org/pmd/tto/TTO_0000038> rdf:type owl:Class ;
+                                       rdfs:subClassOf co:PMD_0025018 ,
+                                                       [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty co:relatesTo ;
+                                                                                owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000024>
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty co:relatesTo ;
+                                                                                owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000026>
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ] ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Brucheinschnürung"@de ,
+                                                  "percentage reduction of area"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/PercentageReductionOfArea> ;
+                                       skos:definition "größte während des Versuchs aufgetretene Änderung des Querschnitts (S_o − S_u), angegeben in Prozent, bezogen auf den Anfangsquerschnitt S_o"@de ,
+                                                       "maximum change in cross-sectional area which has occurred during the test (S_o − S_u), expressed as a percentage of the original cross-sectional area, S_o"@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
+                                       co:symbol "Z" .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000039
+<https://w3id.org/pmd/tto/TTO_0000039> rdf:type owl:Class ;
+                                       rdfs:subClassOf obo:BFO_0000017 ,
+                                                       <https://w3id.org/pmd/tto/TTO_0000005> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000522
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000950
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:RO_0000052 ;
+                                                         owl:someValuesFrom co:PMD_0000000
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty co:relatesTo ;
+                                                         owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000017>
+                                                       ] ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Gesamte Extensometer-Dehnung beim Bruch"@de ,
+                                                  "percentage total extension at fracture"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/PercentageTotalExtensionAtFracture> ;
+                                       skos:definition "gesamte Verlängerung (elastische plus plastische Verlängerung) der Extensometer-Messlänge beim Bruch, angegeben in Prozent, bezogen auf die Extensometer-Messlänge"@de ,
+                                                       "total extension (elastic extension plus plastic extension) at the moment of fracture, expressed as a percentage of the extensometer gauge length"@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
+                                       co:symbol "A_t"@en .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000040
+<https://w3id.org/pmd/tto/TTO_0000040> rdf:type owl:Class ;
+                                       rdfs:subClassOf obo:BFO_0000017 ,
+                                                       <https://w3id.org/pmd/tto/TTO_0000005> ,
+                                                       [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty co:relatesTo ;
+                                                                                owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000017>
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty co:relatesTo ;
+                                                                                owl:someValuesFrom <https://w3id.org/pmd/tto/TTO_0000023>
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000522
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000950
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:RO_0000052 ;
+                                                         owl:someValuesFrom co:PMD_0000000
+                                                       ] ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Gesamte Extensometer-Dehnung bei Höchstkraft"@de ,
+                                                  "percentage total extension at maximum force"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/PercentageTotalExtensionAtMaximumForce> ;
+                                       skos:definition "gesamte Verlängerung (elastische plus plastische Verlängerung) der Extensometer-Messlänge bei Höchstkraft, angegeben in Prozent, bezogen auf die Extensometer-Messlänge"@de ,
+                                                       "total extension (elastic extension plus plastic extension) at maximum force, expressed as a percentage of the extensometer gauge length"@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
+                                       co:symbol "A_gt"@en .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000041
+<https://w3id.org/pmd/tto/TTO_0000041> rdf:type owl:Class ;
+                                       rdfs:subClassOf obo:BFO_0000017 ,
+                                                       <https://w3id.org/pmd/tto/TTO_0000005> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000522
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:BFO_0000054 ;
+                                                         owl:someValuesFrom co:PMD_0000950
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:RO_0000052 ;
+                                                         owl:someValuesFrom co:PMD_0000000
+                                                       ] ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Streckgrenzen-Extensometer-Dehnung"@de ,
+                                                  "percentage yield point extension"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/PercentageYieldPointExtension> ;
+                                       skos:definition "Bei Werkstoffen, die ein diskontinuierliches Fließen zeigen: Verlängerung der Extensometer-Messlänge zwischen dem Beginn örtlichen Fließens und dem Einsetzen gleichmäßiger Verfestigung, angegeben in Prozent, bezogen auf die Extensometer-Messlänge"@de ,
+                                                       "For discontinuous yielding materials: extension between the start of yielding and the start of uniform work-hardening, expressed as a percentage of the extensometer gauge length"@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
+                                       co:symbol "A_e"@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000043
@@ -13335,6 +13680,19 @@ Source: ISO 6892-1:2019"""@en ;
                                        co:symbol "R_p"@en .
 
 
+###  https://w3id.org/pmd/tto/TTO_0000046
+<https://w3id.org/pmd/tto/TTO_0000046> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000044> ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Dehngrenze bei plastischer Extensometer-Dehnung Rp01"@de ,
+                                                  "proof strength plastic extension rp01"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/Rp01> ;
+                                       skos:definition "Spannung bei einer plastischen Extensometer-Dehnung, die 0,1 Prozent der Extensometer-Messlänge entspricht"@de ,
+                                                       "stress at which the plastic extension is equal to 0.1 percent of the extensometer gauge length"@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
+                                       co:symbol "R_p_0.1"@en .
+
+
 ###  https://w3id.org/pmd/tto/TTO_0000047
 <https://w3id.org/pmd/tto/TTO_0000047> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000044> ;
@@ -13361,6 +13719,23 @@ Source: ISO 6892-1:2019"""@en ;
                                        co:symbol "e^._L_e"@en .
 
 
+###  https://w3id.org/pmd/tto/TTO_0000052
+<https://w3id.org/pmd/tto/TTO_0000052> rdf:type owl:Class ;
+                                       rdfs:subClassOf co:PMD_0000008 ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "Spannungsgeschwindigkeit"@de ,
+                                                  "stress rate"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/StressRate> ;
+                                       skos:definition """Zunahme der Spannung je Zeiteinheit
+
+Anmerkung: Die Spannungsgeschwindigkeit wird nur im elastischen Bereich des Versuchs verwendet."""@de ,
+                                                       """increase of stress per time
+
+Note: Stress rate is only used in the elastic part of the test."""@en ;
+                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
+                                       co:symbol "R"@en .
+
+
 ###  https://w3id.org/pmd/tto/TTO_0000053
 <https://w3id.org/pmd/tto/TTO_0000053> rdf:type owl:Class ;
                                        rdfs:subClassOf co:PMD_0000952 ;
@@ -13372,6 +13747,17 @@ Source: ISO 6892-1:2019"""@en ;
                                                        "stress corresponding to the maximum force"@en ;
                                        co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
                                        co:symbol "R_m"@en .
+
+
+###  https://w3id.org/pmd/tto/TTO_0000056
+<https://w3id.org/pmd/tto/TTO_0000056> rdf:type owl:Class ;
+                                       rdfs:subClassOf co:PMD_0050153 ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "End-Dicke"@de ,
+                                                  "thickness after fracture"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/ThicknessAfterFracture> ;
+                                       skos:definition "Diese Entität beschreibt die gemessene Dimension in einer Richtung eines Prüfstücks, wie sie vor der Prüfung gemessen wurde."@de ,
+                                                       "This entity describes the measured dimension in one direction of a test piece, as measured after the test."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000059
@@ -13387,10 +13773,15 @@ Source: ISO 6892-1:2019"""@en ;
                                        co:symbol "R_eH"@en .
 
 
-###  https://w3id.org/pmd/tto/TTO_0050000
-<https://w3id.org/pmd/tto/TTO_0050000> rdf:type owl:Class ;
-                                       rdfs:subClassOf co:PMD_0020132 ;
-                                       rdfs:label "area"@en .
+###  https://w3id.org/pmd/tto/TTO_0000060
+<https://w3id.org/pmd/tto/TTO_0000060> rdf:type owl:Class ;
+                                       rdfs:subClassOf co:PMD_0050154 ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
+                                       rdfs:label "End-Breite"@de ,
+                                                  "width after fracture"@en ;
+                                       rdfs:seeAlso <https://w3id.org/pmd/tto/WidthAfterFracture> ;
+                                       skos:definition "Diese Entität beschreibt eine horizontale Messung eines Objekts (Prüfkörpers) im rechten Winkel zur Länge des Objekts (Prüfkörpers), wie sie nach einer Prüfung gemessen wird."@de ,
+                                                       "This entity describes a horizontal measurement of an object (test piece) taken at right angles to the length of the object (test piece), as measured after a test."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_1000000
@@ -13460,11 +13851,17 @@ obo:UO_0000185 rdf:type owl:NamedIndividual .
 obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 
+###  http://qudt.org/schema/qudt/DerivedUnit
+qudt:DerivedUnit rdf:type owl:NamedIndividual .
+
+
 ###  http://qudt.org/vocab/unit/MegaPA
 <http://qudt.org/vocab/unit/MegaPA> rdf:type owl:NamedIndividual ,
                                              qudt:Unit ;
                                     dcterms:description "1,000,000-fold of the derived unit pascal"^^rdf:HTML ;
                                     qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA215"^^xsd:anyURI ;
+                                    qudt:plainTextDescription "1,000,000-fold of the derived unit pascal" ;
+                                    qudt:symbol "MPa" ;
                                     qudt:wikidataMatch <http://www.wikidata.org/entity/Q21062777> ;
                                     rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
                                     rdfs:label "Megapascal" ,
@@ -13487,9 +13884,9 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                qudt:DerivedUnit ,
                                                qudt:Unit ;
                                       dcterms:description "The SI unit of pressure. The pascal is the standard pressure unit in the MKS metric system, equal to one newton per square meter or one \"kilogram per meter per second per second.\" The unit is named for Blaise Pascal (1623-1662), French philosopher and mathematician, who was the first person to use a barometer to measure differences in altitude."^^rdf:HTML ;
-                                      qudt:dbpediaMatch "http://dbpedia.org/resource/Pascal"^^xsd:anyURI ;
                                       qudt:informativeReference "http://en.wikipedia.org/wiki/Pascal?oldid=492989202"^^xsd:anyURI ,
                                                                 "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA247"^^xsd:anyURI ;
+                                      qudt:symbol "N/m²" ;
                                       qudt:wikidataMatch <http://www.wikidata.org/entity/Q39469927> ;
                                       rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
                                       rdfs:label "Newton na Kvadratni Meter"@sl ,
@@ -13516,9 +13913,10 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 <http://qudt.org/vocab/unit/PERCENT> rdf:type owl:NamedIndividual ,
                                               qudt:Unit ;
                                      dcterms:description "\"Percent\" is a unit for  'Dimensionless Ratio' expressed as $\\%$."^^qudt:LatexString ;
-                                     qudt:dbpediaMatch "http://dbpedia.org/resource/Percentage"^^xsd:anyURI ;
                                      qudt:informativeReference "http://en.wikipedia.org/wiki/Percentage?oldid=495284540"^^xsd:anyURI ,
                                                                "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA000"^^xsd:anyURI ;
+                                     qudt:omUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                                     qudt:symbol "%" ;
                                      qudt:wikidataMatch <http://www.wikidata.org/entity/Q11229> ;
                                      rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
                                      rdfs:label "Percent" ,
@@ -13530,6 +13928,8 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                    qudt:Unit ;
                                           dcterms:description "SI derived unit watt divided by the SI base unit kilogram"^^rdf:HTML ;
                                           qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA316"^^xsd:anyURI ;
+                                          qudt:plainTextDescription "SI derived unit watt divided by the SI base unit kilogram" ;
+                                          qudt:symbol "W/kg" ;
                                           qudt:wikidataMatch <http://www.wikidata.org/entity/Q67060736> ;
                                           rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
                                           rdfs:label "Vatio por Kilogramo"@es ,
@@ -14630,6 +15030,13 @@ obo:UO_0000228 obo:IAO_0000115 "A magnetic flux density unit which is equal to o
  ] .
 
 
+qudt:DerivedUnit dcterms:description """
+  <p>A <em>Derived Unit</em> is a type specification for units that are derived from other units.
+  </p>"""^^rdf:HTML ;
+                 rdfs:isDefinedBy <http://qudt.org/schema/qudt> ;
+                 rdfs:label "Derived Unit" .
+
+
 co:PMD_0020098 noes:NOES_0000122 "false"^^xsd:boolean .
 
 
@@ -14640,6 +15047,9 @@ noes:NOES_0000124 noes:NOES_0000122 "false"^^xsd:boolean .
 
 
 noes:NOES_0000143 noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+<https://w3id.org/pmd/tto/TTO_0050000> rdfs:label "area"@en .
 
 
 #################################################################
