@@ -84,14 +84,19 @@ $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(I
 						--individuals exclude \
 						--intermediates all \
 						--method BOT \
+			remove --term-file $(IMPORTDIR)/tto_remove_parent.txt \
+					--select "ancestors" \
+					--trim false \
+			remove --select "complement" --select "named" --trim true \
 			remove --term-file $(IAO_TO_REMOVE) \
 				   --select "individuals classes"\
+			remove --term-file $(IMPORTDIR)/tto_to_remove.txt \
+				   --select "classes"\
 			remove --select individuals \
-			\
-			remove --term http://purl.obolibrary.org/obo/IAO_0000412 \
-					--select annotation \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
+			remove --term http://purl.obolibrary.org/obo/IAO_0000412 \
+					--select annotation \
 			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
 			convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
 
