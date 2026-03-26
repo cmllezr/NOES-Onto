@@ -75,18 +75,13 @@ $(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPOR
 
 # Import TTO classes preserving subclass hierarchy to PMDco
 $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt
-	$(ROBOT) annotate --input $< --remove-annotations \
-			odk:normalize --add-source true \
-			extract --term-file $(IMPORTDIR)/tto_terms.txt \
-						--force true \
-						--copy-ontology-annotations true \
-						--intermediates minimal \
-						--method BOT \
-			odk:normalize --base-iri https://w3id.org/pmd/noes \
-							--subset-decls true --synonym-decls true \
-			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
-			convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
-
+	$(ROBOT) filter --input $< \
+	                --term-file $(IMPORTDIR)/tto_terms.txt \
+	                --select "self parents" \
+	                --trim true \
+	                --signature true \
+	        annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
+	        convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
 
 $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.txt
 	@echo "Generating Application Module from pmdco..."
