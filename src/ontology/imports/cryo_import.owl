@@ -15,7 +15,7 @@
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/imports/cryo_import.owl">
         <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-03-26/imports/cryo_import.owl"/>
-        <dc:source rdf:resource="https://w3id.org/pmd/cryo/2026-02-24"/>
+        <dc:source rdf:resource="https://w3id.org/pmd/cryo/2026-03-26"/>
         <owl:versionInfo>2026-03-26</owl:versionInfo>
     </owl:Ontology>
     
@@ -709,39 +709,6 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
     
 
 
-    <!-- https://w3id.org/pmd/co/PMD_0025998 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0025998">
-        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000145"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
-            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0025998"/>
-        </owl:propertyChainAxiom>
-        <rdfs:label xml:lang="en">has relational quality</rdfs:label>
-        <skos:definition xml:lang="en">a relation between an independent continuant (the bearer) and a relational quality, in which the quality specifically depends on the bearer for its existence</skos:definition>
-        <skos:example xml:lang="en">material has relational quality mass proportion m, and portion of iron has the same relational quality mass proportion m</skos:example>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0025999 -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0025999">
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0025999"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <obo:IAO_0000116 xml:lang="en">The &apos;relational quality of&apos; is more strict that &apos;quality of&apos; from RO, since domain is &apos;relational quality&apos;. The motivtion to introduce an object property for relational qualities is the following:
-RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c. The functionality is relevant for most of the SDC -&gt; IC triples, expect for relational qualities, which per definiton can be simultaneously inherited in &gt;=2 ICs. Thus,  &apos;relational quality of&apos;  has the same intention to connect SDC to IC, however, without cardinality constraints.</obo:IAO_0000116>
-        <rdfs:label xml:lang="en">relational quality of</rdfs:label>
-        <skos:definition xml:lang="en">a relation between a relational quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence</skos:definition>
-        <skos:example xml:lang="en">mass proportion m is relational qualitiy of material, and the same mass proportion m is relational qualitiy of portion of iron</skos:example>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/pmd/cryo/CRYO_0000053 -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000053">
@@ -803,31 +770,6 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/OBI_0001937 -->
-
-    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0001937">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0002135"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
-        <obo:IAO_0000115 xml:lang="en">A relation between a value specification and a number that quantifies it.</obo:IAO_0000115>
-        <obo:IAO_0000116>A range of &apos;real&apos; might be better than &apos;float&apos;. For now we follow &apos;has measurement value&apos; until we can consider technical issues with SPARQL queries and reasoning.</obo:IAO_0000116>
-        <obo:IAO_0000119>OBI</obo:IAO_0000119>
-        <rdfs:label>has specified numeric value</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/OBI_0002135 -->
-
-    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0002135">
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
-        <obo:IAO_0000115 xml:lang="en">A relation between a value specification and a literal.</obo:IAO_0000115>
-        <obo:IAO_0000116>This is not an RDF/OWL object property. It is intended to link a value found in e.g. a database column of &apos;M&apos; (the literal) to an instance of a value specification class, which can then be linked to indicate that this is about the biological gender of a human subject.</obo:IAO_0000116>
-        <obo:IAO_0000119>OBI</obo:IAO_0000119>
-        <rdfs:label xml:lang="en">has specified value</rdfs:label>
-    </owl:DatatypeProperty>
     
 
 
@@ -1421,22 +1363,6 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     
 
 
-    <!-- http://purl.obolibrary.org/obo/OBI_0001931 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0001931">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001937"/>
-                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000115 xml:lang="en">A value specification that consists of two parts: a numeral and a unit label</obo:IAO_0000115>
-        <rdfs:label>scalar value specification</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/OBI_0001933 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0001933">
@@ -1468,26 +1394,27 @@ granularity. At these coarser levels, the individual molecules cannot be differe
     <!-- https://w3id.org/pmd/co/PMD_0000005 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000005">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000017"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf rdf:nodeID="genid54"/>
-        <rdfs:comment xml:lang="en">Technical materials are complex object aggregates. The properties that are determined for those object aggregates are intrinsically associated with the methodologies employed in the measurement process. This is in contrast to typical &apos;physical&apos; properties, which like e.g. mass that can be determined to high accuracy independently of the measurement process. 
-As a consequence, the behavoiral material properties in the ontology are differeciated according to their measurement method, e.g. Brinell hardness and Vickers hardness are different types of indentation hardness rather than different measures/quantification (GDC) of the materials property &apos;indentation hardness&apos;.
- The &apos;unit idenifieres&apos; of such properties (e.g. &quot;HV1&quot;, &quot;HV10&quot;, &quot;HBW&quot;) are strictly speaking not units but rather references to the measurement methodology used to determine a numeric value that quantifies the property.</rdfs:comment>
-        <rdfs:label xml:lang="en">behavioral material property</rdfs:label>
-        <skos:definition xml:lang="en">A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
-
+        <rdfs:subClassOf rdf:nodeID="genid49"/>
+        <rdfs:comment xml:lang="en">A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
 (Callister, W.D., Rethwisch, D.G., Materials Science and Engineering, Wiley, 2014)
 
-We only deal with intensive (system-size independent) material properties. Extensive properties that depend on the testpiece/specimen/probe size should be found in the respective testing method modules.</skos:definition>
+Technical materials are complex aggregates. Many properties that are determined for those aggregates are intrinsically associated with the methodologies employed in the measurement process. This is in contrast to typical &apos;physical&apos; properties, which like e.g. mass that can be determined to high accuracy independently of the measurement process. 
+As a consequence, material properties in the ontology are differeciated according to their measurement method, e.g. Brinell hardness and Vickers hardness are different types of indentation hardness rather than different measures/quantification (GDC) of the materials property &apos;indentation hardness&apos;.
+ The &apos;unit idenifieres&apos; of such properties (e.g. &quot;HV1&quot;, &quot;HV10&quot;, &quot;HBW&quot;) are strictly speaking not units but rather references to the measurement methodology used to determine a numeric value that quantifies the property.
+
+Extensive properties that depend on the object being tested rather than on the portion of matter are (extensive) object- or system-properties.</rdfs:comment>
+        <rdfs:label xml:lang="en">material property</rdfs:label>
+        <skos:definition xml:lang="en">a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid54">
+    <owl:Restriction rdf:nodeID="genid49">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
         <owl:someValuesFrom>
             <owl:Class>
@@ -1504,7 +1431,7 @@ We only deal with intensive (system-size independent) material properties. Exten
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000005"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid54"/>
+        <owl:annotatedTarget rdf:nodeID="genid49"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -1515,7 +1442,7 @@ We only deal with intensive (system-size independent) material properties. Exten
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000501">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
         <rdfs:label xml:lang="en">1D</rdfs:label>
-        <skos:definition xml:lang="en">1-D is an information content entity representing a one-dimensional structure or model representing a single linear dimension, often used in material science simulations or analysis.</skos:definition>
+        <skos:definition xml:lang="en">1D is a data item representing a one-dimensional structure or model representing a single linear dimension, often used in material science simulations or analysis.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1600,8 +1527,9 @@ We only deal with intensive (system-size independent) material properties. Exten
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020099"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The finite set of periodic geometric arrangements is described e.g. by the 14 possible Bravais Lattices in three-dimensional space.</rdfs:comment>
         <rdfs:label xml:lang="en">crystal structure</rdfs:label>
-        <skos:definition xml:lang="en">The crystal structure is a morphologic quality that describes the periodic geometric arrangement of entities in a crystalline material. The finite set of periodic geometric arrangements is described by the 14 possible Bravais Lattices in three-dimensional space.</skos:definition>
+        <skos:definition xml:lang="en">an intensive qualtty of a crystal that embodies the periodic geometric arrangement of entities in a crystal lattice.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1660,7 +1588,7 @@ We only deal with intensive (system-size independent) material properties. Exten
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000890">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
         <rdfs:label xml:lang="en">connected material entity aggregate</rdfs:label>
-        <skos:definition xml:lang="en">A material entity aggregate that is a mereological sum of separate material entities, which adhere to one another through chemical bonds or physical junctions that go beyond gravity.</skos:definition>
+        <skos:definition xml:lang="en">An object aggregate that is a mereological sum of separate material entities, which adhere to one another through chemical bonds or physical junctions that go beyond gravity.</skos:definition>
         <skos:example xml:lang="en">the atoms of a molecule, the molecules forming the membrane of a cell, the epidermis in a human body</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
@@ -1674,7 +1602,7 @@ We only deal with intensive (system-size independent) material properties. Exten
         <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0000967"/>
         <rdfs:comment xml:lang="en">The pressure is commonly measured in Pascals.</rdfs:comment>
         <rdfs:label xml:lang="en">pressure</rdfs:label>
-        <skos:definition xml:lang="en">The pressure is a thermodynamic quality describing the force exerted per unit area on a material.</skos:definition>
+        <skos:definition xml:lang="en">an intensive quality describing the force exerted per unit area in or on a material.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1685,7 +1613,7 @@ We only deal with intensive (system-size independent) material properties. Exten
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000942">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <rdfs:label xml:lang="en">specific surface area</rdfs:label>
-        <skos:definition xml:lang="en">The specific surface area is a morphologic quality describing the total surface area of a material per unit of mass or volume.</skos:definition>
+        <skos:definition xml:lang="en">an intensive quality embodying the total surface area of a material per unit of mass or volume.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1779,45 +1707,12 @@ We only deal with intensive (system-size independent) material properties. Exten
     
 
 
-    <!-- https://w3id.org/pmd/co/PMD_0020004 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020004">
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000027"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0025001"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0025997"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000116 xml:lang="en">See editior note of composition to underatand the difference between composition and chemical composition data items.
-
-To understand the difference between the composition and the composition data item, one has to understand the difference between SDCs and GDCs in BFO. A triple &quot;material entity has quality compsition&quot;, conveys the fact such quality exists without telling us what are fractions of compounds in this material entity. A triple &quot;compostion is subject of composition data item&quot; conveys that there&apos;s an information about values of these fractions. Think of comosition data item as a pdf where the composition is documented.</obo:IAO_0000116>
-        <rdfs:comment xml:lang="en">These portions of other matters do not have to be portions of specific chemical elements, i.e., atomic composition, but rather portions of other substances, such as nitric acid and water.</rdfs:comment>
-        <rdfs:label xml:lang="en">composition data item</rdfs:label>
-        <skos:altLabel xml:lang="en">composition specification</skos:altLabel>
-        <skos:definition xml:lang="en">Composition data item is an information content entity that is about composition of a material enity. It has members fraction value specifications which specifiy values of propotions of compounds, which are parts of the material enity.</skos:definition>
-        <skos:example xml:lang="en">Nitric acid solution has quality  composition, and  the composition data item is about this composition.The composition data item has members fraction specifications of nitric acid, e.g., 4 vol.%, and distilled water. These fraction specifications specify value of pure substances of nitric acid and distilled water, respectively. Furthermore, these fraction specifications specify values of relational qualities (volume) proportion of nitric acid and (volume) proportion of distilled water.</skos:example>
-        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/co/PMD_0020005 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020005">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <rdfs:label xml:lang="en">porosity</rdfs:label>
-        <skos:definition xml:lang="en">The porosity is a quality describing the fraction of the materials (enclosing) spatial region occupied by pores.</skos:definition>
+        <skos:definition xml:lang="en">itensive quality embodiying the fraction of the materials (enclosing) spatial region occupied by pores.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1881,19 +1776,6 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
     
 
 
-    <!-- https://w3id.org/pmd/co/PMD_0020101 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020101">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000145"/>
-        <rdfs:label xml:lang="en">proportion</rdfs:label>
-        <skos:altLabel xml:lang="en">concentration</skos:altLabel>
-        <skos:altLabel xml:lang="en">fraction</skos:altLabel>
-        <skos:definition xml:lang="en">A proportion is a relational quality between two entities (the whole and the part) which quantifies the relation between the whole and its part.</skos:definition>
-        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/pmd/co/PMD_0020106 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020106">
@@ -1906,7 +1788,7 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">polycrystal</rdfs:label>
         <skos:altLabel xml:lang="en">Polycrystalline structure</skos:altLabel>
-        <skos:definition xml:lang="en">Polycrystal is a connected object aggregate that has continuant part some crystal grains</skos:definition>
+        <skos:definition xml:lang="en">A polycrystal is a connected material entity aggregate that consists of multiple crystal grains joined through crystallographic interfaces.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -1953,21 +1835,21 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020131">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <rdfs:subClassOf rdf:nodeID="genid132"/>
+        <rdfs:subClassOf rdf:nodeID="genid122"/>
         <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <rdfs:label xml:lang="en">intensive quality</rdfs:label>
         <skos:altLabel xml:lang="en">Point property</skos:altLabel>
         <skos:definition xml:lang="en">An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid132">
+    <owl:Restriction rdf:nodeID="genid122">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
     </owl:Restriction>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid132"/>
+        <owl:annotatedTarget rdf:nodeID="genid122"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -2039,7 +1921,7 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
         </rdfs:subClassOf>
         <obo:IAO_0000116 xml:lang="en">size values of indiviudal grains are properties of the respective objects</obo:IAO_0000116>
         <rdfs:label xml:lang="en">grain size</rdfs:label>
-        <skos:definition xml:lang="en">an average size of the grains of a polycrystal</skos:definition>
+        <skos:definition xml:lang="en">an intensive quality epitomizing the average size of the grains of a polycrystal</skos:definition>
     </owl:Class>
     
 
@@ -2048,12 +1930,6 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025001">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020004"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000116 xml:lang="en">There&apos;s a dfference between composition and chemical compositon for the following reason: chemical compositon is relevant when the mass/volume/mole proportions of chemical elements(!) are identified, whlist composition includes proportions of molecules, other pure chemical substances, or even proptions of objects (in an object aggregate).</obo:IAO_0000116>
         <rdfs:label xml:lang="en">composition</rdfs:label>
         <skos:definition xml:lang="en">Composition is an intensive quality which defines types and proportions of compounds present in a material entity and is subject of some composition data item.</skos:definition>
@@ -2081,52 +1957,10 @@ More elaborate crystal descriptions may be found in http://emmo.info/domain-crys
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020023"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">ferrite, austenite, martensite, etc.</rdfs:comment>
         <rdfs:label xml:lang="en">metallic grain structure</rdfs:label>
-        <skos:definition xml:lang="en">metallic grain structure characterizes the distinct phases in the microscopic structure of a metallic material. It concretizes ferrite, austenite, martensite, etc.</skos:definition>
+        <skos:definition xml:lang="en">intensive quality epitomizing the distinct phases in the microscopic structure of a metallic material.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</co:PMD_0000060>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/pmd/co/PMD_0025997 -->
-
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025997">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001931"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001927"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020101"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002350"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020004"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">fraction value specification</rdfs:label>
-        <skos:definition xml:lang="en">Fraction value specification is a value specification that contains information about quantitative share of a part relative to a specified whole.</skos:definition>
-        <skos:example xml:lang="en">2.05 wt.% of carbon in steel, 4 vol.% of nitric acid in a solution</skos:example>
     </owl:Class>
     
 
