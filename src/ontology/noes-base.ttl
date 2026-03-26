@@ -65,6 +65,10 @@ dcterms:title rdf:type owl:AnnotationProperty .
 skos:altLabel rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#comment
+skos:comment rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#definition
 skos:definition rdf:type owl:AnnotationProperty .
 
@@ -233,6 +237,10 @@ obo:RO_0000086 rdf:type owl:ObjectProperty .
 
 ###  http://purl.obolibrary.org/obo/RO_0000087
 obo:RO_0000087 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000091
+obo:RO_0000091 rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.obolibrary.org/obo/RO_0001015
@@ -695,6 +703,10 @@ obo:CHEBI_27563 rdf:type owl:Class .
 
 ###  http://purl.obolibrary.org/obo/CHEBI_27568
 obo:CHEBI_27568 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/CHEBI_27573
+obo:CHEBI_27573 rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/CHEBI_27594
@@ -2490,6 +2502,69 @@ co:PMD_0010021 rdf:type owl:Class ;
                skos:definition "A 'portion of tellurium' is a 'portion of pure chemical element' that 'consists of' only chebi:tellurium atom."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0010100
+co:PMD_0010100 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0090000
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:RO_0002351 ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass [ owl:intersectionOf ( co:PMD_0020140
+                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty obo:RO_0000091 ;
+                                                                                                 owl:someValuesFrom co:PMD_0090001
+                                                                                               ]
+                                                                                             ) ;
+                                                                          rdf:type owl:Class
+                                                                        ]
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf co:PMD_0090000 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0002351 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020140
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:RO_0000091 ;
+                                                                             owl:someValuesFrom co:PMD_0090001
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0002351 ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass co:PMD_0020140
+                               ] ;
+               rdfs:label "elemental semiconductor"@en ;
+               skos:comment "Primarily includes group 14 elements like Silicon, Carbon, Germanium, Tin but also Selenium (group 16) and Boron (group 13)." ;
+               skos:definition "semiconductor that shows semiconductive behavior as a pure element"@en ;
+               skos:example "Silicon, Carbon, Germanium, alpha-Tin" .
+
+
+###  https://w3id.org/pmd/co/PMD_0010101
+co:PMD_0010101 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0090000
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:RO_0002351 ;
+                                                            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass co:PMD_0020140
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf co:PMD_0090000 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0002351 ;
+                                 owl:someValuesFrom co:PMD_0020140
+                               ] ;
+               rdfs:label "compound semiconductor"@en ;
+               skos:altLabel "alloy semiconductor" ;
+               skos:definition "semiconductor which is composed of two or more pure elements"@en ;
+               skos:example "boron nitride (BN), gallium arsenide (GaAs), aluminium gallium arsenide (AlGaAs), indium gallium nitride (InGaN)" .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020000
 co:PMD_0020000 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000040 ;
@@ -2930,7 +3005,24 @@ co:PMD_0020049 rdf:type owl:Class ;
 
 
 ###  https://w3id.org/pmd/co/PMD_0020050
-co:PMD_0020050 rdf:type owl:Class .
+co:PMD_0020050 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0020140
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:RO_0000091 ;
+                                                            owl:someValuesFrom co:PMD_0090001
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:BFO_0000051 ;
+                                                            owl:allValuesFrom obo:CHEBI_27573
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf co:PMD_0020140 ,
+                               co:PMD_0090000 ;
+               rdfs:comment "A Portion Of Matter that consists of only silicon atoms."@en ;
+               rdfs:label "portion of silicon"@en ;
+               skos:definition "A 'portion of silicon' is a 'portion of pure chemical element' that 'consists of' only chebi:silicon atom."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020051
@@ -3785,21 +3877,21 @@ co:PMD_0020128 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0020131
 co:PMD_0020131 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid530 ;
+                               _:genid555 ;
                owl:disjointWith co:PMD_0020148 ;
                rdfs:label "intensive quality"@en ;
                skos:altLabel "Point property"@en ;
                skos:definition "An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid530 rdf:type owl:Restriction ;
+_:genid555 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000080 ;
             owl:someValuesFrom co:PMD_0000001 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020131 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid530 ;
+   owl:annotatedTarget _:genid555 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -4427,6 +4519,44 @@ co:PMD_0060009 rdf:type owl:Class ;
                skos:definition "A directive information entity that provides information of a setpoint of some value, i.e., it is an intended value."@en ;
                skos:example "The setpoint value of a ultimate tensile strength of some steel material"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0090000
+co:PMD_0090000 rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty obo:RO_0000091 ;
+                                     owl:someValuesFrom co:PMD_0090001
+                                   ] ;
+               rdfs:subClassOf co:PMD_0000000 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000086 ;
+                                 owl:someValuesFrom co:PMD_0090002
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000091 ;
+                                 owl:someValuesFrom co:PMD_0090001
+                               ] ;
+               rdfs:label "semiconductor"@en ;
+               skos:definition "A semiconductor is an engineered material representing a class of materials characterized by an electrical conductivity between that of a conductor and an insulator. This is a result of a range of inexistent energy states in ther electron configuration between the valence and conduction band (bandgap)."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0090001
+co:PMD_0090001 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000005 ;
+               rdfs:label "semiconductivity"@en ;
+               skos:definition "Semiconductivity is the disposition of a material to conduct electricity only when a certain level of excitation (via temperature, impurities, photonic excitation, electric field) elevates electrons from the valence band into the conduction band."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0090002
+co:PMD_0090002 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020142 ;
+               rdfs:label "band gap"@en ;
+               skos:altLabel "bandgap"@en ,
+                             "energy gap"@en ;
+               skos:definition "A bandgap is an energy range between the valence band and the conduction band in a solid where no electronic states exist." ;
+               skos:example "Silicon has a band gap of 1.107 eV at room temperature."@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000000
