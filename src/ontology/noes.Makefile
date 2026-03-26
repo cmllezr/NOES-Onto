@@ -59,6 +59,21 @@ $(ONTOLOGYTERMS): $(SRCMERGED)
 	$(ROBOT) query -f csv -i $< --query noes_terms.sparql $@
 
 # Import CryO classes preserving subclass hierarchy to PMDco
+$(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
+	@echo "Generating import module from private CryO mirror..."
+	$(ROBOT) annotate --input $< --remove-annotations \
+			odk:normalize --add-source true \
+			extract --term-file $(IMPORTDIR)/cryo_terms.txt \
+						--force true \
+						--copy-ontology-annotations true \
+						--intermediates all \
+						--method BOT \
+			odk:normalize --base-iri https://w3id.org/pmd/noes \
+							--subset-decls true --synonym-decls true \
+			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
+			convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
+
+# Import TTO classes preserving subclass hierarchy to PMDco
 $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt
 	$(ROBOT) extract --input $< \
 	                --method BOT \
@@ -70,16 +85,6 @@ $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt
 	                --trim true \
 	         annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
 	         convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
-
-# Import TTO classes preserving subclass hierarchy to PMDco
-$(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt
-	$(ROBOT) filter --input $< \
-	                --term-file $(IMPORTDIR)/tto_terms.txt \
-	                --select "self parents" \
-	                --trim true \
-	                --signature true \
-	        annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
-	        convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
 
 $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.txt
 	@echo "Generating Application Module from pmdco..."
