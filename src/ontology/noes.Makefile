@@ -78,7 +78,7 @@ $(IMPORTDIR)/tto_import.owl: $(TTO_MIRROR) $(IMPORTDIR)/tto_terms.txt $(IMPORTSE
 	@echo "Generating import module from private tto mirror..."
 	$(ROBOT) annotate --input $< --remove-annotations \
 			odk:normalize --add-source true \
-			extract --term-file $(IMPORTDIR)/tto_terms.txt \
+			extract -vvv --term-file $(IMPORTDIR)/tto_terms.txt \
 						--force true \
 						--copy-ontology-annotations true \
 						--method BOT \
