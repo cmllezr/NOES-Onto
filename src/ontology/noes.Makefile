@@ -75,12 +75,12 @@ $(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPOR
 
 # Import TTO classes preserving subclass hierarchy to PMDco
 $(IMPORTDIR)/tto_import.owl: $(TTO_MIRROR) $(IMPORTDIR)/tto_terms.txt $(IMPORTSEED) | all_robot_plugins
-	@echo "Generating import module from private tto mirror..."
 	$(ROBOT) annotate --input $< --remove-annotations \
 			odk:normalize --add-source true \
 			extract -vvv --term-file $(IMPORTDIR)/tto_terms.txt \
 						--force true \
 						--copy-ontology-annotations true \
+						--intermediates all \
 						--method BOT \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
