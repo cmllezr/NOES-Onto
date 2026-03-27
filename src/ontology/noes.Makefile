@@ -81,7 +81,6 @@ $(IMPORTDIR)/tto_import.owl: $(TTO_MIRROR) $(IMPORTDIR)/tto_terms.txt $(IMPORTSE
 			extract --term-file $(IMPORTDIR)/tto_terms.txt \
 						--force true \
 						--copy-ontology-annotations true \
-						--intermediates none \
 						--method BOT \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
