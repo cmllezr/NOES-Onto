@@ -83,7 +83,6 @@ $(IMPORTDIR)/tto_import.owl: $(TTO_MIRROR) $(IMPORTDIR)/tto_terms.txt $(IMPORTSE
 						--copy-ontology-annotations true \
 						--intermediates all \
 						--method BOT \
-			remove --term "https://w3id.org/pmd/co/relatesTo" --select "instances" --axioms "logical" \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
 			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
