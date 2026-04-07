@@ -74,29 +74,18 @@ $(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPOR
 			convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
 
 # Import TTO classes preserving subclass hierarchy to PMDco
-$(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(IMPORTSEED) | all_robot_plugins
-
+$(IMPORTDIR)/tto_import.owl: $(TTO_MIRROR) $(IMPORTDIR)/tto_terms.txt $(IMPORTSEED) | all_robot_plugins
+	@echo "Generating import module from private TTO mirror..."
 	$(ROBOT) annotate --input $< --remove-annotations \
 			odk:normalize --add-source true \
 			extract --term-file $(IMPORTDIR)/tto_terms.txt \
 						--force true \
 						--copy-ontology-annotations true \
-						--individuals exclude \
 						--intermediates all \
 						--method BOT \
-			remove --term-file $(IMPORTDIR)/tto_remove_parent.txt \
-					--select "ancestors" \
-					--trim false \
-			remove --select "complement" --select "named" --trim true \
-			remove --term-file $(IAO_TO_REMOVE) \
-				   --select "individuals classes"\
-			remove --term-file $(IMPORTDIR)/tto_to_remove.txt \
-				   --select "classes"\
-			remove --select individuals \
-			odk:normalize --base-iri https://w3id.org/pmd/distel \
+			remove --term "https://w3id.org/pmd/co/relatesTo" --select "instances" --axioms "logical" \
+			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
-			remove --term http://purl.obolibrary.org/obo/IAO_0000412 \
-					--select annotation \
 			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
 			convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
 
