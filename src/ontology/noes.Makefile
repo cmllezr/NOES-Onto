@@ -84,7 +84,9 @@ $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(I
 						--individuals exclude \
 						--intermediates all \
 						--method BOT \
-			remove --term "https://w3id.org/pmd/co/relatesTo" --select "instances" --axioms "logical" \
+			remove --term "https://w3id.org/pmd/co/relatesTo" \
+				   --axioms "logical" \
+				   --trim true \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
 			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
