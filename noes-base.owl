@@ -280,12 +280,6 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/IAO_0000418 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000418"/>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/OBI_0000293 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0000293"/>
@@ -1374,6 +1368,12 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     <!-- http://purl.obolibrary.org/obo/OBI_0001931 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0001931"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0001933 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0001933"/>
     
 
 
@@ -6560,12 +6560,6 @@ crystal structures according to the axial system used to describe their lattice 
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000170"/>
-                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment>&apos;immaterial entity&apos; and (&apos;part of&apos; some 
 (&apos;crystal lattice&apos; and (&apos;has quality&apos; some 
 (&apos;crystal system&apos; and (&apos;specified by value&apos; value cubic)))))</rdfs:comment>
@@ -6594,21 +6588,12 @@ Grain orientation can be specified by either texture fibers or texture component
     <!-- https://w3id.org/pmd/cryo/CRYO_0000075 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000075">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000501"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000418"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000042"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001927"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000042"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Euler angles</rdfs:label>

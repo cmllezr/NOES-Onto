@@ -6611,10 +6611,6 @@ cryo:CRYO_0000041 rdf:type owl:Class ;
                                                                             ) ;
                                                          rdf:type owl:Class
                                                        ]
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty cryo:CRYO_0000170 ;
-                                    owl:hasSelf "true"^^xsd:boolean
                                   ] ;
                   rdfs:comment """'immaterial entity' and ('part of' some 
 ('crystal lattice' and ('has quality' some 
@@ -6636,17 +6632,11 @@ Grain orientation can be specified by either texture fibers or texture component
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000075
 cryo:CRYO_0000075 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000501 ,
+                  rdfs:subClassOf obo:OBI_0001933 ,
+                                  co:PMD_0000501 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:IAO_0000418 ;
-                                    owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000042
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000080 ;
-                                                                                owl:someValuesFrom co:PMD_0000663
-                                                                              ]
-                                                                            ) ;
-                                                         rdf:type owl:Class
-                                                       ]
+                                    owl:onProperty obo:OBI_0001927 ;
+                                    owl:someValuesFrom cryo:CRYO_0000042
                                   ] ;
                   rdfs:label "Euler angles"@en ;
                   skos:definition "In crystallography Euler angles are three angles which describe orientation of a sinlge crystal in respect to the sample's coordinate system. By aligning coordinate system of every crystal in the sample to the sample's coordinate system, anisotropy of material's properties can be investigated."@en .
