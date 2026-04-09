@@ -14,12 +14,12 @@
 @base <https://w3id.org/pmd/noes/noes-base.ttl> .
 
 <https://w3id.org/pmd/noes/noes-base.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-04-07/noes-base.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-04-09/noes-base.ttl> ;
                                            dce:type obo:IAO_8000001 ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-04-07" .
+                                           owl:versionInfo "2026-04-09" .
 
 #################################################################
 #    Annotation properties
@@ -4091,6 +4091,21 @@ co:PMD_0020182 rdf:type owl:Class ;
                skos:definition "A profile is a long object with determined section shape that may bear a semi finished product role. At the same time it may be a material."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0020197
+co:PMD_0020197 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000147 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000050 ;
+                                 owl:someValuesFrom cryo:CRYO_0000001
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0001015 ;
+                                 owl:someValuesFrom obo:CHEBI_33250
+                               ] ;
+               rdfs:label "lattice point"@en ;
+               skos:definition "A lattice point is a fiat point that represents a position in a crystal lattice at which structural entities are regularly arranged."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020200
 co:PMD_0020200 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000017 ;
@@ -4578,41 +4593,6 @@ cryo:CRYO_0000014 rdf:type owl:Class ;
                   skos:definition "Miller indices is an information content entity which denotes crystallographic direction, crystallographic plane, or lattice point, i.e., defines their position in respect to the coordinate system of a crystal lattice, and has exactly 3 interger literals, namely h, k. and l."@en .
 
 
-###  https://w3id.org/pmd/cryo/CRYO_0000015
-cryo:CRYO_0000015 rdf:type owl:Class ;
-                  rdfs:subClassOf obo:BFO_0000147 ,
-                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                           owl:onProperty obo:BFO_0000050 ;
-                                                           owl:someValuesFrom [ owl:intersectionOf ( cryo:CRYO_0000001
-                                                                                                     [ rdf:type owl:Restriction ;
-                                                                                                       owl:onProperty obo:RO_0001015 ;
-                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020003
-                                                                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                                                                   owl:onProperty obo:BFO_0000051 ;
-                                                                                                                                                   owl:someValuesFrom obo:CHEBI_33250
-                                                                                                                                                 ]
-                                                                                                                                               ) ;
-                                                                                                                            rdf:type owl:Class
-                                                                                                                          ]
-                                                                                                     ]
-                                                                                                   ) ;
-                                                                                rdf:type owl:Class
-                                                                              ]
-                                                         ]
-                                                         [ rdf:type owl:Restriction ;
-                                                           owl:onProperty obo:RO_0001015 ;
-                                                           owl:someValuesFrom obo:CHEBI_33250
-                                                         ]
-                                                       ) ;
-                                    rdf:type owl:Class
-                                  ] ;
-                  rdfs:comment """TODO: 
-1. is it relevant for molecules
-2. With SHACL it is possible to say that it is the same instance of a atom from the axiom"""@en ;
-                  rdfs:label "lattice point"@en ;
-                  skos:definition "Lattice point is a fiat point which is a part of a lattice and is a location of atoms (or molecules) of a crystal, which is located in the lattice."@en .
-
-
 ###  https://w3id.org/pmd/cryo/CRYO_0000020
 cryo:CRYO_0000020 rdf:type owl:Class ;
                   rdfs:subClassOf cryo:CRYO_0000014 ,
@@ -4668,7 +4648,7 @@ cryo:CRYO_0000024 rdf:type owl:Class ;
                   rdfs:subClassOf cryo:CRYO_0000014 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:IAO_0000219 ;
-                                    owl:someValuesFrom cryo:CRYO_0000015
+                                    owl:someValuesFrom co:PMD_0020197
                                   ] ;
                   rdfs:label "point Miller indices"@en ;
                   skos:definition "Point Miller indices define the coordinates of a point within a unit cell of a crystal. Point Miller indices must be given in round brackets separated by commas, e.g., (h, k, l)."@en ;
@@ -11498,7 +11478,7 @@ Anmerkung: Die Extensometer-Dehnung wird oftmals auch als technische Dehnung bez
 
 ###  https://w3id.org/pmd/tto/TTO_0000038
 <https://w3id.org/pmd/tto/TTO_0000038> rdf:type owl:Class ;
-                                       rdfs:subClassOf co:PMD_0025018 ;
+                                       rdfs:subClassOf co:PMD_0000848 ;
                                        rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
                                        rdfs:label "Brucheinschnürung"@de ,
                                                   "percentage reduction of area"@en ;
