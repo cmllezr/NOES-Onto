@@ -239,6 +239,10 @@ obo:RO_0000087 rdf:type owl:ObjectProperty .
 obo:RO_0001015 rdf:type owl:ObjectProperty .
 
 
+###  http://purl.obolibrary.org/obo/RO_0001025
+obo:RO_0001025 rdf:type owl:ObjectProperty .
+
+
 ###  http://purl.obolibrary.org/obo/RO_0002350
 obo:RO_0002350 rdf:type owl:ObjectProperty .
 
@@ -4783,7 +4787,8 @@ cryo:CRYO_0000041 rdf:type owl:Class ;
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty cryo:CRYO_0000170 ;
                                     owl:hasSelf "true"^^xsd:boolean
-                                  ] .
+                                  ] ;
+                  rdfs:label "crystallographic entity in cubic system"@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000042
@@ -5112,7 +5117,7 @@ noes:NOES_0000000 rdf:type owl:Class ;
 noes:NOES_0000001 rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000142 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:BFO_0000050 ;
+                                    owl:onProperty obo:RO_0001025 ;
                                     owl:someValuesFrom [ rdf:type owl:Class ;
                                                          owl:unionOf ( co:PMD_0000000
                                                                        [ owl:intersectionOf ( obo:BFO_0000030
@@ -5150,6 +5155,7 @@ noes:NOES_0000002 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf obo:OBI_0001930 ;
                   rdfs:label "rolled sheet direction value"@en ;
+                  owl:deprecated "true"^^xsd:boolean ;
                   skos:definition "Rolled sheet directions is a categorical value specification which specifies the rolled sheet direction. It  includes rolling direction (RD), transverse direction (TD), and normal direction (ND)"@en .
 
 
@@ -5472,14 +5478,6 @@ noes:NOES_0000032 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000033
 noes:NOES_0000033 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000001
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty co:PMD_0000077 ;
-                                                               owl:hasValue noes:NOES_0000028
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
                   rdfs:subClassOf noes:NOES_0000001 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:BFO_0000050 ;
@@ -5515,14 +5513,6 @@ noes:NOES_0000034 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000035
 noes:NOES_0000035 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000001
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty co:PMD_0000077 ;
-                                                               owl:hasValue noes:NOES_0000029
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
                   rdfs:subClassOf noes:NOES_0000001 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:BFO_0000050 ;
@@ -5537,14 +5527,6 @@ noes:NOES_0000035 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000036
 noes:NOES_0000036 rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000001
-                                                             [ rdf:type owl:Restriction ;
-                                                               owl:onProperty co:PMD_0000077 ;
-                                                               owl:hasValue noes:NOES_0000030
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
                   rdfs:subClassOf noes:NOES_0000001 ,
                                   [ rdf:type owl:Class ;
                                     owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
@@ -11944,14 +11926,6 @@ cryo:CRYO_0000035 rdf:type owl:NamedIndividual ;
                   skos:definition "Cubic crystal system is a crystal system with fourfold rotation axes."@en .
 
 
-###  https://w3id.org/pmd/cryo/CRYO_0000037
-cryo:CRYO_0000037 rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/pmd/cryo/CRYO_0000039
-cryo:CRYO_0000039 rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/pmd/cryo/CRYO_0000040
 cryo:CRYO_0000040 rdf:type owl:NamedIndividual ,
                            cryo:CRYO_0000023 ;
@@ -11965,10 +11939,6 @@ cryo:CRYO_0000040 rdf:type owl:NamedIndividual ,
                   cryo:CRYO_0000018 0 ;
                   cryo:CRYO_0000019 0 ;
                   rdfs:label "{100}"@en .
-
-
-###  https://w3id.org/pmd/cryo/CRYO_0000041
-cryo:CRYO_0000041 rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000043
@@ -12561,17 +12531,20 @@ cryo:CRYO_0000130 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/pmd/noes/NOES_0000028
 noes:NOES_0000028 rdf:type owl:NamedIndividual ;
-                  rdfs:label "rolling direction (RD)"@en .
+                  rdfs:label "rolling direction (RD)"@en ;
+                  owl:deprecated "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000029
 noes:NOES_0000029 rdf:type owl:NamedIndividual ;
-                  rdfs:label "transverse direction (TD)"@en .
+                  rdfs:label "transverse direction (TD)"@en ;
+                  owl:deprecated "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000030
 noes:NOES_0000030 rdf:type owl:NamedIndividual ;
-                  rdfs:label "normal direction (ND)"@en .
+                  rdfs:label "normal direction (ND)"@en ;
+                  owl:deprecated "true"^^xsd:boolean .
 
 
 #################################################################
@@ -12579,9 +12552,6 @@ noes:NOES_0000030 rdf:type owl:NamedIndividual ;
 #################################################################
 
 co:PMD_0020098 noes:NOES_0000122 "false"^^xsd:boolean .
-
-
-cryo:CRYO_0000041 rdfs:label "crystallographic entity in cubic system"@en .
 
 
 noes:NOES_0000124 noes:NOES_0000122 "false"^^xsd:boolean .

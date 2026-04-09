@@ -376,6 +376,12 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0001025 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0001025"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0002350 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
@@ -6631,6 +6637,7 @@ crystal structures according to the axial system used to describe their lattice 
                 <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">crystallographic entity in cubic system</rdfs:label>
     </owl:Class>
     
 
@@ -7102,7 +7109,7 @@ Grain orientation can be specified by either texture fibers or texture component
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000142"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
@@ -7152,6 +7159,7 @@ which determines the directions in a sheet material in respect to the rolling di
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
         <rdfs:label xml:lang="en">rolled sheet direction value</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:definition xml:lang="en">Rolled sheet directions is a categorical value specification which specifies the rolled sheet direction. It  includes rolling direction (RD), transverse direction (TD), and normal direction (ND)</skos:definition>
     </owl:Class>
     
@@ -7609,17 +7617,6 @@ Has part grain growth and recovery.</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000033 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000033">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000028"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000001"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -7669,17 +7666,6 @@ Has part grain growth and recovery.</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000035 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000035">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000029"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000001"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -7701,17 +7687,6 @@ Has part grain growth and recovery.</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000036 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000036">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000001"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/pmd/noes/NOES_0000030"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000001"/>
         <rdfs:subClassOf>
             <owl:Class>
@@ -16776,18 +16751,6 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     
 
 
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000037 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000037"/>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000039 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000039"/>
-    
-
-
     <!-- https://w3id.org/pmd/cryo/CRYO_0000040 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000040">
@@ -16803,12 +16766,6 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
         <rdfs:label xml:lang="en">{100}</rdfs:label>
     </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000041 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000041"/>
     
 
 
@@ -17587,6 +17544,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000028">
         <rdfs:label xml:lang="en">rolling direction (RD)</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:NamedIndividual>
     
 
@@ -17595,6 +17553,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000029">
         <rdfs:label xml:lang="en">transverse direction (TD)</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:NamedIndividual>
     
 
@@ -17603,6 +17562,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/noes/NOES_0000030">
         <rdfs:label xml:lang="en">normal direction (ND)</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:NamedIndividual>
     
 
@@ -17617,9 +17577,6 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020098">
         <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
-    </rdf:Description>
-    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000041">
-        <rdfs:label xml:lang="en">crystallographic entity in cubic system</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000124">
         <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
