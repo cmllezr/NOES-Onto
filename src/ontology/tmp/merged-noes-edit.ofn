@@ -510,7 +510,6 @@ Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000036>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000037>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000038>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000039>))
-Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000041>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000042>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000043>))
 Declaration(Class(<https://w3id.org/pmd/noes/NOES_0000044>))
@@ -721,11 +720,9 @@ Declaration(ObjectProperty(<https://w3id.org/pmd/cryo/CRYO_0000053>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/cryo/CRYO_0000164>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/cryo/CRYO_0000168>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/cryo/CRYO_0000170>))
-Declaration(ObjectProperty(<https://w3id.org/pmd/noes/NOES_0000040>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/noes/NOES_0000066>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/noes/NOES_0000067>))
 Declaration(ObjectProperty(<https://w3id.org/pmd/noes/NOES_0000068>))
-Declaration(ObjectProperty(<https://w3id.org/pmd/noes/NOES_0000074>))
 Declaration(DataProperty(<http://purl.obolibrary.org/obo/OBI_0001937>))
 Declaration(DataProperty(<http://purl.obolibrary.org/obo/OBI_0002135>))
 Declaration(DataProperty(<https://w3id.org/pmd/co/PMD_0000006>))
@@ -1744,15 +1741,6 @@ ObjectPropertyDomain(<https://w3id.org/pmd/cryo/CRYO_0000168> <https://w3id.org/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000170> "is cubic"@en)
 SubObjectPropertyOf(<https://w3id.org/pmd/cryo/CRYO_0000170> <https://w3id.org/pmd/cryo/CRYO_0000053>)
 
-# Object Property: <https://w3id.org/pmd/noes/NOES_0000040> (has geometric basis)
-
-AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000040> "The initial idea was to use \"has part\" to express that intrinsic reference frame belongs to its material. However, it did not feel semantically correct. Then, the idea was to use \"located in\", but the property chain would infer relations which are not wrong but semantically irrelevant in the context."@en)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000040> "has geometric basis"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000040> "Has geometric basis is an object property which connects a material entity, e.g., a material or an object, to its intrinsic reference frame or parts of the  intrinsic reference frame, i.e., specific directions (fiat  lines)."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/noes/NOES_0000040> "Rolled material has geometric basis intrinsic reference frame, and the intrinsic reference frame has part rolling direction. Thus, Rolled material has geometric part rolling direction."@en)
-ObjectPropertyDomain(<https://w3id.org/pmd/noes/NOES_0000040> <http://purl.obolibrary.org/obo/BFO_0000040>)
-ObjectPropertyRange(<https://w3id.org/pmd/noes/NOES_0000040> ObjectUnionOf(<http://purl.obolibrary.org/obo/BFO_0000140> <https://w3id.org/pmd/noes/NOES_0000041>))
-
 # Object Property: <https://w3id.org/pmd/noes/NOES_0000066> (geometrically related)
 
 AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000066> "This object property is not intended to be used between intances."@en)
@@ -1776,13 +1764,6 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000068> "normal 
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/noes/NOES_0000068> "Normal to is a object property which describes geometric relation between two spatial regions which are normal to each other"@en)
 SubObjectPropertyOf(<https://w3id.org/pmd/noes/NOES_0000068> <https://w3id.org/pmd/noes/NOES_0000066>)
 SymmetricObjectProperty(<https://w3id.org/pmd/noes/NOES_0000068>)
-
-# Object Property: <https://w3id.org/pmd/noes/NOES_0000074> (geometric basis of)
-
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000074> "geometric basis of"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/noes/NOES_0000074> "Geometric basis of is an inverse object property of a has geometric basic"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/noes/NOES_0000074> "Rolling direction is a part of intrinsic reference frame, which is geometric basis of rolled material. Thus, the rolling direction is a geometric basis of rolled material"@en)
-SubObjectPropertyOf(<https://w3id.org/pmd/noes/NOES_0000074> owl:topObjectProperty)
 
 
 ############################
@@ -3142,7 +3123,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000053> <http://purl.obolibrary.org/obo/COB_0000035>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000053> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000547> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> <http://purl.obolibrary.org/obo/BFO_0000040>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000299> <https://w3id.org/pmd/co/PMD_0020139>)))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000054> (heating function)
+# Class: <https://w3id.org/pmd/co/PMD_0000054> (Heizfunktion)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000054> "Heizfunktion"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000054> "heating function"@en)
@@ -3529,7 +3510,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0000649> "Stripping, Deep Drawing, Spinning"@en)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000649> <https://w3id.org/pmd/co/PMD_0000646>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000650> (forming under compressive conditions)
+# Class: <https://w3id.org/pmd/co/PMD_0000650> (Druckumformen)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <https://w3id.org/pmd/co/PMD_0000650> "Official definition can be found in: DIN 8583-1"@en)
 AnnotationAssertion(dcterms:source <https://w3id.org/pmd/co/PMD_0000650> "Offizielle Definition findet man in: DIN 8583-1"@de)
@@ -3736,7 +3717,7 @@ SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> <https://w3id.org/pmd/co/PMD_00
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000054> <https://w3id.org/pmd/co/PMD_0000522>))
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000052> <https://w3id.org/pmd/co/PMD_0000000>))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000849> (Mechanische Eigenschaften Analyseverfahren)
+# Class: <https://w3id.org/pmd/co/PMD_0000849> (mechanical property analyzing process)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000849> "Mechanische Eigenschaften Analyseverfahren"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000849> "mechanical property analyzing process"@en)
@@ -3797,7 +3778,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000874> "Ein Mikroskop, das sichtbares Licht und Linsen verwendet, um kleine Objekte oder Details zu vergrößern und zu betrachten."@de)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000874> <https://w3id.org/pmd/co/PMD_0000855>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000875> (Optische Mikroskopie)
+# Class: <https://w3id.org/pmd/co/PMD_0000875> (optical microscopy)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "Optische Mikroskopie"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "optical microscopy"@en)
@@ -5332,7 +5313,6 @@ AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/cryo/CRYO_0000014> "TODO
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000014> "Miller indices"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/cryo/CRYO_0000014> "Miller indices is an information content entity which denotes crystallographic direction, crystallographic plane, or lattice point, i.e., defines their position in respect to the coordinate system of a crystal lattice, and has exactly 3 interger literals, namely h, k. and l."@en)
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000014> <https://w3id.org/pmd/co/PMD_0000501>)
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000014> ObjectHasSelf(<https://w3id.org/pmd/cryo/CRYO_0000053>))
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000014> DataExactCardinality(3 <https://w3id.org/pmd/cryo/CRYO_0000016>))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000020> (direction Miller indices)
@@ -5415,10 +5395,13 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000036> <http://purl.obolibrary.org/
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000041> (crystallographic entity in cubic system)
 
+AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/cryo/CRYO_0000041> "'immaterial entity' and ('part of' some 
+('crystal lattice' and ('has quality' some 
+('crystal system' and ('specified by value' value cubic)))))")
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000041> "crystallographic entity in cubic system"@en)
-EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000041> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000140> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000035>)))))))
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000041> <http://purl.obolibrary.org/obo/BFO_0000140>)
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000041> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000035>))))))
+EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000041> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000141> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000035>)))))
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000041> <http://purl.obolibrary.org/obo/BFO_0000141>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000041> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000035>))))
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000041> ObjectHasSelf(<https://w3id.org/pmd/cryo/CRYO_0000170>))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000042> (grain orientation)
@@ -5446,44 +5429,44 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000079> <https://w3id.org/pmd/cryo/C
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000119> (crystallographic entity in triclinic system)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000119> "crystallographic entity in triclinic system"@de)
-EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000119> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000140> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000029>)))))))
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000119> <http://purl.obolibrary.org/obo/BFO_0000140>)
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000119> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000029>))))))
+EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000119> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000141> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000029>)))))
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000119> <http://purl.obolibrary.org/obo/BFO_0000141>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000119> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000029>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000120> (crystallographic entity in monoclinic system)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000120> "crystallographic entity in monoclinic system"@de)
-EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000120> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000140> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000030>)))))))
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000120> <http://purl.obolibrary.org/obo/BFO_0000140>)
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000120> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000030>))))))
+EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000120> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000141> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000030>)))))
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000120> <http://purl.obolibrary.org/obo/BFO_0000141>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000120> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000030>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000121> (crystallographic entity in orthorhombic system)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000121> "crystallographic entity in orthorhombic system"@de)
-EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000121> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000140> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000031>)))))))
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000121> <http://purl.obolibrary.org/obo/BFO_0000140>)
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000121> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000031>))))))
+EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000121> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000141> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000031>)))))
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000121> <http://purl.obolibrary.org/obo/BFO_0000141>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000121> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000031>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000122> (crystallographic entity in tetragonal system)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000122> "crystallographic entity in tetragonal system"@de)
-EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000122> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000140> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000032>)))))))
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000122> <http://purl.obolibrary.org/obo/BFO_0000140>)
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000122> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000032>))))))
+EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000122> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000141> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000032>)))))
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000122> <http://purl.obolibrary.org/obo/BFO_0000141>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000122> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000032>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000123> (crystallographic entity in rhombohedral system)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000123> "crystallographic entity in rhombohedral system"@de)
-EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000123> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000140> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000033>)))))))
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000123> <http://purl.obolibrary.org/obo/BFO_0000140>)
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000123> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000033>))))))
+EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000123> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000141> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000033>)))))
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000123> <http://purl.obolibrary.org/obo/BFO_0000141>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000123> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000033>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000129> (crystallographic entity in hexagonal system)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000129> "crystallographic entity in hexagonal system"@de)
-EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000129> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000140> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000034>)))))))
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000129> <http://purl.obolibrary.org/obo/BFO_0000140>)
-SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000129> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000050> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000034>))))))
+EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000129> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000141> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000034>)))))
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000129> <http://purl.obolibrary.org/obo/BFO_0000141>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000129> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000026> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000034>))))
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000000> (relative permeability)
 
@@ -5751,15 +5734,6 @@ AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/p
 EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000039> ObjectIntersectionOf(<https://w3id.org/pmd/tto/TTO_0000053> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0001015> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "0"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000039> <https://w3id.org/pmd/tto/TTO_0000053>)
 
-# Class: <https://w3id.org/pmd/noes/NOES_0000041> (intrinsic reference frame)
-
-AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000041> "Note that intrinsic reference frame is \"grounded into\" the material entity, i.e., it moves with it, and if material entity ceases to exist so will its intrinsic reference frame."@en)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000041> "intrinsic reference frame"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000041> "Intrinsic reference frame is an immaterial entity  which is geometric basis of some material entity, e.g., material or an object. Intrinsic reference frame has parts continuant fiat boundaries, e.g., specific directions or planes which uniquely define this reference frame."@en)
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000041> <http://purl.obolibrary.org/obo/BFO_0000141>)
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000041> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> <http://purl.obolibrary.org/obo/BFO_0000140>))
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000041> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000074> <http://purl.obolibrary.org/obo/BFO_0000040>))
-
 # Class: <https://w3id.org/pmd/noes/NOES_0000042> (laser cutting)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000042> "laser cutting"@en)
@@ -6019,7 +5993,6 @@ SubClassOf(<https://w3id.org/pmd/noes/NOES_0000078> <https://w3id.org/pmd/tto/TT
 AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000079> "An instance belonging to the class should be rather inferred as asserted."@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000079> "total magnetic power loss in the rolling direction"@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000079> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000079> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000057> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000829> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "0"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000079> <https://w3id.org/pmd/noes/NOES_0000057>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000080> (total magnetic power loss in the transversal direction)
@@ -6027,7 +6000,6 @@ SubClassOf(<https://w3id.org/pmd/noes/NOES_0000079> <https://w3id.org/pmd/noes/N
 AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000080> "An instance belonging to the class should be rather inferred as asserted."@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000080> "total magnetic power loss in the transversal direction"@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000080> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000080> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000057> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000829> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "90"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000080> <https://w3id.org/pmd/noes/NOES_0000057>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000081> (yield strength at the 45° to the rolling direction)
@@ -6062,7 +6034,6 @@ SubClassOf(<https://w3id.org/pmd/noes/NOES_0000083> <https://w3id.org/pmd/tto/TT
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000084> "peak magnetic polarization in the rolling direction"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#altLabel> <https://w3id.org/pmd/noes/NOES_0000084> "Peak magnetic polarization in the rolling direction is a peak magnetic polarization measured exclusively in the rolling direction of an electrical sheet."@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000084> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000084> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000182> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "0"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000084> <https://w3id.org/pmd/noes/NOES_0000182>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000085> (peak magnetic polarization in the transversal direction)
@@ -6070,7 +6041,6 @@ SubClassOf(<https://w3id.org/pmd/noes/NOES_0000084> <https://w3id.org/pmd/noes/N
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000085> "peak magnetic polarization in the transversal direction"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000085> "Peak magnetic polarization in the transversal direction is a peak magnetic polarization measured exclusively in the transversal direction of an electrical sheet."@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000085> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000085> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000182> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "90"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000085> <https://w3id.org/pmd/noes/NOES_0000182>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000086> (α-fibre grain orientation)
@@ -6229,7 +6199,6 @@ AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000101> "An in
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000101> "percentage plastic extension at maximum force at 45° to the rolling direction"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000101> "Percentage plastic extension at maximum force at 45° to the rolling direction is percentage elongation at maximum force which is measured on a sample cut to the 45° to the rolling direction."@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000101> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000101> ObjectIntersectionOf(<https://w3id.org/pmd/tto/TTO_0000037> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "45"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000101> <https://w3id.org/pmd/tto/TTO_0000037>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000102> (percentage plastic extension at maximum force in the rolling direction)
@@ -6238,7 +6207,6 @@ AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000102> "An in
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000102> "percentage plastic extension at maximum force in the rolling direction"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000102> "Percentage plastic extension at maximum force in the rolling direction is percentage elongation at maximum force which is measured on a sample cut parallel to the rolling direction."@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000102> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000102> ObjectIntersectionOf(<https://w3id.org/pmd/tto/TTO_0000037> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "0"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000102> <https://w3id.org/pmd/tto/TTO_0000037>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000103> (percentage plastic extension at maximum force in the transversal direction)
@@ -6247,7 +6215,6 @@ AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000103> "An in
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000103> "percentage plastic extension at maximum force in the transversal direction"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000103> "Percentage plastic extension at maximum force in the transversal direction is percentage elongation at maximum force which is measured on a sample cut parallel the transversal direction."@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000103> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000103> ObjectIntersectionOf(<https://w3id.org/pmd/tto/TTO_0000037> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "90"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000103> <https://w3id.org/pmd/tto/TTO_0000037>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000104> (saturation induction in the rolling direction)
@@ -6256,7 +6223,6 @@ AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000104> "An in
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000104> "saturation induction in the rolling direction"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000104> "Saturation induction in the rolling direction is a saturation induction measured exclusively in the rolling direction of an electrical sheet."@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000104> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000104> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000051> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "0"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000104> <https://w3id.org/pmd/noes/NOES_0000051>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000105> (saturation induction in the transversal direction)
@@ -6265,61 +6231,52 @@ AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/noes/NOES_0000105> "An in
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000105> "saturation induction in the transversal direction"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000105> "Saturation induction in the transversal direction is a saturation induction measured exclusively in the transversal direction of an electrical sheet."@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000105> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000105> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000051> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "90"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000105> <https://w3id.org/pmd/noes/NOES_0000051>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000106> (differential permeability in the rolling direction)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000106> "differential permeability in the rolling direction"@en)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000106> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000059> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "0"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000106> <https://w3id.org/pmd/noes/NOES_0000059>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000107> (differential permeability in the transversal direction)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000107> "differential permeability in the transversal direction"@en)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000107> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000059> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "90"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000107> <https://w3id.org/pmd/noes/NOES_0000059>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000108> (maximum permeability in the rolling direction)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000108> "maximum permeability in the rolling direction"@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000108> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000108> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000062> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "0"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000108> <https://w3id.org/pmd/noes/NOES_0000062>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000109> (maximum permeability in the transversal direction)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000109> "maximum permeability in the transversal direction"@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000109> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000109> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000062> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "90"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000109> <https://w3id.org/pmd/noes/NOES_0000062>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000110> (relative permeability in the rolling direction)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000110> "relative permeability in the rolling direction"@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000110> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000110> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000000> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "0"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000110> <https://w3id.org/pmd/noes/NOES_0000000>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000111> (relative permeability in the transversal direction)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000111> "relative permeability in the transversal direction"@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000111> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000111> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000000> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "90"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000111> <https://w3id.org/pmd/noes/NOES_0000000>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000112> (reversible permeability in the rolling direction)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000112> "reversible permeability in the rolling direction"@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000112> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000112> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000064> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "0"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000112> <https://w3id.org/pmd/noes/NOES_0000064>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000113> (reversible permeability in the transversal direction)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000113> "reversible permeability in the transversal direction"@en)
 AnnotationAssertion(<https://w3id.org/pmd/noes/NOES_0000122> <https://w3id.org/pmd/noes/NOES_0000113> "false"^^xsd:boolean)
-EquivalentClasses(<https://w3id.org/pmd/noes/NOES_0000113> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000064> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> ObjectSomeValuesFrom(ObjectInverseOf(<http://purl.obolibrary.org/obo/OBI_0001938>) ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000109> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000312> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000974> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000040> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0000077> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/OBI_0001931> DataHasValue(<http://purl.obolibrary.org/obo/OBI_0001937> "90"^^xsd:integer)))))))))))))))))
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000113> <https://w3id.org/pmd/noes/NOES_0000064>)
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000114> (Stanzen)
@@ -6398,7 +6355,7 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000160> "angle t
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000160> "Angle to rolling direction is a relational quality which characterizes the orientation of a sample cut from a rolled material in respect to the rolling direction (RD) of this material."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/noes/NOES_0000160> "Sample cut at 30° to rolling direction of a annealed nonoriented electrical steel."@en)
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000160> <https://w3id.org/pmd/co/PMD_0025018>)
-SubClassOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectIntersectionOf(ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025999> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000074> <http://purl.obolibrary.org/obo/BFO_0000030>))) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025999> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000033> ObjectSomeValuesFrom(<https://w3id.org/pmd/noes/NOES_0000074> <https://w3id.org/pmd/co/PMD_0000000>)))))
+SubClassOf(<https://w3id.org/pmd/noes/NOES_0000160> ObjectIntersectionOf(ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025999> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000031> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0001015> <http://purl.obolibrary.org/obo/BFO_0000030>))) ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025999> ObjectIntersectionOf(<https://w3id.org/pmd/noes/NOES_0000033> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0001015> <https://w3id.org/pmd/co/PMD_0000000>)))))
 
 # Class: <https://w3id.org/pmd/noes/NOES_0000161> (α*-fibre grain orientation)
 
@@ -6596,7 +6553,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/tto/TTO_0000015> "The length of a straight line through the center of an object (tensile test piece) as measured after a fracture occured during a test."@en)
 SubClassOf(<https://w3id.org/pmd/tto/TTO_0000015> <https://w3id.org/pmd/co/PMD_0050051>)
 
-# Class: <https://w3id.org/pmd/tto/TTO_0000017> (extensometer gauge length)
+# Class: <https://w3id.org/pmd/tto/TTO_0000017> (Extensometer-Messlänge)
 
 AnnotationAssertion(rdfs:isDefinedBy <https://w3id.org/pmd/tto/TTO_0000017> <https://w3id.org/pmd/tto>)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/tto/TTO_0000017> "Extensometer-Messlänge"@de)
@@ -6794,7 +6751,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<https://w3id.org/pmd/co/definitionSource> <https://w3id.org/pmd/tto/TTO_0000035> "DIN EN ISO 6892-1:2019"@en)
 SubClassOf(<https://w3id.org/pmd/tto/TTO_0000035> <https://w3id.org/pmd/tto/TTO_0000004>)
 
-# Class: <https://w3id.org/pmd/tto/TTO_0000036> (percentage permanent extension)
+# Class: <https://w3id.org/pmd/tto/TTO_0000036> (Bleibende Extensometer-Dehnung)
 
 AnnotationAssertion(rdfs:isDefinedBy <https://w3id.org/pmd/tto/TTO_0000036> <https://w3id.org/pmd/tto>)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/tto/TTO_0000036> "Bleibende Extensometer-Dehnung"@de)
@@ -7908,7 +7865,6 @@ DifferentIndividuals(<https://w3id.org/pmd/cryo/CRYO_0000032> <https://w3id.org/
 DifferentIndividuals(<https://w3id.org/pmd/cryo/CRYO_0000033> <https://w3id.org/pmd/cryo/CRYO_0000034>)
 DifferentIndividuals(<https://w3id.org/pmd/cryo/CRYO_0000033> <https://w3id.org/pmd/cryo/CRYO_0000035>)
 DifferentIndividuals(<https://w3id.org/pmd/cryo/CRYO_0000034> <https://w3id.org/pmd/cryo/CRYO_0000035>)
-SubObjectPropertyOf(ObjectPropertyChain(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes/NOES_0000074>) <https://w3id.org/pmd/noes/NOES_0000074>)
 SubObjectPropertyOf(ObjectPropertyChain(<http://purl.obolibrary.org/obo/BFO_0000051> <http://purl.obolibrary.org/obo/RO_0000057>) <http://purl.obolibrary.org/obo/RO_0000057>)
 SubObjectPropertyOf(ObjectPropertyChain(<http://purl.obolibrary.org/obo/BFO_0000051> <https://w3id.org/pmd/co/PMD_0025998>) <https://w3id.org/pmd/co/PMD_0025998>)
 SubObjectPropertyOf(ObjectPropertyChain(<http://purl.obolibrary.org/obo/BFO_0000055> <http://purl.obolibrary.org/obo/RO_0000059>) <http://purl.obolibrary.org/obo/STATO_0000102>)
@@ -7917,7 +7873,6 @@ SubObjectPropertyOf(ObjectPropertyChain(<http://purl.obolibrary.org/obo/RO_00022
 SubObjectPropertyOf(ObjectPropertyChain(<http://purl.obolibrary.org/obo/RO_0002230> <http://purl.obolibrary.org/obo/RO_0002234>) <http://purl.obolibrary.org/obo/RO_0002234>)
 SubObjectPropertyOf(ObjectPropertyChain(<https://w3id.org/pmd/co/PMD_0025999> <http://purl.obolibrary.org/obo/BFO_0000050>) <https://w3id.org/pmd/co/PMD_0025999>)
 SubObjectPropertyOf(ObjectPropertyChain(<https://w3id.org/pmd/cryo/CRYO_0000170> <http://purl.obolibrary.org/obo/IAO_0000235> <http://purl.obolibrary.org/obo/RO_0002350>) <https://w3id.org/pmd/cryo/CRYO_0000168>)
-SubObjectPropertyOf(ObjectPropertyChain(<https://w3id.org/pmd/noes/NOES_0000040> <http://purl.obolibrary.org/obo/BFO_0000051>) <https://w3id.org/pmd/noes/NOES_0000040>)
 DLSafeRule(Body(ClassAtom(<http://purl.obolibrary.org/obo/BFO_0000016> Variable(<urn:swrl:var#d>)) ObjectPropertyAtom(<http://purl.obolibrary.org/obo/RO_0000053> Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>)))Head(ObjectPropertyAtom(<http://purl.obolibrary.org/obo/RO_0000091> Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>))))
 DLSafeRule(Body(ClassAtom(<http://purl.obolibrary.org/obo/BFO_0000019> Variable(<urn:swrl:var#d>)) ObjectPropertyAtom(<http://purl.obolibrary.org/obo/RO_0000053> Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>)))Head(ObjectPropertyAtom(<http://purl.obolibrary.org/obo/RO_0000086> Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>))))
 DLSafeRule(Body(ClassAtom(<http://purl.obolibrary.org/obo/BFO_0000023> Variable(<urn:swrl:var#d>)) ObjectPropertyAtom(<http://purl.obolibrary.org/obo/RO_0000053> Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>)))Head(ObjectPropertyAtom(<http://purl.obolibrary.org/obo/RO_0000087> Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>))))
