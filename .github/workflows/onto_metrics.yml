@@ -1,0 +1,40 @@
+name: Ontology Metrics
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    container: obolibrary/odkfull:latest  # Using the ODK container is easiest as it has ROBOT pre-installed
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create metrics directory
+        run: mkdir -p reports/metrics
+
+      - name: Calculate All Metrics (Unreasoned)
+        run: |
+          robot measure --input noes-full.owl \
+                        --metrics all \
+                        --format json \
+                        --output reports/metrics/metrics_all.json
+
+      - name: Calculate Reasoned Metrics
+        run: |
+          robot measure --input noes-full.owl \
+                        --metrics all-reasoner \
+                        --format json \
+                        --output reports/metrics/metrics_reasoned.json
+
+      - name: Upload Metrics as Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ontology-metrics
+          path: reports/metrics/
