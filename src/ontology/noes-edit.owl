@@ -34,6 +34,15 @@ Declaration(Class(<https://w3id.org/pmd/tto/TTO_0000037>))
 Declaration(Class(<https://w3id.org/pmd/tto/TTO_0000047>))
 Declaration(Class(<https://w3id.org/pmd/tto/TTO_0000053>))
 Declaration(Class(<https://w3id.org/pmd/tto/TTO_1000000>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes.owl/some_RD>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes.owl/some_RP>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes.owl/some_crys_direction>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes.owl/some_crys_plane>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes.owl/some_grains>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes.owl/some_material>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes.owl/some_system>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes.owl/some_system_1>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/noes.owl/some_texture>))
 Declaration(AnnotationProperty(dcterms:description))
 Declaration(AnnotationProperty(dcterms:license))
 Declaration(AnnotationProperty(dcterms:title))
@@ -55,6 +64,60 @@ AnnotationAssertion(rdfs:label dcterms:license "license")
 AnnotationAssertion(rdfs:label dcterms:title "title")
 
 
+
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <https://w3id.org/pmd/noes.owl/some_RD> (<https://w3id.org/pmd/noes.owl/some_RD>)
+
+ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000033> <https://w3id.org/pmd/noes.owl/some_RD>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0001025> <https://w3id.org/pmd/noes.owl/some_RD> <https://w3id.org/pmd/noes.owl/some_material>)
+ObjectPropertyAssertion(<https://w3id.org/pmd/noes/NOES_0000067> <https://w3id.org/pmd/noes.owl/some_RD> <https://w3id.org/pmd/noes.owl/some_crys_direction>)
+
+# Individual: <https://w3id.org/pmd/noes.owl/some_RP> (<https://w3id.org/pmd/noes.owl/some_RP>)
+
+ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000094> <https://w3id.org/pmd/noes.owl/some_RP>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0001025> <https://w3id.org/pmd/noes.owl/some_RP> <https://w3id.org/pmd/noes.owl/some_material>)
+ObjectPropertyAssertion(<https://w3id.org/pmd/noes/NOES_0000067> <https://w3id.org/pmd/noes.owl/some_RP> <https://w3id.org/pmd/noes.owl/some_crys_plane>)
+
+# Individual: <https://w3id.org/pmd/noes.owl/some_crys_direction> (<https://w3id.org/pmd/noes.owl/some_crys_direction>)
+
+ClassAssertion(<https://w3id.org/pmd/cryo/CRYO_0000012> <https://w3id.org/pmd/noes.owl/some_crys_direction>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/noes.owl/some_crys_direction> <https://w3id.org/pmd/cryo/CRYO_0000116>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000086> <https://w3id.org/pmd/noes.owl/some_crys_direction> <https://w3id.org/pmd/noes.owl/some_system>)
+
+# Individual: <https://w3id.org/pmd/noes.owl/some_crys_plane> (<https://w3id.org/pmd/noes.owl/some_crys_plane>)
+
+ClassAssertion(<https://w3id.org/pmd/cryo/CRYO_0000011> <https://w3id.org/pmd/noes.owl/some_crys_plane>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/BFO_0000050> <https://w3id.org/pmd/noes.owl/some_crys_plane> <https://w3id.org/pmd/noes.owl/some_material>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/noes.owl/some_crys_plane> <https://w3id.org/pmd/cryo/CRYO_0000125>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000086> <https://w3id.org/pmd/noes.owl/some_crys_plane> <https://w3id.org/pmd/noes.owl/some_system_1>)
+
+# Individual: <https://w3id.org/pmd/noes.owl/some_grains> (<https://w3id.org/pmd/noes.owl/some_grains>)
+
+ClassAssertion(<https://w3id.org/pmd/noes/NOES_0000177> <https://w3id.org/pmd/noes.owl/some_grains>)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/RO_0000086> <https://w3id.org/pmd/noes.owl/some_grains> <https://w3id.org/pmd/noes.owl/some_texture>)
+
+# Individual: <https://w3id.org/pmd/noes.owl/some_material> (<https://w3id.org/pmd/noes.owl/some_material>)
+
+ClassAssertion(<https://w3id.org/pmd/co/PMD_0000000> <https://w3id.org/pmd/noes.owl/some_material>)
+
+# Individual: <https://w3id.org/pmd/noes.owl/some_system> (<https://w3id.org/pmd/noes.owl/some_system>)
+
+ClassAssertion(<https://w3id.org/pmd/cryo/CRYO_0000026> <https://w3id.org/pmd/noes.owl/some_system>)
+ObjectPropertyAssertion(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/noes.owl/some_system> <https://w3id.org/pmd/cryo/CRYO_0000035>)
+
+# Individual: <https://w3id.org/pmd/noes.owl/some_system_1> (<https://w3id.org/pmd/noes.owl/some_system_1>)
+
+ClassAssertion(<https://w3id.org/pmd/cryo/CRYO_0000026> <https://w3id.org/pmd/noes.owl/some_system_1>)
+ObjectPropertyAssertion(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/noes.owl/some_system_1> <https://w3id.org/pmd/cryo/CRYO_0000035>)
+
+# Individual: <https://w3id.org/pmd/noes.owl/some_texture> (<https://w3id.org/pmd/noes.owl/some_texture>)
+
+ClassAssertion(<https://w3id.org/pmd/co/PMD_0000853> <https://w3id.org/pmd/noes.owl/some_texture>)
 
 
 AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/noes/NOES_0000017> "true"^^xsd:boolean)
