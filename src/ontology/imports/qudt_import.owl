@@ -7,12 +7,9 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<https://w3id.org/pmd/noes/imports/qudt_import.owl>
-<https://w3id.org/pmd/noes/releases/2026-04-28/imports/qudt_import.owl>
-Annotation(owl:versionInfo "2026-04-28")
+<https://w3id.org/pmd/noes/releases/2026-04-29/imports/qudt_import.owl>
+Annotation(owl:versionInfo "2026-04-29")
 
-Declaration(Class(<http://qudt.org/schema/qudt/DerivedUnit>))
-Declaration(Class(<http://qudt.org/schema/qudt/Unit>))
-Declaration(NamedIndividual(<http://qudt.org/schema/qudt/DerivedUnit>))
 Declaration(NamedIndividual(<http://qudt.org/vocab/unit/MegaPA>))
 Declaration(NamedIndividual(<http://qudt.org/vocab/unit/N-PER-M2>))
 Declaration(NamedIndividual(<http://qudt.org/vocab/unit/PERCENT>))
@@ -25,33 +22,6 @@ Declaration(AnnotationProperty(<http://qudt.org/schema/qudt/symbol>))
 Declaration(AnnotationProperty(<http://qudt.org/schema/qudt/wikidataMatch>))
 Declaration(Datatype(<http://qudt.org/schema/qudt/LatexString>))
 Declaration(Datatype(rdf:HTML))
-
-
-############################
-#   Classes
-############################
-
-# Class: <http://qudt.org/schema/qudt/DerivedUnit> (Derived Unit)
-
-AnnotationAssertion(<http://purl.org/dc/terms/description> <http://qudt.org/schema/qudt/DerivedUnit> "
-  <p>A <em>Derived Unit</em> is a type specification for units that are derived from other units.
-  </p>"^^rdf:HTML)
-AnnotationAssertion(rdfs:isDefinedBy <http://qudt.org/schema/qudt/DerivedUnit> <http://qudt.org/schema/qudt>)
-AnnotationAssertion(rdfs:label <http://qudt.org/schema/qudt/DerivedUnit> "Derived Unit")
-SubClassOf(<http://qudt.org/schema/qudt/DerivedUnit> <http://qudt.org/schema/qudt/Unit>)
-
-# Class: <http://qudt.org/schema/qudt/Unit> (Unit)
-
-AnnotationAssertion(<http://purl.org/dc/terms/description> <http://qudt.org/schema/qudt/Unit> "
-  A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). 
-  For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). 
-  Any measurement of the length can be expressed as a number multiplied by the unit meter. 
-  More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  $Q = nU$.
-  "^^<http://qudt.org/schema/qudt/LatexString>)
-AnnotationAssertion(<http://qudt.org/schema/qudt/informativeReference> <http://qudt.org/schema/qudt/Unit> "http://dbpedia.org/resource/Category:Units_of_measure"^^xsd:anyURI)
-AnnotationAssertion(<http://qudt.org/schema/qudt/informativeReference> <http://qudt.org/schema/qudt/Unit> "http://www.allmeasures.com/Fullconversion.asp"^^xsd:anyURI)
-AnnotationAssertion(rdfs:isDefinedBy <http://qudt.org/schema/qudt/Unit> <http://qudt.org/schema/qudt>)
-AnnotationAssertion(rdfs:label <http://qudt.org/schema/qudt/Unit> "Unit")
 
 
 ############################
@@ -79,7 +49,6 @@ AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/MegaPA> "Megapascal"@
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/MegaPA> "Megapascal"@sl)
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/MegaPA> "Megapascal"@tr)
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/MegaPA> "Megapaskal"@pl)
-ClassAssertion(<http://qudt.org/schema/qudt/Unit> <http://qudt.org/vocab/unit/MegaPA>)
 
 # Individual: <http://qudt.org/vocab/unit/N-PER-M2> (Newton per Metro Quadrato)
 
@@ -107,8 +76,6 @@ AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/N-PER-M2> "Niuton na 
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/N-PER-M2> "Νιούτον ανά Τετραγωνικό Μέτρο"@el)
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/N-PER-M2> "Ньютон на Квадратный Метр"@ru)
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/N-PER-M2> "Нютон на Квадратен Метър"@bg)
-ClassAssertion(<http://qudt.org/schema/qudt/DerivedUnit> <http://qudt.org/vocab/unit/N-PER-M2>)
-ClassAssertion(<http://qudt.org/schema/qudt/Unit> <http://qudt.org/vocab/unit/N-PER-M2>)
 
 # Individual: <http://qudt.org/vocab/unit/PERCENT> (Percent)
 
@@ -121,7 +88,6 @@ AnnotationAssertion(<http://qudt.org/schema/qudt/wikidataMatch> <http://qudt.org
 AnnotationAssertion(rdfs:isDefinedBy <http://qudt.org/vocab/unit/PERCENT> <http://qudt.org/vocab/unit>)
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/PERCENT> "Percent")
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/PERCENT> "Percent"@en)
-ClassAssertion(<http://qudt.org/schema/qudt/Unit> <http://qudt.org/vocab/unit/PERCENT>)
 
 # Individual: <http://qudt.org/vocab/unit/W-PER-KiloGM> (Watt per Chilogrammo)
 
@@ -148,7 +114,6 @@ AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/W-PER-KiloGM> "Wattiu
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/W-PER-KiloGM> "Βατ ανά Χιλιόγραμμο"@el)
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/W-PER-KiloGM> "Ват на Килограм"@bg)
 AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/W-PER-KiloGM> "Ватт на Килограмм"@ru)
-ClassAssertion(<http://qudt.org/schema/qudt/Unit> <http://qudt.org/vocab/unit/W-PER-KiloGM>)
 
 
 )
