@@ -2807,21 +2807,6 @@ obo:OBI_0001933 rdf:type owl:Class ;
                 rdfs:label "value specification" .
 
 
-###  http://purl.obolibrary.org/obo/UO_0000000
-obo:UO_0000000 rdf:type owl:Class ;
-               rdfs:subClassOf obo:IAO_0000003 ;
-               obo:IAO_0000115 "A unit of measurement is a standardized quantity of a physical quality." ;
-               rdfs:label "unit" ;
-               noes:NOES_0000122 "false"^^xsd:boolean .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource obo:UO_0000000 ;
-   owl:annotatedProperty obo:IAO_0000115 ;
-   owl:annotatedTarget "A unit of measurement is a standardized quantity of a physical quality." ;
-   oboInOwl:hasDbXref "Wikipedia:Wikipedia"
- ] .
-
-
 ###  http://purl.obolibrary.org/obo/UO_0000010
 obo:UO_0000010 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000045 ,
@@ -2856,6 +2841,7 @@ obo:UO_0000032 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/UO_0000045
 obo:UO_0000045 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                obo:IAO_0000115 "A unit which is one of a particular measure to which all measures of that type can be related." ;
                rdfs:label "base unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
@@ -2870,6 +2856,7 @@ obo:UO_0000045 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/UO_0000051
 obo:UO_0000051 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                obo:IAO_0000115 "A unit which represents a standard measurement of how much of a given substance there is mixed with another substance." ;
                rdfs:label "concentration unit" .
 
@@ -2928,6 +2915,7 @@ obo:UO_0000187 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/UO_0000190
 obo:UO_0000190 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                obo:IAO_0000115 "A dimensionless unit which denotes an amount or magnitude of one quantity relative to another." ;
                rdfs:label "ratio unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
@@ -2961,35 +2949,41 @@ obo:UO_0010006 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/UO_1000008
 obo:UO_1000008 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "meter based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000010
 obo:UO_1000010 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "second based unit" .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000012
 obo:UO_1000012 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "kelvin based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000027
 obo:UO_1000027 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "degree Celsius based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000031
 obo:UO_1000031 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "minute based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000032
 obo:UO_1000032 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "hour based unit" .
 
 
@@ -3003,12 +2997,14 @@ obo:UO_1000076 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/UO_1000106
 obo:UO_1000106 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "hertz based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000110
 obo:UO_1000110 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "pascal based unit" .
 
 
@@ -3030,11 +3026,13 @@ obo:UO_1000164 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/UO_1000185
 obo:UO_1000185 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "degree based unit" .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000228
 obo:UO_1000228 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "tesla based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
@@ -3115,7 +3113,7 @@ co:PMD_0000005 rdf:type owl:Class ;
                                  owl:onProperty obo:BFO_0000054 ;
                                  owl:someValuesFrom co:PMD_0000950
                                ] ,
-                               _:genid206 ;
+                               _:genid205 ;
                rdfs:comment """A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
 (Callister, W.D., Rethwisch, D.G., Materials Science and Engineering, Wiley, 2014)
 
@@ -3128,7 +3126,7 @@ Extensive properties that depend on the object being tested rather than on the p
                skos:definition "a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid206 rdf:type owl:Restriction ;
+_:genid205 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000052 ;
             owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000001
                                                       [ rdf:type owl:Restriction ;
@@ -3142,7 +3140,7 @@ _:genid206 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0000005 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid206 ;
+   owl:annotatedTarget _:genid205 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -5954,21 +5952,21 @@ co:PMD_0020128 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0020131
 co:PMD_0020131 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid722 ;
+                               _:genid721 ;
                owl:disjointWith co:PMD_0020148 ;
                rdfs:label "intensive quality"@en ;
                skos:altLabel "Point property"@en ;
                skos:definition "An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid722 rdf:type owl:Restriction ;
+_:genid721 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000080 ;
             owl:someValuesFrom co:PMD_0000001 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020131 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid722 ;
+   owl:annotatedTarget _:genid721 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -13123,7 +13121,8 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 
 ###  http://qudt.org/vocab/unit/MegaPA
-<http://qudt.org/vocab/unit/MegaPA> rdf:type owl:NamedIndividual ;
+<http://qudt.org/vocab/unit/MegaPA> rdf:type owl:NamedIndividual ,
+                                             obo:IAO_0000003 ;
                                     dcterms:description "1,000,000-fold of the derived unit pascal"^^rdf:HTML ;
                                     qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA215"^^xsd:anyURI ;
                                     qudt:plainTextDescription "1,000,000-fold of the derived unit pascal" ;
@@ -13146,7 +13145,8 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 
 ###  http://qudt.org/vocab/unit/N-PER-M2
-<http://qudt.org/vocab/unit/N-PER-M2> rdf:type owl:NamedIndividual ;
+<http://qudt.org/vocab/unit/N-PER-M2> rdf:type owl:NamedIndividual ,
+                                               obo:IAO_0000003 ;
                                       dcterms:description "The SI unit of pressure. The pascal is the standard pressure unit in the MKS metric system, equal to one newton per square meter or one \"kilogram per meter per second per second.\" The unit is named for Blaise Pascal (1623-1662), French philosopher and mathematician, who was the first person to use a barometer to measure differences in altitude."^^rdf:HTML ;
                                       qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA247"^^xsd:anyURI ,
                                                                 "https://en.wikipedia.org/wiki/Pascal?oldid=492989202"^^xsd:anyURI ;
@@ -13174,7 +13174,8 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 
 ###  http://qudt.org/vocab/unit/PERCENT
-<http://qudt.org/vocab/unit/PERCENT> rdf:type owl:NamedIndividual ;
+<http://qudt.org/vocab/unit/PERCENT> rdf:type owl:NamedIndividual ,
+                                              obo:IAO_0000003 ;
                                      dcterms:description "\"Percent\" is a unit for  'Dimensionless Ratio' expressed as $\\%$."^^qudt:LatexString ;
                                      qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA000"^^xsd:anyURI ,
                                                                "https://en.wikipedia.org/wiki/Percentage?oldid=495284540"^^xsd:anyURI ;
@@ -13187,7 +13188,8 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 
 ###  http://qudt.org/vocab/unit/W-PER-KiloGM
-<http://qudt.org/vocab/unit/W-PER-KiloGM> rdf:type owl:NamedIndividual ;
+<http://qudt.org/vocab/unit/W-PER-KiloGM> rdf:type owl:NamedIndividual ,
+                                                   obo:IAO_0000003 ;
                                           dcterms:description "SI derived unit watt divided by the SI base unit kilogram"^^rdf:HTML ;
                                           qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA316"^^xsd:anyURI ;
                                           qudt:plainTextDescription "SI derived unit watt divided by the SI base unit kilogram" ;
@@ -14114,6 +14116,9 @@ noes:NOES_0000030 rdf:type owl:NamedIndividual ;
 #################################################################
 #    Annotations
 #################################################################
+
+obo:UO_0000000 noes:NOES_0000122 "false"^^xsd:boolean .
+
 
 obo:UO_0000010 obo:IAO_0000115 "A time unit which is equal to the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom." ;
                oboInOwl:hasExactSynonym "s" ;
