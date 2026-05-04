@@ -19,11 +19,11 @@
 @base <https://w3id.org/pmd/noes/noes-full.ttl> .
 
 <https://w3id.org/pmd/noes/noes-full.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-04-29/noes-full.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-05-04/noes-full.ttl> ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-04-29" .
+                                           owl:versionInfo "2026-05-04" .
 
 #################################################################
 #    Annotation properties
@@ -2868,6 +2868,19 @@ obo:UO_0000045 rdf:type owl:Class ;
  ] .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000051
+obo:UO_0000051 rdf:type owl:Class ;
+               obo:IAO_0000115 "A unit which represents a standard measurement of how much of a given substance there is mixed with another substance." ;
+               rdfs:label "concentration unit" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000051 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A unit which represents a standard measurement of how much of a given substance there is mixed with another substance." ;
+   oboInOwl:hasDbXref "UOC:GVG"
+ ] .
+
+
 ###  http://purl.obolibrary.org/obo/UO_0000076
 obo:UO_0000076 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_1000076 .
@@ -2982,7 +2995,8 @@ obo:UO_1000032 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/UO_1000076
 obo:UO_1000076 rdf:type owl:Class ;
-               rdfs:subClassOf obo:UO_0000000 ;
+               rdfs:subClassOf obo:UO_0000051 ,
+                               obo:UO_0000190 ;
                rdfs:label "mole fraction based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
@@ -3000,7 +3014,7 @@ obo:UO_1000110 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/UO_1000163
 obo:UO_1000163 rdf:type owl:Class ;
-               rdfs:subClassOf obo:UO_0000000 ,
+               rdfs:subClassOf obo:UO_0000051 ,
                                obo:UO_0000187 ;
                rdfs:label "mass percentage based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
@@ -3008,7 +3022,8 @@ obo:UO_1000163 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/UO_1000164
 obo:UO_1000164 rdf:type owl:Class ;
-               rdfs:subClassOf obo:UO_0000000 ;
+               rdfs:subClassOf obo:UO_0000051 ,
+                               obo:UO_0000187 ;
                rdfs:label "mass volume percentage based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
 
@@ -3100,7 +3115,7 @@ co:PMD_0000005 rdf:type owl:Class ;
                                  owl:onProperty obo:BFO_0000054 ;
                                  owl:someValuesFrom co:PMD_0000950
                                ] ,
-                               _:genid205 ;
+                               _:genid206 ;
                rdfs:comment """A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
 (Callister, W.D., Rethwisch, D.G., Materials Science and Engineering, Wiley, 2014)
 
@@ -3113,7 +3128,7 @@ Extensive properties that depend on the object being tested rather than on the p
                skos:definition "a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid205 rdf:type owl:Restriction ;
+_:genid206 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000052 ;
             owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000001
                                                       [ rdf:type owl:Restriction ;
@@ -3127,7 +3142,7 @@ _:genid205 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0000005 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid205 ;
+   owl:annotatedTarget _:genid206 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -5939,21 +5954,21 @@ co:PMD_0020128 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0020131
 co:PMD_0020131 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid721 ;
+                               _:genid722 ;
                owl:disjointWith co:PMD_0020148 ;
                rdfs:label "intensive quality"@en ;
                skos:altLabel "Point property"@en ;
                skos:definition "An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid721 rdf:type owl:Restriction ;
+_:genid722 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000080 ;
             owl:someValuesFrom co:PMD_0000001 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020131 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid721 ;
+   owl:annotatedTarget _:genid722 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
