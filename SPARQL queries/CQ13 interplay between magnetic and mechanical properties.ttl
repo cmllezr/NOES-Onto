@@ -1,30 +1,57 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX pmd: <https://w3id.org/pmd/co/>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX tto: <https://w3id.org/pmd/tto/> 
 
-SELECT DISTINCT ?material ?mechLabel ?numeralMech ?magProp ?numeralMag ?unitMag
+SELECT DISTINCT ?material ?lowestMechPropertyClassLabel ?numeralMech ?magProp ?lowestMagPropertyClassLabel ?numeralMag ?unitMag
 WHERE {
-    # 1. User Inputs
-    VALUES ?minThreshold { 0.001 }
-    VALUES ?maxThreshold { 1000 }
-    VALUES ?mechPropertyClass { tto:TTO_0000053 }   # Filter: e.g., Tensile Strength
+    # 1. User inputs
+    VALUES ?minThreshold { 0.001 } # lower bound for the mechanical property
+    VALUES ?maxThreshold { 555 } # upper bound for the mechanical property
+    VALUES ?mechPropertyClass { tto:TTO_0000053 }   # Filter, e.g., Tensile strength
 
-    # 2. Identify and Filter Material by Mechanical Property
+    # 2.1 Filter the mechanical property
     ?material obo:RO_0000053 ?mechProp .
     ?mechProp rdf:type ?mechPropertyClass .
+    
+    # 2.2 Get the lowest class
+    ?mechProp rdf:type ?lowestMechPropertyClass .
+    FILTER(isIRI(?lowestMechPropertyClass))
+    FILTER(?lowestMechPropertyClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+    FILTER NOT EXISTS {
+        ?mechProp rdf:type ?otherMechClass .
+        FILTER(?otherMechClass != ?lowestMechPropertyClass)
+        FILTER(isIRI(?otherMechClass) && ?otherMechClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+        ?otherMechClass rdfs:subClassOf+ ?lowestMechPropertyClass .
+    }
+   ?lowestMechPropertyClass rdfs:label ?lowestMechPropertyClassLabel .
 
+    # 2.3 Get the value of the mechancal property and filter values
 	?valSpecMech obo:OBI_0001927 ?mechProp ;
            obo:OBI_0001937 ?numeralMech ;
            obo:IAO_0000039 ?unitMech .
 
 	FILTER(?numeralMech >= ?minThreshold && ?numeralMech <= ?maxThreshold)
     
-    # 3. Find the Magnetic Losses for that same material
+    # 3.1 Find the magnetic properties of the material
     ?material obo:RO_0000053 ?magProp .
     ?magProp rdf:type pmd:PMD_0000825 .
+    
+    # 3.2 Get the lowest class for anisotropy
+    ?magProp rdf:type ?lowestMagPropertyClass .
+    FILTER(isIRI(?lowestMagPropertyClass))
+    FILTER(?lowestMagPropertyClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+    FILTER NOT EXISTS {
+        ?magProp rdf:type ?otherMagClass .
+        FILTER(?otherMagClass != ?lowestMagPropertyClass)
+        FILTER(isIRI(?otherMagClass) && ?otherMagClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+        ?otherMagClass rdfs:subClassOf+ ?lowestMagPropertyClass .
+    }
+   ?lowestMagPropertyClass rdfs:label ?lowestMagPropertyClassLabel .
 
+    # 3.3 Get the value of magnetic property
     ?valSpecMag obo:OBI_0001927 ?magProp ; 
                 obo:OBI_0001937 ?numeralMag ;      
                 obo:IAO_0000039 ?unitMag .    

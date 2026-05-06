@@ -7,7 +7,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX tto: <https://w3id.org/pmd/tto/> 
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?material  ?portion ?numeral ?unitLabel
+SELECT ?material  ?grainSize ?numeral ?unitLabel
 WHERE {
     # 1. Find all instances of specific material class
 	# todo filter by id
@@ -15,13 +15,12 @@ WHERE {
     
     # 2. Material --> has quality --> grain size
     ?material obo:RO_0000086 ?grainSize .
-	?grainSize rdf:type pmd:PMD_0020243 .
+	?grainSize rdf:type noes:NOES_0000166 .
     
-    ?grainSize pmd:PMD_0000077 ?value .
-    
-    # 4. value --> numeric value and unit
-    ?value obo:OBI_0001937 ?numeral ; 
-    	obo:IAO_0000039 ?unit .
+    # 3. Get value
+    ?value obo:OBI_0001927  ?grainSize ;
+            obo:OBI_0001937 ?numeral ; 
+    	    obo:IAO_0000039 ?unit .
     ?unit rdfs:label ?unitLabel .
 }
 ORDER BY ?numeral

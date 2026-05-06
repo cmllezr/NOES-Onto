@@ -1,3 +1,5 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX noes: <https://w3id.org/pmd/noes/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX pmd: <https://w3id.org/pmd/co/>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
@@ -5,35 +7,51 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX tto: <https://w3id.org/pmd/tto/> 
 
 
-SELECT ?material ?property ?numeralProperty ?unitProperty
+SELECT ?material ?targetAttr ?numeralAttr ?lowestPropertyClassLabel ?numeralProperty ?unitProperty
 WHERE {
 	# 1. user inputs
 	VALUES ?targetAttrClass { noes:NOES_0000003 } # filter for some condition, e.g., field frequency
-	VALUES ?minThreshold {0.001}
-	VALUES ?maxThreshold {1000}
-	VALUES ?propertyClass { noes:NOES_0000057 }  # The property class to find out, e.g., total magnetic power loss
+	VALUES ?minThreshold {0.001} # upper bound for the condition
+	VALUES ?maxThreshold {1000} # lower bound for the condition
+	VALUES ?propertyClass { noes:NOES_0000057 }  # property to find out, e.g., total magnetic power loss
 
-	# 1. filer material property
+	# 1.1. filer material property
 	?material obo:RO_0000053 ?property .
 	?property rdf:type ?propertyClass .
   
-  	# 2. assay measures that property + its process attribute
+  	# 2.1. assay measures that property + its process attribute
 	?assay obo:RO_0009006 ?property ;
 		   pmd:PMD_0000009 ?procAttr .
 
+	# 2.2. process attribute directly or quality
 	OPTIONAL { ?procAttr pmd:PMD_0020127 ?quality . }
   	# choose quality if it exists, otherwise process attribute
   	BIND(IF(BOUND(?quality), ?quality, ?procAttr) AS ?targetAttr)
+    ?targetAttr rdf:type ?targetAttrClass .
   
-  # Get Value and Unit from the Scalar Value Specification (linked to targetNode)
+  # 2.3. Get value and unit of  the process parameter
    ?valSpecAttr obo:OBI_0001927 ?targetAttr ;
            obo:OBI_0001937 ?numeralAttr ;
            obo:IAO_0000039 ?unitAttr .
 
-  	FILTER(?numeralAttr > ?minThreshold AND ?numeralAttr < ?maxThreshold)
+  	FILTER(?numeralAttr > ?minThreshold && ?numeralAttr < ?maxThreshold)
 	
+	# 3.1 Get the value of the property of interest
 	?valueProperty obo:OBI_0001927  ?property ;
 			obo:OBI_0001937 ?numeralProperty ; 
 			obo:IAO_0000039 ?unitProperty .
+    
+    # 3.2 find out the lowest class (to account for the anisotropy)
+    ?property rdf:type ?lowestPropertyClass .
+    FILTER(isIRI(?lowestPropertyClass))
+    FILTER(?lowestPropertyClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+    FILTER NOT EXISTS {
+        ?property rdf:type ?otherClass .
+        FILTER(?otherClass != ?lowestPropertyClass)
+        FILTER(isIRI(?otherClass) && ?otherClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+        ?otherClass rdfs:subClassOf+ ?lowestPropertyClass .
+    }
+   ?lowestPropertyClass rdfs:label ?lowestPropertyClassLabel .
+    # FILTER(LANG(?lowestPropertyClassLabel) = "en")
 }
 ORDER BY ?numeralProperty

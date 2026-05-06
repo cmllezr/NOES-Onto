@@ -12,25 +12,20 @@ WHERE {
         WHERE {
             ?material rdf:type noes:NOES_0000180 . 
             
-            # Identify the actual terminal process for this material
+            # Identify the last process for this material
             { ?material obo:OBI_0000312 ?lastProcess . } 
             UNION 
             { ?material pmd:PMD_0000069 ?state . ?state obo:OBI_0000312 ?lastProcess . }
             
-            # Use * here to include the lastProcess itself in the count, 
-            # but we ensure ?process is a valid process in the chain.
+            # Use 'preceded by' to find the previous processes
             ?lastProcess obo:BFO_0000062* ?process .
-            
-            # The 'midProcess' logic calculates distance. 
-            # If a process is the 'first', it will have many midProcesses (descendants).
             ?process obo:BFO_0000062* ?midProcess .
             
-            # Verification: The process must be a valid manufacturing process
+            # Make sure that these processes are manufacturing processes
             ?process rdf:type pmd:PMD_0000833 . 
             ?midProcess rdf:type pmd:PMD_0000833 .
 
-            # Ensure ?process is actually connected to the chain logic:
-            # It must either be the lastProcess OR be preceded by something OR precede something.
+            # Check of precedes or preceded by triples exist (to filter cutting)
             FILTER (
                 ?process = ?lastProcess || 
                 EXISTS { ?process obo:BFO_0000062 [] } || 

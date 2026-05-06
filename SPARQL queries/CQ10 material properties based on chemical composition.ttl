@@ -1,3 +1,4 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX pmd: <https://w3id.org/pmd/co/>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
@@ -5,13 +6,13 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX tto: <https://w3id.org/pmd/tto/> 
 
 
-SELECT ?material ?property ?numeralProperty ?unitProperty
+SELECT ?material ?property ?lowestPropertyClassLabel ?numeralProperty ?unitLabel
 WHERE {
 	# 1. user inputs
 	VALUES ?chemicalElementClass { pmd:PMD_0020078 } # The element class (e.g., Mn)
-	VALUES ?minThreshold {0.001}
-	VALUES ?maxThreshold {4.0}
-	VALUES  propertyClass { tto:TTO_0000009 }  # The property class to find out, e.g., yield strength
+	VALUES ?minThreshold {0.001} # lower bound for the chemical element
+	VALUES ?maxThreshold {0.3} # upper bound for the chemical element
+	VALUES  ?propertyClass { tto:TTO_0000009 }  # property to find out, e.g., yield strength
   
   	# 2.1 material --> has part --> portion of chemical element
   	?material obo:BFO_0000051 ?elementPortion . 
@@ -32,8 +33,23 @@ WHERE {
 	# Material -> has characteristic -> property
 	?material obo:RO_0000053 ?property .
 	?property rdf:type ?propertyClass .
-	
-		?valueProperty obo:OBI_0001927  ?property ;
-				obo:OBI_0001937 ?numeralProperty ; 
-				obo:IAO_0000039 ?unitProperty .
+    
+    # 3.2 Find the lowest class for anisotropy
+    ?property rdf:type ?lowestPropertyClass .
+    FILTER(isIRI(?lowestPropertyClass))
+    FILTER(?lowestPropertyClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+    FILTER NOT EXISTS {
+        ?property rdf:type ?otherClass .
+        FILTER(?otherClass != ?lowestPropertyClass)
+        FILTER(isIRI(?otherClass) && ?otherClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+        ?otherClass rdfs:subClassOf+ ?lowestPropertyClass .
+    }
+   	?lowestPropertyClass rdfs:label ?lowestPropertyClassLabel .
+
+    # 3.3 Get value of the property
+	?valueProperty obo:OBI_0001927  ?property ;
+			obo:OBI_0001937 ?numeralProperty ; 
+			obo:IAO_0000039 ?unitProperty .
+	?unitProperty rdfs:label ?unitLabel .
+	FILTER(LANG(?unitLabel) = "en")
 }
