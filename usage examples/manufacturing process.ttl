@@ -1,0 +1,500 @@
+@prefix : <http://www.semanticweb.org/zaripova/ontologies/2025/9/untitled-ontology-127/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/zaripova/ontologies/2025/9/untitled-ontology-127/> .
+
+<https://w3id.org/pmd/co/esheet/p1> rdf:type owl:Ontology ;
+                                     owl:imports <https://w3id.org/pmd/noes/2026-05-05> .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.org/noes/N2_atmosphere_for_annealing_NOES_example
+<http://example.org/noes/N2_atmosphere_for_annealing_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                            <http://purl.obolibrary.org/obo/CHEBI_60003> ,
+                                                                            <https://w3id.org/pmd/co/PMD_0020113> .
+
+
+###  http://example.org/noes/N2_atmosphere_for_furnace_cooling_NOES_example
+<http://example.org/noes/N2_atmosphere_for_furnace_cooling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                                  <http://purl.obolibrary.org/obo/CHEBI_60003> ,
+                                                                                  <https://w3id.org/pmd/co/PMD_0020113> .
+
+
+###  http://example.org/noes/NOES_raw_material
+<http://example.org/noes/NOES_raw_material> rdf:type owl:NamedIndividual ,
+                                                     <https://w3id.org/pmd/co/PMD_0000000> ;
+                                            <http://purl.obolibrary.org/obo/RO_0001001> <http://example.org/noes/rolled_sheet_NOES_example> ;
+                                            <https://w3id.org/pmd/co/PMD_0000069> <http://example.org/noes/cast_ingot_NOES_example> ,
+                                                                                  <http://example.org/noes/40mm_thick_slab_NOES_example> .
+
+
+###  http://example.org/noes/SVS_0.30_mm
+<http://example.org/noes/SVS_0.30_mm> rdf:type owl:NamedIndividual ,
+                                               <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000039> <http://purl.obolibrary.org/obo/UO_0000016> ;
+                                      <http://purl.obolibrary.org/obo/OBI_0001937> 0.30 .
+
+
+###  http://example.org/noes/SVS_2.5_mm
+<http://example.org/noes/SVS_2.5_mm> rdf:type owl:NamedIndividual ,
+                                              <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000039> <http://purl.obolibrary.org/obo/UO_0000016> ;
+                                     <http://purl.obolibrary.org/obo/OBI_0001937> 2.5 .
+
+
+###  http://example.org/noes/SVS_3_min
+<http://example.org/noes/SVS_3_min> rdf:type owl:NamedIndividual ,
+                                             <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000039> <http://purl.obolibrary.org/obo/UO_0000031> ;
+                                    <http://purl.obolibrary.org/obo/OBI_0001937> 3 .
+
+
+###  http://example.org/noes/SVS_40_mm
+<http://example.org/noes/SVS_40_mm> rdf:type owl:NamedIndividual ,
+                                             <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000039> <http://purl.obolibrary.org/obo/UO_0000016> ;
+                                    <http://purl.obolibrary.org/obo/OBI_0001937> 40 .
+
+
+###  http://example.org/noes/air_cooling_NOES_example
+<http://example.org/noes/air_cooling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                            <https://w3id.org/pmd/co/PMD_0025011> ;
+                                                   <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/normalizing_treatment_NOES_example> ;
+                                                   <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_air_cooling_NOES_example> ;
+                                                   <http://purl.obolibrary.org/obo/OBI_0000293> <http://example.org/noes/2.5_mm_thick_sheet_NOES_example> ;
+                                                   <http://purl.obolibrary.org/obo/OBI_0000299> <http://example.org/noes/2.5_mm_thick_sheet_NOES_example> ;
+                                                   rdfs:comment "after hot rolling" .
+
+
+###  http://example.org/noes/air_for_cooling_NOES_example
+<http://example.org/noes/air_for_cooling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                <https://w3id.org/pmd/co/PMD_0020113> .
+
+
+###  http://example.org/noes/annealed_sheet_NOES_example
+<http://example.org/noes/annealed_sheet_NOES_example> rdf:type owl:NamedIndividual ,
+                                                               <http://purl.obolibrary.org/obo/BFO_0000030> ,
+                                                               <https://w3id.org/pmd/co/PMD_0000068> ;
+                                                      <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_existance_annealed_sheet> ;
+                                                      <http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/co/esheet/p1/NOES_123> .
+
+
+###  http://example.org/noes/annealing_NOES_example
+<http://example.org/noes/annealing_NOES_example> rdf:type owl:NamedIndividual ,
+                                                          <https://w3id.org/pmd/noes/NOES_0000027> ;
+                                                 <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/furnace-cooling_to_25_°C_NOES_example> ;
+                                                 <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_annealing_NOES_example> ;
+                                                 <http://purl.obolibrary.org/obo/OBI_0000293> <http://example.org/noes/0.30_mm_thick_cold-rolled_sheet_NOES_example> ;
+                                                 <http://purl.obolibrary.org/obo/OBI_0000299> <http://example.org/noes/annealed_sheet_NOES_example> ;
+                                                 <http://purl.obolibrary.org/obo/RO_0000057> <http://example.org/noes/N2_atmosphere_for_annealing_NOES_example> .
+
+
+###  http://example.org/noes/cast_ingot_NOES_example
+<http://example.org/noes/cast_ingot_NOES_example> rdf:type owl:NamedIndividual ,
+                                                           <http://purl.obolibrary.org/obo/BFO_0000030> ,
+                                                           <https://w3id.org/pmd/co/PMD_0000068> ;
+                                                  <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_existance_cast_ingot> ;
+                                                  <http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/co/esheet/p1/NOES_123> .
+
+
+###  http://example.org/noes/cold_rolling_NOES_example
+<http://example.org/noes/cold_rolling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                             <https://w3id.org/pmd/noes/NOES_0000015> ;
+                                                    <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/annealing_NOES_example> ;
+                                                    <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_cold_rolling_NOES_example> ;
+                                                    <http://purl.obolibrary.org/obo/OBI_0000293> <http://example.org/noes/normalized_sheet_NOES_example> ;
+                                                    <http://purl.obolibrary.org/obo/OBI_0000299> <http://example.org/noes/0.30_mm_thick_cold-rolled_sheet_NOES_example> ;
+                                                    <https://w3id.org/pmd/co/PMD_0000009> <http://example.org/noes/temperature_25_°C_NOES_example_process_attibute> .
+
+
+###  http://example.org/noes/example_NOES
+<http://example.org/noes/example_NOES> rdf:type owl:NamedIndividual ,
+                                                <https://w3id.org/pmd/noes/NOES_0000180> ;
+                                       <http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/co/esheet/p1/NOES_123> ;
+                                       <http://purl.obolibrary.org/obo/RO_0000053> <http://example.org/noes/example_NOES_chemical_composition> ;
+                                       <https://w3id.org/pmd/co/PMD_0000069> <http://example.org/noes/final_sheet_NOES_example> .
+
+
+###  http://example.org/noes/example_NOES_chemical_composition
+<http://example.org/noes/example_NOES_chemical_composition> rdf:type owl:NamedIndividual ,
+                                                                     <https://w3id.org/pmd/co/PMD_0000551> .
+
+
+###  http://example.org/noes/final_sheet_NOES_example
+<http://example.org/noes/final_sheet_NOES_example> rdf:type owl:NamedIndividual ,
+                                                            <http://purl.obolibrary.org/obo/BFO_0000030> ,
+                                                            <https://w3id.org/pmd/co/PMD_0000068> ;
+                                                   <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_existance_final_sheet> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/co/esheet/p1/NOES_123> .
+
+
+###  http://example.org/noes/forging_NOES_example
+<http://example.org/noes/forging_NOES_example> rdf:type owl:NamedIndividual ,
+                                                        <https://w3id.org/pmd/noes/NOES_0000025> ;
+                                               <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/hot_rolling_NOES_example> ;
+                                               <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_forging_NOES_example> ;
+                                               <http://purl.obolibrary.org/obo/OBI_0000293> <http://example.org/noes/cast_ingot_NOES_example> ;
+                                               <http://purl.obolibrary.org/obo/OBI_0000299> <http://example.org/noes/40mm_thick_slab_NOES_example> .
+
+
+###  http://example.org/noes/furnace-cooled_sheet_NOES_example
+<http://example.org/noes/furnace-cooled_sheet_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                     <http://purl.obolibrary.org/obo/BFO_0000030> .
+
+
+###  http://example.org/noes/furnace-cooling_NOES_example
+<http://example.org/noes/furnace-cooling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                <https://w3id.org/pmd/co/PMD_0025011> ;
+                                                       <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/cold_rolling_NOES_example> ;
+                                                       <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_furnace_cooling_NOES_example> ;
+                                                       <http://purl.obolibrary.org/obo/OBI_0000293> <http://example.org/noes/normalized_sheet_NOES_example> ;
+                                                       <http://purl.obolibrary.org/obo/OBI_0000299> <http://example.org/noes/normalized_sheet_NOES_example> ;
+                                                       <http://purl.obolibrary.org/obo/RO_0000057> <http://example.org/noes/N2_atmosphere_for_furnace_cooling_NOES_example> ;
+                                                       rdfs:comment "N2, after normalizing" .
+
+
+###  http://example.org/noes/hot_rolling_NOES_example
+<http://example.org/noes/hot_rolling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                            <https://w3id.org/pmd/noes/NOES_0000016> ;
+                                                   <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/air_cooling_NOES_example> ;
+                                                   <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_hot_rolling_NOES_example> ;
+                                                   <http://purl.obolibrary.org/obo/OBI_0000293> <http://example.org/noes/40mm_thick_slab_NOES_example> ;
+                                                   <http://purl.obolibrary.org/obo/OBI_0000299> <http://example.org/noes/2.5_mm_thick_sheet_NOES_example> ;
+                                                   <https://w3id.org/pmd/co/PMD_0000009> <http://example.org/noes/temperature_1100_°C_NOES_example_process_attibute> .
+
+
+###  http://example.org/noes/melting_in_a_vacuum_induction_furnace_NOES_example
+<http://example.org/noes/melting_in_a_vacuum_induction_furnace_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                                      <https://w3id.org/pmd/co/PMD_0000053> ;
+                                                                             <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/forging_NOES_example> ;
+                                                                             <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_of_melting_in_a_vacuum_induction_furnace_NOES_example> ;
+                                                                             <http://purl.obolibrary.org/obo/OBI_0000293> <http://example.org/noes/raw_materials_NOES_example> ;
+                                                                             <http://purl.obolibrary.org/obo/OBI_0000299> <http://example.org/noes/NOES_raw_material> ;
+                                                                             <http://purl.obolibrary.org/obo/RO_0000057> <http://example.org/noes/vacuum_induction_furnace> .
+
+
+###  http://example.org/noes/normalized_sheet_NOES_example
+<http://example.org/noes/normalized_sheet_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                 <http://purl.obolibrary.org/obo/BFO_0000030> ,
+                                                                 <https://w3id.org/pmd/co/PMD_0000068> ;
+                                                        <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_existance_normalized_sheet> ;
+                                                        <http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/co/esheet/p1/NOES_123> .
+
+
+###  http://example.org/noes/normalizing_treatment_NOES_example
+<http://example.org/noes/normalizing_treatment_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                      <https://w3id.org/pmd/noes/NOES_0000026> ;
+                                                             <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/furnace-cooling_NOES_example> ;
+                                                             <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_normalizing_treatment_NOES_example> ;
+                                                             <http://purl.obolibrary.org/obo/OBI_0000293> <http://example.org/noes/2.5_mm_thick_sheet_NOES_example> ;
+                                                             <http://purl.obolibrary.org/obo/OBI_0000299> <http://example.org/noes/normalized_sheet_NOES_example> ;
+                                                             <https://w3id.org/pmd/co/PMD_0000009> <http://example.org/noes/temperature_900_°C_NOES_example_process_attibute> .
+
+
+###  http://example.org/noes/raw_materials_NOES_example
+<http://example.org/noes/raw_materials_NOES_example> rdf:type owl:NamedIndividual ,
+                                                              <http://purl.obolibrary.org/obo/BFO_0000027> .
+
+
+###  http://example.org/noes/recrystallization_NOES_example
+<http://example.org/noes/recrystallization_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                  <https://w3id.org/pmd/noes/NOES_0000018> ;
+                                                         <http://purl.obolibrary.org/obo/RO_0002082> <http://example.org/noes/annealing_NOES_example> .
+
+
+###  http://example.org/noes/rolled_sheet_NOES_example
+<http://example.org/noes/rolled_sheet_NOES_example> rdf:type owl:NamedIndividual ,
+                                                             <https://w3id.org/pmd/co/PMD_0000000> ;
+                                                    <http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/co/esheet/p1/NOES_123> ;
+                                                    <http://purl.obolibrary.org/obo/RO_0001001> <http://example.org/noes/example_NOES> ;
+                                                    <https://w3id.org/pmd/co/PMD_0000069> <http://example.org/noes/annealed_sheet_NOES_example> ,
+                                                                                          <http://example.org/noes/normalized_sheet_NOES_example> ,
+                                                                                          <http://example.org/noes/0.30_mm_thick_cold-rolled_sheet_NOES_example> ,
+                                                                                          <http://example.org/noes/2.5_mm_thick_sheet_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_air_cooling_NOES_example
+<http://example.org/noes/temporal_region_air_cooling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                            <http://purl.obolibrary.org/obo/BFO_0000008> .
+
+
+###  http://example.org/noes/temporal_region_annealing_NOES_example
+<http://example.org/noes/temporal_region_annealing_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                          <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                                 <https://w3id.org/pmd/co/PMD_0000077> <http://example.org/noes/SVS_3_min> .
+
+
+###  http://example.org/noes/temporal_region_cold_rolling_NOES_example
+<http://example.org/noes/temporal_region_cold_rolling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                             <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                                    <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/temporal_region_annealing_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_existance_annealed_sheet
+<http://example.org/noes/temporal_region_existance_annealed_sheet> rdf:type owl:NamedIndividual ,
+                                                                            <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                                   <http://purl.obolibrary.org/obo/BFO_0000062> <http://example.org/noes/temporal_region_annealing_NOES_example> ;
+                                                                   <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/temporal_region_furnace_cooling_to_25°C_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_existance_cast_ingot
+<http://example.org/noes/temporal_region_existance_cast_ingot> rdf:type owl:NamedIndividual ,
+                                                                        <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                               <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/temporal_region_forging_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_existance_cold-rolled_sheet
+<http://example.org/noes/temporal_region_existance_cold-rolled_sheet> rdf:type owl:NamedIndividual ,
+                                                                               <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                                      <http://purl.obolibrary.org/obo/BFO_0000062> <http://example.org/noes/temporal_region_cold_rolling_NOES_example> ;
+                                                                      <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/temporal_region_annealing_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_existance_final_sheet
+<http://example.org/noes/temporal_region_existance_final_sheet> rdf:type owl:NamedIndividual ,
+                                                                         <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                                <http://purl.obolibrary.org/obo/BFO_0000062> <http://example.org/noes/temporal_region_furnace_cooling_to_25°C_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_existance_hot-rolled_sheet
+<http://example.org/noes/temporal_region_existance_hot-rolled_sheet> rdf:type owl:NamedIndividual ,
+                                                                              <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                                     <http://purl.obolibrary.org/obo/BFO_0000062> <http://example.org/noes/temporal_region_hot_rolling_NOES_example> ;
+                                                                     <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/temporal_region_normalizing_treatment_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_existance_normalized_sheet
+<http://example.org/noes/temporal_region_existance_normalized_sheet> rdf:type owl:NamedIndividual ,
+                                                                              <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                                     <http://purl.obolibrary.org/obo/BFO_0000062> <http://example.org/noes/temporal_region_normalizing_treatment_NOES_example> ;
+                                                                     <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/temporal_region_cold_rolling_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_existance_slab
+<http://example.org/noes/temporal_region_existance_slab> rdf:type owl:NamedIndividual ,
+                                                                  <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                         <http://purl.obolibrary.org/obo/BFO_0000062> <http://example.org/noes/temporal_region_forging_NOES_example> ;
+                                                         <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/temporal_region_hot_rolling_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_forging_NOES_example
+<http://example.org/noes/temporal_region_forging_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                        <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                               <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/temporal_region_hot_rolling_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_furnace_cooling_NOES_example
+<http://example.org/noes/temporal_region_furnace_cooling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                                <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                                       <http://purl.obolibrary.org/obo/BFO_0000063> <http://example.org/noes/temporal_region_cold_rolling_NOES_example> .
+
+
+###  http://example.org/noes/temporal_region_hot_rolling_NOES_example
+<http://example.org/noes/temporal_region_hot_rolling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                            <http://purl.obolibrary.org/obo/BFO_0000008> .
+
+
+###  http://example.org/noes/temporal_region_normalizing_treatment_NOES_example
+<http://example.org/noes/temporal_region_normalizing_treatment_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                                      <http://purl.obolibrary.org/obo/BFO_0000202> ;
+                                                                             <https://w3id.org/pmd/co/PMD_0000077> <http://example.org/noes/SVS_3_min> .
+
+
+###  http://example.org/noes/temporal_region_of_melting_in_a_vacuum_induction_furnace_NOES_example
+<http://example.org/noes/temporal_region_of_melting_in_a_vacuum_induction_furnace_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                                                         <http://purl.obolibrary.org/obo/BFO_0000008> .
+
+
+###  http://example.org/noes/thickness_0.30_mm_NOES_example
+<http://example.org/noes/thickness_0.30_mm_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                  <https://w3id.org/pmd/co/PMD_0050153> ;
+                                                         <https://w3id.org/pmd/co/PMD_0000077> <http://example.org/noes/SVS_0.30_mm> .
+
+
+###  http://example.org/noes/thickness_2.5_mm_NOES_example
+<http://example.org/noes/thickness_2.5_mm_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                 <https://w3id.org/pmd/co/PMD_0050153> ;
+                                                        <https://w3id.org/pmd/co/PMD_0000077> <http://example.org/noes/SVS_2.5_mm> .
+
+
+###  http://example.org/noes/thickness_40_mm_NOES_example
+<http://example.org/noes/thickness_40_mm_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                <https://w3id.org/pmd/co/PMD_0050153> ;
+                                                       <https://w3id.org/pmd/co/PMD_0000077> <http://example.org/noes/SVS_40_mm> .
+
+
+###  http://example.org/noes/vacuum_induction_furnace
+<http://example.org/noes/vacuum_induction_furnace> rdf:type owl:NamedIndividual ,
+                                                            <https://w3id.org/pmd/co/PMD_0000791> .
+
+
+###  http://example.org/noes/0.30_mm_thick_cold-rolled_sheet_NOES_example
+<http://example.org/noes/0.30_mm_thick_cold-rolled_sheet_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                                <http://purl.obolibrary.org/obo/BFO_0000030> ,
+                                                                                <https://w3id.org/pmd/co/PMD_0000068> ;
+                                                                       <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_existance_cold-rolled_sheet> ;
+                                                                       <http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/co/esheet/p1/NOES_123> ;
+                                                                       <http://purl.obolibrary.org/obo/RO_0000053> <http://example.org/noes/thickness_0.30_mm_NOES_example> .
+
+
+###  http://example.org/noes/2.5_mm_thick_sheet_NOES_example
+<http://example.org/noes/2.5_mm_thick_sheet_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                   <http://purl.obolibrary.org/obo/BFO_0000030> ,
+                                                                   <https://w3id.org/pmd/co/PMD_0000068> ;
+                                                          <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_existance_hot-rolled_sheet> ;
+                                                          <http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/co/esheet/p1/NOES_123> ;
+                                                          <http://purl.obolibrary.org/obo/RO_0000053> <http://example.org/noes/thickness_2.5_mm_NOES_example> .
+
+
+###  http://example.org/noes/40mm_thick_slab_NOES_example
+<http://example.org/noes/40mm_thick_slab_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                <http://purl.obolibrary.org/obo/BFO_0000030> ,
+                                                                <https://w3id.org/pmd/co/PMD_0000068> ;
+                                                       <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_existance_slab> ;
+                                                       <http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/co/esheet/p1/NOES_123> ;
+                                                       <http://purl.obolibrary.org/obo/RO_0000053> <http://example.org/noes/thickness_40_mm_NOES_example> .
+
+
+###  http://example.org/noes/SD_1000_°C
+<http://example.org/noes/SD_1000_°C> rdf:type owl:NamedIndividual ,
+                                              <https://w3id.org/pmd/co/PMD_0060009> ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000418> <http://example.org/noes/temperature_1000°C_NOES_example> ;
+                                     <http://purl.obolibrary.org/obo/OBI_0001938> <http://example.org/noes/SVS_1000_°C> .
+
+
+###  http://example.org/noes/SD_1100_°C
+<http://example.org/noes/SD_1100_°C> rdf:type owl:NamedIndividual ,
+                                              <https://w3id.org/pmd/co/PMD_0060009> ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000418> <http://example.org/noes/temperature_1100_°C_NOES_example> ;
+                                     <http://purl.obolibrary.org/obo/OBI_0001938> <http://example.org/noes/SVS_1100_°C> .
+
+
+###  http://example.org/noes/SD_25_°C
+<http://example.org/noes/SD_25_°C> rdf:type owl:NamedIndividual ,
+                                            <https://w3id.org/pmd/co/PMD_0060009> ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000418> <http://example.org/noes/temperature_25°C_NOES_example> ,
+                                                                                <http://example.org/noes/temperature_25°C_after_furnace_cooling_NOES_example> ;
+                                   <http://purl.obolibrary.org/obo/OBI_0001938> <http://example.org/noes/SVS_25_°C> .
+
+
+###  http://example.org/noes/SD_900_°C
+<http://example.org/noes/SD_900_°C> rdf:type owl:NamedIndividual ,
+                                             <https://w3id.org/pmd/co/PMD_0060009> ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000418> <http://example.org/noes/temperature_900°C_NOES_example> ;
+                                    <http://purl.obolibrary.org/obo/OBI_0001938> <http://example.org/noes/SVS_900_°C> .
+
+
+###  http://example.org/noes/SVS_1000_°C
+<http://example.org/noes/SVS_1000_°C> rdf:type owl:NamedIndividual ,
+                                               <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000039> <http://purl.obolibrary.org/obo/UO_0000027> ;
+                                      <http://purl.obolibrary.org/obo/OBI_0001937> 1000 .
+
+
+###  http://example.org/noes/SVS_1100_°C
+<http://example.org/noes/SVS_1100_°C> rdf:type owl:NamedIndividual ,
+                                               <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000039> <http://purl.obolibrary.org/obo/UO_0000027> ;
+                                      <http://purl.obolibrary.org/obo/OBI_0001937> 1100 .
+
+
+###  http://example.org/noes/SVS_25_°C
+<http://example.org/noes/SVS_25_°C> rdf:type owl:NamedIndividual ,
+                                             <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000039> <http://purl.obolibrary.org/obo/UO_0000027> ;
+                                    <http://purl.obolibrary.org/obo/OBI_0001937> 25 .
+
+
+###  http://example.org/noes/SVS_900_°C
+<http://example.org/noes/SVS_900_°C> rdf:type owl:NamedIndividual ,
+                                              <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000039> <http://purl.obolibrary.org/obo/UO_0000027> ;
+                                     <http://purl.obolibrary.org/obo/OBI_0001937> 900 .
+
+
+###  http://example.org/noes/furnace-cooling_to_25_°C_NOES_example
+<http://example.org/noes/furnace-cooling_to_25_°C_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                         <https://w3id.org/pmd/co/PMD_0025011> ;
+                                                                <http://purl.obolibrary.org/obo/BFO_0000062> <http://example.org/noes/annealing_NOES_example> ;
+                                                                <http://purl.obolibrary.org/obo/BFO_0000108> <http://example.org/noes/temporal_region_furnace_cooling_to_25°C_NOES_example> ;
+                                                                <http://purl.obolibrary.org/obo/OBI_0000293> <http://example.org/noes/annealed_sheet_NOES_example> ;
+                                                                <http://purl.obolibrary.org/obo/OBI_0000299> <http://example.org/noes/final_sheet_NOES_example> ;
+                                                                <https://w3id.org/pmd/co/PMD_0000009> <http://example.org/noes/temperature_25°C_after_furnace_cooling_NOES_example_process_attribute> .
+
+
+###  http://example.org/noes/temperature_1000_°C_NOES_example_process_attibute
+<http://example.org/noes/temperature_1000_°C_NOES_example_process_attibute> rdf:type owl:NamedIndividual ;
+                                                                            <https://w3id.org/pmd/co/PMD_0020127> <http://example.org/noes/temperature_1000°C_NOES_example> ;
+                                                                            <https://w3id.org/pmd/co/PMD_0025006> <http://example.org/noes/annealing_NOES_example> .
+
+
+###  http://example.org/noes/temperature_1000°C_NOES_example
+<http://example.org/noes/temperature_1000°C_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                   <https://w3id.org/pmd/co/PMD_0000967> ;
+                                                          <https://w3id.org/pmd/co/PMD_0000077> <http://example.org/noes/SVS_1000_°C> .
+
+
+###  http://example.org/noes/temperature_1100_°C_NOES_example
+<http://example.org/noes/temperature_1100_°C_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                    <https://w3id.org/pmd/co/PMD_0000967> ;
+                                                           <https://w3id.org/pmd/co/PMD_0000077> <http://example.org/noes/SVS_1100_°C> .
+
+
+###  http://example.org/noes/temperature_1100_°C_NOES_example_process_attibute
+<http://example.org/noes/temperature_1100_°C_NOES_example_process_attibute> rdf:type owl:NamedIndividual ,
+                                                                                     <https://w3id.org/pmd/co/PMD_0000008> ;
+                                                                            <https://w3id.org/pmd/co/PMD_0020127> <http://example.org/noes/temperature_1100_°C_NOES_example> .
+
+
+###  http://example.org/noes/temperature_25_°C_NOES_example_process_attibute
+<http://example.org/noes/temperature_25_°C_NOES_example_process_attibute> rdf:type owl:NamedIndividual ,
+                                                                                   <https://w3id.org/pmd/co/PMD_0000008> ;
+                                                                          <https://w3id.org/pmd/co/PMD_0020127> <http://example.org/noes/temperature_25°C_NOES_example> .
+
+
+###  http://example.org/noes/temperature_25°C_NOES_example
+<http://example.org/noes/temperature_25°C_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                 <https://w3id.org/pmd/co/PMD_0000967> ;
+                                                        <https://w3id.org/pmd/co/PMD_0000077> <http://example.org/noes/SVS_25_°C> .
+
+
+###  http://example.org/noes/temperature_25°C_after_furnace_cooling_NOES_example
+<http://example.org/noes/temperature_25°C_after_furnace_cooling_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                                       <https://w3id.org/pmd/co/PMD_0000967> ;
+                                                                              <https://w3id.org/pmd/co/PMD_0000077> <http://example.org/noes/SVS_25_°C> .
+
+
+###  http://example.org/noes/temperature_25°C_after_furnace_cooling_NOES_example_process_attribute
+<http://example.org/noes/temperature_25°C_after_furnace_cooling_NOES_example_process_attribute> rdf:type owl:NamedIndividual ,
+                                                                                                         <https://w3id.org/pmd/co/PMD_0000008> ;
+                                                                                                <https://w3id.org/pmd/co/PMD_0020127> <http://example.org/noes/temperature_25°C_after_furnace_cooling_NOES_example> .
+
+
+###  http://example.org/noes/temperature_900_°C_NOES_example_process_attibute
+<http://example.org/noes/temperature_900_°C_NOES_example_process_attibute> rdf:type owl:NamedIndividual ;
+                                                                           <https://w3id.org/pmd/co/PMD_0020127> <http://example.org/noes/temperature_900°C_NOES_example> .
+
+
+###  http://example.org/noes/temperature_900°C_NOES_example
+<http://example.org/noes/temperature_900°C_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                  <https://w3id.org/pmd/co/PMD_0000967> ;
+                                                         <https://w3id.org/pmd/co/PMD_0000077> <http://example.org/noes/SVS_900_°C> .
+
+
+###  http://example.org/noes/temporal_region_furnace_cooling_to_25°C_NOES_example
+<http://example.org/noes/temporal_region_furnace_cooling_to_25°C_NOES_example> rdf:type owl:NamedIndividual ,
+                                                                                        <http://purl.obolibrary.org/obo/BFO_0000008> .
+
+
+###  https://w3id.org/pmd/co/esheet/p1/NOES_123
+<https://w3id.org/pmd/co/esheet/p1/NOES_123> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.obolibrary.org/obo/IAO_0020000> ;
+                                             <https://w3id.org/pmd/co/PMD_0000006> "NOES_123" .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

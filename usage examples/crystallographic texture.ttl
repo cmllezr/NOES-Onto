@@ -1,0 +1,196 @@
+@prefix : <http://www.semanticweb.org/zaripova/ontologies/2026/4/untitled-ontology-14/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/zaripova/ontologies/2026/4/untitled-ontology-14/> .
+
+<http://example.org/noes> rdf:type owl:Ontology ;
+                           owl:imports <https://w3id.org/pmd/noes/2026-05-05> .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.org/noes/Goss_grain_population
+<http://example.org/noes/Goss_grain_population> rdf:type owl:NamedIndividual ,
+                                                         <https://w3id.org/pmd/noes/NOES_0000177> ;
+                                                <http://purl.obolibrary.org/obo/RO_0000086> <http://example.org/noes/Goss_texture_example_NOES> .
+
+
+###  http://example.org/noes/Goss_texture_example_NOES
+<http://example.org/noes/Goss_texture_example_NOES> rdf:type owl:NamedIndividual ,
+                                                             <https://w3id.org/pmd/noes/NOES_0000092> .
+
+
+###  http://example.org/noes/ND_of_NOES
+<http://example.org/noes/ND_of_NOES> rdf:type owl:NamedIndividual ,
+                                              <https://w3id.org/pmd/noes/NOES_0000036> ;
+                                     <http://purl.obolibrary.org/obo/RO_0001025> <http://example.org/noes/example_NOES> ;
+                                     <https://w3id.org/pmd/noes/NOES_0000067> <http://example.org/noes/111_planes> .
+
+
+###  http://example.org/noes/NOES_123
+<http://example.org/noes/NOES_123> rdf:type owl:NamedIndividual ,
+                                            <http://purl.obolibrary.org/obo/IAO_0020000> ;
+                                   <https://w3id.org/pmd/co/PMD_0000006> "NOES_123" .
+
+
+###  http://example.org/noes/SVS_0.218
+<http://example.org/noes/SVS_0.218> rdf:type owl:NamedIndividual ;
+                                    <http://purl.obolibrary.org/obo/OBI_0001927> <http://example.org/noes/texture_factor_example_NOES> ;
+                                    <http://purl.obolibrary.org/obo/OBI_0001937> 0.218 .
+
+
+###  http://example.org/noes/SVS_1.80_percent
+<http://example.org/noes/SVS_1.80_percent> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                           <http://purl.obolibrary.org/obo/IAO_0000039> <http://qudt.org/vocab/unit/PERCENT> ;
+                                           <http://purl.obolibrary.org/obo/OBI_0001927> <http://example.org/noes/volume_fraction_Goss_texture_component> ;
+                                           <http://purl.obolibrary.org/obo/OBI_0001937> 1.80 .
+
+
+###  http://example.org/noes/SVS_115_mkm
+<http://example.org/noes/SVS_115_mkm> rdf:type owl:NamedIndividual ,
+                                               <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                      <http://purl.obolibrary.org/obo/OBI_0001937> 115 ;
+                                      rdfs:label "115 mkm" .
+
+
+###  http://example.org/noes/SVS_15.54_percent
+<http://example.org/noes/SVS_15.54_percent> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                            <http://purl.obolibrary.org/obo/IAO_0000039> <http://qudt.org/vocab/unit/PERCENT> ;
+                                            <http://purl.obolibrary.org/obo/OBI_0001927> <http://example.org/noes/volume_fraction_lambda_texture_component> ;
+                                            <http://purl.obolibrary.org/obo/OBI_0001937> 15.54 .
+
+
+###  http://example.org/noes/SVS_24.04_percent
+<http://example.org/noes/SVS_24.04_percent> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                            <http://purl.obolibrary.org/obo/IAO_0000039> <http://qudt.org/vocab/unit/PERCENT> ;
+                                            <http://purl.obolibrary.org/obo/OBI_0001927> <http://example.org/noes/volume_fraction_gamma_texture_component> ;
+                                            <http://purl.obolibrary.org/obo/OBI_0001937> 24.04 .
+
+
+###  http://example.org/noes/SVS_3.43_percent
+<http://example.org/noes/SVS_3.43_percent> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.obolibrary.org/obo/OBI_0001931> ;
+                                           <http://purl.obolibrary.org/obo/IAO_0000039> <http://qudt.org/vocab/unit/PERCENT> ;
+                                           <http://purl.obolibrary.org/obo/OBI_0001927> <http://example.org/noes/volume_fraction_cube_texture_component> ;
+                                           <http://purl.obolibrary.org/obo/OBI_0001937> 3.43 .
+
+
+###  http://example.org/noes/average_grain_size
+<http://example.org/noes/average_grain_size> rdf:type owl:NamedIndividual ,
+                                                      <https://w3id.org/pmd/noes/NOES_0000166> ;
+                                             <http://purl.obolibrary.org/obo/RO_0000080> <http://example.org/noes/example_NOES> .
+
+
+###  http://example.org/noes/crystal_system_NOES
+<http://example.org/noes/crystal_system_NOES> rdf:type owl:NamedIndividual ,
+                                                       <https://w3id.org/pmd/cryo/CRYO_0000026> ;
+                                              <https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000035> .
+
+
+###  http://example.org/noes/cube_grain_population
+<http://example.org/noes/cube_grain_population> rdf:type owl:NamedIndividual ,
+                                                         <https://w3id.org/pmd/noes/NOES_0000177> ;
+                                                <http://purl.obolibrary.org/obo/RO_0000086> <http://example.org/noes/cube_texture_example_NOES> .
+
+
+###  http://example.org/noes/cube_texture_example_NOES
+<http://example.org/noes/cube_texture_example_NOES> rdf:type owl:NamedIndividual ,
+                                                             <https://w3id.org/pmd/noes/NOES_0000090> .
+
+
+###  http://example.org/noes/example_NOES
+<http://example.org/noes/example_NOES> rdf:type owl:NamedIndividual ,
+                                                <https://w3id.org/pmd/noes/NOES_0000180> ;
+                                       <http://purl.obolibrary.org/obo/IAO_0000235> <http://example.org/noes/NOES_123> .
+
+
+###  http://example.org/noes/gamma_fiber_orientation_example_NOES
+<http://example.org/noes/gamma_fiber_orientation_example_NOES> rdf:type owl:NamedIndividual .
+
+
+###  http://example.org/noes/gamma_grain_population
+<http://example.org/noes/gamma_grain_population> rdf:type owl:NamedIndividual ,
+                                                          <https://w3id.org/pmd/noes/NOES_0000177> ;
+                                                 <http://purl.obolibrary.org/obo/RO_0000086> <http://example.org/noes/gamma_fiber_orientation_example_NOES> .
+
+
+###  http://example.org/noes/grains_with_texture_at_given_peak
+<http://example.org/noes/grains_with_texture_at_given_peak> rdf:type owl:NamedIndividual ,
+                                                                     <https://w3id.org/pmd/noes/NOES_0000177> ;
+                                                            <http://purl.obolibrary.org/obo/BFO_0000050> <http://example.org/noes/microstructure_NOES> ;
+                                                            <http://purl.obolibrary.org/obo/RO_0001015> <http://example.org/noes/111_planes> ;
+                                                            rdfs:label "grain with {111}<112> orientation" .
+
+
+###  http://example.org/noes/lambda_fiber_orientation_example_NOES
+<http://example.org/noes/lambda_fiber_orientation_example_NOES> rdf:type owl:NamedIndividual .
+
+
+###  http://example.org/noes/lambda_grain_population
+<http://example.org/noes/lambda_grain_population> rdf:type owl:NamedIndividual ,
+                                                           <https://w3id.org/pmd/noes/NOES_0000177> ;
+                                                  <http://purl.obolibrary.org/obo/RO_0000086> <http://example.org/noes/lambda_fiber_orientation_example_NOES> .
+
+
+###  http://example.org/noes/microstructure_NOES
+<http://example.org/noes/microstructure_NOES> rdf:type owl:NamedIndividual ,
+                                                       <https://w3id.org/pmd/co/PMD_0000857> ;
+                                              <http://purl.obolibrary.org/obo/BFO_0000050> <http://example.org/noes/example_NOES> ;
+                                              <http://purl.obolibrary.org/obo/BFO_0000051> <http://example.org/noes/Goss_grain_population> ,
+                                                                                           <http://example.org/noes/cube_grain_population> ,
+                                                                                           <http://example.org/noes/gamma_grain_population> ,
+                                                                                           <http://example.org/noes/lambda_grain_population> .
+
+
+###  http://example.org/noes/texture_factor_example_NOES
+<http://example.org/noes/texture_factor_example_NOES> rdf:type owl:NamedIndividual ,
+                                                               <https://w3id.org/pmd/noes/NOES_0000045> ;
+                                                      <http://purl.obolibrary.org/obo/RO_0000080> <http://example.org/noes/microstructure_NOES> .
+
+
+###  http://example.org/noes/volume_fraction_Goss_texture_component
+<http://example.org/noes/volume_fraction_Goss_texture_component> rdf:type owl:NamedIndividual ,
+                                                                          <https://w3id.org/pmd/co/PMD_0020104> ;
+                                                                 <https://w3id.org/pmd/co/PMD_0025999> <http://example.org/noes/Goss_grain_population> .
+
+
+###  http://example.org/noes/volume_fraction_cube_texture_component
+<http://example.org/noes/volume_fraction_cube_texture_component> rdf:type owl:NamedIndividual ,
+                                                                          <https://w3id.org/pmd/co/PMD_0020104> ;
+                                                                 <https://w3id.org/pmd/co/PMD_0025999> <http://example.org/noes/cube_grain_population> .
+
+
+###  http://example.org/noes/volume_fraction_gamma_texture_component
+<http://example.org/noes/volume_fraction_gamma_texture_component> rdf:type owl:NamedIndividual ,
+                                                                           <https://w3id.org/pmd/co/PMD_0020104> ;
+                                                                  <https://w3id.org/pmd/co/PMD_0025999> <http://example.org/noes/gamma_grain_population> .
+
+
+###  http://example.org/noes/volume_fraction_lambda_texture_component
+<http://example.org/noes/volume_fraction_lambda_texture_component> rdf:type owl:NamedIndividual ,
+                                                                            <https://w3id.org/pmd/co/PMD_0020104> ;
+                                                                   <https://w3id.org/pmd/co/PMD_0025999> <http://example.org/noes/lambda_grain_population> .
+
+
+###  http://example.org/noes/111_112_orientation
+<http://example.org/noes/111_112_orientation> rdf:type owl:NamedIndividual ,
+                                                       <https://w3id.org/pmd/co/PMD_0000853> ;
+                                              <http://purl.obolibrary.org/obo/RO_0000080> <http://example.org/noes/grains_with_texture_at_given_peak> ;
+                                              rdfs:label "{111}<112> orientation" .
+
+
+###  http://example.org/noes/111_planes
+<http://example.org/noes/111_planes> rdf:type owl:NamedIndividual ,
+                                              <https://w3id.org/pmd/cryo/CRYO_0000011> ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000235> <https://w3id.org/pmd/cryo/CRYO_0000065> ;
+                                     <http://purl.obolibrary.org/obo/RO_0000086> <http://example.org/noes/crystal_system_NOES> .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
