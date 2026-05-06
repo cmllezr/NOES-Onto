@@ -1,0 +1,27 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex: <http://example.org/noes/> 
+PREFIX noes: <https://w3id.org/pmd/noes/> 
+PREFIX obo: <http://purl.obolibrary.org/obo/> 
+PREFIX pmd: <https://w3id.org/pmd/co/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX tto: <https://w3id.org/pmd/tto/> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?material  ?portion ?numeral ?unitLabel
+WHERE {
+    # 1. Find all instances of specific material class
+	# todo filter by id
+    ?material rdf:type noes:NOES_0000180 . #NOES
+    
+    # 2. Material --> has quality --> grain size
+    ?material obo:RO_0000086 ?grainSize .
+	?grainSize rdf:type pmd:PMD_0020243 .
+    
+    ?grainSize pmd:PMD_0000077 ?value .
+    
+    # 4. value --> numeric value and unit
+    ?value obo:OBI_0001937 ?numeral ; 
+    	obo:IAO_0000039 ?unit .
+    ?unit rdfs:label ?unitLabel .
+}
+ORDER BY ?numeral

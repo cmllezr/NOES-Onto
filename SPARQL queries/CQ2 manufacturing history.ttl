@@ -1,0 +1,43 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX noes: <https://w3id.org/pmd/noes/> 
+PREFIX obo: <http://purl.obolibrary.org/obo/> 
+PREFIX pmd: <https://w3id.org/pmd/co/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?material ?stepNumber ?process
+WHERE {
+    {
+        SELECT ?material ?process (COUNT(?midProcess) AS ?stepNumber)
+        WHERE {
+            ?material rdf:type noes:NOES_0000180 . 
+            
+            # Identify the actual terminal process for this material
+            { ?material obo:OBI_0000312 ?lastProcess . } 
+            UNION 
+            { ?material pmd:PMD_0000069 ?state . ?state obo:OBI_0000312 ?lastProcess . }
+            
+            # Use * here to include the lastProcess itself in the count, 
+            # but we ensure ?process is a valid process in the chain.
+            ?lastProcess obo:BFO_0000062* ?process .
+            
+            # The 'midProcess' logic calculates distance. 
+            # If a process is the 'first', it will have many midProcesses (descendants).
+            ?process obo:BFO_0000062* ?midProcess .
+            
+            # Verification: The process must be a valid manufacturing process
+            ?process rdf:type pmd:PMD_0000833 . 
+            ?midProcess rdf:type pmd:PMD_0000833 .
+
+            # Ensure ?process is actually connected to the chain logic:
+            # It must either be the lastProcess OR be preceded by something OR precede something.
+            FILTER (
+                ?process = ?lastProcess || 
+                EXISTS { ?process obo:BFO_0000062 [] } || 
+                EXISTS { ?process obo:BFO_0000063 [] }
+            )
+        }
+        GROUP BY ?material ?process
+    }
+}
+ORDER BY ?material ?stepNumber

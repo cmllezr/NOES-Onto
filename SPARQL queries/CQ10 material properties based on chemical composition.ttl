@@ -1,0 +1,39 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tto: <https://w3id.org/pmd/tto/> 
+
+
+SELECT ?material ?property ?numeralProperty ?unitProperty
+WHERE {
+	# 1. user inputs
+	VALUES ?chemicalElementClass { pmd:PMD_0020078 } # The element class (e.g., Mn)
+	VALUES ?minThreshold {0.001}
+	VALUES ?maxThreshold {4.0}
+	VALUES  propertyClass { tto:TTO_0000009 }  # The property class to find out, e.g., yield strength
+  
+  	# 2.1 material --> has part --> portion of chemical element
+  	?material obo:BFO_0000051 ?elementPortion . 
+  	?elementPortion rdf:type ?chemicalElementClass .
+
+  	# 2.2 element --> has relational quality --> proportion
+  	?elementPortion pmd:PMD_0025998 ?fraction .
+  	?fraction rdf:type pmd:PMD_0020101 . #proportion
+
+	#2.3. value --> specifies value of --> proportion
+    ?valueElement  obo:OBI_0001927  ?fraction ;
+			 obo:OBI_0001937 ?numeralElement ; 
+    		obo:IAO_0000039 ?unitElement .
+
+  	FILTER(?numeralElement > ?minThreshold && ?numeralElement < ?maxThreshold)
+
+	# 3.1 Find material property
+	# Material -> has characteristic -> property
+	?material obo:RO_0000053 ?property .
+	?property rdf:type ?propertyClass .
+	
+		?valueProperty obo:OBI_0001927  ?property ;
+				obo:OBI_0001937 ?numeralProperty ; 
+				obo:IAO_0000039 ?unitProperty .
+}

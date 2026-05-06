@@ -1,0 +1,35 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex: <http://example.org/noes/> 
+PREFIX noes: <https://w3id.org/pmd/noes/> 
+PREFIX obo: <http://purl.obolibrary.org/obo/> 
+PREFIX pmd: <https://w3id.org/pmd/co/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX tto: <https://w3id.org/pmd/tto/> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?material  ?texture ?numeral ?unitLabel
+WHERE {
+    # 1. Find all instances of specific material class
+	# todo filter by id
+    ?material rdf:type noes:NOES_0000180 . #NOES
+
+	# 2. Find grain populations as parts of material
+	?material obo:BFO_0000051+ ?grainPopulation .
+	?grainPopulation rdf:type noes:NOES_0000177 .
+
+	# 3. Get texture type
+	?grainPopulation obo:RO_0000086 ?texture .
+
+	# 4. Get values of fractions
+	?grainPopulation pmd:PMD_0025998 ?fraction .
+	?fraction rdf:type pmd:PMD_0020101 ;
+	          pmd:PMD_0000077 ?value .
+    
+    # 5. value --> numeric value and unit
+    ?value obo:OBI_0001937 ?numeral ; 
+    	obo:IAO_0000039 ?unit .
+    ?unit rdfs:label ?unitLabel .
+	FILTER(LANG(?unitLabel) = "en")
+
+}
+ORDER BY ?numeral

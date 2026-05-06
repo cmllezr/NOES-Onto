@@ -1,0 +1,32 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tto: <https://w3id.org/pmd/tto/> 
+
+SELECT DISTINCT ?material ?mechLabel ?numeralMech ?magProp ?numeralMag ?unitMag
+WHERE {
+    # 1. User Inputs
+    VALUES ?minThreshold { 0.001 }
+    VALUES ?maxThreshold { 1000 }
+    VALUES ?mechPropertyClass { tto:TTO_0000053 }   # Filter: e.g., Tensile Strength
+
+    # 2. Identify and Filter Material by Mechanical Property
+    ?material obo:RO_0000053 ?mechProp .
+    ?mechProp rdf:type ?mechPropertyClass .
+
+	?valSpecMech obo:OBI_0001927 ?mechProp ;
+           obo:OBI_0001937 ?numeralMech ;
+           obo:IAO_0000039 ?unitMech .
+
+	FILTER(?numeralMech >= ?minThreshold && ?numeralMech <= ?maxThreshold)
+    
+    # 3. Find the Magnetic Losses for that same material
+    ?material obo:RO_0000053 ?magProp .
+    ?magProp rdf:type pmd:PMD_0000825 .
+
+    ?valSpecMag obo:OBI_0001927 ?magProp ; 
+                obo:OBI_0001937 ?numeralMag ;      
+                obo:IAO_0000039 ?unitMag .    
+}
+ORDER BY ?numeralMag

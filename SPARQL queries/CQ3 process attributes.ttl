@@ -1,0 +1,45 @@
+PREFIX noes: <https://w3id.org/pmd/noes/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?process ?targetNode ?valueAttr ?unitLabelAttr ?durationValue ?unitLabelDur
+WHERE {
+  # 1. User inputs for id and process type
+  VALUES ?idValue { "NOES_123" } #example
+  VALUES ?processType { noes:NOES_0000027 } #annealing as example
+
+  # 2. filer material by id
+  ?material obo:IAO_0000235 ?id .
+  ?id pmd:PMD_0000006 ?idValue .
+
+  # 3. process --> has participant --> material
+  ?process obo:RO_0000057 ?material ; 
+           rdf:type ?processType .
+
+  # 4. process --> has process attribute --> process attribute --> refers to --> quality
+  ?process pmd:PMD_0000009 ?procAttr .
+  
+  OPTIONAL { ?procAttr pmd:PMD_0020127 ?quality . }
+  
+  # choose quality if it exists, otherwise process attribute
+  BIND(IF(BOUND(?quality), ?quality, ?procAttr) AS ?targetNode)
+  
+  # Get Value and Unit from the Scalar Value Specification (linked to targetNode)
+   ?valSpecAttr obo:OBI_0001927 ?targetNode ;
+           obo:OBI_0001937 ?valueAttr ;
+           obo:IAO_0000039 ?unitAttr .
+    ?unitAttr rdfs:label ?unitLabelAttr .
+
+  # 5. Handle Duration (Optional)
+  OPTIONAL {
+    ?process obo:BFO_0000108 ?tempRegion .
+    ?durSpec obo:OBI_0001927 ?tempRegion ;
+             obo:OBI_0001937 ?durationValue ;
+             obo:IAO_0000039 ?durationUnit .
+        
+    ?durationUnit rdfs:label ?unitLabelDur .
+  }
+}
