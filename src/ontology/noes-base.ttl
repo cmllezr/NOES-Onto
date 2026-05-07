@@ -14,12 +14,12 @@
 @base <https://w3id.org/pmd/noes/noes-base.ttl> .
 
 <https://w3id.org/pmd/noes/noes-base.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-05-06/noes-base.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-05-07/noes-base.ttl> ;
                                            dce:type obo:IAO_8000001 ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-05-06" .
+                                           owl:versionInfo "2026-05-07" .
 
 #################################################################
 #    Annotation properties
@@ -213,6 +213,10 @@ obo:RO_0000057 rdf:type owl:ObjectProperty .
 
 ###  http://purl.obolibrary.org/obo/RO_0000080
 obo:RO_0000080 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000081
+obo:RO_0000081 rdf:type owl:ObjectProperty .
 
 
 ###  http://purl.obolibrary.org/obo/RO_0000085
@@ -10608,8 +10612,32 @@ noes:NOES_0000124 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000125
 noes:NOES_0000125 rdf:type owl:Class ;
-                  rdfs:subClassOf obo:BFO_0000023 ;
-                  rdfs:label "inclusion role"@en .
+                  rdfs:subClassOf obo:BFO_0000023 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000081 ;
+                                    owl:someValuesFrom obo:BFO_0000027
+                                  ] ;
+                  rdfs:label "inclusion role"@en ;
+                  skos:definition "Inclusion role is a role of object aggregate which is a part of microstructure of an alloy: These object aggregates are second-phase particles embedded in the alloy matrix, and are thermodynamically distinct from the matrix."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000126
+noes:NOES_0000126 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000125 ;
+                  rdfs:comment """Curation status: need more sophisticated axioms to detect metallic / non-metallic type. 
+Will be inferable in the future"""@en ;
+                  rdfs:label "metallic inclusion role"@en ;
+                  skos:definition "Matallic inclusion role is a inclusion role of some object aggregate, which members have metallic bond."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000127
+noes:NOES_0000127 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000125 ;
+                  rdfs:comment """Curation status: need more sophisticated axioms to detect metallic / non-metallic type. 
+Will be inferable in the future"""@en ;
+                  rdfs:label "non-metallic inclusion role"@en ;
+                  skos:definition "Non-metallic inclusion role is a inclusion role of some object aggregate, which members have non-metallic bond."@en ;
+                  skos:example "Non-metallic inclusion role of SiO₂, MnS, AlN, Si₃N₄, etc."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000153
