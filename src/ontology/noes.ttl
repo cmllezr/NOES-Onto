@@ -19,12 +19,11 @@
 @base <https://w3id.org/pmd/noes.ttl> .
 
 <https://w3id.org/pmd/noes.ttl> rdf:type owl:Ontology ;
-                                 owl:versionIRI <https://w3id.org/pmd/noes/1.0.0> ;
+                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-05-08/noes.ttl> ;
                                  dcterms:description "None" ;
                                  dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                  dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                 owl:versionInfo "1.0.0" ,
-                                                 "2026-05-07" .
+                                 owl:versionInfo "2026-05-08" .
 
 #################################################################
 #    Annotation properties
@@ -34,8 +33,8 @@
 obo:IAO_0000112 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000115 "A phrase describing how a term should be used and/or a citation to a work which uses it. May also include other kinds of examples that facilitate immediate understanding, such as widely know prototypes or instances of a class, or cases where a relation is said to hold."@en ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
-                rdfs:label "example of usage"@en ,
-                           "example of usage" .
+                rdfs:label "example of usage" ,
+                           "example of usage"@en .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000114
@@ -87,8 +86,8 @@ Personally, I am more comfortable weakening definition to documentation, with in
 
 We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.  """@en ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
-                rdfs:label "definition"@en ,
-                           "definition" ,
+                rdfs:label "definition" ,
+                           "definition"@en ,
                            "textual definition" .
 
 
@@ -103,9 +102,9 @@ obo:IAO_0000116 rdf:type owl:AnnotationProperty ;
 obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ,
                                 "formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
-                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
-                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ,
-                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ;
+                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ,
+                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
+                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
                 rdfs:label "definition source"@en .
 
 
@@ -2393,14 +2392,14 @@ obo:IAO_0000027 rdf:type owl:Class ;
                 obo:IAO_0000116 "2/2/2009 Alan and Bjoern discussing FACS run output data. This is a data item because it is about the cell population. Each element records an event and is typically further composed a set of measurment data items that record the fluorescent intensity stimulated by one of the lasers."@en ,
                                 "2009-03-16: data item deliberatly ambiguous: we merged data set and datum to be one entity, not knowing how to define singular versus plural. So data item is more general than datum."@en ,
                                 "2009-03-16: removed datum as alternative term as datum specifically refers to singular form, and is thus not an exact synonym."@en ,
+                                "2014-03-31: See discussion at http://odontomachus.wordpress.com/2014/03/30/aboutness-objects-propositions/" ,
                                 """JAR: datum     -- well, this will be very tricky to define, but maybe some 
 information-like stuff that might be put into a computer and that is 
 meant, by someone, to denote and/or to be interpreted by some 
 process... I would include lists, tables, sentences... I think I might 
 defer to Barry, or to Brian Cantwell Smith
 
-JAR: A data item is an approximately justified approximately true approximate belief"""@en ,
-                                "2014-03-31: See discussion at http://odontomachus.wordpress.com/2014/03/30/aboutness-objects-propositions/" ;
+JAR: A data item is an approximately justified approximately true approximate belief"""@en ;
                 rdfs:label "data item"@en .
 
 
@@ -2411,8 +2410,8 @@ obo:IAO_0000030 rdf:type owl:Class ;
                                   owl:onProperty obo:IAO_0000136 ;
                                   owl:someValuesFrom obo:BFO_0000001
                                 ] ;
-                obo:IAO_0000112 "Examples of information content entites include journal articles, data, graphical layouts, and graphs."@en ,
-                                "Examples of information content entites include journal articles, data, graphical layouts, and graphs." ;
+                obo:IAO_0000112 "Examples of information content entites include journal articles, data, graphical layouts, and graphs." ,
+                                "Examples of information content entites include journal articles, data, graphical layouts, and graphs."@en ;
                 obo:IAO_0000115 "A generically dependent continuant that is about some thing."@en ,
                                 "An information content entity is an entity that is generically dependent on some artifact and stands in relation of aboutness to some entity." ;
                 obo:IAO_0000116 "2014-03-10: The use of \"thing\" is intended to be general enough to include universals and configurations (see https://groups.google.com/d/msg/information-ontology/GBxvYZCk1oc/-L6B5fSBBTQJ)."@en ,
@@ -2420,10 +2419,10 @@ obo:IAO_0000030 rdf:type owl:Class ;
                                 """information_content_entity 'is_encoded_in' some digital_entity in obi before split (040907). information_content_entity 'is_encoded_in' some physical_document in obi before split (040907).
 
 Previous. An information content entity is a non-realizable information entity that 'is encoded in' some digital or physical entity."""@en ;
-                obo:IAO_0000119 "OBI_0000142"@en ,
-                                "IAO" ;
-                rdfs:label "information content entity"@en ,
-                           "information content entity" .
+                obo:IAO_0000119 "IAO" ,
+                                "OBI_0000142"@en ;
+                rdfs:label "information content entity" ,
+                           "information content entity"@en .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000033
@@ -2877,11 +2876,6 @@ obo:UO_0000051 rdf:type owl:Class ;
  ] .
 
 
-###  http://purl.obolibrary.org/obo/UO_0000076
-obo:UO_0000076 rdf:type owl:Class ;
-               rdfs:subClassOf obo:UO_1000076 .
-
-
 ###  http://purl.obolibrary.org/obo/UO_0000106
 obo:UO_0000106 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_1000106 .
@@ -2994,14 +2988,6 @@ obo:UO_1000031 rdf:type owl:Class ;
 obo:UO_1000032 rdf:type owl:Class ;
                rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "hour based unit" .
-
-
-###  http://purl.obolibrary.org/obo/UO_1000076
-obo:UO_1000076 rdf:type owl:Class ;
-               rdfs:subClassOf obo:UO_0000051 ,
-                               obo:UO_0000190 ;
-               rdfs:label "mole fraction based unit" ;
-               noes:NOES_0000122 "false"^^xsd:boolean .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000106
@@ -6202,6 +6188,13 @@ co:PMD_0020197 rdf:type owl:Class ;
                skos:definition "A lattice point is a fiat point that represents a position in a crystal lattice at which structural entities are regularly arranged."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0020198
+co:PMD_0020198 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000029 ;
+               rdfs:label "interstitial site"@en ;
+               skos:definition "An interstitial site is a site that is located between regular lattice points in a crystal structure."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020200
 co:PMD_0020200 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000017 ;
@@ -6271,6 +6264,220 @@ co:PMD_0020220 rdf:type owl:Class ;
                                ] ;
                rdfs:label "order scale"@en ;
                skos:definition "characteristic length over which structural correlations persist in a material"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020227
+co:PMD_0020227 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000023 ;
+               owl:disjointWith co:PMD_0020228 ;
+               rdfs:label "solute role"@en ;
+               skos:definition "role of an entity that is present in minor concentration in a solution"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020228
+co:PMD_0020228 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000023 ;
+               rdfs:label "solvent role"@en ;
+               skos:definition "role of an entity that is present in major concentration in a solution"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020229
+co:PMD_0020229 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:RO_0002351 ;
+                                                            owl:someValuesFrom [ owl:intersectionOf ( obo:CHEBI_60003
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty obo:RO_0000087 ;
+                                                                                                        owl:someValuesFrom co:PMD_0020227
+                                                                                                      ]
+                                                                                                    ) ;
+                                                                                 rdf:type owl:Class
+                                                                               ]
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:RO_0002351 ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass [ owl:intersectionOf ( obo:CHEBI_60003
+                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty obo:RO_0000087 ;
+                                                                                                 owl:someValuesFrom co:PMD_0020228
+                                                                                               ]
+                                                                                             ) ;
+                                                                          rdf:type owl:Class
+                                                                        ]
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf co:PMD_0000001 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0002351 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( obo:CHEBI_60003
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:RO_0000087 ;
+                                                                             owl:someValuesFrom co:PMD_0020227
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0002351 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( obo:CHEBI_60003
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:RO_0000087 ;
+                                                                             owl:someValuesFrom co:PMD_0020228
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ;
+               rdfs:label "solution"@en ;
+               skos:definition "A portion of matter that is homogeneous, made up of at least two entity types, one playing the role of sovlent and the others playing the role of solute"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020230
+co:PMD_0020230 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0020229
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:RO_0000086 ;
+                                                            owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000512
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty co:PMD_0000077 ;
+                                                                                                        owl:hasValue co:PMD_0020117
+                                                                                                      ]
+                                                                                                    ) ;
+                                                                                 rdf:type owl:Class
+                                                                               ]
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf co:PMD_0020229 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000086 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000512
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty co:PMD_0000077 ;
+                                                                             owl:hasValue co:PMD_0020117
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ;
+               rdfs:label "solid solution"@en ;
+               skos:definition "a solution with solid aggregate state"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020231
+co:PMD_0020231 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0020230
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:RO_0002351 ;
+                                                            owl:someValuesFrom [ owl:intersectionOf ( obo:CHEBI_60003
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty obo:BFO_0000051 ;
+                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000001
+                                                                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                                                                    owl:onProperty obo:RO_0001025 ;
+                                                                                                                                                    owl:someValuesFrom co:PMD_0020198
+                                                                                                                                                  ]
+                                                                                                                                                ) ;
+                                                                                                                             rdf:type owl:Class
+                                                                                                                           ]
+                                                                                                      ]
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty obo:RO_0000087 ;
+                                                                                                        owl:someValuesFrom co:PMD_0020227
+                                                                                                      ]
+                                                                                                    ) ;
+                                                                                 rdf:type owl:Class
+                                                                               ]
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf co:PMD_0020230 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0002351 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( obo:CHEBI_60003
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:BFO_0000051 ;
+                                                                             owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000001
+                                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                                         owl:onProperty obo:RO_0001025 ;
+                                                                                                                         owl:someValuesFrom co:PMD_0020198
+                                                                                                                       ]
+                                                                                                                     ) ;
+                                                                                                  rdf:type owl:Class
+                                                                                                ]
+                                                                           ]
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:RO_0000087 ;
+                                                                             owl:someValuesFrom co:PMD_0020227
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ;
+               rdfs:label "interstitital solid solution"@en ;
+               skos:definition "a solid solution whose solute entities are located in the interstitial sites"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020232
+co:PMD_0020232 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0020230
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty obo:RO_0002351 ;
+                                                            owl:someValuesFrom [ owl:intersectionOf ( obo:CHEBI_60003
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty obo:BFO_0000051 ;
+                                                                                                        owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000001
+                                                                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                                                                    owl:onProperty owl:topObjectProperty ;
+                                                                                                                                                    owl:someValuesFrom co:PMD_0020197
+                                                                                                                                                  ]
+                                                                                                                                                ) ;
+                                                                                                                             rdf:type owl:Class
+                                                                                                                           ]
+                                                                                                      ]
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty obo:RO_0000087 ;
+                                                                                                        owl:someValuesFrom co:PMD_0020227
+                                                                                                      ]
+                                                                                                    ) ;
+                                                                                 rdf:type owl:Class
+                                                                               ]
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf co:PMD_0020230 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0002351 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( obo:CHEBI_60003
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:BFO_0000051 ;
+                                                                             owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000001
+                                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                                         owl:onProperty owl:topObjectProperty ;
+                                                                                                                         owl:someValuesFrom co:PMD_0020197
+                                                                                                                       ]
+                                                                                                                     ) ;
+                                                                                                  rdf:type owl:Class
+                                                                                                ]
+                                                                           ]
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:RO_0000087 ;
+                                                                             owl:someValuesFrom co:PMD_0020227
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ;
+               obo:IAO_0000116 "TODO: replace topObjectProperty with bfo:occupies spatial region"@en ;
+               rdfs:label "substitutional solid solution"@en ;
+               skos:definition "a solid solution whose solute entities occupy lattice points"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020243
@@ -6705,8 +6912,8 @@ cryo:CRYO_0000021 rdf:type owl:Class ;
                                     owl:someValuesFrom cryo:CRYO_0000012
                                   ] ;
                   rdfs:label "family of directions Miller indices"@en ;
-                  skos:definition "Set of directions Miller indices define the components of symmetrically equivalent directions in a crystal lattice. Set of directions Miller indices must be written as <hkl>."@en ,
-                                  "<111>" .
+                  skos:definition "<111>" ,
+                                  "Set of directions Miller indices define the components of symmetrically equivalent directions in a crystal lattice. Set of directions Miller indices must be written as <hkl>."@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000022
@@ -6759,8 +6966,8 @@ cryo:CRYO_0000026 rdf:type owl:Class ;
                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                     owl:onClass cryo:CRYO_0000028
                                   ] ;
-                  rdfs:comment "defintion from Introduction to Textur Analysis. TODO: add proper annnotation property"@en ,
-                               "('quality of' some 'crystal lattice') potentially crystal system is a quality of a crystal lattice. But then we need the connection between crystal lattice, grains, etc. and its complicated" ;
+                  rdfs:comment "('quality of' some 'crystal lattice') potentially crystal system is a quality of a crystal lattice. But then we need the connection between crystal lattice, grains, etc. and its complicated" ,
+                               "defintion from Introduction to Textur Analysis. TODO: add proper annnotation property"@en ;
                   rdfs:label "crystal system"@en ;
                   skos:altLabel "lattice type"@en ;
                   skos:definition "Crystal system is a intensive quality of a crystal lattice which describes the arrangement of lattice points in an infinite 3D space in such way that each lattice point has an identical environment to that around every other lattice point. It is specified by one of the 7 crystaa sytem value."@en .
@@ -8050,8 +8257,8 @@ noes:NOES_0000051 rdf:type owl:Class ;
                   rdfs:label "saturation induction"@en ;
                   skos:altLabel "saturation magnetic flux density"@en ;
                   skos:definition "Saturation induction is a magnetic property which is stimulated under an application of magnetic field. It characterizes the maximum induction B a material can achieve, i.e., the saturation induction is reached when it remains unchanged with increasing magnetic field strength H."@en ;
-                  co:symbol "Bsat"@en ,
-                            "Bmax" .
+                  co:symbol "Bmax" ,
+                            "Bsat"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000052
@@ -9785,7 +9992,8 @@ noes:NOES_0000087 rdf:type owl:Class ;
 theoretically possible in both bcc and fcc because <100> are the same types of directions
 practically lambda fiber is not stable in fcc because of the slip systems"""@en ;
                   rdfs:label "λ-fiber texture"@en ;
-                  skos:altLabel "<100> || ND" ;
+                  skos:altLabel "<100> || ND" ,
+                                "θ-fiber texture"@en ;
                   skos:definition "λ-fiber texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame:  <100> family of crystallographic directions are oriented parallel to the normal direction (ND) of a sheet material, i,e., normal to the rolling plane."@en .
 
 
@@ -12814,8 +13022,8 @@ noes:NOES_0000179 rdf:type owl:Class ;
 noes:NOES_0000180 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000179 ;
                   rdfs:label "non-oriented electrical steel"@en ;
-                  skos:altLabel "Non-oriented electrical steel is an electrical steel material which exhibits isotropic magnetic properties in all direction in the sheet plane."@en ,
-                                "NOES" .
+                  skos:altLabel "NOES" ,
+                                "Non-oriented electrical steel is an electrical steel material which exhibits isotropic magnetic properties in all direction in the sheet plane."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000181
@@ -12932,8 +13140,8 @@ noes:NOES_0000182 rdf:type owl:Class ;
                   rdfs:label "peak magnetic polarization"@en ;
                   skos:altLabel "saturation polatization"@en ;
                   skos:definition "Peak magnetic polarization is a maximum magnetic polarization that a material exhibits under the applied external magnetic field Hmax."@en ;
-                  co:symbol "Jsat"@en ,
-                            "Jmax" .
+                  co:symbol "Jmax" ,
+                            "Jsat"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000183
@@ -13676,10 +13884,6 @@ obo:UO_0000031 rdf:type owl:NamedIndividual .
 obo:UO_0000032 rdf:type owl:NamedIndividual .
 
 
-###  http://purl.obolibrary.org/obo/UO_0000076
-obo:UO_0000076 rdf:type owl:NamedIndividual .
-
-
 ###  http://purl.obolibrary.org/obo/UO_0000106
 obo:UO_0000106 rdf:type owl:NamedIndividual .
 
@@ -13713,7 +13917,8 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                     qudt:symbol "MPa" ;
                                     qudt:wikidataMatch <http://www.wikidata.org/entity/Q21062777> ;
                                     rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
-                                    rdfs:label "Megapascal"@cs ,
+                                    rdfs:label "Megapascal" ,
+                                               "Megapascal"@cs ,
                                                "Megapascal"@de ,
                                                "Megapascal"@en ,
                                                "Megapascal"@es ,
@@ -13724,8 +13929,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                "Megapascal"@ro ,
                                                "Megapascal"@sl ,
                                                "Megapascal"@tr ,
-                                               "Megapaskal"@pl ,
-                                               "Megapascal" .
+                                               "Megapaskal"@pl .
 
 
 ###  http://qudt.org/vocab/unit/N-PER-M2
@@ -13745,6 +13949,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                  "Newton per Metrekare"@tr ,
                                                  "Newton per Metro Quadrato"@it ,
                                                  "Newton per Square Meter"@en-us ,
+                                                 "Newton per Square Metre" ,
                                                  "Newton per Square Metre"@en ,
                                                  "Newton por Metro Cuadrado"@es ,
                                                  "Newton por Metro Quadrado"@pt ,
@@ -13753,8 +13958,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                  "Niuton na Metr Kwadratowy"@pl ,
                                                  "Νιούτον ανά Τετραγωνικό Μέτρο"@el ,
                                                  "Ньютон на Квадратный Метр"@ru ,
-                                                 "Нютон на Квадратен Метър"@bg ,
-                                                 "Newton per Square Metre" .
+                                                 "Нютон на Квадратен Метър"@bg .
 
 
 ###  http://qudt.org/vocab/unit/PERCENT
@@ -13767,8 +13971,8 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                      qudt:symbol "%" ;
                                      qudt:wikidataMatch <http://www.wikidata.org/entity/Q11229> ;
                                      rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
-                                     rdfs:label "Percent"@en ,
-                                                "Percent" .
+                                     rdfs:label "Percent" ,
+                                                "Percent"@en .
 
 
 ###  http://qudt.org/vocab/unit/W-PER-KiloGM
@@ -13787,6 +13991,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                      "Watt par Kilogramme"@fr ,
                                                      "Watt pe Kilogram"@ro ,
                                                      "Watt per Chilogrammo"@it ,
+                                                     "Watt per Kilogram" ,
                                                      "Watt per Kilogram"@en ,
                                                      "Watt per Kilogram"@ms ,
                                                      "Watt per Kilogram"@tr ,
@@ -13795,8 +14000,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                      "Wattium per Chiliogramma"@la ,
                                                      "Βατ ανά Χιλιόγραμμο"@el ,
                                                      "Ват на Килограм"@bg ,
-                                                     "Ватт на Килограмм"@ru ,
-                                                     "Watt per Kilogram" .
+                                                     "Ватт на Килограмм"@ru .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020006
@@ -14793,19 +14997,6 @@ obo:UO_0000032 obo:IAO_0000115 "A time unit which is equal to 3600 seconds or 60
  ] .
 
 
-obo:UO_0000076 obo:IAO_0000115 "A concentration unit which denotes the number of moles of solute as a proportion of the total number of moles in a solution." ;
-               oboInOwl:hasExactSynonym "(x)" ,
-                                        "chi" ;
-               rdfs:label "mole fraction" .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource obo:UO_0000076 ;
-   owl:annotatedProperty obo:IAO_0000115 ;
-   owl:annotatedTarget "A concentration unit which denotes the number of moles of solute as a proportion of the total number of moles in a solution." ;
-   oboInOwl:hasDbXref "Wikipedia:Wikipedia"
- ] .
-
-
 obo:UO_0000106 obo:IAO_0000115 "A frequency unit which is equal to 1 complete cycle of a recurring phenomenon in 1 second." ;
                oboInOwl:hasExactSynonym "Hz" ,
                                         "s^1" ;
@@ -14879,6 +15070,9 @@ obo:UO_0000228 obo:IAO_0000115 "A magnetic flux density unit which is equal to o
    owl:annotatedTarget "A magnetic flux density unit which is equal to one weber per square meter." ;
    oboInOwl:hasDbXref "WordNet:WordNet"
  ] .
+
+
+obo:UO_1000076 noes:NOES_0000122 "false"^^xsd:boolean .
 
 
 co:PMD_0020098 noes:NOES_0000122 "false"^^xsd:boolean .
