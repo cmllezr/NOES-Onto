@@ -1,0 +1,83 @@
+PREFIX noes: <https://w3id.org/pmd/noes/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tto: <https://w3id.org/pmd/tto/> 
+
+SELECT DISTINCT ?material ?lowestMechPropertyClassLabel ?numeralMech ?unitMech ?lowestMagPropertyClassLabel ?numeralMag ?unitMag
+WHERE {
+    # 1. User Inputs
+    VALUES ?minMechThreshold {580 }
+    VALUES ?maxMechThreshold { 1000 }
+    VALUES ?mechPropertyClass { tto:TTO_0000053 }   # Filter: e.g., Tensile Strength
+
+    # 2. Identify and Filter Material by Mechanical Property
+    ?material obo:RO_0000053 ?mechProp .
+    ?mechProp rdf:type ?mechPropertyClass .
+    
+    ?mechProp rdf:type ?lowestMechPropertyClass .
+    FILTER(isIRI(?lowestMechPropertyClass))
+    FILTER(?lowestMechPropertyClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+    FILTER NOT EXISTS {
+        ?mechProp rdf:type ?otherMechClass .
+        FILTER(?otherMechClass != ?lowestMechPropertyClass)
+        FILTER(isIRI(?otherMechClass) && ?otherMechClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+        ?otherMechClass rdfs:subClassOf+ ?lowestMechPropertyClass .
+    }
+   ?lowestMechPropertyClass rdfs:label ?lowestMechPropertyClassLabel .
+
+	?valSpecMech obo:OBI_0001927 ?mechProp ;
+           obo:OBI_0001937 ?numeralMech ;
+           obo:IAO_0000039 ?unitMech .
+    #?unitMech rdfs:label ?unitMechLabel .
+    #	FILTER(LANG(?unitMechLabel) = "en")
+
+	FILTER(?numeralMech >= ?minMechThreshold && ?numeralMech <= ?maxMechThreshold)
+    
+    # 3. Find the Magnetic Losses for that same material
+    ?material obo:RO_0000053 ?magProp .
+    ?magProp rdf:type pmd:PMD_0000825 .
+    
+    ?magProp rdf:type ?lowestMagPropertyClass .
+    FILTER(isIRI(?lowestMagPropertyClass))
+    FILTER(?lowestMagPropertyClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+    FILTER NOT EXISTS {
+        ?magProp rdf:type ?otherMagClass .
+        FILTER(?otherMagClass != ?lowestMagPropertyClass)
+        FILTER(isIRI(?otherMagClass) && ?otherMagClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+        ?otherMagClass rdfs:subClassOf+ ?lowestMagPropertyClass .
+    }
+   ?lowestMagPropertyClass rdfs:label ?lowestMagPropertyClassLabel .
+
+    ?valSpecMag obo:OBI_0001927 ?magProp ; 
+                obo:OBI_0001937 ?numeralMag ;      
+                obo:IAO_0000039 ?unitMag .
+    
+   # ?unitMag rdfs:label ?unitMagLabel .
+    #	FILTER(LANG(?unitMagLabel) = "en")
+    
+    # 1. user inputs
+	VALUES ?targetAttrClass { noes:NOES_0000182 } # filter for some condition, e.g., Jmax
+	VALUES ?minAttrThreshold {0.001}
+	VALUES ?maxAttrThreshold {1.0}
+  
+  	# 2. assay measures that property + its process attribute
+	?assay obo:RO_0009006 ?magProp ;
+		   pmd:PMD_0000009 ?procAttr .
+
+	OPTIONAL { ?procAttr pmd:PMD_0020127 ?quality . }
+  	# choose quality if it exists, otherwise process attribute
+  	BIND(IF(BOUND(?quality), ?quality, ?procAttr) AS ?targetAttr)
+    ?targetAttr rdf:type ?targetAttrClass .
+    ?targetAttrClass rdfs:label ?targetAttrClassLabel . 
+  
+  # Get Value and Unit from the Scalar Value Specification (linked to targetNode)
+   ?valSpecAttr obo:OBI_0001927 ?targetAttr ;
+           obo:OBI_0001937 ?numeralAttr ;
+           obo:IAO_0000039 ?unitAttr .
+
+  	FILTER(?numeralAttr > ?minAttrThreshold && ?numeralAttr < ?maxAttrThreshold)
+}
+ORDER BY DESC(?numeralMag)
