@@ -56,7 +56,7 @@ mirror-cryo: $(CRYO_MIRROR)
 	$(ROBOT) convert -i $(CRYO_MIRROR) -o $(TMPDIR)/mirror-cryo.owl
 
 $(ONTOLOGYTERMS): $(SRCMERGED)
-	$(ROBOT) query -f csv -i $< --query noes_terms.sparql $@
+	$(ROBOT) query -vvv -f csv -i $< --query noes_terms.sparql $@
 
 # Import CryO classes preserving subclass hierarchy to PMDco
 $(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
