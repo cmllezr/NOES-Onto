@@ -1,0 +1,2417 @@
+@prefix : <https://w3id.org/pmd/noes/noes-simple.ttl#> .
+@prefix co: <https://w3id.org/pmd/co/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix noes: <https://w3id.org/pmd/noes/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@base <https://w3id.org/pmd/noes/noes-simple.ttl> .
+
+<https://w3id.org/pmd/noes/noes-simple.ttl> rdf:type owl:Ontology ;
+                                             owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-05-09/noes-simple.ttl> ;
+                                             terms:description "None" ;
+                                             terms:license <https://creativecommons.org/licenses/unspecified> ;
+                                             terms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
+                                             owl:versionInfo "2026-05-09" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000112
+obo:IAO_0000112 rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000115 "A phrase describing how a term should be used and/or a citation to a work which uses it. May also include other kinds of examples that facilitate immediate understanding, such as widely know prototypes or instances of a class, or cases where a relation is said to hold."@en ;
+                obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+                rdfs:label "example of usage" ,
+                           "example of usage"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000114
+obo:IAO_0000114 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000115 "The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
+                                "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ;
+                obo:IAO_0000116 """2012-04-05: 
+Barry Smith
+
+The official OBI definition, explaining the meaning of a class or property: 'Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions'  is terrible.
+
+Can you fix to something like:
+
+A statement of necessary and sufficient conditions explaining the meaning of an expression referring to a class or property.
+
+Alan Ruttenberg
+
+Your proposed definition is a reasonable candidate, except that it is very common that necessary and sufficient conditions are not given. Mostly they are necessary, occasionally they are necessary and sufficient or just sufficient. Often they use terms that are not themselves defined and so they effectively can't be evaluated by those criteria. 
+
+On the specifics of the proposed definition:
+
+We don't have definitions of 'meaning' or 'expression' or 'property'. For 'reference' in the intended sense I think we use the term 'denotation'. For 'expression', I think we you mean symbol, or identifier. For 'meaning' it differs for class and property. For class we want documentation that let's the intended reader determine whether an entity is instance of the class, or not. For property we want documentation that let's the intended reader determine, given a pair of potential relata, whether the assertion that the relation holds is true. The 'intended reader' part suggests that we also specify who, we expect, would be able to understand the definition, and also generalizes over human and computer reader to include textual and logical definition. 
+
+Personally, I am more comfortable weakening definition to documentation, with instructions as to what is desirable. 
+
+We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with."""@en ,
+                                """2012-04-05: 
+Barry Smith
+
+The official OBI definition, explaining the meaning of a class or property: 'Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions'  is terrible.
+
+Can you fix to something like:
+
+A statement of necessary and sufficient conditions explaining the meaning of an expression referring to a class or property.
+
+Alan Ruttenberg
+
+Your proposed definition is a reasonable candidate, except that it is very common that necessary and sufficient conditions are not given. Mostly they are necessary, occasionally they are necessary and sufficient or just sufficient. Often they use terms that are not themselves defined and so they effectively can't be evaluated by those criteria. 
+
+On the specifics of the proposed definition:
+
+We don't have definitions of 'meaning' or 'expression' or 'property'. For 'reference' in the intended sense I think we use the term 'denotation'. For 'expression', I think we you mean symbol, or identifier. For 'meaning' it differs for class and property. For class we want documentation that let's the intended reader determine whether an entity is instance of the class, or not. For property we want documentation that let's the intended reader determine, given a pair of potential relata, whether the assertion that the relation holds is true. The 'intended reader' part suggests that we also specify who, we expect, would be able to understand the definition, and also generalizes over human and computer reader to include textual and logical definition. 
+
+Personally, I am more comfortable weakening definition to documentation, with instructions as to what is desirable. 
+
+We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.  """@en ;
+                obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+                rdfs:label "definition" ,
+                           "definition"@en ,
+                           "textual definition" .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000116
+obo:IAO_0000116 rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000115 "An administrative note intended for its editor. It may not be included in the publication version of the ontology, so it should contain nothing necessary for end users to understand the ontology."@en ;
+                obo:IAO_0000119 "GROUP:OBI:<http://purl.obofoundry.org/obo/obi>"@en ;
+                rdfs:label "editor note"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000119
+obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ,
+                                "formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
+                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ,
+                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
+                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+                rdfs:label "definition source"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000232
+obo:IAO_0000232 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000233
+obo:IAO_0000233 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/source
+dc:source rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/bibliographicCitation
+terms:bibliographicCitation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+terms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+terms:description rdf:type owl:AnnotationProperty ;
+                  rdfs:label "description" .
+
+
+###  http://purl.org/dc/terms/license
+terms:license rdf:type owl:AnnotationProperty ;
+              rdfs:label "license" .
+
+
+###  http://purl.org/dc/terms/source
+terms:source rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty ;
+            rdfs:label "title" .
+
+
+###  http://qudt.org/schema/qudt/informativeReference
+qudt:informativeReference rdf:type owl:AnnotationProperty .
+
+
+###  http://qudt.org/schema/qudt/omUnit
+qudt:omUnit rdf:type owl:AnnotationProperty .
+
+
+###  http://qudt.org/schema/qudt/plainTextDescription
+qudt:plainTextDescription rdf:type owl:AnnotationProperty .
+
+
+###  http://qudt.org/schema/qudt/symbol
+qudt:symbol rdf:type owl:AnnotationProperty .
+
+
+###  http://qudt.org/schema/qudt/wikidataMatch
+qudt:wikidataMatch rdf:type owl:AnnotationProperty .
+
+
+###  http://usefulinc.com/ns/doap#repository
+doap:repository rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasDbXref
+oboInOwl:hasDbXref rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+oboInOwl:hasExactSynonym rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/pmd/co/PMD_0000060
+co:PMD_0000060 rdf:type owl:AnnotationProperty ;
+               rdfs:comment "Indicates whether the ontology element is part of the minimal profile of the ontology. Useful for modularization, simplified views, or lightweight implementations."@en ;
+               rdfs:label "isInMinimalProfile"@en ;
+               co:PMD_0001032 "https://github.com/materialdigital/core-ontology/issues/121" .
+
+
+###  https://w3id.org/pmd/co/PMD_0000064
+co:PMD_0000064 rdf:type owl:AnnotationProperty ;
+               rdfs:comment "An editor note referring to a pattern which shows the usage of this class or property."@en ;
+               rdfs:label "pattern example"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0001032
+co:PMD_0001032 rdf:type owl:AnnotationProperty ;
+               obo:IAO_0000115 "A term tracker annotation is an editor note used to track the history of an entity. For each change, it records the related GitHub issue and pull request."@en ;
+               obo:IAO_0000116 "hijacked from http://openenergy-platform.org/ontology/oeo/OEO_00020426"@en ;
+               rdfs:label "term tracker annotation"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0050117
+co:PMD_0050117 rdf:type owl:AnnotationProperty ;
+               rdfs:label "abbreviation"@en ;
+               skos:definition "A textual annotation used to specify a commonly accepted abbreviation, acronym, or shortened form of a class label. This property is intended to support concise referencing of ontology classes, especially when standard abbreviations are widely used in practice."@en ;
+               skos:example "\"DNA\" for \"Deoxyribonucleic Acid\""@en .
+
+
+###  https://w3id.org/pmd/co/definitionSource
+co:definitionSource rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/pmd/co/symbol
+co:symbol rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000115
+noes:NOES_0000115 rdf:type owl:AnnotationProperty ;
+                  rdfs:label "explicit"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000116
+noes:NOES_0000116 rdf:type owl:AnnotationProperty ;
+                  rdfs:label "implicit"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000122
+noes:NOES_0000122 rdf:type owl:AnnotationProperty ;
+                  rdfs:label "for embedding"@en ;
+                  rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000050
+obo:BFO_0000050 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000051 ;
+                rdf:type owl:TransitiveProperty ;
+                obo:IAO_0000112 "my brain is part of my body (continuant parthood, two material entities)"@en ,
+                                "my stomach cavity is part of my stomach (continuant parthood, immaterial entity is part of material entity)"@en ,
+                                "this day is part of this year (occurrent parthood)"@en ;
+                obo:IAO_0000115 "a core relation that holds between a part and its whole"@en ;
+                obo:IAO_0000116 "Everything is part of itself. Any part of any part of a thing is itself part of that thing. Two distinct things cannot be part of each other."@en ,
+                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ,
+                                """Parthood requires the part and the whole to have compatible classes: only an occurrent can be part of an occurrent; only a process can be part of a process; only a continuant can be part of a continuant; only an independent continuant can be part of an independent continuant; only an immaterial entity can be part of an immaterial entity; only a specifically dependent continuant can be part of a specifically dependent continuant; only a generically dependent continuant can be part of a generically dependent continuant. (This list is not exhaustive.)
+
+A continuant cannot be part of an occurrent: use 'participates in'. An occurrent cannot be part of a continuant: use 'has participant'. A material entity cannot be part of an immaterial entity: use 'has location'. A specifically dependent continuant cannot be part of an independent continuant: use 'inheres in'. An independent continuant cannot be part of a specifically dependent continuant: use 'bearer of'."""@en ;
+                rdfs:label "part of"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000051
+obo:BFO_0000051 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000051 ;
+                rdf:type owl:TransitiveProperty ;
+                obo:IAO_0000112 "my body has part my brain (continuant parthood, two material entities)"@en ,
+                                "my stomach has part my stomach cavity (continuant parthood, material entity has part immaterial entity)"@en ,
+                                "this year has part this day (occurrent parthood)"@en ;
+                obo:IAO_0000115 "a core relation that holds between a whole and its part"@en ;
+                obo:IAO_0000116 "Everything has itself as a part. Any part of any part of a thing is itself part of that thing. Two distinct things cannot have each other as a part."@en ,
+                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ,
+                                """Parthood requires the part and the whole to have compatible classes: only an occurrent have an occurrent as part; only a process can have a process as part; only a continuant can have a continuant as part; only an independent continuant can have an independent continuant as part; only a specifically dependent continuant can have a specifically dependent continuant as part; only a generically dependent continuant can have a generically dependent continuant as part. (This list is not exhaustive.)
+
+A continuant cannot have an occurrent as part: use 'participates in'. An occurrent cannot have a continuant as part: use 'has participant'. An immaterial entity cannot have a material entity as part: use 'location of'. An independent continuant cannot have a specifically dependent continuant as part: use 'bearer of'. A specifically dependent continuant cannot have an independent continuant as part: use 'inheres in'."""@en ;
+                rdfs:label "has part"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000054
+obo:BFO_0000054 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000055 ;
+                rdfs:label "has realization"@en ,
+                           "realized in"@en ;
+                skos:altLabel "realized in"@en ;
+                skos:definition "b has realization c =Def c realizes b"@en ;
+                skos:example "As for realizes"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000055
+obo:BFO_0000055 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000115 "Paraphrase of elucidation: a relation between a process and a realizable entity, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process"@en ;
+                rdfs:label "realizes"@en ;
+                skos:definition "(Elucidation) realizes is a relation between a process b and realizable entity c such that c inheres in some d & for all t, if b has participant d then c exists & the type instantiated by b is correlated with the type instantiated by c"@en ;
+                skos:example "A balding process realizes a disposition to go bald; a studying process realizes a student role; a process of pumping blood realizes the pumping function of a heart"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000062
+obo:BFO_0000062 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000063 ;
+                rdf:type owl:TransitiveProperty ;
+                obo:IAO_0000115 "x is preceded by y if and only if the time point at which y ends is before or equivalent to the time point at which x starts. Formally: x preceded by y iff ω(y) <= α(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point."@en ;
+                rdfs:label "preceded by"@en ;
+                skos:definition "b preceded by c =Def b precedes c"@en ;
+                skos:example "The temporal region occupied by the second half of the match is preceded by the temporal region occupied by the first half of the match"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000063
+obo:BFO_0000063 rdf:type owl:ObjectProperty ,
+                         owl:TransitiveProperty ;
+                obo:IAO_0000115 "x precedes y if and only if the time point at which x ends is before or equivalent to the time point at which y starts. Formally: x precedes y iff ω(x) <= α(y), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point."@en ;
+                rdfs:label "precedes"@en ;
+                skos:definition "(Elucidation) precedes is a relation between occurrents o, o' such that if t is the temporal extent of o & t' is the temporal extent of o' then either the last instant of o is before the first instant of o' or the last instant of o is the first instant of o' & neither o nor o' are temporal instants"@en ;
+                skos:example "The temporal region occupied by Mary's birth precedes the temporal region occupied by Mary's death."@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000066
+obo:BFO_0000066 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000183 ;
+                rdfs:label "occurs in"@en ;
+                skos:definition "b occurs in c =Def b is a process or a process boundary & c is a material entity or site & there exists a spatiotemporal region r & b occupies spatiotemporal region r & for all time t, if b exists at t then c exists at t & there exist spatial regions s and s' where b spatially projects onto s at t & c occupies spatial region s' at t & s is a continuant part of s' at t"@en ;
+                skos:example "A process of digestion occurs in the interior of an organism; a process of loading artillery rounds into a tank cannon occurs in the interior of the tank"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000108
+obo:BFO_0000108 rdf:type owl:ObjectProperty ;
+                rdfs:label "exists at"@en ;
+                skos:definition "(Elucidation) exists at is a relation between a particular and some temporal region at which the particular exists"@en ;
+                skos:example "First World War exists at 1914-1916; Mexico exists at January 1, 2000"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000117
+obo:BFO_0000117 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000051 ;
+                owl:inverseOf obo:BFO_0000132 ;
+                rdf:type owl:TransitiveProperty ;
+                rdfs:label "has occurrent part"@en ;
+                skos:definition "b has occurrent part c =Def c occurrent part of b"@en ;
+                skos:example "Mary's life has occurrent part Mary's 5th birthday"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000118
+obo:BFO_0000118 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000117 ;
+                owl:inverseOf obo:BFO_0000138 ;
+                rdf:type owl:TransitiveProperty ;
+                rdfs:label "has proper occurrent part"@en ;
+                skos:definition "b has proper occurrent part c =Def b has occurrent part c & b and c are not identical"@en ;
+                skos:example "As for has occurrent part."@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000132
+obo:BFO_0000132 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000050 ;
+                rdf:type owl:TransitiveProperty ;
+                rdfs:label "occurrent part of"@en ;
+                skos:definition "(Elucidation) occurrent part of is a relation between occurrents b and c when b is part of c"@en ;
+                skos:example "Mary's 5th birthday is an occurrent part of Mary's life; the first set of the tennis match is an occurrent part of the tennis match"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000138
+obo:BFO_0000138 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000132 ;
+                rdf:type owl:TransitiveProperty ;
+                rdfs:label "proper occurrent part of"@en ;
+                skos:definition "b proper occurrent part of c =Def b occurrent part of c & b and c are not identical"@en ;
+                skos:example "As for occurrent part of."@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000183
+obo:BFO_0000183 rdf:type owl:ObjectProperty ;
+                rdfs:label "environs"@en ;
+                skos:definition "b environs c =Def c occurs in b"@en ;
+                skos:example "Mouth environs process of mastication; city environs traffic"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000039
+obo:IAO_0000039 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000051 ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:label "has measurement unit label"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000136
+obo:IAO_0000136 rdf:type owl:ObjectProperty ;
+                owl:inverseOf <https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000226> ,
+                              co:PMD_0000004 ;
+                obo:IAO_0000112 "This document is about information artifacts and their representations"@en ;
+                obo:IAO_0000115 "A (currently) primitive relation that relates an information artifact to an entity."@en ;
+                obo:IAO_0000116 """7/6/2009 Alan Ruttenberg. Following discussion with Jonathan Rees, and introduction of \"mentions\" relation. Weaken the is_about relationship to be primitive. 
+
+We will try to build it back up by elaborating the various subproperties that are more precisely defined.
+
+Some currently missing phenomena that should be considered \"about\" are predications - \"The only person who knows the answer is sitting beside me\" , Allegory, Satire, and other literary forms that can be topical without explicitly mentioning the topic."""@en ;
+                obo:IAO_0000119 "Smith, Ceusters, Ruttenberg, 2000 years of philosophy"@en ;
+                rdfs:label "is about"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000219
+obo:IAO_0000219 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:IAO_0000136 ;
+                owl:inverseOf obo:IAO_0000235 ;
+                obo:IAO_0000112 "A person's name denotes the person. A variable name in a computer program denotes some piece of memory. Lexically equivalent strings can denote different things, for instance \"Alan\" can denote different people. In each case of use, there is a case of the denotation relation obtaining, between \"Alan\" and the person that is being named."@en ;
+                obo:IAO_0000115 "A primitive, instance-level, relation obtaining between an information content entity and some portion of reality. Denotation is what happens when someone creates an information content entity E in order to specifically refer to something. The only relation between E and the thing is that E can be used to 'pick out' the thing. This relation connects those two together. Freedictionary.com sense 3: To signify directly; refer to specifically"@en ;
+                obo:IAO_0000116 """2009-11-10 Alan Ruttenberg. Old definition said the following to emphasize the generic nature of this relation. We no longer have 'specifically denotes', which would have been primitive, so make this relation primitive.
+g denotes r =def 
+r is a portion of reality
+there is some c that is a concretization of g 
+every c that is a concretization of g specifically denotes r"""@en ;
+                obo:IAO_0000119 "Conversations with Barry Smith, Werner Ceusters, Bjoern Peters, Michel Dumontier, Melanie Courtot, James Malone, Bill Hogan"@en ;
+                rdfs:comment ""@en ;
+                rdfs:label "denotes"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000221
+obo:IAO_0000221 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:IAO_0000136 ;
+                owl:inverseOf obo:IAO_0000417 ;
+                obo:IAO_0000115 "m is a quality measurement of q at t. When q is a quality, there is a measurement process p that has specified output m, a measurement datum, that is about q"@en ;
+                obo:IAO_0000116 "8/6/2009 Alan Ruttenberg: The strategy is to be rather specific with this relationship. There are other kinds of measurements that are not of qualities, such as those that measure time. We will add these as separate properties for the moment and see about generalizing later"@en ,
+                                """From the second IAO workshop [Alan Ruttenberg 8/6/2009: not completely current, though bringing in comparison is probably important]
+
+This one is the one we are struggling with at the moment. The issue is what a measurement measures. On the one hand saying that it measures the quality would include it \"measuring\" the bearer = referring to the bearer in the measurement. However this makes comparisons of two different things not possible. On the other hand not having it inhere in the bearer, on the face of it, breaks the audit trail.
+
+Werner suggests a solution based on \"Magnitudes\" a proposal for which we are awaiting details.
+--
+From the second IAO workshop, various comments, [commented on by Alan Ruttenberg 8/6/2009]
+
+unit of measure is a quality, e.g. the length of a ruler.
+
+[We decided to hedge on what units of measure are, instead talking about measurement unit labels, which are the information content entities that are about whatever measurement units are. For IAO we need that information entity in any case. See the term measurement unit label]
+
+[Some struggling with the various subflavors of is_about. We subsequently removed the relation represents, and describes until and only when we have a better theory]
+
+a represents b means either a denotes b or a describes
+
+describe:
+a describes b means a is about b and a allows an inference of at least one quality of b
+
+We have had a long discussion about denotes versus describes."""@en ,
+                                """From the second IAO workshop: An attempt at tieing the quality to the measurement datum more carefully.
+
+a is a magnitude means a is a determinate quality particular inhering in some bearer b existing at a time t that can be represented/denoted by an information content entity e that has parts denoting a unit of measure, a number, and b. The unit of measure is an instance of the determinable quality."""@en ,
+                                """From the second meeting on IAO:
+
+An attempt at defining assay using Barry's \"reliability\" wording
+
+assay:
+process and has_input some material entity
+and has_output some information content entity 
+and which is such that instances of this process type reliably generate 
+outputs that describes the input."""@en ,
+                                """This one is the one we are struggling with at the moment. The issue is what a measurement measures. On the one hand saying that it measures the quality would include it \"measuring\" the bearer = referring to the bearer in the measurement. However this makes comparisons of two different things not possible. On the other hand not having it inhere in the bearer, on the face of it, breaks the audit trail.
+
+Werner suggests a solution based on \"Magnitudes\" a proposal for which we are awaiting details."""@en ;
+                rdfs:label "is quality measurement of"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000235
+obo:IAO_0000235 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000115 "inverse of the relation 'denotes'"@en ;
+                obo:IAO_0000233 <https://github.com/information-artifact-ontology/IAO/issues/206> ;
+                rdfs:label "denoted by"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000417
+obo:IAO_0000417 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000115 "inverse of the relation of is quality measurement of"@en ;
+                obo:IAO_0000116 "2009/10/19 Alan Ruttenberg. Named 'junk' relation useful in restrictions, but not a real instance relationship"@en ;
+                rdfs:label "is quality measured as"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000418
+obo:IAO_0000418 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:IAO_0000136 ;
+                owl:inverseOf obo:IAO_0000419 ;
+                obo:IAO_0000115 "A relation between a data item and a quality of a material entity where the material entity is the specified output of a material transformation which achieves an objective specification that indicates the intended value of the specified quality."@en ;
+                rdfs:label "is quality specification of"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000419
+obo:IAO_0000419 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000115 "inverse of the relation of is quality specification of"@en ;
+                obo:IAO_0000116 "2009/10/19 Alan Ruttenberg. Named 'junk' relation useful in restrictions, but not a real instance relationship"@en ;
+                rdfs:label "quality is specified as"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000293
+obo:OBI_0000293 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:RO_0000057 ;
+                owl:inverseOf obo:OBI_0000295 ;
+                owl:propertyChainAxiom ( obo:OBI_0000293
+                                         obo:RO_0002351
+                                       ) ;
+                obo:IAO_0000112 "see is_input_of example_of_usage"@en ;
+                obo:IAO_0000115 "The inverse property of is specified input of" ;
+                obo:IAO_0000116 "8/17/09: specified inputs of one process are not necessarily specified inputs of a larger process that it is part of. This is in contrast to how 'has participant' works." ;
+                rdfs:label "has specified input"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000295
+obo:OBI_0000295 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:RO_0000056 ;
+                obo:IAO_0000112 "some Autologous EBV(Epstein-Barr virus)-transformed B-LCL (B lymphocyte cell line) is_input_for instance of Chromum Release Assay described at https://wiki.cbil.upenn.edu/obiwiki/index.php/Chromium_Release_assay"@en ;
+                obo:IAO_0000115 "A relation between a completely executed planned process and a continuant participating in that process that is not created during the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of." ;
+                rdfs:label "is specified input of"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000299
+obo:OBI_0000299 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:RO_0000057 ;
+                owl:inverseOf obo:OBI_0000312 ;
+                obo:IAO_0000115 "The inverse property of is specified output of" ;
+                rdfs:label "has specified output"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000304
+obo:OBI_0000304 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000112 "http://www.affymetrix.com/products/arrays/specific/hgu133.affx is_manufactered_by http://www.affymetrix.com/ (if we decide to use these URIs for the actual entities)"@en ;
+                obo:IAO_0000115 "c is_manufactured_by o means that there was a process p in which c was built in which a person, or set of people or machines did the work(bore the \"Manufacturer Role\", and those people/and or machines were members or of directed by the organization to do this."@en ;
+                rdfs:label "is_manufactured_by"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000312
+obo:OBI_0000312 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:RO_0000056 ;
+                obo:IAO_0000115 "A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."@en ;
+                rdfs:label "is specified output of"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000417
+obo:OBI_0000417 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000112 "A cell sorting process achieves the objective specification 'material separation objective'" ;
+                obo:IAO_0000115 "This relation obtains between a planned process and a objective specification when the criteria specified in the objective specification are met at the end of the planned process."@en ;
+                obo:IAO_0000119 "PPPB branch derived" ;
+                obo:IAO_0000232 "modified according to email thread from 1/23/09 in accordince with DT and PPPB branch" ;
+                rdfs:label "achieves_planned_objective" ;
+                co:PMD_0000064 "https://github.com/search?q=repo%3Amaterialdigital%2Fcore-ontology+path%3A%2F%5Epatterns%5C%2F%2F+OBI_0000417&type=code" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0001927
+obo:OBI_0001927 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:IAO_0000136 ;
+                owl:inverseOf co:PMD_0000077 ;
+                obo:IAO_0000115 "A relation between a value specification and an entity which the specification is about."@en ;
+                rdfs:label "specifies value of" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0001938
+obo:OBI_0001938 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000051 ;
+                obo:IAO_0000115 "A relation between an information content entity and a value specification that specifies its value."@en ;
+                obo:IAO_0000119 "OBI" ;
+                rdfs:label "has value specification" .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000052
+obo:RO_0000052 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0000053 ;
+               rdf:type owl:FunctionalProperty ;
+               obo:IAO_0000112 "this fragility is a characteristic of this vase"@en ,
+                               "this red color is a characteristic of this apple"@en ;
+               obo:IAO_0000115 "a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence."@en ;
+               rdfs:comment "Note that this relation was previously called \"inheres in\", but was changed to be called \"characteristic of\" because BFO2 uses \"inheres in\" in a more restricted fashion. This relation differs from BFO2:inheres_in in two respects: (1) it does not impose a range constraint, and thus it allows qualities of processes, as well as of information entities, whereas BFO2 restricts inheres_in to only apply to independent continuants (2) it is declared functional, i.e. something can only be a characteristic of one thing." ;
+               rdfs:label "characteristic of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000053
+obo:RO_0000053 rdf:type owl:ObjectProperty ,
+                        owl:InverseFunctionalProperty ;
+               obo:IAO_0000112 "this apple is bearer of this red color"@en ,
+                               "this vase is bearer of this fragility"@en ;
+               obo:IAO_0000115 "Inverse of characteristic_of"@en ;
+               obo:IAO_0000116 "A bearer can have many dependents, and its dependents can exist for different periods of time, but none of its dependents can exist when the bearer does not exist."@en ;
+               rdfs:label "has characteristic"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000056
+obo:RO_0000056 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0000057 ;
+               obo:IAO_0000112 "this blood clot participates in this blood coagulation"@en ,
+                               "this input material (or this output material) participates in this process"@en ,
+                               "this investigator participates in this investigation"@en ;
+               obo:IAO_0000115 "a relation between a continuant and a process, in which the continuant is somehow involved in the process"@en ;
+               rdfs:label "participates in"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000057
+obo:RO_0000057 rdf:type owl:ObjectProperty ;
+               owl:propertyChainAxiom ( obo:BFO_0000051
+                                        obo:RO_0000057
+                                      ) ;
+               obo:IAO_0000112 "this blood coagulation has participant this blood clot"@en ,
+                               "this investigation has participant this investigator"@en ,
+                               "this process has participant this input material (or this output material)"@en ;
+               obo:IAO_0000115 "a relation between a process and a continuant, in which the continuant is somehow involved in the process"@en ;
+               obo:IAO_0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time."@en ;
+               rdfs:label "has participant"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000058
+obo:RO_0000058 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0000059 ;
+               obo:IAO_0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The journal article (a generically dependent continuant) is concretized as the quality (a specifically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)."@en ,
+                               "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)."@en ;
+               obo:IAO_0000115 "A relationship between a generically dependent continuant and a specifically dependent continuant or process, in which the generically dependent continuant depends on some independent continuant or process in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants or processes."@en ,
+                               "A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants."@en ;
+               rdfs:label "is concretized as"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000059
+obo:RO_0000059 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)."@en ,
+                               "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)."@en ;
+               obo:IAO_0000115 "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant."@en ,
+                               "A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant."@en ;
+               rdfs:label "concretizes"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000079
+obo:RO_0000079 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000052 ;
+               owl:inverseOf obo:RO_0000085 ;
+               obo:IAO_0000112 "this catalysis function is a function of this enzyme"@en ;
+               obo:IAO_0000115 "a relation between a function and an independent continuant (the bearer), in which the function specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A function inheres in its bearer at all times for which the function exists, however the function need not be realized at all the times that the function exists."@en ;
+               rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
+               rdfs:label "function of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000080
+obo:RO_0000080 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000052 ;
+               owl:inverseOf obo:RO_0000086 ;
+               obo:IAO_0000112 "this red color is a quality of this apple"@en ;
+               obo:IAO_0000115 "a relation between a quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A quality inheres in its bearer at all times for which the quality exists."@en ;
+               rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
+               rdfs:label "quality of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000081
+obo:RO_0000081 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000052 ;
+               owl:inverseOf obo:RO_0000087 ;
+               obo:IAO_0000112 "this investigator role is a role of this person"@en ;
+               obo:IAO_0000115 "a relation between a role and an independent continuant (the bearer), in which the role specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A role inheres in its bearer at all times for which the role exists, however the role need not be realized at all the times that the role exists."@en ;
+               rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
+               rdfs:label "role of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000085
+obo:RO_0000085 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000053 ;
+               obo:IAO_0000112 "this enzyme has function this catalysis function (more colloquially: this enzyme has this catalysis function)"@en ;
+               obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A bearer can have many functions, and its functions can exist for different periods of time, but none of its functions can exist when the bearer does not exist. A function need not be realized at all the times that the function exists."@en ;
+               rdfs:label "has function"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000086
+obo:RO_0000086 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000053 ;
+               obo:IAO_0000112 "this apple has quality this red color"@en ;
+               obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a quality, in which the quality specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A bearer can have many qualities, and its qualities can exist for different periods of time, but none of its qualities can exist when the bearer does not exist."@en ;
+               rdfs:label "has quality"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000087
+obo:RO_0000087 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000053 ;
+               obo:IAO_0000112 "this person has role this investigator role (more colloquially: this person has this role of investigator)"@en ;
+               obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A bearer can have many roles, and its roles can exist for different periods of time, but none of its roles can exist when the bearer does not exist. A role need not be realized at all the times that the role exists."@en ;
+               rdfs:label "has role"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000091
+obo:RO_0000091 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000053 ;
+               owl:inverseOf obo:RO_0000092 ;
+               obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a disposition, in which the disposition specifically depends on the bearer for its existence"@en ;
+               rdfs:label "has disposition"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000092
+obo:RO_0000092 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000052 ;
+               obo:IAO_0000115 "inverse of has disposition" ;
+               rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
+               rdfs:label "disposition of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001000
+obo:RO_0001000 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0001001 ;
+               obo:IAO_0000112 "this cell derives from this parent cell (cell division)"@en ,
+                               "this nucleus derives from this parent nucleus (nuclear division)"@en ;
+               obo:IAO_0000115 "a relation between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity"@en ;
+               obo:IAO_0000116 "This is a very general relation. More specific relations are preferred when applicable, such as 'directly develops from'."@en ;
+               rdfs:label "derives from"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001001
+obo:RO_0001001 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000112 "this parent cell derives into this cell (cell division)"@en ,
+                               "this parent nucleus derives into this nucleus (nuclear division)"@en ;
+               obo:IAO_0000115 "a relation between two distinct material entities, the old entity and the new entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity"@en ;
+               obo:IAO_0000116 "This is a very general relation. More specific relations are preferred when applicable, such as 'directly develops into'. To avoid making statements about a future that may not come to pass, it is often better to use the backward-looking 'derives from' rather than the forward-looking 'derives into'."@en ;
+               rdfs:label "derives into"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001015
+obo:RO_0001015 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0001025 ;
+               rdf:type owl:TransitiveProperty ;
+               obo:IAO_0000112 "my head is the location of my brain"@en ,
+                               "this cage is the location of this rat"@en ;
+               obo:IAO_0000115 "a relation between two independent continuants, the location and the target, in which the target is entirely within the location"@en ;
+               obo:IAO_0000116 "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ;
+               rdfs:label "location of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001025
+obo:RO_0001025 rdf:type owl:ObjectProperty ,
+                        owl:TransitiveProperty ;
+               owl:propertyChainAxiom ( obo:RO_0001025
+                                        obo:BFO_0000050
+                                      ) ;
+               obo:IAO_0000112 "my brain is located in my head"@en ,
+                               "this rat is located in this cage"@en ;
+               obo:IAO_0000115 "a relation between two independent continuants, the target and the location, in which the target is entirely within the location"@en ;
+               obo:IAO_0000116 "Location as a relation between instances: The primitive instance-level relation c located_in r at t reflects the fact that each continuant is at any given time associated with exactly one spatial region, namely its exact location. Following we can use this relation to define a further instance-level location relation - not between a continuant and the region which it exactly occupies, but rather between one continuant and another. c is located in c1, in this sense, whenever the spatial region occupied by c is part_of the spatial region occupied by c1.    Note that this relation comprehends both the relation of exact location between one continuant and another which obtains when r and r1 are identical (for example, when a portion of fluid exactly fills a cavity), as well as those sorts of inexact location relations which obtain, for example, between brain and head or between ovum and uterus"@en ,
+                               "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ;
+               rdfs:label "located in"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002082
+obo:RO_0002082 rdf:type owl:ObjectProperty ,
+                        owl:SymmetricProperty ,
+                        owl:TransitiveProperty ;
+               obo:IAO_0000115 "x simultaneous with y iff ω(x) = ω(y) and ω(α ) = ω(α), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point and '=' indicates the same instance in time." ;
+               rdfs:comment "t1 simultaneous_with t2 iff:=  t1 before_or_simultaneous_with t2  and not (t1 before t2)"@en ;
+               rdfs:label "simultaneous with"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002223
+obo:RO_0002223 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000050 ;
+               owl:inverseOf obo:RO_0002224 ;
+               obo:IAO_0000115 "inverse of starts with" ;
+               obo:IAO_0000119 "Allen" ;
+               rdfs:label "starts"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002224
+obo:RO_0002224 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000051 ;
+               rdf:type owl:TransitiveProperty ;
+               obo:IAO_0000112 "Every insulin receptor signaling pathway starts with the binding of a ligand to the insulin receptor" ;
+               obo:IAO_0000115 "x starts with y if and only if x has part y and the time point at which x starts is equivalent to the time point at which y starts. Formally: α(y) = α(x) ∧ ω(y) < ω(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point." ;
+               rdfs:label "starts with"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002229
+obo:RO_0002229 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000050 ;
+               owl:inverseOf obo:RO_0002230 ;
+               obo:IAO_0000115 "inverse of ends with" ;
+               rdfs:label "ends"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002230
+obo:RO_0002230 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000051 ;
+               rdf:type owl:TransitiveProperty ;
+               obo:IAO_0000115 "x ends with y if and only if x has part y and the time point at which x ends is equivalent to the time point at which y ends. Formally: α(y) > α(x) ∧ ω(y) = ω(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point." ;
+               rdfs:label "ends with"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002233
+obo:RO_0002233 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000057 ;
+               owl:inverseOf obo:RO_0002352 ;
+               owl:propertyChainAxiom ( obo:RO_0002224
+                                        obo:RO_0002233
+                                      ) ;
+               obo:IAO_0000115 "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p." ;
+               rdfs:label "has input"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002234
+obo:RO_0002234 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000057 ;
+               owl:inverseOf obo:RO_0002353 ;
+               owl:propertyChainAxiom ( obo:RO_0002230
+                                        obo:RO_0002234
+                                      ) ;
+               obo:IAO_0000115 "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p." ;
+               rdfs:label "has output"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002350
+obo:RO_0002350 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000050 ;
+               owl:inverseOf obo:RO_0002351 ;
+               obo:IAO_0000112 "An organism that is a member of a population of organisms" ;
+               obo:IAO_0000115 "is member of is a mereological relation between a item and a collection." ;
+               obo:IAO_0000119 "SIO" ;
+               rdfs:label "member of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002351
+obo:RO_0002351 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000051 ;
+               rdf:type owl:IrreflexiveProperty ;
+               obo:IAO_0000115 "has member is a mereological relation between a collection and an item." ;
+               obo:IAO_0000119 "SIO" ;
+               rdfs:label "has member"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002352
+obo:RO_0002352 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000056 ;
+               obo:IAO_0000115 "inverse of has input" ;
+               rdfs:label "input of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002353
+obo:RO_0002353 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000056 ;
+               obo:IAO_0000115 "inverse of has output" ;
+               rdfs:label "output of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0009006
+obo:RO_0009006 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0009007 ;
+               obo:IAO_0000112 "A mass measurement assay measures an material's mass characteristic. A radioactivity detection assay measures the amount of radiation (alpha, beta or gamma ray emmissions) coming from a material."@en ;
+               obo:IAO_0000115 "A relation between an assay and a characteristic, in which the assay generates a data item which is a measure of a characteristic."@en ;
+               rdfs:label "assay measures characteristic"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0009007
+obo:RO_0009007 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000115 "Inverse of 'assay measures characteristic'"@en ;
+               rdfs:label "characteristic measured by assay"@en .
+
+
+###  http://purl.obolibrary.org/obo/STATO_0000102
+obo:STATO_0000102 rdf:type owl:ObjectProperty ;
+                  owl:propertyChainAxiom ( obo:BFO_0000055
+                                           obo:RO_0000059
+                                         ) ;
+                  obo:IAO_0000115 "relationship between a planned process and the plan specification that it carries out; it is defined as equivalent to the composed relationship (realizes o concretizes)"@en ;
+                  obo:IAO_0000119 "AGB" ;
+                  rdfs:label "executes" .
+
+
+###  https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000226
+<https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000226> rdf:type owl:ObjectProperty ;
+                                                      rdfs:comment "inverse of the relation 'is about'" ;
+                                                      rdfs:label "is subject of"@en ;
+                                                      skos:altLabel "is described by" .
+
+
+###  https://w3id.org/pmd/co/PMD_0000004
+co:PMD_0000004 rdf:type owl:ObjectProperty ;
+               rdfs:label "is subject of"@en ;
+               skos:definition "Inverse of 'is about'."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000009
+co:PMD_0000009 rdf:type owl:ObjectProperty ;
+               owl:inverseOf co:PMD_0025006 ;
+               rdfs:label "has process attribute"@en ;
+               rdfs:seeAlso "has process attribute from OEO https://openenergyplatform.org/ontology/oeo/OEO_00000500"@en ;
+               skos:definition "A relation between a process and a process attribute that depends on it."@en ;
+               skos:example "Tensile testing process has process attribute tensile rate"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000069
+co:PMD_0000069 rdf:type owl:ObjectProperty ;
+               owl:inverseOf co:PMD_0000070 ;
+               rdf:type owl:InverseFunctionalProperty ;
+               rdfs:label "has state"@en ;
+               skos:definition "relates an anchor continuant to a temporally qualified continuant that represents a specific temporal phase of its existence."@en ;
+               co:PMD_0001032 "https://github.com/materialdigital/core-ontology/issues/185" .
+
+
+###  https://w3id.org/pmd/co/PMD_0000070
+co:PMD_0000070 rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:label "is state of"@en ;
+               skos:definition "relates a temporally qualified continuant to the unique anchor continuant that it is a temporal phase of"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0000077
+co:PMD_0000077 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf co:PMD_0000004 ;
+               rdfs:label "specified by value"@en ;
+               skos:definition "A relation between an entity and a value specification which is about this entity."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0001026
+co:PMD_0001026 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf co:PMD_0000004 ;
+               rdfs:label "complies with"@en ,
+                          "entspricht"@de ;
+               skos:definition "complies with is a relation between an independent continuant and an information content entity (e.g., specification or objective) that it conforms to."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0001028
+co:PMD_0001028 rdf:type owl:ObjectProperty ;
+               owl:inverseOf co:PMD_0001029 ;
+               rdfs:label "in response to"@en ;
+               skos:definition "inverse of responds with"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0001029
+co:PMD_0001029 rdf:type owl:ObjectProperty ;
+               rdfs:label "responds with"@en ;
+               skos:definition "The realizable entity must be \"stimulated\" by some Stimulus in order to respond with the Response. The bearer of the realizable entity must participate in Stimulation as well as in Response."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020127
+co:PMD_0020127 rdf:type owl:ObjectProperty ;
+               rdfs:comment """Despite has characteristic from RO does not have any domain constraints, it is still not possible to directly connect an instance of a process with an instance of a SDC. 
+
+First, SDC is dependent on a IC. As RO does not have \"bearer of\" object property, the \"has characteristic\" implies that the domain should be an IC. 
+
+Second, characteristic of is a functional property. Thus, two triples SDC_1 characteristc of IC_1 and SDC_2  characteristc of Process_1 (where IC_1 participates in Process_1), cannot exist simultaneously. 
+An example of such case can be \"Temperature of during the annealing process was 1000°C\". Temperature is an SDC of some participant of the annealing, however it is not clear whether it is an SDC of an oven or of a sample in the oven. If we assert triple Annealing--> has characteristic --> Temperature 1000°C, then the correct triple connecting temperature SDC with either oven or specimen cannot exist."""@en ;
+               rdfs:label "refers to"@en ;
+               skos:definition "a relation between a process attribute and an SDC of some participant in a process"@en ;
+               skos:example "a relation to between a process attribute an a SDC of some participant in a process."@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0025006
+co:PMD_0025006 rdf:type owl:ObjectProperty ;
+               rdfs:label "process attribute of"@en ;
+               skos:definition "A relation between a process attribute and a process, which \"bears\" the attribute."@en ;
+               skos:example "Tensile rate is a process attribute of tensile test"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0025998
+co:PMD_0025998 rdf:type owl:ObjectProperty ;
+               owl:inverseOf co:PMD_0025999 ;
+               owl:propertyChainAxiom ( obo:BFO_0000051
+                                        co:PMD_0025998
+                                      ) ;
+               rdfs:label "has relational quality"@en ;
+               skos:definition "a relation between an independent continuant (the bearer) and a relational quality, in which the quality specifically depends on the bearer for its existence"@en ;
+               skos:example "material has relational quality mass proportion m, and portion of iron has the same relational quality mass proportion m"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0025999
+co:PMD_0025999 rdf:type owl:ObjectProperty ;
+               owl:propertyChainAxiom ( co:PMD_0025999
+                                        obo:BFO_0000050
+                                      ) ;
+               obo:IAO_0000116 """The 'relational quality of' is more strict that 'quality of' from RO, since domain is 'relational quality'. The motivtion to introduce an object property for relational qualities is the following:
+RO's 'quality of' is functional i.e., a->b, a->c => b=c. The functionality is relevant for most of the SDC -> IC triples, expect for relational qualities, which per definiton can be simultaneously inherited in >=2 ICs. Thus,  'relational quality of'  has the same intention to connect SDC to IC, however, without cardinality constraints."""@en ;
+               rdfs:label "relational quality of"@en ;
+               skos:definition "a relation between a relational quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence"@en ;
+               skos:example "mass proportion m is relational qualitiy of material, and the same mass proportion m is relational qualitiy of portion of iron"@en .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000050
+<https://w3id.org/pmd/cryo/CRYO_0000050> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
+                                         rdfs:label "is tetragonal"@en .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000051
+<https://w3id.org/pmd/cryo/CRYO_0000051> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
+                                         owl:propertyChainAxiom ( obo:IAO_0000235
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000050>
+                                                                  obo:RO_0002350
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000050>
+                                                                ) ;
+                                         rdfs:comment "'denoted by' o 'member of' o 'has Miller indices family under tetragonal symmetry'" ;
+                                         rdfs:label "denoted by family under tetragonal symmetry"@en .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000053
+<https://w3id.org/pmd/cryo/CRYO_0000053> rdf:type owl:ObjectProperty ;
+                                         rdfs:label "has symmetry"@de .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000054
+<https://w3id.org/pmd/cryo/CRYO_0000054> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
+                                         rdfs:label "is triclinic"@de .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000055
+<https://w3id.org/pmd/cryo/CRYO_0000055> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
+                                         rdfs:label "is monoclinic"@de .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000056
+<https://w3id.org/pmd/cryo/CRYO_0000056> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
+                                         rdfs:label "is orthorhombic"@de .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000057
+<https://w3id.org/pmd/cryo/CRYO_0000057> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
+                                         rdfs:label "is rhombohedral"@de .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000058
+<https://w3id.org/pmd/cryo/CRYO_0000058> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
+                                         rdfs:label "is hexagonal"@de .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000059
+<https://w3id.org/pmd/cryo/CRYO_0000059> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
+                                         owl:propertyChainAxiom ( obo:IAO_0000235
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000054>
+                                                                  obo:RO_0002350
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000054>
+                                                                ) ;
+                                         rdfs:label "denoted by family under triclinic symmetry"@en .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000060
+<https://w3id.org/pmd/cryo/CRYO_0000060> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
+                                         owl:propertyChainAxiom ( obo:IAO_0000235
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000055>
+                                                                  obo:RO_0002350
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000055>
+                                                                ) ;
+                                         rdfs:label "denoted by family under monoclinic symmetry"@de .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000061
+<https://w3id.org/pmd/cryo/CRYO_0000061> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
+                                         owl:propertyChainAxiom ( obo:IAO_0000235
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000056>
+                                                                  obo:RO_0002350
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000056>
+                                                                ) ;
+                                         rdfs:label "denoted by family under orthorhombic symmetry"@de .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000062
+<https://w3id.org/pmd/cryo/CRYO_0000062> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
+                                         owl:propertyChainAxiom ( obo:IAO_0000235
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000057>
+                                                                  obo:RO_0002350
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000057>
+                                                                ) ;
+                                         rdfs:label "denoted by family under rhombohedral symmetry"@de .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000063
+<https://w3id.org/pmd/cryo/CRYO_0000063> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
+                                         owl:propertyChainAxiom ( obo:IAO_0000235
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000058>
+                                                                  obo:RO_0002350
+                                                                  <https://w3id.org/pmd/cryo/CRYO_0000058>
+                                                                ) ;
+                                         rdfs:label "denoted by family under hexagonal symmetry"@de .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000164
+<https://w3id.org/pmd/cryo/CRYO_0000164> rdf:type owl:ObjectProperty ;
+                                         rdfs:label "denoted by family"@en .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000168
+<https://w3id.org/pmd/cryo/CRYO_0000168> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
+                                         owl:propertyChainAxiom ( <https://w3id.org/pmd/cryo/CRYO_0000170>
+                                                                  obo:IAO_0000235
+                                                                  obo:RO_0002350
+                                                                ) ;
+                                         rdfs:comment "'denoted by' o 'member of' o 'has Miller indices family under cubic symmetry'" ,
+                                                      "'denoted by' o 'under  symmetry' o 'is cubic' o  inverse ('under  symmetry') o 'has member' o 'member of'" ,
+                                                      "'denoted by' o 'under cubic symmetry' o 'member of' o 'under cubic symmetry'" ;
+                                         rdfs:label "denoted by family under cubic symmetry"@en .
+
+
+###  https://w3id.org/pmd/cryo/CRYO_0000170
+<https://w3id.org/pmd/cryo/CRYO_0000170> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
+                                         rdfs:label "is cubic"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000066
+noes:NOES_0000066 rdf:type owl:ObjectProperty ;
+                  rdfs:comment "This object property is not intended to be used between intances."@en ;
+                  rdfs:label "geometrically related"@en ;
+                  skos:definition "Geometrically related is a top-level object property to describe geometrical relations between different spatial regions"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000067
+noes:NOES_0000067 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf noes:NOES_0000066 ;
+                  rdf:type owl:SymmetricProperty ,
+                           owl:TransitiveProperty ;
+                  rdfs:comment "Parallel to is an object property which connect two or  more spatial regions that are parallel to each other"@en ;
+                  rdfs:label "parallel to"@en ;
+                  skos:example "<111> family of directions in crystals are parellel to normal direction (ND) of a sample in γ-fiber texture component"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000068
+noes:NOES_0000068 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf noes:NOES_0000066 ;
+                  rdf:type owl:SymmetricProperty ;
+                  owl:propertyChainAxiom ( noes:NOES_0000068
+                                           noes:NOES_0000067
+                                         ) ;
+                  rdfs:label "normal to"@en ;
+                  skos:example "Normal to is a object property which describes geometric relation between two spatial regions which are normal to each other"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/pmd/noes/NOES_0000000
+noes:NOES_0000000 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000052 ;
+                  rdfs:label "relative permeability"@en ;
+                  skos:definition "Relative permeability  is type of magnetic permeability which is defined as a ratio of the material's permeability µ to that of free space µ0."@en ;
+                  co:symbol "µr" .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000001
+noes:NOES_0000001 rdf:type owl:Class ;
+                  rdfs:comment """TODO: 
+which determines the directions in a sheet material in respect to the rolling direction. Rolled sheet direction is a part of material or object."""@en ;
+                  rdfs:label "rolled sheet direction"@en ;
+                  skos:definition "Rolled sheet direction is a fiat line which is part of rolled material's intrinsic reference frame."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000002
+noes:NOES_0000002 rdf:type owl:Class ;
+                  rdfs:label "rolled sheet direction value"@en ;
+                  owl:deprecated "true"^^xsd:boolean ;
+                  skos:definition "Rolled sheet directions is a categorical value specification which specifies the rolled sheet direction. It  includes rolling direction (RD), transverse direction (TD), and normal direction (ND)"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000003
+noes:NOES_0000003 rdf:type owl:Class ;
+                  rdfs:comment "TODO: the axiom is a thin ice. Decide if application of the MF MUST be a part of an assay" ;
+                  rdfs:label "magnetic field alternating frequency"@en ;
+                  skos:definition "Magnetic field alternating current is a process attribute of an application of magnetic field describing how many times per second the applied magnetic field changes its direction."@en ;
+                  skos:example "400 Hz frequency of an Epstein measurment"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000004
+noes:NOES_0000004 rdf:type owl:Class ;
+                  rdfs:label "plot"@en ;
+                  skos:definition "A plot is a 2-D information content entity describing a dependency of one variable on another."@en ;
+                  skos:example "B-H curve, stress-strain curve"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000005
+noes:NOES_0000005 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000004 ;
+                  rdfs:label "B-H curve"@en ;
+                  skos:definition "B-H curve is a plot which describes the dependency of magnetic flux density B on magnetic field strength H in soft and hard magnetic materials."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000006
+noes:NOES_0000006 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000004 ;
+                  rdfs:label "stress-strain curve"@en ;
+                  skos:definition "Stress-strain curve is a plot which describes the dependency of deformation in a sample on the applied stress (force per unit area)."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000007
+noes:NOES_0000007 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000048 ;
+                  rdfs:label "coercitivy in the rolling direction"@de .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000008
+noes:NOES_0000008 rdf:type owl:Class ;
+                  rdfs:label "orientation distribution function"@en ;
+                  skos:altLabel "ODF"@en ;
+                  skos:definition "Orientation distrubution function (ODF) is a 3D information content entity which quantitively describes texture (preferred crystallographic orientation of grains) in polycrystalline materials. ODF can be caclulated from pole figures obtained from the diffraction patterns."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000009
+noes:NOES_0000009 rdf:type owl:Class ;
+                  rdfs:label "EBSD map"@en ;
+                  skos:definition "EBSD (electron backscatter diffraction) map represents a information content entity which is determined analytically from data obtrained from EBSD characterization. EBSD map provides information about grain size and grain orientation."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000010
+noes:NOES_0000010 rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0009006 ;
+                                    owl:someValuesFrom noes:NOES_0000051
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0009006 ;
+                                    owl:someValuesFrom noes:NOES_0000056
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty co:PMD_0000009 ;
+                                    owl:someValuesFrom noes:NOES_0000156
+                                  ] ;
+                  rdfs:comment """TODO: The definition has to be refined. 
+TODO: Write axioms based on the definition"""@en ;
+                  rdfs:label "quasi-static (DC) characterization of magnetic properties"@en ;
+                  skos:definition "Quasi-static (DC) characterization is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine a static magnetic curve of the tested material. During the test, the current in the primary winding is changed slowly, thus the frequency of a magnetic field remains low, i.e., below 0.01 Hz. The output of the quasi-static characterization of magnetic properties  is a static B-H curve, which  provides information on hysteresis loss Ph, saturation induction Bsat, coercivity Hc, remanence Br, and maximum permeability µmax. During DC characterization primarily domain wall motion and pinning effects play role."@en ;
+                  skos:example "Measurement of hysteresis losses; measurement of saturation magnetic induction at specified maximal magnetic field, e.g., 5000 A/m."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000011
+noes:NOES_0000011 rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0009006 ;
+                                    owl:someValuesFrom noes:NOES_0000057
+                                  ] ;
+                  rdfs:comment "Dynamic (AC) characterization of magnetic properties is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine the total energy loss of a tested material at specific frequency and magnetic flux density. During the test, the current in the primary winding is changed with frequency between 50-400 Hz to ensure sinusoidal waveform of the magnetic flux density at Bpeak. The output of the dynamic characterization of magnetic properties  is a  B-H curve, which  provides information on total core loss Ptot and dynamic permeability µdyn."@en ,
+                               """TODO: refine defintion
+TODO: write axioms"""@en ;
+                  rdfs:label "dynamic (AC) characterization of magnetic properties"@en ;
+                  skos:example "Measurement of total power (iron) loss at given current frequency and maximal magnetic induction, e.g. 50 Hz and 1.5 T, or 400 Hz and 1.0 T"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000012
+noes:NOES_0000012 rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000057 ;
+                                    owl:someValuesFrom noes:NOES_0000183
+                                  ] ;
+                  rdfs:label "magnetic property analyzing process using Epstein frame"@en ;
+                  skos:definition "Magnetic property analyzing process using Epstein frame is a standardized assay which uses Epstein frame to test magnetic properties of soft magnetic materials, where several (how many) strips are stacked."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000013
+noes:NOES_0000013 rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000057 ;
+                                    owl:someValuesFrom noes:NOES_0000184
+                                  ] ;
+                  rdfs:label "magnetic property analyzing process using single sheet tester"@en ;
+                  skos:definition "magnetic property analyzing process using single sheet tester is an assay for determining magnetic properties of soft mangetic materials, where magnetic field H is applied to a single sheet."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000014
+noes:NOES_0000014 rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000057 ;
+                                    owl:someValuesFrom noes:NOES_0000185
+                                  ] ;
+                  rdfs:label "magnetic property analyzing process using thoroidal core"@en ;
+                  skos:definition "Magnetic property analyzing process using thoroidal core is an assay for determing magnetic properties of soft magnetic materials, where the sample has closed wound ring core shape. As the ring shape does not have any air gaps or joint losses, this testing procedure provides information on most intrinsic material properties."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000015
+noes:NOES_0000015 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000023 ;
+                  rdfs:comment "Cold rolling is a rolling process which aims to reduce thickness of a metallic sheet. Cold rolling takes place at room temperature."@en ;
+                  rdfs:label "cold rolling"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000016
+noes:NOES_0000016 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000023 ;
+                  rdfs:comment "Hot rolling is a rolling process which aims to reduce the thickness of a sheet material. Hot rolling  takes place at temperatures above alloy's recrystallization temperature."@en ;
+                  rdfs:label "hot rolling"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000017
+noes:NOES_0000017 rdf:type owl:Class ;
+                  rdfs:comment "Occurence of magnetic flux  is a process that (realizes??) responds with magnetic flux in the material when some magnetic field is applied."@en ;
+                  rdfs:label "occurence of magnetic flux"@en ;
+                  owl:deprecated "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000018
+noes:NOES_0000018 rdf:type owl:Class ;
+                  rdfs:comment """follows  Arrhenius equation.
+Has part grain growth and recovery."""@en ;
+                  rdfs:label "recrystallization"@en ;
+                  skos:definition "Recrystallization is a naturally occuring process which occurs in metallic materials and during which deformed grains are replaced by new defect-free grains. Recrystallization is a thermally activated process, i.e., it requires sufficiently high temperatures for the process to occur. Thus, recrystallization is a process which is part of annealing heat treatment."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000019
+noes:NOES_0000019 rdf:type owl:Class ;
+                  rdfs:label "recovery"@en ;
+                  skos:definition "Recovery is a naturally occuring process which occurs in metallic materials and during which the reduction of stored deformation energy in grains occurs due to the removal and rearragement of crystal structure defects (dislocations). Recovery is a part of recrystallization process, thus it is a thermally activated process, which occurs during annealing heat treatment."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000020
+noes:NOES_0000020 rdf:type owl:Class ;
+                  rdfs:label "grain growth"@en ;
+                  skos:definition "Grain growth is a process which occurs in polycrystalline materials. The driving force of grain growth is reduction of the interal energy via reduction of the total grain boundary. Grain growth is a thermally activated process which occurs after recovery and (primary) recrystallization."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000021
+noes:NOES_0000021 rdf:type owl:Class ;
+                  rdfs:label "domain wall motion"@en ;
+                  skos:definition "Domain wall motion is a naturally occuring process which occurs in ferromagnetic materials due to the external stimulus such as applied magnetic field."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000022
+noes:NOES_0000022 rdf:type owl:Class ;
+                  rdfs:label "domain wall pinning"@en ;
+                  skos:definition "Domain wall pinning is a naturally occuring process which occurs in ferromagnetic materials when domain wall montion is temporally inhibited due to an energy barrier."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000023
+noes:NOES_0000023 rdf:type owl:Class ;
+                  rdfs:comment "Rolling is a shaping process in which material is passed through under a roll with the goal of reducing the thickness of a semi-finished object. After rolling the mateiral deformed microstructure, which is characterized by elongated defomed grains, high dislocation density, high internal strains, and preferred grain orientation."@en ;
+                  rdfs:label "rolling"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000024
+noes:NOES_0000024 rdf:type owl:Class ;
+                  rdfs:comment "The defintion has potential"@en ;
+                  rdfs:label "strip-casting"@en ;
+                  skos:definition "Strip-casting is a primary shaping from fluid state process for metals and alloys. During Strip-casting the melt flows between two rolls resulting in the strip."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000025
+noes:NOES_0000025 rdf:type owl:Class ;
+                  rdfs:label "Schmieden"@de ,
+                             "forging"@en ;
+                  skos:definition "Forging is a pressure forming process of metals and alloys. During forging the material is heated to forging temperature and formed to the desired form using either hammers and anvils or heat-resistant upper and lower dies."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000026
+noes:NOES_0000026 rdf:type owl:Class ;
+                  rdfs:label "normalizing"@en ;
+                  skos:definition "Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000027
+noes:NOES_0000027 rdf:type owl:Class ;
+                  rdfs:label "annealing"@en ;
+                  skos:definition "Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000031
+noes:NOES_0000031 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000001 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:BFO_0000050 ;
+                                    owl:someValuesFrom noes:NOES_0000094
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty noes:NOES_0000067 ;
+                                    owl:someValuesFrom noes:NOES_0000094
+                                  ] ;
+                  rdfs:label "longitudinal direction"@en ;
+                  skos:definition "Longitudinal direction is a rolled sheet direction along the dimension in which an anisotropic material property is measured. Longitudinal direction might be parallel to the rolling or transversal direction of a rolled material, and it is always normal to the rolling direction."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000032
+noes:NOES_0000032 rdf:type owl:Class ;
+                  rdfs:label "scanning electron microscopy"@en ;
+                  rdfs:seeAlso "https://www.thermofisher.com/de/de/home/materials-science/learning-center/applications/sem-tem-difference.html" ;
+                  skos:altLabel "SEM"@en ;
+                  skos:definition "Scanning electron microscopy (SEM) is a type of electron microscopy where a focused beam of electrons scans the surface of an object. An image is created by detecting electrons reflected from the surface. Thus, SEM provides information on the surface and composition of the sample."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000033
+noes:NOES_0000033 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000031 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty noes:NOES_0000068 ;
+                                    owl:someValuesFrom noes:NOES_0000035
+                                  ] ;
+                  rdfs:comment """TODO: 
+1. Refine definition
+2. Maybe remove the categorical values""" ;
+                  rdfs:label "rolling direction"@en ;
+                  skos:definition "Rolling direction is a rolled sheet direction that is specified by rolling direction (RD)."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000034
+noes:NOES_0000034 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000153 ;
+                  rdfs:label "electron backscatter diffraction"@en ;
+                  rdfs:seeAlso "Electron Backscatter Diffraction (EBSD) is a SEM based technique for characterizing  material's local microstructure. EBSD provides an information about phases and their distribution in the material, grain structure, grain size, grain boundary, texture  (crystallographic orientation of individual grains), and local strain variation."@en ,
+                               "https://www.ebsd.com/ebsd-explained/what-is-ebsd" ;
+                  skos:altLabel "EBSD"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000035
+noes:NOES_0000035 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000031 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty noes:NOES_0000068 ;
+                                    owl:someValuesFrom noes:NOES_0000033
+                                  ] ;
+                  rdfs:label "transverse direction"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000036
+noes:NOES_0000036 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000001 ;
+                  rdfs:label "normal direction"@en ;
+                  skos:definition "Normal direction is a rolled sheet direction which is normal to the rolling plane of the sheet."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000037
+noes:NOES_0000037 rdf:type owl:Class ;
+                  rdfs:label "waterjet cutting"@en ;
+                  skos:definition "Waterjet cutting is a cutting process, where waterjet cutter is a participant and it realizes some cutting function."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000038
+noes:NOES_0000038 rdf:type owl:Class ;
+                  rdfs:label "number of strips"@en ;
+                  skos:definition "Number of strips is a extensive quality of a disconnected material entity aggregate which has parts individual strips of an electrical sheet and characterizes how many strips or sheets are present in a packet, used for Epstein or thoroidal core measurement or construction of stators and rotors"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000039
+noes:NOES_0000039 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "tensile strength in the rolling direction"@en ;
+                  skos:definition "Tensile strength in to the rolling direction is a tensile strength which is measured on a sample cut parallel to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000040
+noes:NOES_0000040 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000048 ;
+                  rdfs:label "coercitivy in the transversal direction"@de .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000041
+noes:NOES_0000041 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000050 ;
+                  rdfs:label "remanence in the rolling direction"@de .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000042
+noes:NOES_0000042 rdf:type owl:Class ;
+                  rdfs:label "laser cutting"@en ;
+                  skos:definition "Laser cutting is a cutting process, where lasercutter is a participant and it realizes some cutting function."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000043
+noes:NOES_0000043 rdf:type owl:Class ;
+                  rdfs:label "texture parameter Aθ"@en ;
+                  rdfs:seeAlso "doi:10.1155/2008/173083" ;
+                  skos:definition "Texture parameter is a intensive quality which quantifies crystallographic texture in materials. Texture parameter is defined as a minimun angle between the magnitization vector and the closest <100> direction in a crystal. Texture parameter can be derived from orientation distribution function (ODF) by integrating ODF f(g) multiplied by Aθ(g) over orientations dg."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000044
+noes:NOES_0000044 rdf:type owl:Class ;
+                  rdfs:label "direction averaged texture parameter A"@en ;
+                  rdfs:seeAlso "doi:10.1155/2008/173083" ;
+                  skos:definition "Direction averaged texture parameter A is a intensive quality which quantifies crystallographic texture in materials, which are utilized in applications where applied magnetic field is equally distributed in the rolling plane (RP) of the material. Direction averaged texture parameter A is derived from the texture parameter Aθ by integrating Aθ over dθ. For noriented electrical steels it can be simplified as (A0 + 2*A45 + A90) / 4, where A0, A45, and A90 are values of texture parameter Aθ for an applied magnetic field which encloses an angle of 0, 45, and 90 with the rolling direction, respectively."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000045
+noes:NOES_0000045 rdf:type owl:Class ;
+                  rdfs:label "texture factor"@en ;
+                  skos:definition "Texture factor is an intensive quality used to quantify texture in materials. It is determined as sum of volume fractions of Goss and Cube texture components divided by the volume fraction of γ-fiber orientations."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000046
+noes:NOES_0000046 rdf:type owl:Class ;
+                  rdfs:label "transmission electron microscopy"@en ;
+                  rdfs:seeAlso "https://www.thermofisher.com/de/de/home/materials-science/learning-center/applications/sem-tem-difference.html" ;
+                  skos:altLabel "TEM"@en ;
+                  skos:definition "Transmission electron microscopy (TEM) is a type of electron microscopy where a beam of electrons goes through a sample. An image is created by detecting electrons transmitted through the sample. Thus, TEM provides information on the crystal structure, morphology and stress state of the sample"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000047
+noes:NOES_0000047 rdf:type owl:Class ;
+                  rdfs:label "electron probe microanalysis"@en ;
+                  skos:altLabel "EPMA"@en ;
+                  skos:definition "Electron probe microanalysis (EPMA) is a technique to non-destructively determine the chemical element composition of small volumes of solid materials. In EPMA an electron beam is focued on a single point of a surface of a sample. The energy of an electron beam is high enough for electrons to pentrate deeper in the sample causing excitation of characteristic x-rays. An x-ray spectrometer detects those characteristic x-rays providing information about materials chemical composition."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000048
+noes:NOES_0000048 rdf:type owl:Class ;
+                  rdfs:comment "A low H_c​ is desirable for soft magnetic materials like electrical steel, indicating easy magnetization and demagnetization"@en ;
+                  rdfs:label "coercivity"@en ;
+                  skos:altLabel "coercive field strength"@en ;
+                  skos:definition "Coercivity is a magnetic property which is stimulated under an application of magnetic field. It describesthe value of the magnetic field strength H required to reduce the Magnetic Flux Density B back to zero after the material has been driven to the saturation of magnetic flux density B_sat."@en ;
+                  co:symbol "Hc"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000049
+noes:NOES_0000049 rdf:type owl:Class ;
+                  rdfs:label "magnetic induction"@en ;
+                  skos:altLabel "magnetic flux density"@en ;
+                  skos:definition "Magnetic induction is a magnetic property stimulated by an applied extermal magnetic field H. It characterizes the response of magnetic domains within a material to the applied magnetic field, i.e., the alignment of the magnetic domains and the stregnth of the total induced magnetic field in the material."@en ;
+                  co:symbol "B" .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000050
+noes:NOES_0000050 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000049 ;
+                  rdfs:label "remanence"@en ;
+                  skos:altLabel "remnant Induction"@en ;
+                  skos:definition "Remanence is the magnetic induction B that remains in the material when the magnetic field strength H is reduced to zero."@en ;
+                  co:symbol "Br"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000051
+noes:NOES_0000051 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000049 ;
+                  rdfs:label "saturation induction"@en ;
+                  skos:altLabel "saturation magnetic flux density"@en ;
+                  skos:definition "Saturation induction is a magnetic property which is stimulated under an application of magnetic field. It characterizes the maximum induction B a material can achieve, i.e., the saturation induction is reached when it remains unchanged with increasing magnetic field strength H."@en ;
+                  co:symbol "Bmax" ,
+                            "Bsat"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000052
+noes:NOES_0000052 rdf:type owl:Class ;
+                  rdfs:label "magnetic permeability"@en ;
+                  skos:definition "Magnetic permeability is a magnetic property that measures ability of a material to support the formation of a magnetic field within itself, and can be determined as the ratio between magnetic flux density / induction B and applied magnetic field strength H (μ=B/H)."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000053
+noes:NOES_0000053 rdf:type owl:Class ;
+                  rdfs:label "magnetic power loss"@en ;
+                  skos:definition "Magnetic power loss is a magnetic property of materials which describes dissipated energy due to application of an external magnetic field H."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000054
+noes:NOES_0000054 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000053 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty [ owl:inverseOf obo:BFO_0000055
+                                                   ] ;
+                                    owl:someValuesFrom noes:NOES_0000021
+                                  ] ;
+                  rdfs:comment "Anamalous loss is propotional to the frequency of the alternating magnetic field f^3/2."@en ,
+                               "Anomalous loss can be reduced byy minimizing domain wall spacing to ensure more uniform magnetization. This can be achieved by controlling grain size and crystallographic texure."@en ;
+                  rdfs:label "anomalous loss"@en ;
+                  co:symbol "Anomalous loss is a type of a magnetic power loss which is determined as a difference between total magnetic power loss P_tot and the sum of both hysteresis loss P_hys and eddy current loss  P_e. Anomalous loss is attributed to the localized, microscopic eddy currents generated by the motion of individual magnetic domain walls."@en ,
+                            "P_a" .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000055
+noes:NOES_0000055 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000053 ;
+                  rdfs:comment "Eddy current loss can be reduced by using thinner sheets and increasing Si content, which raises resistivity ρ."@en ,
+                               """The value of eddy current loss is proportional to the alternating frequency of an applied magnetic field f, sheet thickness d, and the peak induction Bsat, and inversely proportinal to the electric resistivity ρ. 
+Pe∝f2⋅d2⋅Bp2​/ρ"""@en ;
+                  rdfs:label "eddy current loss"@en ;
+                  skos:definition "Eddy current loss is a type of magnetic power loss which is attributed to the macroscopic circulating electrical currents which are induced  by the change of the magnetic flux dB/dt in the bulk of a material."@en ;
+                  co:symbol "P_e" .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000056
+noes:NOES_0000056 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000053 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty [ owl:inverseOf obo:BFO_0000055
+                                                   ] ;
+                                    owl:someValuesFrom noes:NOES_0000021
+                                  ] ;
+                  rdfs:comment "Hysteresis loss can be reduced by controlling chemical composition, i.e., reducing nonmetallic impurities and increasing Si content, and by controlling microstructure, i.e., achieving large uniform grains with minimizing inclusions and precipitates."@en ;
+                  rdfs:label "hysteresis loss"@en ;
+                  skos:definition "Hysteresis loss is a type of magnetic power lossses attributed dissipation of energy due to the irreversible motion of a magnetic domain wall. The value of hystereis loss is equivalent to the area of a static B-H curve."@en ;
+                  co:symbol "Phys"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000057
+noes:NOES_0000057 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000053 ;
+                  rdfs:comment "Total magnetic power loss is magnetic property of a material which describes its performance in an external magnetic field. Total magnetic power loss is a sum of hysteresis P_hys, eddy current P_e, and anomalous losses P_a."@en ;
+                  rdfs:label "total magnetic power loss"@en ;
+                  co:symbol "P_tot"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000058
+noes:NOES_0000058 rdf:type owl:Class ;
+                  rdfs:label "electrical resistivity"@en ;
+                  skos:definition "The electrical resistivity is an electrical property describing the ability of a material to oppose the flow of electric current. It is reciprocal to electric conductivity."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000059
+noes:NOES_0000059 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000052 ;
+                  rdfs:comment "Derivative dB/dH"@en ;
+                  rdfs:label "differential permeability"@en ;
+                  skos:definition "Differential permeability is the instantaneous slope of the magnetization curve or hysteresis loop at any given point"@en ;
+                  co:symbol "µd"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000060
+noes:NOES_0000060 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000052 ;
+                  rdfs:label "incremental permeability"@en ;
+                  owl:deprecated "" .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000061
+noes:NOES_0000061 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000052 ;
+                  rdfs:comment "How easily the material magnetizes from rest"@en ;
+                  rdfs:label "initial permeability"@en ;
+                  skos:definition "Initial permeability characterizes the slope of the tangent to the magnetization curve at the origin, i.e., H=0 and B=0. It represents the permeability in the weakest magnetic fields"@en ;
+                  co:symbol "µi"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000062
+noes:NOES_0000062 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000052 ;
+                  rdfs:comment "The maximum value of the normal permeability (the steepest line from the origin to the magnetization curve)."@en ;
+                  rdfs:label "maximum permeability"@en ;
+                  skos:definition "Maximum permeability is the steepest part of the B-H curve, where the material most readily accepts field. it indicates the easiest magnetization point of the material,"@en ;
+                  co:symbol "µmax"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000063
+noes:NOES_0000063 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000052 ;
+                  rdfs:comment "A line from the origin to the loop tip"@en ;
+                  rdfs:label "normal permeability"@en ;
+                  skos:definition "Normal permeabilty is the ratio of the peak magnetic induction B_max to the peak magnetic field strength H_max for a specific magnitization cycle."@en ;
+                  co:symbol "μa"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000064
+noes:NOES_0000064 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000052 ;
+                  rdfs:label "reversible permeability"@en ;
+                  owl:deprecated "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000065
+noes:NOES_0000065 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000057 ;
+                  rdfs:label "magnetic power loss at 1.5 T / 50 Hz"@en ;
+                  co:symbol "P1.5/50"@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000069
+noes:NOES_0000069 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000057 ;
+                  rdfs:label "magnetic power loss at 1.0 T / 400 Hz"@en ;
+                  skos:definition "Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field"@en ;
+                  co:symbol "P1.0/400"@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000070
+noes:NOES_0000070 rdf:type owl:Class ;
+                  rdfs:label "magnetic field strength"@en ;
+                  skos:definition "Magnetic field strength is a process attribute of an aplication of magnetic field process which characterizes the magnitude the external / applied magnetic field."@en ;
+                  co:symbol "H" .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000071
+noes:NOES_0000071 rdf:type owl:Class ;
+                  rdfs:label "magnetic susceptibility"@en ;
+                  skos:definition "Magnetic susceptibility is a disposition of a material which describes how responsive the material is to an applied magnetic field. It is a relation between the induced magnetization M and the magnetic field H."@en ;
+                  co:symbol "χ"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000072
+noes:NOES_0000072 rdf:type owl:Class ;
+                  rdfs:label "reduction of thickness"@en ;
+                  skos:definition "Reduction of thickness is a relational quality between a sheet material before and after a rolling process. Reduction of thickness characterizes relation between the final and initial sheet thickness usually given in percent."@en ;
+                  skos:example "90% reduction of thickess during cold rolling from 3 mm to 0.30 mm."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000073
+noes:NOES_0000073 rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:OBI_0000299 ;
+                                    owl:someValuesFrom noes:NOES_0000008
+                                  ] ;
+                  rdfs:comment "Fix axiom\"!!" ;
+                  rdfs:label "orientation distribution function calculation"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000074
+noes:NOES_0000074 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000050 ;
+                  rdfs:label "remanence in the transversal direction"@de .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000075
+noes:NOES_0000075 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "tensile strength in the transversal direction"@en ;
+                  skos:definition "Tensile strength in to the transversal direction is a tensile strength which is measured on a sample cut parallel to the transversal direction." ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000076
+noes:NOES_0000076 rdf:type owl:Class ;
+                  rdfs:label "incomplete pole figure"@en ;
+                  skos:definition "Incomplete pole figure is a pole figure that lacks intensity data for high tilt angles α."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000077
+noes:NOES_0000077 rdf:type owl:Class ;
+                  rdfs:label "complete pole figure"@en ;
+                  skos:definition "Complete pole figure is a pole figure which covers the full 0° - 90° range of tilt angles α"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000078
+noes:NOES_0000078 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "tensile strength at the 45° to the rolling direction"@en ;
+                  skos:definition "Tensile strength at the 45° to the rolling direction is a tensile strength which is measured on a sample cut to the 45° to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000079
+noes:NOES_0000079 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000057 ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "total magnetic power loss in the rolling direction"@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000080
+noes:NOES_0000080 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000057 ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "total magnetic power loss in the transversal direction"@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000081
+noes:NOES_0000081 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "yield strength at the 45° to the rolling direction"@en ;
+                  skos:definition "Yield strength at the 45° to the rolling direction is a yield strength which is measured on a sample cut to the 45° to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000082
+noes:NOES_0000082 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "yield strength in the rolling direction"@en ;
+                  skos:definition "Yield strength in to the rolling direction is a yield strength which is measured on a sample cut parallel to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000083
+noes:NOES_0000083 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "yield strength in the transversal direction"@en ;
+                  skos:definition "Yield strength in to the transversal direction is a yield strength which is measured on a sample cut parallel to the transversal direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000084
+noes:NOES_0000084 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000182 ;
+                  rdfs:label "peak magnetic polarization in the rolling direction"@en ;
+                  skos:altLabel "Peak magnetic polarization in the rolling direction is a peak magnetic polarization measured exclusively in the rolling direction of an electrical sheet."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000085
+noes:NOES_0000085 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000182 ;
+                  rdfs:label "peak magnetic polarization in the transversal direction"@en ;
+                  skos:definition "Peak magnetic polarization in the transversal direction is a peak magnetic polarization measured exclusively in the transversal direction of an electrical sheet."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000086
+noes:NOES_0000086 rdf:type owl:Class ;
+                  rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:someValuesFrom noes:NOES_0000177
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:allValuesFrom noes:NOES_0000177
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom noes:NOES_0000177
+                                  ] ;
+                  rdfs:label "α-fiber texture"@en ;
+                  skos:altLabel "<110> || RD" ;
+                  skos:definition "α-fiber texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame: <110> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000087
+noes:NOES_0000087 rdf:type owl:Class ;
+                  rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:someValuesFrom noes:NOES_0000177
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:allValuesFrom noes:NOES_0000177
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom noes:NOES_0000177
+                                  ] ;
+                  rdfs:comment """Note on a crystal structure: 
+theoretically possible in both bcc and fcc because <100> are the same types of directions
+practically lambda fiber is not stable in fcc because of the slip systems"""@en ;
+                  rdfs:label "λ-fiber texture"@en ;
+                  skos:altLabel "<100> || ND" ,
+                                "θ-fiber texture"@en ;
+                  skos:definition "λ-fiber texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame:  <100> family of crystallographic directions are oriented parallel to the normal direction (ND) of a sheet material, i,e., normal to the rolling plane."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000088
+noes:NOES_0000088 rdf:type owl:Class ;
+                  rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:someValuesFrom noes:NOES_0000177
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:allValuesFrom noes:NOES_0000177
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom noes:NOES_0000177
+                                  ] ;
+                  rdfs:label "η-fiber texture"@en ;
+                  skos:altLabel "<100> || RD" ;
+                  skos:definition "η-fiber texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame:  <100> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000089
+noes:NOES_0000089 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "yield strength ratio at 45° to the rolling direction"@en ;
+                  skos:definition "Yield strength ratio at the 45° to the rolling direction is a Yield strength ratio which is measured on a sample cut to the 45° to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000090
+noes:NOES_0000090 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000086 ,
+                                  noes:NOES_0000088 ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:someValuesFrom noes:NOES_0000177
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:allValuesFrom noes:NOES_0000177
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:label "cube texture component"@en ;
+                  skos:altLabel "{100}<100>" ;
+                  skos:definition "Cube texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame: <100> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {100} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000091
+noes:NOES_0000091 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000086 ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:someValuesFrom noes:NOES_0000177
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:allValuesFrom noes:NOES_0000177
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:label "rotated cube texture component"@en ;
+                  skos:altLabel "{100}<110>" ;
+                  skos:definition "Rotated cube texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame: <110> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {100} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000092
+noes:NOES_0000092 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000087 ,
+                                  noes:NOES_0000088 ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:someValuesFrom noes:NOES_0000177
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:allValuesFrom noes:NOES_0000177
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:label "Goss texture component"@en ;
+                  skos:altLabel "{110}<100>" ;
+                  skos:definition "Goss texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame: <100> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {110} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000093
+noes:NOES_0000093 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000086 ,
+                                  noes:NOES_0000087 ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:someValuesFrom noes:NOES_0000177
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:allValuesFrom noes:NOES_0000177
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:label "rotated Goss texture component"@en ;
+                  skos:altLabel "{110}<110>" ;
+                  skos:definition "Rotated Goss texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame: <110> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {110} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000094
+noes:NOES_0000094 rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty noes:NOES_0000068 ;
+                                    owl:someValuesFrom noes:NOES_0000036
+                                  ] ;
+                  rdfs:label "rolling plane"@en ;
+                  skos:definition "Rolling plane is a fiat surface which is a geometric basis of a rolled material. Rolling plane is normal to the normal direction. Rolling plane is a parallel to and has parts rolling, transverse, and longitudinal directions."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000095
+noes:NOES_0000095 rdf:type owl:Class ;
+                  rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:someValuesFrom noes:NOES_0000177
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:allValuesFrom noes:NOES_0000177
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom noes:NOES_0000177
+                                  ] ;
+                  rdfs:label "γ-fiber texture"@en ;
+                  skos:altLabel "<111> || ND" ;
+                  skos:definition "γ-fiber texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame: <111> family of crystallographic directions are oriented parallel to the normal direction (ND) of a sheet material, i.e., normal to the rolling plane."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000096
+noes:NOES_0000096 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "yield strength ratio in the rolling direction"@en ;
+                  skos:definition "Yield strength ratio in to the rolling direction is a Yield strength ratio which is measured on a sample cut parallel to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000097
+noes:NOES_0000097 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "yield strength ratio in the transversal direction"@en ;
+                  skos:definition "Yield strength ratio in to the transversal direction is a Yield strength ratio which is measured on a sample cut parallel to the transversal direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000098
+noes:NOES_0000098 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted." ;
+                  rdfs:label "percentage elongation after fracture at 45° to the rolling direction"@en ;
+                  skos:definition "Percentage elongation after fracture at 45° to the rolling direction is percentage elongation after fracture which is measured on a sample cut to the 45° to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000099
+noes:NOES_0000099 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "percentage elongation after fracture in the rolling direction"@en ;
+                  skos:definition "Percentage elongation after fracture in the rolling direction is percentage elongation after fracture which is measured on a sample cut parallel to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000100
+noes:NOES_0000100 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "percentage elongation after fracture in the transversal direction"@en ;
+                  skos:definition "Percentage elongation after fracture in the transversal direction is percentage elongation after fracture which is measured on a sample cut parallel to the transversal direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000101
+noes:NOES_0000101 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted." ;
+                  rdfs:label "percentage plastic extension at maximum force at 45° to the rolling direction"@en ;
+                  skos:definition "Percentage plastic extension at maximum force at 45° to the rolling direction is percentage elongation at maximum force which is measured on a sample cut to the 45° to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000102
+noes:NOES_0000102 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "percentage plastic extension at maximum force in the rolling direction"@en ;
+                  skos:definition "Percentage plastic extension at maximum force in the rolling direction is percentage elongation at maximum force which is measured on a sample cut parallel to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000103
+noes:NOES_0000103 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "percentage plastic extension at maximum force in the transversal direction"@en ;
+                  skos:definition "Percentage plastic extension at maximum force in the transversal direction is percentage elongation at maximum force which is measured on a sample cut parallel the transversal direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000104
+noes:NOES_0000104 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000051 ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "saturation induction in the rolling direction"@en ;
+                  skos:definition "Saturation induction in the rolling direction is a saturation induction measured exclusively in the rolling direction of an electrical sheet."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000105
+noes:NOES_0000105 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000051 ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
+                  rdfs:label "saturation induction in the transversal direction"@en ;
+                  skos:definition "Saturation induction in the transversal direction is a saturation induction measured exclusively in the transversal direction of an electrical sheet."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000106
+noes:NOES_0000106 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000059 ;
+                  rdfs:label "differential permeability in the rolling direction"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000107
+noes:NOES_0000107 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000059 ;
+                  rdfs:label "differential permeability in the transversal direction"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000108
+noes:NOES_0000108 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000062 ;
+                  rdfs:label "maximum permeability in the rolling direction"@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000109
+noes:NOES_0000109 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000062 ;
+                  rdfs:label "maximum permeability in the transversal direction"@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000110
+noes:NOES_0000110 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000000 ;
+                  rdfs:label "relative permeability in the rolling direction"@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000111
+noes:NOES_0000111 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000000 ;
+                  rdfs:label "relative permeability in the transversal direction"@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000112
+noes:NOES_0000112 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000064 ;
+                  rdfs:label "reversible permeability in the rolling direction"@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000113
+noes:NOES_0000113 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000064 ;
+                  rdfs:label "reversible permeability in the transversal direction"@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000114
+noes:NOES_0000114 rdf:type owl:Class ;
+                  rdfs:label "Stanzen"@de ,
+                             "stamping"@en ;
+                  skos:definition "Stamping is a separating process, a stamping press is a participant and it realizes some cutting function."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000117
+noes:NOES_0000117 rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000085 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000118
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:BFO_0000054 ;
+                                                                                owl:someValuesFrom noes:NOES_0000023
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                  ] ;
+                  rdfs:label "rolling mill"@en ;
+                  skos:definition "Rolling mill is device which is a participant in a rolling process, has a function of reducing thickness of an object that is specified input to the rolling process, and this function is realized in the rolling process."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000118
+noes:NOES_0000118 rdf:type owl:Class ;
+                  rdfs:label "thickness reduction function"@en ;
+                  skos:definition "Thickness reduction function is a function to reduce thickness of a material."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000119
+noes:NOES_0000119 rdf:type owl:Class ;
+                  rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty co:PMD_0025006 ;
+                                                           owl:someValuesFrom noes:NOES_0000023
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty co:PMD_0025006 ;
+                                                           owl:allValuesFrom noes:NOES_0000023
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty co:PMD_0025006 ;
+                                    owl:someValuesFrom noes:NOES_0000023
+                                  ] ;
+                  rdfs:comment "Number of rolling passes is a process attribute of a rolling process which specifies how many times a piece of material have been passed between rolling mills to achieve desired thickness."@en ;
+                  rdfs:label "number of rolling passes"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000120
+noes:NOES_0000120 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted." ;
+                  rdfs:label "percentage plastic extension at fracture at 45° to the rolling direction"@en ;
+                  skos:definition "Percentage plastic extension at fracture at 45° to the rolling direction is percentage elongation atfracture which is measured on a sample cut to the 45° to the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000121
+noes:NOES_0000121 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted." ;
+                  rdfs:label "percentage plastic extension at fracture in the rolling direction"@en ;
+                  skos:definition "Percentage plastic extension at fracture in the rolling direction is percentage elongation atfracture which is measured on a sample cut parallel the rolling direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000123
+noes:NOES_0000123 rdf:type owl:Class ;
+                  rdfs:comment "TODO axiom" ;
+                  rdfs:label "deviation angle"@en ;
+                  skos:definition "Deviation angle is a geometric relational quality relevant for the crystallographic texture analysis. Deviation angle  represents an angle between two crystallographic planes which are denoted by the same Miller indices, namely a crystallographic plane which is perfectly parallel to the rolling plane of a sheet material and a crystallographic plane in a crystal grain which is a part of the material."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000124
+noes:NOES_0000124 rdf:type owl:Class ;
+                  rdfs:comment "An instance belonging to the class should be rather inferred as asserted." ;
+                  rdfs:label "percentage plastic extension at fracture in the transversal direction"@en ;
+                  skos:definition "Percentage plastic extension at fracture in the transversal direction is percentage elongation at fracture which is measured on a sample cut parallel the transversal direction."@en ;
+                  noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000125
+noes:NOES_0000125 rdf:type owl:Class ;
+                  rdfs:label "inclusion role"@en ;
+                  skos:definition "Inclusion role is a role of object aggregate which is a part of microstructure of an alloy: These object aggregates are second-phase particles embedded in the alloy matrix, and are thermodynamically distinct from the matrix."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000126
+noes:NOES_0000126 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000125 ;
+                  rdfs:comment """Curation status: need more sophisticated axioms to detect metallic / non-metallic type. 
+Will be inferable in the future"""@en ;
+                  rdfs:label "metallic inclusion role"@en ;
+                  skos:definition "Matallic inclusion role is a inclusion role of some object aggregate, which members have metallic bond."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000127
+noes:NOES_0000127 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000125 ;
+                  rdfs:comment """Curation status: need more sophisticated axioms to detect metallic / non-metallic type. 
+Will be inferable in the future"""@en ;
+                  rdfs:label "non-metallic inclusion role"@en ;
+                  skos:definition "Non-metallic inclusion role is a inclusion role of some object aggregate, which members have non-metallic bond."@en ;
+                  skos:example "Non-metallic inclusion role of SiO₂, MnS, AlN, Si₃N₄, etc."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000128
+noes:NOES_0000128 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000043 ;
+                  qudt:symbol "A0" ;
+                  rdfs:label "texture parameter A0"@en ;
+                  rdfs:seeAlso "http://refhub.elsevier.com/S0304-8853(18)30867-9/h0160" ;
+                  skos:definition "Texture parameter A0 is a texture parameter for a magnetic field direction parallel to RD."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000129
+noes:NOES_0000129 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000043 ;
+                  qudt:symbol "A90" ;
+                  rdfs:label "texture parameter A90"@en ;
+                  rdfs:seeAlso "http://refhub.elsevier.com/S0304-8853(18)30867-9/h0160" ;
+                  skos:definition "Texture parameter A90 is a texture parameter for a magnetic field direction parallel to TD." .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000153
+noes:NOES_0000153 rdf:type owl:Class ;
+                  rdfs:label "diffraction process"@en ;
+                  skos:definition "Diffraction process is a structural property analyzing process which utilizes diffraction of either electron, x-ray, or neutron waves to determine material's crystal structure, crystallographic texture, (phase) composition, and presence of defects."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000154
+noes:NOES_0000154 rdf:type owl:Class ;
+                  rdfs:label "diffractometer"@en ;
+                  skos:definition "Diffractometer is a device which detects the intensity of a beam of either electrons, x-rays, or neutrons scattered from a material during a diffraction process."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000155
+noes:NOES_0000155 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000154 ;
+                  rdfs:label "EBSD system"@en ;
+                  skos:definition "Electron backscatter diffraction (EBSD) system is a diffractomter which detects diffracted electrons in the chamber of a scanning electron microscope."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000156
+noes:NOES_0000156 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000070 ;
+                  rdfs:label "maximal magnetic field strength"@en ;
+                  skos:definition "Maximal magnetic field is a maximal value of a magnetic field has has to be achieved during characterization of magnetic properties"@en ;
+                  co:symbol "Hmax"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000159
+noes:NOES_0000159 rdf:type owl:Class ;
+                  rdfs:label "electron microscope accelerating voltage"@en ;
+                  skos:definition "Electron microscope accelerating voltage is a process attribute of an electron microscopy assay which describes the value of a voltage applied to the electron source to extract electrons from the source and accelerate them in the direction of a sample"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000160
+noes:NOES_0000160 rdf:type owl:Class ;
+                  rdfs:comment """TODO refine the axiom: 
+1. Add reference frames for sample and material?
+2. longitudinal direction as sublcass of fiat line?""" ;
+                  rdfs:label "angle to rolling direction"@en ;
+                  skos:definition "Angle to rolling direction is a relational quality which characterizes the orientation of a sample cut from a rolled material in respect to the rolling direction (RD) of this material."@en ;
+                  skos:example "Sample cut at 30° to rolling direction of a annealed nonoriented electrical steel."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000161
+noes:NOES_0000161 rdf:type owl:Class ;
+                  rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:someValuesFrom noes:NOES_0000177
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0000080 ;
+                                                           owl:allValuesFrom noes:NOES_0000177
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom noes:NOES_0000177
+                                  ] ;
+                  rdfs:comment "The axiom is not expressible in OWL. SHACL restriction?"@en ;
+                  rdfs:label "α*-fiber texture"@en ;
+                  skos:altLabel "{h11}<1/h12>" ;
+                  skos:definition "α*-fiber texture is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame: {11h} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material and <1/h12> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000163
+noes:NOES_0000163 rdf:type owl:Class ;
+                  rdfs:label "magnetic properties measuring device"@en ;
+                  skos:definition "Magnetic properties measuring device is a device that measures a hysteresis curve, i,e., its corresponding characteristic points, hysteresis loss, and total magnetic loss, of soft magnetic materials by applying alternating (AC) or quasi-static (DC) electric current on copper coils to produde external magnetic field."@en ;
+                  skos:example "Single sheet tester (SST), Epstein frame, Ring core tester"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000165
+noes:NOES_0000165 rdf:type owl:Class ;
+                  rdfs:label "fillet radius"@en ;
+                  skos:example "Fillet radus is a charactereristic paramater of a geometry of a tensile test specimen which characterizes the radius of the curved sections (fillets) connecting the gripping ends to the reduced gauge length in a standard \"dog-bone\" specimen is specifically dimensioned to prevent stress concentrations from causing premature failure outside the gauge length."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000166
+noes:NOES_0000166 rdf:type owl:Class ;
+                  rdfs:label "average grain size"@en ;
+                  skos:example "Average grain size is an intensive quality of a material which describes the average diameter of grains in the material's microstructure."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000177
+noes:NOES_0000177 rdf:type owl:Class ;
+                  rdfs:comment "Grain population is a disconnected material aggregate which has crystallites ias parts.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation."@en ;
+                  rdfs:label "grain population"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000178
+noes:NOES_0000178 rdf:type owl:Class ;
+                  rdfs:comment """TODO add axioms
+1. When the magnetic qualities are realized
+2. Especially for peak values that would be interesting"""@en ;
+                  rdfs:label "magnetic polarization"@en ;
+                  skos:definition "Magnetic polarization is a magnetic property which is a measure of intrinsic magnetization of a material (alignment of magnetic dipoles) as a response to the externaly applied magnetic field H. It is determined as a difference between magnetic induction B and the external field µ0*H."@en ;
+                  co:symbol "J" .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000179
+noes:NOES_0000179 rdf:type owl:Class ;
+                  rdfs:comment "Electrical steel is a steel material which has only ferritic metallic grain structure and uses silicon as the main alloying element. It manufactured in a form of a sheet and designed to exibit superior magenetic properties either in all directions (non-orieneted) or in a sinlge direction (oriented)."@en ;
+                  rdfs:label "electrical steel"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000180
+noes:NOES_0000180 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000179 ;
+                  rdfs:label "non-oriented electrical steel"@en ;
+                  skos:altLabel "NOES" ,
+                                "Non-oriented electrical steel is an electrical steel material which exhibits isotropic magnetic properties in all direction in the sheet plane."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000181
+noes:NOES_0000181 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000180 ;
+                  rdfs:comment """TODO: 
+1. Import W/kg units
+2. Add units to the equivalent class
+3. Think of adding nomical thickness class
+4. Check the some in the decimal"""@en ;
+                  rdfs:label "NO27-14"@en ;
+                  skos:altLabel "NO27-14 is a non-oriented electrical steel which has characteristic total magnetic losses P1.0/400 of max 14 W/kg and a quality thickness of 0.27 mm."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000182
+noes:NOES_0000182 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000178 ;
+                  rdfs:label "peak magnetic polarization"@en ;
+                  skos:altLabel "saturation polatization"@en ;
+                  skos:definition "Peak magnetic polarization is a maximum magnetic polarization that a material exhibits under the applied external magnetic field Hmax."@en ;
+                  co:symbol "Jmax" ,
+                            "Jsat"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000183
+noes:NOES_0000183 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000163 ;
+                  obo:IAO_0000119 "https://de.wikipedia.org/wiki/Epsteinrahmen" ;
+                  rdfs:comment "Epstein frame is a measuring device of magnetic properties of soft magnetic materials, especially electrical steels. It consists of outer primary (magnetizing) winding, which surrounds the inner secondary (measuring) winding, and both windings are distributed across the four coils of the  frame. The steel strips are inserted pairwise into the opposite coils."@en ;
+                  rdfs:label "Epstein frame"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000184
+noes:NOES_0000184 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000163 ;
+                  obo:IAO_0000119 "https://www.magnet-physik.de/wp-content/uploads/2023/08/MJC-210-e-3236.pdf" ;
+                  rdfs:comment "Single sheet tester is a measuring device of soft magnetic properties of sheet materials, especially electrical steels. It consists of a single coil system to magnetize the sample with and and a pick-up coil to detect  polarization in the material."@en ;
+                  rdfs:label "sinlge sheet tester"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000185
+noes:NOES_0000185 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000163 ;
+                  obo:IAO_0000119 "https://en.wikipedia.org/wiki/Rowland_ring" ;
+                  rdfs:label "thoroidal core setup"@en ;
+                  skos:altLabel "Thoroidal core setup is a measuring device of a hysteresis curve of magnetic materials. The specimen shape is a thoroid, around which a magnitization coil is closely wound."@en ,
+                                "ring core setup"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/pmd/noes/NOES_0000028
+noes:NOES_0000028 rdf:type owl:NamedIndividual ;
+                  rdfs:label "rolling direction (RD)"@en ;
+                  owl:deprecated "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000029
+noes:NOES_0000029 rdf:type owl:NamedIndividual ;
+                  rdfs:label "transverse direction (TD)"@en ;
+                  owl:deprecated "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000030
+noes:NOES_0000030 rdf:type owl:NamedIndividual ;
+                  rdfs:label "normal direction (ND)"@en ;
+                  owl:deprecated "true"^^xsd:boolean .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi
