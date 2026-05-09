@@ -70,8 +70,7 @@ $(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPOR
 						--method BOT \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
-			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
-			convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
+			$(ANNOTATE_CONVERT_FILE); \
 
 # Import TTO classes preserving subclass hierarchy to PMDco
 $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(IMPORTSEED) | all_robot_plugins
@@ -89,8 +88,7 @@ $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(I
 				   --trim true \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
-			annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
-			convert -f owl --output $@.tmp.owl && mv $@.tmp.owl $@
+			$(ANNOTATE_CONVERT_FILE); \
 
 $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.txt
 	@echo "Generating Application Module from pmdco..."
@@ -150,7 +148,7 @@ $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
 		--output $@.tmp.owl && mv $@.tmp.owl $@
 
 
-CITATION=noes: Nonoriented Electrical Steel Ontology. Version $(VERSION), https://w3id.org/pmd/noes/
+CITATION="'NOES-Onto: Nonoriented Electrical Steel Ontology. Version $(VERSION), https://w3id.org/pmd/noes/'"
 
 ALL_ANNOTATIONS=--ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pmd/noes/$(VERSION) \
 	--annotation http://purl.org/dc/terms/created "$(TODAY)" \
@@ -165,5 +163,7 @@ update-ontology-annotations:
 	$(ROBOT) annotate --input noes-full.ttl $(ALL_ANNOTATIONS) --output ../../noes-full.ttl
 	$(ROBOT) annotate --input noes-base.owl $(ALL_ANNOTATIONS) --output ../../noes-base.owl
 	$(ROBOT) annotate --input noes-base.ttl $(ALL_ANNOTATIONS) --output ../../noes-base.ttl
+	$(ROBOT) annotate --input noes-simple.owl $(ALL_ANNOTATIONS) --output ../../noes-simple.owl
+	$(ROBOT) annotate --input noes-simple.ttl $(ALL_ANNOTATIONS) --output ../../noes-simple.ttl
 
 all_assets: update-ontology-annotations
