@@ -33,7 +33,7 @@ jobs:
         env:
           CRYO_TOKEN: ${{ secrets.CRYO_TOKEN }}
           DEFAULT_BRANCH: main
-        run: cd src/ontology && make refresh-imports all_assets ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G'
+        run: cd src/ontology && make refresh-imports all_assets ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' -vvv
       - name: Commit files # commit the src folder
         uses: EndBug/add-and-commit@v9
         with:
