@@ -8,6 +8,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix cryo: <https://w3id.org/pmd/cryo/> .
 @prefix noes: <https://w3id.org/pmd/noes/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -59,6 +60,10 @@ dcterms:source rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/title
 dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://qudt.org/schema/qudt/symbol
+qudt:symbol rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#altLabel
@@ -10864,6 +10869,24 @@ Will be inferable in the future"""@en ;
                   rdfs:label "non-metallic inclusion role"@en ;
                   skos:definition "Non-metallic inclusion role is a inclusion role of some object aggregate, which members have non-metallic bond."@en ;
                   skos:example "Non-metallic inclusion role of SiO₂, MnS, AlN, Si₃N₄, etc."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000128
+noes:NOES_0000128 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000043 ;
+                  qudt:symbol "A0" ;
+                  rdfs:label "texture parameter A0"@en ;
+                  rdfs:seeAlso "http://refhub.elsevier.com/S0304-8853(18)30867-9/h0160" ;
+                  skos:definition "Texture parameter A0 is a texture parameter for a magnetic field direction parallel to RD."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000129
+noes:NOES_0000129 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000043 ;
+                  qudt:symbol "A90" ;
+                  rdfs:label "texture parameter A90"@en ;
+                  rdfs:seeAlso "http://refhub.elsevier.com/S0304-8853(18)30867-9/h0160" ;
+                  skos:definition "Texture parameter A90 is a texture parameter for a magnetic field direction parallel to TD." .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000153
