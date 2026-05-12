@@ -8,29 +8,35 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT ?material ?stepNumber ?process
 WHERE {
     {
-        SELECT ?material ?process (COUNT(?midProcess) AS ?stepNumber)
+        SELECT ?material ?process (COUNT(DISTINCT ?midProcess) AS ?stepNumber)
         WHERE {
-            ?material rdf:type noes:NOES_0000180 . 
+            VALUES ?idValue { "NOES_123" } #example
+            		?material rdf:type  noes:NOES_0000180 .
+  					?material obo:IAO_0000235 ?id .
+  					?id pmd:PMD_0000006 ?idValue .		 
             
-            # Identify the last process for this material
+            # Identify the actual terminal process for this material
             { ?material obo:OBI_0000312 ?lastProcess . } 
             UNION 
             { ?material pmd:PMD_0000069 ?state . ?state obo:OBI_0000312 ?lastProcess . }
             
-            # Use 'preceded by' to find the previous processes
+            # Use * here to include the lastProcess itself in the count, 
+            # but we ensure ?process is a valid process in the chain.
             ?lastProcess obo:BFO_0000062* ?process .
+            
+            # The 'midProcess' logic calculates distance. 
+            # If a process is the 'first', it will have many midProcesses (descendants).
             ?process obo:BFO_0000062* ?midProcess .
             
-            # Make sure that these processes are manufacturing processes
+            # Verification: The process must be a valid manufacturing process
             ?process rdf:type pmd:PMD_0000833 . 
             ?midProcess rdf:type pmd:PMD_0000833 .
 
-            # Check of precedes or preceded by triples exist (to filter cutting)
+            # Ensure ?process is actually connected to the chain logic:
+            # It must either be the lastProcess OR be preceded by something OR precede something.
             FILTER (
-                ?process = ?lastProcess || 
-                EXISTS { ?process obo:BFO_0000062 [] } || 
-                EXISTS { ?process obo:BFO_0000063 [] }
-            )
+    				(EXISTS { ?process obo:BFO_0000062 [] } || EXISTS { ?process obo:BFO_0000063 [] })
+			)
         }
         GROUP BY ?material ?process
     }
