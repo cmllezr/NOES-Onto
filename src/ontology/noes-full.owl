@@ -19,11 +19,11 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/noes-full.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-06-10/noes-full.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-06-11/noes-full.owl"/>
         <dcterms:description>None</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/unspecified"/>
         <dcterms:title>NOES Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
-        <owl:versionInfo>2026-06-10</owl:versionInfo>
+        <owl:versionInfo>2026-06-11</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -9599,7 +9599,7 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:defin
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020003"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -9615,11 +9615,8 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:defin
                 <owl:onClass rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000028"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment>(&apos;quality of&apos; some &apos;crystal lattice&apos;) potentially crystal system is a quality of a crystal lattice. But then we need the connection between crystal lattice, grains, etc. and its complicated</rdfs:comment>
-        <rdfs:comment xml:lang="en">defintion from Introduction to Textur Analysis. TODO: add proper annnotation property</rdfs:comment>
         <rdfs:label xml:lang="en">crystal system</rdfs:label>
-        <skos:altLabel xml:lang="en">lattice type</skos:altLabel>
-        <skos:definition xml:lang="en">Crystal system is a intensive quality of a crystal lattice which describes the arrangement of lattice points in an infinite 3D space in such way that each lattice point has an identical environment to that around every other lattice point. It is specified by one of the 7 crystaa sytem value.</skos:definition>
+        <skos:definition xml:lang="en">Crystal system is a quality of a (real) crystal which defines its symmetry based on the rotational and mirror symmetries of the actual atomic arrangements.</skos:definition>
     </owl:Class>
     
 
@@ -9671,22 +9668,16 @@ Plane Miller indices must be written in round brackets, e.g., (hkl).</skos:defin
                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000030"/>
                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000031"/>
                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000032"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000033"/>
                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000034"/>
                     <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000391"/>
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
-                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">crystal system value</rdfs:label>
         <skos:definition xml:lang="en">crystal system value is a categorical value specification which describes the grouping of
-crystal structures according to the axial system used to describe their lattice It is a set of three axes in a particular geometrical arrangement: triclinic, monoclinic, orthorhombic, tetragonal, rhombohedral (trigonal), hexagonal, and cubic (isometric).</skos:definition>
+crystal system  based on the rotational and mirror symmetries of their actual atomic arrangements in the  crystal. The specific values are triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, and cubic.</skos:definition>
     </owl:Class>
     
 
@@ -9731,7 +9722,7 @@ crystal structures according to the axial system used to describe their lattice 
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                                             <owl:Restriction>
                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
@@ -9754,7 +9745,7 @@ crystal structures according to the axial system used to describe their lattice 
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
@@ -9812,10 +9803,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000029"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -9826,10 +9817,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000029"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -9872,10 +9863,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -9886,10 +9877,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -9960,10 +9951,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000046"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -9974,10 +9965,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000046"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10020,10 +10011,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000046"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10034,10 +10025,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000046"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10088,7 +10079,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                                             <owl:Restriction>
                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000029"/>
@@ -10111,7 +10102,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000029"/>
@@ -10157,7 +10148,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                                             <owl:Restriction>
                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
@@ -10180,7 +10171,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
@@ -10226,7 +10217,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                                             <owl:Restriction>
                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
@@ -10249,7 +10240,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
@@ -10295,7 +10286,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                                             <owl:Restriction>
                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
@@ -10318,7 +10309,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
@@ -10364,7 +10355,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                                             <owl:Restriction>
                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
@@ -10387,7 +10378,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
@@ -10433,7 +10424,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                                 <owl:someValuesFrom>
                                                     <owl:Class>
                                                         <owl:intersectionOf rdf:parseType="Collection">
-                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                                             <owl:Restriction>
                                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
@@ -10456,7 +10447,7 @@ Grain orientation can be specified by either texture fibers or texture component
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
@@ -10494,10 +10485,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10508,10 +10499,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10554,10 +10545,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000044"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10568,10 +10559,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000044"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10614,10 +10605,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000045"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10628,10 +10619,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000045"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10674,10 +10665,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000045"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10688,10 +10679,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000045"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10734,10 +10725,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000044"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10748,10 +10739,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000044"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10794,10 +10785,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10808,10 +10799,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10854,10 +10845,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10868,10 +10859,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10914,10 +10905,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10928,10 +10919,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10957,7 +10948,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">bravais lattice trigonal primitive</rdfs:label>
+        <rdfs:label xml:lang="en">bravais lattice rhombohedral primitive</rdfs:label>
     </owl:Class>
     
 
@@ -10974,10 +10965,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -10988,10 +10979,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000043"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -11034,10 +11025,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000044"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -11048,10 +11039,10 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000027"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
-                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000044"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
@@ -11089,11 +11080,11 @@ Grain orientation can be specified by either texture fibers or texture component
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020003"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">space group</rdfs:label>
-        <skos:definition xml:lang="en">space group is a quality of some crystal lattice that defines the symmetry of a repeating pattern of the lattice in space.</skos:definition>
+        <skos:definition xml:lang="en">space group is a quality of some crystal  that defines the symmetry combining all point group symmetries with all lattice translation symmetries</skos:definition>
     </owl:Class>
     
 
@@ -11140,7 +11131,7 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
@@ -11160,7 +11151,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
@@ -11187,7 +11178,7 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000029"/>
@@ -11207,7 +11198,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000029"/>
@@ -11234,7 +11225,7 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
@@ -11254,7 +11245,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000030"/>
@@ -11281,7 +11272,7 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
@@ -11301,7 +11292,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000031"/>
@@ -11328,7 +11319,7 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
@@ -11348,7 +11339,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000032"/>
@@ -11375,7 +11366,7 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
@@ -11395,7 +11386,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000033"/>
@@ -11405,7 +11396,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">trigonal crystal lattice</rdfs:label>
+        <rdfs:label xml:lang="en">rhombohedral crystal lattice</rdfs:label>
     </owl:Class>
     
 
@@ -11422,7 +11413,7 @@ Grain orientation can be specified by either texture fibers or texture component
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
@@ -11442,7 +11433,7 @@ Grain orientation can be specified by either texture fibers or texture component
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000026"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:hasValue rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
@@ -11453,6 +11444,75 @@ Grain orientation can be specified by either texture fibers or texture component
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">hexagonal crystal lattice</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000390 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000390">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000392"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000392"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Considers just the lattice points, no atoms</rdfs:comment>
+        <rdfs:label xml:lang="en">lattice system</rdfs:label>
+        <skos:altLabel xml:lang="en">lattice type</skos:altLabel>
+        <skos:definition xml:lang="en">lattice system is a quality of crystal lattice that defines its symmetry based on the 7 categories originating from its point group symmetries of their empty translational frameworks</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000392 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000392">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000029"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000030"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000031"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000032"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000033"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000034"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000035"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001930"/>
+        <rdfs:label xml:lang="en">lattice system value</rdfs:label>
+        <skos:definition xml:lang="en">lattice system value is a categorical value specification which describes the grouping of
+lattice system based on the point group symmetries of their empty translational frameworks. The specific values are triclinic, monoclinic, orthorhombic, tetragonal, rhombohedral, hexagonal, and cubic.</skos:definition>
     </owl:Class>
     
 
@@ -18892,6 +18952,16 @@ Will be inferable in the future</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/pmd/noes/NOES_0000132 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000132">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000008"/>
+        <rdfs:label xml:lang="en">operating current</rdfs:label>
+        <skos:definition xml:lang="en">operating current in is the electrical current (measured in milliamperes, mA) applied to the filament which controls the intensity of the beam (X-Ray, electron, etc)</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/noes/NOES_0000153 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000153">
@@ -18937,14 +19007,8 @@ Will be inferable in the future</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000159">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000008"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025006"/>
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000625"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">electron microscope accelerating voltage</rdfs:label>
-        <skos:definition xml:lang="en">Electron microscope accelerating voltage is a process attribute of an electron microscopy assay which describes the value of a voltage applied to the electron source to extract electrons from the source and accelerate them in the direction of a sample</skos:definition>
+        <rdfs:label xml:lang="en">operating voltage</rdfs:label>
+        <skos:definition xml:lang="en">operating g voltage is a process attribute of an assay which describes the value of a voltage applied to the electron source to extract electrons from the source and accelerate them in the direction of a sample</skos:definition>
     </owl:Class>
     
 
@@ -20776,8 +20840,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000034"/>
         <owl:differentFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000035"/>
         <rdfs:label xml:lang="en">rhombohedral</rdfs:label>
-        <skos:altLabel xml:lang="en">trigonal</skos:altLabel>
-        <skos:definition xml:lang="en">Rhombohedral ( trigonal) crystal system is a crystal system with one threefold rotation axis.</skos:definition>
+        <skos:definition xml:lang="en">Rhombohedral crystal system is a crystal system with one threefold rotation axis.</skos:definition>
     </owl:NamedIndividual>
     
 
@@ -24339,6 +24402,15 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <cryo:CRYO_0000146>I a -3 d</cryo:CRYO_0000146>
         <cryo:CRYO_0000147>-I 4bd 2c 3</cryo:CRYO_0000147>
         <rdfs:label>-I 4bd 2c 3 space group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000391 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000391">
+        <rdfs:label xml:lang="en">trigonal</rdfs:label>
+        <skos:definition xml:lang="en">Triclinic crystal system is a crystal system with one 3-fold rotation axis</skos:definition>
     </owl:NamedIndividual>
     
 
