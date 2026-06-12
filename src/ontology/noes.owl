@@ -1670,6 +1670,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:label xml:lang="en">denoted by family</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1684,6 +1685,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000235"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002350"/>
         </owl:propertyChainAxiom>
+        <rdfs:label>denoted by family under cubic symmetry</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1692,6 +1694,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
+        <rdfs:label>is cubic</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1796,39 +1799,10 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     <!-- https://w3id.org/pmd/cryo/CRYO_0000016 -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000016">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <rdfs:label xml:lang="en">has Miller index</rdfs:label>
-        <skos:definition xml:lang="en">has Miller index is a top-level annotation property to specify Miller indices of crystallographic plane, direction, or lattice point.</skos:definition>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000017 -->
-
-    <owl:DatatypeProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000017">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000016"/>
-        <rdfs:label xml:lang="en">has h</rdfs:label>
-        <skos:definition xml:lang="en">has h specifies an integer of a h Miller index in a hkl set</skos:definition>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000018 -->
-
-    <owl:DatatypeProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000018">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000016"/>
-        <rdfs:label xml:lang="en">has k</rdfs:label>
-        <skos:definition xml:lang="en">has k specifies an integer of a k Miller index in a hkl set</skos:definition>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000019 -->
-
-    <owl:DatatypeProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000019">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000016"/>
-        <rdfs:label xml:lang="en">has l</rdfs:label>
-        <skos:definition xml:lang="en">has l specifies an integer of a l Miller index in a hkl set</skos:definition>
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000014"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="en">has Miller indices</rdfs:label>
+        <skos:definition xml:lang="en">has Miller indices is an annotation property to specify Miller indices of crystallographic plane, direction, or family of equivalent planes or directions</skos:definition>
     </owl:DatatypeProperty>
     
 
@@ -11485,10 +11459,6 @@ Grain orientation can be specified by either texture fibers or texture component
                 <owl:onClass rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000392"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Considers just the lattice points, no atoms</rdfs:comment>
-        <rdfs:label xml:lang="en">lattice system</rdfs:label>
-        <skos:altLabel xml:lang="en">lattice type</skos:altLabel>
-        <skos:definition xml:lang="en">lattice system is a quality of crystal lattice that defines its symmetry based on the 7 categories originating from its point group symmetries of their empty translational frameworks</skos:definition>
     </owl:Class>
     
 
@@ -20875,10 +20845,8 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000130"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/components/cryo-individuals.owl/CRYO_0000000"/>
         <cryo:CRYO_0000016>{001}</cryo:CRYO_0000016>
+        <cryo:CRYO_0000016>{010}</cryo:CRYO_0000016>
         <cryo:CRYO_0000016>{100}</cryo:CRYO_0000016>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
         <rdfs:label xml:lang="en">{100}</rdfs:label>
     </owl:NamedIndividual>
     
@@ -20941,9 +20909,8 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000080"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000081"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000082"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>{011}</cryo:CRYO_0000016>
+        <cryo:CRYO_0000016>{110}</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">{110}</rdfs:label>
     </owl:NamedIndividual>
     
@@ -20961,9 +20928,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000100"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000101"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000102"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>{111}</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">{111}</rdfs:label>
     </owl:NamedIndividual>
     
@@ -20979,9 +20944,9 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000115"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000116"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000117"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>&lt;001&gt;</cryo:CRYO_0000016>
+        <cryo:CRYO_0000016>&lt;010&gt;</cryo:CRYO_0000016>
+        <cryo:CRYO_0000016>&lt;100&gt;</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">&lt;100&gt;</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21003,9 +20968,8 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000092"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000093"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000094"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>&lt;011&gt;</cryo:CRYO_0000016>
+        <cryo:CRYO_0000016>&lt;110&gt;</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">&lt;110&gt;</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21023,9 +20987,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000109"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000110"/>
         <obo:RO_0002351 rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000111"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>&lt;111&gt;</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">&lt;111&gt;</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21035,9 +20997,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000069">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(110)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(110)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21047,9 +21007,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000070">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(-110)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(-110)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21059,9 +21017,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000071">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(1-10)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(1-10)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21071,9 +21027,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000072">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(-1-10)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(-1-10)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21083,9 +21037,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000073">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(101)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(101)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21095,9 +21047,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000074">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(-101)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(-101)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21107,9 +21057,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000076">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(10-1)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(10-1)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21119,9 +21067,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000077">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(-10-1)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(-10-1)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21131,9 +21077,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000078">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(011)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(011)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21143,9 +21087,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000080">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(0-11)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(0-11)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21155,9 +21097,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000081">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(01-1)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(01-1)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21167,9 +21107,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000082">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(0-1-1)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(0-1-1)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21179,9 +21117,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000083">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[110]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[110]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21191,9 +21127,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000084">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[-110]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[-110]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21203,9 +21137,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000085">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[1-10]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[1-10]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21215,9 +21147,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000086">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[-1-10]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[-1-10]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21227,9 +21157,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000087">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[101]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[101]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21239,9 +21167,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000088">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[-101]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[-101]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21251,9 +21177,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000089">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[10-1]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[10-1]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21263,9 +21187,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000090">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[-10-1]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[-10-1]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21275,9 +21197,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000091">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[011]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[011]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21287,9 +21207,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000092">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[0-11]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[0-11]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21299,9 +21217,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000093">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[01-1]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[01-1]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21311,9 +21227,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000094">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[0-1-1]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[0-1-1]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21323,9 +21237,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000095">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(111)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(111)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21335,9 +21247,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000096">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(-111)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(-111)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21347,9 +21257,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000097">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(1-11)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(1-11)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21359,9 +21267,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000098">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(11-1)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(11-1)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21371,9 +21277,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000099">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(-1-11)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(-1-11)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21383,9 +21287,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000100">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(-11-1)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(-11-1)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21395,9 +21297,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000101">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(1-1-1)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(1-1-1)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21407,9 +21307,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000102">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(-1-1-1)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(-1-1-1)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21419,9 +21317,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000104">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[111]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[111]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21431,9 +21327,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000105">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[-111]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[-111]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21443,9 +21337,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000106">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[1-11]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[1-11]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21455,9 +21347,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000107">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[11-1]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[11-1]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21467,9 +21357,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000108">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[-1-11]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[-1-11]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21479,9 +21367,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000109">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[-11-1]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[-11-1]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21491,9 +21377,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000110">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[1-1-1]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[1-1-1]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21503,9 +21387,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000111">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[-1-1-1]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[-1-1-1]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21515,9 +21397,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000112">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[100]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[100]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21527,9 +21407,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000113">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[-100]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[-100]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21539,9 +21417,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000114">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[010]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[010]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21551,9 +21427,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000115">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[0-10]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[0-10]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21563,9 +21437,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000116">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[001]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[001]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21575,9 +21447,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000117">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000020"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>[00-1]</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">[00-1]</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21587,9 +21457,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000125">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(100)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(100)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21599,9 +21467,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000126">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(010)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(010)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21611,9 +21477,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000127">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(001)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(001)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21623,9 +21487,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000128">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(-100)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(-100)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21635,9 +21497,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000130">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(00-1)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(00-1)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -21675,20 +21535,6 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <cryo:CRYO_0000146>P 1 2 1</cryo:CRYO_0000146>
         <cryo:CRYO_0000147>P 2y</cryo:CRYO_0000147>
         <rdfs:label>P 2y space group</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000152 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000152">
-        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
-        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</cryo:CRYO_0000145>
-        <cryo:CRYO_0000146>P 1 21 1</cryo:CRYO_0000146>
-        <cryo:CRYO_0000147>P 2yb</cryo:CRYO_0000147>
-        <rdfs:label>P 2yb space group</rdfs:label>
-        <rdfs:label xml:lang="en">has Miller indices family</rdfs:label>
-        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:NamedIndividual>
     
 
@@ -21741,34 +21587,6 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     
 
 
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000157 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000157">
-        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
-        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</cryo:CRYO_0000145>
-        <cryo:CRYO_0000146>C 1 c 1</cryo:CRYO_0000146>
-        <cryo:CRYO_0000147>C -2yc</cryo:CRYO_0000147>
-        <rdfs:label>C -2yc space group</rdfs:label>
-        <rdfs:label xml:lang="en">Miller indices family of</rdfs:label>
-        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000158 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000158">
-        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
-        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</cryo:CRYO_0000145>
-        <cryo:CRYO_0000146>P 1 2/m 1</cryo:CRYO_0000146>
-        <cryo:CRYO_0000147>-P 2y</cryo:CRYO_0000147>
-        <rdfs:label>-P 2y space group</rdfs:label>
-        <rdfs:label xml:lang="en">under symmetry</rdfs:label>
-        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
-    </owl:NamedIndividual>
-    
-
-
     <!-- https://w3id.org/pmd/cryo/CRYO_0000159 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000159">
@@ -21805,20 +21623,6 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     
 
 
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000162 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000162">
-        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
-        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</cryo:CRYO_0000145>
-        <cryo:CRYO_0000146>P 1 21/c 1</cryo:CRYO_0000146>
-        <cryo:CRYO_0000147>-P 2ybc</cryo:CRYO_0000147>
-        <rdfs:label>-P 2ybc space group</rdfs:label>
-        <rdfs:label xml:lang="en">has Miller indices family under cubic symmetry</rdfs:label>
-        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
-    </owl:NamedIndividual>
-    
-
-
     <!-- https://w3id.org/pmd/cryo/CRYO_0000163 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000163">
@@ -21827,17 +21631,6 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <cryo:CRYO_0000146>C 1 2/c 1</cryo:CRYO_0000146>
         <cryo:CRYO_0000147>-C 2yc</cryo:CRYO_0000147>
         <rdfs:label>-C 2yc space group</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000164 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000164">
-        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
-        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</cryo:CRYO_0000145>
-        <cryo:CRYO_0000146>P 2 2 2</cryo:CRYO_0000146>
-        <cryo:CRYO_0000147>P 2 2</cryo:CRYO_0000147>
     </owl:NamedIndividual>
     
 
@@ -21878,17 +21671,6 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     
 
 
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000168 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000168">
-        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
-        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</cryo:CRYO_0000145>
-        <cryo:CRYO_0000146>C 2 2 21</cryo:CRYO_0000146>
-        <cryo:CRYO_0000147>C 2c 2</cryo:CRYO_0000147>
-    </owl:NamedIndividual>
-    
-
-
     <!-- https://w3id.org/pmd/cryo/CRYO_0000169 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000169">
@@ -21897,17 +21679,6 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <cryo:CRYO_0000146>C 2 2 2</cryo:CRYO_0000146>
         <cryo:CRYO_0000147>C 2 2</cryo:CRYO_0000147>
         <rdfs:label>C 2 2 space group</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/pmd/cryo/CRYO_0000170 -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170">
-        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
-        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</cryo:CRYO_0000145>
-        <cryo:CRYO_0000146>F 2 2 2</cryo:CRYO_0000146>
-        <cryo:CRYO_0000147>F 2 2</cryo:CRYO_0000147>
     </owl:NamedIndividual>
     
 
@@ -24408,6 +24179,30 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     
 
 
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000388 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000388">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
+        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</cryo:CRYO_0000145>
+        <cryo:CRYO_0000146>F 2 2 2</cryo:CRYO_0000146>
+        <cryo:CRYO_0000147>F 2 2</cryo:CRYO_0000147>
+        <rdfs:label>F 2 2 space group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000389 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000389">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
+        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</cryo:CRYO_0000145>
+        <cryo:CRYO_0000146>P 2 2 2</cryo:CRYO_0000146>
+        <cryo:CRYO_0000147>P 2 2</cryo:CRYO_0000147>
+        <rdfs:label>P 2 2 space group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/pmd/cryo/CRYO_0000391 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000391">
@@ -24417,13 +24212,71 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     
 
 
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000393 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000393">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
+        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</cryo:CRYO_0000145>
+        <cryo:CRYO_0000146>P 1 21 1</cryo:CRYO_0000146>
+        <cryo:CRYO_0000147>P 2yb</cryo:CRYO_0000147>
+        <rdfs:label>P 2yb space group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000394 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000394">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
+        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</cryo:CRYO_0000145>
+        <cryo:CRYO_0000146>P 1 21/c 1</cryo:CRYO_0000146>
+        <cryo:CRYO_0000147>-P 2ybc</cryo:CRYO_0000147>
+        <rdfs:label>-P 2ybc space group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000395 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000395">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
+        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</cryo:CRYO_0000145>
+        <cryo:CRYO_0000146>C 2 2 21</cryo:CRYO_0000146>
+        <cryo:CRYO_0000147>C 2c 2</cryo:CRYO_0000147>
+        <rdfs:label>C 2c 2 space group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000396 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000396">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
+        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</cryo:CRYO_0000145>
+        <cryo:CRYO_0000146>C 1 c 1</cryo:CRYO_0000146>
+        <cryo:CRYO_0000147>C -2yc</cryo:CRYO_0000147>
+        <rdfs:label>C -2yc space group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000397 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/CRYO_0000397">
+        <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000142"/>
+        <cryo:CRYO_0000145 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</cryo:CRYO_0000145>
+        <cryo:CRYO_0000146>P 1 2/m 1</cryo:CRYO_0000146>
+        <cryo:CRYO_0000147>-P 2y</cryo:CRYO_0000147>
+        <rdfs:label>-P 2y space group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/pmd/cryo/components/cryo-individuals.owl/CRYO_0000000 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/cryo/components/cryo-individuals.owl/CRYO_0000000">
         <rdf:type rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000022"/>
-        <cryo:CRYO_0000017 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000017>
-        <cryo:CRYO_0000018 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-1</cryo:CRYO_0000018>
-        <cryo:CRYO_0000019 rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cryo:CRYO_0000019>
+        <cryo:CRYO_0000016>(0-10)</cryo:CRYO_0000016>
         <rdfs:label xml:lang="en">(0-10)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -24646,21 +24499,6 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020098">
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
-    </rdf:Description>
-    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000164">
-        <rdfs:label>P 2 2 space group</rdfs:label>
-        <rdfs:label xml:lang="en">denoted by family</rdfs:label>
-    </rdf:Description>
-    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000168">
-        <rdfs:comment>&apos;denoted by&apos; o &apos;member of&apos; o &apos;has Miller indices family under cubic symmetry&apos;</rdfs:comment>
-        <rdfs:comment>&apos;denoted by&apos; o &apos;under  symmetry&apos; o &apos;is cubic&apos; o  inverse (&apos;under  symmetry&apos;) o &apos;has member&apos; o &apos;member of&apos;</rdfs:comment>
-        <rdfs:comment>&apos;denoted by&apos; o &apos;under cubic symmetry&apos; o &apos;member of&apos; o &apos;under cubic symmetry&apos;</rdfs:comment>
-        <rdfs:label>C 2c 2 space group</rdfs:label>
-        <rdfs:label xml:lang="en">denoted by family under cubic symmetry</rdfs:label>
-    </rdf:Description>
-    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000170">
-        <rdfs:label>F 2 2 space group</rdfs:label>
-        <rdfs:label xml:lang="en">is cubic</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000143">
         <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
