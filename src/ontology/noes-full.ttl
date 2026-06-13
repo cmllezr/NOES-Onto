@@ -19,11 +19,11 @@
 @base <https://w3id.org/pmd/noes/noes-full.ttl> .
 
 <https://w3id.org/pmd/noes/noes-full.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-06-12/noes-full.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-06-13/noes-full.ttl> ;
                                            dcterms:description "None" ;
                                            dcterms:license <https://creativecommons.org/licenses/unspecified> ;
                                            dcterms:title "NOES Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-06-12" .
+                                           owl:versionInfo "2026-06-13" .
 
 #################################################################
 #    Annotation properties
@@ -2840,6 +2840,11 @@ obo:UO_0000016 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/UO_0000017
 obo:UO_0000017 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_1000008 .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000018
+obo:UO_0000018 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_1000008 .
 
 
@@ -13603,6 +13608,13 @@ noes:NOES_0000132 rdf:type owl:Class ;
                   skos:definition "operating current in is the electrical current (measured in milliamperes, mA) applied to the filament which controls the intensity of the beam (X-Ray, electron, etc)"@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000133
+noes:NOES_0000133 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0020101 ;
+                  rdfs:label "number density"@en ;
+                  skos:definition "number density is a proportion which presents the count of individual, countable items (such as atoms, molecules, charge carriers, etc.) contained within a specific unit of volume"@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000153
 noes:NOES_0000153 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0000957 ;
@@ -14605,6 +14617,10 @@ obo:UO_0000016 rdf:type owl:NamedIndividual .
 
 ###  http://purl.obolibrary.org/obo/UO_0000017
 obo:UO_0000017 rdf:type owl:NamedIndividual .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000018
+obo:UO_0000018 rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.obolibrary.org/obo/UO_0000027
@@ -17665,6 +17681,19 @@ obo:UO_0000017 obo:IAO_0000115 "A length unit which is equal to one millionth of
    owl:annotatedSource obo:UO_0000017 ;
    owl:annotatedProperty obo:IAO_0000115 ;
    owl:annotatedTarget "A length unit which is equal to one millionth of a meter or 10^[-6] m." ;
+   oboInOwl:hasDbXref "NIST:NIST"
+ ] .
+
+
+obo:UO_0000018 obo:IAO_0000115 "A length unit which is equal to one thousandth of one millionth of a meter or 10^[-9] m." ;
+               oboInOwl:hasExactSynonym "nanometre" ,
+                                        "nm" ;
+               rdfs:label "nanometer" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000018 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A length unit which is equal to one thousandth of one millionth of a meter or 10^[-9] m." ;
    oboInOwl:hasDbXref "NIST:NIST"
  ] .
 
