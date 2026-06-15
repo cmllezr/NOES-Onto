@@ -1,0 +1,48 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex: <http://example.org/noes/> 
+PREFIX noes: <https://w3id.org/pmd/noes/> 
+PREFIX obo: <http://purl.obolibrary.org/obo/> 
+PREFIX pmd: <https://w3id.org/pmd/co/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX tto: <https://w3id.org/pmd/tto/> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# 1. We apply AVG() on the numbers. Note the change in variables selected!
+SELECT ?material ?property ?lowestClassLabel ?PropNumeral ?propUnitLabel
+WHERE {
+    # 1. Find all instances of specific material class
+    VALUES ?idValue { "NOES_123" } 
+    ?material rdf:type noes:NOES_0000180 .
+    ?material obo:IAO_0000235 ?id .
+    ?id pmd:PMD_0000006 ?idValue .    
+    
+    ?material obo:RO_0000053 ?property . 
+    ?property rdf:type ?propType .
+    FILTER (?propType IN (noes:NOES_0000069)) 
+    
+    ?property pmd:PMD_0000077 ?propValue .
+    
+    # 2. Extract values (allowing duplicates to be captured by the aggregate function)
+    ?propValue obo:OBI_0001937 ?PropNumeral ; 
+               obo:IAO_0000039 ?propUnit .
+    ?propUnit rdfs:label ?propUnitLabel .
+    FILTER(LANG(?propUnitLabel) = "en")
+    
+    # 3. Get the lowest class hierarchy logic
+    ?property rdf:type ?lowestClass .
+    FILTER(isIRI(?lowestClass))
+    FILTER(?lowestClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+
+    FILTER NOT EXISTS {
+        ?property rdf:type ?otherClass .
+        FILTER(isIRI(?otherClass) && ?otherClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+        FILTER(?otherClass != ?lowestClass)
+        ?otherClass rdfs:subClassOf+ ?lowestClass .
+    }
+    ?lowestClass rdfs:label ?lowestClassLabel .
+    FILTER(LANG(?lowestClassLabel) = "en")
+}
+# 4. GROUP BY collapses rows that share identical values for these variables
+GROUP BY ?material ?property ?lowestClassLabel ?PropNumeral ?propUnitLabel
+ORDER BY ?PropNumeral
