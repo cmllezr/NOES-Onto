@@ -1,0 +1,660 @@
+@prefix ex: <http://example.org/noes/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tto: <https://w3id.org/pmd/tto/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix noes: <https://w3id.org/pmd/noes/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+[ rdf:type owl:Ontology ;
+   owl:imports <https://w3id.org/pmd/noes/1.0.0>
+ ] .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.org/noes/MD_0.8_T
+ex:MD_0.8_T rdf:type owl:NamedIndividual ,
+                     obo:IAO_0000109 ;
+            obo:OBI_0001938 ex:SVS_0_8_T ;
+            rdfs:label "MD 0.8 T"@en .
+
+
+###  http://example.org/noes/MD_1.5_T
+ex:MD_1.5_T rdf:type owl:NamedIndividual ,
+                     obo:IAO_0000109 ;
+            obo:OBI_0001938 ex:SVS_1_5_T ;
+            rdfs:label "MD 1.5 T"@en .
+
+
+###  http://example.org/noes/MD_103.98_Aperm
+ex:MD_103.98_Aperm rdf:type owl:NamedIndividual ,
+                            obo:IAO_0000109 ;
+                   obo:OBI_0001938 ex:SVS_103_98_Aperm ;
+                   rdfs:label "MD 103.98 Aperm"@en .
+
+
+###  http://example.org/noes/MD_12.99_Wperkg
+ex:MD_12.99_Wperkg rdf:type owl:NamedIndividual ,
+                            obo:IAO_0000109 ;
+                   obo:OBI_0001938 ex:SVS_12_99_Wperkg ;
+                   rdfs:label "MD 12.99 Wperkg"@en .
+
+
+###  http://example.org/noes/MD_2538.48_Aperm
+ex:MD_2538.48_Aperm rdf:type owl:NamedIndividual ,
+                             obo:IAO_0000109 ;
+                    obo:OBI_0001938 ex:SVS_2538_48_Aperm ;
+                    rdfs:label "MD 2538.48 Aperm"@en .
+
+
+###  http://example.org/noes/MD_3.81_Wperkg
+ex:MD_3.81_Wperkg rdf:type owl:NamedIndividual ,
+                           obo:IAO_0000109 ;
+                  obo:OBI_0001938 ex:SVS_3_81_Wperkg ;
+                  rdfs:label "MD 3.81 Wperkg"@en .
+
+
+###  http://example.org/noes/MD_33.59_T
+ex:MD_33.59_T rdf:type owl:NamedIndividual ,
+                       obo:IAO_0000109 ;
+              obo:OBI_0001938 ex:SVS_33_59_T ;
+              rdfs:label "MD 33.59 T"@en .
+
+
+###  http://example.org/noes/MD_471.21_T
+ex:MD_471.21_T rdf:type owl:NamedIndividual ,
+                        obo:IAO_0000109 ;
+               obo:OBI_0001938 ex:SVS_471_21_T ;
+               rdfs:label "MD 471.21 T"@en .
+
+
+###  http://example.org/noes/MD_533.86_T
+ex:MD_533.86_T rdf:type owl:NamedIndividual ,
+                        obo:IAO_0000109 ;
+               obo:OBI_0001938 ex:SVS_533_86_T ;
+               rdfs:label "MD 533.86 T"@en .
+
+
+###  http://example.org/noes/MD_6125.27_T
+ex:MD_6125.27_T rdf:type owl:NamedIndividual ,
+                         obo:IAO_0000109 ;
+                obo:OBI_0001938 ex:SVS_6125_27_T ;
+                rdfs:label "MD 6125.27 T"@en .
+
+
+###  http://example.org/noes/NOES_456
+ex:NOES_456 rdf:type owl:NamedIndividual ,
+                     obo:IAO_0020000 ;
+            pmd:PMD_0000006 "NOES_456" .
+
+
+###  http://example.org/noes/SD_0.8_T
+ex:SD_0.8_T rdf:type owl:NamedIndividual ,
+                     pmd:PMD_0060009 ;
+            obo:OBI_0001938 ex:SVS_0_8_T ;
+            rdfs:label "SD 0.8 T"@en .
+
+
+###  http://example.org/noes/SD_1.5_T
+ex:SD_1.5_T rdf:type owl:NamedIndividual ,
+                     pmd:PMD_0060009 ;
+            obo:OBI_0001938 ex:SVS_1_5_T ;
+            rdfs:label "SD 1.5 T"@en .
+
+
+###  http://example.org/noes/SVS_0_27_mm
+ex:SVS_0_27_mm rdf:type owl:NamedIndividual ,
+                        obo:OBI_0001931 ;
+               obo:IAO_0000039 <http://qudt.org/vocab/unit/MilliM> ;
+               obo:OBI_0001937 0.27 ;
+               rdfs:label "0.27 mm"@en .
+
+
+###  http://example.org/noes/SVS_0_8_T
+ex:SVS_0_8_T rdf:type owl:NamedIndividual ,
+                      obo:OBI_0001931 ;
+             obo:IAO_0000039 <http://qudt.org/vocab/unit/T> ;
+             obo:OBI_0001927 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Bmax ,
+                             ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Jmax ;
+             obo:OBI_0001937 0.8 ;
+             rdfs:label "0.8 T"@en .
+
+
+###  http://example.org/noes/SVS_0_Dergee
+ex:SVS_0_Dergee rdf:type owl:NamedIndividual ,
+                         obo:OBI_0001931 ;
+                obo:IAO_0000039 <http://qudt.org/vocab/unit/GRAD> ;
+                obo:OBI_0001937 0.0 ;
+                rdfs:label "0 Dergee"@en .
+
+###  http://example.org/noes/SVS_0_Dergee
+ex:SVS_90_Dergee rdf:type owl:NamedIndividual ,
+                         obo:OBI_0001931 ;
+                obo:IAO_0000039 <http://qudt.org/vocab/unit/GRAD> ;
+                obo:OBI_0001937 90.0 ;
+                rdfs:label "90 Dergee"@en .
+
+
+###  http://example.org/noes/SVS_103_98_Aperm
+ex:SVS_103_98_Aperm rdf:type owl:NamedIndividual ,
+                             obo:OBI_0001931 ;
+                    obo:IAO_0000039 <http://qudt.org/vocab/unit/A-PER-M> ;
+                    obo:OBI_0001937 103.98 ;
+                    rdfs:label "103.98 Aperm"@en .
+
+
+###  http://example.org/noes/SVS_12_99_Wperkg
+ex:SVS_12_99_Wperkg rdf:type owl:NamedIndividual ,
+                             obo:OBI_0001931 ;
+                    obo:IAO_0000039 <http://qudt.org/vocab/unit/W-PER-KiloGM> ;
+                    obo:OBI_0001927 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Ps ;
+                    obo:OBI_0001937 12.99 ;
+                    rdfs:label "12.99 Wperkg"@en .
+
+
+###  http://example.org/noes/SVS_16_
+ex:SVS_16_ rdf:type owl:NamedIndividual ,
+                    obo:OBI_0001931 ;
+           obo:IAO_0000039 <http://qudt.org/vocab/unit/UNITLESS> ;
+           obo:OBI_0001937 16.0 ;
+           rdfs:label "16 "@en .
+
+
+###  http://example.org/noes/SVS_1_5_T
+ex:SVS_1_5_T rdf:type owl:NamedIndividual ,
+                      obo:OBI_0001931 ;
+             obo:IAO_0000039 <http://qudt.org/vocab/unit/T> ;
+             obo:OBI_0001927 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Bmax ,
+                             ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Jmax ;
+             obo:OBI_0001937 1.5 ;
+             rdfs:label "1.5 T"@en .
+
+
+###  http://example.org/noes/SVS_200_Hz
+ex:SVS_200_Hz rdf:type owl:NamedIndividual ,
+                       obo:OBI_0001931 ;
+              obo:IAO_0000039 <http://qudt.org/vocab/unit/HZ> ;
+              obo:OBI_0001937 200.0 ;
+              rdfs:label "200 Hz"@en .
+
+
+###  http://example.org/noes/SVS_2538_48_Aperm
+ex:SVS_2538_48_Aperm rdf:type owl:NamedIndividual ,
+                              obo:OBI_0001931 ;
+                     obo:IAO_0000039 <http://qudt.org/vocab/unit/A-PER-M> ;
+                     obo:OBI_0001937 2538.48 ;
+                     rdfs:label "2538.48 Aperm"@en .
+
+
+###  http://example.org/noes/SVS_271_56_g
+ex:SVS_271_56_g rdf:type owl:NamedIndividual ,
+                         obo:OBI_0001931 ;
+                obo:IAO_0000039 <http://qudt.org/vocab/unit/G> ;
+                obo:OBI_0001937 271.56 ;
+                rdfs:label "271.56 g"@en .
+
+
+###  http://example.org/noes/SVS_280_mm
+ex:SVS_280_mm rdf:type owl:NamedIndividual ,
+                       obo:OBI_0001931 ;
+              obo:IAO_0000039 <http://qudt.org/vocab/unit/MilliM> ;
+              obo:OBI_0001937 280.0 ;
+              rdfs:label "280 mm"@en .
+
+
+###  http://example.org/noes/SVS_30_mm
+ex:SVS_30_mm rdf:type owl:NamedIndividual ,
+                      obo:OBI_0001931 ;
+             obo:IAO_0000039 <http://qudt.org/vocab/unit/MilliM> ;
+             obo:OBI_0001937 30.0 ;
+             rdfs:label "30 mm"@en .
+
+
+###  http://example.org/noes/SVS_31_9_mm2
+ex:SVS_31_9_mm2 rdf:type owl:NamedIndividual ,
+                         obo:OBI_0001931 ;
+                obo:IAO_0000039 <http://qudt.org/vocab/unit/MilliM2> ;
+                obo:OBI_0001937 31.9 ;
+                rdfs:label "31.9 mm2"@en .
+
+
+###  http://example.org/noes/SVS_33_59_T
+ex:SVS_33_59_T rdf:type owl:NamedIndividual ,
+                        obo:OBI_0001931 ;
+               obo:IAO_0000039 <http://qudt.org/vocab/unit/UNITLESS> ;
+               obo:OBI_0001927 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_mudiff ;
+               obo:OBI_0001937 33.59 ;
+               rdfs:label "33.59 T"@en .
+
+
+###  http://example.org/noes/SVS_35731_58_mm3
+ex:SVS_35731_58_mm3 rdf:type owl:NamedIndividual ,
+                             obo:OBI_0001931 ;
+                    obo:IAO_0000039 <http://qudt.org/vocab/unit/MilliM3> ;
+                    obo:OBI_0001937 35731.58 ;
+                    rdfs:label "35731.58 mm3"@en .
+
+
+###  http://example.org/noes/SVS_3_81_Wperkg
+ex:SVS_3_81_Wperkg rdf:type owl:NamedIndividual ,
+                            obo:OBI_0001931 ;
+                   obo:IAO_0000039 <http://qudt.org/vocab/unit/W-PER-KiloGM> ;
+                   obo:OBI_0001927 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Ps ;
+                   obo:OBI_0001937 3.81 ;
+                   rdfs:label "3.81 Wperkg"@en .
+
+
+###  http://example.org/noes/SVS_471_21_T
+ex:SVS_471_21_T rdf:type owl:NamedIndividual ,
+                         obo:OBI_0001931 ;
+                obo:IAO_0000039 <http://qudt.org/vocab/unit/UNITLESS> ;
+                obo:OBI_0001927 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_mur ;
+                obo:OBI_0001937 471.21 ;
+                rdfs:label "471.21 T"@en .
+
+
+###  http://example.org/noes/SVS_533_86_T
+ex:SVS_533_86_T rdf:type owl:NamedIndividual ,
+                         obo:OBI_0001931 ;
+                obo:IAO_0000039 <http://qudt.org/vocab/unit/UNITLESS> ;
+                obo:OBI_0001927 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_mudiff ;
+                obo:OBI_0001937 533.86 ;
+                rdfs:label "533.86 T"@en .
+
+
+###  http://example.org/noes/SVS_6125_27_T
+ex:SVS_6125_27_T rdf:type owl:NamedIndividual ,
+                          obo:OBI_0001931 ;
+                 obo:IAO_0000039 <http://qudt.org/vocab/unit/UNITLESS> ;
+                 obo:OBI_0001927 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_mur ;
+                 obo:OBI_0001937 6125.27 ;
+                 rdfs:label "6125.27 T"@en .
+
+
+###  http://example.org/noes/SVS_7600_gperdm3
+ex:SVS_7600_gperdm3 rdf:type owl:NamedIndividual ,
+                             obo:OBI_0001931 ;
+                    obo:IAO_0000039 <http://qudt.org/vocab/unit/GM-PER-DeciM3> ;
+                    obo:OBI_0001937 7600.0 ;
+                    rdfs:label "7600 gperdm3"@en .
+
+
+###  http://example.org/noes/example2_0_Mag
+ex:example2_0_Mag rdf:type owl:NamedIndividual ,
+                           obo:BFO_0000030 ,
+                           pmd:PMD_0000068 ;
+                  obo:BFO_0000108 ex:example2_0_Mag_temp_region ;
+                  obo:IAO_0000235 ex:NOES_456 ;
+                  obo:RO_0001015 ex:example2_0_Mag_long_direction ;
+                  rdfs:label "specimen example2-L- waterjet-Sin-200-Pol"@en .
+
+###  http://example.org/noes/example2_0_Mag
+ex:example2_90_Mag rdf:type owl:NamedIndividual ,
+                           obo:BFO_0000030 ,
+                           pmd:PMD_0000068 ;
+                  obo:BFO_0000108 ex:example2_90_Mag_temp_region ;
+                  obo:IAO_0000235 ex:NOES_456 ;
+                  obo:RO_0001015 ex:example2_90_Mag_long_direction ;
+                  rdfs:label "specimen example2-T- waterjet-Sin-200-Pol"@en .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8 rdf:type owl:NamedIndividual ,
+                                                  noes:NOES_0000011 ;
+                                         obo:OBI_0000293 ex:example2_0_Pack_Mag ;
+                                         obo:OBI_0000299 ex:MD_0.8_T ,
+                                                         ex:MD_3.81_Wperkg ,
+                                                         ex:MD_533.86_T ,
+                                                         ex:MD_6125.27_T ;
+                                         obo:RO_0009006 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Bmax ,
+                                                        ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Jmax ,
+                                                        ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Ps ,
+                                                        ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_mudiff ,
+                                                        ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_mur ;
+                                         rdfs:label "AC measurement at 200 Hz Soll_Jmax 0.8 of example2_0_Mag" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Frequency
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Frequency rdf:type owl:NamedIndividual ,
+                                                                      noes:NOES_0000003 ;
+                                                             pmd:PMD_0000077 ex:SVS_200_Hz ;
+                                                             pmd:PMD_0025006 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8 ;
+                                                             rdfs:label "example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Frequency"@en .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Hmax
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Hmax rdf:type owl:NamedIndividual ,
+                                                                 noes:NOES_0000156 ;
+                                                        obo:IAO_0000417 ex:MD_103.98_Aperm ;
+                                                        pmd:PMD_0000077 ex:SVS_103_98_Aperm ;
+                                                        pmd:PMD_0025006 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8 ;
+                                                        rdfs:label "example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Hmax"@en .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Jmax
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Jmax rdf:type owl:NamedIndividual ,
+                                                                 pmd:PMD_0000008 ;
+                                                        pmd:PMD_0020127 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Jmax ;
+                                                        pmd:PMD_0025006 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8 ;
+                                                        rdfs:label "example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Jmax"@en .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Temperature
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Temperature rdf:type owl:NamedIndividual ,
+                                                                        pmd:PMD_0000008 ;
+                                                               pmd:PMD_0020127 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Temperature ;
+                                                               pmd:PMD_0025006 ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8 ;
+                                                               rdfs:label "example2_0_MagAC_200_Hz_Soll_Jmax_0_8_attribute_Temperature"@en .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Bmax
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Bmax rdf:type owl:NamedIndividual ,
+                                                                      noes:NOES_0000051 ;
+                                                             obo:RO_0000052 ex:example2_NOES ;
+                                                             pmd:PMD_0000077 ex:SVS_0_8_T ;
+                                                             rdfs:label "example2_0_Mag_Bmax" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Jmax
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Jmax rdf:type owl:NamedIndividual ,
+                                                                      noes:NOES_0000182 ;
+                                                             obo:IAO_0000419 ex:SD_0.8_T ;
+                                                             obo:RO_0000052 ex:example2_NOES ;
+                                                             pmd:PMD_0000077 ex:SVS_0_8_T ;
+                                                             rdfs:label "example2_0_Mag_Jmax" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Ps
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Ps rdf:type owl:NamedIndividual ,
+                                                                    noes:NOES_0000057 ;
+                                                           obo:RO_0000052 ex:example2_NOES ;
+                                                           pmd:PMD_0000077 ex:SVS_3_81_Wperkg ;
+                                                           rdfs:label "example2_0_Mag_Ps" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Temperature
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_Temperature rdf:type owl:NamedIndividual ,
+                                                                             pmd:PMD_0000967 ;
+                                                                    obo:IAO_0000417 <http://example.org/noes/MD_32_°C> ;
+                                                                    pmd:PMD_0000077 <http://example.org/noes/SVS_32_°C> ;
+                                                                    rdfs:label "example2_0_Mag_Temperature" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_mudiff
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_mudiff rdf:type owl:NamedIndividual ,
+                                                                        noes:NOES_0000059 ;
+                                                               obo:RO_0000052 ex:example2_NOES ;
+                                                               pmd:PMD_0000077 ex:SVS_533_86_T ;
+                                                               rdfs:label "example2_0_Mag_mudiff" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_mur
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_0_8_example2_0_Mag_mur rdf:type owl:NamedIndividual ,
+                                                                     noes:NOES_0000000 ;
+                                                            obo:RO_0000052 ex:example2_NOES ;
+                                                            pmd:PMD_0000077 ex:SVS_6125_27_T ;
+                                                            rdfs:label "example2_0_Mag_mur" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5 rdf:type owl:NamedIndividual ,
+                                                  noes:NOES_0000011 ;
+                                         obo:OBI_0000293 ex:example2_0_Pack_Mag ;
+                                         obo:OBI_0000299 ex:MD_1.5_T ,
+                                                         ex:MD_12.99_Wperkg ,
+                                                         ex:MD_33.59_T ,
+                                                         ex:MD_471.21_T ;
+                                         obo:RO_0009006 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Bmax ,
+                                                        ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Jmax ,
+                                                        ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Ps ,
+                                                        ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_mudiff ,
+                                                        ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_mur ;
+                                         rdfs:label "AC measurement at 200 Hz Soll_Jmax 1.5 of example2_0_Mag" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Frequency
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Frequency rdf:type owl:NamedIndividual ,
+                                                                      noes:NOES_0000003 ;
+                                                             pmd:PMD_0000077 ex:SVS_200_Hz ;
+                                                             pmd:PMD_0025006 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5 ;
+                                                             rdfs:label "example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Frequency"@en .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Hmax
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Hmax rdf:type owl:NamedIndividual ,
+                                                                 noes:NOES_0000156 ;
+                                                        obo:IAO_0000417 ex:MD_2538.48_Aperm ;
+                                                        pmd:PMD_0000077 ex:SVS_2538_48_Aperm ;
+                                                        pmd:PMD_0025006 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5 ;
+                                                        rdfs:label "example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Hmax"@en .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Jmax
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Jmax rdf:type owl:NamedIndividual ,
+                                                                 pmd:PMD_0000008 ;
+                                                        pmd:PMD_0020127 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Jmax ;
+                                                        pmd:PMD_0025006 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5 ;
+                                                        rdfs:label "example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Jmax"@en .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Temperature
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Temperature rdf:type owl:NamedIndividual ,
+                                                                        pmd:PMD_0000008 ;
+                                                               pmd:PMD_0020127 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Temperature ;
+                                                               pmd:PMD_0025006 ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5 ;
+                                                               rdfs:label "example2_0_MagAC_200_Hz_Soll_Jmax_1_5_attribute_Temperature"@en .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Bmax
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Bmax rdf:type owl:NamedIndividual ,
+                                                                      noes:NOES_0000051 ;
+                                                             obo:RO_0000052 ex:example2_NOES ;
+                                                             pmd:PMD_0000077 ex:SVS_1_5_T ;
+                                                             rdfs:label "example2_0_Mag_Bmax" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Jmax
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Jmax rdf:type owl:NamedIndividual ,
+                                                                      noes:NOES_0000182 ;
+                                                             obo:IAO_0000419 ex:SD_1.5_T ;
+                                                             obo:RO_0000052 ex:example2_NOES ;
+                                                             pmd:PMD_0000077 ex:SVS_1_5_T ;
+                                                             rdfs:label "example2_0_Mag_Jmax" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Ps
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Ps rdf:type owl:NamedIndividual ,
+                                                                    noes:NOES_0000057 ;
+                                                           obo:RO_0000052 ex:example2_NOES ;
+                                                           pmd:PMD_0000077 ex:SVS_12_99_Wperkg ;
+                                                           rdfs:label "example2_0_Mag_Ps" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Temperature
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_Temperature rdf:type owl:NamedIndividual ,
+                                                                             pmd:PMD_0000967 ;
+                                                                    obo:IAO_0000417 <http://example.org/noes/MD_32_°C> ;
+                                                                    pmd:PMD_0000077 <http://example.org/noes/SVS_32_°C> ;
+                                                                    rdfs:label "example2_0_Mag_Temperature" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_mudiff
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_mudiff rdf:type owl:NamedIndividual ,
+                                                                        noes:NOES_0000059 ;
+                                                               obo:RO_0000052 ex:example2_NOES ;
+                                                               pmd:PMD_0000077 ex:SVS_33_59_T ;
+                                                               rdfs:label "example2_0_Mag_mudiff" .
+
+
+###  http://example.org/noes/example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_mur
+ex:example2_0_MagAC_200_Hz_Soll_Jmax_1_5_example2_0_Mag_mur rdf:type owl:NamedIndividual ,
+                                                                     noes:NOES_0000000 ;
+                                                            obo:RO_0000052 ex:example2_NOES ;
+                                                            pmd:PMD_0000077 ex:SVS_471_21_T ;
+                                                            rdfs:label "example2_0_Mag_mur" .
+
+
+###  http://example.org/noes/example2_0_Mag_Density
+ex:example2_0_Mag_Density rdf:type owl:NamedIndividual ,
+                                   pmd:PMD_0000597 ;
+                          obo:RO_0000080 ex:example2_0_Mag ;
+                          pmd:PMD_0000077 ex:SVS_7600_gperdm3 ;
+                          rdfs:label "example2_0_Mag_Density"@en .
+
+
+###  http://example.org/noes/example2_0_Mag_Length
+ex:example2_0_Mag_Length rdf:type owl:NamedIndividual ,
+                                  pmd:PMD_0040001 ;
+                         obo:RO_0000080 ex:example2_0_Mag ;
+                         pmd:PMD_0000077 ex:SVS_280_mm ;
+                         rdfs:label "example2_0_Mag_Length"@en .
+
+
+###  http://example.org/noes/example2_0_Mag_Sheet_thickness
+ex:example2_0_Mag_Sheet_thickness rdf:type owl:NamedIndividual ,
+                                           pmd:PMD_0050153 ;
+                                  obo:RO_0000080 ex:example2_0_Mag ;
+                                  pmd:PMD_0000077 ex:SVS_0_27_mm ;
+                                  rdfs:label "example2_0_Mag_Sheet_thickness"@en .
+
+
+###  http://example.org/noes/example2_0_Mag_Width
+ex:example2_0_Mag_Width rdf:type owl:NamedIndividual ,
+                                 pmd:PMD_0050154 ;
+                        obo:RO_0000080 ex:example2_0_Mag ;
+                        pmd:PMD_0000077 ex:SVS_30_mm ;
+                        rdfs:label "example2_0_Mag_Width"@en .
+
+
+###  http://example.org/noes/example2_0_Mag_angle_to_RD_0
+ex:example2_0_Mag_angle_to_RD_0 rdf:type owl:NamedIndividual ,
+                                         noes:NOES_0000160 ;
+                                pmd:PMD_0000077 ex:SVS_0_Dergee ;
+                                rdfs:label "angle to RD example2-L- waterjet-Sin-200-Pol"@en .
+
+
+###  http://example.org/noes/example2_0_Mag_long_direction
+ex:example2_0_Mag_long_direction rdf:type owl:NamedIndividual ,
+                                          noes:NOES_0000031 ;
+                                 pmd:PMD_0025998 ex:example2_0_Mag_angle_to_RD_0 ;
+                                 rdfs:label "longitudinal direction of example2-L- waterjet-Sin-200-Pol"@en .
+
+
+###  http://example.org/noes/example2_0_Mag_temp_region
+ex:example2_0_Mag_temp_region rdf:type owl:NamedIndividual ,
+                                       obo:BFO_0000008 ;
+                              rdfs:label "Temporal region of example2-L- waterjet-Sin-200-Pol"@en .
+
+
+###  http://example.org/noes/example2_0_Pack_Mag
+ex:example2_0_Pack_Mag rdf:type owl:NamedIndividual ,
+                                pmd:PMD_0000891 ;
+                       obo:RO_0002351 ex:example2_0_Mag ;
+                       rdfs:label "sheet pack example2 0" .
+
+
+###  http://example.org/noes/example2_0_Pack_Mag_Number_of_strips
+ex:example2_0_Pack_Mag_Number_of_strips rdf:type owl:NamedIndividual ,
+                                                 noes:NOES_0000038 ;
+                                        obo:RO_0000080 ex:example2_0_Pack_Mag ;
+                                        pmd:PMD_0000077 ex:SVS_16_ ;
+                                        rdfs:label "example2_0_Pack_Mag_Number_of_strips"@en .
+
+
+###  http://example.org/noes/example2_0_Pack_Mag_Weight
+ex:example2_0_Pack_Mag_Weight rdf:type owl:NamedIndividual ,
+                                       pmd:PMD_0020133 ;
+                              obo:RO_0000080 ex:example2_0_Pack_Mag ;
+                              pmd:PMD_0000077 ex:SVS_271_56_g ;
+                              rdfs:label "example2_0_Pack_Mag_Weight"@en .
+
+
+###  http://example.org/noes/example2_NOES
+ex:example2_NOES rdf:type owl:NamedIndividual ,
+                          obo:BFO_0000030 ,
+                          noes:NOES_0000180 ;
+                 obo:IAO_0000235 ex:NOES_456 ;
+                 obo:RO_0001015 ex:example2_NOES_RD_direction ;
+                 pmd:PMD_0000069 ex:example2_0_Mag .
+
+
+###  http://example.org/noes/example2_NOES_RD_direction
+ex:example2_NOES_RD_direction rdf:type owl:NamedIndividual ,
+                                       noes:NOES_0000033 ;
+                              pmd:PMD_0025998 ex:example2_0_Mag_angle_to_RD_0 ;
+                              rdfs:label "rolling direction of NOES_example2"@en .
+
+
+###  http://example.org/noes/example2_cutting_mag_0
+ex:example2_cutting_mag_0 rdf:type owl:NamedIndividual ,
+                                   noes:NOES_0000037 ;
+                          obo:OBI_0000293 ex:example2_NOES ;
+                          obo:OBI_0000299 ex:example2_0_Mag .
+
+
+###  http://example.org/noes/MD_32_°C
+<http://example.org/noes/MD_32_°C> rdf:type owl:NamedIndividual ,
+                                            obo:IAO_0000109 ;
+                                   obo:OBI_0001938 <http://example.org/noes/SVS_32_°C> ;
+                                   rdfs:label "MD 32 °C"@en .
+
+
+###  http://example.org/noes/SVS_32_°C
+<http://example.org/noes/SVS_32_°C> rdf:type owl:NamedIndividual ,
+                                             obo:OBI_0001931 ;
+                                    obo:IAO_0000039 <http://qudt.org/vocab/unit/DEG_C> ;
+                                    obo:OBI_0001937 32.0 ;
+                                    rdfs:label "32 °C"@en .
+
+
+###  http://qudt.org/vocab/unit/A-PER-M
+<http://qudt.org/vocab/unit/A-PER-M> rdf:type owl:NamedIndividual .
+
+
+###  http://qudt.org/vocab/unit/DEG_C
+<http://qudt.org/vocab/unit/DEG_C> rdf:type owl:NamedIndividual .
+
+
+###  http://qudt.org/vocab/unit/G
+<http://qudt.org/vocab/unit/G> rdf:type owl:NamedIndividual .
+
+
+###  http://qudt.org/vocab/unit/GM-PER-DeciM3
+<http://qudt.org/vocab/unit/GM-PER-DeciM3> rdf:type owl:NamedIndividual .
+
+
+###  http://qudt.org/vocab/unit/GRAD
+<http://qudt.org/vocab/unit/GRAD> rdf:type owl:NamedIndividual .
+
+
+###  http://qudt.org/vocab/unit/HZ
+<http://qudt.org/vocab/unit/HZ> rdf:type owl:NamedIndividual .
+
+
+###  http://qudt.org/vocab/unit/MilliM
+<http://qudt.org/vocab/unit/MilliM> rdf:type owl:NamedIndividual .
+
+
+###  http://qudt.org/vocab/unit/MilliM2
+<http://qudt.org/vocab/unit/MilliM2> rdf:type owl:NamedIndividual .
+
+
+###  http://qudt.org/vocab/unit/MilliM3
+<http://qudt.org/vocab/unit/MilliM3> rdf:type owl:NamedIndividual .
+
+
+###  http://qudt.org/vocab/unit/T
+<http://qudt.org/vocab/unit/T> rdf:type owl:NamedIndividual .
+
+
+###  http://qudt.org/vocab/unit/UNITLESS
+<http://qudt.org/vocab/unit/UNITLESS> rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
