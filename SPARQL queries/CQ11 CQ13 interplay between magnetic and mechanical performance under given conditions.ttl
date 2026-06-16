@@ -1,3 +1,4 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX noes: <https://w3id.org/pmd/noes/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -5,11 +6,14 @@ PREFIX pmd: <https://w3id.org/pmd/co/>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX tto: <https://w3id.org/pmd/tto/> 
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 
-SELECT DISTINCT ?material ?lowestMechPropertyClassLabel ?numeralMech ?unitMech ?lowestMagPropertyClassLabel ?numeralMag ?unitMag
+SELECT ?material 
+       ?parentMechClassLabel (ROUND(AVG(xsd:double(?numeralMech)) * 100) / 100 AS ?AverageNumeralMech) ?unitMechLabel
+       ?parentMagClassLabel (ROUND(AVG(xsd:double(?numeralMag)) * 100) / 100 AS ?AverageNumeralMag) ?unitMag
 WHERE {
     # 1. User Inputs
-    VALUES ?minMechThreshold {580 }
+    VALUES ?minMechThreshold {530 }
     VALUES ?maxMechThreshold { 1000 }
     VALUES ?mechPropertyClass { tto:TTO_0000053 }   # Filter: e.g., Tensile Strength
 
@@ -27,12 +31,17 @@ WHERE {
         ?otherMechClass rdfs:subClassOf+ ?lowestMechPropertyClass .
     }
    ?lowestMechPropertyClass rdfs:label ?lowestMechPropertyClassLabel .
+    # Traverse exactly 1 level up to find the direct parent class
+   ?lowestMechPropertyClass sesame:directSubClassOf ?parentMechClass .
+    FILTER(isIRI(?parentMechClass) && ?parentMechClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+    ?parentMechClass rdfs:label ?parentMechClassLabel .
+   FILTER(LANG(?parentMechClassLabel) = "en")
 
 	?valSpecMech obo:OBI_0001927 ?mechProp ;
            obo:OBI_0001937 ?numeralMech ;
            obo:IAO_0000039 ?unitMech .
-    #?unitMech rdfs:label ?unitMechLabel .
-    #	FILTER(LANG(?unitMechLabel) = "en")
+    ?unitMech rdfs:label ?unitMechLabel .
+    FILTER(LANG(?unitMechLabel) = "en")
 
 	FILTER(?numeralMech >= ?minMechThreshold && ?numeralMech <= ?maxMechThreshold)
     
@@ -50,13 +59,18 @@ WHERE {
         ?otherMagClass rdfs:subClassOf+ ?lowestMagPropertyClass .
     }
    ?lowestMagPropertyClass rdfs:label ?lowestMagPropertyClassLabel .
+    # Traverse exactly 1 level up to find the direct parent class
+   ?lowestMagPropertyClass sesame:directSubClassOf ?parentMagClass .
+    FILTER(isIRI(?parentMagClass) && ?parentMagClass NOT IN (owl:NamedIndividual, rdfs:Resource, owl:Thing))
+    ?parentMagClass rdfs:label ?parentMagClassLabel .
+   FILTER(LANG(?parentMagClassLabel) = "en")
 
     ?valSpecMag obo:OBI_0001927 ?magProp ; 
                 obo:OBI_0001937 ?numeralMag ;      
                 obo:IAO_0000039 ?unitMag .
     
-   # ?unitMag rdfs:label ?unitMagLabel .
-    #	FILTER(LANG(?unitMagLabel) = "en")
+   #?unitMag rdfs:label ?unitMagLabel .
+   #FILTER(LANG(?unitMagLabel) = "en")
     
     # 1. user inputs
 	VALUES ?targetAttrClass { noes:NOES_0000182 } # filter for some condition, e.g., Jmax
@@ -80,4 +94,5 @@ WHERE {
 
   	FILTER(?numeralAttr > ?minAttrThreshold && ?numeralAttr < ?maxAttrThreshold)
 }
-ORDER BY DESC(?numeralMag)
+GROUP BY ?material ?parentMechClass ?parentMechClassLabel ?unitMechLabel ?parentMagClassLabel  ?unitMag
+ORDER BY DESC(?AverageNumeralMag)
