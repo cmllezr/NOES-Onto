@@ -4730,33 +4730,10 @@ co:PMD_0010021 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0010100
 co:PMD_0010100 rdf:type owl:Class ;
-               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0090000
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty obo:RO_0002351 ;
-                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass [ owl:intersectionOf ( co:PMD_0020140
-                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                 owl:onProperty obo:RO_0000091 ;
-                                                                                                 owl:someValuesFrom co:PMD_0090001
-                                                                                               ]
-                                                                                             ) ;
-                                                                          rdf:type owl:Class
-                                                                        ]
-                                                          ]
-                                                        ) ;
-                                     rdf:type owl:Class
-                                   ] ;
                rdfs:subClassOf co:PMD_0090000 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0002351 ;
-                                 owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020140
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty obo:RO_0000091 ;
-                                                                             owl:someValuesFrom co:PMD_0090001
-                                                                           ]
-                                                                         ) ;
-                                                      rdf:type owl:Class
-                                                    ]
+                                 owl:someValuesFrom co:PMD_0020140
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0002351 ;
@@ -5232,20 +5209,7 @@ co:PMD_0020049 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020050
 co:PMD_0020050 rdf:type owl:Class ;
-               owl:equivalentClass [ owl:intersectionOf ( co:PMD_0020140
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty obo:RO_0000091 ;
-                                                            owl:someValuesFrom co:PMD_0090001
-                                                          ]
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty obo:BFO_0000051 ;
-                                                            owl:allValuesFrom obo:CHEBI_27573
-                                                          ]
-                                                        ) ;
-                                     rdf:type owl:Class
-                                   ] ;
-               rdfs:subClassOf co:PMD_0020140 ,
-                               co:PMD_0090000 ;
+               rdfs:subClassOf co:PMD_0020140 ;
                rdfs:comment "A Portion Of Matter that consists of only silicon atoms."@en ;
                rdfs:label "portion of silicon"@en ;
                skos:definition "A 'portion of silicon' is a 'portion of pure chemical element' that 'consists of' only chebi:silicon atom."@en .
@@ -6103,21 +6067,21 @@ co:PMD_0020128 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0020131
 co:PMD_0020131 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid754 ;
+                               _:genid736 ;
                owl:disjointWith co:PMD_0020148 ;
                rdfs:label "intensive quality"@en ;
                skos:altLabel "Point property"@en ;
                skos:definition "An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid754 rdf:type owl:Restriction ;
+_:genid736 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000080 ;
             owl:someValuesFrom co:PMD_0000001 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020131 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid754 ;
+   owl:annotatedTarget _:genid736 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -6994,29 +6958,13 @@ co:PMD_0060009 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0090000
 co:PMD_0090000 rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty obo:RO_0000091 ;
-                                     owl:someValuesFrom co:PMD_0090001
-                                   ] ;
                rdfs:subClassOf co:PMD_0000000 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000086 ;
                                  owl:someValuesFrom co:PMD_0090002
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000091 ;
-                                 owl:someValuesFrom co:PMD_0090001
                                ] ;
                rdfs:label "semiconductor"@en ;
                skos:definition "A semiconductor is an engineered material representing a class of materials characterized by an electrical conductivity between that of a conductor and an insulator. This is a result of a range of inexistent energy states in ther electron configuration between the valence and conduction band (bandgap)."@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
-
-
-###  https://w3id.org/pmd/co/PMD_0090001
-co:PMD_0090001 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0000005 ;
-               rdfs:label "semiconductivity"@en ;
-               skos:definition "Semiconductivity is the disposition of a material to conduct electricity only when a certain level of excitation (via temperature, impurities, photonic excitation, electric field) elevates electrons from the valence band into the conduction band."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
