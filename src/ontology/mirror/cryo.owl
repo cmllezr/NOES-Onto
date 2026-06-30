@@ -10,6 +10,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:cryo="https://w3id.org/pmd/cryo/"
      xmlns:doap="http://usefulinc.com/ns/doap#"
+     xmlns:qudt="http://qudt.org/schema/qudt/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
@@ -18,16 +19,16 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/cryo/">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/cryo/2026-06-16"/>
-        <dcterms:bibliographicCitation>cryo: Crystallography Subdomain Ontology. Version 2026-06-16, https://w3id.org/pmd/cryo/</dcterms:bibliographicCitation>
-        <dcterms:created>2026-06-16</dcterms:created>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/cryo/2026-06-27"/>
+        <dcterms:bibliographicCitation>cryo: Crystallography Subdomain Ontology. Version 2026-06-27, https://w3id.org/pmd/cryo/</dcterms:bibliographicCitation>
+        <dcterms:created>2026-06-27</dcterms:created>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0003-0744-8855"/>
         <dcterms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
         <dcterms:description>CryO is an subdomain-level ontology based on the PMdco 3.x. It&apos;s primary goal to formally describe symmetries of crystal lattices and provide a semantic foundation for the annotation of .cif files.</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <dcterms:title>CRYO PMD: Crystallography Subdomain Ontology based on PMDco 3.x</dcterms:title>
         <owl:priorVersion rdf:resource="https://w3id.org/pmd/cryo/"/>
-        <owl:versionInfo>2026-06-16</owl:versionInfo>
+        <owl:versionInfo>2026-06-27</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -127,6 +128,12 @@
     
 
 
+    <!-- http://qudt.org/schema/qudt/symbol -->
+
+    <owl:AnnotationProperty rdf:about="http://qudt.org/schema/qudt/symbol"/>
+    
+
+
     <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
 
     <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
@@ -148,6 +155,12 @@
     <!-- http://www.geneontology.org/formats/oboInOwl#hasExactSynonym -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
     
 
 
@@ -201,6 +214,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://qudt.org/schema/qudt/LatexString -->
+
+    <rdfs:Datatype rdf:about="http://qudt.org/schema/qudt/LatexString"/>
     
 
 
@@ -3213,10 +3232,77 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     
 
 
+    <!-- http://purl.obolibrary.org/obo/UO_0000019 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000019">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000019"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000027 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000027">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000027"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000047 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000047">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
+        <obo:IAO_0000115>A unit which is a standard measure of the amount of a 2-dimensional flat surface.</obo:IAO_0000115>
+        <rdfs:label>area unit</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000047"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which is a standard measure of the amount of a 2-dimensional flat surface.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>UOC:GVG</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/UO_0000076 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000076">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000076"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000324 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000324">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000047"/>
+        <obo:IAO_0000115>An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long.</obo:IAO_0000115>
+        <oboInOwl:hasRelatedSynonym>A^[2]</oboInOwl:hasRelatedSynonym>
+        <rdfs:label>square angstrom</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000324"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>UOC:GVG</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_1000019 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_1000019">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
+        <rdfs:label>angstrom based unit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_1000027 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_1000027">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
+        <rdfs:label>degree Celsius based unit</rdfs:label>
     </owl:Class>
     
 
@@ -3256,7 +3342,7 @@ granularity. At these coarser levels, the individual molecules cannot be differe
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000950"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf rdf:nodeID="genid138"/>
+        <rdfs:subClassOf rdf:nodeID="genid140"/>
         <rdfs:comment xml:lang="en">A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
 (Callister, W.D., Rethwisch, D.G., Materials Science and Engineering, Wiley, 2014)
 
@@ -3269,7 +3355,7 @@ Extensive properties that depend on the object being tested rather than on the p
         <skos:definition xml:lang="en">a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid138">
+    <owl:Restriction rdf:nodeID="genid140">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
         <owl:someValuesFrom>
             <owl:Class>
@@ -3286,7 +3372,7 @@ Extensive properties that depend on the object being tested rather than on the p
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000005"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid138"/>
+        <owl:annotatedTarget rdf:nodeID="genid140"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -5787,21 +5873,21 @@ A manufacturing process is always a transformative process.</skos:definition>
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020131">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <rdfs:subClassOf rdf:nodeID="genid533"/>
+        <rdfs:subClassOf rdf:nodeID="genid535"/>
         <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0020148"/>
         <rdfs:label xml:lang="en">intensive quality</rdfs:label>
         <skos:altLabel xml:lang="en">Point property</skos:altLabel>
         <skos:definition xml:lang="en">An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid533">
+    <owl:Restriction rdf:nodeID="genid535">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
     </owl:Restriction>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0020131"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid533"/>
+        <owl:annotatedTarget rdf:nodeID="genid535"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -5907,12 +5993,42 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020198 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020198">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
+        <rdfs:label xml:lang="en">interstitial site</rdfs:label>
+        <skos:definition xml:lang="en">An interstitial site is a site that is located between regular lattice points in a crystal structure.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020199 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020199">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000146"/>
+        <rdfs:label xml:lang="en">slip plane</rdfs:label>
+        <skos:definition xml:lang="en">A slip plane is a fiat surface that corresponds to a crystallographic plane of a 3D crystal along which dislocations can glide</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020201 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020201">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000146"/>
         <rdfs:label xml:lang="en">section</rdfs:label>
         <skos:definition xml:lang="en">Section is a planar fiat surface cutting across the object</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020208 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020208">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000142"/>
+        <rdfs:label xml:lang="en">slip direction</rdfs:label>
+        <skos:definition xml:lang="en">A slip direction is a fiat line that corresponds to the crystallographic direction along which dislocations glide os a slip plane.</skos:definition>
     </owl:Class>
     
 
@@ -5979,6 +6095,23 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">order scale</rdfs:label>
         <skos:definition xml:lang="en">characteristic length over which structural correlations persist in a material</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020224 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020224">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020197"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000116 xml:lang="en">TODO: replace topObjectProperty with occupies spatial region</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">vacancy (crystal)</rdfs:label>
+        <skos:definition xml:lang="en">site at lattice point at which the crystal forming entity is missing</skos:definition>
     </owl:Class>
     
 
@@ -6385,6 +6518,39 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">lattice angle</rdfs:label>
         <skos:definition xml:lang="en">Lattice angle is a quality of a unit cell which describes the angle between three axes in a unit cell.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000017 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000017">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000000"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020197"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/pmd/co/PMD_0020197"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">primitive unit cell</rdfs:label>
+        <skos:definition xml:lang="en">primitive unit cell is a unit cell that contains only single lattice point and has the smallest possible unit cell volume.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000018 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000018">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000000"/>
+        <rdfs:label xml:lang="en">conventional unit cell</rdfs:label>
+        <skos:definition xml:lang="en">conventional unit cell is a unit cell with the full symmetry of the crystal lattice, i.e., it may contain more that one lattice point.</skos:definition>
     </owl:Class>
     
 
@@ -8616,9 +8782,39 @@ lattice system based on the point group symmetries of their empty translational 
     
 
 
+    <!-- http://purl.obolibrary.org/obo/UO_0000019 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/UO_0000019"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000027 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/UO_0000027"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/UO_0000076 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/UO_0000076"/>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/ANGSTROM3 -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/ANGSTROM3">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <dcterms:description rdf:datatype="http://qudt.org/schema/qudt/LatexString">A unit that is a non-SI unit, specifically a CGS unit,  of polarizability known informally as
+    polarizability volume.  The SI defined units for polarizability are C*m^2/V and can be converted to $Angstr\ddot{o}m$^3 by
+    multiplying the SI value by 4 times pi times the vacuum permittivity and then converting the resulting m^3 to
+    $Angstr\ddot{o}m$^3 through the SI base 10 conversion (multiplying by 10^-30).
+  </dcterms:description>
+        <qudt:symbol>Å³</qudt:symbol>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label>Cubic Angstrom</rdfs:label>
+        <rdfs:label xml:lang="en">Cubic Angstrom</rdfs:label>
+        <rdfs:label xml:lang="en-us">Cubic Angstrom</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -12351,6 +12547,28 @@ lattice system based on the point group symmetries of their empty translational 
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0000019">
+        <obo:IAO_0000115>A length unit which is equal to 10 [-10] m.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>Å</oboInOwl:hasExactSynonym>
+        <rdfs:label>angstrom</rdfs:label>
+    </rdf:Description>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000019"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A length unit which is equal to 10 [-10] m.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>NIST:NIST</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0000027">
+        <obo:IAO_0000115>A temperature unit which is equal to one kelvin degree. However, they have their zeros at different points. The centigrade scale has its zero at 273.15 K.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>C</oboInOwl:hasExactSynonym>
+        <rdfs:label>degree Celsius</rdfs:label>
+    </rdf:Description>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000027"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A temperature unit which is equal to one kelvin degree. However, they have their zeros at different points. The centigrade scale has its zero at 273.15 K.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>NIST:NIST</oboInOwl:hasDbXref>
+    </owl:Axiom>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0000076">
         <obo:IAO_0000115>A concentration unit which denotes the number of moles of solute as a proportion of the total number of moles in a solution.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>(x)</oboInOwl:hasExactSynonym>

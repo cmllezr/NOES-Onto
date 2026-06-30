@@ -19,12 +19,12 @@
 @base <https://w3id.org/pmd/noes.ttl> .
 
 <https://w3id.org/pmd/noes.ttl> rdf:type owl:Ontology ;
-                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-06-24/noes.ttl> ;
+                                 owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-06-30/noes.ttl> ;
                                  dcterms:creator <https://orcid.org/0009-0003-1503-4422> ;
                                  dcterms:description "NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets." ;
                                  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                  dcterms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
-                                 owl:versionInfo "2026-06-24" .
+                                 owl:versionInfo "2026-06-30" .
 
 #################################################################
 #    Annotation properties
@@ -4696,6 +4696,20 @@ co:PMD_0001020 rdf:type owl:Class ;
                                "Ein Röntgenbeugungsgerät ist ein Messgerät, das die Kristallstruktur von Materialien durch Analyse der Beugungsmuster von durch eine Probe geleiteten Röntgenstrahlen bestimmt."@de .
 
 
+###  https://w3id.org/pmd/co/PMD_0001998
+co:PMD_0001998 rdf:type owl:Class ;
+               rdfs:subClassOf [ owl:intersectionOf ( co:PMD_0000602
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:RO_0000085 ;
+                                                        owl:someValuesFrom co:PMD_0000592
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+               rdfs:label "cutting device"@en ;
+               skos:definition "A device designed to cut, slice, divide, or sever objects."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0010020
 co:PMD_0010020 rdf:type owl:Class ;
                owl:equivalentClass [ owl:intersectionOf ( co:PMD_0020140
@@ -6067,21 +6081,21 @@ co:PMD_0020128 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0020131
 co:PMD_0020131 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid736 ;
+                               _:genid740 ;
                owl:disjointWith co:PMD_0020148 ;
                rdfs:label "intensive quality"@en ;
                skos:altLabel "Point property"@en ;
                skos:definition "An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid736 rdf:type owl:Restriction ;
+_:genid740 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000080 ;
             owl:someValuesFrom co:PMD_0000001 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020131 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid736 ;
+   owl:annotatedTarget _:genid740 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -14745,6 +14759,21 @@ obo:UO_0000185 rdf:type owl:NamedIndividual .
 obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 
+###  http://qudt.org/vocab/unit/ANGSTROM3
+<http://qudt.org/vocab/unit/ANGSTROM3> rdf:type owl:NamedIndividual ,
+                                                obo:IAO_0000003 ;
+                                       dcterms:description """A unit that is a non-SI unit, specifically a CGS unit,  of polarizability known informally as
+    polarizability volume.  The SI defined units for polarizability are C*m^2/V and can be converted to $Angstr\\ddot{o}m$^3 by
+    multiplying the SI value by 4 times pi times the vacuum permittivity and then converting the resulting m^3 to
+    $Angstr\\ddot{o}m$^3 through the SI base 10 conversion (multiplying by 10^-30).
+  """^^qudt:LatexString ;
+                                       qudt:symbol "Å³" ;
+                                       rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                       rdfs:label "Cubic Angstrom" ,
+                                                  "Cubic Angstrom"@en ,
+                                                  "Cubic Angstrom"@en-us .
+
+
 ###  http://qudt.org/vocab/unit/MegaPA
 <http://qudt.org/vocab/unit/MegaPA> rdf:type owl:NamedIndividual ,
                                              obo:IAO_0000003 ;
@@ -14772,7 +14801,10 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 ###  http://qudt.org/vocab/unit/N-PER-M2
 <http://qudt.org/vocab/unit/N-PER-M2> rdf:type owl:NamedIndividual ,
                                                obo:IAO_0000003 ;
-                                      dcterms:description "The SI unit of pressure. The pascal is the standard pressure unit in the MKS metric system, equal to one newton per square meter or one \"kilogram per meter per second per second.\" The unit is named for Blaise Pascal (1623-1662), French philosopher and mathematician, who was the first person to use a barometer to measure differences in altitude."^^rdf:HTML ;
+                                      dcterms:description """The SI unit of pressure. The pascal is the standard pressure unit in the MKS metric system, equal to one
+    newton per square meter or one \"kilogram per meter per second per second.\" The unit is named for Blaise Pascal (1623-1662),
+    French philosopher and mathematician, who was the first person to use a barometer to measure differences in altitude.
+  """^^rdf:HTML ;
                                       qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA247"^^xsd:anyURI ,
                                                                 "https://en.wikipedia.org/wiki/Pascal?oldid=492989202"^^xsd:anyURI ;
                                       qudt:symbol "N/m²" ;

@@ -7,9 +7,9 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<https://w3id.org/pmd/noes/imports/cryo_import.owl>
-<https://w3id.org/pmd/noes/releases/2026-06-24/imports/cryo_import.owl>
-Annotation(<http://purl.org/dc/elements/1.1/source> <https://w3id.org/pmd/cryo/2026-06-16>)
-Annotation(owl:versionInfo "2026-06-24")
+<https://w3id.org/pmd/noes/releases/2026-06-30/imports/cryo_import.owl>
+Annotation(<http://purl.org/dc/elements/1.1/source> <https://w3id.org/pmd/cryo/2026-06-27>)
+Annotation(owl:versionInfo "2026-06-30")
 
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000001>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000002>))
@@ -38,8 +38,10 @@ Declaration(Class(<http://purl.obolibrary.org/obo/CHEBI_24431>))
 Declaration(Class(<http://purl.obolibrary.org/obo/CHEBI_33250>))
 Declaration(Class(<http://purl.obolibrary.org/obo/COB_0000035>))
 Declaration(Class(<http://purl.obolibrary.org/obo/COB_0000082>))
+Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000003>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000005>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000007>))
+Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000009>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000027>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000030>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000033>))
@@ -181,6 +183,7 @@ Declaration(DataProperty(<https://w3id.org/pmd/cryo/CRYO_0000144>))
 Declaration(DataProperty(<https://w3id.org/pmd/cryo/CRYO_0000145>))
 Declaration(DataProperty(<https://w3id.org/pmd/cryo/CRYO_0000146>))
 Declaration(DataProperty(<https://w3id.org/pmd/cryo/CRYO_0000147>))
+Declaration(NamedIndividual(<http://qudt.org/vocab/unit/ANGSTROM3>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020027>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020097>))
 Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020100>))
@@ -505,13 +508,17 @@ Declaration(AnnotationProperty(<http://purl.obolibrary.org/obo/IAO_0000112>))
 Declaration(AnnotationProperty(<http://purl.obolibrary.org/obo/IAO_0000115>))
 Declaration(AnnotationProperty(<http://purl.obolibrary.org/obo/IAO_0000116>))
 Declaration(AnnotationProperty(<http://purl.obolibrary.org/obo/IAO_0000119>))
+Declaration(AnnotationProperty(<http://purl.obolibrary.org/obo/IAO_0000232>))
 Declaration(AnnotationProperty(<http://purl.obolibrary.org/obo/IAO_0000233>))
 Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/source>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/description>))
+Declaration(AnnotationProperty(<http://qudt.org/schema/qudt/symbol>))
 Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#altLabel>))
 Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#definition>))
 Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#example>))
 Declaration(AnnotationProperty(<https://w3id.org/pmd/co/PMD_0000060>))
 Declaration(AnnotationProperty(<https://w3id.org/pmd/co/PMD_0000064>))
+Declaration(Datatype(<http://qudt.org/schema/qudt/LatexString>))
 Declaration(Datatype(rdfs:Literal))
 
 ############################
@@ -1219,6 +1226,19 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.ob
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/COB_0000082> "planned process"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/COB_0000082> <http://purl.obolibrary.org/obo/BFO_0000015>)
 
+# Class: <http://purl.obolibrary.org/obo/IAO_0000003> (measurement unit label)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000112> <http://purl.obolibrary.org/obo/IAO_0000003> "Examples of measurement unit labels are liters, inches, weight per volume."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/IAO_0000003> "A measurement unit label is as a label that is part of a scalar measurement datum and denotes a unit of measure."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000003> "2009-03-16: provenance: a term measurement unit was
+proposed for OBI (OBI_0000176) , edited by Chris Stoeckert and
+Cristian Cocos, and subsequently moved to IAO where the objective for
+which the original term was defined was satisfied with the definition
+of this, different, term."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000003> "2009-03-16: review of this term done during during the OBI workshop winter 2009 and the current definition was considered acceptable for use in OBI. If there is a need to modify this definition please notify OBI."@en)
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000003> "measurement unit label"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/IAO_0000003> <http://purl.obolibrary.org/obo/IAO_0000009>)
+
 # Class: <http://purl.obolibrary.org/obo/IAO_0000005> (objective specification)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000112> <http://purl.obolibrary.org/obo/IAO_0000005> "In the protocol of a ChIP assay the objective specification says to identify protein and DNA interaction."@en)
@@ -1238,6 +1258,15 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.ob
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <http://purl.obolibrary.org/obo/IAO_0000007> "OBI Plan and Planned Process branch"@en)
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000007> "action specification"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/IAO_0000007> <http://purl.obolibrary.org/obo/IAO_0000033>)
+
+# Class: <http://purl.obolibrary.org/obo/IAO_0000009> (datum label)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/IAO_0000009> "A label is a symbol that is part of some other datum and is used to either partially define  the denotation of that datum or to provide a means for identifying the datum as a member of the set of data with the same label"@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/IAO_0000009> "http://www.golovchenko.org/cgi-bin/wnsearch?q=label#4n"@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000232> <http://purl.obolibrary.org/obo/IAO_0000009> "9/22/11 BP: changed the rdfs:label for this class from 'label' to 'datum label' to convey that this class is not intended to cover all kinds of labels (stickers, radiolabels, etc.), and not even all kind of textual labels, but rather the kind of labels occuring in a datum. 
+")
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000009> "datum label"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/IAO_0000009> <http://purl.obolibrary.org/obo/IAO_0000030>)
 
 # Class: <http://purl.obolibrary.org/obo/IAO_0000027> (data item)
 
@@ -1973,6 +2002,20 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000392> <http://purl.obolibrary.org/
 ############################
 #   Named Individuals
 ############################
+
+# Individual: <http://qudt.org/vocab/unit/ANGSTROM3> (Cubic Angstrom)
+
+AnnotationAssertion(<http://purl.org/dc/terms/description> <http://qudt.org/vocab/unit/ANGSTROM3> "A unit that is a non-SI unit, specifically a CGS unit,  of polarizability known informally as
+    polarizability volume.  The SI defined units for polarizability are C*m^2/V and can be converted to $Angstr\\ddot{o}m$^3 by
+    multiplying the SI value by 4 times pi times the vacuum permittivity and then converting the resulting m^3 to
+    $Angstr\\ddot{o}m$^3 through the SI base 10 conversion (multiplying by 10^-30).
+  "^^<http://qudt.org/schema/qudt/LatexString>)
+AnnotationAssertion(<http://qudt.org/schema/qudt/symbol> <http://qudt.org/vocab/unit/ANGSTROM3> "Å³")
+AnnotationAssertion(rdfs:isDefinedBy <http://qudt.org/vocab/unit/ANGSTROM3> <http://qudt.org/vocab/unit>)
+AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/ANGSTROM3> "Cubic Angstrom")
+AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/ANGSTROM3> "Cubic Angstrom"@en)
+AnnotationAssertion(rdfs:label <http://qudt.org/vocab/unit/ANGSTROM3> "Cubic Angstrom"@en-us)
+ClassAssertion(<http://purl.obolibrary.org/obo/IAO_0000003> <http://qudt.org/vocab/unit/ANGSTROM3>)
 
 # Individual: <https://w3id.org/pmd/co/PMD_0020027> (bainite)
 
