@@ -16,12 +16,12 @@
 @base <https://w3id.org/pmd/noes/noes-simple.ttl> .
 
 <https://w3id.org/pmd/noes/noes-simple.ttl> rdf:type owl:Ontology ;
-                                             owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-06-30/noes-simple.ttl> ;
+                                             owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-07-07/noes-simple.ttl> ;
                                              terms:creator <https://orcid.org/0009-0003-1503-4422> ;
                                              terms:description "NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets." ;
                                              terms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                              terms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
-                                             owl:versionInfo "2026-06-30" .
+                                             owl:versionInfo "2026-07-07" .
 
 #################################################################
 #    Annotation properties
@@ -1806,6 +1806,21 @@ noes:NOES_0000086 rdf:type owl:Class ;
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:someValuesFrom noes:NOES_0000177
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000177
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:someValuesFrom noes:NOES_0000162
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:allValuesFrom noes:NOES_0000162
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
                                   ] ;
                   rdfs:label "α-fiber texture"@en ;
                   skos:altLabel "<110> || RD" ;
@@ -1828,6 +1843,21 @@ noes:NOES_0000087 rdf:type owl:Class ;
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:someValuesFrom noes:NOES_0000177
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000177
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:someValuesFrom noes:NOES_0000152
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:allValuesFrom noes:NOES_0000152
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
                                   ] ;
                   rdfs:comment """Note on a crystal structure: 
 theoretically possible in both bcc and fcc because <100> are the same types of directions
@@ -1854,6 +1884,21 @@ noes:NOES_0000088 rdf:type owl:Class ;
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:someValuesFrom noes:NOES_0000177
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000177
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:someValuesFrom noes:NOES_0000157
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:allValuesFrom noes:NOES_0000157
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
                                   ] ;
                   rdfs:label "η-fiber texture"@en ;
                   skos:altLabel "<001> || RD" ;
@@ -1885,6 +1930,46 @@ noes:NOES_0000090 rdf:type owl:Class ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:someValuesFrom noes:NOES_0000177
                                   ] ;
+                  rdfs:comment """'crystallographic texture'
+ and ('quality of' some 
+    ('grain population'
+     and ('has member' only 
+        (crystallite
+         and ('location of' some 
+            ('crystallographic plane'
+             and ('approximately parallel to' some 
+                ('rolling plane'
+                 and ('located in' some material)))
+             and ('denoted by family under cubic symmetry' only 
+                ('Miller indices'
+                 and ('has Miller indices' value \"{001}\")))))
+         and ('location of' some 
+            ('crystallographic direction'
+             and ('approximately parallel to' some 
+                ('rolling direction'
+                 and ('located in' some material)))
+             and ('denoted by family under cubic symmetry' only 
+                ('Miller indices'
+                 and ('has Miller indices' value \"<100>\")))))))))""" ,
+                               """'crystallographic texture'
+ and ('quality of' some 
+    ('grain population'
+     and ('part of' some 
+        (material
+         and ('location of' some 
+            ('rolling direction'
+             and ('approximately parallel to' some 
+                ('crystallographic direction'
+                 and ('denoted by family under cubic symmetry' some 
+                    ('Miller indices'
+                     and ('has Miller indices' value \"<100>\")))))))
+         and ('location of' some 
+            ('rolling plane'
+             and ('approximately parallel to' some 
+                ('crystallographic plane'
+                 and ('denoted by family under cubic symmetry' some 
+                    ('Miller indices'
+                     and ('has Miller indices' value \"{001}\")))))))))))""" ;
                   rdfs:label "cube texture component"@en ;
                   skos:altLabel "{001}<100>" ;
                   skos:definition "Cube texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame: <100> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material and {001} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material."@en .
@@ -1892,8 +1977,7 @@ noes:NOES_0000090 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000091
 noes:NOES_0000091 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000086 ,
-                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                  rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:RO_0000080 ;
                                                            owl:someValuesFrom noes:NOES_0000177
                                                          ]
@@ -1903,6 +1987,25 @@ noes:NOES_0000091 rdf:type owl:Class ;
                                                          ]
                                                        ) ;
                                     rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom noes:NOES_0000177
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000177
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:someValuesFrom noes:NOES_0000135
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:allValuesFrom noes:NOES_0000135
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
                                   ] ;
                   rdfs:label "rotated cube texture component"@en ;
                   skos:altLabel "{001}<110>" ;
@@ -1911,8 +2014,7 @@ noes:NOES_0000091 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000092
 noes:NOES_0000092 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000088 ,
-                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                  rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:RO_0000080 ;
                                                            owl:someValuesFrom noes:NOES_0000177
                                                          ]
@@ -1922,6 +2024,25 @@ noes:NOES_0000092 rdf:type owl:Class ;
                                                          ]
                                                        ) ;
                                     rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom noes:NOES_0000177
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000177
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:someValuesFrom noes:NOES_0000144
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:allValuesFrom noes:NOES_0000144
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
                                   ] ;
                   rdfs:label "Goss texture component"@en ;
                   skos:altLabel "{110}<001>" ;
@@ -1930,8 +2051,7 @@ noes:NOES_0000092 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000093
 noes:NOES_0000093 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000086 ,
-                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                  rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                            owl:onProperty obo:RO_0000080 ;
                                                            owl:someValuesFrom noes:NOES_0000177
                                                          ]
@@ -1941,6 +2061,25 @@ noes:NOES_0000093 rdf:type owl:Class ;
                                                          ]
                                                        ) ;
                                     rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom noes:NOES_0000177
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000177
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:someValuesFrom noes:NOES_0000151
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:allValuesFrom noes:NOES_0000151
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
                                   ] ;
                   rdfs:label "rotated Goss texture component"@en ;
                   skos:altLabel "{110}<110>" ;
@@ -1973,6 +2112,21 @@ noes:NOES_0000095 rdf:type owl:Class ;
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000080 ;
                                     owl:someValuesFrom noes:NOES_0000177
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000080 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000177
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:someValuesFrom noes:NOES_0000158
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty obo:RO_0002351 ;
+                                                                                owl:allValuesFrom noes:NOES_0000158
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
                                   ] ;
                   rdfs:label "γ-fiber texture"@en ;
                   skos:altLabel "<111> || ND" ;
@@ -2259,6 +2413,37 @@ noes:NOES_0000133 rdf:type owl:Class ;
                   skos:definition "number density is a proportion which presents the count of individual, countable items (such as atoms, molecules, charge carriers, etc.) contained within a specific unit of volume"@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000135
+noes:NOES_0000135 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000162 ;
+                  rdfs:label "crystallite with rotated cube texture orientation"@en ;
+                  skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
+                  skos:definition "crystallite with rotated cube texture orientation is a crystallite whose family of <110> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {001} equivalent directions are oriented approximately parallel to the rolling plane."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000144
+noes:NOES_0000144 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000157 ;
+                  rdfs:label "crystallite with Goss texture orientation"@en ;
+                  skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
+                  skos:definition "crystallite with Goss texture orientation is a crystallite whose family of <001> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {110} equivalent directions are oriented approximately parallel to the rolling plane."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000151
+noes:NOES_0000151 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000162 ;
+                  rdfs:label "crystallite with rotated Goss texture orientation"@en ;
+                  skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
+                  skos:definition "crystallite with rotated Goss texture orientation is a crystallite whose family of <110> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {110} equivalent directions are oriented approximately parallel to the rolling plane."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000152
+noes:NOES_0000152 rdf:type owl:Class ;
+                  rdfs:label "crystallite with λ-fiber texture orientation"@en ;
+                  skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
+                  skos:definition "crystallite with  λ-fiber texture orientation is a crystallite whose family of <100> equivalent directions in a cubic lattice system are oriented approximately parallel to the normal direction."@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000153
 noes:NOES_0000153 rdf:type owl:Class ;
                   rdfs:label "diffraction process"@en ;
@@ -2284,6 +2469,20 @@ noes:NOES_0000156 rdf:type owl:Class ;
                   rdfs:label "maximal magnetic field strength"@en ;
                   skos:definition "Maximal magnetic field is a maximal value of a magnetic field has has to be achieved during characterization of magnetic properties"@en ;
                   co:symbol "Hmax"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000157
+noes:NOES_0000157 rdf:type owl:Class ;
+                  rdfs:label "crystallite with η-fiber texture orientation"@en ;
+                  skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
+                  skos:definition "crystallite with η-fiber texture orientation is a crystallite whose family of <001> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000158
+noes:NOES_0000158 rdf:type owl:Class ;
+                  rdfs:label "crystallite with γ-fiber texture orientation"@en ;
+                  skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
+                  skos:definition "crystallite withγ-fiber texture orientation is a crystallite whose family of <111> equivalent directions in a cubic lattice system are oriented approximately parallel to the normal direction."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000159
@@ -2325,11 +2524,26 @@ noes:NOES_0000161 rdf:type owl:Class ;
                   skos:definition "α*-fiber texture is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame: {11h} family of crystallographic planes are oriented parallel to the rolling plane of a sheet material and <1/h12> family of crystallographic directions are oriented parallel to the rolling direction (RD) of a sheet material."@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000162
+noes:NOES_0000162 rdf:type owl:Class ;
+                  rdfs:label "crystallite with α-fiber texture orientation"@en ;
+                  skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
+                  skos:definition "crystallite with α-fiber texture orientation is a crystallite whose family of <110> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction."@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000163
 noes:NOES_0000163 rdf:type owl:Class ;
                   rdfs:label "magnetic properties measuring device"@en ;
                   skos:definition "Magnetic properties measuring device is a device that measures a hysteresis curve, i,e., its corresponding characteristic points, hysteresis loss, and total magnetic loss, of soft magnetic materials by applying alternating (AC) or quasi-static (DC) electric current on copper coils to produde external magnetic field."@en ;
                   skos:example "Single sheet tester (SST), Epstein frame, Ring core tester"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000164
+noes:NOES_0000164 rdf:type owl:Class ;
+                  rdfs:label "crystallite with α*-fiber texture orientation"@en ;
+                  skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ,
+                               "The axiom is not expressible in OWL. SHACL restriction?"@en ;
+                  skos:definition "crystallite with α*-fiber texture orientation is a crystallite whose family of <1/h12> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {h11} equivalent directions are oriented approximately parallel to the rolling plane."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000165
