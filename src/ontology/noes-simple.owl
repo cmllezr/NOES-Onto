@@ -2660,6 +2660,26 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000177"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000177"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000167"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:allValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000167"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>&apos;crystallographic texture&apos;
  and (&apos;quality of&apos; some 
     (&apos;grain population&apos;
@@ -3518,6 +3538,16 @@ Will be inferable in the future</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/pmd/noes/NOES_0000167 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000167">
+        <rdfs:label xml:lang="en">crystallite with cube texture orientation</rdfs:label>
+        <skos:comment xml:lang="en">Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference.</skos:comment>
+        <skos:definition xml:lang="en">crystallite with cube texture orientation is a crystallite whose family of &lt;100&gt; equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {001} equivalent directions are oriented approximately parallel to the rolling plane.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/noes/NOES_0000177 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000177">
@@ -3657,6 +3687,26 @@ Will be inferable in the future</rdfs:comment>
         <rdfs:label xml:lang="en">normal direction (ND)</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000135"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000144"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000151"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000167"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
