@@ -1,0 +1,95 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX ex: <http://example.org/distel/>
+prefix pmd: <https://w3id.org/pmd/co/>
+prefix noes: <https://w3id.org/pmd/noes/>
+prefix obo: <http://purl.obolibrary.org/obo/>
+prefix cryo: <https://w3id.org/pmd/cryo/>
+prefix tto: <https://w3id.org/pmd/tto/>
+
+CONSTRUCT {
+    ?grain a pmd:PMD_0000663 ; #crystallite
+           obo:RO_0001015  ?direction ; # location of
+		   obo:RO_0001015  ?plane ; # location of
+		   obo:RO_0001015  ?ndDirection ; # location of (fiber support: hkl reinterpreted as a direction parallel to ND)
+		   obo:RO_0000086 ?area .
+
+	?area a tto:TTO_0050000 ; # area, but to be replaced with dedicated grain area from micro ontology
+		pmd:PMD_0000077 ?area_SVS . # specified by value
+
+	?area_SVS a obo:OBI_0001931 ; # scalar value specification
+			obo:OBI_0001937 ?areaValue ; # has numetic value
+			obo:IAO_0000039 obo:UO_0000017 . # has unit microns
+
+    ?direction a cryo:CRYO_0000012 ; # crystallographic direction
+				noes:NOES_0000131 ?rd ; # approximately parallel to
+				obo:IAO_0000235 ?uvw . # denoted by (resolved via label lookup against the ontology, see MillerIndexResolver)
+
+	?plane a cryo:CRYO_0000011 ; # crystallographic plane
+				noes:NOES_0000131 ?rp ; # approximately parallel to
+				obo:IAO_0000235 ?hkl . # denoted by (resolved via label lookup against the ontology, see MillerIndexResolver)
+
+	# Fiber support (alpha/eta fibers are already covered by ?direction
+	# above, since they only need <uvw>//RD, which is exactly what
+	# ?direction already gives). Gamma/lambda fibers need <hkl>//ND
+	# instead -- for cubic crystals the plane normal (hkl) and the
+	# direction [hkl] are the same vector, so this reuses the same hkl
+	# value, just resolved against the ontology's direction-notation
+	# ("[hkl]") individuals instead of its plane-notation ("(hkl)") ones,
+	# and related to ND instead of the rolling plane.
+	?ndDirection a cryo:CRYO_0000012 ; # crystallographic direction
+				noes:NOES_0000131 ?nd ; # approximately parallel to
+				obo:IAO_0000235 ?hklAsDirection . # denoted by (hkl, resolved as a direction-notation individual)
+
+	?nd a noes:NOES_0000036 ; # normal direction
+		  obo:RO_0001025 ?material . # located in
+
+	?lattice a cryo:CRYO_0000001 ; # crystal lattice
+			obo:BFO_0000051 ?direction ; # has part
+			obo:BFO_0000051 ?plane ; 	# has part
+			obo:RO_0000086 ?lattice_system . # has quality
+
+	?lattice_system a cryo:CRYO_0000390 ; # lattice system
+			pmd:PMD_0000077 cryo:CRYO_0000035 . # specified by value cubic
+
+
+
+	?rd a noes:NOES_0000033 ; # rolling direction
+		  obo:RO_0001025 ?material . # located in
+
+	?rp a noes:NOES_0000094 ; # rolling plane
+		  obo:RO_0001025 ?material . # located in
+
+}
+WHERE {
+    ?config <temp:grainID> ?id ;
+            <temp:areaValue> ?areaValue .
+
+    BIND(URI(CONCAT(STR(ex:), "grain_", ?id)) AS ?grain)
+	BIND(URI(CONCAT(STR(ex:), "area_", ?id)) AS ?area)
+	BIND(URI(CONCAT(STR(ex:), "some_material")) AS ?material)
+	BIND(URI(CONCAT(STR(ex:), "rp_of_material")) AS ?rp)
+	BIND(URI(CONCAT(STR(ex:), "rd_of_material")) AS ?rd)
+	BIND(URI(CONCAT(STR(ex:), "nd_of_material")) AS ?nd)
+	BIND(REPLACE(STR(?areaValue), "[.]", "_") AS ?areaValueClean)
+	BIND(URI(CONCAT(STR(ex:), "SVS_", ?areaValueClean, "_mkm")) AS ?area_SVS)
+
+
+	OPTIONAL {
+		?config <temp:hkl> ?hkl ;
+				<temp:uvw> ?uvw ;
+				<temp:direction> ?direction ;
+				<temp:plane> ?plane ;
+				<temp:lattice> ?lattice ;
+				<temp:latticeSystem> ?lattice_system .
+	}
+
+	# Independent of the plane/direction/lattice OPTIONAL above: only
+	# present when hkl, reinterpreted as a direction, resolved against
+	# the ontology's direction-notation individuals (see
+	# CrystalliteBuilder._stage in ebsd2rdf.py).
+	OPTIONAL {
+		?config <temp:hklAsDirection> ?hklAsDirection ;
+				<temp:ndDirection> ?ndDirection .
+	}
+}

@@ -1,0 +1,20 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX ex: <http://example.org/distel/>
+prefix pmd: <https://w3id.org/pmd/co/>
+prefix noes: <https://w3id.org/pmd/noes/>
+prefix obo: <http://purl.obolibrary.org/obo/>
+
+# GRAIN_TYPES class.
+
+CONSTRUCT {
+	<%%POPULATION%%> a noes:NOES_0000177 ; # grain population
+		obo:RO_0002351 ?grain . # has member
+
+	<%%POPULATION%%> obo:RO_0000086 <%%TEXTURE%%> . # has quality
+
+	<%%TEXTURE%%> a <%%ORIENTATION_TYPE%%> .
+}
+WHERE {
+	?grain a <%%GRAIN_TYPE%%> .
+}

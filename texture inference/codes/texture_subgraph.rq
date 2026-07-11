@@ -1,0 +1,71 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX ex: <http://example.org/distel/>
+prefix pmd: <https://w3id.org/pmd/co/>
+prefix noes: <https://w3id.org/pmd/noes/>
+prefix obo: <http://purl.obolibrary.org/obo/>
+prefix cryo: <https://w3id.org/pmd/cryo/>
+
+# Extracts, from the full crystallite ABox, only the subgraph that is
+# actually relevant to texture classification: crystallites that have a
+# resolved crystallographic direction/plane (obo:RO_0001015), plus their
+# direction/plane/lattice/lattice_system/rd/rp/material substructure. Area
+# triples (obo:RO_0000086 crystallite->area, tto:TTO_0050000, the scalar
+# value specs) are deliberately left out -- HermiT never needs them, and
+# they're the majority of the ABox by individual count. The material's
+# noes:NOES_0000180 type is kept because the GRAIN_TYPES restrictions
+# require the rolling direction/plane to be "located in" a material that is
+# (via subsumption) a co:PMD_0000000, which only holds if the material's
+# type assertion is present for the reasoner to classify.
+
+CONSTRUCT {
+	?grain a pmd:PMD_0000663 ;
+		obo:RO_0001015 ?direction ;
+		obo:RO_0001015 ?plane .
+
+	?direction a cryo:CRYO_0000012 ;
+		noes:NOES_0000131 ?rd ;
+		obo:IAO_0000235 ?uvw .
+
+	?plane a cryo:CRYO_0000011 ;
+		noes:NOES_0000131 ?rp ;
+		obo:IAO_0000235 ?hkl .
+
+	?lattice a cryo:CRYO_0000001 ;
+		obo:BFO_0000051 ?direction ;
+		obo:BFO_0000051 ?plane ;
+		obo:RO_0000086 ?lattice_system .
+
+	?lattice_system a cryo:CRYO_0000390 ;
+		pmd:PMD_0000077 cryo:CRYO_0000035 .
+
+	?rd a noes:NOES_0000033 ;
+		obo:RO_0001025 ?material .
+
+	?rp a noes:NOES_0000094 ;
+		obo:RO_0001025 ?material .
+
+	?material a noes:NOES_0000180 .
+}
+WHERE {
+	?grain a pmd:PMD_0000663 ;
+		obo:RO_0001015 ?direction ;
+		obo:RO_0001015 ?plane .
+
+	?direction a cryo:CRYO_0000012 ;
+		noes:NOES_0000131 ?rd ;
+		obo:IAO_0000235 ?uvw .
+
+	?plane a cryo:CRYO_0000011 ;
+		noes:NOES_0000131 ?rp ;
+		obo:IAO_0000235 ?hkl .
+
+	?lattice a cryo:CRYO_0000001 ;
+		obo:BFO_0000051 ?direction ;
+		obo:BFO_0000051 ?plane ;
+		obo:RO_0000086 ?lattice_system .
+
+	?rd obo:RO_0001025 ?material .
+	?rp obo:RO_0001025 ?material .
+	?material a noes:NOES_0000180 .
+}

@@ -1,0 +1,38 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX ex: <http://example.org/distel/>
+prefix pmd: <https://w3id.org/pmd/co/>
+prefix noes: <https://w3id.org/pmd/noes/>
+prefix obo: <http://purl.obolibrary.org/obo/>
+prefix cryo: <https://w3id.org/pmd/cryo/>
+prefix qudt: <http://qudt.org/vocab/unit/>
+
+CONSTRUCT {
+
+	?areaFraction a pmd:PMD_0020101 ; # proportion, to be replaced with area fraction
+		pmd:PMD_0025999 ?grainPopulation ; #relation quality of
+		pmd:PMD_0025999 ?microstructure ; #relation quality of
+		pmd:PMD_0000077 ?valSpec . # specified by value
+
+	?microstructure a pmd:PMD_0000857 ; # microstucture
+		obo:BFO_0000051 ?grainPopulation ; # has part
+		obo:BFO_0000050 ?material . # part of
+
+	?valSpec a obo:OBI_0001931 ; # scalar value specification
+		obo:OBI_0001937 ?rawVal ; #has numeric value
+		obo:IAO_0000039 qudt:PERCENT .	# has unit
+
+}
+
+WHERE  {
+
+	?entry  <temp:material> ?material ;
+			<temp:microstructure> ?microstructure ;
+			<temp:grainPopulation> ?grainPopulation ;
+			<temp:value> ?rawVal .
+
+	BIND(REPLACE(STR(?rawVal), "[.]", "_") AS ?cleanVal)
+	BIND(URI(CONCAT(STR(ex:), "SVS_", ?cleanVal, "_percent")) AS ?valSpec)
+	BIND(URI(CONCAT(STR(?grainPopulation), "_area_fraction")) AS ?areaFraction)
+
+}
