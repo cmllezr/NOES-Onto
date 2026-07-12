@@ -73,14 +73,19 @@ DEFAULT_CRYSTALLITES_TTL = TEXTURE_DIR / "crystallites_with_tbox.ttl"
 # irrelevant to GRAIN_TYPES classification.
 DEFAULT_TEXTURE_TTL = TEXTURE_DIR / "crystallites_texture.ttl"
 DEFAULT_REASONED_TTL = TEXTURE_DIR / "crystallites_reasoned_abox.ttl"
+# Output of classify_directly() -- the reasoner-free alternative to Stage B,
+# written to its own file rather than reasoned_ttl so both can be compared
+# side by side.
+DEFAULT_DIRECT_CLASSIFIED_TTL = TEXTURE_DIR / "crystallites_classified_direct.ttl"
 DEFAULT_OUTPUT = TEXTURE_DIR / "ebsd_texture_inferred.ttl"
 
 CRYSTALLITE_QUERY_FILE = CODES_DIR / "crystallite_orientation.rq"
 TEXTURE_SUBGRAPH_QUERY_FILE = CODES_DIR / "texture_subgraph.rq"
+DIRECT_CLASSIFICATION_QUERY_FILE = CODES_DIR / "crystallite_classification_direct.rq"
 GRAIN_POPULATION_QUERY_FILE = CODES_DIR / "grain_population.rq"
 TEXTURE_FRACTION_QUERY_FILE = CODES_DIR / "texture_fraction.rq"
 
-EX = rdflib.Namespace("http://example.org/distel/")
+EX = rdflib.Namespace("http://example.org/")
 NOES = rdflib.Namespace("https://w3id.org/pmd/noes/")
 OBO = rdflib.Namespace("http://purl.obolibrary.org/obo/")
 CO = rdflib.Namespace("https://w3id.org/pmd/co/")
@@ -272,29 +277,44 @@ class CrystalliteBuilder:
 			staging.add((config, TEMP.grainID, Literal(record.grain_id)))
 			staging.add((config, TEMP.areaValue, Literal(record.area)))
 
+			# uvw (-> ?direction, ~RD) and hkl (-> ?plane, ~RP) are resolved
+			# and staged *independently* of each other -- not gated on both
+			# succeeding together. That matters for fibers: alpha/eta only
+			# need ?direction (uvw), gamma/lambda only need ?ndDirection
+			# (hkl, staged separately below); requiring both hkl and uvw to
+			# resolve before either is usable would silently drop e.g. a
+			# grain whose uvw was fiber-snapped to an exact <110> index but
+			# whose hkl is still an unresolvable multi-digit rational fit.
+			# ?lattice/?lattice_system (needed for the point-component
+			# CRYO_0000041/hasSelf pattern HermiT relies on -- not needed by
+			# crystallite_classification_direct.rq at all) are only staged
+			# when *both* resolve, since they tie plane and direction
+			# together for a single crystal lattice.
 			hkl_uri = self.resolver.resolve(record.hkl)
 			uvw_uri = self.resolver.resolve(record.uvw)
-			if hkl_uri is not None and uvw_uri is not None:
-				staging.add((config, TEMP.hkl, hkl_uri))
+
+			if uvw_uri is not None:
+				# Grains with the identical resolved uvw notation (e.g.
+				# every exact-Cube grain is denoted by the same "[100]"
+				# individual) share one direction individual rather than
+				# minting a new one each -- physically correct (identical
+				# notation *is* the same crystallographic direction) and
+				# keeps the individual count small for HermiT.
+				uvw_slug = self._slugify(record.uvw)
 				staging.add((config, TEMP.uvw, uvw_uri))
-				# Grains with the identical resolved hkl/uvw notation (e.g.
-				# every exact-Cube grain is denoted by the same "(001)" /
-				# "[100]" individuals) share one direction/plane/lattice
-				# individual rather than minting a new one each -- this is
-				# both the physically correct model (identical orientation
-				# notation *is* the same crystallographic direction/plane)
-				# and keeps the number of distinct individuals HermiT has to
-				# classify small instead of one per grain.
+				staging.add((config, TEMP.direction, EX[f"direction_{uvw_slug}"]))
+
+			if hkl_uri is not None:
+				hkl_slug = self._slugify(record.hkl)
+				staging.add((config, TEMP.hkl, hkl_uri))
+				staging.add((config, TEMP.plane, EX[f"plane_{hkl_slug}"]))
+
+			if hkl_uri is not None and uvw_uri is not None:
 				slug = self._orientation_slug(record.hkl, record.uvw)
-				# staging.add((config, TEMP.direction, EX[f"direction_{record.grain_id}"]))
-				# staging.add((config, TEMP.plane, EX[f"plane_{record.grain_id}"]))
-				# staging.add((config, TEMP.lattice, EX[f"lattice_{record.grain_id}"]))
-				# staging.add((config, TEMP.latticeSystem, EX[f"lattice_system_{record.grain_id}"]))
-				staging.add((config, TEMP.direction, EX[f"direction_{slug}"]))
-				staging.add((config, TEMP.plane, EX[f"plane_{slug}"]))
 				staging.add((config, TEMP.lattice, EX[f"lattice_{slug}"]))
 				staging.add((config, TEMP.latticeSystem, EX[f"lattice_system_{slug}"]))
-			else:
+
+			if hkl_uri is None and uvw_uri is None:
 				self.unresolved_grains.append(record.grain_id)
 
 			# Independent of the plane/direction resolution above (fiber
@@ -463,6 +483,7 @@ class EBSD2RDFPipeline:
 		crystallites_ttl: Path = DEFAULT_CRYSTALLITES_TTL,
 		texture_ttl: Path = DEFAULT_TEXTURE_TTL,
 		reasoned_ttl: Path = DEFAULT_REASONED_TTL,
+		direct_classified_ttl: Path = DEFAULT_DIRECT_CLASSIFIED_TTL,
 		output_path: Path = DEFAULT_OUTPUT,
 		limit: Optional[int] = None,
 	):
@@ -472,6 +493,7 @@ class EBSD2RDFPipeline:
 		self.crystallites_ttl = Path(crystallites_ttl)
 		self.texture_ttl = Path(texture_ttl)
 		self.reasoned_ttl = Path(reasoned_ttl)
+		self.direct_classified_ttl = Path(direct_classified_ttl)
 		self.output_path = Path(output_path)
 		self.limit = limit
 
@@ -589,6 +611,47 @@ class EBSD2RDFPipeline:
 		out.serialize(destination=str(self.reasoned_ttl), format="turtle")
 		print(f"Wrote {len(out)} triples (merged ABox) to {self.reasoned_ttl}")
 
+	def classify_directly(self) -> None:
+		"""Reasoner-free alternative to Stage B (reason()), for comparing
+		against HermiT: loads the ontology plus crystallites_ttl (the full
+		ABox, no need for the smaller texture_ttl here -- this is a single
+		fast SPARQL query, not an expensive reasoning run) into one plain
+		rdflib Graph and runs crystallite_classification_direct.rq, which
+		replicates each GRAIN_TYPES class's family-membership check as a
+		SPARQL join against the ontology's *asserted* has-member edges,
+		instead of relying on HermiT to derive it. Writes to
+		direct_classified_ttl (not reasoned_ttl), so both this and the
+		HermiT result can be kept and compared -- point
+		EBSD2RDFPipeline(reasoned_ttl=...) at whichever one you want Stage
+		C to consume."""
+		graph = self._load_ontology_graph()
+		print(f"Loaded {len(graph)} ontology triples from {self.ontology_url}")
+
+		abox = rdflib.Graph()
+		abox.parse(str(self.crystallites_ttl), format="turtle")
+		print(f"Loaded {len(abox)} triples from {self.crystallites_ttl}")
+		ontology_iri = EX.ontology
+		abox.remove((ontology_iri, RDF.type, OWL.Ontology))
+		abox.remove((ontology_iri, OWL.imports, None))
+		graph += abox
+
+		query = DIRECT_CLASSIFICATION_QUERY_FILE.read_text(encoding="utf-8")
+		t0 = time.time()
+		result = graph.query(query)
+		classified = rdflib.Graph()
+		classified += result
+		print(f"Direct classification finished in {time.time() - t0:.1f}s, {len(classified)} type triples asserted")
+
+		out = rdflib.Graph()
+		_bind_prefixes(out)
+		out.add((ontology_iri, RDF.type, OWL.Ontology))
+		out.add((ontology_iri, OWL.imports, URIRef(self.ontology_url)))
+		out += abox
+		out += classified
+
+		out.serialize(destination=str(self.direct_classified_ttl), format="turtle")
+		print(f"Wrote {len(out)} triples to {self.direct_classified_ttl}")
+
 	def build_populations_and_fractions(self) -> None:
 		"""Stage C: grain-population grouping + area fractions, again with
 		plain rdflib (no owlready2/SQLite) against the reasoned ABox."""
@@ -641,13 +704,22 @@ def main() -> None:
 		help="Texture-only subgraph (no area triples) that Stage B actually reasons over.",
 	)
 	parser.add_argument("--reasoned-ttl", default=str(DEFAULT_REASONED_TTL))
+	parser.add_argument(
+		"--direct-classified-ttl",
+		default=str(DEFAULT_DIRECT_CLASSIFIED_TTL),
+		help="Output of classify-direct (reasoner-free GRAIN_TYPES classification).",
+	)
 	parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
 	parser.add_argument("--limit", type=int, default=None, help="Only process the first N grains (for testing).")
 	parser.add_argument(
 		"--stage",
-		choices=["crystallites", "reason", "populations", "all"],
+		choices=["crystallites", "reason", "classify-direct", "populations", "all"],
 		default="all",
-		help="Run a single checkpointed stage, or the full pipeline (default).",
+		help=(
+			"Run a single checkpointed stage, or the full pipeline (default). "
+			"'classify-direct' is a reasoner-free alternative to 'reason' -- run it, then run "
+			"'populations' with --reasoned-ttl pointed at --direct-classified-ttl to use its output."
+		),
 	)
 	args = parser.parse_args()
 
@@ -658,6 +730,7 @@ def main() -> None:
 		crystallites_ttl=Path(args.crystallites_ttl),
 		texture_ttl=Path(args.texture_ttl),
 		reasoned_ttl=Path(args.reasoned_ttl),
+		direct_classified_ttl=Path(args.direct_classified_ttl),
 		output_path=Path(args.output),
 		limit=args.limit,
 	)
@@ -666,6 +739,8 @@ def main() -> None:
 		pipeline.build_crystallites()
 	elif args.stage == "reason":
 		pipeline.reason()
+	elif args.stage == "classify-direct":
+		pipeline.classify_directly()
 	elif args.stage == "populations":
 		pipeline.build_populations_and_fractions()
 	else:

@@ -1,6 +1,6 @@
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX ex: <http://example.org/distel/>
+PREFIX ex: <http://example.org/>
 prefix pmd: <https://w3id.org/pmd/co/>
 prefix noes: <https://w3id.org/pmd/noes/>
 prefix obo: <http://purl.obolibrary.org/obo/>
@@ -75,12 +75,25 @@ WHERE {
 	BIND(URI(CONCAT(STR(ex:), "SVS_", ?areaValueClean, "_mkm")) AS ?area_SVS)
 
 
+	# uvw->?direction and hkl->?plane resolve *independently* of each
+	# other (see CrystalliteBuilder._stage): a grain whose uvw resolves
+	# but hkl doesn't (or vice versa) still gets whichever one succeeded,
+	# so alpha/eta (need only ?direction) and gamma/lambda (need only
+	# ?ndDirection, below) aren't silently dropped just because the other
+	# side of the pair didn't resolve. ?lattice/?lattice_system are only
+	# staged when *both* resolve (they tie plane and direction together
+	# into one crystal lattice, needed for point-component classification
+	# but not for the fiber classes).
+	OPTIONAL {
+		?config <temp:uvw> ?uvw ;
+				<temp:direction> ?direction .
+	}
 	OPTIONAL {
 		?config <temp:hkl> ?hkl ;
-				<temp:uvw> ?uvw ;
-				<temp:direction> ?direction ;
-				<temp:plane> ?plane ;
-				<temp:lattice> ?lattice ;
+				<temp:plane> ?plane .
+	}
+	OPTIONAL {
+		?config <temp:lattice> ?lattice ;
 				<temp:latticeSystem> ?lattice_system .
 	}
 

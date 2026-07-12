@@ -235,19 +235,103 @@ canon_hkl_list = [vector_to_miller(v) for v in ND_canon]
 canon_uvw_list = [vector_to_miller(v) for v in RD_canon]
 
 # ----------------------------------------------------------------------
-# 6. BUILD FINAL hkl / uvw COLUMNS (clean, ontology-ready)
+# 6. FIBER CLASSIFICATION (moved ahead of Section 7 -- its result now
+#    also feeds into building the final hkl/uvw columns, not just the
+#    separate per-grain classification table in Section 9)
+# ----------------------------------------------------------------------
+FAMILY_AXES_INT = {
+    "100": [(1, 0, 0), (0, 1, 0), (0, 0, 1)],
+    "110": [(1, 1, 0), (1, -1, 0), (1, 0, 1), (1, 0, -1), (0, 1, 1), (0, 1, -1)],
+    "111": [(1, 1, 1), (1, 1, -1), (1, -1, 1), (-1, 1, 1)],
+}
+
+
+def family_directions(family):
+    """Unique crystallographic <uvw>-type axes (line directions, sign-free)
+    for the requested cubic family, as unit vectors."""
+    v = np.array(FAMILY_AXES_INT[family], dtype=float)
+    return v / np.linalg.norm(v, axis=1, keepdims=True)
+
+
+def min_angle_to_family(vectors, family_dirs):
+    """vectors: (N,3) unit vectors. family_dirs: (M,3) unit vectors.
+    Returns (N,) minimum angle (deg) between each vector and its closest
+    family axis (direction sense ignored, i.e. using |dot|)."""
+    cos = np.abs(vectors @ family_dirs.T)  # (N, M)
+    cos = np.clip(cos, -1.0, 1.0)
+    ang = np.degrees(np.arccos(cos))
+    return ang.min(axis=1)
+
+
+def snap_to_family(vec, family):
+    """Returns the small-integer (h,k,l) of whichever axis in `family` is
+    closest to `vec`, signed to match vec's actual direction sense (not
+    just the sign-free line) -- e.g. snap_to_family(v, "100") picks
+    whichever of +-[100]/+-[010]/+-[001] is nearest v and returns it with
+    the correct sign. Used to "clean" a grain's hkl/uvw onto an exact
+    fiber-representative index, the same way an is_classified grain
+    already gets snapped onto an exact point-component index below."""
+    axes_int = np.array(FAMILY_AXES_INT[family], dtype=float)
+    axes_unit = axes_int / np.linalg.norm(axes_int, axis=1, keepdims=True)
+    dots = axes_unit @ np.asarray(vec, dtype=float)
+    idx = int(np.argmax(np.abs(dots)))
+    sign = 1 if dots[idx] >= 0 else -1
+    return tuple(int(sign * x) for x in axes_int[idx])
+
+
+FIBERS = {
+    "Lambda fiber <100>//ND": (ND_raw, "100"),
+    "Gamma fiber <111>//ND":  (ND_raw, "111"),
+    "Eta fiber <001>//RD":    (RD_raw, "100"),  # <001> is a member of <100>
+    "Alpha fiber <110>//RD":  (RD_raw, "110"),
+}
+
+fiber_membership = {}
+fiber_deviation = {}
+for name, (sample_dir, family) in FIBERS.items():
+    dev = min_angle_to_family(sample_dir, family_directions(family))
+    fiber_deviation[name] = dev
+    fiber_membership[name] = dev <= TOL_FIBER
+
+fiber_dev_df = pd.DataFrame(fiber_deviation)
+fiber_mem_df = pd.DataFrame(fiber_membership)
+
+# ----------------------------------------------------------------------
+# 7. BUILD FINAL hkl / uvw COLUMNS (clean, ontology-ready)
 # ----------------------------------------------------------------------
 # For grains classified within tolerance of a named component, hkl/uvw
-# are that component's exact ideal indices. For "Other/Random" grains,
-# hkl/uvw are the canonical (symmetry-consistent) rational-fit indices.
+# are that component's exact ideal indices -- already exactly on-axis for
+# their fiber too (e.g. Cube's ND=[001] is already exactly <100>), so no
+# further snapping needed.
+#
+# For "Other/Random" grains, hkl and uvw are handled independently: if
+# ND is within TOL_FIBER of the Lambda or Gamma fiber axis, hkl is
+# snapped to that exact fiber-representative index (Lambda checked
+# first; the <100>/<111> axis sets are >30 deg apart everywhere, so a
+# grain can never legitimately qualify for both). Same for uvw against
+# Eta/Alpha via RD. Whichever of hkl/uvw isn't snapped by a fiber match
+# falls back to the canonical (symmetry-consistent) rational-fit index,
+# same as before this fiber-snapping was added.
 final_hkl, final_uvw = [], []
 for i in range(n_grains):
     if is_classified[i]:
         ideal = IDEAL_COMPONENTS[best_component[i]]
         final_hkl.append(ideal["hkl"])
         final_uvw.append(ideal["uvw"])
+        continue
+
+    if fiber_mem_df["Lambda fiber <100>//ND"][i]:
+        final_hkl.append(snap_to_family(ND_raw[i], "100"))
+    elif fiber_mem_df["Gamma fiber <111>//ND"][i]:
+        final_hkl.append(snap_to_family(ND_raw[i], "111"))
     else:
         final_hkl.append(canon_hkl_list[i])
+
+    if fiber_mem_df["Eta fiber <001>//RD"][i]:
+        final_uvw.append(snap_to_family(RD_raw[i], "100"))
+    elif fiber_mem_df["Alpha fiber <110>//RD"][i]:
+        final_uvw.append(snap_to_family(RD_raw[i], "110"))
+    else:
         final_uvw.append(canon_uvw_list[i])
 
 df_out = df[["phi1", "Phi", "phi2", "x", "y", "area", "diameter"]].copy()
@@ -267,52 +351,6 @@ out_csv = os.path.join(OUT_DIR, "grain_hkl_uvw.csv")
 df_out.to_csv(out_csv, index=False)
 print(f"\n[Output 1] Per-grain hkl / uvw orientations written to: {out_csv}")
 print(df_out[["grain_id", "phi1", "Phi", "phi2", "hkl", "uvw", "nearest_component"]].head(10).to_string(index=False))
-
-
-# ----------------------------------------------------------------------
-# 7. FIBER CLASSIFICATION
-# ----------------------------------------------------------------------
-def family_directions(family):
-    """Unique crystallographic <uvw>-type axes (line directions, sign-free)
-    for the requested cubic family, as unit vectors."""
-    if family == "100":
-        v = [(1, 0, 0), (0, 1, 0), (0, 0, 1)]
-    elif family == "110":
-        v = [(1, 1, 0), (1, -1, 0), (1, 0, 1), (1, 0, -1), (0, 1, 1), (0, 1, -1)]
-    elif family == "111":
-        v = [(1, 1, 1), (1, 1, -1), (1, -1, 1), (-1, 1, 1)]
-    else:
-        raise ValueError(family)
-    v = np.array(v, dtype=float)
-    return v / np.linalg.norm(v, axis=1, keepdims=True)
-
-
-def min_angle_to_family(vectors, family_dirs):
-    """vectors: (N,3) unit vectors. family_dirs: (M,3) unit vectors.
-    Returns (N,) minimum angle (deg) between each vector and its closest
-    family axis (direction sense ignored, i.e. using |dot|)."""
-    cos = np.abs(vectors @ family_dirs.T)  # (N, M)
-    cos = np.clip(cos, -1.0, 1.0)
-    ang = np.degrees(np.arccos(cos))
-    return ang.min(axis=1)
-
-
-FIBERS = {
-    "Lambda fiber <100>//ND": (ND_raw, family_directions("100")),
-    "Gamma fiber <111>//ND":  (ND_raw, family_directions("111")),
-    "Eta fiber <001>//RD":    (RD_raw, family_directions("100")),  # <001> is a member of <100>
-    "Alpha fiber <110>//RD":  (RD_raw, family_directions("110")),
-}
-
-fiber_membership = {}
-fiber_deviation = {}
-for name, (sample_dir, fam) in FIBERS.items():
-    dev = min_angle_to_family(sample_dir, fam)
-    fiber_deviation[name] = dev
-    fiber_membership[name] = dev <= TOL_FIBER
-
-fiber_dev_df = pd.DataFrame(fiber_deviation)
-fiber_mem_df = pd.DataFrame(fiber_membership)
 
 
 # ----------------------------------------------------------------------
