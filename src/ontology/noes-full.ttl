@@ -19,12 +19,12 @@
 @base <https://w3id.org/pmd/noes/noes-full.ttl> .
 
 <https://w3id.org/pmd/noes/noes-full.ttl> rdf:type owl:Ontology ;
-                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-07-16/noes-full.ttl> ;
+                                           owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-07-30/noes-full.ttl> ;
                                            dcterms:creator <https://orcid.org/0009-0003-1503-4422> ;
                                            dcterms:description "NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets." ;
                                            dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                            dcterms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
-                                           owl:versionInfo "2026-07-16" .
+                                           owl:versionInfo "2026-07-30" .
 
 #################################################################
 #    Annotation properties
@@ -2909,6 +2909,11 @@ obo:UO_0000082 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_1000082 .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000094
+obo:UO_0000094 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_1000094 .
+
+
 ###  http://purl.obolibrary.org/obo/UO_0000106
 obo:UO_0000106 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_1000106 .
@@ -3032,6 +3037,11 @@ obo:UO_1000032 rdf:type owl:Class ;
 obo:UO_1000082 rdf:type owl:Class ;
                rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "square millimeter based unit" .
+
+
+###  http://purl.obolibrary.org/obo/UO_1000094
+obo:UO_1000094 rdf:type owl:Class ;
+               rdfs:label "meter per second based unit" .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000106
@@ -4694,6 +4704,14 @@ co:PMD_0001020 rdf:type owl:Class ;
                           "x-ray diffractometer"@en ;
                skos:definition "An X-Ray diffractometer is a measuring device that determines the crystal structure of materials by analyzing the diffraction patterns of X-rays passed through a sample."@en ,
                                "Ein Röntgenbeugungsgerät ist ein Messgerät, das die Kristallstruktur von Materialien durch Analyse der Beugungsmuster von durch eine Probe geleiteten Röntgenstrahlen bestimmt."@de .
+
+
+###  https://w3id.org/pmd/co/PMD_0001035
+co:PMD_0001035 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0025018 ;
+               rdfs:label "angle"@en ;
+               skos:definition "A property that represents the measure of rotation or inclination between two intersecting lines or planes, independent of the size of the object." ;
+               co:PMD_0001032 <https://github.com/materialdigital/core-ontology/issues/278> .
 
 
 ###  https://w3id.org/pmd/co/PMD_0001998
@@ -6367,6 +6385,37 @@ co:PMD_0020210 rdf:type owl:Class ;
                skos:definition "a crystal that consists of exactly one atomic species"@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0020213
+co:PMD_0020213 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000146 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0002350 ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020003
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty co:PMD_0025998 ;
+                                                                             owl:someValuesFrom co:PMD_0020241
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0002350 ;
+                                 owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                 owl:onClass [ owl:intersectionOf ( co:PMD_0020003
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty co:PMD_0025998 ;
+                                                                      owl:someValuesFrom co:PMD_0020241
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ]
+                               ] ;
+               rdfs:label "grain boundary"@en ;
+               skos:definition "A grain boundary is a fiat surface that separates adjacent grains in a polycrystalline material and is characterized by structural discontinuity."@en ,
+                               "the part of a grain that is close to the grain boundary and possibly characterized by disorder is a fiat object part (grain surface layer)"@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020216
 co:PMD_0020216 rdf:type owl:Class ;
                owl:equivalentClass [ rdf:type owl:Class ;
@@ -6609,6 +6658,13 @@ co:PMD_0020232 rdf:type owl:Class ;
                obo:IAO_0000116 "TODO: replace topObjectProperty with bfo:occupies spatial region"@en ;
                rdfs:label "substitutional solid solution"@en ;
                skos:definition "a solid solution whose solute entities occupy lattice points"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020241
+co:PMD_0020241 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0001035 ;
+               rdfs:label "angle of misalignment (crystallography)"@en ;
+               skos:definition "smallest rotation angle needed to rotate one crystal orientation to coincide with the neighboring orientation"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020243
@@ -13114,6 +13170,13 @@ noes:NOES_0000136 rdf:type owl:Class ;
                   skos:definition "Area proportion is a proportion which quantifies the area of the part relative to the area of the whole."@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000137
+noes:NOES_0000137 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000030 ;
+                  rdfs:label "strip"@en ;
+                  skos:definition "Strip is a semi-finished product of a rolled metal" .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000144
 noes:NOES_0000144 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000663
@@ -14757,6 +14820,10 @@ obo:UO_0000032 rdf:type owl:NamedIndividual .
 
 ###  http://purl.obolibrary.org/obo/UO_0000082
 obo:UO_0000082 rdf:type owl:NamedIndividual .
+
+
+###  http://purl.obolibrary.org/obo/UO_0000094
+obo:UO_0000094 rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.obolibrary.org/obo/UO_0000106
@@ -17881,6 +17948,19 @@ obo:UO_0000082 obo:IAO_0000115 "An area unit which is equal to one millionth of 
    owl:annotatedSource obo:UO_0000082 ;
    owl:annotatedProperty obo:IAO_0000115 ;
    owl:annotatedTarget "An area unit which is equal to one millionth of a square meter or 10^[-6] m^[2]." ;
+   oboInOwl:hasDbXref "NIST:NIST"
+ ] .
+
+
+obo:UO_0000094 obo:IAO_0000115 "A speed/velocity unit which is equal to the speed of an object traveling 1 meter distance in one second." ;
+               oboInOwl:hasExactSynonym "m/s" ,
+                                        "metre per second" ;
+               rdfs:label "meter per second" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000094 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A speed/velocity unit which is equal to the speed of an object traveling 1 meter distance in one second." ;
    oboInOwl:hasDbXref "NIST:NIST"
  ] .
 

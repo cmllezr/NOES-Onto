@@ -7,9 +7,9 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<https://w3id.org/pmd/noes/imports/pmdco_import.owl>
-<https://w3id.org/pmd/noes/releases/2026-07-16/imports/pmdco_import.owl>
+<https://w3id.org/pmd/noes/releases/2026-07-30/imports/pmdco_import.owl>
 Annotation(<http://purl.org/dc/elements/1.1/source> <https://w3id.org/pmd/co/3.0.0>)
-Annotation(owl:versionInfo "2026-07-16")
+Annotation(owl:versionInfo "2026-07-30")
 
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000001>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000002>))
@@ -39,7 +39,9 @@ Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000038>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000040>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000140>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000141>))
+Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000142>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000145>))
+Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000146>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000147>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000148>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000202>))
@@ -264,6 +266,7 @@ Declaration(Class(<https://w3id.org/pmd/co/PMD_0001017>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0001018>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0001019>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0001020>))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0001035>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0001998>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0010020>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0010021>))
@@ -386,6 +389,7 @@ Declaration(Class(<https://w3id.org/pmd/co/PMD_0020198>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020205>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020207>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020210>))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0020213>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020216>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020220>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020227>))
@@ -394,6 +398,7 @@ Declaration(Class(<https://w3id.org/pmd/co/PMD_0020229>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020230>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020231>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020232>))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0020241>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0020243>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0025001>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0025002>))
@@ -1612,12 +1617,26 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://pur
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000141> "As for fiat point, fiat line, fiat surface, site"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000141> <http://purl.obolibrary.org/obo/BFO_0000004>)
 
+# Class: <http://purl.obolibrary.org/obo/BFO_0000142> (fiat line)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000142> "fiat line"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000142> "(Elucidation) A fiat line is a one-dimensional continuant fiat boundary that is continuous"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000142> "The Equator; all geopolitical boundaries; all lines of latitude and longitude; the median sulcus of your tongue; the line separating the outer surface of the mucosa of the lower lip from the outer surface of the skin of the chin"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000142> <http://purl.obolibrary.org/obo/BFO_0000140>)
+
 # Class: <http://purl.obolibrary.org/obo/BFO_0000145> (relational quality)
 
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000145> "relational quality"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000145> "b is a relational quality =Def b is a quality & there exists c and d such that c and d are not identical & b specifically depends on c & b specifically depends on d"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000145> "A marriage bond; an instance of love; an obligation between one person and another"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000145> <http://purl.obolibrary.org/obo/BFO_0000019>)
+
+# Class: <http://purl.obolibrary.org/obo/BFO_0000146> (fiat surface)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000146> "fiat surface"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000146> "(Elucidation) A fiat surface is a two-dimensional continuant fiat boundary that is self-connected"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000146> "The surface of the Earth; the plane separating the smoking from the non-smoking zone in a restaurant"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000146> <http://purl.obolibrary.org/obo/BFO_0000140>)
 
 # Class: <http://purl.obolibrary.org/obo/BFO_0000147> (fiat point)
 
@@ -2255,7 +2274,7 @@ EquivalentClasses(<http://purl.obolibrary.org/obo/IAO_0020010> ObjectIntersectio
 SubClassOf(<http://purl.obolibrary.org/obo/IAO_0020010> <http://purl.obolibrary.org/obo/COB_0000035>)
 SubClassOf(<http://purl.obolibrary.org/obo/IAO_0020010> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000299> <http://purl.obolibrary.org/obo/IAO_0020000>))
 
-# Class: <http://purl.obolibrary.org/obo/NCBITaxon_9606> (Homo sapiens)
+# Class: <http://purl.obolibrary.org/obo/NCBITaxon_9606> (homo sapiens)
 
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/NCBITaxon_9606> "Homo sapiens")
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/NCBITaxon_9606> "homo sapiens")
@@ -2453,7 +2472,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000053> <http://purl.obolibrary.org/obo/COB_0000035>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000053> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000547> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> <http://purl.obolibrary.org/obo/BFO_0000040>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000299> <https://w3id.org/pmd/co/PMD_0020139>)))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000054> (Heizfunktion)
+# Class: <https://w3id.org/pmd/co/PMD_0000054> (heating function)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000054> "Heizfunktion"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000054> "heating function"@en)
@@ -2481,7 +2500,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000056> <https://w3id.org/pmd/co/PMD_0000780>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000056> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0000655> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000085> <https://w3id.org/pmd/co/PMD_0000057>)))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000057> (Schmelzfunktion)
+# Class: <https://w3id.org/pmd/co/PMD_0000057> (melting function)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000057> "Schmelzfunktion"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000057> "melting function"@en)
@@ -2846,7 +2865,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0000649> "Stripping, Deep Drawing, Spinning"@en)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000649> <https://w3id.org/pmd/co/PMD_0000646>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000650> (forming under compressive conditions)
+# Class: <https://w3id.org/pmd/co/PMD_0000650> (Druckumformen)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <https://w3id.org/pmd/co/PMD_0000650> "Official definition can be found in: DIN 8583-1"@en)
 AnnotationAssertion(<http://purl.org/dc/terms/source> <https://w3id.org/pmd/co/PMD_0000650> "Offizielle Definition findet man in: DIN 8583-1"@de)
@@ -3045,7 +3064,7 @@ SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> <https://w3id.org/pmd/co/PMD_00
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000054> <https://w3id.org/pmd/co/PMD_0000522>))
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000052> <https://w3id.org/pmd/co/PMD_0000000>))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000849> (Mechanische Eigenschaften Analyseverfahren)
+# Class: <https://w3id.org/pmd/co/PMD_0000849> (mechanical property analyzing process)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000849> "Mechanische Eigenschaften Analyseverfahren"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000849> "mechanical property analyzing process"@en)
@@ -3104,7 +3123,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000874> "Ein Mikroskop, das sichtbares Licht und Linsen verwendet, um kleine Objekte oder Details zu vergrößern und zu betrachten."@de)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000874> <https://w3id.org/pmd/co/PMD_0000855>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000875> (optical microscopy)
+# Class: <https://w3id.org/pmd/co/PMD_0000875> (Optische Mikroskopie)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "Optische Mikroskopie"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000875> "optical microscopy"@en)
@@ -3263,7 +3282,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0000952> "true"^^xsd:boolean)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000952> <https://w3id.org/pmd/co/PMD_0000848>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000957> (structural property analyzing process)
+# Class: <https://w3id.org/pmd/co/PMD_0000957> (Struktur Eigenschaften Analyseverfahren)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000957> "Struktur Eigenschaften Analyseverfahren"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000957> "structural property analyzing process"@en)
@@ -3410,6 +3429,13 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0001020> "x-ray diff
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0001020> "An X-Ray diffractometer is a measuring device that determines the crystal structure of materials by analyzing the diffraction patterns of X-rays passed through a sample."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0001020> "Ein Röntgenbeugungsgerät ist ein Messgerät, das die Kristallstruktur von Materialien durch Analyse der Beugungsmuster von durch eine Probe geleiteten Röntgenstrahlen bestimmt."@de)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0001020> <https://w3id.org/pmd/co/PMD_0000602>)
+
+# Class: <https://w3id.org/pmd/co/PMD_0001035> (angle)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0001035> "angle"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0001035> "A property that represents the measure of rotation or inclination between two intersecting lines or planes, independent of the size of the object.")
+AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0001032> <https://w3id.org/pmd/co/PMD_0001035> <https://github.com/materialdigital/core-ontology/issues/278>)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0001035> <https://w3id.org/pmd/co/PMD_0025018>)
 
 # Class: <https://w3id.org/pmd/co/PMD_0001998> (cutting device)
 
@@ -4359,6 +4385,15 @@ EquivalentClasses(<https://w3id.org/pmd/co/PMD_0020210> ObjectExactCardinality(1
 SubClassOf(<https://w3id.org/pmd/co/PMD_0020210> <https://w3id.org/pmd/co/PMD_0020003>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0020210> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002351> <https://w3id.org/pmd/co/PMD_0020140>))
 
+# Class: <https://w3id.org/pmd/co/PMD_0020213> (grain boundary)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020213> "grain boundary"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020213> "A grain boundary is a fiat surface that separates adjacent grains in a polycrystalline material and is characterized by structural discontinuity."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020213> "the part of a grain that is close to the grain boundary and possibly characterized by disorder is a fiat object part (grain surface layer)"@en)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0020213> <http://purl.obolibrary.org/obo/BFO_0000146>)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0020213> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002350> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0020003> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> <https://w3id.org/pmd/co/PMD_0020241>))))
+SubClassOf(<https://w3id.org/pmd/co/PMD_0020213> ObjectExactCardinality(2 <http://purl.obolibrary.org/obo/RO_0002350> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0020003> ObjectSomeValuesFrom(<https://w3id.org/pmd/co/PMD_0025998> <https://w3id.org/pmd/co/PMD_0020241>))))
+
 # Class: <https://w3id.org/pmd/co/PMD_0020216> (order scale value)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020216> "order scale value"@en)
@@ -4420,6 +4455,12 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 EquivalentClasses(<https://w3id.org/pmd/co/PMD_0020232> ObjectIntersectionOf(<https://w3id.org/pmd/co/PMD_0020230> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002351> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/CHEBI_60003> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000001> ObjectSomeValuesFrom(owl:topObjectProperty <https://w3id.org/pmd/co/PMD_0020197>))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000087> <https://w3id.org/pmd/co/PMD_0020227>)))))
 SubClassOf(<https://w3id.org/pmd/co/PMD_0020232> <https://w3id.org/pmd/co/PMD_0020230>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0020232> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002351> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/CHEBI_60003> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000001> ObjectSomeValuesFrom(owl:topObjectProperty <https://w3id.org/pmd/co/PMD_0020197>))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000087> <https://w3id.org/pmd/co/PMD_0020227>))))
+
+# Class: <https://w3id.org/pmd/co/PMD_0020241> (angle of misalignment (crystallography))
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020241> "angle of misalignment (crystallography)"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020241> "smallest rotation angle needed to rotate one crystal orientation to coincide with the neighboring orientation"@en)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0020241> <https://w3id.org/pmd/co/PMD_0001035>)
 
 # Class: <https://w3id.org/pmd/co/PMD_0020243> (grain size)
 
@@ -4869,6 +4910,7 @@ DisjointClasses(<http://purl.obolibrary.org/obo/BFO_0000004> <http://purl.obolib
 DisjointClasses(<http://purl.obolibrary.org/obo/BFO_0000006> <http://purl.obolibrary.org/obo/BFO_0000029> <http://purl.obolibrary.org/obo/BFO_0000140>)
 DisjointClasses(<http://purl.obolibrary.org/obo/BFO_0000008> <http://purl.obolibrary.org/obo/BFO_0000011> <http://purl.obolibrary.org/obo/BFO_0000015> <http://purl.obolibrary.org/obo/BFO_0000035>)
 DisjointClasses(<http://purl.obolibrary.org/obo/BFO_0000009> <http://purl.obolibrary.org/obo/BFO_0000018> <http://purl.obolibrary.org/obo/BFO_0000026> <http://purl.obolibrary.org/obo/BFO_0000028>)
+DisjointClasses(<http://purl.obolibrary.org/obo/BFO_0000142> <http://purl.obolibrary.org/obo/BFO_0000146> <http://purl.obolibrary.org/obo/BFO_0000147>)
 DisjointClasses(<https://w3id.org/pmd/co/PMD_0000503> <https://w3id.org/pmd/co/PMD_0000512> <https://w3id.org/pmd/co/PMD_0000591> <https://w3id.org/pmd/co/PMD_0000595> <https://w3id.org/pmd/co/PMD_0000597> <https://w3id.org/pmd/co/PMD_0000853> <https://w3id.org/pmd/co/PMD_0000896> <https://w3id.org/pmd/co/PMD_0000942> <https://w3id.org/pmd/co/PMD_0000967> <https://w3id.org/pmd/co/PMD_0020005> <https://w3id.org/pmd/co/PMD_0020112> <https://w3id.org/pmd/co/PMD_0025001> <https://w3id.org/pmd/co/PMD_0025003>)
 DisjointClasses(<https://w3id.org/pmd/co/PMD_0000553> <https://w3id.org/pmd/co/PMD_0000619> <https://w3id.org/pmd/co/PMD_0020132> <https://w3id.org/pmd/co/PMD_0020133> <https://w3id.org/pmd/co/PMD_0020142> <https://w3id.org/pmd/co/PMD_0020161> <https://w3id.org/pmd/co/PMD_0050155>)
 DisjointClasses(<https://w3id.org/pmd/co/PMD_0020102> <https://w3id.org/pmd/co/PMD_0020103> <https://w3id.org/pmd/co/PMD_0020104>)

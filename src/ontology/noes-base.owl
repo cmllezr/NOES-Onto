@@ -15,13 +15,13 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/noes-base.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-07-16/noes-base.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-07-30/noes-base.owl"/>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
         <dcterms:description>NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets.</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <dcterms:title>NOES-Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
-        <owl:versionInfo>2026-07-16</owl:versionInfo>
+        <owl:versionInfo>2026-07-30</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -3715,6 +3715,17 @@ NOTE: The wording used in EN 10021 was generalized.</obo:IAO_0000116>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0001035 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0001035">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025018"/>
+        <rdfs:label xml:lang="en">angle</rdfs:label>
+        <skos:definition>A property that represents the measure of rotation or inclination between two intersecting lines or planes, independent of the size of the object.</skos:definition>
+        <co:PMD_0001032 rdf:resource="https://github.com/materialdigital/core-ontology/issues/278"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0001998 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0001998">
@@ -5995,6 +6006,50 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020213 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020213">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000146"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002350"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020003"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025998"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020241"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002350"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020003"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025998"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020241"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:onClass>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">grain boundary</rdfs:label>
+        <skos:definition xml:lang="en">A grain boundary is a fiat surface that separates adjacent grains in a polycrystalline material and is characterized by structural discontinuity.</skos:definition>
+        <skos:definition xml:lang="en">the part of a grain that is close to the grain boundary and possibly characterized by disorder is a fiat object part (grain surface layer)</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020216 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020216">
@@ -6330,6 +6385,16 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
         <obo:IAO_0000116 xml:lang="en">TODO: replace topObjectProperty with bfo:occupies spatial region</obo:IAO_0000116>
         <rdfs:label xml:lang="en">substitutional solid solution</rdfs:label>
         <skos:definition xml:lang="en">a solid solution whose solute entities occupy lattice points</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020241 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020241">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0001035"/>
+        <rdfs:label xml:lang="en">angle of misalignment (crystallography)</rdfs:label>
+        <skos:definition xml:lang="en">smallest rotation angle needed to rotate one crystal orientation to coincide with the neighboring orientation</skos:definition>
     </owl:Class>
     
 
@@ -15427,6 +15492,16 @@ Will be inferable in the future</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020101"/>
         <rdfs:label xml:lang="en">area proportion</rdfs:label>
         <skos:definition xml:lang="en">Area proportion is a proportion which quantifies the area of the part relative to the area of the whole.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000137 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000137">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:label xml:lang="en">strip</rdfs:label>
+        <skos:definition>Strip is a semi-finished product of a rolled metal</skos:definition>
     </owl:Class>
     
 
