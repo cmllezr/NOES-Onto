@@ -1807,10 +1807,6 @@ co:PMD_0000620 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
-###  https://w3id.org/pmd/co/PMD_0000621
-co:PMD_0000621 rdf:type owl:Class .
-
-
 ###  https://w3id.org/pmd/co/PMD_0000624
 co:PMD_0000624 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000855 ;
@@ -5920,10 +5916,6 @@ co:PMD_0025002 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
-###  https://w3id.org/pmd/co/PMD_0025003
-co:PMD_0025003 rdf:type owl:Class .
-
-
 ###  https://w3id.org/pmd/co/PMD_0025005
 co:PMD_0025005 rdf:type owl:Class ;
                rdfs:subClassOf obo:IAO_0000027 ;
@@ -6501,6 +6493,23 @@ co:PMD_0080034 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
+###  https://w3id.org/pmd/co/PMD_0080035
+co:PMD_0080035 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0080029 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000116 "Necessary and sufficient conditions for 'plastic strain' have not yet been formalized. The term is defined as a specific subtype of 'strain'. Distinguishing criteria are domain-specific and depend on measurement conventions or source terminology not yet expressed as OWL restrictions. The definition is adapted from: https://en.wikipedia.org/wiki/Plasticity_(physics)."@en ;
+               obo:IAO_0000117 "PERSON: Thomas Hanke" ;
+               obo:IAO_0000119 <https://en.wikipedia.org/wiki/Plasticity_(physics)> ;
+               rdfs:label "plastic strain"@en ,
+                          "plastische Deformation"@de ;
+               skos:altLabel "plastic deformation"@en ,
+                             "plastische Verformung"@de ;
+               skos:definition "Plastic strain describes permanent deformation occurring when a material is subjected to stress beyond its elastic limit"@en ,
+                               "Plastische Deformation beschreibt die dauerhafte Verformung, die auftritt, wenn ein Material einer Belastung ausgesetzt wird, die über seine elastische Grenze hinausgeht"@de ;
+               skos:example "After exceeding yield strength, a steel rod undergoes 5 % plastic strain that remains after unloading"@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
 ###  https://w3id.org/pmd/co/PMD_0080069
 co:PMD_0080069 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020353 ;
@@ -6598,6 +6607,87 @@ _:genid1089 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking \"how does energy change per unit carrier added?\", you ask \"how does energy change per unit carrier moved in space?\""""@en
  ] .
+
+
+###  https://w3id.org/pmd/co/PMD_0080128
+co:PMD_0080128 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000019 ,
+                               co:PMD_0020312 ,
+                               co:PMD_0020317 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000080 ;
+                                 owl:someValuesFrom obo:BFO_0000030
+                               ] ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000116 "Necessary and sufficient conditions for 'electrical resistance' have not yet been formalized. The term is defined as a specific subtype of 'electrical capability'. Distinguishing criteria are domain-specific and depend on measurement conventions or source terminology not yet expressed as OWL restrictions. The definition is adapted from: https://www.britannica.com/technology/resistance-electronics."@en ;
+               obo:IAO_0000117 "PERSON: Thomas Hanke" ;
+               obo:IAO_0000119 <https://www.britannica.com/technology/resistance-electronics> ;
+               rdfs:label "electrical resistance"@en ,
+                          "elektrischer Widerstand"@de ;
+               skos:definition "Der elektrische Widerstand bezieht sich auf die Fähigkeit eines Stromkreises, elektrische Energie in Wärmeenergie umzuwandeln, indem er elektrischem Strom durch Teilchenkollisionen entgegenwirkt, die für Widerstände, Lampen und Drähte charakteristisch sind"@de ,
+                               "Electrical resistance pertains to a circuit's capability to transform electric energy into heat energy, opposing electric current through particle collisions, characteristic of resistors, lamps, and wires"@en ;
+               skos:example "A nichrome heating element has an electrical resistance of 10 Ω at room temperature"@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0080171
+co:PMD_0080171 rdf:type owl:Class ;
+               rdfs:subClassOf [ owl:intersectionOf ( co:PMD_0000952
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:RO_0000052 ;
+                                                        owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000068
+                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty obo:RO_0000053 ;
+                                                                                                    owl:someValuesFrom co:PMD_0080035
+                                                                                                  ]
+                                                                                                ) ;
+                                                                             rdf:type owl:Class
+                                                                           ]
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+               rdfs:comment "The amount of plastic strain typically gives more information about the yield stress. E.g. Rp02 has 0.2% plastic strain."@en ;
+               rdfs:label "Fließgrenze"@de ,
+                          "yield stress"@en ;
+               skos:altLabel "yield strength"@en ;
+               skos:definition "is the stress at which the material has a non-zero plastic strain."@en ;
+               skos:example "The yield strength of mild steel is approximately 250 MPa, beyond which permanent deformation begins"@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0080172
+co:PMD_0080172 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0080171 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000116 "Necessary and sufficient conditions for 'lower yield strength' have not yet been formalized. The term is defined as a specific subtype of 'yield strength'. Distinguishing criteria are domain-specific and depend on measurement conventions or source terminology not yet expressed as OWL restrictions. The definition is adapted from: https://en.wikipedia.org/wiki/Yield_(engineering)."@en ;
+               obo:IAO_0000117 "PERSON: Thomas Hanke" ;
+               obo:IAO_0000119 <https://en.wikipedia.org/wiki/Yield_(engineering)> ;
+               rdfs:label "lower yield strength"@en ,
+                          "untere Streckgrenze"@de ;
+               skos:altLabel "lower yield stress"@en ,
+                             "untere Fließspannung"@de ;
+               skos:definition "Lower yield strength defines the stress at which a material exhibits plastic behavior after initial yielding"@en ,
+                               "Untere Streckgrenze beschreibt die Spannung, bei der ein Material nach dem anfänglichen Fließen plastisches Verhalten zeigt"@de ;
+               skos:example "The lower yield strength of mild steel is approximately 235 MPa, defining the onset of stable plastic flow"@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
+###  https://w3id.org/pmd/co/PMD_0080173
+co:PMD_0080173 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0080171 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000116 "Necessary and sufficient conditions for 'upper yield strength' have not yet been formalized. The term is defined as a specific subtype of 'yield strength'. Distinguishing criteria are domain-specific and depend on measurement conventions or source terminology not yet expressed as OWL restrictions. The definition is adapted from: https://en.wikipedia.org/wiki/Yield_(engineering)."@en ;
+               obo:IAO_0000117 "PERSON: Thomas Hanke" ;
+               obo:IAO_0000119 <https://en.wikipedia.org/wiki/Yield_(engineering)> ;
+               rdfs:label "obere Streckgrenze"@de ,
+                          "upper yield strength"@en ;
+               skos:altLabel "obere Fließspannung"@de ,
+                             "upper yield stress"@en ;
+               skos:definition "Obere Streckgrenze charakterisiert die maximale Spannung, die vor dem plastischen Fließen eines Materials angewendet werden kann"@de ,
+                               "Upper yield strength characterizes the maximum stress that can be applied before a material begins to yield plastically"@en ;
+               skos:example "Mild steel exhibits an upper yield strength of about 300 MPa, followed by a yield drop to the lower yield point"@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000000
@@ -8372,10 +8462,10 @@ noes:NOES_0000011 rdf:type owl:Class ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:comment "Dynamic (AC) characterization of magnetic properties is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine the total energy loss of a tested material at specific frequency and magnetic flux density. During the test, the current in the primary winding is changed with frequency between 50-400 Hz to ensure sinusoidal waveform of the magnetic flux density at Bpeak. The output of the dynamic characterization of magnetic properties  is a  B-H curve, which  provides information on total core loss Ptot and dynamic permeability µdyn."@en ,
-                               """TODO: refine defintion
+                  rdfs:comment """TODO: refine defintion
 TODO: write axioms"""@en ;
                   rdfs:label "dynamic (AC) characterization of magnetic properties"@en ;
+                  skos:definition "Dynamic (AC) characterization of magnetic properties is a magnetic properties analyzing process for soft magnetic sheet materials which aims to determine the total energy loss of a tested material at specific frequency and magnetic flux density. During the test, the current in the primary winding is changed with frequency between 50-400 Hz to ensure sinusoidal waveform of the magnetic flux density at Bpeak. The output of the dynamic characterization of magnetic properties  is a  B-H curve, which  provides information on total core loss Ptot and dynamic permeability µdyn."@en ;
                   skos:example "Measurement of total power (iron) loss at given current frequency and maximal magnetic induction, e.g. 50 Hz and 1.5 T, or 400 Hz and 1.0 T"@en .
 
 
@@ -8582,9 +8672,9 @@ noes:NOES_0000034 rdf:type owl:Class ;
                                     owl:someValuesFrom cryo:CRYO_0000042
                                   ] ;
                   rdfs:label "electron backscatter diffraction"@en ;
-                  rdfs:seeAlso "Electron Backscatter Diffraction (EBSD) is a SEM based technique for characterizing  material's local microstructure. EBSD provides an information about phases and their distribution in the material, grain structure, grain size, grain boundary, texture  (crystallographic orientation of individual grains), and local strain variation."@en ,
-                               "https://www.ebsd.com/ebsd-explained/what-is-ebsd" ;
-                  skos:altLabel "EBSD"@en .
+                  rdfs:seeAlso "https://www.ebsd.com/ebsd-explained/what-is-ebsd" ;
+                  skos:altLabel "EBSD"@en ;
+                  skos:definition "Electron Backscatter Diffraction (EBSD) is a SEM based technique for characterizing  material's local microstructure. EBSD provides an information about phases and their distribution in the material, grain structure, grain size, grain boundary, texture  (crystallographic orientation of individual grains), and local strain variation."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000035
@@ -9054,7 +9144,7 @@ noes:NOES_0000052 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000053
 noes:NOES_0000053 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000825 ;
+                  rdfs:subClassOf obo:BFO_0000020 ;
                   rdfs:label "magnetic power loss"@en ;
                   skos:definition "Magnetic power loss is a magnetic property of materials which describes dissipated energy due to application of an external magnetic field H."@en .
 
@@ -9105,13 +9195,6 @@ noes:NOES_0000057 rdf:type owl:Class ;
                   rdfs:comment "Total magnetic power loss is magnetic property of a material which describes its performance in an external magnetic field. Total magnetic power loss is a sum of hysteresis P_hys, eddy current P_e, and anomalous losses P_a."@en ;
                   rdfs:label "total magnetic power loss"@en ;
                   co:symbol "P_tot"@en .
-
-
-###  https://w3id.org/pmd/noes/NOES_0000058
-noes:NOES_0000058 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000621 ;
-                  rdfs:label "electrical resistivity"@en ;
-                  skos:definition "The electrical resistivity is an electrical property describing the ability of a material to oppose the flow of electric current. It is reciprocal to electric conductivity."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000059
@@ -9224,8 +9307,7 @@ noes:NOES_0000065 rdf:type owl:Class ;
                                                              rdf:type owl:Class
                                                            ]
                                       ] ;
-                  rdfs:subClassOf obo:BFO_0000020 ,
-                                  noes:NOES_0000057 ,
+                  rdfs:subClassOf noes:NOES_0000057 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0009007 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000070
@@ -9349,8 +9431,7 @@ noes:NOES_0000069 rdf:type owl:Class ;
                                                              rdf:type owl:Class
                                                            ]
                                       ] ;
-                  rdfs:subClassOf obo:BFO_0000020 ,
-                                  noes:NOES_0000057 ,
+                  rdfs:subClassOf noes:NOES_0000057 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0009007 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000070
@@ -9814,8 +9895,7 @@ noes:NOES_0000079 rdf:type owl:Class ;
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
-                  rdfs:subClassOf obo:BFO_0000020 ,
-                                  noes:NOES_0000057 ,
+                  rdfs:subClassOf noes:NOES_0000057 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0009007 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
@@ -9905,8 +9985,7 @@ noes:NOES_0000080 rdf:type owl:Class ;
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
-                  rdfs:subClassOf obo:BFO_0000020 ,
-                                  noes:NOES_0000057 ,
+                  rdfs:subClassOf noes:NOES_0000057 ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0009007 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
@@ -13342,14 +13421,14 @@ noes:NOES_0000164 rdf:type owl:Class ;
 noes:NOES_0000165 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0040001 ;
                   rdfs:label "fillet radius"@en ;
-                  skos:example "Fillet radus is a charactereristic paramater of a geometry of a tensile test specimen which characterizes the radius of the curved sections (fillets) connecting the gripping ends to the reduced gauge length in a standard \"dog-bone\" specimen is specifically dimensioned to prevent stress concentrations from causing premature failure outside the gauge length."@en .
+                  skos:definition "Fillet radus is a charactereristic paramater of a geometry of a tensile test specimen which characterizes the radius of the curved sections (fillets) connecting the gripping ends to the reduced gauge length in a standard \"dog-bone\" specimen is specifically dimensioned to prevent stress concentrations from causing premature failure outside the gauge length."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000166
 noes:NOES_0000166 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0020131 ;
                   rdfs:label "average grain size"@en ;
-                  skos:example "Average grain size is an intensive quality of a material which describes the average diameter of grains in the material's microstructure."@en .
+                  skos:definition "Average grain size is an intensive quality of a material which describes the average diameter of grains in the material's microstructure."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000167
@@ -13510,27 +13589,12 @@ noes:NOES_0000179 rdf:type owl:Class ;
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:BFO_0000051 ;
                                     owl:someValuesFrom co:PMD_0020050
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:BFO_0000051 ;
-                                    owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000857
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000086 ;
-                                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0025003
-                                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                                            owl:onProperty co:PMD_0000077 ;
-                                                                                                                            owl:hasValue co:PMD_0020100
-                                                                                                                          ]
-                                                                                                                        ) ;
-                                                                                                     rdf:type owl:Class
-                                                                                                   ]
-                                                                              ]
-                                                                            ) ;
-                                                         rdf:type owl:Class
-                                                       ]
                                   ] ;
-                  rdfs:comment "Electrical steel is a steel material which has only ferritic metallic grain structure and uses silicon as the main alloying element. It manufactured in a form of a sheet and designed to exibit superior magenetic properties either in all directions (non-orieneted) or in a sinlge direction (oriented)."@en ;
-                  rdfs:label "electrical steel"@en .
+                  rdfs:comment """deprecated axiom: 'has part' some 
+(microstructure and ('has quality' some 
+(PMD_0025003 and ('specified by value' value ferrite))))""" ;
+                  rdfs:label "electrical steel"@en ;
+                  skos:definition "Electrical steel is a steel material which has only ferritic metallic grain structure and uses silicon as the main alloying element. It manufactured in a form of a sheet and designed to exibit superior magenetic properties either in all directions (non-orieneted) or in a sinlge direction (oriented)."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000180
@@ -13663,16 +13727,16 @@ noes:NOES_0000182 rdf:type owl:Class ;
 noes:NOES_0000183 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000163 ;
                   obo:IAO_0000119 "https://de.wikipedia.org/wiki/Epsteinrahmen" ;
-                  rdfs:comment "Epstein frame is a measuring device of magnetic properties of soft magnetic materials, especially electrical steels. It consists of outer primary (magnetizing) winding, which surrounds the inner secondary (measuring) winding, and both windings are distributed across the four coils of the  frame. The steel strips are inserted pairwise into the opposite coils."@en ;
-                  rdfs:label "Epstein frame"@en .
+                  rdfs:label "Epstein frame"@en ;
+                  skos:definition "Epstein frame is a measuring device of magnetic properties of soft magnetic materials, especially electrical steels. It consists of outer primary (magnetizing) winding, which surrounds the inner secondary (measuring) winding, and both windings are distributed across the four coils of the  frame. The steel strips are inserted pairwise into the opposite coils."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000184
 noes:NOES_0000184 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000163 ;
                   obo:IAO_0000119 "https://www.magnet-physik.de/wp-content/uploads/2023/08/MJC-210-e-3236.pdf" ;
-                  rdfs:comment "Single sheet tester is a measuring device of soft magnetic properties of sheet materials, especially electrical steels. It consists of a single coil system to magnetize the sample with and and a pick-up coil to detect  polarization in the material."@en ;
-                  rdfs:label "sinlge sheet tester"@en .
+                  rdfs:label "sinlge sheet tester"@en ;
+                  skos:definition "Single sheet tester is a measuring device of soft magnetic properties of sheet materials, especially electrical steels. It consists of a single coil system to magnetize the sample with and and a pick-up coil to detect  polarization in the material."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000185
@@ -13680,8 +13744,8 @@ noes:NOES_0000185 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000163 ;
                   obo:IAO_0000119 "https://en.wikipedia.org/wiki/Rowland_ring" ;
                   rdfs:label "thoroidal core setup"@en ;
-                  skos:altLabel "Thoroidal core setup is a measuring device of a hysteresis curve of magnetic materials. The specimen shape is a thoroid, around which a magnitization coil is closely wound."@en ,
-                                "ring core setup"@en .
+                  skos:altLabel "ring core setup"@en ;
+                  skos:definition "Thoroidal core setup is a measuring device of a hysteresis curve of magnetic materials. The specimen shape is a thoroid, around which a magnitization coil is closely wound."@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000004
