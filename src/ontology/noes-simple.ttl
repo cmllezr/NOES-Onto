@@ -16,13 +16,12 @@
 @base <https://w3id.org/pmd/noes/noes-simple.ttl> .
 
 <https://w3id.org/pmd/noes/noes-simple.ttl> rdf:type owl:Ontology ;
-                                             owl:versionIRI <https://w3id.org/pmd/noes/1.0.5> ;
+                                             owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-08-02/noes-simple.ttl> ;
                                              terms:creator <https://orcid.org/0009-0003-1503-4422> ;
                                              terms:description "NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets." ;
                                              terms:license <https://creativecommons.org/licenses/by/4.0/> ;
                                              terms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
-                                             owl:versionInfo "1.0.5" ,
-                                                             "2026-07-30" .
+                                             owl:versionInfo "2026-08-02" .
 
 #################################################################
 #    Annotation properties
@@ -30,10 +29,12 @@
 
 ###  http://purl.obolibrary.org/obo/IAO_0000112
 obo:IAO_0000112 rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "A phrase describing how a term should be used and/or a citation to a work which uses it. May also include other kinds of examples that facilitate immediate understanding, such as widely know prototypes or instances of a class, or cases where a relation is said to hold."@en ;
+                obo:IAO_0000117 "PERSON:Daniel Schober"@en ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
-                rdfs:label "example of usage"@en ,
-                           "example of usage" .
+                rdfs:label "example of usage" ,
+                           "example of usage"@en .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000114
@@ -42,6 +43,7 @@ obo:IAO_0000114 rdf:type owl:AnnotationProperty .
 
 ###  http://purl.obolibrary.org/obo/IAO_0000115
 obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
                                 "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ;
                 obo:IAO_0000116 """2012-04-05: 
@@ -84,26 +86,34 @@ We don't have definitions of 'meaning' or 'expression' or 'property'. For 'refer
 Personally, I am more comfortable weakening definition to documentation, with instructions as to what is desirable. 
 
 We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.  """@en ;
+                obo:IAO_0000117 "PERSON:Daniel Schober"@en ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
-                rdfs:label "definition"@en ,
-                           "definition" ,
+                rdfs:label "definition" ,
+                           "definition"@en ,
                            "textual definition" .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000116
 obo:IAO_0000116 rdf:type owl:AnnotationProperty ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "An administrative note intended for its editor. It may not be included in the publication version of the ontology, so it should contain nothing necessary for end users to understand the ontology."@en ;
+                obo:IAO_0000117 "PERSON:Daniel Schober"@en ;
                 obo:IAO_0000119 "GROUP:OBI:<http://purl.obofoundry.org/obo/obi>"@en ;
                 rdfs:label "editor note"@en .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000117
+obo:IAO_0000117 rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0000119
 obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
-                obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ,
-                                "formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
-                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
-                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ,
-                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
+                obo:IAO_0000117 "PERSON:Daniel Schober"@en ;
+                obo:IAO_0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w" ,
+                                "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en ,
+                                "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
                 rdfs:label "definition source"@en .
 
 
@@ -113,6 +123,10 @@ obo:IAO_0000232 rdf:type owl:AnnotationProperty .
 
 ###  http://purl.obolibrary.org/obo/IAO_0000233
 obo:IAO_0000233 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0100001
+obo:IAO_0100001 rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/source
@@ -200,6 +214,8 @@ skos:example rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/pmd/co/PMD_0000060
 co:PMD_0000060 rdf:type owl:AnnotationProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:comment "Indicates whether the ontology element is part of the minimal profile of the ontology. Useful for modularization, simplified views, or lightweight implementations."@en ;
                rdfs:label "isInMinimalProfile"@en ;
                co:PMD_0001032 "https://github.com/materialdigital/core-ontology/issues/121" .
@@ -207,19 +223,25 @@ co:PMD_0000060 rdf:type owl:AnnotationProperty ;
 
 ###  https://w3id.org/pmd/co/PMD_0000064
 co:PMD_0000064 rdf:type owl:AnnotationProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:comment "An editor note referring to a pattern which shows the usage of this class or property."@en ;
                rdfs:label "pattern example"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0001032
 co:PMD_0001032 rdf:type owl:AnnotationProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000115 "A term tracker annotation is an editor note used to track the history of an entity. For each change, it records the related GitHub issue and pull request."@en ;
                obo:IAO_0000116 "hijacked from http://openenergy-platform.org/ontology/oeo/OEO_00020426"@en ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:label "term tracker annotation"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0050117
 co:PMD_0050117 rdf:type owl:AnnotationProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Markus Schilling" ;
                rdfs:label "abbreviation"@en ;
                skos:definition "A textual annotation used to specify a commonly accepted abbreviation, acronym, or shortened form of a class label. This property is intended to support concise referencing of ontology classes, especially when standard abbreviations are widely used in practice."@en ;
                skos:example "\"DNA\" for \"Deoxyribonucleic Acid\""@en .
@@ -501,8 +523,13 @@ obo:OBI_0000293 rdf:type owl:ObjectProperty ;
                                          obo:RO_0002351
                                        ) ;
                 obo:IAO_0000112 "see is_input_of example_of_usage"@en ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "The inverse property of is specified input of" ;
                 obo:IAO_0000116 "8/17/09: specified inputs of one process are not necessarily specified inputs of a larger process that it is part of. This is in contrast to how 'has participant' works." ;
+                obo:IAO_0000117 "PERSON: Alan Ruttenberg"@en ,
+                                "PERSON: Bjoern Peters" ,
+                                "PERSON: Larry Hunter" ,
+                                "PERSON: Melanie Coutot" ;
                 rdfs:label "has specified input"@en .
 
 
@@ -510,7 +537,10 @@ obo:OBI_0000293 rdf:type owl:ObjectProperty ;
 obo:OBI_0000295 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 obo:IAO_0000112 "some Autologous EBV(Epstein-Barr virus)-transformed B-LCL (B lymphocyte cell line) is_input_for instance of Chromum Release Assay described at https://wiki.cbil.upenn.edu/obiwiki/index.php/Chromium_Release_assay"@en ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "A relation between a completely executed planned process and a continuant participating in that process that is not created during the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of." ;
+                obo:IAO_0000117 "Alan Ruttenberg"@en ,
+                                "PERSON:Bjoern Peters" ;
                 rdfs:label "is specified input of"@en .
 
 
@@ -518,28 +548,41 @@ obo:OBI_0000295 rdf:type owl:ObjectProperty ;
 obo:OBI_0000299 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000057 ;
                 owl:inverseOf obo:OBI_0000312 ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "The inverse property of is specified output of" ;
+                obo:IAO_0000117 "PERSON: Alan Ruttenberg"@en ,
+                                "PERSON: Bjoern Peters" ,
+                                "PERSON: Larry Hunter" ,
+                                "PERSON: Melanie Courtot" ;
                 rdfs:label "has specified output"@en .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000304
 obo:OBI_0000304 rdf:type owl:ObjectProperty ;
                 obo:IAO_0000112 "http://www.affymetrix.com/products/arrays/specific/hgu133.affx is_manufactered_by http://www.affymetrix.com/ (if we decide to use these URIs for the actual entities)"@en ;
+                obo:IAO_0000114 obo:IAO_0000123 ;
                 obo:IAO_0000115 "c is_manufactured_by o means that there was a process p in which c was built in which a person, or set of people or machines did the work(bore the \"Manufacturer Role\", and those people/and or machines were members or of directed by the organization to do this."@en ;
+                obo:IAO_0000117 "Alan Ruttenberg"@en ,
+                                "Liju Fan"@en ;
                 rdfs:label "is_manufactured_by"@en .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000312
 obo:OBI_0000312 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."@en ;
+                obo:IAO_0000117 "Alan Ruttenberg"@en ,
+                                "PERSON:Bjoern Peters" ;
                 rdfs:label "is specified output of"@en .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000417
 obo:OBI_0000417 rdf:type owl:ObjectProperty ;
                 obo:IAO_0000112 "A cell sorting process achieves the objective specification 'material separation objective'" ;
+                obo:IAO_0000114 obo:IAO_0000120 ;
                 obo:IAO_0000115 "This relation obtains between a planned process and a objective specification when the criteria specified in the objective specification are met at the end of the planned process."@en ;
+                obo:IAO_0000117 "BP, AR, PPPB branch" ;
                 obo:IAO_0000119 "PPPB branch derived" ;
                 obo:IAO_0000232 "modified according to email thread from 1/23/09 in accordince with DT and PPPB branch" ;
                 rdfs:label "achieves_planned_objective" ;
@@ -550,6 +593,7 @@ obo:OBI_0000417 rdf:type owl:ObjectProperty ;
 obo:OBI_0001927 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:IAO_0000136 ;
                 owl:inverseOf co:PMD_0000077 ;
+                obo:IAO_0000114 obo:IAO_0000123 ;
                 obo:IAO_0000115 "A relation between a value specification and an entity which the specification is about."@en ;
                 rdfs:label "specifies value of" .
 
@@ -557,7 +601,9 @@ obo:OBI_0001927 rdf:type owl:ObjectProperty ;
 ###  http://purl.obolibrary.org/obo/OBI_0001938
 obo:OBI_0001938 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:BFO_0000051 ;
+                obo:IAO_0000114 obo:IAO_0000120 ;
                 obo:IAO_0000115 "A relation between an information content entity and a value specification that specifies its value."@en ;
+                obo:IAO_0000117 "PERSON: James A. Overton" ;
                 obo:IAO_0000119 "OBI" ;
                 rdfs:label "has value specification" .
 
@@ -810,6 +856,21 @@ obo:RO_0002234 rdf:type owl:ObjectProperty ;
                rdfs:label "has output"@en .
 
 
+###  http://purl.obolibrary.org/obo/RO_0002328
+obo:RO_0002328 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000115 "A grouping relationship for any relationship directly involving a function, or that holds because of a function of one of the related entities." ;
+               obo:IAO_0000116 """This is the soft version of mathematical dependence. We would like to introduce oparator classes later (derivative, quotient, sum, difference, product) with appropriate properties for the terms.
+
+difference === ('has minuend' only entity) and ('has subtrahend' only entity)
+sum === 'has addend' some entity
+product === 'has factor' some entity
+quotient === ('has numerator' only entity) and ('has denominator' only entity)
+derivative === ('has differential numerator' only entity) and ('has differential denominator' only entity)"""@en ;
+               rdfs:label "functionally related to"@en ;
+               rdfs:seeAlso obo:RO_0002328 ;
+               skos:definition "A grouping relationship for any relationship directly involving a function, or that holds because of a function of one of the related entities."@en .
+
+
 ###  http://purl.obolibrary.org/obo/RO_0002350
 obo:RO_0002350 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:BFO_0000050 ;
@@ -831,14 +892,16 @@ obo:RO_0002351 rdf:type owl:ObjectProperty ;
 
 ###  http://purl.obolibrary.org/obo/RO_0002352
 obo:RO_0002352 rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0000056 ;
+               rdfs:subPropertyOf obo:RO_0000056 ,
+                                  obo:RO_0002328 ;
                obo:IAO_0000115 "inverse of has input" ;
                rdfs:label "input of"@en .
 
 
 ###  http://purl.obolibrary.org/obo/RO_0002353
 obo:RO_0002353 rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0000056 ;
+               rdfs:subPropertyOf obo:RO_0000056 ,
+                                  obo:RO_0002328 ;
                obo:IAO_0000115 "inverse of has output" ;
                rdfs:label "output of"@en .
 
@@ -863,6 +926,9 @@ obo:STATO_0000102 rdf:type owl:ObjectProperty ;
                                            obo:RO_0000059
                                          ) ;
                   obo:IAO_0000115 "relationship between a planned process and the plan specification that it carries out; it is defined as equivalent to the composed relationship (realizes o concretizes)"@en ;
+                  obo:IAO_0000117 "Alejandra Gonzalez-Beltran" ,
+                                  "Orlaith Burke" ,
+                                  "Philippe Rocca-Serra" ;
                   obo:IAO_0000119 "AGB" ;
                   rdfs:label "executes" .
 
@@ -876,6 +942,8 @@ obo:STATO_0000102 rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/pmd/co/PMD_0000004
 co:PMD_0000004 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:label "is subject of"@en ;
                skos:definition "Inverse of 'is about'."@en .
 
@@ -883,6 +951,8 @@ co:PMD_0000004 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/co/PMD_0000009
 co:PMD_0000009 rdf:type owl:ObjectProperty ;
                owl:inverseOf co:PMD_0025006 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:label "has process attribute"@en ;
                rdfs:seeAlso "has process attribute from OEO https://openenergyplatform.org/ontology/oeo/OEO_00000500"@en ;
                skos:definition "A relation between a process and a process attribute that depends on it."@en ;
@@ -893,6 +963,8 @@ co:PMD_0000009 rdf:type owl:ObjectProperty ;
 co:PMD_0000069 rdf:type owl:ObjectProperty ;
                owl:inverseOf co:PMD_0000070 ;
                rdf:type owl:InverseFunctionalProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:label "has state"@en ;
                skos:definition "relates an anchor continuant to a temporally qualified continuant that represents a specific temporal phase of its existence."@en ;
                co:PMD_0001032 "https://github.com/materialdigital/core-ontology/issues/185" .
@@ -901,6 +973,8 @@ co:PMD_0000069 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/co/PMD_0000070
 co:PMD_0000070 rdf:type owl:ObjectProperty ,
                         owl:FunctionalProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:label "is state of"@en ;
                skos:definition "relates a temporally qualified continuant to the unique anchor continuant that it is a temporal phase of"@en .
 
@@ -908,6 +982,8 @@ co:PMD_0000070 rdf:type owl:ObjectProperty ,
 ###  https://w3id.org/pmd/co/PMD_0000077
 co:PMD_0000077 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf co:PMD_0000004 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:label "specified by value"@en ;
                skos:definition "A relation between an entity and a value specification which is about this entity."@en .
 
@@ -915,6 +991,8 @@ co:PMD_0000077 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/co/PMD_0001026
 co:PMD_0001026 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf co:PMD_0000004 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:label "complies with"@en ,
                           "entspricht"@de ;
                skos:definition "complies with is a relation between an independent continuant and an information content entity (e.g., specification or objective) that it conforms to."@en .
@@ -923,18 +1001,28 @@ co:PMD_0001026 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/co/PMD_0001028
 co:PMD_0001028 rdf:type owl:ObjectProperty ;
                owl:inverseOf co:PMD_0001029 ;
-               rdfs:label "in response to"@en ;
-               skos:definition "inverse of responds with"@en .
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
+               rdfs:label "als Antwort auf"@de ,
+                          "in response to"@en ;
+               skos:definition "Umkehrung von antwortet mit"@de ,
+                               "inverse of responds with"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0001029
 co:PMD_0001029 rdf:type owl:ObjectProperty ;
-               rdfs:label "responds with"@en ;
-               skos:definition "The realizable entity must be \"stimulated\" by some Stimulus in order to respond with the Response. The bearer of the realizable entity must participate in Stimulation as well as in Response."@en .
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
+               rdfs:label "antwortet mit"@de ,
+                          "responds with"@en ;
+               skos:definition "Die realisierbare Entität muss durch einen Reiz „stimuliert“ werden, um mit der Reaktion zu reagieren. Der Träger der realisierbaren Entität muss sowohl an der Stimulation als auch an der Reaktion teilnehmen."@de ,
+                               "The realizable entity must be \"stimulated\" by some Stimulus in order to respond with the Response. The bearer of the realizable entity must participate in Stimulation as well as in Response."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020127
 co:PMD_0020127 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
                rdfs:comment """Despite has characteristic from RO does not have any domain constraints, it is still not possible to directly connect an instance of a process with an instance of a SDC. 
 
 First, SDC is dependent on a IC. As RO does not have \"bearer of\" object property, the \"has characteristic\" implies that the domain should be an IC. 
@@ -948,6 +1036,8 @@ An example of such case can be \"Temperature of during the annealing process was
 
 ###  https://w3id.org/pmd/co/PMD_0025006
 co:PMD_0025006 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Kamilla Zaripova" ;
                rdfs:label "process attribute of"@en ;
                skos:definition "A relation between a process attribute and a process, which \"bears\" the attribute."@en ;
                skos:example "Tensile rate is a process attribute of tensile test"@en .
@@ -959,8 +1049,12 @@ co:PMD_0025998 rdf:type owl:ObjectProperty ;
                owl:propertyChainAxiom ( obo:BFO_0000051
                                         co:PMD_0025998
                                       ) ;
-               rdfs:label "has relational quality"@en ;
-               skos:definition "a relation between an independent continuant (the bearer) and a relational quality, in which the quality specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Kamilla Zaripova" ;
+               rdfs:label "has relational quality"@en ,
+                          "hat relationale Qualität"@de ;
+               skos:definition "a relation between an independent continuant (the bearer) and a relational quality, in which the quality specifically depends on the bearer for its existence"@en ,
+                               "eine Beziehung zwischen einem unabhängigen Kontinuum (dem Träger) und einer relationalen Qualität, bei der die Qualität in ihrer Existenz speziell vom Träger abhängt"@de ;
                skos:example "material has relational quality mass proportion m, and portion of iron has the same relational quality mass proportion m"@en .
 
 
@@ -969,10 +1063,14 @@ co:PMD_0025999 rdf:type owl:ObjectProperty ;
                owl:propertyChainAxiom ( co:PMD_0025999
                                         obo:BFO_0000050
                                       ) ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000116 """The 'relational quality of' is more strict that 'quality of' from RO, since domain is 'relational quality'. The motivtion to introduce an object property for relational qualities is the following:
 RO's 'quality of' is functional i.e., a->b, a->c => b=c. The functionality is relevant for most of the SDC -> IC triples, expect for relational qualities, which per definiton can be simultaneously inherited in >=2 ICs. Thus,  'relational quality of'  has the same intention to connect SDC to IC, however, without cardinality constraints."""@en ;
-               rdfs:label "relational quality of"@en ;
-               skos:definition "a relation between a relational quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000117 "PERSON: Kamilla Zaripova" ;
+               rdfs:label "relational quality of"@en ,
+                          "relationale Qualität von"@de ;
+               skos:definition "a relation between a relational quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence"@en ,
+                               "eine Beziehung zwischen einer relationalen Qualität und einem unabhängigen Kontinuum (dem Träger), bei der die Existenz der Qualität speziell vom Träger abhängt"@de ;
                skos:example "mass proportion m is relational qualitiy of material, and the same mass proportion m is relational qualitiy of portion of iron"@en .
 
 
@@ -980,18 +1078,6 @@ RO's 'quality of' is functional i.e., a->b, a->c => b=c. The functionality is re
 <https://w3id.org/pmd/cryo/CRYO_0000050> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
                                          rdfs:label "is tetragonal"@en .
-
-
-###  https://w3id.org/pmd/cryo/CRYO_0000051
-<https://w3id.org/pmd/cryo/CRYO_0000051> rdf:type owl:ObjectProperty ;
-                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
-                                         owl:propertyChainAxiom ( obo:IAO_0000235
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000050>
-                                                                  obo:RO_0002350
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000050>
-                                                                ) ;
-                                         rdfs:comment "'denoted by' o 'member of' o 'has Miller indices family under tetragonal symmetry'" ;
-                                         rdfs:label "denoted by family under tetragonal symmetry"@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000053
@@ -1029,61 +1115,6 @@ RO's 'quality of' is functional i.e., a->b, a->c => b=c. The functionality is re
                                          rdfs:label "is hexagonal"@de .
 
 
-###  https://w3id.org/pmd/cryo/CRYO_0000059
-<https://w3id.org/pmd/cryo/CRYO_0000059> rdf:type owl:ObjectProperty ;
-                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
-                                         owl:propertyChainAxiom ( obo:IAO_0000235
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000054>
-                                                                  obo:RO_0002350
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000054>
-                                                                ) ;
-                                         rdfs:label "denoted by family under triclinic symmetry"@en .
-
-
-###  https://w3id.org/pmd/cryo/CRYO_0000060
-<https://w3id.org/pmd/cryo/CRYO_0000060> rdf:type owl:ObjectProperty ;
-                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
-                                         owl:propertyChainAxiom ( obo:IAO_0000235
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000055>
-                                                                  obo:RO_0002350
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000055>
-                                                                ) ;
-                                         rdfs:label "denoted by family under monoclinic symmetry"@de .
-
-
-###  https://w3id.org/pmd/cryo/CRYO_0000061
-<https://w3id.org/pmd/cryo/CRYO_0000061> rdf:type owl:ObjectProperty ;
-                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
-                                         owl:propertyChainAxiom ( obo:IAO_0000235
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000056>
-                                                                  obo:RO_0002350
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000056>
-                                                                ) ;
-                                         rdfs:label "denoted by family under orthorhombic symmetry"@de .
-
-
-###  https://w3id.org/pmd/cryo/CRYO_0000062
-<https://w3id.org/pmd/cryo/CRYO_0000062> rdf:type owl:ObjectProperty ;
-                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
-                                         owl:propertyChainAxiom ( obo:IAO_0000235
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000057>
-                                                                  obo:RO_0002350
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000057>
-                                                                ) ;
-                                         rdfs:label "denoted by family under rhombohedral symmetry"@de .
-
-
-###  https://w3id.org/pmd/cryo/CRYO_0000063
-<https://w3id.org/pmd/cryo/CRYO_0000063> rdf:type owl:ObjectProperty ;
-                                         rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
-                                         owl:propertyChainAxiom ( obo:IAO_0000235
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000058>
-                                                                  obo:RO_0002350
-                                                                  <https://w3id.org/pmd/cryo/CRYO_0000058>
-                                                                ) ;
-                                         rdfs:label "denoted by family under hexagonal symmetry"@de .
-
-
 ###  https://w3id.org/pmd/cryo/CRYO_0000164
 <https://w3id.org/pmd/cryo/CRYO_0000164> rdf:type owl:ObjectProperty ;
                                          rdfs:label "denoted by family"@en .
@@ -1092,10 +1123,6 @@ RO's 'quality of' is functional i.e., a->b, a->c => b=c. The functionality is re
 ###  https://w3id.org/pmd/cryo/CRYO_0000168
 <https://w3id.org/pmd/cryo/CRYO_0000168> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
-                                         owl:propertyChainAxiom ( <https://w3id.org/pmd/cryo/CRYO_0000170>
-                                                                  obo:IAO_0000235
-                                                                  obo:RO_0002350
-                                                                ) ;
                                          rdfs:label "denoted by family under cubic symmetry" .
 
 
@@ -1200,7 +1227,7 @@ noes:NOES_0000006 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/noes/NOES_0000007
 noes:NOES_0000007 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000048 ;
-                  rdfs:label "coercitivy in the rolling direction"@de .
+                  rdfs:label "coercitivy in the rolling direction"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000008
@@ -1447,13 +1474,13 @@ noes:NOES_0000039 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/noes/NOES_0000040
 noes:NOES_0000040 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000048 ;
-                  rdfs:label "coercitivy in the transversal direction"@de .
+                  rdfs:label "coercitivy in the transversal direction"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000041
 noes:NOES_0000041 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000050 ;
-                  rdfs:label "remanence in the rolling direction"@de .
+                  rdfs:label "remanence in the rolling direction"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000042
@@ -1529,8 +1556,8 @@ noes:NOES_0000051 rdf:type owl:Class ;
                   rdfs:label "saturation induction"@en ;
                   skos:altLabel "saturation magnetic flux density"@en ;
                   skos:definition "Saturation induction is a magnetic property which is stimulated under an application of magnetic field. It characterizes the maximum induction B a material can achieve, i.e., the saturation induction is reached when it remains unchanged with increasing magnetic field strength H."@en ;
-                  co:symbol "Bsat"@en ,
-                            "Bmax" .
+                  co:symbol "Bmax" ,
+                            "Bsat"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000052
@@ -1860,8 +1887,8 @@ noes:NOES_0000087 rdf:type owl:Class ;
 theoretically possible in both bcc and fcc because <100> are the same types of directions
 practically lambda fiber is not stable in fcc because of the slip systems"""@en ;
                   rdfs:label "λ-fiber texture"@en ;
-                  skos:altLabel "θ-fiber texture"@en ,
-                                "<100> || ND" ;
+                  skos:altLabel "<100> || ND" ,
+                                "θ-fiber texture"@en ;
                   skos:definition "λ-fiber texture component is a type of crystallographic texture which is quality of grain population, i.e., several grains, having a similar orientation (within a misorientation threshold) in relation to the material's reference frame:  <100> family of crystallographic directions are oriented parallel to the normal direction (ND) of a sheet material, i,e., normal to the rolling plane."@en .
 
 
@@ -2631,8 +2658,8 @@ noes:NOES_0000179 rdf:type owl:Class ;
 noes:NOES_0000180 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000179 ;
                   rdfs:label "non-oriented electrical steel"@en ;
-                  skos:altLabel "Non-oriented electrical steel is an electrical steel material which exhibits isotropic magnetic properties in all direction in the sheet plane."@en ,
-                                "NOES" .
+                  skos:altLabel "NOES" ,
+                                "Non-oriented electrical steel is an electrical steel material which exhibits isotropic magnetic properties in all direction in the sheet plane."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000181
@@ -2653,8 +2680,8 @@ noes:NOES_0000182 rdf:type owl:Class ;
                   rdfs:label "peak magnetic polarization"@en ;
                   skos:altLabel "saturation polatization"@en ;
                   skos:definition "Peak magnetic polarization is a maximum magnetic polarization that a material exhibits under the applied external magnetic field Hmax."@en ;
-                  co:symbol "Jsat"@en ,
-                            "Jmax" .
+                  co:symbol "Jmax" ,
+                            "Jsat"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000183
