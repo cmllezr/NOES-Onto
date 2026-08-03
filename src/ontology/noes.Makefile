@@ -67,6 +67,7 @@ $(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPOR
 						--force true \
 						--copy-ontology-annotations true \
 						--intermediates all \
+						--individuals minimal \
 						--method BOT \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
