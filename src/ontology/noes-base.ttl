@@ -2119,6 +2119,17 @@ co:PMD_0000825 rdf:type owl:Class ;
                                "DEPRECATED Eine magnetische Eigenschaft ist eine Materialeigenschaft, die Eigenschaften darstellt, die beschreiben, wie ein Material auf Magnetfelder reagiert, wie z. B. Permeabilität und Koerzitivfeldstärke."@de .
 
 
+###  https://w3id.org/pmd/co/PMD_0000826
+co:PMD_0000826 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0000550 ;
+               obo:IAO_0000119 "https://industrylist.com/glossar/stoffeigenschaften-aendern/magnetisieren/"@de ;
+               rdfs:label "Magnetisieren"@de ,
+                          "magnetizing"@en ;
+               skos:definition "A changing properties of material process in which ferromagnetic materials are exposed to an external magnetic field, causing the material to take on magnetic properties."@en ,
+                               "Ein Stoffeigenschaft Ändern Prozess, bei dem ferromagnetische Stoffe einem äußeren Magnetfeld ausgesetzt werden wodurch der Stoff magnetische Eigenschaften übernimmt."@de ;
+               skos:example "Static Magnetization, Pulse Magnetization."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0000827
 co:PMD_0000827 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0000602 ;
@@ -2128,6 +2139,28 @@ co:PMD_0000827 rdf:type owl:Class ;
                           "magnetizing device"@en ;
                skos:definition "A device used for inducing a magnetic field in materials to alter their magnetic properties."@en ,
                                "Ein Gerät zur Induktion eines Magnetfelds in Materialien, um deren magnetische Eigenschaften zu verändern."@de .
+
+
+###  https://w3id.org/pmd/co/PMD_0000828
+co:PMD_0000828 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000034 ,
+                               co:PMD_0020317 ,
+                               co:PMD_0020353 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:BFO_0000054 ;
+                                 owl:someValuesFrom co:PMD_0000826
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000079 ;
+                                 owl:someValuesFrom co:PMD_0000827
+                               ] ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
+               rdfs:label "Magnetisierungsfunktion"@de ,
+                          "magnetizing function"@en ;
+               skos:definition "A function performed to induce a magnetic field in materials to modify their magnetic properties."@en ,
+                               "Eine Funktion, die durchgeführt wird, um ein Magnetfeld in Materialien zu induzieren, um deren magnetische Eigenschaften zu verändern."@de ;
+               co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000829
@@ -4366,21 +4399,21 @@ co:PMD_0020128 rdf:type owl:Class ;
 co:PMD_0020131 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
                                co:PMD_0023004 ,
-                               _:genid613 ;
+                               _:genid615 ;
                owl:disjointWith co:PMD_0020148 ;
                rdfs:label "intensive quality"@en ;
                skos:altLabel "Point property"@en ;
                skos:definition "An intensive quality is a quality that inheres in only portion of matter and thus is independent of the bearers (system-) size."@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid613 rdf:type owl:Restriction ;
+_:genid615 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000080 ;
             owl:someValuesFrom co:PMD_0000001 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020131 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid613 ;
+   owl:annotatedTarget _:genid615 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -6426,6 +6459,22 @@ co:PMD_0080022 rdf:type owl:Class ;
                skos:example "A capacitor stores 10 µC of electric charge at a voltage of 5 V"@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0080026
+co:PMD_0080026 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020353 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000116 "Necessary and sufficient conditions for 'magnetic permeability' have not yet been formalized. The term is defined as a specific subtype of 'magnetic quality'. Distinguishing criteria are domain-specific and depend on measurement conventions not yet expressed as OWL restrictions."@en ;
+               obo:IAO_0000117 "PERSON: Thomas Hanke" ;
+               rdfs:label "magnetic permeability"@en ,
+                          "magnetische Permeabilität"@de ;
+               skos:altLabel "Permeabilität"@de ,
+                             "permeability"@en ,
+                             "μ"@en ;
+               skos:definition "Magnetic permeability is a magnetic quality of a material that quantifies its ability to support the formation of a magnetic field within itself, expressed as the ratio of magnetic flux density to the applied magnetic field intensity"@en ,
+                               "Magnetische Permeabilität ist eine magnetische Qualität eines Materials, die seine Fähigkeit quantifiziert, ein Magnetfeld in seinem Inneren zu unterstützen, ausgedrückt als Verhältnis der magnetischen Flussdichte zur aufgebrachten magnetischen Feldstärke"@de ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
 ###  https://w3id.org/pmd/co/PMD_0080029
 co:PMD_0080029 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020311 ,
@@ -6501,8 +6550,8 @@ co:PMD_0080069 rdf:type owl:Class ;
 co:PMD_0080108 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020311 ,
                                co:PMD_0023004 ,
-                               _:genid1076 ,
-                               _:genid1082 ,
+                               _:genid1078 ,
+                               _:genid1084 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000052 ;
                                  owl:someValuesFrom co:PMD_0000001
@@ -6514,7 +6563,7 @@ co:PMD_0080108 rdf:type owl:Class ;
                skos:example "A cross-section of a loaded steel column bears a compressive stress of 150 MPa"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid1076 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1078 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020200
                                   ]
@@ -6525,7 +6574,7 @@ _:genid1076 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                 ) ;
              rdf:type owl:Class .
 
-_:genid1082 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1084 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020352
                                   ]
@@ -6539,14 +6588,14 @@ _:genid1082 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1076 ;
+   owl:annotatedTarget _:genid1078 ;
    rdfs:comment "Mechanical view on stress"@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1082 ;
+   owl:annotatedTarget _:genid1084 ;
    rdfs:comment "Thermodynamic view on stress"@en
  ] .
 
@@ -6554,14 +6603,14 @@ _:genid1082 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 ###  https://w3id.org/pmd/co/PMD_0080116
 co:PMD_0080116 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid1089 ;
+                               _:genid1091 ;
                obo:IAO_0000117 "Philipp von Hartrott" ;
                rdfs:comment "Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you're considering."@en ;
                rdfs:label "potential"@en ;
                skos:definition "a partial derivative of energy with respect to its conjugate extensive quantity"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid1089 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1091 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020142
                                   ]
@@ -6575,11 +6624,26 @@ _:genid1089 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080116 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1089 ;
+   owl:annotatedTarget _:genid1091 ;
    rdfs:comment """In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking \"how does energy change per unit carrier added?\", you ask \"how does energy change per unit carrier moved in space?\""""@en
  ] .
+
+
+###  https://w3id.org/pmd/co/PMD_0080120
+co:PMD_0080120 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020353 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000116 "Necessary and sufficient conditions for 'magnetic susceptibility' have not yet been formalized. Although χ = M/H is a well-defined ratio, a formal equivalence axiom would incorrectly classify any dimensionless relational quality of a magnetic bearer as magnetic susceptibility. Defined as a primitive subtype of 'physical relational quality'."@en ;
+               obo:IAO_0000117 "PERSON: Thomas Hanke" ;
+               rdfs:label "magnetic susceptibility"@en ,
+                          "magnetische Suszeptibilität"@de ;
+               skos:altLabel "χ"@en ;
+               skos:definition "Magnetic susceptibility is a physical relational quality of a material that quantifies the degree to which it becomes magnetized in response to an applied magnetic field, expressed as the dimensionless ratio of magnetization to applied field intensity"@en ,
+                               "Magnetische Suszeptibilität ist eine physikalische relationale Qualität eines Materials, die den Grad angibt, in dem es sich als Reaktion auf ein angelegtes Magnetfeld magnetisiert, ausgedrückt als dimensionsloses Verhältnis der Magnetisierung zur angelegten Feldstärke"@de ;
+               skos:example "Paramagnetic oxygen gas has a positive magnetic susceptibility of 3.73e-6 m3/mol at 20 C"@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0080128
@@ -8299,7 +8363,8 @@ noes:NOES_0000007 rdf:type owl:Class ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:label "coercitivy in the rolling direction"@en .
+                  rdfs:label "coercitivy in the rolling direction"@en ;
+                  skos:definition "Coercivity in the rolling direction describes the value of the magnetic field strength H required to reduce the magnetic flux bensity B back to zero after the material has been driven to the saturation of magnetic flux density B sat, while the magnetic field is applied parallel to the rolling direction of the specimen."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000008
@@ -8595,7 +8660,7 @@ noes:NOES_0000033 rdf:type owl:Class ;
 1. Refine definition
 2. Maybe remove the categorical values""" ;
                   rdfs:label "rolling direction"@en ;
-                  skos:definition "Rolling direction is a rolled sheet direction that is specified by rolling direction (RD)."@en .
+                  skos:definition "Rolling direction is a direction in which the sheet is pushed through the rolling mill."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000034
@@ -8618,7 +8683,8 @@ noes:NOES_0000034 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/noes/NOES_0000035
 noes:NOES_0000035 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000031 ;
-                  rdfs:label "transverse direction"@en .
+                  rdfs:label "transverse direction"@en ;
+                  skos:definition "Transverse direction is a direction in the rolling plane normal to the direction in which the sheet is pushed through the rolling mill."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000036
@@ -8853,7 +8919,8 @@ noes:NOES_0000040 rdf:type owl:Class ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:label "coercitivy in the transversal direction"@en .
+                  rdfs:label "coercitivy in the transversal direction"@en ;
+                  skos:definition "Coercivity in the transversal direction describes the value of the magnetic field strength H required to reduce the magnetic flux bensity B back to zero after the material has been driven to the saturation of magnetic flux density B sat, while the magnetic field is applied paralllel to the transverse direction of the specimen."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000041
@@ -8941,7 +9008,8 @@ noes:NOES_0000041 rdf:type owl:Class ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:label "remanence in the rolling direction"@en .
+                  rdfs:label "remanence in the rolling direction"@en ;
+                  skos:definition "Remanence in the rolling direction is the magnetic induction B that remains in the material when the magnetic field strength H is reduced to zero,  while the magnetic field is applied parallel to the rolling direction of the specimen."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000042
@@ -9094,10 +9162,10 @@ noes:NOES_0000054 rdf:type owl:Class ;
                                     owl:someValuesFrom noes:NOES_0000021
                                   ] ;
                   rdfs:comment "Anamalous loss is propotional to the frequency of the alternating magnetic field f^3/2."@en ,
-                               "Anomalous loss can be reduced byy minimizing domain wall spacing to ensure more uniform magnetization. This can be achieved by controlling grain size and crystallographic texure."@en ;
+                               "Anomalous loss can be reduced by minimizing domain wall spacing to ensure more uniform magnetization. This can be achieved by controlling grain size and crystallographic texure."@en ;
                   rdfs:label "anomalous loss"@en ;
-                  co:symbol "Anomalous loss is a type of a magnetic power loss which is determined as a difference between total magnetic power loss P_tot and the sum of both hysteresis loss P_hys and eddy current loss  P_e. Anomalous loss is attributed to the localized, microscopic eddy currents generated by the motion of individual magnetic domain walls."@en ,
-                            "P_a" .
+                  skos:definition "Anomalous loss is a type of a magnetic power loss which is determined as a difference between total magnetic power loss P_tot and the sum of both hysteresis loss P_hys and eddy current loss  P_e. Anomalous loss is attributed to the localized, microscopic eddy currents generated by the motion of individual magnetic domain walls."@en ;
+                  co:symbol "P_a" .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000055
@@ -9128,8 +9196,8 @@ noes:NOES_0000056 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/noes/NOES_0000057
 noes:NOES_0000057 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000053 ;
-                  rdfs:comment "Total magnetic power loss is magnetic property of a material which describes its performance in an external magnetic field. Total magnetic power loss is a sum of hysteresis P_hys, eddy current P_e, and anomalous losses P_a."@en ;
                   rdfs:label "total magnetic power loss"@en ;
+                  skos:definition "Total magnetic power loss is magnetic property of a material which describes its performance in an external magnetic field. Total magnetic power loss is a sum of hysteresis P_hys, eddy current P_e, and anomalous losses P_a."@en ;
                   co:symbol "P_tot"@en .
 
 
@@ -9303,6 +9371,7 @@ noes:NOES_0000065 rdf:type owl:Class ;
                                                        ]
                                   ] ;
                   rdfs:label "magnetic power loss at 1.5 T / 50 Hz"@en ;
+                  skos:definition "Magnetic power loss at 1.5 T / 50 Hz is a total magnetic power loss that has been determined at 1.5 T of maximum magnetic induction B and 50 Hz of frequency of alternating magnetic field"@en ;
                   co:symbol "P1.5/50"@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
@@ -9498,7 +9567,8 @@ noes:NOES_0000073 rdf:type owl:Class ;
                                     owl:someValuesFrom noes:NOES_0000008
                                   ] ;
                   rdfs:comment "Fix axiom\"!!" ;
-                  rdfs:label "orientation distribution function calculation"@en .
+                  rdfs:label "orientation distribution function calculation"@en ;
+                  skos:definition "An orientation distribution function is an analytical calculation that quantifies the statistical distribution of crystallographic orientations within a polycrystalline material, by  inverting two-dimensional experimental diffraction data (pole figures) into a continuous three-dimensional Euler space, i.e., orientation distribution functions (ODFs)."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000074
@@ -9586,7 +9656,8 @@ noes:NOES_0000074 rdf:type owl:Class ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:label "remanence in the transversal direction"@de .
+                  rdfs:label "remanence in the transversal direction"@de ;
+                  skos:definition "Remanence in the transversal direction is the magnetic induction B that remains in the material when the magnetic field strength H is reduced to zero,  while the magnetic field is applied parallel to the transverse direction of the specimen."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000075
@@ -9676,7 +9747,7 @@ noes:NOES_0000075 rdf:type owl:Class ;
                                   ] ;
                   rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
                   rdfs:label "tensile strength in the transversal direction"@en ;
-                  skos:definition "Tensile strength in to the transversal direction is a tensile strength which is measured on a sample cut parallel to the transversal direction." ;
+                  skos:definition "Tensile strength in to the transversal direction is a tensile strength which is measured on a sample cut parallel to the transversal direction."@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
 
@@ -9872,6 +9943,7 @@ noes:NOES_0000079 rdf:type owl:Class ;
                                   ] ;
                   rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
                   rdfs:label "total magnetic power loss in the rolling direction"@en ;
+                  skos:definition "Total magnetic power loss in the rolling direction is a total magnetic power loss measured with applying magnetic field parallel to the rolling direction of the rolled sheet."@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
 
@@ -9962,6 +10034,7 @@ noes:NOES_0000080 rdf:type owl:Class ;
                                   ] ;
                   rdfs:comment "An instance belonging to the class should be rather inferred as asserted."@en ;
                   rdfs:label "total magnetic power loss in the transversal direction"@en ;
+                  skos:definition "Total magnetic power loss in the transversal direction is a total magnetic power loss measured with applying magnetic field parallel to the transverse direction of the rolled sheet."@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
 
@@ -10327,7 +10400,7 @@ noes:NOES_0000084 rdf:type owl:Class ;
                                                        ]
                                   ] ;
                   rdfs:label "peak magnetic polarization in the rolling direction"@en ;
-                  skos:altLabel "Peak magnetic polarization in the rolling direction is a peak magnetic polarization measured exclusively in the rolling direction of an electrical sheet."@en ;
+                  skos:definition "Peak magnetic polarization in the rolling direction is a peak magnetic polarization measured exclusively in the rolling direction of an electrical sheet, i.e., magnetic field is applied parallel to the rolling direction of the rolled sheet."@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
 
@@ -10417,7 +10490,7 @@ noes:NOES_0000085 rdf:type owl:Class ;
                                                        ]
                                   ] ;
                   rdfs:label "peak magnetic polarization in the transversal direction"@en ;
-                  skos:definition "Peak magnetic polarization in the transversal direction is a peak magnetic polarization measured exclusively in the transversal direction of an electrical sheet."@en ;
+                  skos:definition "Peak magnetic polarization in the transversal direction is a peak magnetic polarization measured exclusively in the transversal direction of an electrical sheet,  i.e., magnetic field is applied parallel to the transverse direction of the rolled sheet."@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
 
@@ -11746,7 +11819,8 @@ noes:NOES_0000106 rdf:type owl:Class ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:label "differential permeability in the rolling direction"@en .
+                  rdfs:label "differential permeability in the rolling direction"@en ;
+                  skos:definition "Differential permeability in the rolling direction is the instantaneous slope of the magnetization curve or hysteresis loop at any given point, while magnetic field is applied parallel to the rolling direction of the rolled sheet."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000107
@@ -11834,7 +11908,8 @@ noes:NOES_0000107 rdf:type owl:Class ;
                                                          rdf:type owl:Class
                                                        ]
                                   ] ;
-                  rdfs:label "differential permeability in the transversal direction"@en .
+                  rdfs:label "differential permeability in the transversal direction"@en ;
+                  skos:definition "Differential permeability in the tranversal direction is the instantaneous slope of the magnetization curve or hysteresis loop at any given point, while magnetic field is applied parallel to the transverse direction of the rolled sheet."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000108
@@ -11923,6 +11998,7 @@ noes:NOES_0000108 rdf:type owl:Class ;
                                                        ]
                                   ] ;
                   rdfs:label "maximum permeability in the rolling direction"@en ;
+                  skos:definition "Maximum permeability in the rolling direction is the steepest part of the B-H curve, where the material most readily accepts field. it indicates the easiest magnetization point of the material, while magnetic field is applied parallel to the rolling direction of the rolled sheet."@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
 
@@ -12012,6 +12088,7 @@ noes:NOES_0000109 rdf:type owl:Class ;
                                                        ]
                                   ] ;
                   rdfs:label "maximum permeability in the transversal direction"@en ;
+                  skos:definition "Maximum permeability in the transverse direction is the steepest part of the B-H curve, where the material most readily accepts field. it indicates the easiest magnetization point of the material, while magnetic field is applied parallel to the tranverse direction of the rolled sheet."@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
 
@@ -12101,6 +12178,7 @@ noes:NOES_0000110 rdf:type owl:Class ;
                                                        ]
                                   ] ;
                   rdfs:label "relative permeability in the rolling direction"@en ;
+                  skos:definition "Relative permeability in the rolling direction  is type of magnetic permeability which is defined as a ratio of the material's permeability µ to that of free space µ0, while magnetic field is applied parallel to the rolling direction of the rolled sheet."@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
 
@@ -12190,6 +12268,7 @@ noes:NOES_0000111 rdf:type owl:Class ;
                                                        ]
                                   ] ;
                   rdfs:label "relative permeability in the transversal direction"@en ;
+                  skos:definition "Relative permeability in the transversal direction  is type of magnetic permeability which is defined as a ratio of the material's permeability µ to that of free space µ0, while magnetic field is applied parallel to the transverse direction of the rolled sheet."@en ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
 
@@ -12284,8 +12363,8 @@ noes:NOES_0000119 rdf:type owl:Class ;
                                                        ) ;
                                     rdf:type owl:Class
                                   ] ;
-                  rdfs:comment "Number of rolling passes is a process attribute of a rolling process which specifies how many times a piece of material have been passed between rolling mills to achieve desired thickness."@en ;
-                  rdfs:label "number of rolling passes"@en .
+                  rdfs:label "number of rolling passes"@en ;
+                  skos:definition "Number of rolling passes is a process attribute of a rolling process which specifies how many times a piece of material have been passed between rolling mills to achieve desired thickness."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000120
@@ -13487,14 +13566,15 @@ noes:NOES_0000167 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/noes/NOES_0000168
 noes:NOES_0000168 rdf:type owl:Class ;
                   rdfs:subClassOf co:PMD_0000834 ;
-                  rdfs:label "inverse pole figure" .
+                  rdfs:label "inverse pole figure" ;
+                  skos:definition "An inverse pole figure is a stereographic projection that plots a specific, macroscopic physical direction of a sample, e.g., rolling or normal direction relative to the internal coordinate system of the crystal lattice, revealing the statistical frequency of grain orientations that align with that chosen physical axis."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000177
 noes:NOES_0000177 rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000027 ;
-                  rdfs:comment "Grain population is a disconnected material aggregate which has crystallites ias parts.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation."@en ;
-                  rdfs:label "grain population"@en .
+                  rdfs:label "grain population"@en ;
+                  skos:definition "Grain population is a disconnected material aggregate which has crystallites ias parts.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000178
@@ -13635,7 +13715,7 @@ noes:NOES_0000181 rdf:type owl:Class ;
 3. Think of adding nomical thickness class
 4. Check the some in the decimal"""@en ;
                   rdfs:label "NO27-14"@en ;
-                  skos:altLabel "NO27-14 is a non-oriented electrical steel which has characteristic total magnetic losses P1.0/400 of max 14 W/kg and a quality thickness of 0.27 mm."@en .
+                  skos:definition "NO27-14 is a non-oriented electrical steel which has characteristic total magnetic losses P1.0/400 of max 14 W/kg and a quality thickness of 0.27 mm."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000182
@@ -13842,19 +13922,6 @@ Note: For the determination of several properties which are based (partly or com
                                                        "length of the parallel portion of the test piece on which elongation is measured at any moment during the test"@en ;
                                        co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
                                        co:symbol "L"@en .
-
-
-###  https://w3id.org/pmd/tto/TTO_0000022
-<https://w3id.org/pmd/tto/TTO_0000022> rdf:type owl:Class ;
-                                       rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000009> ;
-                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
-                                       rdfs:label "lower yield strength"@en ,
-                                                  "untere Streckgrenze"@de ;
-                                       rdfs:seeAlso <https://w3id.org/pmd/tto/LowerYieldStrength> ;
-                                       skos:definition "kleinste Spannung während des plastischen Fließens, wobei Einschwingerscheinungen nicht berücksichtigt werden"@de ,
-                                                       "lowest value of stress during plastic yielding, ignoring any initial transient effects"@en ;
-                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
-                                       co:symbol "R_eL"@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000023
@@ -14200,19 +14267,6 @@ Note: Stress rate is only used in the elastic part of the test."""@en ;
                                        rdfs:seeAlso <https://w3id.org/pmd/tto/ThicknessAfterFracture> ;
                                        skos:definition "Diese Entität beschreibt die gemessene Dimension in einer Richtung eines Prüfstücks, wie sie vor der Prüfung gemessen wurde."@de ,
                                                        "This entity describes the measured dimension in one direction of a test piece, as measured after the test."@en .
-
-
-###  https://w3id.org/pmd/tto/TTO_0000059
-<https://w3id.org/pmd/tto/TTO_0000059> rdf:type owl:Class ;
-                                       rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000009> ;
-                                       rdfs:isDefinedBy <https://w3id.org/pmd/tto> ;
-                                       rdfs:label "Obere Streckgrenze"@de ,
-                                                  "upper yield strength"@en ;
-                                       rdfs:seeAlso <https://w3id.org/pmd/tto/UpperYieldStrength> ;
-                                       skos:definition "höchste Spannung, bevor der erste Kraftabfall auftritt"@de ,
-                                                       "maximum value of stress prior to the first decrease in force"@en ;
-                                       co:definitionSource "DIN EN ISO 6892-1:2019"@en ;
-                                       co:symbol "R_eH"@en .
 
 
 ###  https://w3id.org/pmd/tto/TTO_0000060
