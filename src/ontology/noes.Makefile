@@ -12,54 +12,11 @@ PMDCO_DISJOINTNESS_REMOVAL_TERMS = $(IMPORTDIR)/pmdco_remove_disjoint.txt
 IAO_TO_REMOVE = $(IMPORTDIR)/iao_to_remove.txt
 PMDCO_CLASSES_TO_REMOVE = $(IMPORTDIR)/pmdco_classes_to_remove.txt
 
-# Import CryO from private repo. NOTE MUST BE REMOVED ONCE CRYO IS PUBLIC
-CONFIG_FILE := $(firstword $(wildcard ../../noes-odk.yaml ../noes-odk.yaml noes-odk.yaml ../../ontology-config.yaml ../ontology-config.yaml ontology-config.yaml))
-RAW_URL = $(shell grep -A 5 "id: cryo" $(CONFIG_FILE) | grep "mirror_from:" | head -n 1 | sed 's/.*mirror_from:[[:space:]]*//' | sed 's/[[:space:]]//g')
-CRYO_MIRROR = $(MIRRORDIR)/cryo.owl
-
-# 2. Updated download rule using CRYO_TOKEN
-$(CRYO_MIRROR):
-	@echo "Detected Config File: $(CONFIG_FILE)"
-	@echo "Fetching from URL: $(RAW_URL)"
-	@if [ -z "$(RAW_URL)" ]; then \
-		echo "ERROR: Could not extract mirror_from URL for 'id: cryo' from $(CONFIG_FILE)"; \
-		exit 1; \
-	fi
-	# Determine if we need to inject the CRYO_TOKEN or if the URL is self-contained
-	@if echo "$(RAW_URL)" | grep -q "token="; then \
-		echo "Using self-contained token from URL..."; \
-		curl -f -sS -L "$(RAW_URL)" -o $@; \
-	else \
-		echo "Using CRYO_TOKEN from environment..."; \
-		$(MAKE) download-with-token; \
-	fi
-	@if [ ! -s $@ ]; then \
-		echo "ERROR: Downloaded cryo.owl is empty. Check URL/Token."; \
-		rm -f $@; \
-		exit 1; \
-	fi
-
-download-with-token:
-	$(eval OWNER=$(shell echo $(RAW_URL) | cut -d'/' -f4))
-	$(eval REPO=$(shell echo $(RAW_URL) | cut -d'/' -f5))
-	# Identify if 'refs/heads/' is in the URL to determine path and ref
-	$(eval REF=$(shell echo $(RAW_URL) | grep -oP '(?<=refs/heads/)[^/]+' || echo $(RAW_URL) | cut -d'/' -f6))
-	$(eval FILE_PATH=$(shell echo $(RAW_URL) | sed -E 's|.*(refs/heads/[^/]+/\|[^/]+/[^/]+/[^/]+/)(.*)|\2|'))
-	@echo "Targeting Repo: $(OWNER)/$(REPO) Path: $(FILE_PATH) Ref: $(REF)"
-	curl -f -sS -L -H "Authorization: Bearer $(CRYO_TOKEN)" \
-		-H "Accept: application/vnd.github.v3.raw" \
-		"https://api.github.com/repos/$(OWNER)/$(REPO)/contents/$(FILE_PATH)?ref=$(REF)" -o $(CRYO_MIRROR)
-
-# 3. Override mirror-cryo to ensure the download happens first
-mirror-cryo: $(CRYO_MIRROR)
-	@echo "Mirroring local private cryo file..."
-	$(ROBOT) convert -i $(CRYO_MIRROR) -o $(TMPDIR)/mirror-cryo.owl
-
 $(ONTOLOGYTERMS): $(SRCMERGED)
 	$(ROBOT) query -vvv -f csv -i $< --query noes_terms.sparql $@
 
 # Import CryO classes preserving subclass hierarchy to PMDco
-$(IMPORTDIR)/cryo_import.owl: $(CRYO_MIRROR) $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
+$(IMPORTDIR)/cryo_import.owl: $(MIRRORDIR)/cryo.owl $(IMPORTDIR)/cryo_terms.txt $(IMPORTSEED) | all_robot_plugins
 	@echo "Generating import module from private CryO mirror..."
 	$(ROBOT) annotate --input $< --remove-annotations \
 			odk:normalize --add-source true \
@@ -150,21 +107,58 @@ $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
 
 
 CITATION="'NOES-Onto: Nonoriented Electrical Steel Ontology. Version $(VERSION), https://w3id.org/pmd/noes/'"
+CREATED   = 2025-06-01                                  
+DOI       = https://doi.org/10.5281/zenodo.XXXXXXX      # TODO: mint via Zenodo-GitHub integration (use the concept DOI)
+PUBLISHER = https://ror.org/04hm8eb66                     # TODO: your institution (a ROR IRI works well)
 
-ALL_ANNOTATIONS=--ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pmd/noes/$(VERSION) \
-	--annotation http://purl.org/dc/terms/created "$(TODAY)" \
+# Previous published version: read from the last released file BEFORE overwriting it
+PRIOR_VERSION := $(shell sed -n 's:.*<owl:versionInfo>\(.*\)</owl:versionInfo>.*:\1:p' ../../noes.owl 2>/dev/null | head -n 1)
+ifneq ($(strip $(PRIOR_VERSION)),)
+PRIOR_ANNOTATION = --link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION)
+endif
+
+#ALL_ANNOTATIONS=--ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pmd/noes/$(VERSION) \
+#	--annotation http://purl.org/dc/terms/created "$(TODAY)" \
+#	--annotation owl:versionInfo "$(VERSION)" \
+#	--annotation http://purl.org/dc/terms/bibliographicCitation "$(CITATION)" \
+#	--link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION)
+
+#update-ontology-annotations: 
+#	$(ROBOT) annotate --input noes.owl $(ALL_ANNOTATIONS) --output ../../noes.owl
+#	$(ROBOT) annotate --input noes.ttl $(ALL_ANNOTATIONS) --output ../../noes.ttl
+#	$(ROBOT) annotate --input noes-full.owl $(ALL_ANNOTATIONS) --output ../../noes-full.owl
+#	$(ROBOT) annotate --input noes-full.ttl $(ALL_ANNOTATIONS) --output ../../noes-full.ttl
+#	$(ROBOT) annotate --input noes-base.owl $(ALL_ANNOTATIONS) --output ../../noes-base.owl
+#	$(ROBOT) annotate --input noes-base.ttl $(ALL_ANNOTATIONS) --output ../../noes-base.ttl
+#	$(ROBOT) annotate --input noes-simple.owl $(ALL_ANNOTATIONS) --output ../../noes-simple.owl
+#	$(ROBOT) annotate --input noes-simple.ttl $(ALL_ANNOTATIONS) --output ../../noes-simple.ttl
+
+#all_assets: update-ontology-annotations
+
+ALL_ANNOTATIONS = --ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pmd/noes/$(VERSION) \
 	--annotation owl:versionInfo "$(VERSION)" \
+	--typed-annotation http://purl.org/dc/terms/created "$(CREATED)" xsd:date \
+	--typed-annotation http://purl.org/dc/terms/issued "$(TODAY)" xsd:date \
+	--typed-annotation http://purl.org/dc/terms/modified "$(TODAY)" xsd:date \
 	--annotation http://purl.org/dc/terms/bibliographicCitation "$(CITATION)" \
-	--link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION)
+	--annotation http://purl.org/vocab/vann/preferredNamespacePrefix "noes" \
+	--annotation http://purl.org/vocab/vann/preferredNamespaceUri "https://w3id.org/pmd/noes/" \
+	--link-annotation http://purl.org/dc/terms/publisher $(PUBLISHER) \
+	--link-annotation http://purl.org/dc/terms/source https://w3id.org/pmd/co/ \
+	--annotation http://purl.org/ontology/bibo/status "stable" \
+	--annotation http://purl.org/dc/terms/identifier "$(DOI)" \
+	$(PRIOR_ANNOTATION)
 
-update-ontology-annotations: 
-	$(ROBOT) annotate --input noes.owl $(ALL_ANNOTATIONS) --output ../../noes.owl
-	$(ROBOT) annotate --input noes.ttl $(ALL_ANNOTATIONS) --output ../../noes.ttl
-	$(ROBOT) annotate --input noes-full.owl $(ALL_ANNOTATIONS) --output ../../noes-full.owl
-	$(ROBOT) annotate --input noes-full.ttl $(ALL_ANNOTATIONS) --output ../../noes-full.ttl
-	$(ROBOT) annotate --input noes-base.owl $(ALL_ANNOTATIONS) --output ../../noes-base.owl
-	$(ROBOT) annotate --input noes-base.ttl $(ALL_ANNOTATIONS) --output ../../noes-base.ttl
-	$(ROBOT) annotate --input noes-simple.owl $(ALL_ANNOTATIONS) --output ../../noes-simple.owl
-	$(ROBOT) annotate --input noes-simple.ttl $(ALL_ANNOTATIONS) --output ../../noes-simple.ttl
+RELEASE_FILES = noes.owl noes.ttl noes-full.owl noes-full.ttl \
+                noes-base.owl noes-base.ttl noes-simple.owl noes-simple.ttl
+
+# Annotate the src/ontology copies IN PLACE (these feed WIDOCO → gh-pages → w3id),
+# then mirror them to the repo root.
+update-ontology-annotations:
+	for f in $(RELEASE_FILES); do \
+		$(ROBOT) annotate --input $$f $(ALL_ANNOTATIONS) --output tmp_$$f && \
+		mv tmp_$$f $$f && \
+		cp $$f ../../$$f || exit 1; \
+	done
 
 all_assets: update-ontology-annotations
