@@ -212,7 +212,6 @@ Declaration(Class(<https://w3id.org/pmd/co/PMD_0000075>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0000501>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0000502>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0000503>))
-Declaration(Class(<https://w3id.org/pmd/co/PMD_0000512>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0000521>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0000522>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0000534>))
@@ -1059,6 +1058,7 @@ Declaration(AnnotationProperty(<https://w3id.org/pmd/noes/NOES_0000122>))
 Declaration(Datatype(<http://qudt.org/schema/qudt/LatexString>))
 Declaration(Datatype(rdf:HTML))
 Declaration(Datatype(rdfs:Literal))
+Declaration(Datatype(xsd:string))
 ############################
 #   Annotation Properties
 ############################
@@ -2970,7 +2970,7 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <http://purl.ob
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/IAO_0000010> "software"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/IAO_0000010> <http://purl.obolibrary.org/obo/IAO_0000104>)
 
-# Class: <http://purl.obolibrary.org/obo/IAO_0000027> (data item)
+# Class: <http://purl.obolibrary.org/obo/IAO_0000027> (data entity)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000112> <http://purl.obolibrary.org/obo/IAO_0000027> "Data items include counts of things, analyte concentrations, and statistical summaries."@en)
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/IAO_0000027> "An information content entity that is intended to be a truthful statement about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements."@en)
@@ -3220,7 +3220,9 @@ SubClassOf(<http://purl.obolibrary.org/obo/OBI_0000835> ObjectSomeValuesFrom(<ht
 
 # Class: <http://purl.obolibrary.org/obo/OBI_0001930> (categorical value specification)
 
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/OBI_0001930> <http://purl.obolibrary.org/obo/IAO_0000123>)
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/OBI_0001930> "A value specification that is specifies one category out of a fixed number of nominal categories"@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000117> <http://purl.obolibrary.org/obo/OBI_0001930> "PERSON:Bjoern Peters")
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/OBI_0001930> "categorical value specification")
 SubClassOf(<http://purl.obolibrary.org/obo/OBI_0001930> <http://purl.obolibrary.org/obo/OBI_0001933>)
 
@@ -3691,15 +3693,6 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000503> "The ASTM grain size is a quality that is measured through a process that follows the ASTM standard."@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0000503> "true"^^xsd:boolean)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000512> (DEPRECATED Aggregatzustand)
-
-AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/co/PMD_0000512> "Make bearer entity member of subclass of 'portion of matter in aggregate state'")
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000512> "DEPRECATED Aggregatzustand"@de)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000512> "DEPRECATED aggregate state"@en)
-AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/co/PMD_0000512> "true"^^xsd:boolean)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000512> "DEPRECATED a quality representing the physical state of a material, such as solid, liquid, or gasous"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000512> "DEPRECATED eine intensive Qualität, die den physikalischen Zustand eines Materials darstellt, z. B. fest, flüssig oder gasförmig"@de)
-
 # Class: <https://w3id.org/pmd/co/PMD_0000521> (generation of magnetic field)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000114> <https://w3id.org/pmd/co/PMD_0000521> <http://purl.obolibrary.org/obo/IAO_0000122>)
@@ -3816,7 +3809,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000552> <https://w3id.org/pmd/co/PMD_0000957>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000552> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0009006> <https://w3id.org/pmd/co/PMD_0000551>))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000553> (chemical potential)
+# Class: <https://w3id.org/pmd/co/PMD_0000553> (chemisches Potential)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000114> <https://w3id.org/pmd/co/PMD_0000553> <http://purl.obolibrary.org/obo/IAO_0000122>)
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000117> <https://w3id.org/pmd/co/PMD_0000553> "PERSON: Joerg Waitelonis")
@@ -4087,7 +4080,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <https://w3id.org/pmd/co/PMD_0000649> "Stripping, Deep Drawing, Spinning"@en)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000649> <https://w3id.org/pmd/co/PMD_0000646>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0000650> (Druckumformen)
+# Class: <https://w3id.org/pmd/co/PMD_0000650> (forming under compressive conditions)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000119> <https://w3id.org/pmd/co/PMD_0000650> "Official definition can be found in: DIN 8583-1"@en)
 AnnotationAssertion(dcterms:source <https://w3id.org/pmd/co/PMD_0000650> "Offizielle Definition findet man in: DIN 8583-1"@de)
@@ -4342,7 +4335,7 @@ SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> <https://w3id.org/pmd/co/PMD_00
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000054> <https://w3id.org/pmd/co/PMD_0000522>))
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000848> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000052> <https://w3id.org/pmd/co/PMD_0000000>))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000849> (Mechanische Eigenschaften Analyseverfahren)
+# Class: <https://w3id.org/pmd/co/PMD_0000849> (mechanical property analyzing process)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000114> <https://w3id.org/pmd/co/PMD_0000849> <http://purl.obolibrary.org/obo/IAO_0000122>)
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000117> <https://w3id.org/pmd/co/PMD_0000849> "PERSON: Joerg Waitelonis")
@@ -4592,7 +4585,7 @@ SubClassOf(<https://w3id.org/pmd/co/PMD_0000952> <https://w3id.org/pmd/co/PMD_00
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000952> <https://w3id.org/pmd/co/PMD_0023004>)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0000952> ObjectIntersectionOf(ObjectUnionOf(ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000054> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000015> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000117> <https://w3id.org/pmd/co/PMD_0020258>))) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000052> <https://w3id.org/pmd/co/PMD_0000068>)) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000052> <https://w3id.org/pmd/co/PMD_0000001>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002328> <https://w3id.org/pmd/co/PMD_0020200>) ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002328> <https://w3id.org/pmd/co/PMD_0080019>)))
 
-# Class: <https://w3id.org/pmd/co/PMD_0000957> (structural property analyzing process)
+# Class: <https://w3id.org/pmd/co/PMD_0000957> (Struktur Eigenschaften Analyseverfahren)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000114> <https://w3id.org/pmd/co/PMD_0000957> <http://purl.obolibrary.org/obo/IAO_0000122>)
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000117> <https://w3id.org/pmd/co/PMD_0000957> "PERSON: Joerg Waitelonis")
@@ -4874,15 +4867,9 @@ AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/
 SubClassOf(<https://w3id.org/pmd/co/PMD_0020004> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/IAO_0000027> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000136> <https://w3id.org/pmd/co/PMD_0025001>)))
 SubClassOf(<https://w3id.org/pmd/co/PMD_0020004> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0002351> <https://w3id.org/pmd/co/PMD_0025997>))
 
-# Class: <https://w3id.org/pmd/co/PMD_0020023> (OBSOLETE metallic grain structures)
+# Class: <https://w3id.org/pmd/co/PMD_0020023> (metallic grain structures)
 
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000114> <https://w3id.org/pmd/co/PMD_0020023> <http://purl.obolibrary.org/obo/IAO_0000122>)
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000117> <https://w3id.org/pmd/co/PMD_0020023> "PERSON: Philipp von Hartrott")
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020023> "OBSOLETE metallic grain structures"@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020023> "metallic grain structures"@en)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020023> "metallische Kornstrukturen"@de)
-AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/co/PMD_0020023> "true"^^xsd:boolean)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020023> "Bei der metallischen Kornstruktur handelt es sich um eine kategoriale Wertspezifikation, die den Wert der Qualität der metallischen Kornstruktur angibt. Es beschreibt die Morphologie polykristalliner metallischer Werkstoffe. Polykristalline metallische Materialien bilden ihre Kornstrukturen typischerweise als eine dieser Kategorien oder als Übergangs- oder Mischungszustand davon aus."@de)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020023> "The metallic grain structures is a categorical value specification that specifies value of the  metallic grain structure quality. It describes the morphology of polycrystalline metallic materials. Polycrystalline metallic materials will typically form their grain structures as one of those categories or a transition or mixture state of those."@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020023> "true"^^xsd:boolean)
 EquivalentClasses(<https://w3id.org/pmd/co/PMD_0020023> ObjectOneOf(<https://w3id.org/pmd/co/PMD_0020027> <https://w3id.org/pmd/co/PMD_0020097> <https://w3id.org/pmd/co/PMD_0020100> <https://w3id.org/pmd/co/PMD_0020107> <https://w3id.org/pmd/co/PMD_0020109> <https://w3id.org/pmd/co/PMD_0020110> <https://w3id.org/pmd/co/PMD_0020111>))
@@ -5446,18 +5433,12 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020096> "steel"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020096> "ferrous metal that consists of iron and carbon and possibly other alloying elements (and possibly impurities)"@en)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0020096> <https://w3id.org/pmd/co/PMD_0000639>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0020099> (OBSOLETE bravais lattice (3D))
+# Class: <https://w3id.org/pmd/co/PMD_0020099> (bravais lattice (3D))
 
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000114> <https://w3id.org/pmd/co/PMD_0020099> <http://purl.obolibrary.org/obo/IAO_0000122>)
-AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000117> <https://w3id.org/pmd/co/PMD_0020099> "PERSON: Philipp von Hartrott")
 AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/co/PMD_0020099> "TODO: possibly extend for 2D (Graphene etc)
 
 More elaborate crystal descriptions may be found in http://emmo.info/domain-crystallography/crystallography or https://purls.helmholtz-metadaten.de/disos/cso"@en)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020099> "Bravais-Gitter (3D)"@de)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020099> "OBSOLETE bravais lattice (3D)"@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020099> "bravais lattice (3D)"@en)
-AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/co/PMD_0020099> "true"^^xsd:boolean)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020099> "Das Bravais-Gitter ist eine kategoriale Wertspezifikation, die den Wert der Kristallstrukturqualität angibt. Es beschreibt die mögliche geometrische Anordnung von Gitterpunkten in einem Kristall. Der vorliegende Deskriptor beschränkt sich auf die 14 möglichen dreidimensionalen Anordnungen."@de)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020099> "The bravais lattice is a categorical value specification that specifies value of the crystal structure quality. It describes the possible geometric arrangement of lattice points in a crystal. The present descriptor is limited to the 14 possible three-dimensional arrangements."@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020099> "true"^^xsd:boolean)
 EquivalentClasses(<https://w3id.org/pmd/co/PMD_0020099> ObjectOneOf(<https://w3id.org/pmd/co/PMD_0020006> <https://w3id.org/pmd/co/PMD_0020007> <https://w3id.org/pmd/co/PMD_0020008> <https://w3id.org/pmd/co/PMD_0020009> <https://w3id.org/pmd/co/PMD_0020010> <https://w3id.org/pmd/co/PMD_0020011> <https://w3id.org/pmd/co/PMD_0020012> <https://w3id.org/pmd/co/PMD_0020013> <https://w3id.org/pmd/co/PMD_0020014> <https://w3id.org/pmd/co/PMD_0020015> <https://w3id.org/pmd/co/PMD_0020016> <https://w3id.org/pmd/co/PMD_0020017> <https://w3id.org/pmd/co/PMD_0020018> <https://w3id.org/pmd/co/PMD_0020019>))
@@ -5545,15 +5526,9 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 EquivalentClasses(<https://w3id.org/pmd/co/PMD_0020113> ObjectIntersectionOf(<http://purl.obolibrary.org/obo/BFO_0000030> ObjectUnionOf(<https://w3id.org/pmd/co/PMD_0020289> <https://w3id.org/pmd/co/PMD_0020290>)))
 SubClassOf(<https://w3id.org/pmd/co/PMD_0020113> <http://purl.obolibrary.org/obo/BFO_0000030>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0020116> (DEPRECATED aggregierter Zustandswert)
+# Class: <https://w3id.org/pmd/co/PMD_0020116> (aggregate state value)
 
-AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/co/PMD_0020116> "Make entity member of subclass of 'portion of matter in aggregate state'")
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020116> "DEPRECATED aggregate state value"@en)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020116> "DEPRECATED aggregierter Zustandswert"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020116> "aggregate state value"@en)
-AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/co/PMD_0020116> "true"^^xsd:boolean)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020116> "DEPRECATED Der Aggregatzustandswert ist eine kategoriale Wertspezifikation, die den Wert der Aggregatzustandsqualität angibt."@de)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020116> "DEPRECATED The aggregate state value is a categorical value specification that specifies value of the aggregate state quality."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020116> "The aggregate state value is a categorical value specification that specifies value of the aggregate state quality."@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020116> "true"^^xsd:boolean)
 EquivalentClasses(<https://w3id.org/pmd/co/PMD_0020116> ObjectOneOf(<https://w3id.org/pmd/co/PMD_0020117> <https://w3id.org/pmd/co/PMD_0020118> <https://w3id.org/pmd/co/PMD_0020119> <https://w3id.org/pmd/co/PMD_0020120> <https://w3id.org/pmd/co/PMD_0020121> <https://w3id.org/pmd/co/PMD_0020122> <https://w3id.org/pmd/co/PMD_0020123> <https://w3id.org/pmd/co/PMD_0020124> <https://w3id.org/pmd/co/PMD_0020125>))
@@ -6417,7 +6392,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0025017> "Outer diameter is a length of a straight line from one outer surface of an object or space to the other side of its outer surface through the center of an object or space when it has the inside and outside surface."@en)
 SubClassOf(<https://w3id.org/pmd/co/PMD_0025017> <https://w3id.org/pmd/co/PMD_0050051>)
 
-# Class: <https://w3id.org/pmd/co/PMD_0025018> (geometrische relationale Qualität)
+# Class: <https://w3id.org/pmd/co/PMD_0025018> (geometric relational quality)
 
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000114> <https://w3id.org/pmd/co/PMD_0025018> <http://purl.obolibrary.org/obo/IAO_0000122>)
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000117> <https://w3id.org/pmd/co/PMD_0025018> "PERSON: Kamilla Zaripova")
@@ -7014,6 +6989,7 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000048> ObjectSomeValuesFrom(<http:/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000075> "Euler angles"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/cryo/CRYO_0000075> "In crystallography Euler angles are three angles which describe orientation of a sinlge crystal in respect to the sample's coordinate system. By aligning coordinate system of every crystal in the sample to the sample's coordinate system, anisotropy of material's properties can be investigated."@en)
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000075> <http://purl.obolibrary.org/obo/IAO_0000027>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000075> <http://purl.obolibrary.org/obo/OBI_0001933>)
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000075> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0001927> <https://w3id.org/pmd/cryo/CRYO_0000042>))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000079> (Bunge Euler angles)
@@ -7154,6 +7130,7 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000140> ObjectSomeValuesFrom(<http:/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000379> "cubic crystal lattice"@en)
 EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000379> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000035>)))))
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000379> <https://w3id.org/pmd/cryo/CRYO_0000001>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000379> <https://w3id.org/pmd/cryo/CRYO_0000041>)
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000379> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000035>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000380> (triclinic crystal lattice)
@@ -7161,6 +7138,7 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000379> ObjectSomeValuesFrom(<http:/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000380> "triclinic crystal lattice"@en)
 EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000380> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000029>)))))
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000380> <https://w3id.org/pmd/cryo/CRYO_0000001>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000380> <https://w3id.org/pmd/cryo/CRYO_0000119>)
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000380> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000029>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000381> (monoclinic crystal lattice)
@@ -7168,6 +7146,7 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000380> ObjectSomeValuesFrom(<http:/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000381> "monoclinic crystal lattice"@en)
 EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000381> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000030>)))))
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000381> <https://w3id.org/pmd/cryo/CRYO_0000001>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000381> <https://w3id.org/pmd/cryo/CRYO_0000120>)
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000381> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000030>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000382> (orthomombic crystal lattice)
@@ -7175,6 +7154,7 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000381> ObjectSomeValuesFrom(<http:/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000382> "orthomombic crystal lattice"@en)
 EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000382> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000031>)))))
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000382> <https://w3id.org/pmd/cryo/CRYO_0000001>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000382> <https://w3id.org/pmd/cryo/CRYO_0000121>)
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000382> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000031>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000383> (tetragonal crystal lattice)
@@ -7182,6 +7162,7 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000382> ObjectSomeValuesFrom(<http:/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000383> "tetragonal crystal lattice"@en)
 EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000383> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000032>)))))
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000383> <https://w3id.org/pmd/cryo/CRYO_0000001>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000383> <https://w3id.org/pmd/cryo/CRYO_0000122>)
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000383> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000032>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000384> (rhombohedral crystal lattice)
@@ -7189,6 +7170,7 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000383> ObjectSomeValuesFrom(<http:/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000384> "rhombohedral crystal lattice"@en)
 EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000384> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000033>)))))
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000384> <https://w3id.org/pmd/cryo/CRYO_0000001>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000384> <https://w3id.org/pmd/cryo/CRYO_0000123>)
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000384> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000033>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000385> (hexagonal crystal lattice)
@@ -7196,6 +7178,7 @@ SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000384> ObjectSomeValuesFrom(<http:/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/cryo/CRYO_0000385> "hexagonal crystal lattice"@en)
 EquivalentClasses(<https://w3id.org/pmd/cryo/CRYO_0000385> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000001> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000034>)))))
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000385> <https://w3id.org/pmd/cryo/CRYO_0000001>)
+SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000385> <https://w3id.org/pmd/cryo/CRYO_0000129>)
 SubClassOf(<https://w3id.org/pmd/cryo/CRYO_0000385> ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/RO_0000086> ObjectIntersectionOf(<https://w3id.org/pmd/cryo/CRYO_0000390> ObjectHasValue(<https://w3id.org/pmd/co/PMD_0000077> <https://w3id.org/pmd/cryo/CRYO_0000034>))))
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000390> (lattice system)
@@ -7398,7 +7381,7 @@ AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000024> "strip-c
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/noes/NOES_0000024> "Strip-casting is a primary shaping from fluid state process for metals and alloys. During Strip-casting the melt flows between two rolls resulting in the strip."@en)
 SubClassOf(<https://w3id.org/pmd/noes/NOES_0000024> <https://w3id.org/pmd/co/PMD_0000906>)
 
-# Class: <https://w3id.org/pmd/noes/NOES_0000025> (forging)
+# Class: <https://w3id.org/pmd/noes/NOES_0000025> (Schmieden)
 
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000025> "Schmieden"@de)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/noes/NOES_0000025> "forging"@en)
@@ -8535,7 +8518,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/tto/TTO_0000015> "The length of a straight line through the center of an object (tensile test piece) as measured after a fracture occured during a test."@en)
 SubClassOf(<https://w3id.org/pmd/tto/TTO_0000015> <https://w3id.org/pmd/co/PMD_0050051>)
 
-# Class: <https://w3id.org/pmd/tto/TTO_0000017> (Extensometer-Messlänge)
+# Class: <https://w3id.org/pmd/tto/TTO_0000017> (extensometer gauge length)
 
 AnnotationAssertion(rdfs:isDefinedBy <https://w3id.org/pmd/tto/TTO_0000017> <https://w3id.org/pmd/tto>)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/tto/TTO_0000017> "Extensometer-Messlänge"@de)
@@ -8721,7 +8704,7 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<https://w3id.org/pmd/co/definitionSource> <https://w3id.org/pmd/tto/TTO_0000035> "DIN EN ISO 6892-1:2019"@en)
 SubClassOf(<https://w3id.org/pmd/tto/TTO_0000035> <https://w3id.org/pmd/tto/TTO_0000004>)
 
-# Class: <https://w3id.org/pmd/tto/TTO_0000036> (Bleibende Extensometer-Dehnung)
+# Class: <https://w3id.org/pmd/tto/TTO_0000036> (percentage permanent extension)
 
 AnnotationAssertion(rdfs:isDefinedBy <https://w3id.org/pmd/tto/TTO_0000036> <https://w3id.org/pmd/tto>)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/tto/TTO_0000036> "Bleibende Extensometer-Dehnung"@de)
@@ -9178,24 +9161,14 @@ AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020017> "bravais lattice cubic primitive"@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020017> "true"^^xsd:boolean)
 
-# Individual: <https://w3id.org/pmd/co/PMD_0020018> (OBSOLETE bravais lattice cubic body-centered)
+# Individual: <https://w3id.org/pmd/co/PMD_0020018> (bravais lattice cubic body-centered)
 
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020018> "Bravais-Gitter kubisch raumzentriert"@de)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020018> "OBSOLETE bravais lattice cubic body-centered"@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020018> "bravais lattice cubic body-centered"@en)
-AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/co/PMD_0020018> "true"^^xsd:boolean)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020018> "Kubisches Bravais-Gitter mit körperzentrierter Zentrierung (cI), mit vier dreizähligen Rotationsachsen und einem zusätzlichen Gitterpunkt in der Mitte der Elementarzelle"@de)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020018> "cubic Bravais lattice with body-centered centering (cI), having four 3-fold rotation axes and an additional lattice point at the center of the unit cell"@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020018> "true"^^xsd:boolean)
 
-# Individual: <https://w3id.org/pmd/co/PMD_0020019> (Bravais-Gitter kubisch flächenzentriert)
+# Individual: <https://w3id.org/pmd/co/PMD_0020019> (bravais lattice cubic face-centered)
 
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020019> "Bravais-Gitter kubisch flächenzentriert"@de)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020019> "OBSOLETE bravais lattice cubic face-centered"@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020019> "bravais lattice cubic face-centered"@en)
-AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/co/PMD_0020019> "true"^^xsd:boolean)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020019> "Kubisches Bravais-Gitter mit flächenzentrierter Zentrierung (cF), mit vier dreizähligen Rotationsachsen und zusätzlichen Gitterpunkten in den Mittelpunkten aller Flächen"@de)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020019> "cubic Bravais lattice with face-centered centering (cF), having four 3-fold rotation axes and additional lattice points at the centers of all faces"@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020019> "true"^^xsd:boolean)
 
 # Individual: <https://w3id.org/pmd/co/PMD_0020027> (bainite)
@@ -9213,14 +9186,9 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020097> "flächenzentrierte kubische Phase aus Eisen oder einer Legierung auf Eisenbasis, die oberhalb der Eutektoidtemperatur stabil ist und in der Lage ist, erhebliche Mengen Kohlenstoff in fester Lösung aufzulösen"@de)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020097> "true"^^xsd:boolean)
 
-# Individual: <https://w3id.org/pmd/co/PMD_0020100> (OBSOLETE ferrite)
+# Individual: <https://w3id.org/pmd/co/PMD_0020100> (ferrite)
 
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020100> "Ferrit"@de)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020100> "OBSOLETE ferrite"@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020100> "ferrite"@en)
-AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/co/PMD_0020100> "true"^^xsd:boolean)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020100> "body-centered cubic phase of iron or an iron-based alloy with very low carbon solubility, stable at low temperatures and ferromagnetic below the Curie temperature"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020100> "kubisch raumzentrierte Phase aus Eisen oder einer Eisenlegierung mit sehr geringer Kohlenstofflöslichkeit, stabil bei niedrigen Temperaturen und ferromagnetisch unterhalb der Curie-Temperatur"@de)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020100> "true"^^xsd:boolean)
 
 # Individual: <https://w3id.org/pmd/co/PMD_0020107> (ledeburite)
@@ -9243,43 +9211,22 @@ AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020111> "martensite"@en)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020111> "true"^^xsd:boolean)
 
-# Individual: <https://w3id.org/pmd/co/PMD_0020117> (DEPRECATED aggregate state solid)
+# Individual: <https://w3id.org/pmd/co/PMD_0020117> (aggregate state solid)
 
-AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/co/PMD_0020117> "Make entity member of subclass of 'portion of matter in aggregate state'")
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020117> "DEPRECATED Aggregatzustand fest"@de)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020117> "DEPRECATED aggregate state solid"@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020117> "aggregate state solid"@en)
-AnnotationAssertion(rdfs:seeAlso <https://w3id.org/pmd/co/PMD_0020117> <https://w3id.org/pmd/co/PMD_0020293>)
-AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/co/PMD_0020117> "true"^^xsd:boolean)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020117> "A state where the bonds between entities transmit shear forces."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020117> "DEPRECATED A state where the bonds between entities transmit shear forces."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020117> "DEPRECATED Ein Zustand, in dem die Bindungen zwischen Einheiten Scherkräfte übertragen."@de)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020117> "true"^^xsd:boolean)
 
 # Individual: <https://w3id.org/pmd/co/PMD_0020118> (aggregate state liquid)
 
-AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/co/PMD_0020118> "Make entity member of subclass of 'portion of matter in aggregate state'")
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020118> "DEPRECATED Aggregatzustand flüssig"@de)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020118> "DEPRECATED aggregate state liquid"@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020118> "aggregate state liquid"@en)
-AnnotationAssertion(rdfs:seeAlso <https://w3id.org/pmd/co/PMD_0020118> <https://w3id.org/pmd/co/PMD_0020290>)
-AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/co/PMD_0020118> "true"^^xsd:boolean)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020118> "A state where the bonds of the entities transmit no shear force."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020118> "DEPRECATED A state where the bonds of the entities transmit no shear force."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020118> "DEPRECATED Ein Zustand, in dem die Bindungen der Einheiten keine Scherkräfte übertragen."@de)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020118> "true"^^xsd:boolean)
 
-# Individual: <https://w3id.org/pmd/co/PMD_0020119> (DEPRECATED Aggregatzustand gasförmig)
+# Individual: <https://w3id.org/pmd/co/PMD_0020119> (aggregate state gaseous)
 
-AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/co/PMD_0020119> "Make entity member of subclass of 'portion of matter in aggregate state'")
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020119> "DEPRECATED Aggregatzustand gasförmig"@de)
-AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020119> "DEPRECATED aggregate state gaseous"@en)
 AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020119> "aggregate state gaseous"@en)
-AnnotationAssertion(rdfs:seeAlso <https://w3id.org/pmd/co/PMD_0020119> <https://w3id.org/pmd/co/PMD_0020289>)
-AnnotationAssertion(owl:deprecated <https://w3id.org/pmd/co/PMD_0020119> "true"^^xsd:boolean)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020119> "A state where the entities have no bonding."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020119> "DEPRECATED A state where the entities have no bonding."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020119> "DEPRECATED Ein Zustand, in dem die Entitäten keine Bindung haben."@de)
 AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020119> "true"^^xsd:boolean)
 
 # Individual: <https://w3id.org/pmd/co/PMD_0020120> (aggregate state plasma)
@@ -9869,7 +9816,6 @@ DisjointClasses(<https://w3id.org/pmd/co/PMD_0020288> <https://w3id.org/pmd/co/P
 DisjointClasses(<https://w3id.org/pmd/co/PMD_0020307> <https://w3id.org/pmd/co/PMD_0020308> <https://w3id.org/pmd/co/PMD_0020309>)
 DisjointClasses(<https://w3id.org/pmd/co/PMD_0020364> <https://w3id.org/pmd/co/PMD_0020365> <https://w3id.org/pmd/co/PMD_0020366>)
 DisjointClasses(<https://w3id.org/pmd/noes/NOES_0000135> <https://w3id.org/pmd/noes/NOES_0000144> <https://w3id.org/pmd/noes/NOES_0000151> <https://w3id.org/pmd/noes/NOES_0000167>)
-DifferentIndividuals(<https://w3id.org/pmd/co/PMD_0020006> <https://w3id.org/pmd/co/PMD_0020007> <https://w3id.org/pmd/co/PMD_0020008> <https://w3id.org/pmd/co/PMD_0020009> <https://w3id.org/pmd/co/PMD_0020010> <https://w3id.org/pmd/co/PMD_0020011> <https://w3id.org/pmd/co/PMD_0020012> <https://w3id.org/pmd/co/PMD_0020013> <https://w3id.org/pmd/co/PMD_0020014> <https://w3id.org/pmd/co/PMD_0020015> <https://w3id.org/pmd/co/PMD_0020016> <https://w3id.org/pmd/co/PMD_0020017> <https://w3id.org/pmd/co/PMD_0020018> <https://w3id.org/pmd/co/PMD_0020019>)
 SubObjectPropertyOf(ObjectPropertyChain(<http://purl.obolibrary.org/obo/BFO_0000051> <http://purl.obolibrary.org/obo/RO_0000057>) <http://purl.obolibrary.org/obo/RO_0000057>)
 SubObjectPropertyOf(ObjectPropertyChain(<http://purl.obolibrary.org/obo/BFO_0000051> <https://w3id.org/pmd/co/PMD_0025998>) <https://w3id.org/pmd/co/PMD_0025998>)
 SubObjectPropertyOf(ObjectPropertyChain(<http://purl.obolibrary.org/obo/BFO_0000055> <http://purl.obolibrary.org/obo/RO_0000059>) <http://purl.obolibrary.org/obo/STATO_0000102>)

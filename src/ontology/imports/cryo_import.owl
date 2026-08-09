@@ -7,9 +7,9 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<https://w3id.org/pmd/noes/imports/cryo_import.owl>
-<https://w3id.org/pmd/noes/releases/2026-08-06/imports/cryo_import.owl>
-Annotation(<http://purl.org/dc/elements/1.1/source> <https://w3id.org/pmd/cryo/2026-08-06>)
-Annotation(owl:versionInfo "2026-08-06")
+<https://w3id.org/pmd/noes/releases/2026-08-09/imports/cryo_import.owl>
+Annotation(<http://purl.org/dc/elements/1.1/source> <https://w3id.org/pmd/cryo/2026-08-08>)
+Annotation(owl:versionInfo "2026-08-09")
 
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000001>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000002>))
@@ -21,8 +21,10 @@ Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000019>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000020>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000023>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000029>))
+Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000030>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000031>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000034>))
+Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000040>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000140>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000141>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000142>))
@@ -194,6 +196,7 @@ Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/source>))
 Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#altLabel>))
 Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#definition>))
 Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#example>))
+Declaration(AnnotationProperty(<https://w3id.org/pmd/co/PMD_0000060>))
 Declaration(Datatype(xsd:string))
 
 ############################
@@ -271,6 +274,7 @@ ObjectPropertyRange(<http://purl.obolibrary.org/obo/IAO_0000235> <http://purl.ob
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/OBI_0001927> <http://purl.obolibrary.org/obo/IAO_0000123>)
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/OBI_0001927> "A relation between a value specification and an entity which the specification is about."@en)
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/OBI_0001927> "specifies value of")
+SubObjectPropertyOf(<http://purl.obolibrary.org/obo/OBI_0001927> <http://purl.obolibrary.org/obo/IAO_0000136>)
 ObjectPropertyDomain(<http://purl.obolibrary.org/obo/OBI_0001927> <http://purl.obolibrary.org/obo/OBI_0001933>)
 
 # Object Property: <http://purl.obolibrary.org/obo/RO_0000052> (characteristic of)
@@ -555,6 +559,13 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://pur
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000029> "A hole in a portion of cheese; a rabbit hole; the Grand Canyon; the Piazza San Marco; the kangaroo-joey-containing hole of a kangaroo pouch; your left nostril (a fiat part - the opening - of your left nasal cavity); the lumen of your gut; the hold of a ship; the interior of the trunk of your car; hole in an engineered floor joist"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000029> <http://purl.obolibrary.org/obo/BFO_0000141>)
 
+# Class: <http://purl.obolibrary.org/obo/BFO_0000030> (object)
+
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000030> "object"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000030> "(Elucidation) An object is a material entity which manifests causal unity & is of a type instances of which are maximal relative to the sort of causal unity manifested"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000030> "An organism; a fish tank; a planet; a laptop; a valve; a block of marble; an ice cube"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000030> <http://purl.obolibrary.org/obo/BFO_0000040>)
+
 # Class: <http://purl.obolibrary.org/obo/BFO_0000031> (generically dependent continuant)
 
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000031> "generically dependent continuant"@en)
@@ -570,6 +581,16 @@ AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000034> "fun
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000034> "(Elucidation) A function is a disposition that exists in virtue of its bearer's physical make-up & this physical make-up is something the bearer possesses because it came into being either through evolution (in the case of natural biological entities) or through intentional design (in the case of artefacts) in order to realize processes of a certain sort"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000034> "The function of a hammer to drive in nails; the function of a heart pacemaker to regulate the beating of a heart through electricity"@en)
 SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000034> <http://purl.obolibrary.org/obo/BFO_0000016>)
+
+# Class: <http://purl.obolibrary.org/obo/BFO_0000040> (material entity)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000115> <http://purl.obolibrary.org/obo/BFO_0000040> "An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time."@en)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.obolibrary.org/obo/BFO_0000040> "Elucidation: An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time."@en)
+AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/BFO_0000040> "material entity"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <http://purl.obolibrary.org/obo/BFO_0000040> "(Elucidation) A material entity is an independent continuant has some portion of matter as continuant part"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> <http://purl.obolibrary.org/obo/BFO_0000040> "A human being; the undetached arm of a human being; an aggregate of human beings"@en)
+SubClassOf(<http://purl.obolibrary.org/obo/BFO_0000040> <http://purl.obolibrary.org/obo/BFO_0000004>)
+DisjointClasses(<http://purl.obolibrary.org/obo/BFO_0000040> <http://purl.obolibrary.org/obo/BFO_0000141>)
 
 # Class: <http://purl.obolibrary.org/obo/BFO_0000140> (continuant fiat boundary)
 
@@ -657,6 +678,25 @@ AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000116> <http://purl.ob
 AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000117> <http://purl.obolibrary.org/obo/OBI_0001933> "PERSON:Bjoern Peters")
 AnnotationAssertion(rdfs:label <http://purl.obolibrary.org/obo/OBI_0001933> "value specification")
 SubClassOf(<http://purl.obolibrary.org/obo/OBI_0001933> <http://purl.obolibrary.org/obo/IAO_0000030>)
+
+# Class: <https://w3id.org/pmd/co/PMD_0000663> (kristallit)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000663> "crystallite"@en)
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000663> "kristallit"@de)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#altLabel> <https://w3id.org/pmd/co/PMD_0000663> "Korn"@de)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#altLabel> <https://w3id.org/pmd/co/PMD_0000663> "grain"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0000663> "A crystal grain is a crystal that is part of a polycrystal."@en)
+AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0000663> "true"^^xsd:boolean)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0000663> <https://w3id.org/pmd/co/PMD_0020003>)
+
+# Class: <https://w3id.org/pmd/co/PMD_0020003> (crystal)
+
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000114> <https://w3id.org/pmd/co/PMD_0020003> <http://purl.obolibrary.org/obo/IAO_0000122>)
+AnnotationAssertion(<http://purl.obolibrary.org/obo/IAO_0000117> <https://w3id.org/pmd/co/PMD_0020003> "PERSON: Philipp von Hartrott")
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020003> "crystal"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/co/PMD_0020003> "A crystal is an object that has a quality \"crystal structure\"."@en)
+AnnotationAssertion(<https://w3id.org/pmd/co/PMD_0000060> <https://w3id.org/pmd/co/PMD_0020003> "true"^^xsd:boolean)
+SubClassOf(<https://w3id.org/pmd/co/PMD_0020003> <http://purl.obolibrary.org/obo/BFO_0000030>)
 
 # Class: <https://w3id.org/pmd/cryo/CRYO_0000000> (unit cell)
 
