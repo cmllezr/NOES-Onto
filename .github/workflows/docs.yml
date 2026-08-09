@@ -215,6 +215,18 @@ jobs:
 
           cp "./_site/${VERSION}/doc/index-en.html" "./_site/${VERSION}/doc/index.html" || true
 
+      - name: Copy docs to w3id-expected locations
+        if: needs.check.outputs.version != 'latest'
+        run: |
+          VERSION="${{ needs.check.outputs.version }}"
+          # versioned IRIs: /pmd/noes/X.Y.Z → /X.Y.Z/index-en.html
+          cp -r ./_site/${VERSION}/doc/. ./_site/${VERSION}/
+          # unversioned IRIs: /pmd/noes → root
+          cp -r ./_site/${VERSION}/doc/. ./_site/
+          # fallbacks referenced by the .htaccess
+          cp ./_site/ontology.owl ./_site/base_ontology.rdf
+          echo '<html><body><h1>406 Not Acceptable</h1></body></html>' > ./_site/406.html
+
       # ── Update /dev/ ──────────────────────────────────────────────────────
       # Always mirrors the latest build. On a qc build (no version payload)
       # this is the only thing published — no versioned directory, no index
