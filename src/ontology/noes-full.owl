@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://w3id.org/pmd/noes/noes-full.owl#"
-     xml:base="https://w3id.org/pmd/noes/noes-full.owl"
+<rdf:RDF xmlns="https://w3id.org/pmd/noes/"
+     xml:base="https://w3id.org/pmd/noes/"
      xmlns:co="https://w3id.org/pmd/co/"
      xmlns:dce="http://purl.org/dc/elements/1.1/"
      xmlns:obo="http://purl.obolibrary.org/obo/"
@@ -8,6 +8,7 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
      xmlns:cryo="https://w3id.org/pmd/cryo/"
      xmlns:doap="http://usefulinc.com/ns/doap#"
      xmlns:noes="https://w3id.org/pmd/noes/"
@@ -15,17 +16,27 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
-    <owl:Ontology rdf:about="https://w3id.org/pmd/noes/noes-full.owl">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/1.1.1"/>
+    <owl:Ontology rdf:about="https://w3id.org/pmd/noes/">
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/2026-08-09"/>
+        <dcterms:bibliographicCitation>NOES-Onto: Nonoriented Electrical Steel Ontology. Version 2026-08-09, https://w3id.org/pmd/noes/</dcterms:bibliographicCitation>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-06-01                                  </dcterms:created>
         <dcterms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
         <dcterms:description>NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets.</dcterms:description>
+        <dcterms:identifier>https://doi.org/10.5281/zenodo.XXXXXXX      </dcterms:identifier>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-09</dcterms:issued>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-09</dcterms:modified>
+        <dcterms:publisher rdf:resource="https://ror.org/04hm8eb66"/>
+        <dcterms:source rdf:resource="https://w3id.org/pmd/co/"/>
         <dcterms:title>NOES-Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
+        <bibo:status>stable</bibo:status>
+        <vann:preferredNamespacePrefix>noes</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>https://w3id.org/pmd/noes/</vann:preferredNamespaceUri>
         <owl:versionInfo>2026-08-09</owl:versionInfo>
-        <owl:versionInfo>1.1.1</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -197,11 +208,35 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
+    <!-- http://purl.org/dc/terms/identifier -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/identifier"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
     <!-- http://purl.org/dc/terms/license -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license">
         <rdfs:label>license</rdfs:label>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/publisher"/>
     
 
 
@@ -216,6 +251,24 @@ We also have the outstanding issue of how to aim different definitions to differ
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title">
         <rdfs:label>title</rdfs:label>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/status -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/ontology/bibo/status"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
     
 
 
@@ -401,6 +454,12 @@ We also have the outstanding issue of how to aim different definitions to differ
     <!-- http://www.w3.org/2000/01/rdf-schema#Literal -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
     
 
 
@@ -3957,7 +4016,7 @@ for now.</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
         <obo:IAO_0000115>A unit which is one of a particular measure to which all measures of that type can be related.</obo:IAO_0000115>
         <rdfs:label>base unit</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000045"/>
@@ -4071,7 +4130,7 @@ for now.</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
         <obo:IAO_0000115>A dimensionless unit which denotes an amount or magnitude of one quantity relative to another.</obo:IAO_0000115>
         <rdfs:label>ratio unit</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000190"/>
@@ -4111,7 +4170,7 @@ for now.</obo:IAO_0000116>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_1000008">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
         <rdfs:label>meter based unit</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -4130,7 +4189,7 @@ for now.</obo:IAO_0000116>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_1000012">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
         <rdfs:label>kelvin based unit</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -4140,7 +4199,7 @@ for now.</obo:IAO_0000116>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_1000027">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
         <rdfs:label>degree Celsius based unit</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -4150,7 +4209,7 @@ for now.</obo:IAO_0000116>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_1000031">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
         <rdfs:label>minute based unit</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -4187,7 +4246,7 @@ for now.</obo:IAO_0000116>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_1000106">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
         <rdfs:label>hertz based unit</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -4207,7 +4266,7 @@ for now.</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000051"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000187"/>
         <rdfs:label>mass percentage based unit</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -4218,7 +4277,7 @@ for now.</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000051"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000187"/>
         <rdfs:label>mass volume percentage based unit</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -4247,7 +4306,7 @@ for now.</obo:IAO_0000116>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_1000228">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
         <rdfs:label>tesla based unit</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -14829,7 +14888,7 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">tensile strength in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Tensile strength in to the rolling direction is a tensile strength which is measured on a sample cut parallel to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -15571,7 +15630,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:label xml:lang="en">magnetic power loss at 1.5 T / 50 Hz</rdfs:label>
         <skos:definition xml:lang="en">Magnetic power loss at 1.5 T / 50 Hz is a total magnetic power loss that has been determined at 1.5 T of maximum magnetic induction B and 50 Hz of frequency of alternating magnetic field</skos:definition>
         <co:symbol xml:lang="en">P1.5/50</co:symbol>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -15739,7 +15798,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:label xml:lang="en">magnetic power loss at 1.0 T / 400 Hz</rdfs:label>
         <skos:definition xml:lang="en">Magnetic power loss at 1.0 T / 400 Hz is a total magnetic power loss that has been determined at 1.0 T of maximum magnetic induction B and 400 Hz of frequency of alternating magnetic field</skos:definition>
         <co:symbol xml:lang="en">P1.0/400</co:symbol>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -16082,7 +16141,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">tensile strength in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Tensile strength in to the transversal direction is a tensile strength which is measured on a sample cut parallel to the transversal direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -16231,7 +16290,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">tensile strength at the 45° to the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Tensile strength at the 45° to the rolling direction is a tensile strength which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -16360,7 +16419,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">total magnetic power loss in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Total magnetic power loss in the rolling direction is a total magnetic power loss measured with applying magnetic field parallel to the rolling direction of the rolled sheet.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -16489,7 +16548,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">total magnetic power loss in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Total magnetic power loss in the transversal direction is a total magnetic power loss measured with applying magnetic field parallel to the transverse direction of the rolled sheet.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -16619,7 +16678,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength at the 45° to the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Yield strength at the 45° to the rolling direction is a yield strength which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -16749,7 +16808,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Yield strength in to the rolling direction is a yield strength which is measured on a sample cut parallel to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -16879,7 +16938,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Yield strength in to the transversal direction is a yield strength which is measured on a sample cut parallel to the transversal direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -17007,7 +17066,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">peak magnetic polarization in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Peak magnetic polarization in the rolling direction is a peak magnetic polarization measured exclusively in the rolling direction of an electrical sheet, i.e., magnetic field is applied parallel to the rolling direction of the rolled sheet.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -17135,7 +17194,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">peak magnetic polarization in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Peak magnetic polarization in the transversal direction is a peak magnetic polarization measured exclusively in the transversal direction of an electrical sheet,  i.e., magnetic field is applied parallel to the transverse direction of the rolled sheet.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -17361,7 +17420,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength ratio at 45° to the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Yield strength ratio at the 45° to the rolling direction is a Yield strength ratio which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -17701,7 +17760,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength ratio in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Yield strength ratio in to the rolling direction is a Yield strength ratio which is measured on a sample cut parallel to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -17830,7 +17889,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">yield strength ratio in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Yield strength ratio in to the transversal direction is a Yield strength ratio which is measured on a sample cut parallel to the transversal direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -17959,7 +18018,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment>An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage elongation after fracture at 45° to the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Percentage elongation after fracture at 45° to the rolling direction is percentage elongation after fracture which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -18088,7 +18147,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage elongation after fracture in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Percentage elongation after fracture in the rolling direction is percentage elongation after fracture which is measured on a sample cut parallel to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -18217,7 +18276,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage elongation after fracture in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Percentage elongation after fracture in the transversal direction is percentage elongation after fracture which is measured on a sample cut parallel to the transversal direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -18346,7 +18405,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment>An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at maximum force at 45° to the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Percentage plastic extension at maximum force at 45° to the rolling direction is percentage elongation at maximum force which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -18475,7 +18534,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at maximum force in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Percentage plastic extension at maximum force in the rolling direction is percentage elongation at maximum force which is measured on a sample cut parallel to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -18604,7 +18663,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at maximum force in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Percentage plastic extension at maximum force in the transversal direction is percentage elongation at maximum force which is measured on a sample cut parallel the transversal direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -18733,7 +18792,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">saturation induction in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Saturation induction in the rolling direction is a saturation induction measured exclusively in the rolling direction of an electrical sheet.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -18862,7 +18921,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment xml:lang="en">An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">saturation induction in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Saturation induction in the transversal direction is a saturation induction measured exclusively in the transversal direction of an electrical sheet.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -19244,7 +19303,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">maximum permeability in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Maximum permeability in the rolling direction is the steepest part of the B-H curve, where the material most readily accepts field. it indicates the easiest magnetization point of the material, while magnetic field is applied parallel to the rolling direction of the rolled sheet.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -19372,7 +19431,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">maximum permeability in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Maximum permeability in the transverse direction is the steepest part of the B-H curve, where the material most readily accepts field. it indicates the easiest magnetization point of the material, while magnetic field is applied parallel to the tranverse direction of the rolled sheet.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -19500,7 +19559,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">relative permeability in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Relative permeability in the rolling direction  is type of magnetic permeability which is defined as a ratio of the material&apos;s permeability µ to that of free space µ0, while magnetic field is applied parallel to the rolling direction of the rolled sheet.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -19628,7 +19687,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">relative permeability in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Relative permeability in the transversal direction  is type of magnetic permeability which is defined as a ratio of the material&apos;s permeability µ to that of free space µ0, while magnetic field is applied parallel to the transverse direction of the rolled sheet.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -19638,7 +19697,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000112">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000064"/>
         <rdfs:label xml:lang="en">reversible permeability in the rolling direction</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -19648,7 +19707,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000113">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000064"/>
         <rdfs:label xml:lang="en">reversible permeability in the transversal direction</rdfs:label>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -19895,7 +19954,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment>An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at fracture at 45° to the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Percentage plastic extension at fracture at 45° to the rolling direction is percentage elongation atfracture which is measured on a sample cut to the 45° to the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -20024,7 +20083,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment>An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at fracture in the rolling direction</rdfs:label>
         <skos:definition xml:lang="en">Percentage plastic extension at fracture in the rolling direction is percentage elongation atfracture which is measured on a sample cut parallel the rolling direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -20164,7 +20223,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:comment>An instance belonging to the class should be rather inferred as asserted.</rdfs:comment>
         <rdfs:label xml:lang="en">percentage plastic extension at fracture in the transversal direction</rdfs:label>
         <skos:definition xml:lang="en">Percentage plastic extension at fracture in the transversal direction is percentage elongation at fracture which is measured on a sample cut parallel the transversal direction.</skos:definition>
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </owl:Class>
     
 
@@ -23900,7 +23959,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
      -->
 
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0000000">
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0000010">
         <obo:IAO_0000115>A time unit which is equal to the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom.</obo:IAO_0000115>
@@ -24101,13 +24160,13 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <oboInOwl:hasDbXref>WordNet:WordNet</oboInOwl:hasDbXref>
     </owl:Axiom>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_1000076">
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </rdf:Description>
     <rdf:Description rdf:about="https://orcid.org/0009-0003-1503-4422">
         <rdfs:label>Kamilla Zaripova</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020098">
-        <noes:NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</noes:NOES_0000122>
+        <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
     </rdf:Description>
     
 
