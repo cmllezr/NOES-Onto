@@ -95,23 +95,37 @@ jobs:
       - name: Stamp version into artifacts
         run: |
           VERSION="${{ steps.version.outputs.version }}"
+
           ODK_YAML=$(find src/ontology -maxdepth 1 -name "*-odk.yaml" | head -1)
-          ONT_ID=$(python3 -c "import yaml; d=yaml.safe_load(open('$ODK_YAML')); print(d['id'])")
-          URIBASE=$(python3 -c "import yaml; d=yaml.safe_load(open('$ODK_YAML')); print(d['uribase'])")
-          ONTBASE="${URIBASE}/${ONT_ID}"
+          ONT_ID=$(python3  -c "import yaml; print(yaml.safe_load(open('$ODK_YAML'))['id'])")
+          URIBASE=$(python3 -c "import yaml; print(yaml.safe_load(open('$ODK_YAML'))['uribase'])")
+          TITLE=$(python3   -c "import yaml; print(yaml.safe_load(open('$ODK_YAML'))['title'])")
+
+          ONTBASE="${URIBASE}/${ONT_ID}"        # e.g. https://w3id.org/pmd/noes
+          ONT_IRI="${ONTBASE}/"                 # ontology IRI (with trailing slash)
+          VERSION_IRI="${ONTBASE}/${VERSION}"
+
+          CITATION="${TITLE}. Version ${VERSION}, ${ONT_IRI}"
+
+          # Previous release = newest existing v<semver> tag. Runs before the
+          # new tag is created, so head -1 is the prior release.
+          # Requires fetch-depth: 0 on checkout (already set in this workflow).
+          PRIOR=$(git tag --list 'v*' --sort=-v:refname | head -1 | sed 's/^v//')
+          echo "ONTBASE=${ONTBASE}  VERSION=${VERSION}  PRIOR=${PRIOR:-<none>}"
+
           for f in $(find src/ontology -maxdepth 1 -name "*.owl" \
                      ! -name "*-edit.owl" ! -name "*-idranges.owl"); do
-            robot annotate \
-              --input "$f" \
-              --version-iri "${ONTBASE}/${VERSION}" \
-              --annotation owl:versionInfo "${VERSION}" \
-              --output "$f"
-            TTL="${f%.owl}.ttl"
-            [ -f "$TTL" ] && robot annotate \
-              --input "$TTL" \
-              --version-iri "${ONTBASE}/${VERSION}" \
-              --annotation owl:versionInfo "${VERSION}" \
-              --output "$TTL"
+            for TARGET in "$f" "${f%.owl}.ttl"; do
+              [ -f "$TARGET" ] || continue
+              robot annotate \
+                --input "$TARGET" \
+                --version-iri "${VERSION_IRI}" \
+                --annotation owl:versionInfo "${VERSION}" \
+                --annotation http://purl.org/dc/terms/bibliographicCitation "${CITATION}" \
+                ${PRIOR:+--link-annotation owl:priorVersion "${ONTBASE}/${PRIOR}"} \
+                --output "$TARGET"
+              cp "$TARGET" "$(basename "$TARGET")"
+            done
           done
 
       # ── Commit stamped artifacts ──────────────────────────────────────────

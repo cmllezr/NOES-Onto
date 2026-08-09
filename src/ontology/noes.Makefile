@@ -112,42 +112,21 @@ DOI       = https://doi.org/10.5281/zenodo.XXXXXXX      # TODO: mint via Zenodo-
 PUBLISHER = https://ror.org/04hm8eb66                     # TODO: your institution (a ROR IRI works well)
 
 # Previous published version: read from the last released file BEFORE overwriting it
-PRIOR_VERSION := $(shell sed -n 's:.*<owl:versionInfo>\(.*\)</owl:versionInfo>.*:\1:p' ../../noes.owl 2>/dev/null | head -n 1)
-ifneq ($(strip $(PRIOR_VERSION)),)
-PRIOR_ANNOTATION = --link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION)
-endif
+#PRIOR_VERSION := $(shell sed -n 's:.*<owl:versionInfo>\(.*\)</owl:versionInfo>.*:\1:p' ../../noes.owl 2>/dev/null | head -n 1)
+#ifneq ($(strip $(PRIOR_VERSION)),)
+#PRIOR_ANNOTATION = --link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION)
+#endif
 
-#ALL_ANNOTATIONS=--ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pmd/noes/$(VERSION) \
-#	--annotation http://purl.org/dc/terms/created "$(TODAY)" \
-#	--annotation owl:versionInfo "$(VERSION)" \
-#	--annotation http://purl.org/dc/terms/bibliographicCitation "$(CITATION)" \
-#	--link-annotation owl:priorVersion https://w3id.org/pmd/noes/$(PRIOR_VERSION)
-
-#update-ontology-annotations: 
-#	$(ROBOT) annotate --input noes.owl $(ALL_ANNOTATIONS) --output ../../noes.owl
-#	$(ROBOT) annotate --input noes.ttl $(ALL_ANNOTATIONS) --output ../../noes.ttl
-#	$(ROBOT) annotate --input noes-full.owl $(ALL_ANNOTATIONS) --output ../../noes-full.owl
-#	$(ROBOT) annotate --input noes-full.ttl $(ALL_ANNOTATIONS) --output ../../noes-full.ttl
-#	$(ROBOT) annotate --input noes-base.owl $(ALL_ANNOTATIONS) --output ../../noes-base.owl
-#	$(ROBOT) annotate --input noes-base.ttl $(ALL_ANNOTATIONS) --output ../../noes-base.ttl
-#	$(ROBOT) annotate --input noes-simple.owl $(ALL_ANNOTATIONS) --output ../../noes-simple.owl
-#	$(ROBOT) annotate --input noes-simple.ttl $(ALL_ANNOTATIONS) --output ../../noes-simple.ttl
-
-#all_assets: update-ontology-annotations
-
-ALL_ANNOTATIONS = --ontology-iri https://w3id.org/pmd/noes/ -V https://w3id.org/pmd/noes/$(VERSION) \
-	--annotation owl:versionInfo "$(VERSION)" \
+ALL_ANNOTATIONS = --ontology-iri https://w3id.org/pmd/noes/ \
 	--typed-annotation http://purl.org/dc/terms/created "$(CREATED)" xsd:date \
 	--typed-annotation http://purl.org/dc/terms/issued "$(TODAY)" xsd:date \
 	--typed-annotation http://purl.org/dc/terms/modified "$(TODAY)" xsd:date \
-	--annotation http://purl.org/dc/terms/bibliographicCitation "$(CITATION)" \
 	--annotation http://purl.org/vocab/vann/preferredNamespacePrefix "noes" \
 	--annotation http://purl.org/vocab/vann/preferredNamespaceUri "https://w3id.org/pmd/noes/" \
 	--link-annotation http://purl.org/dc/terms/publisher $(PUBLISHER) \
 	--link-annotation http://purl.org/dc/terms/source https://w3id.org/pmd/co/ \
 	--annotation http://purl.org/ontology/bibo/status "stable" \
-	--annotation http://purl.org/dc/terms/identifier "$(DOI)" \
-	$(PRIOR_ANNOTATION)
+	--annotation http://purl.org/dc/terms/identifier "$(DOI)"
 
 RELEASE_FILES = noes.owl noes.ttl noes-full.owl noes-full.ttl \
                 noes-base.owl noes-base.ttl noes-simple.owl noes-simple.ttl
