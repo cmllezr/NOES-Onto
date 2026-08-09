@@ -200,11 +200,11 @@ jobs:
         run: |
           VERSION="${{ needs.check.outputs.version }}"
           ONTFILE="${{ needs.check.outputs.ontology-file }}"
-          mkdir -p "./_site/${VERSION}/doc"
+          # mkdir -p "./_site/${VERSION}/doc"
 
           java -jar widoco.jar \
             -ontFile "$ONTFILE" \
-            -outFolder "./_site/${VERSION}/doc" \
+            -outFolder "./_site/${VERSION}" \
             -uniteSections \
             -includeAnnotationProperties \
             -lang en-de \
@@ -213,7 +213,11 @@ jobs:
             -rewriteAll \
             -webVowl
 
-          cp "./_site/${VERSION}/doc/index-en.html" "./_site/${VERSION}/doc/index.html" || true
+          test -f "./_site/${VERSION}/doc/index-en.html" || {
+            echo "::error::WIDOCO output not found at _site/${VERSION}/doc/index-en.html"
+            exit 1
+          }
+          cp "./_site/${VERSION}/doc/index-en.html" "./_site/${VERSION}/doc/index.html"
 
       - name: Copy docs to w3id-expected locations
         if: needs.check.outputs.version != 'latest'
