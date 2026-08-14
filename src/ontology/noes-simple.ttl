@@ -16,24 +16,21 @@
 @base <https://w3id.org/pmd/noes/> .
 
 <https://w3id.org/pmd/noes/> rdf:type owl:Ontology ;
-                              owl:versionIRI <https://w3id.org/pmd/noes/1.1.4> ;
-                              terms:bibliographicCitation "NOES Onto: Nonoriented Electrical Steel Ontology. Version 1.1.4, https://w3id.org/pmd/noes/" ;
+                              owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-08-14/noes-simple.ttl> ;
                               terms:created "2025-06-01                                  "^^xsd:date ;
                               terms:creator <https://orcid.org/0009-0003-1503-4422> ;
                               terms:description "NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets." ;
                               terms:identifier "https://doi.org/10.5281/zenodo.XXXXXXX      " ;
-                              terms:issued "2026-08-09"^^xsd:date ;
+                              terms:issued "2026-08-14"^^xsd:date ;
                               terms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                              terms:modified "2026-08-09"^^xsd:date ;
+                              terms:modified "2026-08-14"^^xsd:date ;
                               terms:publisher <https://ror.org/04hm8eb66> ;
                               terms:source co: ;
                               terms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
                               <http://purl.org/ontology/bibo/status> "stable" ;
                               <http://purl.org/vocab/vann/preferredNamespacePrefix> "noes" ;
                               <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/pmd/noes/" ;
-                              owl:priorVersion <https://w3id.org/pmd/noes/1.1.3> ;
-                              owl:versionInfo "1.1.4" ,
-                                              "2026-08-09" .
+                              owl:versionInfo "2026-08-14" .
 
 #################################################################
 #    Annotation properties
@@ -1125,59 +1122,74 @@ RO's 'quality of' is functional i.e., a->b, a->c => b=c. The functionality is re
 ###  https://w3id.org/pmd/cryo/CRYO_0000050
 <https://w3id.org/pmd/cryo/CRYO_0000050> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
-                                         rdfs:label "is tetragonal"@en .
+                                         rdfs:label "is tetragonal"@en ;
+                                         skos:definition "is tetragonal is a object property  for the inference of family of directions/planes Miller indices notation under tetragonal symmetry. The class crystallographic entity in tetragonal system carries a Self restriction \"is tetragonal\""@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000053
 <https://w3id.org/pmd/cryo/CRYO_0000053> rdf:type owl:ObjectProperty ;
-                                         rdfs:label "has symmetry"@de .
+                                         rdfs:comment """DO NOT USE DIRECTLY
+For taxonomy purpose only""" ;
+                                         rdfs:label "has symmetry"@de ;
+                                         skos:definition "has symmetry is a top-level object property which gathers other symmetry/lattice system-specific object properties for the inference of family of directions/planes Miller indices notation"@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000054
 <https://w3id.org/pmd/cryo/CRYO_0000054> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
-                                         rdfs:label "is triclinic"@de .
+                                         rdfs:label "is triclinic"@de ;
+                                         skos:definition "is triclinic is a object property  for the inference of family of directions/planes Miller indices notation under triclinic symmetry. The class crystallographic entity in triclinic system carries a Self restriction \"is triclinic\""@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000055
 <https://w3id.org/pmd/cryo/CRYO_0000055> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
-                                         rdfs:label "is monoclinic"@de .
+                                         rdfs:label "is monoclinic"@de ;
+                                         skos:definition "is monoclinic is a object property  for the inference of family of directions/planes Miller indices notation under monoclinic symmetry. The class crystallographic entity in monoclinic system carries a Self restriction \"is monoclinic\""@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000056
 <https://w3id.org/pmd/cryo/CRYO_0000056> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
-                                         rdfs:label "is orthorhombic"@de .
+                                         rdfs:label "is orthorhombic"@de ;
+                                         skos:definition "is orthorhombic is a object property  for the inference of family of directions/planes Miller indices notation under orthorhombic symmetry. The class crystallographic entity in orthorhombic system carries a Self restriction \"is orthorhombic\""@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000057
 <https://w3id.org/pmd/cryo/CRYO_0000057> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
-                                         rdfs:label "is rhombohedral"@de .
+                                         rdfs:label "is rhombohedral"@de ;
+                                         skos:definition "is rhombohedral is a object property  for the inference of family of directions/planes Miller indices notation under rhombohedral symmetry. The class crystallographic entity in rhombohedral system carries a Self restriction \"is rhombohedral\""@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000058
 <https://w3id.org/pmd/cryo/CRYO_0000058> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
-                                         rdfs:label "is hexagonal"@de .
+                                         rdfs:label "is hexagonal"@de ;
+                                         skos:definition "is hexagonal is a object property  for the inference of family of directions/planes Miller indices notation under hexagonal symmetry. The class crystallographic entity in hexagonal system carries a Self restriction \"is hexagonal\""@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000164
 <https://w3id.org/pmd/cryo/CRYO_0000164> rdf:type owl:ObjectProperty ;
-                                         rdfs:label "denoted by family"@en .
+                                         rdfs:comment "Intentially not a sub-property of \"denoted by\" as this rescticts using \"denoted by\" in property chains of its sub-properties" ,
+                                                      "The sub-properties are inferrable through corresponding property chains" ;
+                                         rdfs:label "denoted by family"@en ;
+                                         skos:definition "denoted by family is a top-level object property between a crystallographic entity, i.e., plane or direction, and the family of Miller indices"@en ;
+                                         skos:example "Consider a (011) crystallographic plane in cubic lattice, i.e., the instance of the plane is denoted by (011) instance. The instance of the plane is be inferred to be of type \"crystallographic entity in cubic system\" and carries \"is cubic\" reftexive triple. The (011) is a member of {110} family of Miller indices. The property chain \"is cubic + denoted by + member of\" will infer that the plane is denoted by {110} in a cubic lattice."@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000168
 <https://w3id.org/pmd/cryo/CRYO_0000168> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000164> ;
-                                         rdfs:label "denoted by family under cubic symmetry" .
+                                         rdfs:label "denoted by family under cubic symmetry" ;
+                                         skos:definition "denoted by family under cubic symmetry is an object property between a crystallographic entity in cubic system, i.e., plane or direction, and the family of Miller indices."@en .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000170
 <https://w3id.org/pmd/cryo/CRYO_0000170> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf <https://w3id.org/pmd/cryo/CRYO_0000053> ;
-                                         rdfs:label "is cubic" .
+                                         rdfs:label "is cubic" ;
+                                         skos:definition "is cubic is a object property  for the inference of family of directions/planes Miller indices notation. The class crystallographic entity in cubic  system carries a Self restriction \"is cubic\""@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000066
@@ -1666,12 +1678,23 @@ noes:NOES_0000057 rdf:type owl:Class ;
                   co:symbol "P_tot"@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000058
+noes:NOES_0000058 rdf:type owl:Class ;
+                  rdfs:label "crystallite with ideal cube texture orientation"@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000059
 noes:NOES_0000059 rdf:type owl:Class ;
                   rdfs:comment "Derivative dB/dH"@en ;
                   rdfs:label "differential permeability"@en ;
                   skos:definition "Differential permeability is the instantaneous slope of the magnetization curve or hysteresis loop at any given point"@en ;
                   co:symbol "µd"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000060
+noes:NOES_0000060 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000139 ;
+                  rdfs:label "crystallite with ideal rotated cube texture orientation"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000061
@@ -1698,6 +1721,12 @@ noes:NOES_0000063 rdf:type owl:Class ;
                   co:symbol "μa"@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000064
+noes:NOES_0000064 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000113 ;
+                  rdfs:label "crystallite with ideal Goss texture orientation"@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000065
 noes:NOES_0000065 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000057 ;
@@ -1721,6 +1750,12 @@ noes:NOES_0000070 rdf:type owl:Class ;
                   rdfs:label "magnetic field strength"@en ;
                   skos:definition "Magnetic field strength is a process attribute of an aplication of magnetic field process which characterizes the magnitude the external / applied magnetic field."@en ;
                   co:symbol "H" .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000071
+noes:NOES_0000071 rdf:type owl:Class ;
+                  rdfs:subClassOf noes:NOES_0000139 ;
+                  rdfs:label "crystallite with ideal rotated Goss texture orientation"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000072
@@ -2320,6 +2355,16 @@ noes:NOES_0000111 rdf:type owl:Class ;
                   noes:NOES_0000122 "false"^^xsd:boolean .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000112
+noes:NOES_0000112 rdf:type owl:Class ;
+                  rdfs:label "crystallite with ideal λ-fiber texture orientation"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000113
+noes:NOES_0000113 rdf:type owl:Class ;
+                  rdfs:label "crystallite with ideal η-fiber texture orientation"@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000114
 noes:NOES_0000114 rdf:type owl:Class ;
                   rdfs:label "Stanzen"@de ,
@@ -2477,7 +2522,6 @@ noes:NOES_0000134 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000135
 noes:NOES_0000135 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000162 ;
                   rdfs:label "crystallite with rotated cube texture orientation"@en ;
                   skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
                   skos:definition "crystallite with rotated cube texture orientation is a crystallite whose family of <110> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {001} equivalent directions are oriented approximately parallel to the rolling plane."@en .
@@ -2495,9 +2539,30 @@ noes:NOES_0000137 rdf:type owl:Class ;
                   skos:definition "Strip is a semi-finished product of a rolled metal" .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000138
+noes:NOES_0000138 rdf:type owl:Class ;
+                  rdfs:label "crystallite with ideal γ-fiber texture orientation"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000139
+noes:NOES_0000139 rdf:type owl:Class ;
+                  rdfs:label "crystallite with ideal α-fiber texture orientation"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000140
+noes:NOES_0000140 rdf:type owl:Class ;
+                  rdfs:label "crystallite with ideal α*-fiber texture orientation"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000141
+noes:NOES_0000141 rdf:type owl:Class ;
+                  rdfs:label "misorentation angle"@en ;
+                  skos:definition "misorientation angle is a relational quality that characterizes an angle between a crystallite in a microstructure and a reference crystallite with the ideal orientation of the specified crystallographic texture fiber or component. It is often used to determine if a crystallite contributes to this specific texture."@en ;
+                  skos:example "9° misorientation between a crystallite with <hkl>{uvw} orientation and <100>{001} cube texture component."@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000144
 noes:NOES_0000144 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000157 ;
                   rdfs:label "crystallite with Goss texture orientation"@en ;
                   skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
                   skos:definition "crystallite with Goss texture orientation is a crystallite whose family of <001> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {110} equivalent directions are oriented approximately parallel to the rolling plane."@en .
@@ -2505,7 +2570,6 @@ noes:NOES_0000144 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000151
 noes:NOES_0000151 rdf:type owl:Class ;
-                  rdfs:subClassOf noes:NOES_0000162 ;
                   rdfs:label "crystallite with rotated Goss texture orientation"@en ;
                   skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
                   skos:definition "crystallite with rotated Goss texture orientation is a crystallite whose family of <110> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {110} equivalent directions are oriented approximately parallel to the rolling plane."@en .
