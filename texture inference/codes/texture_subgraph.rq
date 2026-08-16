@@ -7,65 +7,43 @@ prefix obo: <http://purl.obolibrary.org/obo/>
 prefix cryo: <https://w3id.org/pmd/cryo/>
 
 # Extracts, from the full crystallite ABox, only the subgraph that is
-# actually relevant to texture classification: crystallites that have a
-# resolved crystallographic direction/plane (obo:RO_0001015), plus their
-# direction/plane/lattice/lattice_system/rd/rp/material substructure. Area
-# triples (obo:RO_0000086 crystallite->area, tto:TTO_0050000, the scalar
-# value specs) are deliberately left out -- HermiT never needs them, and
-# they're the majority of the ABox by individual count. The material's
-# noes:NOES_0000180 type is kept because the GRAIN_TYPES restrictions
-# require the rolling direction/plane to be "located in" a material that is
-# (via subsumption) a co:PMD_0000000, which only holds if the material's
-# type assertion is present for the reasoner to classify.
+# actually relevant to texture classification: crystallites that have at
+# least one misorientation-angle relational quality (obo:RO_0000086 /area
+# triples are deliberately left out -- HermiT never needs them, and they're
+# the majority of the ABox by individual count), plus the misorientation
+# angle's scalar value specification and the ideal-texture individual it
+# points at (needed so HermiT can see the PMD_0025999 someValuesFrom
+# <IDEAL_X> restriction is satisfied).
+#
+# One (grain, ideal texture) pair per solution row -- CONSTRUCT unions the
+# triples from every row, so a grain with angles to several ideal textures
+# keeps all of them, not just one.
 
 CONSTRUCT {
 	?grain a pmd:PMD_0000663 ;
-		obo:RO_0001015 ?direction ;
-		obo:RO_0001015 ?plane .
+		pmd:PMD_0025998 ?miso .
 
-	?direction a cryo:CRYO_0000012 ;
-		noes:NOES_0000131 ?rd ;
-		obo:IAO_0000235 ?uvw .
+	?miso a noes:NOES_0000141 ;
+		pmd:PMD_0000077 ?svs ;
+		pmd:PMD_0025999 ?ideal .
 
-	?plane a cryo:CRYO_0000011 ;
-		noes:NOES_0000131 ?rp ;
-		obo:IAO_0000235 ?hkl .
+	?svs a obo:OBI_0001931 ;
+		obo:IAO_0000039 obo:UO_0000185 ;
+		obo:OBI_0001937 ?angle .
 
-	?lattice a cryo:CRYO_0000001 ;
-		obo:BFO_0000051 ?direction ;
-		obo:BFO_0000051 ?plane ;
-		obo:RO_0000086 ?lattice_system .
-
-	?lattice_system a cryo:CRYO_0000390 ;
-		pmd:PMD_0000077 cryo:CRYO_0000035 .
-
-	?rd a noes:NOES_0000033 ;
-		obo:RO_0001025 ?material .
-
-	?rp a noes:NOES_0000094 ;
-		obo:RO_0001025 ?material .
-
-	?material a noes:NOES_0000180 .
+	?ideal a ?idealClass .
 }
 WHERE {
 	?grain a pmd:PMD_0000663 ;
-		obo:RO_0001015 ?direction ;
-		obo:RO_0001015 ?plane .
+		pmd:PMD_0025998 ?miso .
 
-	?direction a cryo:CRYO_0000012 ;
-		noes:NOES_0000131 ?rd ;
-		obo:IAO_0000235 ?uvw .
+	?miso a noes:NOES_0000141 ;
+		pmd:PMD_0000077 ?svs ;
+		pmd:PMD_0025999 ?ideal .
 
-	?plane a cryo:CRYO_0000011 ;
-		noes:NOES_0000131 ?rp ;
-		obo:IAO_0000235 ?hkl .
+	?svs a obo:OBI_0001931 ;
+		obo:IAO_0000039 obo:UO_0000185 ;
+		obo:OBI_0001937 ?angle .
 
-	?lattice a cryo:CRYO_0000001 ;
-		obo:BFO_0000051 ?direction ;
-		obo:BFO_0000051 ?plane ;
-		obo:RO_0000086 ?lattice_system .
-
-	?rd obo:RO_0001025 ?material .
-	?rp obo:RO_0001025 ?material .
-	?material a noes:NOES_0000180 .
+	?ideal a ?idealClass .
 }
