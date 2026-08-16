@@ -1,21 +1,25 @@
 """
 Builds an inferred ABox graph of EBSD crystallographic texture from
-grain_hkl_uvw.csv against the NOES ontology.
+grain_misorientation.csv against the NOES ontology.
 
 Three checkpointed stages, each reading/writing its own Turtle file so the
 (slow, fragile) reasoning step can be re-run in isolation without repeating
 grain construction, and so intermediate results are inspectable:
 
 Stage A -- build_crystallites() (plain rdflib, no owlready2/SQLite)
-    1.  GrainCsvReader reads grain_id / hkl / uvw / area from the CSV.
-    2.  MillerIndexResolver looks up the ontology NamedIndividual denoted by
-        each hkl/uvw notation string. Only low-index / ideal orientations
-        have a matching individual in the ontology, so most "Other/Random"
-        grains legitimately have no match.
+    1.  GrainCsvReader reads grain_id / area / misorientation_<slug>_deg /
+        is_relevant from the CSV (see euler2hkl.py).
+    2.  IdealTextureNodes mints one shared, named node per ideal texture
+        (e.g. ex:ideal_cube, deterministic from the slug -- not a blank
+        node) and asserts its rdf:type directly -- every grain's
+        misorientation angle for that texture points at the same node via
+        PMD_0025999 ("relational quality of").
     3.  CrystalliteBuilder stages the grains as temp: triples and runs
-        crystallite_orientation.rq (SPARQL CONSTRUCT) once to build every
-        grain's crystallite + area, and -- only where the orientation was
-        resolvable -- its crystallographic direction/plane/lattice.
+        crystallite_orientation.rq (a single generic SPARQL CONSTRUCT, not
+        one block per texture) once to build every grain's crystallite +
+        area, and its misorientation-angle relational quality to each of
+        the 8 ideal textures (all 8 by default; only for grains where
+        CSV's is_relevant is true if --relevant-only is set).
     4.  The self-contained TBox+ABox graph is dumped to crystallites_ttl,
         ready for HermitReasoner to load.
 
@@ -51,7 +55,7 @@ from typing import Dict, Iterable, Iterator, List, Optional, Sequence, Tuple
 import owlready2
 import rdflib
 from rdflib import Literal, URIRef
-from rdflib.namespace import OWL, RDF, RDFS
+from rdflib.namespace import OWL, RDF, XSD
 
 CODES_DIR = Path(__file__).resolve().parent
 TEXTURE_DIR = CODES_DIR.parent
@@ -59,17 +63,18 @@ TEXTURE_DIR = CODES_DIR.parent
 DEFAULT_ONTOLOGY_URL = "https://cmllezr.github.io/NOES-Onto/1.0.4/doc/ontology.ttl"
 # RDF/XML mirror of the same ontology -- owlready2 can load this natively
 # (no rdflib round-trip needed), unlike the Turtle URL above, which is only
-# used for MillerIndexResolver's label lookups and as the owl:imports
-# target written into every output file.
+# used as the owl:imports target written into every output file (and, in
+# classify_directly(), as the source of the ontology's asserted has-member
+# edges the direct-classification query joins against).
 DEFAULT_OWL_ONTOLOGY_URL = "https://raw.githubusercontent.com/cmllezr/NOES-Onto/refs/heads/main/src/ontology/noes-full.owl"
-DEFAULT_CSV = TEXTURE_DIR / "grain_hkl_uvw.csv"
+DEFAULT_CSV = TEXTURE_DIR / "grain_misorientation.csv"
 # The full ABox -- every grain's crystallite + area -- never fed to
 # owlready2 (no reasoning needed for area fractions).
 DEFAULT_CRYSTALLITES_TTL = TEXTURE_DIR / "crystallites_with_tbox.ttl"
-# Just the texture-relevant subgraph (crystallites with a resolved
-# direction/plane, no area triples) -- this, not the full ABox, is what
-# actually gets reasoned over in Stage B, since HermiT's cost tracks total
-# ABox size and the area/SVS individuals are the bulk of it but are
+# Just the texture-relevant subgraph (crystallites with at least one
+# misorientation angle, no area triples) -- this, not the full ABox, is
+# what actually gets reasoned over in Stage B, since HermiT's cost tracks
+# total ABox size and the area/SVS individuals are the bulk of it but are
 # irrelevant to GRAIN_TYPES classification.
 DEFAULT_TEXTURE_TTL = TEXTURE_DIR / "crystallites_texture.ttl"
 DEFAULT_REASONED_TTL = TEXTURE_DIR / "crystallites_reasoned_abox.ttl"
@@ -95,8 +100,8 @@ QUDT_UNIT = rdflib.Namespace("http://qudt.org/vocab/unit/")
 TEMP = rdflib.Namespace("temp:")
 
 # The single, persistent material and microstructure individuals for the
-# whole graph (crystallite_orientation.rq itself binds the same
-# ex:some_material URI for every grain's rolling direction/plane).
+# whole graph (only referenced directly in Python -- via material_triple in
+# build_crystallites() and by TextureFractionBuilder in Stage C).
 MATERIAL = EX.some_material
 MICROSTRUCTURE = EX.microstructure
 MATERIAL_CLASS = NOES.NOES_0000180  # non-oriented electrical steel
@@ -117,6 +122,17 @@ GRAIN_TYPES = [URIRef("https://w3id.org/pmd/noes/NOES_0000167"),  # crystallite 
 			   URIRef("https://w3id.org/pmd/noes/NOES_0000152"),  # crystallite with lambda texture orientation
 			   ]
 
+
+IDEAL_GRAIN_TYPES = [URIRef("https://w3id.org/pmd/noes/NOES_0000058"),  # crystallite ideal with cube texture orientation
+			   URIRef("https://w3id.org/pmd/noes/NOES_0000064"),  # crystallite with ideal Goss texture orientation"
+			   URIRef("https://w3id.org/pmd/noes/NOES_0000060"),  # crystallite with ideal rotated cube texture orientation
+			   URIRef("https://w3id.org/pmd/noes/NOES_0000071"),  # crystallite with ideal rotated Goss texture orientation
+			   URIRef("https://w3id.org/pmd/noes/NOES_0000139"),  # crystallite with ideal alpha texture orientation
+			   URIRef("https://w3id.org/pmd/noes/NOES_0000138"),  # crystallite with ideal gamma texture orientation
+			   URIRef("https://w3id.org/pmd/noes/NOES_0000113"),  # crystallite with ideal eta texture orientation
+			   URIRef("https://w3id.org/pmd/noes/NOES_0000112"),  # crystallite with ideal lambda texture orientation
+			   ]
+
 ORIENTATION_TYPES = [URIRef("https://w3id.org/pmd/noes/NOES_0000090"),  # cube texture
 			   URIRef("https://w3id.org/pmd/noes/NOES_0000092"),  #  Goss texture
 			   URIRef("https://w3id.org/pmd/noes/NOES_0000091"),  #  rotated cube texture
@@ -128,11 +144,18 @@ ORIENTATION_TYPES = [URIRef("https://w3id.org/pmd/noes/NOES_0000090"),  # cube t
 			   ]
 
 # Slug used to build the persistent ex:grain_population_<slug> /
-# ex:grain_population_<slug>_texture URIs, in the same order as GRAIN_TYPES
-# / ORIENTATION_TYPES above.
+# ex:grain_population_<slug>_texture URIs, and to name the
+# misorientation_<slug>_deg columns in grain_misorientation.csv, in the
+# same order as GRAIN_TYPES / IDEAL_GRAIN_TYPES / ORIENTATION_TYPES above.
 TEXTURE_SLUGS = ["cube", "goss", "rotated_cube", "rotated_goss", "alpha", "gamma", "eta", "lambda"]
 
 TEXTURE_COMPONENTS: List[Tuple[URIRef, URIRef, str]] = list(zip(GRAIN_TYPES, ORIENTATION_TYPES, TEXTURE_SLUGS))
+
+# (grain_type, ideal_grain_type, slug) -- the ideal_grain_type is the class
+# whose single, graph-wide individual (a named node, see IdealTextureNodes)
+# every grain's misorientation angle for that texture points at via
+# PMD_0025999 ("relational quality of").
+IDEAL_TEXTURE_COMPONENTS: List[Tuple[URIRef, URIRef, str]] = list(zip(GRAIN_TYPES, IDEAL_GRAIN_TYPES, TEXTURE_SLUGS))
 
 
 def _bind_prefixes(graph: rdflib.Graph) -> None:
@@ -146,17 +169,18 @@ def _bind_prefixes(graph: rdflib.Graph) -> None:
 
 
 class GrainRecord:
-	__slots__ = ("grain_id", "hkl", "uvw", "area")
+	__slots__ = ("grain_id", "area", "misorientation_deg", "is_relevant")
 
-	def __init__(self, grain_id: str, hkl: str, uvw: str, area: float):
+	def __init__(self, grain_id: str, area: float, misorientation_deg: Dict[str, float], is_relevant: bool):
 		self.grain_id = grain_id
-		self.hkl = hkl
-		self.uvw = uvw
 		self.area = area
+		self.misorientation_deg = misorientation_deg  # slug -> angle, one entry per TEXTURE_SLUGS
+		self.is_relevant = is_relevant
 
 
 class GrainCsvReader:
-	"""Reads the grain_id / hkl / uvw / area columns out of grain_hkl_uvw.csv."""
+	"""Reads the grain_id / area / misorientation_<slug>_deg / is_relevant
+	columns out of grain_misorientation.csv (see euler2hkl.py)."""
 
 	def __init__(self, path: Path):
 		self.path = path
@@ -166,41 +190,12 @@ class GrainCsvReader:
 			for row in csv.DictReader(fh):
 				yield GrainRecord(
 					grain_id=row["grain_id"].strip(),
-					hkl=row["hkl"].strip(),
-					uvw=row["uvw"].strip(),
 					area=float(row["area"]),
+					misorientation_deg={
+						slug: float(row[f"misorientation_{slug}_deg"]) for slug in TEXTURE_SLUGS
+					},
+					is_relevant=row["is_relevant"].strip().lower() == "true",
 				)
-
-
-class MillerIndexResolver:
-	"""Looks up the ontology NamedIndividual whose rdfs:label is a given
-	Miller-index notation string, e.g. "(110)" or "[1-50]". Only low-index /
-	ideal orientations have a matching individual in the ontology, so a miss
-	is expected for most grains and is handled by the caller, not an error
-	here."""
-
-	def __init__(self, ontology: rdflib.Graph):
-		self.ontology = ontology
-		self._cache: Dict[str, Optional[URIRef]] = {}
-
-	def get_uri_by_label(self, label: str, lang: str = "en") -> Optional[URIRef]:
-		objects = [
-			Literal(label, lang=lang),
-			Literal(label),
-		]
-		try:
-			for obj in objects:
-				out = list(self.ontology.subjects(predicate=RDFS.label, object=obj))
-				if out:
-					return out[0]
-		except ValueError:
-			print(f"Could not find the uri from label {label}")
-		return None
-
-	def resolve(self, label: str) -> Optional[URIRef]:
-		if label not in self._cache:
-			self._cache[label] = self.get_uri_by_label(label)
-		return self._cache[label]
 
 
 class GraphStore:
@@ -241,34 +236,46 @@ class GraphStore:
 		return self.graph.query(select_query)
 
 
+class IdealTextureNodes:
+	"""The 8 shared, graph-wide ideal-texture individuals (one named node
+	per texture, e.g. ex:ideal_cube -- deterministic from the slug, not a
+	blank node) that every grain's misorientation angle for that texture
+	points at via PMD_0025999 ("relational quality of"). Because the IRI is
+	a pure function of the slug, every grain that stages a reference to
+	"cube" ends up pointing at the exact same node without any
+	cross-grain coordination; their rdf:type triples are inserted directly,
+	not through a query."""
+
+	def __init__(self, components: Sequence[Tuple[URIRef, URIRef, str]] = IDEAL_TEXTURE_COMPONENTS):
+		self.nodes: Dict[str, URIRef] = {slug: EX[f"ideal_{slug}"] for _, _, slug in components}
+		self._ideal_class: Dict[str, URIRef] = {slug: ideal_type for _, ideal_type, slug in components}
+
+	def __getitem__(self, slug: str) -> URIRef:
+		return self.nodes[slug]
+
+	def type_triples(self) -> rdflib.Graph:
+		triples = rdflib.Graph()
+		for slug, node in self.nodes.items():
+			triples.add((node, RDF.type, self._ideal_class[slug]))
+		return triples
+
+
 class CrystalliteBuilder:
 	"""Stages every grain as temp: triples and runs
-	crystallite_orientation.rq once to construct all crystallites at once."""
+	crystallite_orientation.rq once -- a single generic CONSTRUCT, not one
+	hand-written block per texture -- to build every grain's crystallite,
+	area, and misorientation-angle relational quality to each of the 8
+	shared ideal-texture individuals (see IdealTextureNodes) at once."""
 
-	def __init__(self, store: GraphStore, resolver: MillerIndexResolver, query_path: Path):
+	def __init__(self, store: GraphStore, ideal_nodes: IdealTextureNodes, query_path: Path, relevant_only: bool = False):
 		self.store = store
-		self.resolver = resolver
+		self.ideal_nodes = ideal_nodes
 		self.query = query_path.read_text(encoding="utf-8")
-		self.unresolved_grains: List[str] = []
+		self.relevant_only = relevant_only
 
 	@staticmethod
-	def _slugify(s: str) -> str:
-		return "".join(c if c.isalnum() else "_" for c in s).strip("_")
-
-	@classmethod
-	def _orientation_slug(cls, hkl: str, uvw: str) -> str:
-		"""URI-safe key for a resolved (hkl, uvw) pair, e.g. "(001)"/"[100]"
-		-> "001_100"."""
-		return f"{cls._slugify(hkl)}_{cls._slugify(uvw)}"
-
-	@staticmethod
-	def _hkl_as_direction_notation(hkl: str) -> str:
-		"""For cubic crystals the plane normal (hkl) and the direction
-		[hkl] are the same vector, just notated differently -- "(001)" ->
-		"[001]" -- so it can be looked up against the ontology's
-		direction-notation individuals instead of its plane-notation
-		ones."""
-		return hkl.replace("(", "[").replace(")", "]")
+	def _grain_uri(grain_id: str) -> URIRef:
+		return EX[f"grain_{grain_id}"]
 
 	def _stage(self, records: Iterable[GrainRecord]) -> rdflib.Graph:
 		staging = rdflib.Graph()
@@ -277,58 +284,27 @@ class CrystalliteBuilder:
 			staging.add((config, TEMP.grainID, Literal(record.grain_id)))
 			staging.add((config, TEMP.areaValue, Literal(record.area)))
 
-			# uvw (-> ?direction, ~RD) and hkl (-> ?plane, ~RP) are resolved
-			# and staged *independently* of each other -- not gated on both
-			# succeeding together. That matters for fibers: alpha/eta only
-			# need ?direction (uvw), gamma/lambda only need ?ndDirection
-			# (hkl, staged separately below); requiring both hkl and uvw to
-			# resolve before either is usable would silently drop e.g. a
-			# grain whose uvw was fiber-snapped to an exact <110> index but
-			# whose hkl is still an unresolvable multi-digit rational fit.
-			# ?lattice/?lattice_system (needed for the point-component
-			# CRYO_0000041/hasSelf pattern HermiT relies on -- not needed by
-			# crystallite_classification_direct.rq at all) are only staged
-			# when *both* resolve, since they tie plane and direction
-			# together for a single crystal lattice.
-			hkl_uri = self.resolver.resolve(record.hkl)
-			uvw_uri = self.resolver.resolve(record.uvw)
+			if self.relevant_only and not record.is_relevant:
+				continue
 
-			if uvw_uri is not None:
-				# Grains with the identical resolved uvw notation (e.g.
-				# every exact-Cube grain is denoted by the same "[100]"
-				# individual) share one direction individual rather than
-				# minting a new one each -- physically correct (identical
-				# notation *is* the same crystallographic direction) and
-				# keeps the individual count small for HermiT.
-				uvw_slug = self._slugify(record.uvw)
-				staging.add((config, TEMP.uvw, uvw_uri))
-				staging.add((config, TEMP.direction, EX[f"direction_{uvw_slug}"]))
-
-			if hkl_uri is not None:
-				hkl_slug = self._slugify(record.hkl)
-				staging.add((config, TEMP.hkl, hkl_uri))
-				staging.add((config, TEMP.plane, EX[f"plane_{hkl_slug}"]))
-
-			if hkl_uri is not None and uvw_uri is not None:
-				slug = self._orientation_slug(record.hkl, record.uvw)
-				staging.add((config, TEMP.lattice, EX[f"lattice_{slug}"]))
-				staging.add((config, TEMP.latticeSystem, EX[f"lattice_system_{slug}"]))
-
-			if hkl_uri is None and uvw_uri is None:
-				self.unresolved_grains.append(record.grain_id)
-
-			# Independent of the plane/direction resolution above (fiber
-			# support): hkl reinterpreted as a direction-notation string
-			# and looked up against the ontology's direction individuals,
-			# for the gamma/lambda (<hkl>//ND) fibers. Only alpha/eta
-			# fibers are covered by the uvw-derived ?direction above,
-			# since they need <uvw>//RD, which that already gives.
-			hkl_as_direction = self._hkl_as_direction_notation(record.hkl)
-			nd_direction_uri = self.resolver.resolve(hkl_as_direction)
-			if nd_direction_uri is not None:
-				hkl_slug = self._slugify(hkl_as_direction)
-				staging.add((config, TEMP.hklAsDirection, nd_direction_uri))
-				staging.add((config, TEMP.ndDirection, EX[f"nd_direction_{hkl_slug}"]))
+			grain = self._grain_uri(record.grain_id)
+			# One ?entry per (grain, texture) pair, all under the same
+			# temp: predicates (temp:grain/misoNode/svsNode/idealNode/
+			# angleValue) regardless of which texture it's for -- this is
+			# what lets crystallite_orientation.rq match all 8 textures
+			# with one generic WHERE block instead of 8 near-duplicate
+			# ones. The misorientation-angle and SVS individuals are named
+			# (not blank), minted here deterministically from grain id +
+			# texture slug -- each grain/texture pair gets its own
+			# individual (unlike the shared ideal-texture nodes above).
+			for slug in TEXTURE_SLUGS:
+				entry = TEMP[f"miso_entry_{record.grain_id}_{slug}"]
+				angle = record.misorientation_deg[slug]
+				staging.add((entry, TEMP.grain, grain))
+				staging.add((entry, TEMP.misoNode, EX[f"misorientation_{record.grain_id}_{slug}"]))
+				staging.add((entry, TEMP.svsNode, EX[f"SVS_{record.grain_id}_{slug}_deg"]))
+				staging.add((entry, TEMP.idealNode, self.ideal_nodes[slug]))
+				staging.add((entry, TEMP.angleValue, Literal(angle, datatype=XSD.float)))
 		return staging
 
 	def build(self, records: Sequence[GrainRecord]) -> int:
@@ -352,10 +328,14 @@ class HermitReasoner:
 	Turtle, but it's now only ~11k triples instead of ~27k.
 
 	"ABox" in the returned graph is identified as every triple whose
-	subject falls under `abox_namespace`, which by construction is every
-	triple we built (crystallite_orientation.rq only ever mints ex:
-	subjects) -- this excludes the ~16k base-ontology TBox triples that
-	came along for HermiT to reason over."""
+	subject falls under `abox_namespace` -- this excludes the ~16k
+	base-ontology TBox triples that came along for HermiT to reason over.
+	The misorientation-angle/SVS/ideal-texture individuals are also
+	ex:-namespaced (named, not blank, nodes), so they pass this filter too
+	and come back out alongside the fact Stage C actually cares about,
+	each grain's inferred `?grain a <GRAIN_TYPE>` -- harmless, since
+	reason() merges this into the already-identical crystallites_ttl
+	content and RDF graph union is a set union (duplicates collapse)."""
 
 	def __init__(self, owl_ontology_url: str, abox_namespace: str):
 		self.owl_ontology_url = owl_ontology_url
@@ -486,6 +466,7 @@ class EBSD2RDFPipeline:
 		direct_classified_ttl: Path = DEFAULT_DIRECT_CLASSIFIED_TTL,
 		output_path: Path = DEFAULT_OUTPUT,
 		limit: Optional[int] = None,
+		relevant_only: bool = False,
 	):
 		self.ontology_url = ontology_url
 		self.owl_ontology_url = owl_ontology_url
@@ -496,49 +477,40 @@ class EBSD2RDFPipeline:
 		self.direct_classified_ttl = Path(direct_classified_ttl)
 		self.output_path = Path(output_path)
 		self.limit = limit
-
-	def _load_ontology_graph(self) -> rdflib.Graph:
-		graph = rdflib.Graph()
-		graph.parse(self.ontology_url, format="turtle")
-		return graph
+		self.relevant_only = relevant_only
 
 	def build_crystallites(self) -> None:
-		"""Stage A: fetch the ontology (its own graph instance, used only
-		for MillerIndexResolver's label lookups -- never merged into the
-		construction graph), build every grain's crystallite (+ area, +
-		direction/plane/lattice where resolvable) on a separate, initially
-		empty rdflib Graph, and dump two checkpoints from it:
+		"""Stage A: build every grain's crystallite (+ area, + misorientation
+		angle to each of the 8 ideal textures where relevant) on a separate,
+		initially empty rdflib Graph, and dump two checkpoints from it:
 
-		- crystallites_ttl: the full ABox (every grain + its area). Never
-		  fed to owlready2 -- no reasoning is needed to compute area
-		  fractions.
+		- crystallites_ttl: the full ABox (every grain + its area, +
+		  misorientation angles). Never fed to owlready2 -- no reasoning is
+		  needed to compute area fractions.
 		- texture_ttl: just the texture-relevant subgraph (crystallites
-		  with a resolved direction/plane, no area triples), extracted via
-		  texture_subgraph.rq. This, not the full ABox, is what
-		  HermitReasoner actually reasons over in Stage B, since it's a
-		  small fraction of the individual count.
+		  with at least one misorientation angle, no area triples),
+		  extracted via texture_subgraph.rq. This, not the full ABox, is
+		  what HermitReasoner actually reasons over in Stage B, since it's
+		  a small fraction of the individual count.
 
 		Both get the ontology owl:imports statement, added on their own
 		graph instance right before serializing."""
-		ontology_graph = self._load_ontology_graph()
-		print(f"Loaded {len(ontology_graph)} ontology triples from {self.ontology_url}")
-
 		abox_graph = rdflib.Graph()
 		store = GraphStore(abox_graph)
-		resolver = MillerIndexResolver(ontology_graph)
-		builder = CrystalliteBuilder(store, resolver, CRYSTALLITE_QUERY_FILE)
+		ideal_nodes = IdealTextureNodes()
+		store.insert_triples(ideal_nodes.type_triples())
+		builder = CrystalliteBuilder(store, ideal_nodes, CRYSTALLITE_QUERY_FILE, relevant_only=self.relevant_only)
 
 		records = list(GrainCsvReader(self.csv_path))
 		if self.limit:
 			records = records[: self.limit]
 		print(f"Loaded {len(records)} grains from {self.csv_path}")
+		if self.relevant_only:
+			n_relevant = sum(1 for r in records if r.is_relevant)
+			print(f"--relevant-only: staging misorientation angles for {n_relevant}/{len(records)} grains")
 
 		n_triples = builder.build(records)
-		print(
-			f"Constructed {n_triples} crystallite triples "
-			f"({len(builder.unresolved_grains)} grains had no matching hkl/uvw individual "
-			"in the ontology and were kept as crystallite+area only)"
-		)
+		print(f"Constructed {n_triples} crystallite triples")
 
 		material_triple = rdflib.Graph()
 		material_triple.add((MATERIAL, RDF.type, MATERIAL_CLASS))
@@ -613,27 +585,24 @@ class EBSD2RDFPipeline:
 
 	def classify_directly(self) -> None:
 		"""Reasoner-free alternative to Stage B (reason()), for comparing
-		against HermiT: loads the ontology plus crystallites_ttl (the full
-		ABox, no need for the smaller texture_ttl here -- this is a single
-		fast SPARQL query, not an expensive reasoning run) into one plain
-		rdflib Graph and runs crystallite_classification_direct.rq, which
-		replicates each GRAIN_TYPES class's family-membership check as a
-		SPARQL join against the ontology's *asserted* has-member edges,
-		instead of relying on HermiT to derive it. Writes to
-		direct_classified_ttl (not reasoned_ttl), so both this and the
-		HermiT result can be kept and compared -- point
-		EBSD2RDFPipeline(reasoned_ttl=...) at whichever one you want Stage
-		C to consume."""
-		graph = self._load_ontology_graph()
-		print(f"Loaded {len(graph)} ontology triples from {self.ontology_url}")
-
+		against HermiT: runs crystallite_classification_direct.rq -- a plain
+		numeric filter on each grain's already-asserted misorientation
+		angle to each ideal texture (< 15 deg), i.e. exactly what the
+		ontology's own equivalentClass axioms check -- directly against
+		crystallites_ttl (the full ABox; no need for the smaller
+		texture_ttl or the ontology's TBox here, since the misorientation
+		angle is a plain literal, not something that needs symmetry-family
+		joins to derive). Writes to direct_classified_ttl (not
+		reasoned_ttl), so both this and the HermiT result can be kept and
+		compared -- point EBSD2RDFPipeline(reasoned_ttl=...) at whichever
+		one you want Stage C to consume."""
 		abox = rdflib.Graph()
 		abox.parse(str(self.crystallites_ttl), format="turtle")
 		print(f"Loaded {len(abox)} triples from {self.crystallites_ttl}")
 		ontology_iri = EX.ontology
 		abox.remove((ontology_iri, RDF.type, OWL.Ontology))
 		abox.remove((ontology_iri, OWL.imports, None))
-		graph += abox
+		graph = abox
 
 		query = DIRECT_CLASSIFICATION_QUERY_FILE.read_text(encoding="utf-8")
 		t0 = time.time()
@@ -712,6 +681,16 @@ def main() -> None:
 	parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
 	parser.add_argument("--limit", type=int, default=None, help="Only process the first N grains (for testing).")
 	parser.add_argument(
+		"--relevant-only",
+		action="store_true",
+		help=(
+			"Only stage misorientation-angle triples for grains the CSV marks as is_relevant "
+			"(within tolerance of at least one ideal texture). Grains still get a crystallite+area "
+			"either way; this only controls whether the (much larger) misorientation subgraph is built "
+			"for every grain or just the ones near a named texture."
+		),
+	)
+	parser.add_argument(
 		"--stage",
 		choices=["crystallites", "reason", "classify-direct", "populations", "all"],
 		default="all",
@@ -733,6 +712,7 @@ def main() -> None:
 		direct_classified_ttl=Path(args.direct_classified_ttl),
 		output_path=Path(args.output),
 		limit=args.limit,
+		relevant_only=args.relevant_only,
 	)
 
 	if args.stage == "crystallites":
