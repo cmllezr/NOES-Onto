@@ -650,6 +650,7 @@ class EBSD2RDFPipeline:
 		attach onto the crystallites already there -- plus a single
 		owl:imports statement, into reasoned_ttl."""
 		texture_graph = rdflib.Graph()
+		print(self.texture_ttl)
 		texture_graph.parse(str(self.texture_ttl), format="turtle")
 		print(f"Loaded {len(texture_graph)} triples from {self.texture_ttl}")
 
