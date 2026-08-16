@@ -20,7 +20,11 @@ Stage A -- build_crystallites() (plain rdflib, no owlready2/SQLite)
         area, and its misorientation-angle relational quality to each of
         the 8 ideal textures (all 8 by default; only for grains where
         CSV's is_relevant is true if --relevant-only is set).
-    4.  The self-contained TBox+ABox graph is dumped to crystallites_ttl,
+    4.  extract_texture_subgraph() carves the texture-relevant subgraph
+        straight out of that CONSTRUCT result with a plain graph walk (no
+        second SPARQL query -- see its docstring for why re-querying was
+        both redundant and, empirically, pathologically slow).
+    5.  The self-contained TBox+ABox graph is dumped to crystallites_ttl,
         ready for HermitReasoner to load.
 
 Stage B -- reason() (the only stage touching owlready2/SQLite)
@@ -85,8 +89,6 @@ DEFAULT_DIRECT_CLASSIFIED_TTL = TEXTURE_DIR / "crystallites_classified_direct.tt
 DEFAULT_OUTPUT = TEXTURE_DIR / "ebsd_texture_inferred.ttl"
 
 CRYSTALLITE_QUERY_FILE = CODES_DIR / "crystallite_orientation.rq"
-TEXTURE_SUBGRAPH_QUERY_FILE = CODES_DIR / "texture_subgraph.rq"
-DIRECT_CLASSIFICATION_QUERY_FILE = CODES_DIR / "crystallite_classification_direct.rq"
 GRAIN_POPULATION_QUERY_FILE = CODES_DIR / "grain_population.rq"
 TEXTURE_FRACTION_QUERY_FILE = CODES_DIR / "texture_fraction.rq"
 
@@ -111,6 +113,9 @@ HAS_QUALITY = OBO.RO_0000086
 HAS_MEMBER = OBO.RO_0002351
 SPECIFIED_BY_VALUE = CO.PMD_0000077
 HAS_NUMERIC_VALUE = OBO.OBI_0001937
+HAS_RELATIONAL_QUALITY = CO.PMD_0025998  # unique to misorientation angles -- area never uses this
+RELATIONAL_QUALITY_OF = CO.PMD_0025999
+MISORIENTATION_ANGLE_TOLERANCE = 15.0  # deg -- matches the ontology's xsd:float[<15.0] restriction
 
 GRAIN_TYPES = [URIRef("https://w3id.org/pmd/noes/NOES_0000167"),  # crystallite with cube texture orientation
 			   URIRef("https://w3id.org/pmd/noes/NOES_0000144"),  # crystallite with Goss texture orientation"
@@ -156,6 +161,13 @@ TEXTURE_COMPONENTS: List[Tuple[URIRef, URIRef, str]] = list(zip(GRAIN_TYPES, ORI
 # every grain's misorientation angle for that texture points at via
 # PMD_0025999 ("relational quality of").
 IDEAL_TEXTURE_COMPONENTS: List[Tuple[URIRef, URIRef, str]] = list(zip(GRAIN_TYPES, IDEAL_GRAIN_TYPES, TEXTURE_SLUGS))
+
+# Inverse lookup used by classify_by_misorientation_angle(): the ideal
+# texture individual's own rdf:type is what tells us which GRAIN_TYPE a
+# sub-tolerance misorientation angle to it actually implies.
+IDEAL_CLASS_TO_GRAIN_TYPE: Dict[URIRef, URIRef] = {
+	ideal_type: grain_type for grain_type, ideal_type, _ in IDEAL_TEXTURE_COMPONENTS
+}
 
 
 def _bind_prefixes(graph: rdflib.Graph) -> None:
@@ -226,12 +238,6 @@ class GraphStore:
 		new_triples += result
 		return self.insert_triples(new_triples)
 
-	def remove_temp_triples(self) -> None:
-		self.graph.update(
-			"DELETE { ?s ?p ?o } WHERE { ?s ?p ?o . "
-			"FILTER(STRSTARTS(STR(?s), 'temp:') || STRSTARTS(STR(?p), 'temp:')) }"
-		)
-
 	def select(self, select_query: str):
 		return self.graph.query(select_query)
 
@@ -258,6 +264,70 @@ class IdealTextureNodes:
 		for slug, node in self.nodes.items():
 			triples.add((node, RDF.type, self._ideal_class[slug]))
 		return triples
+
+
+def extract_texture_subgraph(new_triples: rdflib.Graph, ideal_nodes: IdealTextureNodes) -> rdflib.Graph:
+	"""Carves the texture-relevant subgraph -- crystallites with at least
+	one misorientation-angle relational quality, plus that angle's SVS and
+	the ideal-texture individual it points at, no area triples -- straight
+	out of `new_triples` (CrystalliteBuilder.build()'s own CONSTRUCT
+	output), instead of re-deriving it with a second SPARQL query
+	(formerly texture_subgraph.rq) over the full, much larger store graph.
+
+	This used to be a standalone CONSTRUCT query re-matching the same
+	grain->miso->svs->ideal chain from scratch, which is pure redundant
+	work -- crystallite_orientation.rq already built exactly these triples
+	moments earlier -- and turned out to be pathologically slow besides
+	(rdflib's SPARQL planner does no cost-based join reordering, and this
+	particular multi-hop chain triggered a near-cartesian join even on a
+	graph of a few thousand triples). A plain graph walk anchored on
+	PMD_0025998 ("has relational quality", unique to misorientation
+	angles -- area never uses it) sidesteps SPARQL entirely and is exact by
+	construction rather than by pattern-matching against predicates area
+	also happens to use (e.g. PMD_0000077 "specified by value")."""
+	texture = rdflib.Graph()
+	for grain, _, miso in new_triples.triples((None, HAS_RELATIONAL_QUALITY, None)):
+		texture.add((grain, RDF.type, CRYSTALLITE_CLASS))
+		texture.add((grain, HAS_RELATIONAL_QUALITY, miso))
+		for p, o in new_triples.predicate_objects(miso):
+			texture.add((miso, p, o))
+			if p == SPECIFIED_BY_VALUE:  # -> svs
+				for svs_p, svs_o in new_triples.predicate_objects(o):
+					texture.add((o, svs_p, svs_o))
+	texture += ideal_nodes.type_triples()
+	return texture
+
+
+def classify_by_misorientation_angle(abox: rdflib.Graph) -> rdflib.Graph:
+	"""Reasoner-free stand-in for HermiT's GRAIN_TYPES classification -- a
+	plain graph walk, not a SPARQL query. Replicates exactly what each
+	class's OWL equivalentClass restriction checks: a crystallite has a
+	relational quality that is a misorientation angle, specified by a
+	sub-15-degree value, whose relational-quality-of points at the class's
+	ideal-texture individual.
+
+	This used to be crystallite_classification_direct.rq, a SPARQL query
+	with the same grain->miso->svs->ideal chain (x8, via UNION) as the
+	now-removed texture_subgraph.rq -- and turned out to hit the exact same
+	rdflib join-reordering pathology at full-dataset scale (never actually
+	run against the full ~140k-triple ABox until this was diagnosed; fine
+	on the small slice used while developing it). A plain walk anchored on
+	PMD_0025998 sidesteps SPARQL entirely, same as
+	extract_texture_subgraph()."""
+	classified = rdflib.Graph()
+	for grain, _, miso in abox.triples((None, HAS_RELATIONAL_QUALITY, None)):
+		svs = next(abox.objects(miso, SPECIFIED_BY_VALUE), None)
+		ideal = next(abox.objects(miso, RELATIONAL_QUALITY_OF), None)
+		if svs is None or ideal is None:
+			continue
+		angle = next(abox.objects(svs, HAS_NUMERIC_VALUE), None)
+		if angle is None or float(angle) >= MISORIENTATION_ANGLE_TOLERANCE:
+			continue
+		ideal_class = next(abox.objects(ideal, RDF.type), None)
+		grain_type = IDEAL_CLASS_TO_GRAIN_TYPE.get(ideal_class)
+		if grain_type is not None:
+			classified.add((grain, RDF.type, grain_type))
+	return classified
 
 
 class CrystalliteBuilder:
@@ -307,12 +377,29 @@ class CrystalliteBuilder:
 				staging.add((entry, TEMP.angleValue, Literal(angle, datatype=XSD.float)))
 		return staging
 
-	def build(self, records: Sequence[GrainRecord]) -> int:
+	def build(self, records: Sequence[GrainRecord]) -> rdflib.Graph:
+		# crystallite_orientation.rq only ever reads temp: predicates, so it
+		# can run standalone against `staging` instead of inserting it into
+		# store.graph first and then deleting the temp: triples back out
+		# with a SPARQL DELETE WHERE afterward (the pattern this and
+		# TextureFractionBuilder both used to follow) -- that DELETE scans
+		# the *entire* accumulated store graph regardless of how few temp:
+		# triples need removing, and by the time this runs in Stage A
+		# that's already the full ~100k-triple staging graph merged in.
+		# Querying `staging` directly avoids ever mixing that volume of
+		# temp: triples into store.graph, so there's nothing to clean up
+		# afterward.
 		staging = self._stage(records)
-		self.store.insert_triples(staging)
-		count = self.store.construct_and_insert(self.query)
-		self.store.remove_temp_triples()
-		return count
+		result = staging.query(self.query)
+		new_triples = rdflib.Graph()
+		new_triples += result
+		self.store.insert_triples(new_triples)
+		# Returned (not just inserted) so build_crystallites() can carve the
+		# texture-only subgraph straight out of it -- see
+		# extract_texture_subgraph() -- instead of re-deriving the same
+		# triples with a second, much more expensive SPARQL query over the
+		# whole (by then much larger) store graph.
+		return new_triples
 
 
 class HermitReasoner:
@@ -436,9 +523,18 @@ class TextureFractionBuilder:
 		staging.add((entry, TEMP.grainPopulation, population))
 		staging.add((entry, TEMP.value, Literal(round(fraction_percent, 2))))
 
-		self.store.insert_triples(staging)
-		self.store.construct_and_insert(self.query)
-		self.store.remove_temp_triples()
+		# Query `staging` directly rather than insert-then-construct-then-
+		# remove_temp_triples() (see CrystalliteBuilder.build() for the
+		# full rationale) -- by Stage C the store graph already holds the
+		# full ~140k-triple ABox, and remove_temp_triples() is a SPARQL
+		# DELETE WHERE that rescans the *entire* graph regardless of how
+		# few new temp: triples this call staged. Measured at ~18-20s per
+		# call here, x8 populations, for a ~2.5 minute stage that should
+		# take under a second.
+		result = staging.query(self.query)
+		new_triples = rdflib.Graph()
+		new_triples += result
+		self.store.insert_triples(new_triples)
 
 
 def classify_grains(store: GraphStore, classes: Sequence[URIRef]) -> Dict[URIRef, List[URIRef]]:
@@ -488,8 +584,9 @@ class EBSD2RDFPipeline:
 		  misorientation angles). Never fed to owlready2 -- no reasoning is
 		  needed to compute area fractions.
 		- texture_ttl: just the texture-relevant subgraph (crystallites
-		  with at least one misorientation angle, no area triples),
-		  extracted via texture_subgraph.rq. This, not the full ABox, is
+		  with at least one misorientation angle, no area triples), carved
+		  out of the CONSTRUCT result via extract_texture_subgraph() rather
+		  than re-derived with a second query. This, not the full ABox, is
 		  what HermitReasoner actually reasons over in Stage B, since it's
 		  a small fraction of the individual count.
 
@@ -509,17 +606,14 @@ class EBSD2RDFPipeline:
 			n_relevant = sum(1 for r in records if r.is_relevant)
 			print(f"--relevant-only: staging misorientation angles for {n_relevant}/{len(records)} grains")
 
-		n_triples = builder.build(records)
-		print(f"Constructed {n_triples} crystallite triples")
+		new_triples = builder.build(records)
+		print(f"Constructed {len(new_triples)} crystallite triples")
 
 		material_triple = rdflib.Graph()
 		material_triple.add((MATERIAL, RDF.type, MATERIAL_CLASS))
 		store.insert_triples(material_triple)
 
-		texture_subgraph_query = TEXTURE_SUBGRAPH_QUERY_FILE.read_text(encoding="utf-8")
-		texture_result = abox_graph.query(texture_subgraph_query)
-		texture_graph = rdflib.Graph()
-		texture_graph += texture_result
+		texture_graph = extract_texture_subgraph(new_triples, ideal_nodes)
 		print(f"Extracted {len(texture_graph)} texture-relevant triples (no area triples) for Stage B")
 
 		self._dump_abox(abox_graph, self.crystallites_ttl)
@@ -585,7 +679,7 @@ class EBSD2RDFPipeline:
 
 	def classify_directly(self) -> None:
 		"""Reasoner-free alternative to Stage B (reason()), for comparing
-		against HermiT: runs crystallite_classification_direct.rq -- a plain
+		against HermiT: runs classify_by_misorientation_angle() -- a plain
 		numeric filter on each grain's already-asserted misorientation
 		angle to each ideal texture (< 15 deg), i.e. exactly what the
 		ontology's own equivalentClass axioms check -- directly against
@@ -602,13 +696,9 @@ class EBSD2RDFPipeline:
 		ontology_iri = EX.ontology
 		abox.remove((ontology_iri, RDF.type, OWL.Ontology))
 		abox.remove((ontology_iri, OWL.imports, None))
-		graph = abox
 
-		query = DIRECT_CLASSIFICATION_QUERY_FILE.read_text(encoding="utf-8")
 		t0 = time.time()
-		result = graph.query(query)
-		classified = rdflib.Graph()
-		classified += result
+		classified = classify_by_misorientation_angle(abox)
 		print(f"Direct classification finished in {time.time() - t0:.1f}s, {len(classified)} type triples asserted")
 
 		out = rdflib.Graph()
