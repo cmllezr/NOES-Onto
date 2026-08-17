@@ -13,7 +13,7 @@ Stage A -- build_crystallites() (plain rdflib, no owlready2/SQLite)
         (e.g. ex:ideal_cube, deterministic from the slug -- not a blank
         node) and asserts its rdf:type directly -- every grain's
         misorientation angle for that texture points at the same node via
-        PMD_0025999 ("relational quality of").
+        RO_0002503 ("towards").
     3.  CrystalliteBuilder stages the grains as temp: triples and runs
         crystallite_orientation.rq (a single generic SPARQL CONSTRUCT, not
         one block per texture) once to build every grain's crystallite +
@@ -119,8 +119,8 @@ HAS_MEMBER = OBO.RO_0002351
 SPECIFIED_BY_VALUE = CO.PMD_0000077
 HAS_NUMERIC_VALUE = OBO.OBI_0001937
 HAS_RELATIONAL_QUALITY = CO.PMD_0025998  # unique to misorientation angles -- area never uses this
-RELATIONAL_QUALITY_OF = CO.PMD_0025999
-MISORIENTATION_ANGLE_TOLERANCE = 15.0  # deg -- matches the ontology's xsd:float[<15.0] restriction
+TOWARDS = OBO.RO_0002503  # "towards" -- misorientation angle -> the ideal-texture individual it's measured against (was pmd:PMD_0025999 "relational quality of" until the ontology was revised to use this RO term instead)
+MISORIENTATION_ANGLE_TOLERANCE = 15.0  # deg -- matches the ontology's xsd:float[<=15.0] restriction (maxInclusive, not maxExclusive)
 
 GRAIN_TYPES = [URIRef("https://w3id.org/pmd/noes/NOES_0000167"),  # crystallite with cube texture orientation
 			   URIRef("https://w3id.org/pmd/noes/NOES_0000144"),  # crystallite with Goss texture orientation"
@@ -164,7 +164,7 @@ TEXTURE_COMPONENTS: List[Tuple[URIRef, URIRef, str]] = list(zip(GRAIN_TYPES, ORI
 # (grain_type, ideal_grain_type, slug) -- the ideal_grain_type is the class
 # whose single, graph-wide individual (a named node, see IdealTextureNodes)
 # every grain's misorientation angle for that texture points at via
-# PMD_0025999 ("relational quality of").
+# RO_0002503 ("towards").
 IDEAL_TEXTURE_COMPONENTS: List[Tuple[URIRef, URIRef, str]] = list(zip(GRAIN_TYPES, IDEAL_GRAIN_TYPES, TEXTURE_SLUGS))
 
 # Inverse lookup used by classify_by_misorientation_angle(): the ideal
@@ -251,7 +251,7 @@ class IdealTextureNodes:
 	"""The 8 shared, graph-wide ideal-texture individuals (one named node
 	per texture, e.g. ex:ideal_cube -- deterministic from the slug, not a
 	blank node) that every grain's misorientation angle for that texture
-	points at via PMD_0025999 ("relational quality of"). Because the IRI is
+	points at via RO_0002503 ("towards"). Because the IRI is
 	a pure function of the slug, every grain that stages a reference to
 	"cube" ends up pointing at the exact same node without any
 	cross-grain coordination; their rdf:type triples are inserted directly,
@@ -313,7 +313,7 @@ def classify_by_misorientation_angle(abox: rdflib.Graph) -> rdflib.Graph:
 	plain graph walk, not a SPARQL query. Replicates exactly what each
 	class's OWL equivalentClass restriction checks: a crystallite has a
 	relational quality that is a misorientation angle, specified by a
-	sub-15-degree value, whose relational-quality-of points at the class's
+	value of at most 15 degrees, that is "towards" the class's
 	ideal-texture individual.
 
 	This used to be crystallite_classification_direct.rq, a SPARQL query
@@ -327,11 +327,11 @@ def classify_by_misorientation_angle(abox: rdflib.Graph) -> rdflib.Graph:
 	classified = rdflib.Graph()
 	for grain, _, miso in abox.triples((None, HAS_RELATIONAL_QUALITY, None)):
 		svs = next(abox.objects(miso, SPECIFIED_BY_VALUE), None)
-		ideal = next(abox.objects(miso, RELATIONAL_QUALITY_OF), None)
+		ideal = next(abox.objects(miso, TOWARDS), None)
 		if svs is None or ideal is None:
 			continue
 		angle = next(abox.objects(svs, HAS_NUMERIC_VALUE), None)
-		if angle is None or float(angle) >= MISORIENTATION_ANGLE_TOLERANCE:
+		if angle is None or float(angle) > MISORIENTATION_ANGLE_TOLERANCE:
 			continue
 		ideal_class = next(abox.objects(ideal, RDF.type), None)
 		grain_type = IDEAL_CLASS_TO_GRAIN_TYPE.get(ideal_class)
