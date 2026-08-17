@@ -89,6 +89,23 @@ $(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl $(IMPORTDIR)/qudt_terms.txt
 		--select "annotations self" \
 		$(ANNOTATE_CONVERT_FILE)
 
+$(IMPORTDIR)/ro_import.owl: $(MIRRORDIR)/ro.owl $(IMPORTDIR)/ro_terms.txt \
+			   $(IMPORTSEED) | all_robot_plugins
+	$(ROBOT) annotate --input $< --remove-annotations \
+	     remove --select "RO:*" --select complement --select "classes"  --axioms annotation \
+		 odk:normalize --add-source true \
+		 extract --term-file $(IMPORTDIR)/ro_terms.txt  \
+		         --force true --copy-ontology-annotations true \
+		         --individuals exclude \
+		         --method SUBSET \
+		 remove $(foreach p, $(ANNOTATION_PROPERTIES), --term $(p)) \
+		        --term-file $(IMPORTDIR)/ro_terms.txt \
+		        --select complement --select annotation-properties \
+		 remove --term-file $(IMPORTDIR)/unwanted.txt  \
+		 odk:normalize --base-iri https://w3id.org/pmd \
+		               --subset-decls true --synonym-decls true \
+		 $(ANNOTATE_CONVERT_FILE)
+
 #.PHONY: autoshapes
 #autoshapes: 
 #	echo "please run manually: sh utils/generate-auto-shapes.sh"
