@@ -71,6 +71,11 @@ DEFAULT_ONTOLOGY_URL = "https://cmllezr.github.io/NOES-Onto/1.0.4/doc/ontology.t
 # classify_directly(), as the source of the ontology's asserted has-member
 # edges the direct-classification query joins against).
 DEFAULT_OWL_ONTOLOGY_URL = "https://raw.githubusercontent.com/cmllezr/NOES-Onto/refs/heads/main/src/ontology/noes-full.owl"
+# owlready2's own default (JAVA_MEMORY = 2000) reliably OOMs HermiT on a
+# texture_ttl built in the default (non---relevant-only) mode -- see
+# HermitReasoner.classify(). Override with --java-memory if this still
+# isn't enough (or too much for the machine at hand).
+DEFAULT_JAVA_MEMORY_MB = 8000
 DEFAULT_CSV = TEXTURE_DIR / "grain_misorientation.csv"
 # The full ABox -- every grain's crystallite + area -- never fed to
 # owlready2 (no reasoning needed for area fractions).
@@ -424,9 +429,10 @@ class HermitReasoner:
 	reason() merges this into the already-identical crystallites_ttl
 	content and RDF graph union is a set union (duplicates collapse)."""
 
-	def __init__(self, owl_ontology_url: str, abox_namespace: str):
+	def __init__(self, owl_ontology_url: str, abox_namespace: str, java_memory_mb: int = DEFAULT_JAVA_MEMORY_MB):
 		self.owl_ontology_url = owl_ontology_url
 		self.abox_namespace = abox_namespace
+		self.java_memory_mb = java_memory_mb
 
 	def classify(self, abox_graph: rdflib.Graph) -> rdflib.Graph:
 		world = owlready2.World()
@@ -437,6 +443,23 @@ class HermitReasoner:
 		abox_graph.serialize(destination=tmp_path, format="xml")
 		file_uri = "file://" + Path(tmp_path).as_posix()
 		abox_onto = world.get_ontology(file_uri).load()
+
+		# owlready2's default -Xmx is 2000 (MB) -- comfortably too small for
+		# HermiT's tableau to classify a texture_ttl this size (the default,
+		# non---relevant-only mode stages misorientation angles for every
+		# grain to all 8 ideal textures, so this is a much bigger ABox than
+		# a "typical" HermiT workload); raise it here rather than relying on
+		# whoever runs this to know to patch it themselves. Must set
+		# owlready2.reasoning.JAVA_MEMORY specifically, not owlready2.
+		# JAVA_MEMORY -- owlready2/__init__.py does `from .reasoning import
+		# *`, which copies the value into the package namespace at import
+		# time rather than aliasing it, so sync_reasoner_hermit (defined in
+		# and reading this name from the `reasoning` submodule's own
+		# namespace) never sees an assignment to the package-level copy.
+		# If this still OOMs, --relevant-only at Stage A is the other lever
+		# -- it shrinks the ABox itself rather than just giving HermiT more
+		# room to work with a big one.
+		owlready2.reasoning.JAVA_MEMORY = self.java_memory_mb
 
 		with abox_onto:
 			owlready2.sync_reasoner_hermit(world, infer_property_values=False, debug=0)
@@ -563,6 +586,7 @@ class EBSD2RDFPipeline:
 		output_path: Path = DEFAULT_OUTPUT,
 		limit: Optional[int] = None,
 		relevant_only: bool = False,
+		java_memory_mb: int = DEFAULT_JAVA_MEMORY_MB,
 	):
 		self.ontology_url = ontology_url
 		self.owl_ontology_url = owl_ontology_url
@@ -574,6 +598,7 @@ class EBSD2RDFPipeline:
 		self.output_path = Path(output_path)
 		self.limit = limit
 		self.relevant_only = relevant_only
+		self.java_memory_mb = java_memory_mb
 
 	def build_crystallites(self) -> None:
 		"""Stage A: build every grain's crystallite (+ area, + misorientation
@@ -658,7 +683,7 @@ class EBSD2RDFPipeline:
 		texture_graph.remove((ontology_iri, RDF.type, OWL.Ontology))
 		texture_graph.remove((ontology_iri, OWL.imports, None))
 
-		reasoner = HermitReasoner(owl_ontology_url=self.owl_ontology_url, abox_namespace=str(EX))
+		reasoner = HermitReasoner(owl_ontology_url=self.owl_ontology_url, abox_namespace=str(EX), java_memory_mb=self.java_memory_mb)
 		print("Running the HermiT reasoner (this can take a while)...")
 		t0 = time.time()
 		reasoned_texture = reasoner.classify(texture_graph)
@@ -782,6 +807,15 @@ def main() -> None:
 		),
 	)
 	parser.add_argument(
+		"--java-memory",
+		type=int,
+		default=DEFAULT_JAVA_MEMORY_MB,
+		help=(
+			f"HermiT's JVM heap size in MB (-Xmx), Stage B only. owlready2's own default is 2000, which "
+			f"reliably OOMs on a texture_ttl built without --relevant-only (default: {DEFAULT_JAVA_MEMORY_MB})."
+		),
+	)
+	parser.add_argument(
 		"--stage",
 		choices=["crystallites", "reason", "classify-direct", "populations", "all"],
 		default="all",
@@ -804,6 +838,7 @@ def main() -> None:
 		output_path=Path(args.output),
 		limit=args.limit,
 		relevant_only=args.relevant_only,
+		java_memory_mb=args.java_memory,
 	)
 
 	if args.stage == "crystallites":
