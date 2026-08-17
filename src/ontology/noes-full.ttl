@@ -1082,6 +1082,23 @@ obo:RO_0002353 rdf:type owl:ObjectProperty ;
                rdfs:label "output of"@en .
 
 
+###  http://purl.obolibrary.org/obo/RO_0002502
+obo:RO_0002502 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000117 <https://orcid.org/0000-0002-6601-2165> ;
+               rdfs:label "depends on" ;
+               rdfs:seeAlso obo:BFO_0000169 .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002503
+obo:RO_0002503 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0002502 ;
+               obo:IAO_0000115 "q towards e2 if and only if q is a relational quality such that q inheres-in some e, and e != e2 and q is dependent on e2" ;
+               obo:IAO_0000116 "This relation is provided in order to support the use of relational qualities such as 'concentration of'; for example, the concentration of C in V is a quality that inheres in V, but pertains to C." ;
+               obo:IAO_0000117 <https://orcid.org/0000-0002-6601-2165> ;
+               obo:IAO_0000119 <http://www.ncbi.nlm.nih.gov/pubmed/20064205> ;
+               rdfs:label "towards" .
+
+
 ###  http://purl.obolibrary.org/obo/RO_0009006
 obo:RO_0009006 rdf:type owl:ObjectProperty ;
                owl:inverseOf obo:RO_0009007 ;
@@ -1385,6 +1402,7 @@ noes:NOES_0000131 rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf noes:NOES_0000066 ;
                   rdf:type owl:SymmetricProperty ;
                   rdfs:label "approximately parallel to"@en ;
+                  owl:deprecated "true"^^xsd:boolean ;
                   skos:definition "Approximately parallel to is an object property which connect two or  more spatial regions that are parallel to each other considering the misalignment angle of usually 15°"@en ;
                   skos:example "<111> family of directions in crystals are approximately parellel to normal direction (ND) of a sample in γ-fiber texture component"@en .
 
