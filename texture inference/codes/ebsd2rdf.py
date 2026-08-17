@@ -289,7 +289,12 @@ def extract_texture_subgraph(new_triples: rdflib.Graph, ideal_nodes: IdealTextur
 	PMD_0025998 ("has relational quality", unique to misorientation
 	angles -- area never uses it) sidesteps SPARQL entirely and is exact by
 	construction rather than by pattern-matching against predicates area
-	also happens to use (e.g. PMD_0000077 "specified by value")."""
+	also happens to use (e.g. PMD_0000077 "specified by value").
+
+	Keeps every (grain, miso) pair found in `new_triples` as-is, angle
+	value and all -- which grains are even present here (and with how many
+	of their 8 texture relations) is controlled upstream, by whether
+	CrystalliteBuilder.build() was run with relevant_only=True."""
 	texture = rdflib.Graph()
 	for grain, _, miso in new_triples.triples((None, HAS_RELATIONAL_QUALITY, None)):
 		texture.add((grain, RDF.type, CRYSTALLITE_CLASS))
