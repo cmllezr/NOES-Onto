@@ -21,24 +21,24 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/1.2.1"/>
-        <terms:bibliographicCitation>NOES Onto: Nonoriented Electrical Steel Ontology. Version 1.2.1, https://w3id.org/pmd/noes/</terms:bibliographicCitation>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/1.2.3"/>
+        <terms:bibliographicCitation>NOES Onto: Nonoriented Electrical Steel Ontology. Version 1.2.3, https://w3id.org/pmd/noes/</terms:bibliographicCitation>
         <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-06-01                                  </terms:created>
         <terms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
         <terms:description>NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets.</terms:description>
         <terms:identifier>https://doi.org/10.5281/zenodo.XXXXXXX      </terms:identifier>
-        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-16</terms:issued>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-17</terms:issued>
         <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-16</terms:modified>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-17</terms:modified>
         <terms:publisher rdf:resource="https://ror.org/04hm8eb66"/>
         <terms:source rdf:resource="https://w3id.org/pmd/co/"/>
         <terms:title>NOES-Onto: Nonoriented Electrical Steel Ontology</terms:title>
         <bibo:status>stable</bibo:status>
         <vann:preferredNamespacePrefix>noes</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/pmd/noes/</vann:preferredNamespaceUri>
-        <owl:priorVersion rdf:resource="https://w3id.org/pmd/noes/1.2.0"/>
-        <owl:versionInfo>1.2.1</owl:versionInfo>
-        <owl:versionInfo>2026-08-16</owl:versionInfo>
+        <owl:priorVersion rdf:resource="https://w3id.org/pmd/noes/1.2.1"/>
+        <owl:versionInfo>1.2.3</owl:versionInfo>
+        <owl:versionInfo>2026-08-17</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -1539,6 +1539,31 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0002502 -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002502">
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
+        <rdfs:label>depends on</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/BFO_0000169"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002503 -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002503">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002502"/>
+        <obo:IAO_0000115>q towards e2 if and only if q is a relational quality such that q inheres-in some e, and e != e2 and q is dependent on e2</obo:IAO_0000115>
+        <obo:IAO_0000116>This relation is provided in order to support the use of relational qualities such as &apos;concentration of&apos;; for example, the concentration of C in V is a quality that inheres in V, but pertains to C.</obo:IAO_0000116>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
+        <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20064205"/>
+        <rdfs:label>towards</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0009006 -->
 
 
@@ -1970,6 +1995,7 @@ For taxonomy purpose only</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000066"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:label xml:lang="en">approximately parallel to</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:definition xml:lang="en">Approximately parallel to is an object property which connect two or  more spatial regions that are parallel to each other considering the misalignment angle of usually 15°</skos:definition>
         <skos:example xml:lang="en">&lt;111&gt; family of directions in crystals are approximately parellel to normal direction (ND) of a sample in γ-fiber texture component</skos:example>
     </owl:ObjectProperty>
@@ -21758,6 +21784,10 @@ Will be inferable in the future</rdfs:comment>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
                                     <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000060"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
@@ -21783,10 +21813,6 @@ Will be inferable in the future</rdfs:comment>
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000060"/>
-                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -21802,6 +21828,10 @@ Will be inferable in the future</rdfs:comment>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000060"/>
+                            </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:someValuesFrom>
@@ -21827,10 +21857,6 @@ Will be inferable in the future</rdfs:comment>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000060"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -22093,6 +22119,10 @@ Will be inferable in the future</rdfs:comment>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
                                     <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000064"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
@@ -22118,10 +22148,6 @@ Will be inferable in the future</rdfs:comment>
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000064"/>
-                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -22137,6 +22163,10 @@ Will be inferable in the future</rdfs:comment>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000064"/>
+                            </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:someValuesFrom>
@@ -22162,10 +22192,6 @@ Will be inferable in the future</rdfs:comment>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000064"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -22194,6 +22220,10 @@ Will be inferable in the future</rdfs:comment>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
                                     <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000071"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
@@ -22219,10 +22249,6 @@ Will be inferable in the future</rdfs:comment>
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000071"/>
-                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -22238,6 +22264,10 @@ Will be inferable in the future</rdfs:comment>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000071"/>
+                            </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:someValuesFrom>
@@ -22263,10 +22293,6 @@ Will be inferable in the future</rdfs:comment>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000071"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -22295,6 +22321,10 @@ Will be inferable in the future</rdfs:comment>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
                                     <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000112"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
@@ -22320,10 +22350,6 @@ Will be inferable in the future</rdfs:comment>
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000112"/>
-                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -22339,6 +22365,10 @@ Will be inferable in the future</rdfs:comment>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000112"/>
+                            </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:someValuesFrom>
@@ -22364,10 +22394,6 @@ Will be inferable in the future</rdfs:comment>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000112"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -22441,6 +22467,10 @@ Will be inferable in the future</rdfs:comment>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
                                     <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
@@ -22466,10 +22496,6 @@ Will be inferable in the future</rdfs:comment>
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
-                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -22485,6 +22511,10 @@ Will be inferable in the future</rdfs:comment>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
+                            </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:someValuesFrom>
@@ -22510,10 +22540,6 @@ Will be inferable in the future</rdfs:comment>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000113"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -22542,6 +22568,10 @@ Will be inferable in the future</rdfs:comment>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
                                     <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000138"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
@@ -22567,10 +22597,6 @@ Will be inferable in the future</rdfs:comment>
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000138"/>
-                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -22586,6 +22612,10 @@ Will be inferable in the future</rdfs:comment>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000138"/>
+                            </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:someValuesFrom>
@@ -22611,10 +22641,6 @@ Will be inferable in the future</rdfs:comment>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000138"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -22717,6 +22743,10 @@ Will be inferable in the future</rdfs:comment>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
                                     <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000139"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
@@ -22742,10 +22772,6 @@ Will be inferable in the future</rdfs:comment>
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000139"/>
-                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -22761,6 +22787,10 @@ Will be inferable in the future</rdfs:comment>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000139"/>
+                            </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:someValuesFrom>
@@ -22786,10 +22816,6 @@ Will be inferable in the future</rdfs:comment>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000139"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -22865,6 +22891,10 @@ Will be inferable in the future</rdfs:comment>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
                                     <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000058"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
                                         <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                         <owl:someValuesFrom>
                                             <owl:Class>
@@ -22890,10 +22920,6 @@ Will be inferable in the future</rdfs:comment>
                                             </owl:Class>
                                         </owl:someValuesFrom>
                                     </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000058"/>
-                                    </owl:Restriction>
                                 </owl:intersectionOf>
                             </owl:Class>
                         </owl:someValuesFrom>
@@ -22909,6 +22935,10 @@ Will be inferable in the future</rdfs:comment>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000141"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002503"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000058"/>
+                            </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
                                 <owl:someValuesFrom>
@@ -22934,10 +22964,6 @@ Will be inferable in the future</rdfs:comment>
                                         </owl:intersectionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
-                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000058"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
