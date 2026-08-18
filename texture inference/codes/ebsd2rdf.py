@@ -64,13 +64,14 @@ from rdflib.namespace import OWL, RDF, XSD
 CODES_DIR = Path(__file__).resolve().parent
 TEXTURE_DIR = CODES_DIR.parent
 
-DEFAULT_ONTOLOGY_URL = "https://cmllezr.github.io/NOES-Onto/1.0.4/doc/ontology.ttl"
+DEFAULT_ONTOLOGY_URL = "https://cmllezr.github.io/NOES-Onto/1.2.3/doc/ontology.ttl"
 # RDF/XML mirror of the same ontology -- owlready2 can load this natively
 # (no rdflib round-trip needed), unlike the Turtle URL above, which is only
 # used as the owl:imports target written into every output file (and, in
 # classify_directly(), as the source of the ontology's asserted has-member
 # edges the direct-classification query joins against).
-DEFAULT_OWL_ONTOLOGY_URL = "https://raw.githubusercontent.com/cmllezr/NOES-Onto/refs/heads/main/src/ontology/noes-full.owl"
+# DEFAULT_OWL_ONTOLOGY_URL = "https://raw.githubusercontent.com/cmllezr/NOES-Onto/refs/heads/main/src/ontology/noes-base.owl"
+DEFAULT_OWL_ONTOLOGY_URL = "../noes-base.owl"
 # owlready2's own default (JAVA_MEMORY = 2000) reliably OOMs HermiT on a
 # texture_ttl built in the default (non---relevant-only) mode -- see
 # HermitReasoner.classify(). Override with --java-memory if this still

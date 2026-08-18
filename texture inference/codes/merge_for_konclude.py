@@ -20,7 +20,7 @@ import sys
 import rdflib
 from rdflib.namespace import OWL, RDF
 
-TBOX_URL = "https://raw.githubusercontent.com/cmllezr/NOES-Onto/refs/heads/main/src/ontology/noes-full.owl"
+TBOX_URL = "../noes-base.owl"
 EX = rdflib.Namespace("http://example.org/")
 
 
