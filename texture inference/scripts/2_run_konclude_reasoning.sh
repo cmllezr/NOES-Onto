@@ -60,7 +60,7 @@ for level in none semi full; do
     python codes/ebsd2rdf.py --stage merge-tbox --merge-source "$abox" --merged-ttl "KGs/merged/merged_${level}.ttl"
 
     echo "--- 3. Running Konclude realisation ---"
-    /usr/bin/time -v realisation -i "KGs/merged/merged_${level}.ttl" -o "KGs/reasoned/reasoned_${level}.owl" \
+    /usr/bin/time -v $KONCLUDE_BIN realisation -i "KGs/merged/merged_${level}.ttl" -o "KGs/reasoned/reasoned_${level}.owl" \
         2> "logs/konclude_${level}.log"
     grep -E "User time|System time|Elapsed|Maximum resident" "logs/konclude_${level}.log"
 

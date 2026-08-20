@@ -46,7 +46,7 @@ run_slice() {
     python codes/ebsd2rdf.py --stage merge-tbox --merge-source "$abox" --merged-ttl "KGs/merged/merged_semi_${name}.ttl"
 
     echo "--- 3. Running Konclude realisation ---"
-    realisation -i "KGs/merged/merged_semi_${name}.ttl" -o "KGs/reasoned/reasoned_semi_${name}.owl" \
+    $KONCLUDE_BIN realisation -i "KGs/merged/merged_semi_${name}.ttl" -o "KGs/reasoned/reasoned_semi_${name}.owl" \
         2> "logs/konclude_semi_${name}.log"
 
     echo "--- 4. Classification count ---"
@@ -70,7 +70,7 @@ echo "580 grains total, but skipping the first 10 (includes the 580-590 window i
 run_slice "swap_580" 580 "--skip 10"
 
 echo "=== 4. Thread-count independence check (n=583 with -w AUTO) ==="
-realisation -w AUTO -i KGs/merged/merged_semi_bisect_583.ttl -o KGs/reasoned/reasoned_semi_bisect_583_multithread.owl \
+$KONCLUDE_BIN realisation -w AUTO -i KGs/merged/merged_semi_bisect_583.ttl -o KGs/reasoned/reasoned_semi_bisect_583_multithread.owl \
     2> logs/konclude_semi_bisect_583_multithread.log
 n=$(grep -c "$CLASSES" KGs/reasoned/reasoned_semi_bisect_583_multithread.owl || true)
 echo "bisect_583 (-w AUTO, multi-threaded): $n"
