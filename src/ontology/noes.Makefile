@@ -44,6 +44,10 @@ $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(I
 			remove --term "https://w3id.org/pmd/co/relatesTo" \
 				   --select "self" \
 				   --trim true \
+			remove --term "https://w3id.org/pmd/co/PMD_0025998" \
+					--axioms SubPropertyChainOf \ 
+			remove --terms "https://w3id.org/pmd/co/PMD_0025999" \
+					--axioms SubPropertyChainOf \
 			odk:normalize --base-iri https://w3id.org/pmd/noes \
 							--subset-decls true --synonym-decls true \
 			$(ANNOTATE_CONVERT_FILE); \
@@ -71,6 +75,10 @@ $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.t
 			 --select "classes"\
 	  remove --term-file $(IAO_TO_REMOVE) \
 			 --select "individuals classes"\
+	  remove --term "https://w3id.org/pmd/co/PMD_0025998" \
+			 --axioms SubPropertyChainOf \ 
+	  remove --terms "https://w3id.org/pmd/co/PMD_0025999" \
+			 --axioms SubPropertyChainOf \
 	  $(ANNOTATE_CONVERT_FILE); \
 	fi
 

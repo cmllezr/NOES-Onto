@@ -23,8 +23,8 @@ python codes/ebsd2rdf.py --stage crystallites
 
 echo "=== KGs/abox/crystallites_texture.ttl built ==="
 wc -l KGs/abox/crystallites_texture.ttl
-n_pairs=$(grep -c "NOES_0000052" KGs/abox/crystallites_texture.ttl || true)
-echo "NOES_0000052 (has simple relational quality) subject lines: $n_pairs"
+n_pairs=$(grep -c "PMD_0025998" KGs/abox/crystallites_texture.ttl || true)
+echo "PMD_0025998 (has relational quality) subject lines: $n_pairs"
 
 echo "=== KGs/abox/crystallites_full.ttl built ==="
 wc -l KGs/abox/crystallites_full.ttl
