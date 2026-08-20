@@ -45,7 +45,7 @@ from orix.quaternion import Orientation, symmetry
 # ----------------------------------------------------------------------
 # USER-ADJUSTABLE PARAMETERS
 # ----------------------------------------------------------------------
-DATA_FILE = "../EBSD.txt"
+DATA_FILE = "../data/EBSD.txt"
 OUT_DIR = "../data/"
 
 TOL_COMPONENT = 15.0   # deg, max disorientation to an ideal texture component
