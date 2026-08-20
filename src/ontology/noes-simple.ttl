@@ -1108,9 +1108,6 @@ co:PMD_0025006 rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/pmd/co/PMD_0025998
 co:PMD_0025998 rdf:type owl:ObjectProperty ;
                owl:inverseOf co:PMD_0025999 ;
-               owl:propertyChainAxiom ( obo:BFO_0000051
-                                        co:PMD_0025998
-                                      ) ;
                obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000117 "PERSON: Kamilla Zaripova" ;
                rdfs:label "has relational quality"@en ,
@@ -1122,9 +1119,6 @@ co:PMD_0025998 rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/pmd/co/PMD_0025999
 co:PMD_0025999 rdf:type owl:ObjectProperty ;
-               owl:propertyChainAxiom ( co:PMD_0025999
-                                        obo:BFO_0000050
-                                      ) ;
                obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000116 """The 'relational quality of' is more strict that 'quality of' from RO, since domain is 'relational quality'. The motivtion to introduce an object property for relational qualities is the following:
 RO's 'quality of' is functional i.e., a->b, a->c => b=c. The functionality is relevant for most of the SDC -> IC triples, expect for relational qualities, which per definiton can be simultaneously inherited in >=2 ICs. Thus,  'relational quality of'  has the same intention to connect SDC to IC, however, without cardinality constraints."""@en ;
@@ -1209,11 +1203,6 @@ For taxonomy purpose only""" ;
                                          skos:definition "is cubic is a object property  for the inference of family of directions/planes Miller indices notation. The class crystallographic entity in cubic  system carries a Self restriction \"is cubic\""@en .
 
 
-###  https://w3id.org/pmd/noes/NOES_0000052
-noes:NOES_0000052 rdf:type owl:ObjectProperty ;
-                  rdfs:label "has simple relational quality"@en .
-
-
 ###  https://w3id.org/pmd/noes/NOES_0000066
 noes:NOES_0000066 rdf:type owl:ObjectProperty ;
                   rdfs:comment "This object property is not intended to be used between intances."@en ;
@@ -1247,7 +1236,6 @@ noes:NOES_0000131 rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf noes:NOES_0000066 ;
                   rdf:type owl:SymmetricProperty ;
                   rdfs:label "approximately parallel to"@en ;
-                  owl:deprecated "true"^^xsd:boolean ;
                   skos:definition "Approximately parallel to is an object property which connect two or  more spatial regions that are parallel to each other considering the misalignment angle of usually 15°"@en ;
                   skos:example "<111> family of directions in crystals are approximately parellel to normal direction (ND) of a sample in γ-fiber texture component"@en .
 
