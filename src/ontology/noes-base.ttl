@@ -15,28 +15,22 @@
 @base <https://w3id.org/pmd/noes/> .
 
 <https://w3id.org/pmd/noes/> rdf:type owl:Ontology ;
-                              owl:versionIRI <https://w3id.org/pmd/noes/1.2.5> ;
+                              owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-08-25/noes-base.ttl> ;
                               dce:type obo:IAO_8000001 ;
-                              dcterms:bibliographicCitation "NOES Onto: Nonoriented Electrical Steel Ontology. Version 1.2.4, https://w3id.org/pmd/noes/" ,
-                                                            "NOES Onto: Nonoriented Electrical Steel Ontology. Version 1.2.5, https://w3id.org/pmd/noes/" ;
                               dcterms:created "2025-06-01                                  "^^xsd:date ;
                               dcterms:creator <https://orcid.org/0009-0003-1503-4422> ;
                               dcterms:description "NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets." ;
                               dcterms:identifier "https://doi.org/10.5281/zenodo.XXXXXXX      " ;
-                              dcterms:issued "2026-08-20"^^xsd:date ;
+                              dcterms:issued "2026-08-25"^^xsd:date ;
                               dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                              dcterms:modified "2026-08-20"^^xsd:date ;
+                              dcterms:modified "2026-08-25"^^xsd:date ;
                               dcterms:publisher <https://ror.org/04hm8eb66> ;
                               dcterms:source co: ;
                               dcterms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
                               <http://purl.org/ontology/bibo/status> "stable" ;
                               <http://purl.org/vocab/vann/preferredNamespacePrefix> "noes" ;
                               <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/pmd/noes/" ;
-                              owl:priorVersion <https://w3id.org/pmd/noes/1.2.3> ,
-                                               <https://w3id.org/pmd/noes/1.2.4> ;
-                              owl:versionInfo "1.2.4" ,
-                                              "1.2.5" ,
-                                              "2026-08-20" .
+                              owl:versionInfo "2026-08-25" .
 
 #################################################################
 #    Annotation properties
@@ -68,10 +62,6 @@ obo:IAO_0100001 rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/elements/1.1/type
 dce:type rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/bibliographicCitation
-dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/created
@@ -4724,6 +4714,17 @@ co:PMD_0020216 rdf:type owl:Class ;
                                "DEPRECATED possible values of characteristic length over which structural correlations persist in a material"@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0020226
+co:PMD_0020226 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0025019 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty co:PMD_0025006 ;
+                                 owl:someValuesFrom co:PMD_0020246
+                               ] ;
+               rdfs:label "flow rate"@en ;
+               skos:definition "process attribute that represents the amount of transported entites per time"@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020227
 co:PMD_0020227 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020259 ,
@@ -4957,6 +4958,23 @@ co:PMD_0020241 rdf:type owl:Class ;
                           "angle of misalignment (crystallography)"@en ;
                skos:definition "kleinster Drehwinkel, der erforderlich ist, um eine Kristallorientierung so zu drehen, dass sie mit der benachbarten Orientierung übereinstimmt"@de ,
                                "smallest rotation angle needed to rotate one crystal orientation to coincide with the neighboring orientation"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020245
+co:PMD_0020245 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000015 ;
+               obo:IAO_0000116 "the moved entity is passive, locomotion would be the active counterpart"@en ;
+               rdfs:label "transport"@en ;
+               skos:definition "is a process in which an entity being moved within or accross another entity"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020246
+co:PMD_0020246 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020245 ;
+               rdfs:label "continous transport"@en ;
+               skos:altLabel "flow"@en ;
+               skos:definition "recurring transport of multiple entities, such that the transported entities are not being discretized anymore"@en ;
+               skos:example "the flow of a liquid in a pipe"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020254
@@ -6454,8 +6472,8 @@ co:PMD_0080104 rdf:type owl:Class ;
 co:PMD_0080108 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020311 ,
                                co:PMD_0023004 ,
-                               _:genid1011 ,
-                               _:genid1017 ,
+                               _:genid1012 ,
+                               _:genid1018 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000052 ;
                                  owl:someValuesFrom co:PMD_0000001
@@ -6467,7 +6485,7 @@ co:PMD_0080108 rdf:type owl:Class ;
                skos:example "A cross-section of a loaded steel column bears a compressive stress of 150 MPa"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid1011 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1012 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020200
                                   ]
@@ -6478,7 +6496,7 @@ _:genid1011 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                 ) ;
              rdf:type owl:Class .
 
-_:genid1017 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1018 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020352
                                   ]
@@ -6492,14 +6510,14 @@ _:genid1017 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1011 ;
+   owl:annotatedTarget _:genid1012 ;
    rdfs:comment "Mechanical view on stress"@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1017 ;
+   owl:annotatedTarget _:genid1018 ;
    rdfs:comment "Thermodynamic view on stress"@en
  ] .
 
@@ -6507,14 +6525,14 @@ _:genid1017 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 ###  https://w3id.org/pmd/co/PMD_0080116
 co:PMD_0080116 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid1024 ;
+                               _:genid1025 ;
                obo:IAO_0000117 "Philipp von Hartrott" ;
                rdfs:comment "Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you're considering."@en ;
                rdfs:label "potential"@en ;
                skos:definition "a partial derivative of energy with respect to its conjugate extensive quantity"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid1024 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1025 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020142
                                   ]
@@ -6528,7 +6546,7 @@ _:genid1024 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080116 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1024 ;
+   owl:annotatedTarget _:genid1025 ;
    rdfs:comment """In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking \"how does energy change per unit carrier added?\", you ask \"how does energy change per unit carrier moved in space?\""""@en

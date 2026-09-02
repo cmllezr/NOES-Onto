@@ -21,21 +21,21 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-08-20/noes.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-08-25/noes.owl"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-06-01                                  </dcterms:created>
         <dcterms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
         <dcterms:description>NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets.</dcterms:description>
         <dcterms:identifier>https://doi.org/10.5281/zenodo.XXXXXXX      </dcterms:identifier>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-20</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-25</dcterms:issued>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-20</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-25</dcterms:modified>
         <dcterms:publisher rdf:resource="https://ror.org/04hm8eb66"/>
         <dcterms:source rdf:resource="https://w3id.org/pmd/co/"/>
         <dcterms:title>NOES-Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
         <bibo:status>stable</bibo:status>
         <vann:preferredNamespacePrefix>noes</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/pmd/noes/</vann:preferredNamespaceUri>
-        <owl:versionInfo>2026-08-20</owl:versionInfo>
+        <owl:versionInfo>2026-08-25</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -9177,6 +9177,22 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020226 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020226">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025019"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025006"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020246"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">flow rate</rdfs:label>
+        <skos:definition xml:lang="en">process attribute that represents the amount of transported entites per time</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020227 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020227">
@@ -9495,6 +9511,29 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
         <rdfs:label xml:lang="en">angle of misalignment (crystallography)</rdfs:label>
         <skos:definition xml:lang="de">kleinster Drehwinkel, der erforderlich ist, um eine Kristallorientierung so zu drehen, dass sie mit der benachbarten Orientierung übereinstimmt</skos:definition>
         <skos:definition xml:lang="en">smallest rotation angle needed to rotate one crystal orientation to coincide with the neighboring orientation</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020245 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020245">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <obo:IAO_0000116 xml:lang="en">the moved entity is passive, locomotion would be the active counterpart</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">transport</rdfs:label>
+        <skos:definition xml:lang="en">is a process in which an entity being moved within or accross another entity</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020246 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020246">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020245"/>
+        <rdfs:label xml:lang="en">continous transport</rdfs:label>
+        <skos:altLabel xml:lang="en">flow</skos:altLabel>
+        <skos:definition xml:lang="en">recurring transport of multiple entities, such that the transported entities are not being discretized anymore</skos:definition>
+        <skos:example xml:lang="en">the flow of a liquid in a pipe</skos:example>
     </owl:Class>
     
 
@@ -11535,8 +11574,8 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080108">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020311"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
-        <rdfs:subClassOf rdf:nodeID="genid1183"/>
-        <rdfs:subClassOf rdf:nodeID="genid1189"/>
+        <rdfs:subClassOf rdf:nodeID="genid1184"/>
+        <rdfs:subClassOf rdf:nodeID="genid1190"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
@@ -11550,7 +11589,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
         <skos:example xml:lang="en">A cross-section of a loaded steel column bears a compressive stress of 150 MPa</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1183">
+    <owl:Class rdf:nodeID="genid1184">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -11562,7 +11601,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
             </owl:Restriction>
         </owl:intersectionOf>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1189">
+    <owl:Class rdf:nodeID="genid1190">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -11577,13 +11616,13 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080108"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1183"/>
+        <owl:annotatedTarget rdf:nodeID="genid1184"/>
         <rdfs:comment xml:lang="en">Mechanical view on stress</rdfs:comment>
     </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080108"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1189"/>
+        <owl:annotatedTarget rdf:nodeID="genid1190"/>
         <rdfs:comment xml:lang="en">Thermodynamic view on stress</rdfs:comment>
     </owl:Axiom>
     
@@ -11593,14 +11632,14 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080116">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <rdfs:subClassOf rdf:nodeID="genid1196"/>
+        <rdfs:subClassOf rdf:nodeID="genid1197"/>
         <obo:IAO_0000117>Philipp von Hartrott</obo:IAO_0000117>
         <rdfs:comment xml:lang="en">Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you&apos;re considering.</rdfs:comment>
         <rdfs:label xml:lang="en">potential</rdfs:label>
         <skos:definition xml:lang="en">a partial derivative of energy with respect to its conjugate extensive quantity</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1196">
+    <owl:Class rdf:nodeID="genid1197">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -11615,7 +11654,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080116"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1196"/>
+        <owl:annotatedTarget rdf:nodeID="genid1197"/>
         <rdfs:comment xml:lang="en">In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking &quot;how does energy change per unit carrier added?&quot;, you ask &quot;how does energy change per unit carrier moved in space?&quot;</rdfs:comment>
