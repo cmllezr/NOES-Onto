@@ -19,21 +19,21 @@
 @base <https://w3id.org/pmd/noes/> .
 
 <https://w3id.org/pmd/noes/> rdf:type owl:Ontology ;
-                              owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-09-02/noes.ttl> ;
+                              owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-09-22/noes.ttl> ;
                               dcterms:created "2025-06-01                                  "^^xsd:date ;
                               dcterms:creator <https://orcid.org/0009-0003-1503-4422> ;
                               dcterms:description "NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets." ;
                               dcterms:identifier "https://doi.org/10.5281/zenodo.XXXXXXX      " ;
-                              dcterms:issued "2026-09-02"^^xsd:date ;
+                              dcterms:issued "2026-09-22"^^xsd:date ;
                               dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                              dcterms:modified "2026-09-02"^^xsd:date ;
+                              dcterms:modified "2026-09-22"^^xsd:date ;
                               dcterms:publisher <https://ror.org/04hm8eb66> ;
                               dcterms:source co: ;
                               dcterms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
                               <http://purl.org/ontology/bibo/status> "stable" ;
                               <http://purl.org/vocab/vann/preferredNamespacePrefix> "noes" ;
                               <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/pmd/noes/" ;
-                              owl:versionInfo "2026-09-02" .
+                              owl:versionInfo "2026-09-22" .
 
 #################################################################
 #    Annotation properties
@@ -57,7 +57,10 @@ obo:IAO_0000114 rdf:type owl:AnnotationProperty .
 obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
-                                "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ;
+                                "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ,
+                                "A property representing the English language definitions of what NCI means by the concept. They may also include information about the definition's source and attribution in a form that can easily be interpreted by software." ,
+                                "English language definitions of what NCI means by the concept. These are limited to 1024 characters. They may also include information about the definition's source and attribution in a form that can easily be interpreted by software." ,
+                                "The official definition." ;
                 obo:IAO_0000116 """2012-04-05: 
 Barry Smith
 
@@ -352,7 +355,8 @@ obo:BFO_0000050 rdf:type owl:ObjectProperty ;
                                 """Parthood requires the part and the whole to have compatible classes: only an occurrent can be part of an occurrent; only a process can be part of a process; only a continuant can be part of a continuant; only an independent continuant can be part of an independent continuant; only an immaterial entity can be part of an immaterial entity; only a specifically dependent continuant can be part of a specifically dependent continuant; only a generically dependent continuant can be part of a generically dependent continuant. (This list is not exhaustive.)
 
 A continuant cannot be part of an occurrent: use 'participates in'. An occurrent cannot be part of a continuant: use 'has participant'. A material entity cannot be part of an immaterial entity: use 'has location'. A specifically dependent continuant cannot be part of an independent continuant: use 'inheres in'. An independent continuant cannot be part of a specifically dependent continuant: use 'bearer of'."""@en ;
-                rdfs:label "part of"@en .
+                rdfs:label "part of"@en ,
+                           "part of" .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000051
@@ -1958,8 +1962,7 @@ obo:CHEBI_25016 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/CHEBI_25107
 obo:CHEBI_25107 rdf:type owl:Class ;
-                rdfs:subClassOf obo:CHEBI_23367 ,
-                                obo:CHEBI_33521 ;
+                rdfs:subClassOf obo:CHEBI_33521 ;
                 rdfs:label "magnesium atom" .
 
 
@@ -1990,8 +1993,7 @@ obo:CHEBI_25805 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/CHEBI_26216
 obo:CHEBI_26216 rdf:type owl:Class ;
-                rdfs:subClassOf obo:CHEBI_23367 ,
-                                obo:CHEBI_33521 ;
+                rdfs:subClassOf obo:CHEBI_33521 ;
                 rdfs:label "potassium atom" .
 
 
@@ -2041,8 +2043,7 @@ obo:CHEBI_27563 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/CHEBI_27568
 obo:CHEBI_27568 rdf:type owl:Class ;
-                rdfs:subClassOf obo:CHEBI_23367 ,
-                                obo:CHEBI_25585 ,
+                rdfs:subClassOf obo:CHEBI_25585 ,
                                 obo:CHEBI_33303 ;
                 rdfs:label "selenium atom" .
 
@@ -2056,8 +2057,7 @@ obo:CHEBI_27573 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/CHEBI_27594
 obo:CHEBI_27594 rdf:type owl:Class ;
-                rdfs:subClassOf obo:CHEBI_23367 ,
-                                obo:CHEBI_25585 ;
+                rdfs:subClassOf obo:CHEBI_25585 ;
                 rdfs:label "carbon atom" .
 
 
@@ -2126,8 +2126,7 @@ obo:CHEBI_29287 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/CHEBI_30145
 obo:CHEBI_30145 rdf:type owl:Class ;
-                rdfs:subClassOf obo:CHEBI_23367 ,
-                                obo:CHEBI_33521 ;
+                rdfs:subClassOf obo:CHEBI_33521 ;
                 rdfs:label "lithium atom" .
 
 
@@ -2187,8 +2186,7 @@ obo:CHEBI_30513 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/CHEBI_30514
 obo:CHEBI_30514 rdf:type owl:Class ;
-                rdfs:subClassOf obo:CHEBI_23367 ,
-                                obo:CHEBI_33521 ;
+                rdfs:subClassOf obo:CHEBI_33521 ;
                 rdfs:label "caesium atom" .
 
 
@@ -2206,8 +2204,7 @@ obo:CHEBI_30687 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/CHEBI_32594
 obo:CHEBI_32594 rdf:type owl:Class ;
-                rdfs:subClassOf obo:CHEBI_23367 ,
-                                obo:CHEBI_33521 ;
+                rdfs:subClassOf obo:CHEBI_33521 ;
                 rdfs:label "barium atom" .
 
 
@@ -2314,8 +2311,7 @@ obo:CHEBI_33363 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/CHEBI_33364
 obo:CHEBI_33364 rdf:type owl:Class ;
-                rdfs:subClassOf obo:CHEBI_23367 ,
-                                obo:CHEBI_33521 ;
+                rdfs:subClassOf obo:CHEBI_33521 ;
                 rdfs:label "platinum" .
 
 
@@ -15591,6 +15587,42 @@ noes:NOES_0000141 rdf:type owl:Class ;
                   skos:example "9° misorientation between a crystallite with <hkl>{uvw} orientation and <100>{001} cube texture component."@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000142
+noes:NOES_0000142 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000024 ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:BFO_0000050 ;
+                                                           owl:someValuesFrom co:PMD_0000663
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty co:PMD_0025998 ;
+                                                           owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020241
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty co:PMD_0025999 ;
+                                                                                                       owl:someValuesFrom co:PMD_0000663
+                                                                                                     ]
+                                                                                                   ) ;
+                                                                                rdf:type owl:Class
+                                                                              ]
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:comment """TODO: uplift to micro
+TODO: define axiomatically""" ;
+                  rdfs:label "deformation band"@en ;
+                  skos:definition "deformation band is a fiat object part of a crystallite that is part of a microstructure that was subjected to shear deformation. Deformation band is characterized by misorientation of crystal lattice in respect to its grain."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000143
+noes:NOES_0000143 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000024 ;
+                  rdfs:comment """TODO: uplift to micro
+TODO: define axiomatically""" ;
+                  rdfs:label "shear band"@en ;
+                  skos:definition "shear band is a fiat object part of severely shear deformed microstucture that is characterized by localization of strain, high dislocation density, and therefore is a preferential site for the nucleation of new grains during subsequent annealing"@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000144
 noes:NOES_0000144 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000663
@@ -15661,6 +15693,13 @@ noes:NOES_0000144 rdf:type owl:Class ;
                   rdfs:label "crystallite with Goss texture orientation"@en ;
                   skos:comment "Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference."@en ;
                   skos:definition "crystallite with Goss texture orientation is a crystallite whose family of <001> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {110} equivalent directions are oriented approximately parallel to the rolling plane."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000145
+noes:NOES_0000145 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000027 ;
+                  rdfs:label "fibrous band"@en ;
+                  skos:definition "fibrous band is an object aggregate of several elongated crystallites that were deformed in a process with high level of shearing."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000151

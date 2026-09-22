@@ -17,22 +17,22 @@
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-09-02/noes-base.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-09-22/noes-base.owl"/>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-06-01                                  </dcterms:created>
         <dcterms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
         <dcterms:description>NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets.</dcterms:description>
         <dcterms:identifier>https://doi.org/10.5281/zenodo.XXXXXXX      </dcterms:identifier>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-02</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-22</dcterms:issued>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-02</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-22</dcterms:modified>
         <dcterms:publisher rdf:resource="https://ror.org/04hm8eb66"/>
         <dcterms:source rdf:resource="https://w3id.org/pmd/co/"/>
         <dcterms:title>NOES-Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
         <bibo:status>stable</bibo:status>
         <vann:preferredNamespacePrefix>noes</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/pmd/noes/</vann:preferredNamespaceUri>
-        <owl:versionInfo>2026-09-02</owl:versionInfo>
+        <owl:versionInfo>2026-09-22</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -18504,6 +18504,54 @@ Will be inferable in the future</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/pmd/noes/NOES_0000142 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000142">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000024"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025998"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020241"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0025999"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>TODO: uplift to micro
+TODO: define axiomatically</rdfs:comment>
+        <rdfs:label xml:lang="en">deformation band</rdfs:label>
+        <skos:definition xml:lang="en">deformation band is a fiat object part of a crystallite that is part of a microstructure that was subjected to shear deformation. Deformation band is characterized by misorientation of crystal lattice in respect to its grain.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000143 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000143">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000024"/>
+        <rdfs:comment>TODO: uplift to micro
+TODO: define axiomatically</rdfs:comment>
+        <rdfs:label xml:lang="en">shear band</rdfs:label>
+        <skos:definition xml:lang="en">shear band is a fiat object part of severely shear deformed microstucture that is characterized by localization of strain, high dislocation density, and therefore is a preferential site for the nucleation of new grains during subsequent annealing</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/noes/NOES_0000144 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000144">
@@ -18600,6 +18648,16 @@ Will be inferable in the future</rdfs:comment>
         <rdfs:label xml:lang="en">crystallite with Goss texture orientation</rdfs:label>
         <skos:comment xml:lang="en">Note: this class is  not intended to be asserted, but inferred based on the grain orientation relative to the rolling reference frame. It is a part of the macroscopic texture inference.</skos:comment>
         <skos:definition xml:lang="en">crystallite with Goss texture orientation is a crystallite whose family of &lt;001&gt; equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {110} equivalent directions are oriented approximately parallel to the rolling plane.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000145 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000145">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
+        <rdfs:label xml:lang="en">fibrous band</rdfs:label>
+        <skos:definition xml:lang="en">fibrous band is an object aggregate of several elongated crystallites that were deformed in a process with high level of shearing.</skos:definition>
     </owl:Class>
     
 
