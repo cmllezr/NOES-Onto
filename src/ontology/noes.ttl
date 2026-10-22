@@ -10543,6 +10543,19 @@ cryo:CRYO_0000392 rdf:type owl:Class ;
 lattice system based on the point group symmetries of their empty translational frameworks. The specific values are triclinic, monoclinic, orthorhombic, tetragonal, rhombohedral, hexagonal, and cubic."""@en .
 
 
+###  https://w3id.org/pmd/hto/HTO_0000000
+<https://w3id.org/pmd/hto/HTO_0000000> rdf:type owl:Class ;
+                                       rdfs:subClassOf obo:COB_0000035 ;
+                                       dcterms:source "DIN EN ISO 4885:2018, §3 (generic upper-level HT-process taxonomy)" ,
+                                                      "DIN EN ISO 4885:2018, §3.167 (Härtung)" ,
+                                                      "DIN EN ISO 4885:2018, §3.207 (thermochemische Behandlung)" ,
+                                                      "DIN EN ISO 4885:2018, §3.8 (Glühen)" ;
+                                       rdfs:comment "intermediate class/grouping term, not to be instatialized"@en ;
+                                       rdfs:label "Grundsätzlicher Wärmebehandlungsvorgang"@de ,
+                                                  "heat treatment operation"@en ;
+                                       skos:definition "Essential processes that make up heat treatments and can be used like building blocks."@en .
+
+
 ###  https://w3id.org/pmd/hto/HTO_0000039
 <https://w3id.org/pmd/hto/HTO_0000039> rdf:type owl:Class ;
                                        rdfs:subClassOf co:PMD_0000779 ;
@@ -10554,6 +10567,18 @@ lattice system based on the point group symmetries of their empty translational 
                                                        "Wärmebehandlung (3.108), bestehend aus Erwärmen (3.109) und Halten (3.185) auf einer geeigneten Temperatur sowie Abkühlen (3.45), so dass sich bei Raumtemperatur ein dem Gleichgewicht angenäherter Gefügezustand einstellt."@de ,
                                                        "Wärmebehandlung um eine bestimmte Gefügeausbildung zu erzielen oder Spannungen zu reduzieren."@de ;
                                        skos:editorialNote "DIN audit fix (2026-06-09): hto-edit.owl HTO_0000039 currently has only an @en label 'annealing' and no DE label. DIN EN ISO 4885 §3.8 lemma is 'Glühen'. The DE label is added via skos:prefLabel. NB: 4885 §3.8 Anm.1 organises Glühen as a parent of named children (Blankglühen, Normalglühen, Weichglühen, zwischenkritisches Glühen, isothermes Umwandeln, etc.); subclasses HTO_0000093..HTO_0000102 below populate this Glühen-family per DIN 683-7 §6.2.1 granularity contract."@en .
+
+
+###  https://w3id.org/pmd/hto/HTO_0000061
+<https://w3id.org/pmd/hto/HTO_0000061> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/hto/HTO_0000000> ;
+                                       dcterms:source "DIN EN ISO 4885:2018, §3.185" ;
+                                       rdfs:comment "Die HoldingTime ist stets mit einer vorhergehende SoakingTime verbunden."@de ;
+                                       rdfs:label "Halten"@de ,
+                                                  "holding"@en ;
+                                       skos:definition """Grundsätzlicher Wärmebehandlungsvorgang ohne Temperaturänderung im Ofen.
+Teil einer Zeit-Temperatur-Folge, bei dem die Temperatur konstant gehalten wird"""@de ,
+                                                       "essential heat treatment process step without temperature change in the furnace after the designated temperature was homogeneously reached within the part."@en .
 
 
 ###  https://w3id.org/pmd/hto/HTO_0000094

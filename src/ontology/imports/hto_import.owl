@@ -11,8 +11,11 @@ Ontology(<https://w3id.org/pmd/noes/imports/hto_import.owl>
 Annotation(<http://purl.org/dc/elements/1.1/source> <https://w3id.org/pmd/hto/3.0.0>)
 Annotation(owl:versionInfo "2026-10-22")
 
+Declaration(Class(<http://purl.obolibrary.org/obo/COB_0000035>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0000779>))
+Declaration(Class(<https://w3id.org/pmd/hto/HTO_0000000>))
 Declaration(Class(<https://w3id.org/pmd/hto/HTO_0000039>))
+Declaration(Class(<https://w3id.org/pmd/hto/HTO_0000061>))
 Declaration(Class(<https://w3id.org/pmd/hto/HTO_0000094>))
 Declaration(Class(<https://w3id.org/pmd/hto/HTO_0000098>))
 Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/source>))
@@ -26,6 +29,18 @@ Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#editorialNot
 #   Classes
 ############################
 
+# Class: <https://w3id.org/pmd/hto/HTO_0000000> (heat treatment operation)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> <https://w3id.org/pmd/hto/HTO_0000000> "DIN EN ISO 4885:2018, §3 (generic upper-level HT-process taxonomy)")
+AnnotationAssertion(<http://purl.org/dc/terms/source> <https://w3id.org/pmd/hto/HTO_0000000> "DIN EN ISO 4885:2018, §3.167 (Härtung)")
+AnnotationAssertion(<http://purl.org/dc/terms/source> <https://w3id.org/pmd/hto/HTO_0000000> "DIN EN ISO 4885:2018, §3.207 (thermochemische Behandlung)")
+AnnotationAssertion(<http://purl.org/dc/terms/source> <https://w3id.org/pmd/hto/HTO_0000000> "DIN EN ISO 4885:2018, §3.8 (Glühen)")
+AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/hto/HTO_0000000> "intermediate class/grouping term, not to be instatialized"@en)
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/hto/HTO_0000000> "Grundsätzlicher Wärmebehandlungsvorgang"@de)
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/hto/HTO_0000000> "heat treatment operation"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/hto/HTO_0000000> "Essential processes that make up heat treatments and can be used like building blocks."@en)
+SubClassOf(<https://w3id.org/pmd/hto/HTO_0000000> <http://purl.obolibrary.org/obo/COB_0000035>)
+
 # Class: <https://w3id.org/pmd/hto/HTO_0000039> (Glühen)
 
 AnnotationAssertion(<http://purl.org/dc/terms/source> <https://w3id.org/pmd/hto/HTO_0000039> "DIN EN ISO 4885:2018, §3.8")
@@ -37,6 +52,17 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/hto/HTO_0000039> "Wärmebehandlung um eine bestimmte Gefügeausbildung zu erzielen oder Spannungen zu reduzieren."@de)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> <https://w3id.org/pmd/hto/HTO_0000039> "DIN audit fix (2026-06-09): hto-edit.owl HTO_0000039 currently has only an @en label 'annealing' and no DE label. DIN EN ISO 4885 §3.8 lemma is 'Glühen'. The DE label is added via skos:prefLabel. NB: 4885 §3.8 Anm.1 organises Glühen as a parent of named children (Blankglühen, Normalglühen, Weichglühen, zwischenkritisches Glühen, isothermes Umwandeln, etc.); subclasses HTO_0000093..HTO_0000102 below populate this Glühen-family per DIN 683-7 §6.2.1 granularity contract."@en)
 SubClassOf(<https://w3id.org/pmd/hto/HTO_0000039> <https://w3id.org/pmd/co/PMD_0000779>)
+
+# Class: <https://w3id.org/pmd/hto/HTO_0000061> (Halten)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> <https://w3id.org/pmd/hto/HTO_0000061> "DIN EN ISO 4885:2018, §3.185")
+AnnotationAssertion(rdfs:comment <https://w3id.org/pmd/hto/HTO_0000061> "Die HoldingTime ist stets mit einer vorhergehende SoakingTime verbunden."@de)
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/hto/HTO_0000061> "Halten"@de)
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/hto/HTO_0000061> "holding"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/hto/HTO_0000061> "Grundsätzlicher Wärmebehandlungsvorgang ohne Temperaturänderung im Ofen.
+Teil einer Zeit-Temperatur-Folge, bei dem die Temperatur konstant gehalten wird"@de)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> <https://w3id.org/pmd/hto/HTO_0000061> "essential heat treatment process step without temperature change in the furnace after the designated temperature was homogeneously reached within the part."@en)
+SubClassOf(<https://w3id.org/pmd/hto/HTO_0000061> <https://w3id.org/pmd/hto/HTO_0000000>)
 
 # Class: <https://w3id.org/pmd/hto/HTO_0000094> (normalizing)
 
