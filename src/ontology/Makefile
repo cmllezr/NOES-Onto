@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                317b5aa6a748532ab69d376ccb092215f7cffa6f570e7046ccdee90df08f6d66
+CONFIG_HASH=                6f524d3833ccfd7db49bb87e2e4b37e600f658def77772069947d9b7f48adb53
 
 
 # ----------------------------------------
@@ -187,7 +187,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  pmdco tto uo cryo qudt ro
+IMPORTS =  pmdco tto uo cryo qudt hto
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -447,9 +447,9 @@ $(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl
 	@echo "       This rule needs to be overwritten in noes.Makefile!"
 	@false
 
-## Module for ontology: ro (custom)
-$(IMPORTDIR)/ro_import.owl: $(MIRRORDIR)/ro.owl
-	@echo "ERROR: You have configured ro as a custom module;"
+## Module for ontology: hto (custom)
+$(IMPORTDIR)/hto_import.owl: $(MIRRORDIR)/hto.owl
+	@echo "ERROR: You have configured hto as a custom module;"
 	@echo "       This rule needs to be overwritten in noes.Makefile!"
 	@false
 
@@ -571,10 +571,10 @@ mirror-qudt: | $(TMPDIR)
 	$(ROBOT) convert -I https://qudt.org/qudt-all -o $(TMPDIR)/$@.owl
 
 
-## ONTOLOGY: ro
-.PHONY: mirror-ro
-.PRECIOUS: $(MIRRORDIR)/ro.owl
-mirror-ro: | $(TMPDIR)
+## ONTOLOGY: hto
+.PHONY: mirror-hto
+.PRECIOUS: $(MIRRORDIR)/hto.owl
+mirror-hto: | $(TMPDIR)
 	$(ROBOT) convert -I http://purl.obolibrary.org/obo/ro/releases/2025-12-17/ro.owl -o $(TMPDIR)/$@.owl
 
 
