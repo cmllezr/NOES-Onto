@@ -14,7 +14,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix terms: <http://purl.org/dc/terms/> .
-@prefix subsets: <http://purl.obolibrary.org/obo/ro/subsets#> .
 @prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
 @base <https://w3id.org/pmd/noes/> .
 
@@ -38,10 +37,6 @@
 #################################################################
 #    Annotation properties
 #################################################################
-
-###  http://purl.obolibrary.org/obo/IAO_0000111
-obo:IAO_0000111 rdf:type owl:AnnotationProperty .
-
 
 ###  http://purl.obolibrary.org/obo/IAO_0000112
 obo:IAO_0000112 rdf:type owl:AnnotationProperty ;
@@ -125,10 +120,6 @@ obo:IAO_0000116 rdf:type owl:AnnotationProperty ;
 obo:IAO_0000117 rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.obolibrary.org/obo/IAO_0000118
-obo:IAO_0000118 rdf:type owl:AnnotationProperty .
-
-
 ###  http://purl.obolibrary.org/obo/IAO_0000119
 obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000114 obo:IAO_0000122 ;
@@ -150,44 +141,6 @@ obo:IAO_0000233 rdf:type owl:AnnotationProperty .
 
 ###  http://purl.obolibrary.org/obo/IAO_0100001
 obo:IAO_0100001 rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/RO_0001900
-obo:RO_0001900 rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/RO_0002259
-obo:RO_0002259 rdf:type owl:AnnotationProperty ;
-               rdfs:subPropertyOf oboInOwl:SubsetProperty .
-
-
-###  http://purl.obolibrary.org/obo/RO_0040042
-obo:RO_0040042 rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
-obo:valid_for_go_annotation_extension rdf:type owl:AnnotationProperty ;
-                                      rdfs:subPropertyOf oboInOwl:SubsetProperty .
-
-
-###  http://purl.obolibrary.org/obo/valid_for_go_gp2term
-obo:valid_for_go_gp2term rdf:type owl:AnnotationProperty ;
-                         rdfs:subPropertyOf oboInOwl:SubsetProperty .
-
-
-###  http://purl.obolibrary.org/obo/valid_for_go_ontology
-obo:valid_for_go_ontology rdf:type owl:AnnotationProperty ;
-                          rdfs:subPropertyOf oboInOwl:SubsetProperty .
-
-
-###  http://purl.obolibrary.org/obo/valid_for_gocam
-obo:valid_for_gocam rdf:type owl:AnnotationProperty ;
-                    rdfs:subPropertyOf oboInOwl:SubsetProperty .
-
-
-###  http://purl.obolibrary.org/obo/ro/subsets#ro-eco
-subsets:ro-eco rdf:type owl:AnnotationProperty ;
-               rdfs:subPropertyOf oboInOwl:SubsetProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/source
@@ -277,20 +230,12 @@ qudt:wikidataMatch rdf:type owl:AnnotationProperty .
 doap:repository rdf:type owl:AnnotationProperty .
 
 
-###  http://www.geneontology.org/formats/oboInOwl#SubsetProperty
-oboInOwl:SubsetProperty rdf:type owl:AnnotationProperty .
-
-
 ###  http://www.geneontology.org/formats/oboInOwl#hasDbXref
 oboInOwl:hasDbXref rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
 oboInOwl:hasExactSynonym rdf:type owl:AnnotationProperty .
-
-
-###  http://www.geneontology.org/formats/oboInOwl#inSubset
-oboInOwl:inSubset rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#altLabel
@@ -384,7 +329,6 @@ xsd:date rdf:type rdfs:Datatype .
 obo:BFO_0000050 rdf:type owl:ObjectProperty ;
                 owl:inverseOf obo:BFO_0000051 ;
                 rdf:type owl:TransitiveProperty ;
-                obo:IAO_0000111 "is part of"@en ;
                 obo:IAO_0000112 "my brain is part of my body (continuant parthood, two material entities)"@en ,
                                 "my stomach cavity is part of my stomach (continuant parthood, immaterial entity is part of material entity)"@en ,
                                 "this day is part of this year (occurrent parthood)"@en ;
@@ -394,32 +338,14 @@ obo:BFO_0000050 rdf:type owl:ObjectProperty ;
                                 """Parthood requires the part and the whole to have compatible classes: only an occurrent can be part of an occurrent; only a process can be part of a process; only a continuant can be part of a continuant; only an independent continuant can be part of an independent continuant; only an immaterial entity can be part of an immaterial entity; only a specifically dependent continuant can be part of a specifically dependent continuant; only a generically dependent continuant can be part of a generically dependent continuant. (This list is not exhaustive.)
 
 A continuant cannot be part of an occurrent: use 'participates in'. An occurrent cannot be part of a continuant: use 'has participant'. A material entity cannot be part of an immaterial entity: use 'has location'. A specifically dependent continuant cannot be part of an independent continuant: use 'inheres in'. An independent continuant cannot be part of a specifically dependent continuant: use 'bearer of'."""@en ;
-                obo:IAO_0000118 "part_of"@en ;
-                obo:RO_0001900 obo:RO_0001901 ;
-                obo:RO_0040042 obo:BFO_0000002 ,
-                               obo:BFO_0000003 ,
-                               obo:BFO_0000004 ,
-                               obo:BFO_0000017 ,
-                               obo:BFO_0000019 ,
-                               obo:BFO_0000020 ,
-                               obo:BFO_0000031 ;
-                oboInOwl:inSubset obo:valid_for_go_annotation_extension ,
-                                  obo:valid_for_go_gp2term ,
-                                  obo:valid_for_go_ontology ,
-                                  obo:valid_for_gocam ;
                 rdfs:label "part of"@en ,
-                           "part of" ;
-                rdfs:seeAlso <http://ontologydesignpatterns.org/wiki/Community:Parts_and_Collections> ,
-                             <http://ontologydesignpatterns.org/wiki/Submissions:PartOf> ,
-                             "https://wiki.geneontology.org/Part_of"^^xsd:anyURI ,
-                             "http://www.obofoundry.org/ro/#OBO_REL:part_of" .
+                           "part of" .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000051
 obo:BFO_0000051 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:BFO_0000051 ;
                 rdf:type owl:TransitiveProperty ;
-                obo:IAO_0000111 "has part"@en ;
                 obo:IAO_0000112 "my body has part my brain (continuant parthood, two material entities)"@en ,
                                 "my stomach has part my stomach cavity (continuant parthood, material entity has part immaterial entity)"@en ,
                                 "this year has part this day (occurrent parthood)"@en ;
@@ -429,11 +355,6 @@ obo:BFO_0000051 rdf:type owl:ObjectProperty ;
                                 """Parthood requires the part and the whole to have compatible classes: only an occurrent have an occurrent as part; only a process can have a process as part; only a continuant can have a continuant as part; only an independent continuant can have an independent continuant as part; only a specifically dependent continuant can have a specifically dependent continuant as part; only a generically dependent continuant can have a generically dependent continuant as part. (This list is not exhaustive.)
 
 A continuant cannot have an occurrent as part: use 'participates in'. An occurrent cannot have a continuant as part: use 'has participant'. An immaterial entity cannot have a material entity as part: use 'location of'. An independent continuant cannot have a specifically dependent continuant as part: use 'bearer of'. A specifically dependent continuant cannot have an independent continuant as part: use 'inheres in'."""@en ;
-                obo:IAO_0000118 "has_part"@en ;
-                obo:RO_0001900 obo:RO_0001901 ;
-                oboInOwl:inSubset obo:valid_for_go_annotation_extension ,
-                                  obo:valid_for_go_ontology ,
-                                  obo:valid_for_gocam ;
                 rdfs:label "has part"@en .
 
 
@@ -459,16 +380,7 @@ obo:BFO_0000055 rdf:type owl:ObjectProperty ;
 obo:BFO_0000062 rdf:type owl:ObjectProperty ;
                 owl:inverseOf obo:BFO_0000063 ;
                 rdf:type owl:TransitiveProperty ;
-                owl:propertyChainAxiom ( obo:BFO_0000050
-                                         obo:BFO_0000062
-                                       ) ;
-                obo:IAO_0000111 "preceded by"@en ;
                 obo:IAO_0000115 "x is preceded by y if and only if the time point at which y ends is before or equivalent to the time point at which x starts. Formally: x preceded by y iff ω(y) <= α(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point."@en ;
-                obo:IAO_0000116 "An example is: translation preceded_by transcription; aging preceded_by development (not however death preceded_by aging). Where derives_from links classes of continuants, preceded_by links classes of processes. Clearly, however, these two relations are not independent of each other. Thus if cells of type C1 derive_from cells of type C, then any cell division involving an instance of C1 in a given lineage is preceded_by cellular processes involving an instance of C.    The assertion P preceded_by P1 tells us something about Ps in general: that is, it tells us something about what happened earlier, given what we know about what happened later. Thus it does not provide information pointing in the opposite direction, concerning instances of P1 in general; that is, that each is such as to be succeeded by some instance of P. Note that an assertion to the effect that P preceded_by P1 is rather weak; it tells us little about the relations between the underlying instances in virtue of which the preceded_by relation obtains. Typically we will be interested in stronger relations, for example in the relation immediately_preceded_by, or in relations which combine preceded_by with a condition to the effect that the corresponding instances of P and P1 share participants, or that their participants are connected by relations of derivation, or (as a first step along the road to a treatment of causality) that the one process in some way affects (for example, initiates or regulates) the other."@en ;
-                obo:IAO_0000118 "is preceded by"@en ,
-                                "preceded_by"@en ;
-                terms:source "http://www.obofoundry.org/ro/#OBO_REL:preceded_by" ;
-                oboInOwl:inSubset subsets:ro-eco ;
                 rdfs:label "preceded by"@en ;
                 skos:definition "b preceded by c =Def b precedes c"@en ;
                 skos:example "The temporal region occupied by the second half of the match is preceded by the temporal region occupied by the first half of the match"@en .
@@ -477,12 +389,7 @@ obo:BFO_0000062 rdf:type owl:ObjectProperty ;
 ###  http://purl.obolibrary.org/obo/BFO_0000063
 obo:BFO_0000063 rdf:type owl:ObjectProperty ,
                          owl:TransitiveProperty ;
-                owl:propertyChainAxiom ( obo:BFO_0000050
-                                         obo:BFO_0000063
-                                       ) ;
-                obo:IAO_0000111 "precedes"@en ;
                 obo:IAO_0000115 "x precedes y if and only if the time point at which x ends is before or equivalent to the time point at which y starts. Formally: x precedes y iff ω(x) <= α(y), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point."@en ;
-                oboInOwl:inSubset subsets:ro-eco ;
                 rdfs:label "precedes"@en ;
                 skos:definition "(Elucidation) precedes is a relation between occurrents o, o' such that if t is the temporal extent of o & t' is the temporal extent of o' then either the last instant of o is before the first instant of o' or the last instant of o is the first instant of o' & neither o nor o' are temporal instants"@en ;
                 skos:example "The temporal region occupied by Mary's birth precedes the temporal region occupied by Mary's death."@en .
@@ -531,6 +438,13 @@ obo:BFO_0000132 rdf:type owl:ObjectProperty ;
                 rdfs:label "occurrent part of"@en ;
                 skos:definition "(Elucidation) occurrent part of is a relation between occurrents b and c when b is part of c"@en ;
                 skos:example "Mary's 5th birthday is an occurrent part of Mary's life; the first set of the tennis match is an occurrent part of the tennis match"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:BFO_0000132 ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000050 ;
+   rdfs:comment "\"occurrent part of\" is not a BFO2020 temporalized relation. It just restricts the domain and range to \"occurrent\". That's why is should be OK to make it sub property of RO \"part of\""
+ ] .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000138
@@ -761,15 +675,11 @@ obo:OBI_0001938 rdf:type owl:ObjectProperty ;
 
 ###  http://purl.obolibrary.org/obo/RO_0000052
 obo:RO_0000052 rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0002502 ;
                owl:inverseOf obo:RO_0000053 ;
                rdf:type owl:FunctionalProperty ;
-               obo:IAO_0000111 "inheres in"@en ;
                obo:IAO_0000112 "this fragility is a characteristic of this vase"@en ,
                                "this red color is a characteristic of this apple"@en ;
                obo:IAO_0000115 "a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence."@en ;
-               obo:IAO_0000118 "inheres_in"@en ;
-               obo:RO_0001900 obo:RO_0001901 ;
                rdfs:comment "Note that this relation was previously called \"inheres in\", but was changed to be called \"characteristic of\" because BFO2 uses \"inheres in\" in a more restricted fashion. This relation differs from BFO2:inheres_in in two respects: (1) it does not impose a range constraint, and thus it allows qualities of processes, as well as of information entities, whereas BFO2 restricts inheres_in to only apply to independent continuants (2) it is declared functional, i.e. something can only be a characteristic of one thing." ;
                rdfs:label "characteristic of"@en .
 
@@ -777,26 +687,20 @@ obo:RO_0000052 rdf:type owl:ObjectProperty ;
 ###  http://purl.obolibrary.org/obo/RO_0000053
 obo:RO_0000053 rdf:type owl:ObjectProperty ,
                         owl:InverseFunctionalProperty ;
-               obo:IAO_0000111 "bearer of"@en ;
                obo:IAO_0000112 "this apple is bearer of this red color"@en ,
                                "this vase is bearer of this fragility"@en ;
                obo:IAO_0000115 "Inverse of characteristic_of"@en ;
                obo:IAO_0000116 "A bearer can have many dependents, and its dependents can exist for different periods of time, but none of its dependents can exist when the bearer does not exist."@en ;
-               obo:IAO_0000118 "bearer_of"@en ,
-                               "is bearer of"@en ;
-               obo:RO_0001900 obo:RO_0001901 ;
                rdfs:label "has characteristic"@en .
 
 
 ###  http://purl.obolibrary.org/obo/RO_0000056
 obo:RO_0000056 rdf:type owl:ObjectProperty ;
                owl:inverseOf obo:RO_0000057 ;
-               obo:IAO_0000111 "participates in"@en ;
                obo:IAO_0000112 "this blood clot participates in this blood coagulation"@en ,
                                "this input material (or this output material) participates in this process"@en ,
                                "this investigator participates in this investigation"@en ;
                obo:IAO_0000115 "a relation between a continuant and a process, in which the continuant is somehow involved in the process"@en ;
-               obo:IAO_0000118 "participates_in"@en ;
                rdfs:label "participates in"@en .
 
 
@@ -805,14 +709,11 @@ obo:RO_0000057 rdf:type owl:ObjectProperty ;
                owl:propertyChainAxiom ( obo:BFO_0000051
                                         obo:RO_0000057
                                       ) ;
-               obo:IAO_0000111 "has participant"@en ;
                obo:IAO_0000112 "this blood coagulation has participant this blood clot"@en ,
                                "this investigation has participant this investigator"@en ,
                                "this process has participant this input material (or this output material)"@en ;
                obo:IAO_0000115 "a relation between a process and a continuant, in which the continuant is somehow involved in the process"@en ;
                obo:IAO_0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time."@en ;
-               obo:IAO_0000118 "has_participant"@en ;
-               terms:source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" ;
                rdfs:label "has participant"@en .
 
 
@@ -842,8 +743,6 @@ obo:RO_0000079 rdf:type owl:ObjectProperty ;
                obo:IAO_0000112 "this catalysis function is a function of this enzyme"@en ;
                obo:IAO_0000115 "a relation between a function and an independent continuant (the bearer), in which the function specifically depends on the bearer for its existence"@en ;
                obo:IAO_0000116 "A function inheres in its bearer at all times for which the function exists, however the function need not be realized at all the times that the function exists."@en ;
-               obo:IAO_0000118 "function_of"@en ,
-                               "is function of"@en ;
                rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
                rdfs:label "function of"@en .
 
@@ -855,8 +754,6 @@ obo:RO_0000080 rdf:type owl:ObjectProperty ;
                obo:IAO_0000112 "this red color is a quality of this apple"@en ;
                obo:IAO_0000115 "a relation between a quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence"@en ;
                obo:IAO_0000116 "A quality inheres in its bearer at all times for which the quality exists."@en ;
-               obo:IAO_0000118 "is quality of"@en ,
-                               "quality_of"@en ;
                rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
                rdfs:label "quality of"@en .
 
@@ -868,8 +765,6 @@ obo:RO_0000081 rdf:type owl:ObjectProperty ;
                obo:IAO_0000112 "this investigator role is a role of this person"@en ;
                obo:IAO_0000115 "a relation between a role and an independent continuant (the bearer), in which the role specifically depends on the bearer for its existence"@en ;
                obo:IAO_0000116 "A role inheres in its bearer at all times for which the role exists, however the role need not be realized at all the times that the role exists."@en ;
-               obo:IAO_0000118 "is role of"@en ,
-                               "role_of"@en ;
                rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
                rdfs:label "role of"@en .
 
@@ -880,7 +775,6 @@ obo:RO_0000085 rdf:type owl:ObjectProperty ;
                obo:IAO_0000112 "this enzyme has function this catalysis function (more colloquially: this enzyme has this catalysis function)"@en ;
                obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence"@en ;
                obo:IAO_0000116 "A bearer can have many functions, and its functions can exist for different periods of time, but none of its functions can exist when the bearer does not exist. A function need not be realized at all the times that the function exists."@en ;
-               obo:IAO_0000118 "has_function"@en ;
                rdfs:label "has function"@en .
 
 
@@ -890,7 +784,6 @@ obo:RO_0000086 rdf:type owl:ObjectProperty ;
                obo:IAO_0000112 "this apple has quality this red color"@en ;
                obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a quality, in which the quality specifically depends on the bearer for its existence"@en ;
                obo:IAO_0000116 "A bearer can have many qualities, and its qualities can exist for different periods of time, but none of its qualities can exist when the bearer does not exist."@en ;
-               obo:IAO_0000118 "has_quality"@en ;
                rdfs:label "has quality"@en .
 
 
@@ -900,7 +793,6 @@ obo:RO_0000087 rdf:type owl:ObjectProperty ;
                obo:IAO_0000112 "this person has role this investigator role (more colloquially: this person has this role of investigator)"@en ;
                obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence"@en ;
                obo:IAO_0000116 "A bearer can have many roles, and its roles can exist for different periods of time, but none of its roles can exist when the bearer does not exist. A role need not be realized at all the times that the role exists."@en ;
-               obo:IAO_0000118 "has_role"@en ;
                rdfs:label "has role"@en .
 
 
@@ -916,7 +808,6 @@ obo:RO_0000091 rdf:type owl:ObjectProperty ;
 obo:RO_0000092 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:RO_0000052 ;
                obo:IAO_0000115 "inverse of has disposition" ;
-               oboInOwl:inSubset obo:RO_0002259 ;
                rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
                rdfs:label "disposition of"@en .
 
@@ -1021,16 +912,8 @@ obo:RO_0002233 rdf:type owl:ObjectProperty ;
                owl:propertyChainAxiom ( obo:RO_0002224
                                         obo:RO_0002233
                                       ) ;
-               obo:IAO_0000114 obo:IAO_0000125 ;
                obo:IAO_0000115 "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p." ;
-               obo:IAO_0000117 <https://orcid.org/0000-0002-6601-2165> ;
-               obo:IAO_0000118 "consumes" ;
-               oboInOwl:inSubset obo:valid_for_go_annotation_extension ,
-                                 obo:valid_for_go_ontology ,
-                                 obo:valid_for_gocam ,
-                                 subsets:ro-eco ;
-               rdfs:label "has input"@en ;
-               rdfs:seeAlso "https://wiki.geneontology.org/Has_input"^^xsd:anyURI .
+               rdfs:label "has input"@en .
 
 
 ###  http://purl.obolibrary.org/obo/RO_0002234
@@ -1054,8 +937,6 @@ sum === 'has addend' some entity
 product === 'has factor' some entity
 quotient === ('has numerator' only entity) and ('has denominator' only entity)
 derivative === ('has differential numerator' only entity) and ('has differential denominator' only entity)"""@en ;
-               obo:IAO_0000117 <https://orcid.org/0000-0002-6601-2165> ;
-               obo:IAO_0000232 "This is a grouping relation that collects relations used for the purpose of connecting structure and function" ;
                rdfs:label "functionally related to"@en ;
                rdfs:seeAlso obo:RO_0002328 ;
                skos:definition "A grouping relationship for any relationship directly involving a function, or that holds because of a function of one of the related entities."@en .
@@ -1085,9 +966,6 @@ obo:RO_0002352 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:RO_0000056 ,
                                   obo:RO_0002328 ;
                obo:IAO_0000115 "inverse of has input" ;
-               obo:IAO_0000117 <https://orcid.org/0000-0002-6601-2165> ;
-               oboInOwl:inSubset obo:RO_0002259 ,
-                                 subsets:ro-eco ;
                rdfs:label "input of"@en .
 
 

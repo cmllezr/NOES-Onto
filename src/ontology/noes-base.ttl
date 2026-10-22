@@ -132,6 +132,10 @@ skos:comment rdf:type owl:AnnotationProperty .
 skos:definition rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+skos:editorialNote rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#example
 skos:example rdf:type owl:AnnotationProperty .
 
@@ -8522,6 +8526,43 @@ cryo:CRYO_0000392 rdf:type owl:Class ;
                   rdfs:label "lattice system value"@en ;
                   skos:definition """lattice system value is a categorical value specification which describes the grouping of
 lattice system based on the point group symmetries of their empty translational frameworks. The specific values are triclinic, monoclinic, orthorhombic, tetragonal, rhombohedral, hexagonal, and cubic."""@en .
+
+
+###  https://w3id.org/pmd/hto/HTO_0000039
+<https://w3id.org/pmd/hto/HTO_0000039> rdf:type owl:Class ;
+                                       rdfs:subClassOf co:PMD_0000779 ;
+                                       dcterms:source "DIN EN ISO 4885:2018, §3.8" ;
+                                       rdfs:label "Glühen"@de ,
+                                                  "annealing"@en ;
+                                       skos:definition "Heat treatment (3.108), consisting of heating (3.109) and soaking (3.185) at a suitable temperature followed by cooling (3.45), such that an equilibrium-near microstructure is reached at room temperature."@en ,
+                                                       "Heat treatment process to form a specific microstructure or reduce residual stresses."@en ,
+                                                       "Wärmebehandlung (3.108), bestehend aus Erwärmen (3.109) und Halten (3.185) auf einer geeigneten Temperatur sowie Abkühlen (3.45), so dass sich bei Raumtemperatur ein dem Gleichgewicht angenäherter Gefügezustand einstellt."@de ,
+                                                       "Wärmebehandlung um eine bestimmte Gefügeausbildung zu erzielen oder Spannungen zu reduzieren."@de ;
+                                       skos:editorialNote "DIN audit fix (2026-06-09): hto-edit.owl HTO_0000039 currently has only an @en label 'annealing' and no DE label. DIN EN ISO 4885 §3.8 lemma is 'Glühen'. The DE label is added via skos:prefLabel. NB: 4885 §3.8 Anm.1 organises Glühen as a parent of named children (Blankglühen, Normalglühen, Weichglühen, zwischenkritisches Glühen, isothermes Umwandeln, etc.); subclasses HTO_0000093..HTO_0000102 below populate this Glühen-family per DIN 683-7 §6.2.1 granularity contract."@en .
+
+
+###  https://w3id.org/pmd/hto/HTO_0000094
+<https://w3id.org/pmd/hto/HTO_0000094> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/hto/HTO_0000039> ;
+                                       dcterms:source "DIN EN ISO 4885:2018, §3.146" ,
+                                                      "DIN EN ISO 683-7:2025, §6.2.1 (+N delivery state)" ;
+                                       rdfs:label "Normalglühen"@de ,
+                                                  "normalizing"@en ;
+                                       skos:definition "Heat treatment (3.108) aimed at refining and homogenising the grain size (3.99) of a ferrous product, consisting of heating (3.109) to a temperature slightly above A3 (A1 for hypereutectoid steels (3.117)), without prolonged soaking, followed by suitable cooling (3.45) to achieve a fine ferrite-pearlite microstructure."@en ,
+                                                       "Wärmebehandlung (3.108) mit dem Ziel, die Korngröße (3.99) eines Eisenerzeugnisses zu verfeinern und schließlich einheitlicher zu machen, bestehend aus Erwärmen (3.109) auf eine Temperatur wenig oberhalb A3 (A1 bei übereutektoidischen Stählen (3.117)), ohne längeres Halten bei dieser Temperatur, und anschließendem zweckmäßigen Abkühlen (3.45) bis zum Erreichen eines feinen ferritisch-perlitischen Gefüges."@de ;
+                                       skos:editorialNote "DIN audit addition (2026-06-09): Glühen-family subclass from DIN EN ISO 4885 §3.146. Aligns with DIN EN ISO 683-7 +N delivery state."@en .
+
+
+###  https://w3id.org/pmd/hto/HTO_0000098
+<https://w3id.org/pmd/hto/HTO_0000098> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/hto/HTO_0000039> ;
+                                       dcterms:source "DIN EN ISO 4885:2018, §3.174" ;
+                                       rdfs:label "Rekristallisationsglühen"@de ,
+                                                  "recrystallization annealing"@en ;
+                                       skos:altLabel "recrystallisation annealing"@en ;
+                                       skos:definition "Annealing (3.8) to eliminate the strength increase from cold deformation and to renew grains via nucleation without phase change (3.156)."@en ,
+                                                       "Glühen (3.8) zur Beseitigung der Festigkeitszunahme nach Kaltumformung und Kornneubildung durch Keimbildung ohne Änderung der Phase (3.156)."@de ;
+                                       skos:editorialNote "DIN audit addition (2026-06-09): Glühen-family subclass from DIN EN ISO 4885 §3.174."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000000

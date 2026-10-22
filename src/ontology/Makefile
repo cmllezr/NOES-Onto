@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                6f524d3833ccfd7db49bb87e2e4b37e600f658def77772069947d9b7f48adb53
+CONFIG_HASH=                8903efade1a1a10ff25a11a0282e140d18c5b9db766a82dbdeabebb414ba0c3e
 
 
 # ----------------------------------------
@@ -575,7 +575,7 @@ mirror-qudt: | $(TMPDIR)
 .PHONY: mirror-hto
 .PRECIOUS: $(MIRRORDIR)/hto.owl
 mirror-hto: | $(TMPDIR)
-	$(ROBOT) convert -I http://purl.obolibrary.org/obo/ro/releases/2025-12-17/ro.owl -o $(TMPDIR)/$@.owl
+	$(ROBOT) convert -I https://materialdigital.github.io/heat-treatment-application-ontology/ontology.ttl -o $(TMPDIR)/$@.owl
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)
