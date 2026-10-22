@@ -1616,21 +1616,6 @@ co:PMD_0000583 rdf:type owl:Class ;
                                "Ein Prozess, der die systematische Verwendung von rechnerischen Methoden und Werkzeugen umfasst, um Simulationen, Analysen oder Datenumwandlungen durchzuführen, um spezifische wissenschaftliche oder technische Ziele zu erreichen."@de .
 
 
-###  https://w3id.org/pmd/co/PMD_0000591
-co:PMD_0000591 rdf:type owl:Class ;
-               obo:IAO_0000114 obo:IAO_0000122 ;
-               obo:IAO_0000116 "will move to CryO" ;
-               obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
-               obo:IAO_0100001 "Obsolete by Kamilla: replaced with defines crystal lattices with fancy axioms an SWRL rules in CryO https://github.com/materialdigital/crystallography-subdomain-ontology"@en ;
-               rdfs:comment "The finite set of periodic geometric arrangements is described e.g. by the 14 possible Bravais Lattices in three-dimensional space."@en ;
-               rdfs:label "Kristallstruktur"@de ,
-                          "OBSOLETE crystal structure"@en ;
-               owl:deprecated "true"^^xsd:boolean ;
-               skos:definition "an intensive quality of a crystal that embodies the periodic geometric arrangement of entities in a crystal lattice."@en ,
-                               "eine intensive Kristallqualität, die die periodische geometrische Anordnung von Einheiten in einem Kristallgitter verkörpert."@de ;
-               co:PMD_0000060 "true"^^xsd:boolean .
-
-
 ###  https://w3id.org/pmd/co/PMD_0000592
 co:PMD_0000592 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000034 ,
@@ -1680,43 +1665,6 @@ co:PMD_0000596 rdf:type owl:Class ;
                                                                                                                          owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000202
                                                                                                                                                                    [ rdf:type owl:Restriction ;
                                                                                                                                                                      owl:onProperty obo:BFO_0000157 ;
-                                                                                                                                                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000068
-                                                                                                                                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                                                                                                                                 owl:onProperty obo:RO_0000086 ;
-                                                                                                                                                                                                                 owl:someValuesFrom co:PMD_0020132
-                                                                                                                                                                                                               ]
-                                                                                                                                                                                                             ) ;
-                                                                                                                                                                                          rdf:type owl:Class
-                                                                                                                                                                                        ]
-                                                                                                                                                                   ]
-                                                                                                                                                                 ) ;
-                                                                                                                                              rdf:type owl:Class
-                                                                                                                                            ]
-                                                                                                                       ]
-                                                                                                                     ) ;
-                                                                                                  rdf:type owl:Class
-                                                                                                ]
-                                                                           ]
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty obo:RO_0000086 ;
-                                                                             owl:someValuesFrom co:PMD_0020132
-                                                                           ]
-                                                                         ) ;
-                                                      rdf:type owl:Class
-                                                    ]
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000057 ;
-                                 owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000068
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty obo:BFO_0000108 ;
-                                                                             owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000202
-                                                                                                                       [ rdf:type owl:Restriction ;
-                                                                                                                         owl:onProperty obo:BFO_0000063 ;
-                                                                                                                         owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000202
-                                                                                                                                                                   [ rdf:type owl:Restriction ;
-                                                                                                                                                                     owl:onProperty [ owl:inverseOf obo:BFO_0000108
-                                                                                                                                                                                    ] ;
                                                                                                                                                                      owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000068
                                                                                                                                                                                                                [ rdf:type owl:Restriction ;
                                                                                                                                                                                                                  owl:onProperty obo:RO_0000086 ;
@@ -2405,10 +2353,6 @@ co:PMD_0000853 rdf:type owl:Class ;
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000080 ;
-                                 owl:someValuesFrom noes:NOES_0000177
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000080 ;
                                  owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000000
                                                                            co:PMD_0020106
                                                                          ) ;
@@ -2935,10 +2879,6 @@ co:PMD_0001016 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0001014 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0009006 ;
-                                 owl:someValuesFrom co:PMD_0000591
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0009006 ;
                                  owl:someValuesFrom co:PMD_0000853
                                ] ;
                obo:IAO_0000114 obo:IAO_0000122 ;
@@ -3091,11 +3031,7 @@ co:PMD_0020000 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020003
 co:PMD_0020003 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000030 ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000086 ;
-                                 owl:someValuesFrom co:PMD_0000591
-                               ] ;
+               rdfs:subClassOf obo:BFO_0000030 ;
                obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
                rdfs:label "crystal"@en ;
@@ -4264,11 +4200,6 @@ co:PMD_0020101 rdf:type owl:Class ;
                                    ] ;
                rdfs:subClassOf obo:BFO_0000145 ,
                                co:PMD_0020108 ,
-                               co:PMD_0020353 ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0002328 ;
-                                 owl:someValuesFrom obo:BFO_0000001
-                               ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0002503 ;
                                  owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
@@ -4309,56 +4240,10 @@ A comparison of two or more quantities (a relationship), e.g. 3:2:1 for prosecco
 
 Proportion: 
 A statement that two ratios/fractions are equal (an equation), e.g. 2/3=4/6"""@en ;
-               rdfs:label "Anteil"@de ,
-                          "fraction property"@en ,
-                          "proportion"@en ;
+               rdfs:label "fraction property"@en ;
                skos:altLabel "part-whole property"@en ;
-               skos:definition "A proportion is a relational quality between two entities (the whole and the part) which quantifies the relation between the whole and its part."@en ,
-                               "a property describing a quantitative relation between two entites where one entity represents the whole and the other entity represents a part of the whole"@en ;
+               skos:definition "a property describing a quantitative relation between two entites where one entity represents the whole and the other entity represents a part of the whole"@en ;
                skos:example "aperol spritz: 3/6 prosecco, 2/6 aperol, 1/6 sparkling water in vol/vol"@en .
-
-
-###  https://w3id.org/pmd/co/PMD_0020102
-co:PMD_0020102 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0080069 ;
-               obo:IAO_0000114 obo:IAO_0000122 ;
-               obo:IAO_0000116 "Necessary and sufficient conditions for 'mass ratio' have not yet been formalized. The term is defined as a specific subtype of 'material composition'. Distinguishing criteria are domain-specific and depend on measurement conventions or source terminology not yet expressed as OWL restrictions."@en ;
-               obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
-               rdfs:label "Massenverhältnis"@de ,
-                          "mass ratio"@en ;
-               skos:definition "Das Massenverhältnis bezeichnet eine relationale Qualität, die einen Massenwert im Verhältnis zu einem anderen ausdrückt und typischerweise eine dimensionslose Zahl ergibt"@de ,
-                               "Mass ratio denotes a relational quality expressing one mass value relative to another, typically producing a dimensionless number"@en ;
-               skos:example "A fiber-reinforced composite has a fiber-to-matrix mass ratio of 60:40"@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
-
-
-###  https://w3id.org/pmd/co/PMD_0020103
-co:PMD_0020103 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0080069 ;
-               obo:IAO_0000114 obo:IAO_0000122 ;
-               obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
-               rdfs:label "Molverhältnis"@de ,
-                          "molar ratio"@en ;
-               skos:altLabel "molar proportion"@en ;
-               skos:definition "Der Molanteil ist der Anteil, der die Anzahl der Einheiten des Teils im Verhältnis zur Anzahl der Einheiten des Ganzen quantifiziert."@de ,
-                               "Molar proportion is the proportion which quantifies the entities count of the part in relation to the entities count of the whole."@en ;
-               skos:example """The molar ratio of hydrogen gas H2 molecules to water H2O molecules is 1/1 in the oxyhydrogen reaction. The molar ratio of oxygen molecules O2 to water molecules is 2/1.
-The molar ratio of carbon dioxide to average atmosphere air is 420 ppm as of 2022 AD."""@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
-
-
-###  https://w3id.org/pmd/co/PMD_0020104
-co:PMD_0020104 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0080069 ;
-               obo:IAO_0000114 obo:IAO_0000122 ;
-               obo:IAO_0000116 "Necessary and sufficient conditions for 'volume ratio' have not yet been formalized. The term is defined as a specific subtype of 'material composition'. Distinguishing criteria are domain-specific and depend on measurement conventions or source terminology not yet expressed as OWL restrictions."@en ;
-               obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
-               rdfs:label "Volumenverhältnis"@de ,
-                          "volume ratio"@en ;
-               skos:definition "Volume ratio represents a relational quality expressing one volume value relative to another, typically resulting in a dimensionless number"@en ,
-                               "Volumenverhältnis stellt eine relationale Qualität dar, die einen Volumenwert im Verhältnis zu einem anderen ausdrückt, typischerweise resultierend in einer dimensionslosen Zahl"@de ;
-               skos:example "A foam material has a pore-to-solid volume ratio of 4:1, indicating 80 % porosity"@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020106
@@ -4799,18 +4684,11 @@ co:PMD_0020205 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020207
 co:PMD_0020207 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020103 ;
-               obo:IAO_0000114 obo:IAO_0000122 ;
-               obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
                rdfs:comment "same as per mol property and not a relational property cause it does not relate part to whole" ;
-               rdfs:label "DEPRECATED molar amount of entities or substance"@en ,
-                          "Stoffmenge"@de ,
-                          "amount of substance"@en ;
+               rdfs:label "DEPRECATED molar amount of entities or substance"@en ;
                rdfs:seeAlso co:PMD_0020369 ;
                owl:deprecated "true"^^xsd:boolean ;
-               skos:definition "Amount of substance n is a molar proportion when the whole is an object aggregate N, which has avogadro number objects (of same type) as parts (n = N/N_A)."@en ,
-                               "DEPRECATED Amount of substance n is a molar proportion when the whole is an object aggregate N, which has avogadro number objects (of same type) as parts (n = N/N_A)."@en ,
-                               "Die Menge der Substanz n ist ein molarer Anteil, wenn das Ganze ein Objektaggregat N ist, das Avogadro-Anzahlobjekte (gleicher Art) als Teile hat (n = N/N_A)."@de .
+               skos:definition "DEPRECATED Amount of substance n is a molar proportion when the whole is an object aggregate N, which has avogadro number objects (of same type) as parts (n = N/N_A)."@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020210
@@ -5223,7 +5101,7 @@ co:PMD_0020275 rdf:type owl:Class ;
                                                         ]
                                    ] ;
                rdfs:subClassOf co:PMD_0020274 ,
-                               _:genid754 ,
+                               _:genid730 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty co:PMD_0000009 ;
                                  owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020277
@@ -5249,7 +5127,7 @@ co:PMD_0020275 rdf:type owl:Class ;
                skos:definition "a process which has a thermodyanamic system as participant where entropy remains constant, ΔS=0"@en ;
                skos:example "perfectly elastic spring-mass oscillator, adiabatic expansion or compression of an ideal gas"@en .
 
-_:genid754 rdf:type owl:Restriction ;
+_:genid730 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000057 ;
             owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000068
                                                       [ rdf:type owl:Restriction ;
@@ -5263,7 +5141,7 @@ _:genid754 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020275 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid754 ;
+   owl:annotatedTarget _:genid730 ;
    rdfs:comment "Could add a SWRL rule that the difference in entropy between the TQCs is zero"@en
  ] .
 
@@ -5271,7 +5149,7 @@ _:genid754 rdf:type owl:Restriction ;
 ###  https://w3id.org/pmd/co/PMD_0020276
 co:PMD_0020276 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020274 ,
-                               _:genid769 ;
+                               _:genid745 ;
                obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
                rdfs:label "dissipative process"@en ;
@@ -5279,7 +5157,7 @@ co:PMD_0020276 rdf:type owl:Class ;
                skos:definition "a process which has a thermodyanamic system as participant where entropy increases, ΔS>0"@en ;
                skos:example "plastic deformation of a metal, frictional sliding, Joule expansion"@en .
 
-_:genid769 rdf:type owl:Restriction ;
+_:genid745 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000057 ;
             owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000068
                                                       [ rdf:type owl:Restriction ;
@@ -5293,7 +5171,7 @@ _:genid769 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020276 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid769 ;
+   owl:annotatedTarget _:genid745 ;
    rdfs:comment "Could add a SWRL rule that the difference in entropy between the TQCs is larger than zero"@en
  ] .
 
@@ -5621,19 +5499,7 @@ co:PMD_0020339 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0020352
 co:PMD_0020352 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020142 ,
-                               co:PMD_0020335 ,
-                               co:PMD_0023004 ,
-                               [ rdf:type owl:Class ;
-                                 owl:unionOf ( co:PMD_0020364
-                                               co:PMD_0020366
-                                               co:PMD_0020369
-                                             )
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000080 ;
-                                 owl:someValuesFrom co:PMD_0000000
-                               ] ;
+               rdfs:subClassOf co:PMD_0020142 ;
                rdfs:label "elastic strain energy"@en ;
                skos:definition "energy stored in elastic deformation"@en ;
                skos:example "A spring with spring constant k = 200 N/m is compressed by x = 0.1 m and then stores 1J"@en .
@@ -6499,14 +6365,9 @@ co:PMD_0025997 rdf:type owl:Class ;
                                  owl:onProperty obo:RO_0002350 ;
                                  owl:allValuesFrom co:PMD_0020004
                                ] ;
-               obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000117 "PERSON: Kamilla Zaripova" ;
-               rdfs:label "Angabe des Bruchwerts"@de ,
-                          "concentration value specification"@en ,
-                          "fraction value specification"@en ;
-               skos:definition "Bei der Bruchwertspezifikation handelt es sich um eine Wertspezifikation, die Informationen über den quantitativen Anteil eines Teils im Verhältnis zu einem angegebenen Ganzen enthält."@de ,
-                               "Fraction value specification is a value specification that contains information about quantitative share of a part relative to a specified whole."@en ,
-                               "a value specification that contains information about quantitative share of a part relative to a specified whole."@en ;
+               rdfs:label "concentration value specification"@en ;
+               skos:definition "a value specification that contains information about quantitative share of a part relative to a specified whole."@en ;
                skos:example "2.05 wt.% of carbon in steel, 4 vol.% of nitric acid in a solution"@en .
 
 
@@ -6529,7 +6390,6 @@ co:PMD_0040001 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0050000
 co:PMD_0050000 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020284 ,
-                               co:PMD_0020353 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty co:PMD_0025999 ;
                                  owl:someValuesFrom obo:CHEBI_33250
@@ -6785,65 +6645,33 @@ where k_B​ is the Boltzmann constant and W is the number of microstates."""@en
 
 ###  https://w3id.org/pmd/co/PMD_0080069
 co:PMD_0080069 rdf:type owl:Class ;
-               rdfs:subClassOf obo:BFO_0000145 ,
-                               co:PMD_0020353 ;
-               obo:IAO_0000114 obo:IAO_0000122 ;
-               obo:IAO_0000116 "Necessary and sufficient conditions for 'physical relational quality' have not yet been formalized. The term is defined as a specific subtype of 'BFO_0000145'. Distinguishing criteria are domain-specific and depend on measurement conventions or source terminology not yet expressed as OWL restrictions."@en ;
-               obo:IAO_0000117 "PERSON: Thomas Hanke" ;
-               rdfs:label "physical relational quality"@en ,
-                          "physisch relative Qualität"@de ;
-               skos:definition "Die physische Beziehungsqualität bezieht sich auf Eigenschaften oder Merkmale einer Entität, die von ihrer Beziehung zu anderen Entitäten abhängig sind"@de ,
-                               "Physical relational quality pertains to properties or characteristics of an entity dependent on its relation to other entities"@en ;
-               skos:example "The coefficient of friction between two surfaces is a physical relational quality inhering in both contacting materials"@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
+               rdfs:subClassOf obo:BFO_0000145 .
 
 
 ###  https://w3id.org/pmd/co/PMD_0080100
 co:PMD_0080100 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020102 ;
-               obo:IAO_0000114 obo:IAO_0000122 ;
-               obo:IAO_0000116 "Necessary and sufficient conditions for 'mass fraction' have not yet been formalized. The term is defined as a specific subtype of 'mass ratio'. Distinguishing criteria are domain-specific and depend on measurement conventions or source terminology not yet expressed as OWL restrictions. The definition is adapted from: https://de.wikipedia.org/wiki/Massenanteil."@en ;
-               obo:IAO_0000117 "PERSON: Thomas Hanke" ;
-               obo:IAO_0000119 <https://de.wikipedia.org/wiki/Massenanteil> ;
-               rdfs:label "DEPRECATED mass fraction"@en ,
-                          "Massenanteil"@de ,
-                          "mass fraction"@en ;
+               rdfs:label "DEPRECATED mass fraction"@en ;
                rdfs:seeAlso co:PMD_0020102 ;
                owl:deprecated "true"^^xsd:boolean ;
-               skos:definition "DEPRECATED mass ratio that describes the relative proportion of a mass to the total mass of a mixture, a common quantitative measure"@en ,
-                               "Der Massenanteil beschreibt den relativen Anteil einer Masse an der Gesamtmasse einer Mischung, ein gängiges quantitatives Maß"@de ,
-                               "mass ratio that describes the relative proportion of a mass to the total mass of a mixture, a common quantitative measure"@en ;
-               skos:example "A binary Al-4 wt% Cu alloy has a copper mass fraction of 0.04"@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
+               skos:definition "DEPRECATED mass ratio that describes the relative proportion of a mass to the total mass of a mixture, a common quantitative measure"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0080104
 co:PMD_0080104 rdf:type owl:Class ;
-               rdfs:subClassOf co:PMD_0020104 ;
-               obo:IAO_0000114 obo:IAO_0000122 ;
-               obo:IAO_0000116 "Necessary and sufficient conditions for 'volume fraction' have not yet been formalized. The term is defined as a specific subtype of 'volume ratio'. Distinguishing criteria are domain-specific and depend on measurement conventions or source terminology not yet expressed as OWL restrictions. The definition is adapted from: https://de.wikipedia.org/wiki/Volumenkonzentration."@en ;
-               obo:IAO_0000117 "PERSON: Thomas Hanke" ;
-               obo:IAO_0000119 <https://de.wikipedia.org/wiki/Volumenkonzentration> ;
                rdfs:label "DEPRECATED Volumenanteil"@de ,
-                          "DEPRECATED volume fraction"@en ,
-                          "Volumenanteil"@de ,
-                          "volume fraction"@en ;
+                          "DEPRECATED volume fraction"@en ;
                rdfs:seeAlso co:PMD_0020104 ;
                owl:deprecated "true"^^xsd:boolean ;
                skos:definition "DEPRECATED Volume fraction describes the volume of a mixture component relative to the sum of all components' volumes"@en ,
-                               "DEPRECATED Volumenanteil beschreibt das Volumen eines Mischbestandteils im Verhältnis zur Summe der Volumina aller Bestandteile"@de ,
-                               "Volume fraction describes the volume of a mixture component relative to the sum of all components' volumes"@en ,
-                               "Volumenanteil beschreibt das Volumen eines Mischbestandteils im Verhältnis zur Summe der Volumina aller Bestandteile"@de ;
-               skos:example "A dual-phase steel contains a martensite volume fraction of 20 %, controlling its strength-ductility balance"@en ;
-               co:PMD_0000060 "true"^^xsd:boolean .
+                               "DEPRECATED Volumenanteil beschreibt das Volumen eines Mischbestandteils im Verhältnis zur Summe der Volumina aller Bestandteile"@de .
 
 
 ###  https://w3id.org/pmd/co/PMD_0080108
 co:PMD_0080108 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020311 ,
                                co:PMD_0023004 ,
-                               _:genid1108 ,
-                               _:genid1114 ,
+                               _:genid1079 ,
+                               _:genid1085 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000052 ;
                                  owl:someValuesFrom co:PMD_0000001
@@ -6855,7 +6683,7 @@ co:PMD_0080108 rdf:type owl:Class ;
                skos:example "A cross-section of a loaded steel column bears a compressive stress of 150 MPa"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid1108 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1079 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020200
                                   ]
@@ -6866,7 +6694,7 @@ _:genid1108 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                 ) ;
              rdf:type owl:Class .
 
-_:genid1114 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1085 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020352
                                   ]
@@ -6880,14 +6708,14 @@ _:genid1114 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1108 ;
+   owl:annotatedTarget _:genid1079 ;
    rdfs:comment "Mechanical view on stress"@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1114 ;
+   owl:annotatedTarget _:genid1085 ;
    rdfs:comment "Thermodynamic view on stress"@en
  ] .
 
@@ -6895,14 +6723,14 @@ _:genid1114 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 ###  https://w3id.org/pmd/co/PMD_0080116
 co:PMD_0080116 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid1121 ;
+                               _:genid1092 ;
                obo:IAO_0000117 "Philipp von Hartrott" ;
                rdfs:comment "Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you're considering."@en ;
                rdfs:label "potential"@en ;
                skos:definition "a partial derivative of energy with respect to its conjugate extensive quantity"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid1121 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1092 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020142
                                   ]
@@ -6916,7 +6744,7 @@ _:genid1121 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080116 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1121 ;
+   owl:annotatedTarget _:genid1092 ;
    rdfs:comment """In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking \"how does energy change per unit carrier added?\", you ask \"how does energy change per unit carrier moved in space?\""""@en
@@ -8978,23 +8806,17 @@ noes:NOES_0000025 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000026
 noes:NOES_0000026 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000779 ;
                   rdfs:label "DEPRECATED DEPRECATED normalizing"@en ,
-                             "DEPRECATED normalizing"@en ,
-                             "normalizing"@en ;
+                             "DEPRECATED normalizing"@en ;
                   skos:definition "DEPRECATED DEPRECATED Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en ,
-                                  "DEPRECATED Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en ,
-                                  "Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en .
+                                  "DEPRECATED Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000027
 noes:NOES_0000027 rdf:type owl:Class ;
-                  rdfs:subClassOf co:PMD_0000779 ;
                   rdfs:label "DEPRECATED DEPRECATED annealing"@en ,
-                             "DEPRECATED annealing"@en ,
-                             "annealing"@en ;
-                  skos:definition "Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en ,
-                                  "DEPRECATED Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en ,
+                             "DEPRECATED annealing"@en ;
+                  skos:definition "DEPRECATED Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en ,
                                   "DEPRECATED DEPRECATED Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en .
 
 
@@ -13263,10 +13085,6 @@ noes:NOES_0000119 rdf:type owl:Class ;
                                                          ]
                                                        ) ;
                                     rdf:type owl:Class
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty co:PMD_0025006 ;
-                                    owl:someValuesFrom noes:NOES_0000023
                                   ] ;
                   rdfs:label "number of rolling passes"@en ;
                   skos:definition "Number of rolling passes is a process attribute of a rolling process which specifies how many times a piece of material have been passed between rolling mills to achieve desired thickness."@en .
@@ -14550,8 +14368,7 @@ noes:NOES_0000177 rdf:type owl:Class ;
                                   ] ;
                   rdfs:label "grain population"@en ;
                   skos:altLabel "grains"@en ;
-                  skos:definition "Grain population is a disconnected material aggregate which has crystallites as members.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation or shape."@en ,
-                                  "Grain population is a disconnected material aggregate which has crystallites ias parts.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation."@en .
+                  skos:definition "Grain population is a disconnected material aggregate which has crystallites as members.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation or shape."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000178
@@ -15295,10 +15112,6 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 <http://qudt.org/vocab/unit/MOL> rdf:type owl:NamedIndividual .
 
 
-###  http://qudt.org/vocab/unit/PER-MOL
-<http://qudt.org/vocab/unit/PER-MOL> rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/pmd/co/PMD_0020097
 co:PMD_0020097 rdf:type owl:NamedIndividual ;
                rdfs:label "Austenit"@de ,
@@ -15352,8 +15165,7 @@ co:PMD_0020242 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/pmd/co/PMD_0020368
 co:PMD_0020368 rdf:type owl:NamedIndividual ,
                         obo:OBI_0001931 ;
-               obo:IAO_0000039 <http://qudt.org/vocab/unit/MOL> ,
-                               <http://qudt.org/vocab/unit/PER-MOL> ;
+               obo:IAO_0000039 <http://qudt.org/vocab/unit/MOL> ;
                obo:OBI_0001937 602214086000000000000000 ;
                rdfs:label "avogadro number"@en ;
                skos:definition "The Avogadro number"@en .
@@ -15936,14 +15748,6 @@ co:PMD_0020098 noes:NOES_0000122 "false"^^xsd:boolean .
                 co:PMD_0020133
                 co:PMD_0020142
                 co:PMD_0020161
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( co:PMD_0020102
-                co:PMD_0020103
-                co:PMD_0020104
               )
 ] .
 

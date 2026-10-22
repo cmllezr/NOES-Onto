@@ -6,13 +6,11 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix noes: <https://w3id.org/pmd/noes/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
 @base <https://w3id.org/pmd/noes/> .
@@ -29,9 +27,9 @@
                               terms:publisher <https://ror.org/04hm8eb66> ;
                               terms:source co: ;
                               terms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
-                              bibo:status "stable" ;
-                              vann:preferredNamespacePrefix "noes" ;
-                              vann:preferredNamespaceUri "https://w3id.org/pmd/noes/" ;
+                              <http://purl.org/ontology/bibo/status> "stable" ;
+                              <http://purl.org/vocab/vann/preferredNamespacePrefix> "noes" ;
+                              <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/pmd/noes/" ;
                               owl:versionInfo "2026-10-22" .
 
 #################################################################
@@ -195,15 +193,15 @@ terms:title rdf:type owl:AnnotationProperty ;
 
 
 ###  http://purl.org/ontology/bibo/status
-bibo:status rdf:type owl:AnnotationProperty .
+<http://purl.org/ontology/bibo/status> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespacePrefix
-vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
-vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
 
 
 ###  http://qudt.org/schema/qudt/informativeReference
@@ -974,19 +972,10 @@ obo:RO_0002353 rdf:type owl:ObjectProperty ;
                rdfs:label "output of"@en .
 
 
-###  http://purl.obolibrary.org/obo/RO_0002502
-obo:RO_0002502 rdf:type owl:ObjectProperty ;
-               obo:IAO_0000117 <https://orcid.org/0000-0002-6601-2165> ;
-               rdfs:label "depends on" ;
-               rdfs:seeAlso obo:BFO_0000169 .
-
-
 ###  http://purl.obolibrary.org/obo/RO_0002503
 obo:RO_0002503 rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0002502 ;
                obo:IAO_0000115 "q towards e2 if and only if q is a relational quality such that q inheres-in some e, and e != e2 and q is dependent on e2" ;
                obo:IAO_0000116 "This relation is provided in order to support the use of relational qualities such as 'concentration of'; for example, the concentration of C in V is a quality that inheres in V, but pertains to C." ;
-               obo:IAO_0000117 <https://orcid.org/0000-0002-6601-2165> ;
                obo:IAO_0000119 <http://www.ncbi.nlm.nih.gov/pubmed/20064205> ;
                rdfs:label "towards" .
 
@@ -1482,20 +1471,16 @@ noes:NOES_0000025 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/noes/NOES_0000026
 noes:NOES_0000026 rdf:type owl:Class ;
                   rdfs:label "DEPRECATED DEPRECATED normalizing"@en ,
-                             "DEPRECATED normalizing"@en ,
-                             "normalizing"@en ;
+                             "DEPRECATED normalizing"@en ;
                   skos:definition "DEPRECATED DEPRECATED Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en ,
-                                  "DEPRECATED Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en ,
-                                  "Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en .
+                                  "DEPRECATED Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000027
 noes:NOES_0000027 rdf:type owl:Class ;
                   rdfs:label "DEPRECATED DEPRECATED annealing"@en ,
-                             "DEPRECATED annealing"@en ,
-                             "annealing"@en ;
-                  skos:definition "Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en ,
-                                  "DEPRECATED Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en ,
+                             "DEPRECATED annealing"@en ;
+                  skos:definition "DEPRECATED Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en ,
                                   "DEPRECATED DEPRECATED Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en .
 
 
@@ -2751,8 +2736,7 @@ noes:NOES_0000168 rdf:type owl:Class ;
 noes:NOES_0000177 rdf:type owl:Class ;
                   rdfs:label "grain population"@en ;
                   skos:altLabel "grains"@en ;
-                  skos:definition "Grain population is a disconnected material aggregate which has crystallites as members.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation or shape."@en ,
-                                  "Grain population is a disconnected material aggregate which has crystallites ias parts.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation."@en .
+                  skos:definition "Grain population is a disconnected material aggregate which has crystallites as members.  Grain population represents grains which not necesserly spatially connected (unlike polycrystal) but share some collective quality, such as preffered crystallographic orientation or shape."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000178
