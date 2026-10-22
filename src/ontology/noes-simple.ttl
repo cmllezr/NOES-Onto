@@ -250,6 +250,10 @@ skos:comment rdf:type owl:AnnotationProperty .
 skos:definition rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+skos:editorialNote rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#example
 skos:example rdf:type owl:AnnotationProperty .
 
@@ -438,13 +442,6 @@ obo:BFO_0000132 rdf:type owl:ObjectProperty ;
                 rdfs:label "occurrent part of"@en ;
                 skos:definition "(Elucidation) occurrent part of is a relation between occurrents b and c when b is part of c"@en ;
                 skos:example "Mary's 5th birthday is an occurrent part of Mary's life; the first set of the tennis match is an occurrent part of the tennis match"@en .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource obo:BFO_0000132 ;
-   owl:annotatedProperty rdfs:subPropertyOf ;
-   owl:annotatedTarget obo:BFO_0000050 ;
-   rdfs:comment "\"occurrent part of\" is not a BFO2020 temporalized relation. It just restricts the domain and range to \"occurrent\". That's why is should be OK to make it sub property of RO \"part of\""
- ] .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000138
@@ -1484,14 +1481,18 @@ noes:NOES_0000025 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000026
 noes:NOES_0000026 rdf:type owl:Class ;
-                  rdfs:label "normalizing"@en ;
-                  skos:definition "Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en .
+                  rdfs:label "DEPRECATED normalizing"@en ,
+                             "normalizing"@en ;
+                  skos:definition "DEPRECATED Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en ,
+                                  "Normalizing is a heat treatment process which aims to create uniform grain structure and improve toughness of an alloy. During normalizing the material is heated above its critical temperature, kept at this temperature for a period of time, and then cooled in the air."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000027
 noes:NOES_0000027 rdf:type owl:Class ;
-                  rdfs:label "annealing"@en ;
-                  skos:definition "Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en .
+                  rdfs:label "DEPRECATED annealing"@en ,
+                             "annealing"@en ;
+                  skos:definition "Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en ,
+                                  "DEPRECATED Annealing is a heat treatment process which aims to soften an alloy and relieve internal stresses. The material is heated above its critical termperature at which recrystallization occurs. After holding the material at the temperature, it is cooled in a slow and controlled way usually inside an oven."@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000031
