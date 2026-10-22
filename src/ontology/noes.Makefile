@@ -52,6 +52,20 @@ $(IMPORTDIR)/tto_import.owl: $(MIRRORDIR)/tto.owl $(IMPORTDIR)/tto_terms.txt $(I
 							--subset-decls true --synonym-decls true \
 			$(ANNOTATE_CONVERT_FILE); \
 
+$(IMPORTDIR)/hto_import.owl: $(MIRRORDIR)/hto.owl $(IMPORTDIR)/hto_terms.txt $(IMPORTSEED) | all_robot_plugins
+	@echo "Generating import module from private HTO mirror..."
+	$(ROBOT) annotate --input $< --remove-annotations \
+			odk:normalize --add-source true \
+			extract --term-file $(IMPORTDIR)/hto_terms.txt \
+						--force true \
+						--copy-ontology-annotations true \
+						--individuals exclude \
+						--intermediates all \
+						--method BOT \
+			odk:normalize --base-iri https://w3id.org/pmd/noes \
+							--subset-decls true --synonym-decls true \
+			$(ANNOTATE_CONVERT_FILE); \
+
 $(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl $(IMPORTDIR)/pmdco_terms.txt
 	@echo "Generating Application Module from pmdco..."
 	if [ $(IMP) = true ]; then $(ROBOT) \
@@ -97,12 +111,12 @@ $(IMPORTDIR)/qudt_import.owl: $(MIRRORDIR)/qudt.owl $(IMPORTDIR)/qudt_terms.txt
 		--select "annotations self" \
 		$(ANNOTATE_CONVERT_FILE)
 
-$(IMPORTDIR)/ro_import.owl: $(MIRRORDIR)/ro.owl $(IMPORTDIR)/ro_terms.txt
-	$(ROBOT) filter --input $(MIRRORDIR)/ro.owl \
-		--term-file $(IMPORTDIR)/ro_terms.txt \
-		--allow-punning true \
-		--select "annotations self parents" \
-		$(ANNOTATE_CONVERT_FILE)
+#$(IMPORTDIR)/ro_import.owl: $(MIRRORDIR)/ro.owl $(IMPORTDIR)/ro_terms.txt
+#	$(ROBOT) filter --input $(MIRRORDIR)/ro.owl \
+#		--term-file $(IMPORTDIR)/ro_terms.txt \
+#		--allow-punning true \
+#		--select "annotations self parents" \
+#		$(ANNOTATE_CONVERT_FILE)
 
 #.PHONY: autoshapes
 #autoshapes: 
