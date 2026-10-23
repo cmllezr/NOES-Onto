@@ -365,7 +365,6 @@ obo:BFO_0000054 rdf:type owl:ObjectProperty ;
                 owl:inverseOf obo:BFO_0000055 ;
                 rdfs:label "has realization"@en ,
                            "realized in"@en ;
-                skos:altLabel "realized in"@en ;
                 skos:definition "b has realization c =Def c realizes b"@en ;
                 skos:example "As for realizes"@en .
 
@@ -1010,8 +1009,7 @@ obo:STATO_0000102 rdf:type owl:ObjectProperty ;
 ###  https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000226
 <https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000226> rdf:type owl:ObjectProperty ;
                                                       rdfs:comment "inverse of the relation 'is about'" ;
-                                                      rdfs:label "is subject of"@en ;
-                                                      skos:altLabel "is described by" .
+                                                      rdfs:label "is subject of"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0000004
@@ -1108,6 +1106,28 @@ An example of such case can be \"Temperature of during the annealing process was
                skos:example "a relation to between a process attribute an a SDC of some participant in a process."@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0020256
+co:PMD_0020256 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0002328 ;
+               rdf:type owl:FunctionalProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
+               rdfs:label "has numerator"@en ;
+               rdfs:seeAlso "http://purl.obolibrary.org/obo/RO_0020202" ;
+               skos:definition "points to a numerator of a quotient"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020257
+co:PMD_0020257 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0002328 ;
+               rdf:type owl:FunctionalProperty ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
+               rdfs:label "has denominator"@en ;
+               rdfs:seeAlso "http://purl.obolibrary.org/obo/RO_0020203" ;
+               skos:definition "points to a denominator of a quotient"@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0025006
 co:PMD_0025006 rdf:type owl:ObjectProperty ;
                obo:IAO_0000114 obo:IAO_0000122 ;
@@ -1123,9 +1143,7 @@ co:PMD_0025998 rdf:type owl:ObjectProperty ;
                obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000117 "PERSON: Kamilla Zaripova" ;
                rdfs:label "has relational property"@en ,
-                          "has relational quality"@en ,
-                          "hat relationale Eigenschaft"@de ,
-                          "hat relationale Qualität"@de ;
+                          "hat relationale Eigenschaft"@de ;
                skos:definition "a relation between an independent continuant (the bearer) and a relational quality, in which the quality specifically depends on the bearer for its existence"@en ,
                                "eine Beziehung zwischen einem unabhängigen Kontinuum (dem Träger) und einer relationalen Qualität, bei der die Qualität in ihrer Existenz speziell vom Träger abhängt"@de ;
                skos:example "material has relational quality mass proportion m, and portion of iron has the same relational quality mass proportion m"@en .
@@ -1138,12 +1156,31 @@ co:PMD_0025999 rdf:type owl:ObjectProperty ;
 RO's 'quality of' is functional i.e., a->b, a->c => b=c. The functionality is relevant for most of the SDC -> IC triples, expect for relational qualities, which per definiton can be simultaneously inherited in >=2 ICs. Thus,  'relational quality of'  has the same intention to connect SDC to IC, however, without cardinality constraints."""@en ;
                obo:IAO_0000117 "PERSON: Kamilla Zaripova" ;
                rdfs:label "relational property of"@en ,
-                          "relational quality of"@en ,
-                          "relationale Eigenschaft von"@de ,
-                          "relationale Qualität von"@de ;
+                          "relationale Eigenschaft von"@de ;
                skos:definition "a relation between a relational quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence"@en ,
                                "eine Beziehung zwischen einer relationalen Qualität und einem unabhängigen Kontinuum (dem Träger), bei der die Existenz der Qualität speziell vom Träger abhängt"@de ;
                skos:example "mass proportion m is relational qualitiy of material, and the same mass proportion m is relational qualitiy of portion of iron"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0060001
+co:PMD_0060001 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:IAO_0000136 ;
+               owl:inverseOf co:PMD_0060002 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000116 "prefer this over 'specifies value of' if  the domain is not a 'value specification' (but some other I.C.E)" ;
+               obo:IAO_0000117 "PERSON: Hossein Beygi Nasrabadi" ;
+               obo:IAO_0000233 "https://github.com/materialdigital/core-ontology/issues/105" ;
+               rdfs:label "represents value of"@en ;
+               skos:definition "A relation between an information content entity and an specifically dependent continuant or process attribute which the representation is about." .
+
+
+###  https://w3id.org/pmd/co/PMD_0060002
+co:PMD_0060002 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf co:PMD_0000004 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Hossein Beygi Nasrabadi" ;
+               rdfs:label "represented by value"@en ;
+               skos:definition "A relation between a specifically dependent continuant or process attribute and an information content entity which is about." .
 
 
 ###  https://w3id.org/pmd/cryo/CRYO_0000050

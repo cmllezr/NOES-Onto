@@ -506,7 +506,6 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
         <rdfs:label xml:lang="en">has realization</rdfs:label>
         <rdfs:label xml:lang="en">realized in</rdfs:label>
-        <skos:altLabel xml:lang="en">realized in</skos:altLabel>
         <skos:definition xml:lang="en">b has realization c =Def c realizes b</skos:definition>
         <skos:example xml:lang="en">As for realizes</skos:example>
     </owl:ObjectProperty>
@@ -1347,7 +1346,6 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
     <owl:ObjectProperty rdf:about="https://nfdi.fiz-karlsruhe.de/ontology/NFDI_0000226">
         <rdfs:comment>inverse of the relation &apos;is about&apos;</rdfs:comment>
         <rdfs:label xml:lang="en">is subject of</rdfs:label>
-        <skos:altLabel>is described by</skos:altLabel>
     </owl:ObjectProperty>
     
 
@@ -1473,6 +1471,34 @@ An example of such case can be &quot;Temperature of during the annealing process
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020256 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0020256">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">has numerator</rdfs:label>
+        <rdfs:seeAlso>http://purl.obolibrary.org/obo/RO_0020202</rdfs:seeAlso>
+        <skos:definition xml:lang="en">points to a numerator of a quotient</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020257 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0020257">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">has denominator</rdfs:label>
+        <rdfs:seeAlso>http://purl.obolibrary.org/obo/RO_0020203</rdfs:seeAlso>
+        <skos:definition xml:lang="en">points to a denominator of a quotient</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0025006 -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0025006">
@@ -1492,9 +1518,7 @@ An example of such case can be &quot;Temperature of during the annealing process
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
         <obo:IAO_0000117>PERSON: Kamilla Zaripova</obo:IAO_0000117>
         <rdfs:label xml:lang="en">has relational property</rdfs:label>
-        <rdfs:label xml:lang="en">has relational quality</rdfs:label>
         <rdfs:label xml:lang="de">hat relationale Eigenschaft</rdfs:label>
-        <rdfs:label xml:lang="de">hat relationale Qualität</rdfs:label>
         <skos:definition xml:lang="en">a relation between an independent continuant (the bearer) and a relational quality, in which the quality specifically depends on the bearer for its existence</skos:definition>
         <skos:definition xml:lang="de">eine Beziehung zwischen einem unabhängigen Kontinuum (dem Träger) und einer relationalen Qualität, bei der die Qualität in ihrer Existenz speziell vom Träger abhängt</skos:definition>
         <skos:example xml:lang="en">material has relational quality mass proportion m, and portion of iron has the same relational quality mass proportion m</skos:example>
@@ -1510,12 +1534,37 @@ An example of such case can be &quot;Temperature of during the annealing process
 RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c. The functionality is relevant for most of the SDC -&gt; IC triples, expect for relational qualities, which per definiton can be simultaneously inherited in &gt;=2 ICs. Thus,  &apos;relational quality of&apos;  has the same intention to connect SDC to IC, however, without cardinality constraints.</obo:IAO_0000116>
         <obo:IAO_0000117>PERSON: Kamilla Zaripova</obo:IAO_0000117>
         <rdfs:label xml:lang="en">relational property of</rdfs:label>
-        <rdfs:label xml:lang="en">relational quality of</rdfs:label>
         <rdfs:label xml:lang="de">relationale Eigenschaft von</rdfs:label>
-        <rdfs:label xml:lang="de">relationale Qualität von</rdfs:label>
         <skos:definition xml:lang="en">a relation between a relational quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence</skos:definition>
         <skos:definition xml:lang="de">eine Beziehung zwischen einer relationalen Qualität und einem unabhängigen Kontinuum (dem Träger), bei der die Existenz der Qualität speziell vom Träger abhängt</skos:definition>
         <skos:example xml:lang="en">mass proportion m is relational qualitiy of material, and the same mass proportion m is relational qualitiy of portion of iron</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0060001 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0060001">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/PMD_0060002"/>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000116>prefer this over &apos;specifies value of&apos; if  the domain is not a &apos;value specification&apos; (but some other I.C.E)</obo:IAO_0000116>
+        <obo:IAO_0000117>PERSON: Hossein Beygi Nasrabadi</obo:IAO_0000117>
+        <obo:IAO_0000233>https://github.com/materialdigital/core-ontology/issues/105</obo:IAO_0000233>
+        <rdfs:label xml:lang="en">represents value of</rdfs:label>
+        <skos:definition>A relation between an information content entity and an specifically dependent continuant or process attribute which the representation is about.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0060002 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/PMD_0060002">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Hossein Beygi Nasrabadi</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">represented by value</rdfs:label>
+        <skos:definition>A relation between a specifically dependent continuant or process attribute and an information content entity which is about.</skos:definition>
     </owl:ObjectProperty>
     
 
