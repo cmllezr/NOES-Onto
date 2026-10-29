@@ -628,6 +628,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000057">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000053"/>
         <rdfs:label xml:lang="en">total magnetic power loss</rdfs:label>
+        <skos:altLabel xml:lang="en">core loss</skos:altLabel>
         <skos:definition xml:lang="en">Total magnetic power loss is magnetic property of a material which describes its performance in an external magnetic field. Total magnetic power loss is a sum of hysteresis P_hys, eddy current P_e, and anomalous losses P_a.</skos:definition>
         <co:symbol xml:lang="en">P_tot</co:symbol>
     </owl:Class>
@@ -1297,6 +1298,59 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020101"/>
         <rdfs:label xml:lang="en">number density</rdfs:label>
         <skos:definition xml:lang="en">number density is a proportion which presents the count of individual, countable items (such as atoms, molecules, charge carriers, etc.) contained within a specific unit of volume</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000146 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000146">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000049"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000070"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000009"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000070"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000077"/>
+                                                        <owl:someValuesFrom>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0001931"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001937"/>
+                                                                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5000.0</owl:hasValue>
+                                                                    </owl:Restriction>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000049"/>
+        <qudt:symbol>B50</qudt:symbol>
+        <rdfs:label xml:lang="en">magnetic induction at 5000 A m-1</rdfs:label>
+        <skos:definition xml:lang="en">magnetic induction at 5000 A m-1 measured at 5000 A/m strength of magnetic field.</skos:definition>
+        <co:symbol>B50</co:symbol>
     </owl:Class>
     
 
