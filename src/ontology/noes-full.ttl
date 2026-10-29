@@ -11724,6 +11724,13 @@ noes:NOES_0000026 rdf:type owl:Class ;
                   skos:definition "aging is a heat treatment that increases the yield strength, tensile strength, and hardness of metal alloys by forming microscopic second-phase precipitates"@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000027
+noes:NOES_0000027 rdf:type owl:Class ;
+                  rdfs:subClassOf co:PMD_0000648 ;
+                  rdfs:label "strip caster"@en ;
+                  skos:definition "Strip caster is a device to produce strips of semi-finished materials from melt."@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000031
 noes:NOES_0000031 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000001 ,
@@ -12311,6 +12318,7 @@ noes:NOES_0000056 rdf:type owl:Class ;
 noes:NOES_0000057 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000053 ;
                   rdfs:label "total magnetic power loss"@en ;
+                  skos:altLabel "core loss"@en ;
                   skos:definition "Total magnetic power loss is magnetic property of a material which describes its performance in an external magnetic field. Total magnetic power loss is a sum of hysteresis P_hys, eddy current P_e, and anomalous losses P_a."@en ;
                   co:symbol "P_tot"@en .
 
@@ -16704,6 +16712,69 @@ noes:NOES_0000145 rdf:type owl:Class ;
                   skos:definition "fibrous band is an object aggregate of several elongated crystallites that were deformed in a process with high level of shearing."@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000146
+noes:NOES_0000146 rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000049
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000070
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty co:PMD_0000009 ;
+                                                                                                           owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000070
+                                                                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                                                                       owl:onProperty co:PMD_0000077 ;
+                                                                                                                                                       owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0001931
+                                                                                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                                                                                   owl:onProperty obo:OBI_0001937 ;
+                                                                                                                                                                                                   owl:hasValue 5000.0
+                                                                                                                                                                                                 ]
+                                                                                                                                                                                               ) ;
+                                                                                                                                                                            rdf:type owl:Class
+                                                                                                                                                                          ]
+                                                                                                                                                     ]
+                                                                                                                                                   ) ;
+                                                                                                                                rdf:type owl:Class
+                                                                                                                              ]
+                                                                                                         ]
+                                                                                                       ) ;
+                                                                                    rdf:type owl:Class
+                                                                                  ]
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf noes:NOES_0000049 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0000070
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty co:PMD_0000009 ;
+                                                                                owl:someValuesFrom [ owl:intersectionOf ( noes:NOES_0000070
+                                                                                                                          [ rdf:type owl:Restriction ;
+                                                                                                                            owl:onProperty co:PMD_0000077 ;
+                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( obo:OBI_0001931
+                                                                                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                                                                                        owl:onProperty obo:OBI_0001937 ;
+                                                                                                                                                                        owl:hasValue 5000.0
+                                                                                                                                                                      ]
+                                                                                                                                                                    ) ;
+                                                                                                                                                 rdf:type owl:Class
+                                                                                                                                               ]
+                                                                                                                          ]
+                                                                                                                        ) ;
+                                                                                                     rdf:type owl:Class
+                                                                                                   ]
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                  ] ;
+                  qudt:symbol "B50" ;
+                  rdfs:label "magnetic induction at 5000 A m-1"@en ;
+                  skos:definition "magnetic induction at 5000 A m-1 measured at 5000 A/m strength of magnetic field."@en ;
+                  co:symbol "B50" .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000151
 noes:NOES_0000151 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0000663
@@ -17430,7 +17501,7 @@ noes:NOES_0000183 rdf:type owl:Class ;
 noes:NOES_0000184 rdf:type owl:Class ;
                   rdfs:subClassOf noes:NOES_0000163 ;
                   obo:IAO_0000119 "https://www.magnet-physik.de/wp-content/uploads/2023/08/MJC-210-e-3236.pdf" ;
-                  rdfs:label "sinlge sheet tester"@en ;
+                  rdfs:label "single sheet tester"@en ;
                   skos:definition "Single sheet tester is a measuring device of soft magnetic properties of sheet materials, especially electrical steels. It consists of a single coil system to magnetize the sample with and and a pick-up coil to detect  polarization in the material."@en .
 
 
