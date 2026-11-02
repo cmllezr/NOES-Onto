@@ -19,21 +19,21 @@
 @base <https://w3id.org/pmd/noes/> .
 
 <https://w3id.org/pmd/noes/> rdf:type owl:Ontology ;
-                              owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-10-29/noes-full.ttl> ;
+                              owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-11-02/noes-full.ttl> ;
                               dcterms:created "2025-06-01                                  "^^xsd:date ;
                               dcterms:creator <https://orcid.org/0009-0003-1503-4422> ;
                               dcterms:description "NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets." ;
                               dcterms:identifier "https://doi.org/10.5281/zenodo.XXXXXXX      " ;
-                              dcterms:issued "2026-10-29"^^xsd:date ;
+                              dcterms:issued "2026-11-02"^^xsd:date ;
                               dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                              dcterms:modified "2026-10-29"^^xsd:date ;
+                              dcterms:modified "2026-11-02"^^xsd:date ;
                               dcterms:publisher <https://ror.org/04hm8eb66> ;
                               dcterms:source co: ;
                               dcterms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
                               <http://purl.org/ontology/bibo/status> "stable" ;
                               <http://purl.org/vocab/vann/preferredNamespacePrefix> "noes" ;
                               <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/pmd/noes/" ;
-                              owl:versionInfo "2026-10-29" .
+                              owl:versionInfo "2026-11-02" .
 
 #################################################################
 #    Annotation properties
@@ -217,6 +217,10 @@ qudt:omUnit rdf:type owl:AnnotationProperty .
 
 ###  http://qudt.org/schema/qudt/plainTextDescription
 qudt:plainTextDescription rdf:type owl:AnnotationProperty .
+
+
+###  http://qudt.org/schema/qudt/siExactMatch
+qudt:siExactMatch rdf:type owl:AnnotationProperty .
 
 
 ###  http://qudt.org/schema/qudt/symbol
@@ -3003,6 +3007,12 @@ obo:UO_0000000 rdf:type owl:Class ;
  ] .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000009
+obo:UO_0000009 rdf:type owl:Class ;
+               rdfs:subClassOf obo:UO_0000045 ,
+                               obo:UO_1000021 .
+
+
 ###  http://purl.obolibrary.org/obo/UO_0000010
 obo:UO_0000010 rdf:type owl:Class ;
                rdfs:subClassOf obo:UO_0000045 ,
@@ -3236,6 +3246,11 @@ obo:UO_1000012 rdf:type owl:Class ;
                rdfs:subClassOf obo:IAO_0000003 ;
                rdfs:label "kelvin based unit" ;
                noes:NOES_0000122 "false"^^xsd:boolean .
+
+
+###  http://purl.obolibrary.org/obo/UO_1000021
+obo:UO_1000021 rdf:type owl:Class ;
+               rdfs:label "gram based unit" .
 
 
 ###  http://purl.obolibrary.org/obo/UO_1000027
@@ -18003,6 +18018,10 @@ obo:OMO_0001000 rdf:type owl:NamedIndividual ;
                 rdfs:label "out of scope" .
 
 
+###  http://purl.obolibrary.org/obo/UO_0000009
+obo:UO_0000009 rdf:type owl:NamedIndividual .
+
+
 ###  http://purl.obolibrary.org/obo/UO_0000010
 obo:UO_0000010 rdf:type owl:NamedIndividual .
 
@@ -18115,6 +18134,68 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                 "Ampere per Metre" .
 
 
+###  http://qudt.org/vocab/unit/DEG_C-PER-HR
+<http://qudt.org/vocab/unit/DEG_C-PER-HR> rdf:type owl:NamedIndividual ;
+                                          dcterms:description """$\\textit{Degree Celsius per Hour}$ is a unit for 'Temperature Per Time' expressed as $degC / h$.
+  """^^qudt:LatexString ;
+                                          qudt:expression "$degC / h$"^^qudt:LatexString ;
+                                          qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA036"^^xsd:anyURI ;
+                                          qudt:symbol "°C/h" ;
+                                          rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                          rdfs:label "Degree Celsius per Hour"@en ,
+                                                     "Degree Celsius per Hour" .
+
+
+###  http://qudt.org/vocab/unit/K-PER-SEC
+<http://qudt.org/vocab/unit/K-PER-SEC> rdf:type owl:NamedIndividual ;
+                                       dcterms:description """$\\textit{Kelvin per Second}$ is a unit for 'Temperature Per Time' expressed as $K / s$.
+  """^^qudt:LatexString ;
+                                       qudt:expression "$K / s$"^^qudt:LatexString ;
+                                       qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA192"^^xsd:anyURI ;
+                                       qudt:symbol "K/s" ;
+                                       rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                       rdfs:label "Kelvin na Sekunda"@cs ,
+                                                  "Kelvin na Sekunda"@sl ,
+                                                  "Kelvin par Seconde"@fr ,
+                                                  "Kelvin pe Secundă"@ro ,
+                                                  "Kelvin per Saat"@ms ,
+                                                  "Kelvin per Saniye"@tr ,
+                                                  "Kelvin per Second"@en ,
+                                                  "Kelvin per Secondo"@it ,
+                                                  "Kelvin per Secundum"@la ,
+                                                  "Kelvin por Segundo"@es ,
+                                                  "Kelvin por Segundo"@pt ,
+                                                  "Kelvin pro Sekunde"@de ,
+                                                  "Kelwin na Sekunda"@pl ,
+                                                  "Κέλβιν ανά Δευτερόλεπτο"@el ,
+                                                  "Келвин на Секунда"@bg ,
+                                                  "Кельвин на Секунда"@ru ,
+                                                  "Kelvin per Second" .
+
+
+###  http://qudt.org/vocab/unit/KiloN
+<http://qudt.org/vocab/unit/KiloN> rdf:type owl:NamedIndividual ;
+                                   dcterms:description "1 000-fold of the SI derived unit newton"^^rdf:HTML ;
+                                   qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA573"^^xsd:anyURI ;
+                                   qudt:plainTextDescription "1 000-fold of the SI derived unit newton" ;
+                                   qudt:symbol "kN" ;
+                                   qudt:wikidataMatch <http://www.wikidata.org/entity/Q56402798> ;
+                                   rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                   rdfs:label "Chilonewton"@it ,
+                                              "Kilonewton"@cs ,
+                                              "Kilonewton"@de ,
+                                              "Kilonewton"@en ,
+                                              "Kilonewton"@es ,
+                                              "Kilonewton"@fr ,
+                                              "Kilonewton"@hu ,
+                                              "Kilonewton"@ms ,
+                                              "Kilonewton"@ro ,
+                                              "Kilonewton"@sl ,
+                                              "Kilonewton"@tr ,
+                                              "Kiloniuton"@pl ,
+                                              "Kilonewton" .
+
+
 ###  http://qudt.org/vocab/unit/MOL
 <http://qudt.org/vocab/unit/MOL> rdf:type owl:NamedIndividual ,
                                           qudt:Unit .
@@ -18144,6 +18225,42 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                "Megapascal" .
 
 
+###  http://qudt.org/vocab/unit/MicroM2
+<http://qudt.org/vocab/unit/MicroM2> rdf:type owl:NamedIndividual ;
+                                     dcterms:description "0.000000000001-fold of the power of the SI base unit metre with the exponent 2"^^rdf:HTML ;
+                                     qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA092"^^xsd:anyURI ;
+                                     qudt:plainTextDescription "0.000000000001-fold of the power of the SI base unit metre with the exponent 2" ;
+                                     qudt:symbol "μm²" ;
+                                     qudt:wikidataMatch <http://www.wikidata.org/entity/Q11061003> ;
+                                     rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                     rdfs:label "Kvadratni Micrometer"@sl ,
+                                                "Micrometer Persegi"@ms ,
+                                                "Micrometr Kwadratowy"@pl ,
+                                                "Micrometrekare"@tr ,
+                                                "Micrometro Cuadrado"@es ,
+                                                "Micrometro Quadrato"@it ,
+                                                "Micrometru Pătrat"@ro ,
+                                                "Micromètre Carré"@fr ,
+                                                "Quadratmicrometer"@de ,
+                                                "Square Micrometer"@en-us ,
+                                                "Square Micrometre"@en ,
+                                                "Čtvereční Micrometr"@cs ,
+                                                "Square Micrometre" .
+
+
+###  http://qudt.org/vocab/unit/MilliM-PER-MIN
+<http://qudt.org/vocab/unit/MilliM-PER-MIN> rdf:type owl:NamedIndividual ;
+                                            dcterms:description "0.001-fold of the SI base unit metre divided by the unit minute"^^rdf:HTML ;
+                                            qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAB378"^^xsd:anyURI ;
+                                            qudt:plainTextDescription "0.001-fold of the SI base unit metre divided by the unit minute" ;
+                                            qudt:symbol "mm/min" ;
+                                            qudt:wikidataMatch <http://www.wikidata.org/entity/Q57273614> ;
+                                            rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                            rdfs:label "Millimeter per Minute"@en-us ,
+                                                       "Millimetre per Minute"@en ,
+                                                       "Millimetre per Minute" .
+
+
 ###  http://qudt.org/vocab/unit/MilliM-PER-SEC
 <http://qudt.org/vocab/unit/MilliM-PER-SEC> rdf:type owl:NamedIndividual ;
                                             dcterms:description "0.001-fold of the SI base unit metre divided by the SI base unit second"^^rdf:HTML ;
@@ -18165,6 +18282,66 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                        "Millimetru pe Secundă"@ro ,
                                                        "Millimètre par Seconde"@fr ,
                                                        "Millimetre per Second" .
+
+
+###  http://qudt.org/vocab/unit/MilliT
+<http://qudt.org/vocab/unit/MilliT> rdf:type owl:NamedIndividual ;
+                                    dcterms:description "0.001-fold of the SI derived unit tesla"^^rdf:HTML ;
+                                    qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA803"^^xsd:anyURI ;
+                                    qudt:plainTextDescription "0.001-fold of the SI derived unit tesla" ;
+                                    qudt:symbol "mT" ;
+                                    qudt:wikidataMatch <http://www.wikidata.org/entity/Q94734788> ;
+                                    rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                    rdfs:label "Millitesla"@cs ,
+                                               "Millitesla"@de ,
+                                               "Millitesla"@en ,
+                                               "Millitesla"@es ,
+                                               "Millitesla"@fr ,
+                                               "Millitesla"@hu ,
+                                               "Millitesla"@it ,
+                                               "Millitesla"@ms ,
+                                               "Millitesla"@pl ,
+                                               "Millitesla"@ro ,
+                                               "Millitesla"@sl ,
+                                               "Millitesla"@tr ,
+                                               "Millitesla" .
+
+
+###  http://qudt.org/vocab/unit/N-PER-M
+<http://qudt.org/vocab/unit/N-PER-M> rdf:type owl:NamedIndividual ;
+                                     dcterms:description """Newton Per Meter (N/m) is a unit in the category of Surface tension. It is also known as newtons per
+    meter, newton per metre, newtons per metre, newton/meter, newton/metre. This unit is commonly used in the SI unit system.
+    Newton Per Meter (N/m) has a dimension of MT-2 where $M$ is mass, and $T$ is time. This unit is the standard SI unit in this
+    category.
+  """^^rdf:HTML ;
+                                     qudt:expression "$N/m$"^^qudt:LatexString ;
+                                     qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA246"^^xsd:anyURI ;
+                                     qudt:symbol "N/m" ;
+                                     qudt:wikidataMatch <http://www.wikidata.org/entity/Q26156113> ;
+                                     rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                     rdfs:label "Newton na Meter"@sl ,
+                                                "Newton na Metr"@cs ,
+                                                "Newton par Mètre"@fr ,
+                                                "Newton pe Metru"@ro ,
+                                                "Newton per Meter"@en-us ,
+                                                "Newton per Meter"@ms ,
+                                                "Newton per Metre"@en ,
+                                                "Newton per Metre"@tr ,
+                                                "Newton per Metro"@it ,
+                                                "Newton por Metro"@es ,
+                                                "Newton por Metro"@pt ,
+                                                "Newton pro Meter"@de ,
+                                                "Newtonium per Metrum"@la ,
+                                                "Niuton na Metr"@pl ,
+                                                "Νιούτον ανά Μέτρο"@el ,
+                                                "Ньютон на Метр"@ru ,
+                                                "Нютон на Метър"@bg ,
+                                                "مقياس التبادل، الأس السالب للمتر"@ar ,
+                                                "نیوتن بر متر"@fa ,
+                                                "प्रति मीटर न्यूटन"@hi ,
+                                                "ニュートン毎メートル"@ja ,
+                                                "牛顿每米"@zh ,
+                                                "Newton per Metre" .
 
 
 ###  http://qudt.org/vocab/unit/N-PER-M2
@@ -18199,6 +18376,116 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                                  "Newton per Square Metre" .
 
 
+###  http://qudt.org/vocab/unit/N-PER-MilliM
+<http://qudt.org/vocab/unit/N-PER-MilliM> rdf:type owl:NamedIndividual ;
+                                          dcterms:description "SI derived unit newton divided by the 0.001-fold of the SI base unit metre"^^rdf:HTML ;
+                                          qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA249"^^xsd:anyURI ;
+                                          qudt:plainTextDescription "SI derived unit newton divided by the 0.001-fold of the SI base unit metre" ;
+                                          qudt:symbol "N/mm" ;
+                                          qudt:wikidataMatch <http://www.wikidata.org/entity/Q106885926> ;
+                                          rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                          rdfs:label "Newton na Millimeter"@sl ,
+                                                     "Newton na Millimetr"@cs ,
+                                                     "Newton par Millimètre"@fr ,
+                                                     "Newton pe Millimetru"@ro ,
+                                                     "Newton per Millimeter"@en-us ,
+                                                     "Newton per Millimeter"@ms ,
+                                                     "Newton per Millimetre"@en ,
+                                                     "Newton per Millimetre"@tr ,
+                                                     "Newton per Millimetro"@it ,
+                                                     "Newton por Millimetro"@es ,
+                                                     "Newton pro Millimeter"@de ,
+                                                     "Niuton na Millimetr"@pl ,
+                                                     "Newton per Millimetre" .
+
+
+###  http://qudt.org/vocab/unit/OHM-M
+<http://qudt.org/vocab/unit/OHM-M> rdf:type owl:NamedIndividual ;
+                                   qudt:informativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31897"^^xsd:anyURI ,
+                                                             "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA020"^^xsd:anyURI ;
+                                   qudt:symbol "Ω·m" ;
+                                   qudt:wikidataMatch <http://www.wikidata.org/entity/Q1441459> ;
+                                   rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                   rdfs:label "Ohm Meter"@de ,
+                                              "Ohm Meter"@en-us ,
+                                              "Ohm Meter"@ms ,
+                                              "Ohm Meter"@sl ,
+                                              "Ohm Metr"@cs ,
+                                              "Ohm Metre"@en ,
+                                              "Ohm Metre"@tr ,
+                                              "Ohm Metro"@it ,
+                                              "Ohm Metro"@pt ,
+                                              "Ohm Metru"@ro ,
+                                              "Ohm Mètre"@fr ,
+                                              "Ohmio Metro"@es ,
+                                              "Ohmium Metrum"@la ,
+                                              "Om Metr"@pl ,
+                                              "Ωμ Μέτρο"@el ,
+                                              "Ом Метр"@ru ,
+                                              "Ом Метър"@bg ,
+                                              "أوم متر"@ar ,
+                                              "اهم متر"@fa ,
+                                              "ओह्म मीटर"@hi ,
+                                              "オームメートル"@ja ,
+                                              "欧姆米"@zh ,
+                                              "Ohm Metre" .
+
+
+###  http://qudt.org/vocab/unit/PER-M2
+<http://qudt.org/vocab/unit/PER-M2> rdf:type owl:NamedIndividual ;
+                                    dcterms:description "\"Per Square Meter\" is a denominator unit with dimensions $/m^2$."^^qudt:LatexString ;
+                                    qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAD611"^^xsd:anyURI ;
+                                    qudt:symbol "/m²" ;
+                                    qudt:wikidataMatch <http://www.wikidata.org/entity/Q11547252> ;
+                                    rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                    rdfs:label "Aνά Τετραγωνικό Μέτρο"@el ,
+                                               "Na Kvadratni Meter"@sl ,
+                                               "Na Metr Kwadratowy"@pl ,
+                                               "Na Čtvereční Metr"@cs ,
+                                               "Par Mètre Carré"@fr ,
+                                               "Pe Metru Pătrat"@ro ,
+                                               "Per Meter Persegi"@ms ,
+                                               "Per Metrekare"@tr ,
+                                               "Per Metro Quadrato"@it ,
+                                               "Per Metrum Quadratum"@la ,
+                                               "Por Metro Cuadrado"@es ,
+                                               "Por Metro Quadrado"@pt ,
+                                               "Pro Quadratmeter"@de ,
+                                               "Reciprocal Square Meter"@en-us ,
+                                               "Reciprocal Square Metre"@en ,
+                                               "На Квадратен Метър"@bg ,
+                                               "На Квадратный Метр"@ru ,
+                                               "Reciprocal Square Metre" .
+
+
+###  http://qudt.org/vocab/unit/PER-M3
+<http://qudt.org/vocab/unit/PER-M3> rdf:type owl:NamedIndividual ;
+                                    dcterms:description "\"Per Cubic Meter\" is a denominator unit with dimensions $/m^3$."^^qudt:LatexString ;
+                                    qudt:expression "$/m^3$"^^qudt:LatexString ;
+                                    qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA740"^^xsd:anyURI ;
+                                    qudt:symbol "/m³" ;
+                                    qudt:wikidataMatch <http://www.wikidata.org/entity/Q21401573> ;
+                                    rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                                    rdfs:label "Aνά Κυβικό Μέτρο"@el ,
+                                               "Na Kubični Meter"@sl ,
+                                               "Na Metr Krychlový"@cs ,
+                                               "Na Metr Sześcienny"@pl ,
+                                               "Par Mètre Cube"@fr ,
+                                               "Pe Metru Cub"@ro ,
+                                               "Per Meter Kubik"@ms ,
+                                               "Per Metreküp"@tr ,
+                                               "Per Metro Cubo"@it ,
+                                               "Per Metrum Cubicum"@la ,
+                                               "Por Metro Cúbico"@es ,
+                                               "Por Metro Cúbico"@pt ,
+                                               "Pro Kubikmeter"@de ,
+                                               "Reciprocal Cubic Meter"@en-us ,
+                                               "Reciprocal Cubic Metre"@en ,
+                                               "На Кубичен Метър"@bg ,
+                                               "На Кубический Метр"@ru ,
+                                               "Reciprocal Cubic Metre" .
+
+
 ###  http://qudt.org/vocab/unit/PERCENT
 <http://qudt.org/vocab/unit/PERCENT> rdf:type owl:NamedIndividual ,
                                               obo:IAO_0000003 ;
@@ -18211,6 +18498,49 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                      rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
                                      rdfs:label "Percent"@en ,
                                                 "Percent" .
+
+
+###  http://qudt.org/vocab/unit/V
+<http://qudt.org/vocab/unit/V> rdf:type owl:NamedIndividual ;
+                               dcterms:description """$\\textit{Volt}$ is the SI unit of electric potential.
+  Separating electric charges creates potential energy, which can be measured in energy units such as joules.
+  Electric potential is defined as the amount of potential energy present per unit of charge.
+  Electric potential is measured in volts, with one volt representing a potential of one joule per coulomb of charge.
+  The name of the unit honors the Italian scientist Count Alessandro Volta (1745-1827), the inventor of the first battery.
+  The volt also may be expressed with a variety of other units.
+  For example, a volt is also equal to one watt per ampere ($W/A$) and one joule per ampere per second ($J/A/s$).
+  """^^qudt:LatexString ;
+                               qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA296"^^xsd:anyURI ,
+                                                         "https://en.wikipedia.org/wiki/Volt?oldid=494812083"^^xsd:anyURI ;
+                               qudt:omUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/volt> ;
+                               qudt:siExactMatch <https://si-digital-framework.org/SI/units/volt> ;
+                               qudt:symbol "V" ;
+                               qudt:wikidataMatch <http://www.wikidata.org/entity/Q25250> ;
+                               rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+                               rdfs:label "Volt"@cs ,
+                                          "Volt"@de ,
+                                          "Volt"@en ,
+                                          "Volt"@fr ,
+                                          "Volt"@hu ,
+                                          "Volt"@it ,
+                                          "Volt"@ms ,
+                                          "Volt"@pt ,
+                                          "Volt"@ro ,
+                                          "Volt"@sl ,
+                                          "Volt"@tr ,
+                                          "Voltio"@es ,
+                                          "Voltium"@la ,
+                                          "Wolt"@pl ,
+                                          "Βολτ"@el ,
+                                          "Волт"@bg ,
+                                          "Вольт"@ru ,
+                                          "וולט"@he ,
+                                          "فولت"@ar ,
+                                          "ولت"@fa ,
+                                          "वोल्ट"@hi ,
+                                          "ボルト"@ja ,
+                                          "伏特"@zh ,
+                                          "Volt" .
 
 
 ###  http://qudt.org/vocab/unit/W-PER-KiloGM
@@ -18862,6 +19192,19 @@ noes:NOES_0000030 rdf:type owl:NamedIndividual ;
 #################################################################
 #    Annotations
 #################################################################
+
+obo:UO_0000009 obo:IAO_0000115 "A mass unit which is equal to the mass of the International Prototype Kilogram kept by the BIPM at Svres, France." ;
+               oboInOwl:hasExactSynonym "kg" ;
+               rdfs:label "kilogram" .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:UO_0000009 ;
+   owl:annotatedProperty obo:IAO_0000115 ;
+   owl:annotatedTarget "A mass unit which is equal to the mass of the International Prototype Kilogram kept by the BIPM at Svres, France." ;
+   oboInOwl:hasDbXref "BIPM:BIPM" ,
+                      "NIST:NIST"
+ ] .
+
 
 obo:UO_0000010 obo:IAO_0000115 "A time unit which is equal to the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom." ;
                oboInOwl:hasExactSynonym "s" ;

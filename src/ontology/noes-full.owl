@@ -21,21 +21,21 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-10-29/noes-full.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-11-02/noes-full.owl"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-06-01                                  </dcterms:created>
         <dcterms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
         <dcterms:description>NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets.</dcterms:description>
         <dcterms:identifier>https://doi.org/10.5281/zenodo.XXXXXXX      </dcterms:identifier>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-02</dcterms:issued>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-02</dcterms:modified>
         <dcterms:publisher rdf:resource="https://ror.org/04hm8eb66"/>
         <dcterms:source rdf:resource="https://w3id.org/pmd/co/"/>
         <dcterms:title>NOES-Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
         <bibo:status>stable</bibo:status>
         <vann:preferredNamespacePrefix>noes</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/pmd/noes/</vann:preferredNamespaceUri>
-        <owl:versionInfo>2026-10-29</owl:versionInfo>
+        <owl:versionInfo>2026-11-02</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -289,6 +289,12 @@ We also have the outstanding issue of how to aim different definitions to differ
     <!-- http://qudt.org/schema/qudt/plainTextDescription -->
 
     <owl:AnnotationProperty rdf:about="http://qudt.org/schema/qudt/plainTextDescription"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/siExactMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://qudt.org/schema/qudt/siExactMatch"/>
     
 
 
@@ -4055,6 +4061,15 @@ for now.</obo:IAO_0000116>
     
 
 
+    <!-- http://purl.obolibrary.org/obo/UO_0000009 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000009">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000045"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000021"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/UO_0000010 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000010">
@@ -4378,6 +4393,14 @@ for now.</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
         <rdfs:label>kelvin based unit</rdfs:label>
         <NOES_0000122 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</NOES_0000122>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_1000021 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_1000021">
+        <rdfs:label>gram based unit</rdfs:label>
     </owl:Class>
     
 
@@ -24598,6 +24621,12 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     
 
 
+    <!-- http://purl.obolibrary.org/obo/UO_0000009 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/UO_0000009"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/UO_0000010 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/UO_0000010"/>
@@ -24751,6 +24780,77 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     
 
 
+    <!-- http://qudt.org/vocab/unit/DEG_C-PER-HR -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/DEG_C-PER-HR">
+        <dcterms:description rdf:datatype="http://qudt.org/schema/qudt/LatexString">$\textit{Degree Celsius per Hour}$ is a unit for &apos;Temperature Per Time&apos; expressed as $degC / h$.
+  </dcterms:description>
+        <qudt:expression rdf:datatype="http://qudt.org/schema/qudt/LatexString">$degC / h$</qudt:expression>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA036</qudt:informativeReference>
+        <qudt:symbol>°C/h</qudt:symbol>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label>Degree Celsius per Hour</rdfs:label>
+        <rdfs:label xml:lang="en">Degree Celsius per Hour</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/K-PER-SEC -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/K-PER-SEC">
+        <dcterms:description rdf:datatype="http://qudt.org/schema/qudt/LatexString">$\textit{Kelvin per Second}$ is a unit for &apos;Temperature Per Time&apos; expressed as $K / s$.
+  </dcterms:description>
+        <qudt:expression rdf:datatype="http://qudt.org/schema/qudt/LatexString">$K / s$</qudt:expression>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA192</qudt:informativeReference>
+        <qudt:symbol>K/s</qudt:symbol>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label xml:lang="cs">Kelvin na Sekunda</rdfs:label>
+        <rdfs:label xml:lang="sl">Kelvin na Sekunda</rdfs:label>
+        <rdfs:label xml:lang="fr">Kelvin par Seconde</rdfs:label>
+        <rdfs:label xml:lang="ro">Kelvin pe Secundă</rdfs:label>
+        <rdfs:label xml:lang="ms">Kelvin per Saat</rdfs:label>
+        <rdfs:label xml:lang="tr">Kelvin per Saniye</rdfs:label>
+        <rdfs:label>Kelvin per Second</rdfs:label>
+        <rdfs:label xml:lang="en">Kelvin per Second</rdfs:label>
+        <rdfs:label xml:lang="it">Kelvin per Secondo</rdfs:label>
+        <rdfs:label xml:lang="la">Kelvin per Secundum</rdfs:label>
+        <rdfs:label xml:lang="es">Kelvin por Segundo</rdfs:label>
+        <rdfs:label xml:lang="pt">Kelvin por Segundo</rdfs:label>
+        <rdfs:label xml:lang="de">Kelvin pro Sekunde</rdfs:label>
+        <rdfs:label xml:lang="pl">Kelwin na Sekunda</rdfs:label>
+        <rdfs:label xml:lang="el">Κέλβιν ανά Δευτερόλεπτο</rdfs:label>
+        <rdfs:label xml:lang="bg">Келвин на Секунда</rdfs:label>
+        <rdfs:label xml:lang="ru">Кельвин на Секунда</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/KiloN -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/KiloN">
+        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">1 000-fold of the SI derived unit newton</dcterms:description>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA573</qudt:informativeReference>
+        <qudt:plainTextDescription>1 000-fold of the SI derived unit newton</qudt:plainTextDescription>
+        <qudt:symbol>kN</qudt:symbol>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q56402798"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label xml:lang="it">Chilonewton</rdfs:label>
+        <rdfs:label>Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="cs">Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="de">Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="en">Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="es">Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="fr">Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="hu">Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="ms">Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="ro">Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="sl">Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="tr">Kilonewton</rdfs:label>
+        <rdfs:label xml:lang="pl">Kiloniuton</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://qudt.org/vocab/unit/MOL -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MOL">
@@ -24786,6 +24886,48 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     
 
 
+    <!-- http://qudt.org/vocab/unit/MicroM2 -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MicroM2">
+        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">0.000000000001-fold of the power of the SI base unit metre with the exponent 2</dcterms:description>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA092</qudt:informativeReference>
+        <qudt:plainTextDescription>0.000000000001-fold of the power of the SI base unit metre with the exponent 2</qudt:plainTextDescription>
+        <qudt:symbol>μm²</qudt:symbol>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q11061003"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label xml:lang="sl">Kvadratni Micrometer</rdfs:label>
+        <rdfs:label xml:lang="ms">Micrometer Persegi</rdfs:label>
+        <rdfs:label xml:lang="pl">Micrometr Kwadratowy</rdfs:label>
+        <rdfs:label xml:lang="tr">Micrometrekare</rdfs:label>
+        <rdfs:label xml:lang="es">Micrometro Cuadrado</rdfs:label>
+        <rdfs:label xml:lang="it">Micrometro Quadrato</rdfs:label>
+        <rdfs:label xml:lang="ro">Micrometru Pătrat</rdfs:label>
+        <rdfs:label xml:lang="fr">Micromètre Carré</rdfs:label>
+        <rdfs:label xml:lang="de">Quadratmicrometer</rdfs:label>
+        <rdfs:label xml:lang="en-us">Square Micrometer</rdfs:label>
+        <rdfs:label>Square Micrometre</rdfs:label>
+        <rdfs:label xml:lang="en">Square Micrometre</rdfs:label>
+        <rdfs:label xml:lang="cs">Čtvereční Micrometr</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/MilliM-PER-MIN -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MilliM-PER-MIN">
+        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">0.001-fold of the SI base unit metre divided by the unit minute</dcterms:description>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAB378</qudt:informativeReference>
+        <qudt:plainTextDescription>0.001-fold of the SI base unit metre divided by the unit minute</qudt:plainTextDescription>
+        <qudt:symbol>mm/min</qudt:symbol>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q57273614"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label xml:lang="en-us">Millimeter per Minute</rdfs:label>
+        <rdfs:label>Millimetre per Minute</rdfs:label>
+        <rdfs:label xml:lang="en">Millimetre per Minute</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://qudt.org/vocab/unit/MilliM-PER-SEC -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MilliM-PER-SEC">
@@ -24808,6 +24950,72 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <rdfs:label xml:lang="es">Millimetro por Segundo</rdfs:label>
         <rdfs:label xml:lang="ro">Millimetru pe Secundă</rdfs:label>
         <rdfs:label xml:lang="fr">Millimètre par Seconde</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/MilliT -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MilliT">
+        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">0.001-fold of the SI derived unit tesla</dcterms:description>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA803</qudt:informativeReference>
+        <qudt:plainTextDescription>0.001-fold of the SI derived unit tesla</qudt:plainTextDescription>
+        <qudt:symbol>mT</qudt:symbol>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q94734788"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label>Millitesla</rdfs:label>
+        <rdfs:label xml:lang="cs">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="de">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="en">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="es">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="fr">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="hu">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="it">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="ms">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="pl">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="ro">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="sl">Millitesla</rdfs:label>
+        <rdfs:label xml:lang="tr">Millitesla</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/N-PER-M -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/N-PER-M">
+        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">Newton Per Meter (N/m) is a unit in the category of Surface tension. It is also known as newtons per
+    meter, newton per metre, newtons per metre, newton/meter, newton/metre. This unit is commonly used in the SI unit system.
+    Newton Per Meter (N/m) has a dimension of MT-2 where $M$ is mass, and $T$ is time. This unit is the standard SI unit in this
+    category.
+  </dcterms:description>
+        <qudt:expression rdf:datatype="http://qudt.org/schema/qudt/LatexString">$N/m$</qudt:expression>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA246</qudt:informativeReference>
+        <qudt:symbol>N/m</qudt:symbol>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q26156113"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label xml:lang="sl">Newton na Meter</rdfs:label>
+        <rdfs:label xml:lang="cs">Newton na Metr</rdfs:label>
+        <rdfs:label xml:lang="fr">Newton par Mètre</rdfs:label>
+        <rdfs:label xml:lang="ro">Newton pe Metru</rdfs:label>
+        <rdfs:label xml:lang="en-us">Newton per Meter</rdfs:label>
+        <rdfs:label xml:lang="ms">Newton per Meter</rdfs:label>
+        <rdfs:label>Newton per Metre</rdfs:label>
+        <rdfs:label xml:lang="en">Newton per Metre</rdfs:label>
+        <rdfs:label xml:lang="tr">Newton per Metre</rdfs:label>
+        <rdfs:label xml:lang="it">Newton per Metro</rdfs:label>
+        <rdfs:label xml:lang="es">Newton por Metro</rdfs:label>
+        <rdfs:label xml:lang="pt">Newton por Metro</rdfs:label>
+        <rdfs:label xml:lang="de">Newton pro Meter</rdfs:label>
+        <rdfs:label xml:lang="la">Newtonium per Metrum</rdfs:label>
+        <rdfs:label xml:lang="pl">Niuton na Metr</rdfs:label>
+        <rdfs:label xml:lang="el">Νιούτον ανά Μέτρο</rdfs:label>
+        <rdfs:label xml:lang="ru">Ньютон на Метр</rdfs:label>
+        <rdfs:label xml:lang="bg">Нютон на Метър</rdfs:label>
+        <rdfs:label xml:lang="ar">مقياس التبادل، الأس السالب للمتر</rdfs:label>
+        <rdfs:label xml:lang="fa">نیوتن بر متر</rdfs:label>
+        <rdfs:label xml:lang="hi">प्रति मीटर न्यूटन</rdfs:label>
+        <rdfs:label xml:lang="ja">ニュートン毎メートル</rdfs:label>
+        <rdfs:label xml:lang="zh">牛顿每米</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -24847,6 +25055,128 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     
 
 
+    <!-- http://qudt.org/vocab/unit/N-PER-MilliM -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/N-PER-MilliM">
+        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">SI derived unit newton divided by the 0.001-fold of the SI base unit metre</dcterms:description>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA249</qudt:informativeReference>
+        <qudt:plainTextDescription>SI derived unit newton divided by the 0.001-fold of the SI base unit metre</qudt:plainTextDescription>
+        <qudt:symbol>N/mm</qudt:symbol>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q106885926"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label xml:lang="sl">Newton na Millimeter</rdfs:label>
+        <rdfs:label xml:lang="cs">Newton na Millimetr</rdfs:label>
+        <rdfs:label xml:lang="fr">Newton par Millimètre</rdfs:label>
+        <rdfs:label xml:lang="ro">Newton pe Millimetru</rdfs:label>
+        <rdfs:label xml:lang="en-us">Newton per Millimeter</rdfs:label>
+        <rdfs:label xml:lang="ms">Newton per Millimeter</rdfs:label>
+        <rdfs:label>Newton per Millimetre</rdfs:label>
+        <rdfs:label xml:lang="en">Newton per Millimetre</rdfs:label>
+        <rdfs:label xml:lang="tr">Newton per Millimetre</rdfs:label>
+        <rdfs:label xml:lang="it">Newton per Millimetro</rdfs:label>
+        <rdfs:label xml:lang="es">Newton por Millimetro</rdfs:label>
+        <rdfs:label xml:lang="de">Newton pro Millimeter</rdfs:label>
+        <rdfs:label xml:lang="pl">Niuton na Millimetr</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/OHM-M -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/OHM-M">
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.iso.org/iso/catalogue_detail?csnumber=31897</qudt:informativeReference>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA020</qudt:informativeReference>
+        <qudt:symbol>Ω·m</qudt:symbol>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q1441459"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label xml:lang="de">Ohm Meter</rdfs:label>
+        <rdfs:label xml:lang="en-us">Ohm Meter</rdfs:label>
+        <rdfs:label xml:lang="ms">Ohm Meter</rdfs:label>
+        <rdfs:label xml:lang="sl">Ohm Meter</rdfs:label>
+        <rdfs:label xml:lang="cs">Ohm Metr</rdfs:label>
+        <rdfs:label>Ohm Metre</rdfs:label>
+        <rdfs:label xml:lang="en">Ohm Metre</rdfs:label>
+        <rdfs:label xml:lang="tr">Ohm Metre</rdfs:label>
+        <rdfs:label xml:lang="it">Ohm Metro</rdfs:label>
+        <rdfs:label xml:lang="pt">Ohm Metro</rdfs:label>
+        <rdfs:label xml:lang="ro">Ohm Metru</rdfs:label>
+        <rdfs:label xml:lang="fr">Ohm Mètre</rdfs:label>
+        <rdfs:label xml:lang="es">Ohmio Metro</rdfs:label>
+        <rdfs:label xml:lang="la">Ohmium Metrum</rdfs:label>
+        <rdfs:label xml:lang="pl">Om Metr</rdfs:label>
+        <rdfs:label xml:lang="el">Ωμ Μέτρο</rdfs:label>
+        <rdfs:label xml:lang="ru">Ом Метр</rdfs:label>
+        <rdfs:label xml:lang="bg">Ом Метър</rdfs:label>
+        <rdfs:label xml:lang="ar">أوم متر</rdfs:label>
+        <rdfs:label xml:lang="fa">اهم متر</rdfs:label>
+        <rdfs:label xml:lang="hi">ओह्म मीटर</rdfs:label>
+        <rdfs:label xml:lang="ja">オームメートル</rdfs:label>
+        <rdfs:label xml:lang="zh">欧姆米</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/PER-M2 -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/PER-M2">
+        <dcterms:description rdf:datatype="http://qudt.org/schema/qudt/LatexString">&quot;Per Square Meter&quot; is a denominator unit with dimensions $/m^2$.</dcterms:description>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAD611</qudt:informativeReference>
+        <qudt:symbol>/m²</qudt:symbol>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q11547252"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label xml:lang="el">Aνά Τετραγωνικό Μέτρο</rdfs:label>
+        <rdfs:label xml:lang="sl">Na Kvadratni Meter</rdfs:label>
+        <rdfs:label xml:lang="pl">Na Metr Kwadratowy</rdfs:label>
+        <rdfs:label xml:lang="cs">Na Čtvereční Metr</rdfs:label>
+        <rdfs:label xml:lang="fr">Par Mètre Carré</rdfs:label>
+        <rdfs:label xml:lang="ro">Pe Metru Pătrat</rdfs:label>
+        <rdfs:label xml:lang="ms">Per Meter Persegi</rdfs:label>
+        <rdfs:label xml:lang="tr">Per Metrekare</rdfs:label>
+        <rdfs:label xml:lang="it">Per Metro Quadrato</rdfs:label>
+        <rdfs:label xml:lang="la">Per Metrum Quadratum</rdfs:label>
+        <rdfs:label xml:lang="es">Por Metro Cuadrado</rdfs:label>
+        <rdfs:label xml:lang="pt">Por Metro Quadrado</rdfs:label>
+        <rdfs:label xml:lang="de">Pro Quadratmeter</rdfs:label>
+        <rdfs:label xml:lang="en-us">Reciprocal Square Meter</rdfs:label>
+        <rdfs:label>Reciprocal Square Metre</rdfs:label>
+        <rdfs:label xml:lang="en">Reciprocal Square Metre</rdfs:label>
+        <rdfs:label xml:lang="bg">На Квадратен Метър</rdfs:label>
+        <rdfs:label xml:lang="ru">На Квадратный Метр</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/PER-M3 -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/PER-M3">
+        <dcterms:description rdf:datatype="http://qudt.org/schema/qudt/LatexString">&quot;Per Cubic Meter&quot; is a denominator unit with dimensions $/m^3$.</dcterms:description>
+        <qudt:expression rdf:datatype="http://qudt.org/schema/qudt/LatexString">$/m^3$</qudt:expression>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA740</qudt:informativeReference>
+        <qudt:symbol>/m³</qudt:symbol>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q21401573"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label xml:lang="el">Aνά Κυβικό Μέτρο</rdfs:label>
+        <rdfs:label xml:lang="sl">Na Kubični Meter</rdfs:label>
+        <rdfs:label xml:lang="cs">Na Metr Krychlový</rdfs:label>
+        <rdfs:label xml:lang="pl">Na Metr Sześcienny</rdfs:label>
+        <rdfs:label xml:lang="fr">Par Mètre Cube</rdfs:label>
+        <rdfs:label xml:lang="ro">Pe Metru Cub</rdfs:label>
+        <rdfs:label xml:lang="ms">Per Meter Kubik</rdfs:label>
+        <rdfs:label xml:lang="tr">Per Metreküp</rdfs:label>
+        <rdfs:label xml:lang="it">Per Metro Cubo</rdfs:label>
+        <rdfs:label xml:lang="la">Per Metrum Cubicum</rdfs:label>
+        <rdfs:label xml:lang="es">Por Metro Cúbico</rdfs:label>
+        <rdfs:label xml:lang="pt">Por Metro Cúbico</rdfs:label>
+        <rdfs:label xml:lang="de">Pro Kubikmeter</rdfs:label>
+        <rdfs:label xml:lang="en-us">Reciprocal Cubic Meter</rdfs:label>
+        <rdfs:label>Reciprocal Cubic Metre</rdfs:label>
+        <rdfs:label xml:lang="en">Reciprocal Cubic Metre</rdfs:label>
+        <rdfs:label xml:lang="bg">На Кубичен Метър</rdfs:label>
+        <rdfs:label xml:lang="ru">На Кубический Метр</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://qudt.org/vocab/unit/PERCENT -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/PERCENT">
@@ -24860,6 +25190,52 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
         <rdfs:label>Percent</rdfs:label>
         <rdfs:label xml:lang="en">Percent</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/V -->
+
+    <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/V">
+        <dcterms:description rdf:datatype="http://qudt.org/schema/qudt/LatexString">$\textit{Volt}$ is the SI unit of electric potential.
+  Separating electric charges creates potential energy, which can be measured in energy units such as joules.
+  Electric potential is defined as the amount of potential energy present per unit of charge.
+  Electric potential is measured in volts, with one volt representing a potential of one joule per coulomb of charge.
+  The name of the unit honors the Italian scientist Count Alessandro Volta (1745-1827), the inventor of the first battery.
+  The volt also may be expressed with a variety of other units.
+  For example, a volt is also equal to one watt per ampere ($W/A$) and one joule per ampere per second ($J/A/s$).
+  </dcterms:description>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA296</qudt:informativeReference>
+        <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://en.wikipedia.org/wiki/Volt?oldid=494812083</qudt:informativeReference>
+        <qudt:omUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/volt"/>
+        <qudt:siExactMatch rdf:resource="https://si-digital-framework.org/SI/units/volt"/>
+        <qudt:symbol>V</qudt:symbol>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q25250"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
+        <rdfs:label>Volt</rdfs:label>
+        <rdfs:label xml:lang="cs">Volt</rdfs:label>
+        <rdfs:label xml:lang="de">Volt</rdfs:label>
+        <rdfs:label xml:lang="en">Volt</rdfs:label>
+        <rdfs:label xml:lang="fr">Volt</rdfs:label>
+        <rdfs:label xml:lang="hu">Volt</rdfs:label>
+        <rdfs:label xml:lang="it">Volt</rdfs:label>
+        <rdfs:label xml:lang="ms">Volt</rdfs:label>
+        <rdfs:label xml:lang="pt">Volt</rdfs:label>
+        <rdfs:label xml:lang="ro">Volt</rdfs:label>
+        <rdfs:label xml:lang="sl">Volt</rdfs:label>
+        <rdfs:label xml:lang="tr">Volt</rdfs:label>
+        <rdfs:label xml:lang="es">Voltio</rdfs:label>
+        <rdfs:label xml:lang="la">Voltium</rdfs:label>
+        <rdfs:label xml:lang="pl">Wolt</rdfs:label>
+        <rdfs:label xml:lang="el">Βολτ</rdfs:label>
+        <rdfs:label xml:lang="bg">Волт</rdfs:label>
+        <rdfs:label xml:lang="ru">Вольт</rdfs:label>
+        <rdfs:label xml:lang="he">וולט</rdfs:label>
+        <rdfs:label xml:lang="ar">فولت</rdfs:label>
+        <rdfs:label xml:lang="fa">ولت</rdfs:label>
+        <rdfs:label xml:lang="hi">वोल्ट</rdfs:label>
+        <rdfs:label xml:lang="ja">ボルト</rdfs:label>
+        <rdfs:label xml:lang="zh">伏特</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -25758,6 +26134,18 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0000009">
+        <obo:IAO_0000115>A mass unit which is equal to the mass of the International Prototype Kilogram kept by the BIPM at Svres, France.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>kg</oboInOwl:hasExactSynonym>
+        <rdfs:label>kilogram</rdfs:label>
+    </rdf:Description>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000009"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A mass unit which is equal to the mass of the International Prototype Kilogram kept by the BIPM at Svres, France.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>BIPM:BIPM</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>NIST:NIST</oboInOwl:hasDbXref>
+    </owl:Axiom>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UO_0000010">
         <obo:IAO_0000115>A time unit which is equal to the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>s</oboInOwl:hasExactSynonym>
