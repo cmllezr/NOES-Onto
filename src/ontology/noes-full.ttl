@@ -6782,6 +6782,15 @@ co:PMD_0020151 rdf:type owl:Class ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
 
+###  https://w3id.org/pmd/co/PMD_0020154
+co:PMD_0020154 rdf:type owl:Class ;
+               rdfs:subClassOf co:PMD_0020136 ;
+               rdfs:comment "It proceeds by nucleation and growth."@en ;
+               rdfs:label "precipitation (phase)"@en ;
+               skos:definition "Precipitation from a supersaturated solid solution is a phase transformation process in which a single supersaturated parent phase decomposes into a solute‑depleted matrix and dispersed, compositionally distinct precipitate phases."@en ;
+               co:PMD_0000060 "true"^^xsd:boolean .
+
+
 ###  https://w3id.org/pmd/co/PMD_0020161
 co:PMD_0020161 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
@@ -7258,6 +7267,15 @@ co:PMD_0020232 rdf:type owl:Class ;
                obo:IAO_0000116 "TODO: replace topObjectProperty with bfo:occupies spatial region"@en ;
                rdfs:label "substitutional solid solution"@en ;
                skos:definition "a solid solution whose solute entities occupy lattice points"@en .
+
+
+###  https://w3id.org/pmd/co/PMD_0020233
+co:PMD_0020233 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000029 ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
+               rdfs:label "dislocation"@en ;
+               skos:definition "a linear site in a cystal that interrupts the cystal ordering"@en .
 
 
 ###  https://w3id.org/pmd/co/PMD_0020241
@@ -9388,6 +9406,21 @@ co:PMD_0060019 rdf:type owl:Class ;
                skos:definition "The cross section area is an area of a cutting or piece of an object cut off or broken at right angles or related to an axis." .
 
 
+###  https://w3id.org/pmd/co/PMD_0060023
+co:PMD_0060023 rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000030 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000053 ;
+                                 owl:someValuesFrom co:PMD_0050051
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000053 ;
+                                 owl:someValuesFrom co:PMD_0080104
+                               ] ;
+               rdfs:label "precipitate"@en ;
+               skos:definition "A precipitate is an object that is a distinct solid phase formed within a material, typically by separation from a solution or matrix." .
+
+
 ###  https://w3id.org/pmd/co/PMD_0080019
 co:PMD_0080019 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020132 ;
@@ -9583,12 +9616,22 @@ co:PMD_0080101 rdf:type owl:Class ;
                skos:example "A saline infusion solution has a NaCl mass concentration of 9 g/L"@en .
 
 
+###  https://w3id.org/pmd/co/PMD_0080104
+co:PMD_0080104 rdf:type owl:Class ;
+               rdfs:label "DEPRECATED Volumenanteil"@de ,
+                          "DEPRECATED volume fraction"@en ;
+               rdfs:seeAlso co:PMD_0020104 ;
+               owl:deprecated "true"^^xsd:boolean ;
+               skos:definition "DEPRECATED Volume fraction describes the volume of a mixture component relative to the sum of all components' volumes"@en ,
+                               "DEPRECATED Volumenanteil beschreibt das Volumen eines Mischbestandteils im Verhältnis zur Summe der Volumina aller Bestandteile"@de .
+
+
 ###  https://w3id.org/pmd/co/PMD_0080108
 co:PMD_0080108 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020311 ,
                                co:PMD_0023004 ,
-                               _:genid1515 ,
-                               _:genid1521 ,
+                               _:genid1517 ,
+                               _:genid1523 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000052 ;
                                  owl:someValuesFrom co:PMD_0000001
@@ -9600,7 +9643,7 @@ co:PMD_0080108 rdf:type owl:Class ;
                skos:example "A cross-section of a loaded steel column bears a compressive stress of 150 MPa"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid1515 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1517 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020200
                                   ]
@@ -9611,7 +9654,7 @@ _:genid1515 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                 ) ;
              rdf:type owl:Class .
 
-_:genid1521 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1523 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020352
                                   ]
@@ -9625,14 +9668,14 @@ _:genid1521 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1515 ;
+   owl:annotatedTarget _:genid1517 ;
    rdfs:comment "Mechanical view on stress"@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1521 ;
+   owl:annotatedTarget _:genid1523 ;
    rdfs:comment "Thermodynamic view on stress"@en
  ] .
 
@@ -9640,14 +9683,14 @@ _:genid1521 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 ###  https://w3id.org/pmd/co/PMD_0080116
 co:PMD_0080116 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid1528 ;
+                               _:genid1530 ;
                obo:IAO_0000117 "Philipp von Hartrott" ;
                rdfs:comment "Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you're considering."@en ;
                rdfs:label "potential"@en ;
                skos:definition "a partial derivative of energy with respect to its conjugate extensive quantity"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid1528 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1530 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020142
                                   ]
@@ -9661,7 +9704,7 @@ _:genid1528 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080116 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1528 ;
+   owl:annotatedTarget _:genid1530 ;
    rdfs:comment """In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking \"how does energy change per unit carrier added?\", you ask \"how does energy change per unit carrier moved in space?\""""@en

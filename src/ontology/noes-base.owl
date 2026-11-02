@@ -6249,6 +6249,18 @@ A statement that two ratios/fractions are equal (an equation), e.g. 2/3=4/6</rdf
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020154 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020154">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020136"/>
+        <rdfs:comment xml:lang="en">It proceeds by nucleation and growth.</rdfs:comment>
+        <rdfs:label xml:lang="en">precipitation (phase)</rdfs:label>
+        <skos:definition xml:lang="en">Precipitation from a supersaturated solid solution is a phase transformation process in which a single supersaturated parent phase decomposes into a solute‑depleted matrix and dispersed, compositionally distinct precipitate phases.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020161 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020161">
@@ -6903,6 +6915,18 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
         <obo:IAO_0000116 xml:lang="en">TODO: replace topObjectProperty with bfo:occupies spatial region</obo:IAO_0000116>
         <rdfs:label xml:lang="en">substitutional solid solution</rdfs:label>
         <skos:definition xml:lang="en">a solid solution whose solute entities occupy lattice points</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020233 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020233">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">dislocation</rdfs:label>
+        <skos:definition xml:lang="en">a linear site in a cystal that interrupts the cystal ordering</skos:definition>
     </owl:Class>
     
 
@@ -9755,6 +9779,28 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0060023 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0060023">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0050051"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0080104"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">precipitate</rdfs:label>
+        <skos:definition>A precipitate is an object that is a distinct solid phase formed within a material, typically by separation from a solution or matrix.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0080019 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080019">
@@ -10003,13 +10049,26 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0080104 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080104">
+        <rdfs:label xml:lang="de">DEPRECATED Volumenanteil</rdfs:label>
+        <rdfs:label xml:lang="en">DEPRECATED volume fraction</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/pmd/co/PMD_0020104"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <skos:definition xml:lang="en">DEPRECATED Volume fraction describes the volume of a mixture component relative to the sum of all components&apos; volumes</skos:definition>
+        <skos:definition xml:lang="de">DEPRECATED Volumenanteil beschreibt das Volumen eines Mischbestandteils im Verhältnis zur Summe der Volumina aller Bestandteile</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0080108 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080108">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020311"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
-        <rdfs:subClassOf rdf:nodeID="genid1330"/>
-        <rdfs:subClassOf rdf:nodeID="genid1336"/>
+        <rdfs:subClassOf rdf:nodeID="genid1332"/>
+        <rdfs:subClassOf rdf:nodeID="genid1338"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
@@ -10023,7 +10082,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
         <skos:example xml:lang="en">A cross-section of a loaded steel column bears a compressive stress of 150 MPa</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1330">
+    <owl:Class rdf:nodeID="genid1332">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -10035,7 +10094,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
             </owl:Restriction>
         </owl:intersectionOf>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1336">
+    <owl:Class rdf:nodeID="genid1338">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -10050,13 +10109,13 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080108"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1330"/>
+        <owl:annotatedTarget rdf:nodeID="genid1332"/>
         <rdfs:comment xml:lang="en">Mechanical view on stress</rdfs:comment>
     </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080108"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1336"/>
+        <owl:annotatedTarget rdf:nodeID="genid1338"/>
         <rdfs:comment xml:lang="en">Thermodynamic view on stress</rdfs:comment>
     </owl:Axiom>
     
@@ -10066,14 +10125,14 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080116">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <rdfs:subClassOf rdf:nodeID="genid1343"/>
+        <rdfs:subClassOf rdf:nodeID="genid1345"/>
         <obo:IAO_0000117>Philipp von Hartrott</obo:IAO_0000117>
         <rdfs:comment xml:lang="en">Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you&apos;re considering.</rdfs:comment>
         <rdfs:label xml:lang="en">potential</rdfs:label>
         <skos:definition xml:lang="en">a partial derivative of energy with respect to its conjugate extensive quantity</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1343">
+    <owl:Class rdf:nodeID="genid1345">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -10088,7 +10147,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080116"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1343"/>
+        <owl:annotatedTarget rdf:nodeID="genid1345"/>
         <rdfs:comment xml:lang="en">In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking &quot;how does energy change per unit carrier added?&quot;, you ask &quot;how does energy change per unit carrier moved in space?&quot;</rdfs:comment>
