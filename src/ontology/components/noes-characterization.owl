@@ -41,6 +41,41 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000149 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000149">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
+        <obo:IAO_0000116 xml:lang="en">The difference between &quot;assay measures characteristic&quot; and &quot;assay directly measures characteristic&quot; is required to infer process-attribute-dependent properties and anistopic properties. For example, for P1.0/400 property an average value might be given, so using  &quot;assay measures characteristic&quot; is can be inferred that it is not just iron losses but specifically P1.0/400 based on the process characteristic. But as it is an average and not, e.g., RD value, another object property is required.
+
+There can be an argument  that  P1.0/400 measurement process does not measure AVERAGE value but averaging calculation process does. Fair, but we cannot force OWL the following rule that is property of type X is input to the averaging process, then the property of the output value must be of the same type X. Therefore, we want to preserve the inference of  process-attribute-  and anistopic-specific properties without using superflous external rules</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">assay directly measures characteristic</rdfs:label>
+        <skos:definition xml:lang="en">assay directly measures characteristic is an object property to specify that the ICE output produced by the assay is directly the value of the characteristic.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000150 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000150">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+        <rdfs:label xml:lang="en">characteristic directly measured by assay</rdfs:label>
+        <skos:definition>inverse of assay directly measures characteristic</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
