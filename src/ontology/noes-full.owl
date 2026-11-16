@@ -21,21 +21,21 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-11-04/noes-full.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-11-16/noes-full.owl"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-06-01                                  </dcterms:created>
         <dcterms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
         <dcterms:description>NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets.</dcterms:description>
         <dcterms:identifier>https://doi.org/10.5281/zenodo.XXXXXXX      </dcterms:identifier>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-04</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-16</dcterms:issued>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-04</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-16</dcterms:modified>
         <dcterms:publisher rdf:resource="https://ror.org/04hm8eb66"/>
         <dcterms:source rdf:resource="https://w3id.org/pmd/co/"/>
         <dcterms:title>NOES-Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
         <bibo:status>stable</bibo:status>
         <vann:preferredNamespacePrefix>noes</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/pmd/noes/</vann:preferredNamespaceUri>
-        <owl:versionInfo>2026-11-04</owl:versionInfo>
+        <owl:versionInfo>2026-11-16</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -1933,6 +1933,30 @@ For taxonomy purpose only</rdfs:comment>
         <rdfs:label xml:lang="en">approximately parallel to</rdfs:label>
         <skos:definition xml:lang="en">Approximately parallel to is an object property which connect two or  more spatial regions that are parallel to each other considering the misalignment angle of usually 15°</skos:definition>
         <skos:example xml:lang="en">&lt;111&gt; family of directions in crystals are approximately parellel to normal direction (ND) of a sample in γ-fiber texture component</skos:example>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000149 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000149">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0009006"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
+        <obo:IAO_0000116 xml:lang="en">The difference between &quot;assay measures characteristic&quot; and &quot;assay directly measures characteristic&quot; is required to infer process-attribute-dependent properties and anistopic properties. For example, for P1.0/400 property an average value might be given, so using  &quot;assay measures characteristic&quot; is can be inferred that it is not just iron losses but specifically P1.0/400 based on the process characteristic. But as it is an average and not, e.g., RD value, another object property is required.
+
+There can be an argument  that  P1.0/400 measurement process does not measure AVERAGE value but averaging calculation process does. Fair, but we cannot force OWL the following rule that is property of type X is input to the averaging process, then the property of the output value must be of the same type X. Therefore, we want to preserve the inference of  process-attribute-  and anistopic-specific properties without using superflous external rules</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">assay directly measures characteristic</rdfs:label>
+        <skos:definition xml:lang="en">assay directly measures characteristic is an object property to specify that the ICE output produced by the assay is directly the value of the characteristic.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000150 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/noes/NOES_0000150">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+        <rdfs:label xml:lang="en">characteristic directly measured by assay</rdfs:label>
+        <skos:definition>inverse of assay directly measures characteristic</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -15466,7 +15490,7 @@ which determines the directions in a sheet material in respect to the rolling di
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000048"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -15525,7 +15549,7 @@ which determines the directions in a sheet material in respect to the rolling di
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000048"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -16131,7 +16155,7 @@ Has part grain growth and recovery.</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0080154"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -16190,7 +16214,7 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0080154"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -16260,7 +16284,7 @@ Has part grain growth and recovery.</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000048"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -16319,7 +16343,7 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000048"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -16387,7 +16411,7 @@ Has part grain growth and recovery.</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000050"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -16446,7 +16470,7 @@ Has part grain growth and recovery.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000050"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -17910,7 +17934,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000050"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -17969,7 +17993,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000050"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18037,7 +18061,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0080154"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -18096,7 +18120,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0080154"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18186,7 +18210,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0080154"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -18245,7 +18269,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0080154"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18315,7 +18339,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000057"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -18374,7 +18398,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18444,7 +18468,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000057"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -18503,7 +18527,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000057"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18573,7 +18597,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/tto/TTO_0000047"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -18632,7 +18656,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000047"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18702,7 +18726,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/tto/TTO_0000047"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -18761,7 +18785,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000047"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18831,7 +18855,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/tto/TTO_0000047"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -18890,7 +18914,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000047"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -18960,7 +18984,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000182"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -19019,7 +19043,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000182"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -19088,7 +19112,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000182"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -19147,7 +19171,7 @@ Pe∝f2⋅d2⋅Bp2​/ρ</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000182"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -19911,7 +19935,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0060004"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -19970,7 +19994,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0060004"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -20040,7 +20064,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0060004"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -20099,7 +20123,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0060004"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -20169,7 +20193,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0060004"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -20228,7 +20252,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0060004"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -20298,7 +20322,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/tto/TTO_0000037"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -20357,7 +20381,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000037"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -20427,7 +20451,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/tto/TTO_0000037"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -20486,7 +20510,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000037"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -20556,7 +20580,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/tto/TTO_0000037"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -20615,7 +20639,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/tto/TTO_0000037"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -20685,7 +20709,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000051"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -20744,7 +20768,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000051"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -20814,7 +20838,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000051"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -20873,7 +20897,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000051"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -22015,7 +22039,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0060012"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -22074,7 +22098,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0060012"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -22144,7 +22168,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0060012"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -22203,7 +22227,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0060012"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -22284,7 +22308,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0060012"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -22343,7 +22367,7 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0060012"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -23122,7 +23146,7 @@ TODO: define axiomatically</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000146"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -23181,7 +23205,7 @@ TODO: define axiomatically</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000146"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -23248,7 +23272,7 @@ TODO: define axiomatically</rdfs:comment>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000146"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                        <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
@@ -23307,7 +23331,7 @@ TODO: define axiomatically</rdfs:comment>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/noes/NOES_0000146"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/noes/NOES_0000150"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">

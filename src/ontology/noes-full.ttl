@@ -19,21 +19,21 @@
 @base <https://w3id.org/pmd/noes/> .
 
 <https://w3id.org/pmd/noes/> rdf:type owl:Ontology ;
-                              owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-11-04/noes-full.ttl> ;
+                              owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-11-16/noes-full.ttl> ;
                               dcterms:created "2025-06-01                                  "^^xsd:date ;
                               dcterms:creator <https://orcid.org/0009-0003-1503-4422> ;
                               dcterms:description "NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets." ;
                               dcterms:identifier "https://doi.org/10.5281/zenodo.XXXXXXX      " ;
-                              dcterms:issued "2026-11-04"^^xsd:date ;
+                              dcterms:issued "2026-11-16"^^xsd:date ;
                               dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                              dcterms:modified "2026-11-04"^^xsd:date ;
+                              dcterms:modified "2026-11-16"^^xsd:date ;
                               dcterms:publisher <https://ror.org/04hm8eb66> ;
                               dcterms:source co: ;
                               dcterms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
                               <http://purl.org/ontology/bibo/status> "stable" ;
                               <http://purl.org/vocab/vann/preferredNamespacePrefix> "noes" ;
                               <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/pmd/noes/" ;
-                              owl:versionInfo "2026-11-04" .
+                              owl:versionInfo "2026-11-16" .
 
 #################################################################
 #    Annotation properties
@@ -1461,6 +1461,24 @@ noes:NOES_0000131 rdf:type owl:ObjectProperty ;
                   rdfs:label "approximately parallel to"@en ;
                   skos:definition "Approximately parallel to is an object property which connect two or  more spatial regions that are parallel to each other considering the misalignment angle of usually 15°"@en ;
                   skos:example "<111> family of directions in crystals are approximately parellel to normal direction (ND) of a sample in γ-fiber texture component"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000149
+noes:NOES_0000149 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf obo:RO_0009006 ;
+                  owl:inverseOf noes:NOES_0000150 ;
+                  obo:IAO_0000116 """The difference between \"assay measures characteristic\" and \"assay directly measures characteristic\" is required to infer process-attribute-dependent properties and anistopic properties. For example, for P1.0/400 property an average value might be given, so using  \"assay measures characteristic\" is can be inferred that it is not just iron losses but specifically P1.0/400 based on the process characteristic. But as it is an average and not, e.g., RD value, another object property is required.
+
+There can be an argument  that  P1.0/400 measurement process does not measure AVERAGE value but averaging calculation process does. Fair, but we cannot force OWL the following rule that is property of type X is input to the averaging process, then the property of the output value must be of the same type X. Therefore, we want to preserve the inference of  process-attribute-  and anistopic-specific properties without using superflous external rules"""@en ;
+                  rdfs:label "assay directly measures characteristic"@en ;
+                  skos:definition "assay directly measures characteristic is an object property to specify that the ICE output produced by the assay is directly the value of the characteristic."@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000150
+noes:NOES_0000150 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf obo:RO_0009007 ;
+                  rdfs:label "characteristic directly measured by assay"@en ;
+                  skos:definition "inverse of assay directly measures characteristic" .
 
 
 #################################################################
@@ -11471,7 +11489,7 @@ noes:NOES_0000006 rdf:type owl:Class ;
 noes:NOES_0000007 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000048
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -11514,7 +11532,7 @@ noes:NOES_0000007 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000048 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -11942,7 +11960,7 @@ noes:NOES_0000038 rdf:type owl:Class ;
 noes:NOES_0000039 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0080154
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -11985,7 +12003,7 @@ noes:NOES_0000039 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf co:PMD_0080154 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -12033,7 +12051,7 @@ noes:NOES_0000039 rdf:type owl:Class ;
 noes:NOES_0000040 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000048
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -12076,7 +12094,7 @@ noes:NOES_0000040 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000048 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -12122,7 +12140,7 @@ noes:NOES_0000040 rdf:type owl:Class ;
 noes:NOES_0000041 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000050
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -12165,7 +12183,7 @@ noes:NOES_0000041 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000050 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -13232,7 +13250,7 @@ noes:NOES_0000073 rdf:type owl:Class ;
 noes:NOES_0000074 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000050
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -13275,7 +13293,7 @@ noes:NOES_0000074 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000050 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -13321,7 +13339,7 @@ noes:NOES_0000074 rdf:type owl:Class ;
 noes:NOES_0000075 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0080154
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -13364,7 +13382,7 @@ noes:NOES_0000075 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf co:PMD_0080154 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -13426,7 +13444,7 @@ noes:NOES_0000077 rdf:type owl:Class ;
 noes:NOES_0000078 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0080154
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -13469,7 +13487,7 @@ noes:NOES_0000078 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf co:PMD_0080154 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -13517,7 +13535,7 @@ noes:NOES_0000078 rdf:type owl:Class ;
 noes:NOES_0000079 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000057
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -13560,7 +13578,7 @@ noes:NOES_0000079 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000057 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -13608,7 +13626,7 @@ noes:NOES_0000079 rdf:type owl:Class ;
 noes:NOES_0000080 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000057
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -13651,7 +13669,7 @@ noes:NOES_0000080 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000057 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -13699,7 +13717,7 @@ noes:NOES_0000080 rdf:type owl:Class ;
 noes:NOES_0000081 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( <https://w3id.org/pmd/tto/TTO_0000047>
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -13742,7 +13760,7 @@ noes:NOES_0000081 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000047> ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -13790,7 +13808,7 @@ noes:NOES_0000081 rdf:type owl:Class ;
 noes:NOES_0000082 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( <https://w3id.org/pmd/tto/TTO_0000047>
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -13833,7 +13851,7 @@ noes:NOES_0000082 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000047> ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -13881,7 +13899,7 @@ noes:NOES_0000082 rdf:type owl:Class ;
 noes:NOES_0000083 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( <https://w3id.org/pmd/tto/TTO_0000047>
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -13924,7 +13942,7 @@ noes:NOES_0000083 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000047> ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -13972,7 +13990,7 @@ noes:NOES_0000083 rdf:type owl:Class ;
 noes:NOES_0000084 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000182
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -14015,7 +14033,7 @@ noes:NOES_0000084 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000182 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -14062,7 +14080,7 @@ noes:NOES_0000084 rdf:type owl:Class ;
 noes:NOES_0000085 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000182
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -14105,7 +14123,7 @@ noes:NOES_0000085 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000182 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -14654,7 +14672,7 @@ noes:NOES_0000097 rdf:type owl:Class ;
 noes:NOES_0000098 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0060004
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -14697,7 +14715,7 @@ noes:NOES_0000098 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf co:PMD_0060004 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -14745,7 +14763,7 @@ noes:NOES_0000098 rdf:type owl:Class ;
 noes:NOES_0000099 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0060004
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -14788,7 +14806,7 @@ noes:NOES_0000099 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf co:PMD_0060004 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -14836,7 +14854,7 @@ noes:NOES_0000099 rdf:type owl:Class ;
 noes:NOES_0000100 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0060004
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -14879,7 +14897,7 @@ noes:NOES_0000100 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf co:PMD_0060004 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -14927,7 +14945,7 @@ noes:NOES_0000100 rdf:type owl:Class ;
 noes:NOES_0000101 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( <https://w3id.org/pmd/tto/TTO_0000037>
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -14970,7 +14988,7 @@ noes:NOES_0000101 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000037> ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -15018,7 +15036,7 @@ noes:NOES_0000101 rdf:type owl:Class ;
 noes:NOES_0000102 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( <https://w3id.org/pmd/tto/TTO_0000037>
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -15061,7 +15079,7 @@ noes:NOES_0000102 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000037> ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -15109,7 +15127,7 @@ noes:NOES_0000102 rdf:type owl:Class ;
 noes:NOES_0000103 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( <https://w3id.org/pmd/tto/TTO_0000037>
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -15152,7 +15170,7 @@ noes:NOES_0000103 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf <https://w3id.org/pmd/tto/TTO_0000037> ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -15200,7 +15218,7 @@ noes:NOES_0000103 rdf:type owl:Class ;
 noes:NOES_0000104 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000051
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -15243,7 +15261,7 @@ noes:NOES_0000104 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000051 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -15291,7 +15309,7 @@ noes:NOES_0000104 rdf:type owl:Class ;
 noes:NOES_0000105 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000051
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -15334,7 +15352,7 @@ noes:NOES_0000105 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000051 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -16141,7 +16159,7 @@ noes:NOES_0000119 rdf:type owl:Class ;
 noes:NOES_0000120 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0060012
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -16184,7 +16202,7 @@ noes:NOES_0000120 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf co:PMD_0060012 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -16232,7 +16250,7 @@ noes:NOES_0000120 rdf:type owl:Class ;
 noes:NOES_0000121 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0060012
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -16275,7 +16293,7 @@ noes:NOES_0000121 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf co:PMD_0060012 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -16331,7 +16349,7 @@ noes:NOES_0000123 rdf:type owl:Class ;
 noes:NOES_0000124 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( co:PMD_0060012
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -16374,7 +16392,7 @@ noes:NOES_0000124 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf co:PMD_0060012 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000974
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -16933,7 +16951,7 @@ noes:NOES_0000146 rdf:type owl:Class ;
 noes:NOES_0000147 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000146
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -16976,7 +16994,7 @@ noes:NOES_0000147 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000146 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
@@ -17021,7 +17039,7 @@ noes:NOES_0000147 rdf:type owl:Class ;
 noes:NOES_0000148 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( noes:NOES_0000146
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty obo:RO_0009007 ;
+                                                               owl:onProperty noes:NOES_0000150 ;
                                                                owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                                                          [ rdf:type owl:Restriction ;
                                                                                                            owl:onProperty obo:OBI_0000293 ;
@@ -17064,7 +17082,7 @@ noes:NOES_0000148 rdf:type owl:Class ;
                                       ] ;
                   rdfs:subClassOf noes:NOES_0000146 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0009007 ;
+                                    owl:onProperty noes:NOES_0000150 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000829
                                                                               [ rdf:type owl:Restriction ;
                                                                                 owl:onProperty obo:OBI_0000293 ;
