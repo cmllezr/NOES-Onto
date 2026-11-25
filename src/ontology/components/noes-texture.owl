@@ -163,6 +163,12 @@ which determines the directions in a sheet material in respect to the rolling di
     
 
 
+    <!-- https://w3id.org/pmd/noes/NOES_0000008 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000008"/>
+    
+
+
     <!-- https://w3id.org/pmd/noes/NOES_0000031 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000031">
@@ -1714,6 +1720,35 @@ practically lambda fiber is not stable in fcc because of the slip systems</rdfs:
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000834"/>
         <rdfs:label>inverse pole figure</rdfs:label>
         <skos:definition xml:lang="en">An inverse pole figure is a stereographic projection that plots a specific, macroscopic physical direction of a sample, e.g., rolling or normal direction relative to the internal coordinate system of the crystal lattice, revealing the statistical frequency of grain orientations that align with that chosen physical axis.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000169 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000169">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001931"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001927"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002350"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000885"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000008"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">texture intensity value specification</rdfs:label>
+        <skos:definition xml:lang="en">specifies the value of some crystallographic texture on a ODF or pole figure</skos:definition>
     </owl:Class>
     
 
