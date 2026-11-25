@@ -19,21 +19,21 @@
 @base <https://w3id.org/pmd/noes/> .
 
 <https://w3id.org/pmd/noes/> rdf:type owl:Ontology ;
-                              owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-11-16/noes.ttl> ;
+                              owl:versionIRI <https://w3id.org/pmd/noes/releases/2026-11-25/noes.ttl> ;
                               dcterms:created "2025-06-01                                  "^^xsd:date ;
                               dcterms:creator <https://orcid.org/0009-0003-1503-4422> ;
                               dcterms:description "NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets." ;
                               dcterms:identifier "https://doi.org/10.5281/zenodo.XXXXXXX      " ;
-                              dcterms:issued "2026-11-16"^^xsd:date ;
+                              dcterms:issued "2026-11-25"^^xsd:date ;
                               dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                              dcterms:modified "2026-11-16"^^xsd:date ;
+                              dcterms:modified "2026-11-25"^^xsd:date ;
                               dcterms:publisher <https://ror.org/04hm8eb66> ;
                               dcterms:source co: ;
                               dcterms:title "NOES-Onto: Nonoriented Electrical Steel Ontology" ;
                               <http://purl.org/ontology/bibo/status> "stable" ;
                               <http://purl.org/vocab/vann/preferredNamespacePrefix> "noes" ;
                               <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/pmd/noes/" ;
-                              owl:versionInfo "2026-11-16" .
+                              owl:versionInfo "2026-11-25" .
 
 #################################################################
 #    Annotation properties
@@ -328,10 +328,6 @@ noes:NOES_0000122 rdf:type owl:AnnotationProperty ;
 
 ###  http://qudt.org/schema/qudt/LatexString
 qudt:LatexString rdf:type rdfs:Datatype .
-
-
-###  http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML
-rdf:HTML rdf:type rdfs:Datatype .
 
 
 ###  http://www.w3.org/2000/01/rdf-schema#Literal
@@ -17674,6 +17670,25 @@ noes:NOES_0000168 rdf:type owl:Class ;
                   skos:definition "An inverse pole figure is a stereographic projection that plots a specific, macroscopic physical direction of a sample, e.g., rolling or normal direction relative to the internal coordinate system of the crystal lattice, revealing the statistical frequency of grain orientations that align with that chosen physical axis."@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000169
+noes:NOES_0000169 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:OBI_0001931 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:OBI_0001927 ;
+                                    owl:someValuesFrom co:PMD_0000853
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0002350 ;
+                                    owl:someValuesFrom [ rdf:type owl:Class ;
+                                                         owl:unionOf ( co:PMD_0000885
+                                                                       noes:NOES_0000008
+                                                                     )
+                                                       ]
+                                  ] ;
+                  rdfs:label "texture intensity value specification"@en ;
+                  skos:definition "specifies the value of some crystallographic texture on a ODF or pole figure"@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000177
 noes:NOES_0000177 rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000027 ,
@@ -18315,7 +18330,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 <http://qudt.org/vocab/unit/GM-PER-DeciM3> rdf:type owl:NamedIndividual ;
                                            dcterms:description """0,001-fold of the SI base unit kilogram divided by the 0.001-fold of the power of the SI base unit metre
     with the exponent 3
-  """^^rdf:HTML ;
+  """ ;
                                            qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA475"^^xsd:anyURI ;
                                            qudt:plainTextDescription """0,001-fold of the SI base unit kilogram divided by the 0.001-fold of the power of the SI base unit
     metre with the exponent 3
@@ -18367,7 +18382,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 ###  http://qudt.org/vocab/unit/KiloN
 <http://qudt.org/vocab/unit/KiloN> rdf:type owl:NamedIndividual ;
-                                   dcterms:description "1 000-fold of the SI derived unit newton"^^rdf:HTML ;
+                                   dcterms:description "1 000-fold of the SI derived unit newton" ;
                                    qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA573"^^xsd:anyURI ;
                                    qudt:plainTextDescription "1 000-fold of the SI derived unit newton" ;
                                    qudt:symbol "kN" ;
@@ -18396,7 +18411,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 ###  http://qudt.org/vocab/unit/MegaPA
 <http://qudt.org/vocab/unit/MegaPA> rdf:type owl:NamedIndividual ,
                                              obo:IAO_0000003 ;
-                                    dcterms:description "1,000,000-fold of the derived unit pascal"^^rdf:HTML ;
+                                    dcterms:description "1,000,000-fold of the derived unit pascal" ;
                                     qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA215"^^xsd:anyURI ;
                                     qudt:plainTextDescription "1,000,000-fold of the derived unit pascal" ;
                                     qudt:symbol "MPa" ;
@@ -18419,7 +18434,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 ###  http://qudt.org/vocab/unit/MicroM2
 <http://qudt.org/vocab/unit/MicroM2> rdf:type owl:NamedIndividual ;
-                                     dcterms:description "0.000000000001-fold of the power of the SI base unit metre with the exponent 2"^^rdf:HTML ;
+                                     dcterms:description "0.000000000001-fold of the power of the SI base unit metre with the exponent 2" ;
                                      qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA092"^^xsd:anyURI ;
                                      qudt:plainTextDescription "0.000000000001-fold of the power of the SI base unit metre with the exponent 2" ;
                                      qudt:symbol "μm²" ;
@@ -18442,7 +18457,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 ###  http://qudt.org/vocab/unit/MilliM-PER-MIN
 <http://qudt.org/vocab/unit/MilliM-PER-MIN> rdf:type owl:NamedIndividual ;
-                                            dcterms:description "0.001-fold of the SI base unit metre divided by the unit minute"^^rdf:HTML ;
+                                            dcterms:description "0.001-fold of the SI base unit metre divided by the unit minute" ;
                                             qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAB378"^^xsd:anyURI ;
                                             qudt:plainTextDescription "0.001-fold of the SI base unit metre divided by the unit minute" ;
                                             qudt:symbol "mm/min" ;
@@ -18455,7 +18470,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 ###  http://qudt.org/vocab/unit/MilliM-PER-SEC
 <http://qudt.org/vocab/unit/MilliM-PER-SEC> rdf:type owl:NamedIndividual ;
-                                            dcterms:description "0.001-fold of the SI base unit metre divided by the SI base unit second"^^rdf:HTML ;
+                                            dcterms:description "0.001-fold of the SI base unit metre divided by the SI base unit second" ;
                                             qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA867"^^xsd:anyURI ;
                                             qudt:plainTextDescription "0.001-fold of the SI base unit metre divided by the SI base unit second" ;
                                             qudt:symbol "mm/s" ;
@@ -18478,7 +18493,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 ###  http://qudt.org/vocab/unit/MilliM3
 <http://qudt.org/vocab/unit/MilliM3> rdf:type owl:NamedIndividual ;
-                                     dcterms:description "A metric measure of volume or capacity equal to a cube 1 millimeter on each edge"^^rdf:HTML ;
+                                     dcterms:description "A metric measure of volume or capacity equal to a cube 1 millimeter on each edge" ;
                                      qudt:expression "$mm^{3}$"^^qudt:LatexString ;
                                      qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA873"^^xsd:anyURI ;
                                      qudt:symbol "mm³" ;
@@ -18501,7 +18516,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 ###  http://qudt.org/vocab/unit/MilliT
 <http://qudt.org/vocab/unit/MilliT> rdf:type owl:NamedIndividual ;
-                                    dcterms:description "0.001-fold of the SI derived unit tesla"^^rdf:HTML ;
+                                    dcterms:description "0.001-fold of the SI derived unit tesla" ;
                                     qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA803"^^xsd:anyURI ;
                                     qudt:plainTextDescription "0.001-fold of the SI derived unit tesla" ;
                                     qudt:symbol "mT" ;
@@ -18528,11 +18543,11 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
     meter, newton per metre, newtons per metre, newton/meter, newton/metre. This unit is commonly used in the SI unit system.
     Newton Per Meter (N/m) has a dimension of MT-2 where $M$ is mass, and $T$ is time. This unit is the standard SI unit in this
     category.
-  """^^rdf:HTML ;
+  """ ;
                                      qudt:expression "$N/m$"^^qudt:LatexString ;
                                      qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA246"^^xsd:anyURI ;
                                      qudt:symbol "N/m" ;
-                                     qudt:wikidataMatch <http://www.wikidata.org/entity/Q26156113> ;
+                                     qudt:wikidataMatch <http://www.wikidata.org/entity/Q12371104> ;
                                      rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
                                      rdfs:label "Newton na Meter"@sl ,
                                                 "Newton na Metr"@cs ,
@@ -18565,7 +18580,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
                                       dcterms:description """The SI unit of pressure. The pascal is the standard pressure unit in the MKS metric system, equal to one
     newton per square meter or one \"kilogram per meter per second per second.\" The unit is named for Blaise Pascal (1623-1662),
     French philosopher and mathematician, who was the first person to use a barometer to measure differences in altitude.
-  """^^rdf:HTML ;
+  """ ;
                                       qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA247"^^xsd:anyURI ,
                                                                 "https://en.wikipedia.org/wiki/Pascal?oldid=492989202"^^xsd:anyURI ;
                                       qudt:symbol "N/m²" ;
@@ -18593,7 +18608,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 
 ###  http://qudt.org/vocab/unit/N-PER-MilliM
 <http://qudt.org/vocab/unit/N-PER-MilliM> rdf:type owl:NamedIndividual ;
-                                          dcterms:description "SI derived unit newton divided by the 0.001-fold of the SI base unit metre"^^rdf:HTML ;
+                                          dcterms:description "SI derived unit newton divided by the 0.001-fold of the SI base unit metre" ;
                                           qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA249"^^xsd:anyURI ;
                                           qudt:plainTextDescription "SI derived unit newton divided by the 0.001-fold of the SI base unit metre" ;
                                           qudt:symbol "N/mm" ;
@@ -18761,7 +18776,7 @@ obo:UO_0000228 rdf:type owl:NamedIndividual .
 ###  http://qudt.org/vocab/unit/W-PER-KiloGM
 <http://qudt.org/vocab/unit/W-PER-KiloGM> rdf:type owl:NamedIndividual ,
                                                    obo:IAO_0000003 ;
-                                          dcterms:description "SI derived unit watt divided by the SI base unit kilogram"^^rdf:HTML ;
+                                          dcterms:description "SI derived unit watt divided by the SI base unit kilogram" ;
                                           qudt:informativeReference "https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA316"^^xsd:anyURI ;
                                           qudt:plainTextDescription "SI derived unit watt divided by the SI base unit kilogram" ;
                                           qudt:symbol "W/kg" ;

@@ -21,21 +21,21 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/noes/">
-        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-11-16/noes-full.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/pmd/noes/releases/2026-11-25/noes-full.owl"/>
         <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-06-01                                  </dcterms:created>
         <dcterms:creator rdf:resource="https://orcid.org/0009-0003-1503-4422"/>
         <dcterms:description>NOES-Onto is an application-level ontology based on PMDco  3.0 that focuses on the semantic modelling of Process-Structure-Property dependencies in non-oriented electrical sheets.</dcterms:description>
         <dcterms:identifier>https://doi.org/10.5281/zenodo.XXXXXXX      </dcterms:identifier>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-16</dcterms:issued>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-25</dcterms:issued>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-16</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-25</dcterms:modified>
         <dcterms:publisher rdf:resource="https://ror.org/04hm8eb66"/>
         <dcterms:source rdf:resource="https://w3id.org/pmd/co/"/>
         <dcterms:title>NOES-Onto: Nonoriented Electrical Steel Ontology</dcterms:title>
         <bibo:status>stable</bibo:status>
         <vann:preferredNamespacePrefix>noes</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/pmd/noes/</vann:preferredNamespaceUri>
-        <owl:versionInfo>2026-11-16</owl:versionInfo>
+        <owl:versionInfo>2026-11-25</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -456,12 +456,6 @@ We also have the outstanding issue of how to aim different definitions to differ
     <!-- http://qudt.org/schema/qudt/LatexString -->
 
     <rdfs:Datatype rdf:about="http://qudt.org/schema/qudt/LatexString"/>
-    
-
-
-    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML -->
-
-    <rdfs:Datatype rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
     
 
 
@@ -24154,6 +24148,35 @@ TODO: define axiomatically</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/pmd/noes/NOES_0000169 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000169">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001931"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001927"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002350"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000885"/>
+                            <rdf:Description rdf:about="https://w3id.org/pmd/noes/NOES_0000008"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">texture intensity value specification</rdfs:label>
+        <skos:definition xml:lang="en">specifies the value of some crystallographic texture on a ODF or pole figure</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/noes/NOES_0000177 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000177">
@@ -25033,7 +25056,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     <!-- http://qudt.org/vocab/unit/GM-PER-DeciM3 -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/GM-PER-DeciM3">
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">0,001-fold of the SI base unit kilogram divided by the 0.001-fold of the power of the SI base unit metre
+        <dcterms:description>0,001-fold of the SI base unit kilogram divided by the 0.001-fold of the power of the SI base unit metre
     with the exponent 3
   </dcterms:description>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA475</qudt:informativeReference>
@@ -25093,7 +25116,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     <!-- http://qudt.org/vocab/unit/KiloN -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/KiloN">
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">1 000-fold of the SI derived unit newton</dcterms:description>
+        <dcterms:description>1 000-fold of the SI derived unit newton</dcterms:description>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA573</qudt:informativeReference>
         <qudt:plainTextDescription>1 000-fold of the SI derived unit newton</qudt:plainTextDescription>
         <qudt:symbol>kN</qudt:symbol>
@@ -25128,7 +25151,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MegaPA">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">1,000,000-fold of the derived unit pascal</dcterms:description>
+        <dcterms:description>1,000,000-fold of the derived unit pascal</dcterms:description>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA215</qudt:informativeReference>
         <qudt:plainTextDescription>1,000,000-fold of the derived unit pascal</qudt:plainTextDescription>
         <qudt:symbol>MPa</qudt:symbol>
@@ -25154,7 +25177,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     <!-- http://qudt.org/vocab/unit/MicroM2 -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MicroM2">
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">0.000000000001-fold of the power of the SI base unit metre with the exponent 2</dcterms:description>
+        <dcterms:description>0.000000000001-fold of the power of the SI base unit metre with the exponent 2</dcterms:description>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA092</qudt:informativeReference>
         <qudt:plainTextDescription>0.000000000001-fold of the power of the SI base unit metre with the exponent 2</qudt:plainTextDescription>
         <qudt:symbol>μm²</qudt:symbol>
@@ -25180,7 +25203,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     <!-- http://qudt.org/vocab/unit/MilliM-PER-MIN -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MilliM-PER-MIN">
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">0.001-fold of the SI base unit metre divided by the unit minute</dcterms:description>
+        <dcterms:description>0.001-fold of the SI base unit metre divided by the unit minute</dcterms:description>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAB378</qudt:informativeReference>
         <qudt:plainTextDescription>0.001-fold of the SI base unit metre divided by the unit minute</qudt:plainTextDescription>
         <qudt:symbol>mm/min</qudt:symbol>
@@ -25196,7 +25219,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     <!-- http://qudt.org/vocab/unit/MilliM-PER-SEC -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MilliM-PER-SEC">
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">0.001-fold of the SI base unit metre divided by the SI base unit second</dcterms:description>
+        <dcterms:description>0.001-fold of the SI base unit metre divided by the SI base unit second</dcterms:description>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA867</qudt:informativeReference>
         <qudt:plainTextDescription>0.001-fold of the SI base unit metre divided by the SI base unit second</qudt:plainTextDescription>
         <qudt:symbol>mm/s</qudt:symbol>
@@ -25222,7 +25245,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     <!-- http://qudt.org/vocab/unit/MilliM3 -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MilliM3">
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">A metric measure of volume or capacity equal to a cube 1 millimeter on each edge</dcterms:description>
+        <dcterms:description>A metric measure of volume or capacity equal to a cube 1 millimeter on each edge</dcterms:description>
         <qudt:expression rdf:datatype="http://qudt.org/schema/qudt/LatexString">$mm^{3}$</qudt:expression>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA873</qudt:informativeReference>
         <qudt:symbol>mm³</qudt:symbol>
@@ -25248,7 +25271,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     <!-- http://qudt.org/vocab/unit/MilliT -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/MilliT">
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">0.001-fold of the SI derived unit tesla</dcterms:description>
+        <dcterms:description>0.001-fold of the SI derived unit tesla</dcterms:description>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA803</qudt:informativeReference>
         <qudt:plainTextDescription>0.001-fold of the SI derived unit tesla</qudt:plainTextDescription>
         <qudt:symbol>mT</qudt:symbol>
@@ -25274,7 +25297,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     <!-- http://qudt.org/vocab/unit/N-PER-M -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/N-PER-M">
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">Newton Per Meter (N/m) is a unit in the category of Surface tension. It is also known as newtons per
+        <dcterms:description>Newton Per Meter (N/m) is a unit in the category of Surface tension. It is also known as newtons per
     meter, newton per metre, newtons per metre, newton/meter, newton/metre. This unit is commonly used in the SI unit system.
     Newton Per Meter (N/m) has a dimension of MT-2 where $M$ is mass, and $T$ is time. This unit is the standard SI unit in this
     category.
@@ -25282,7 +25305,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
         <qudt:expression rdf:datatype="http://qudt.org/schema/qudt/LatexString">$N/m$</qudt:expression>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA246</qudt:informativeReference>
         <qudt:symbol>N/m</qudt:symbol>
-        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q26156113"/>
+        <qudt:wikidataMatch rdf:resource="http://www.wikidata.org/entity/Q12371104"/>
         <rdfs:isDefinedBy rdf:resource="http://qudt.org/vocab/unit"/>
         <rdfs:label xml:lang="sl">Newton na Meter</rdfs:label>
         <rdfs:label xml:lang="cs">Newton na Metr</rdfs:label>
@@ -25315,7 +25338,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/N-PER-M2">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">The SI unit of pressure. The pascal is the standard pressure unit in the MKS metric system, equal to one
+        <dcterms:description>The SI unit of pressure. The pascal is the standard pressure unit in the MKS metric system, equal to one
     newton per square meter or one &quot;kilogram per meter per second per second.&quot; The unit is named for Blaise Pascal (1623-1662),
     French philosopher and mathematician, who was the first person to use a barometer to measure differences in altitude.
   </dcterms:description>
@@ -25349,7 +25372,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     <!-- http://qudt.org/vocab/unit/N-PER-MilliM -->
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/N-PER-MilliM">
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">SI derived unit newton divided by the 0.001-fold of the SI base unit metre</dcterms:description>
+        <dcterms:description>SI derived unit newton divided by the 0.001-fold of the SI base unit metre</dcterms:description>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA249</qudt:informativeReference>
         <qudt:plainTextDescription>SI derived unit newton divided by the 0.001-fold of the SI base unit metre</qudt:plainTextDescription>
         <qudt:symbol>N/mm</qudt:symbol>
@@ -25535,7 +25558,7 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
 
     <owl:NamedIndividual rdf:about="http://qudt.org/vocab/unit/W-PER-KiloGM">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">SI derived unit watt divided by the SI base unit kilogram</dcterms:description>
+        <dcterms:description>SI derived unit watt divided by the SI base unit kilogram</dcterms:description>
         <qudt:informativeReference rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA316</qudt:informativeReference>
         <qudt:plainTextDescription>SI derived unit watt divided by the SI base unit kilogram</qudt:plainTextDescription>
         <qudt:symbol>W/kg</qudt:symbol>
