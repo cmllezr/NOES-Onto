@@ -540,7 +540,9 @@ ifeq ($(MIR),true)
 .PHONY: mirror-pmdco
 .PRECIOUS: $(MIRRORDIR)/pmdco.owl
 mirror-pmdco: | $(TMPDIR)
-	$(ROBOT) convert -I https://w3id.org/pmd/co/ -o $(TMPDIR)/$@.owl
+# $(ROBOT) convert -I https://w3id.org/pmd/co/ -o $(TMPDIR)/$@.owl
+	$(ROBOT) convert -I https://raw.githubusercontent.com/materialdigital/core-ontology-microstructure-module/strengthening_mechanisms-build/pmdco-full.owl -o $(TMPDIR)/$@.owl
+
 
 
 ## ONTOLOGY: tto
