@@ -172,15 +172,15 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- http://purl.org/dc/elements/1.1/source -->
+    <!-- http://purl.obolibrary.org/obo/IAO_0100001 -->
 
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0100001"/>
     
 
 
-    <!-- http://purl.org/dc/terms/bibliographicCitation -->
+    <!-- http://purl.org/dc/elements/1.1/source -->
 
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/bibliographicCitation"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
     
 
 
@@ -1875,6 +1875,29 @@ For taxonomy purpose only</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000053"/>
         <rdfs:label>is cubic</rdfs:label>
         <skos:definition xml:lang="en">is cubic is a object property  for the inference of family of directions/planes Miller indices notation. The class crystallographic entity in cubic  system carries a Self restriction &quot;is cubic&quot;</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000440 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000440">
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000444"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000439"/>
+        <rdfs:range rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000405"/>
+        <rdfs:label xml:lang="en">has reference lattice point</rdfs:label>
+        <skos:definition xml:lang="en">has reference lattice point is relation between an atom site and a lattice point. It is used to define position of specific atom types in the crystal lattice.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000444 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/cryo/CRYO_0000444">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="en">reference lattice point of</rdfs:label>
+        <skos:definition xml:lang="en">inverse of has reference lattice point</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -4912,6 +4935,9 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         </rdfs:subClassOf>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
         <obo:IAO_0000116 xml:lang="en">For any temporally qualified continuant x@t, there exists a continuant y such that x@t has_state y, meaning that y is the anchor continuant of which x@t is a temporal phase existing at temporal regions t. The relation has_state is functional and signifies that all such temporally qualified continuants are uniquely associated with their basic anchor continuant.</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">For any temporally qualified continuant x@t, there exists a continuant y such that x@t has_state y, meaning that y is the anchor continuant of which x@t is a temporal phase existing at temporal regions t. The relation has_state is functional and signifies that all such temporally qualified continuants are uniquely associated with their basic anchor continuant.
+
+One motivation for TQCs is to overcome OWLs rigid class assignment. This is useful in the context of the dual view on entities. An entity may be an ingot and a portion of austenite at one point in time (e.g. after austenization) and an ingot and a portion of martensite after quenching. Austenite and martensite is disjoint, so the portion of material TQC instances are different while the (anchor-) object ingot remains.</obo:IAO_0000116>
         <obo:IAO_0000117>PERSON: Joerg Waitelonis</obo:IAO_0000117>
         <rdfs:label xml:lang="en">temporally qualified continuant</rdfs:label>
         <skos:definition xml:lang="en">A temporally qualified continuant is a continuant that, by reference to a determinate temporal region, is such as to possess its properties only for so long as that period obtains, being otherwise in its essentiality unchanged.</skos:definition>
@@ -4955,6 +4981,35 @@ Specific rates, e.g., tensile rate, cooling rate, etc. should be added as  subcl
         <rdfs:label xml:lang="en">2D</rdfs:label>
         <skos:definition xml:lang="en">A two-dimensional data item is a representation or analysis, commonly applied in studying planar material properties or surface phenomena.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000503 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000503">
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000116 xml:lang="en">TODO: axiom needs refinement</obo:IAO_0000116>
+        <obo:IAO_0000117>PERSON: Joerg Waitelonis</obo:IAO_0000117>
+        <rdfs:label xml:lang="de">ASTM-Korngröße</rdfs:label>
+        <rdfs:label xml:lang="en">OBSOLETE ASTM grainsize</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <skos:definition xml:lang="de">Die ASTM-Korngröße ist eine Qualität, die durch ein Verfahren gemessen wird, das dem ASTM-Standard folgt.</skos:definition>
+        <skos:definition xml:lang="en">The ASTM grain size is a quality that is measured through a process that follows the ASTM standard.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000512 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000512">
+        <rdfs:comment>Make bearer entity member of subclass of &apos;portion of matter in aggregate state&apos;</rdfs:comment>
+        <rdfs:label xml:lang="de">DEPRECATED Aggregatzustand</rdfs:label>
+        <rdfs:label xml:lang="en">DEPRECATED aggregate state</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <skos:definition xml:lang="en">DEPRECATED a quality representing the physical state of a material, such as solid, liquid, or gasous</skos:definition>
+        <skos:definition xml:lang="de">DEPRECATED eine intensive Qualität, die den physikalischen Zustand eines Materials darstellt, z. B. fest, flüssig oder gasförmig</skos:definition>
     </owl:Class>
     
 
@@ -5231,6 +5286,24 @@ See the pattern example of composition to underatand the difference between comp
         <rdfs:label xml:lang="en">computing process</rdfs:label>
         <skos:definition xml:lang="en">A process that involves the systematic use of computational methods and tools to perform simulations, analyses, or data transformations to achieve specific scientific or engineering goals.</skos:definition>
         <skos:definition xml:lang="de">Ein Prozess, der die systematische Verwendung von rechnerischen Methoden und Werkzeugen umfasst, um Simulationen, Analysen oder Datenumwandlungen durchzuführen, um spezifische wissenschaftliche oder technische Ziele zu erreichen.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000591 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000591">
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000116>will move to CryO</obo:IAO_0000116>
+        <obo:IAO_0000117>PERSON: Joerg Waitelonis</obo:IAO_0000117>
+        <obo:IAO_0100001 xml:lang="en">Obsolete by Kamilla: replaced with defines crystal lattices with fancy axioms an SWRL rules in CryO https://github.com/materialdigital/crystallography-subdomain-ontology</obo:IAO_0100001>
+        <rdfs:comment xml:lang="en">The finite set of periodic geometric arrangements is described e.g. by the 14 possible Bravais Lattices in three-dimensional space.</rdfs:comment>
+        <rdfs:label xml:lang="de">Kristallstruktur</rdfs:label>
+        <rdfs:label xml:lang="en">OBSOLETE crystal structure</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <skos:definition xml:lang="en">an intensive quality of a crystal that embodies the periodic geometric arrangement of entities in a crystal lattice.</skos:definition>
+        <skos:definition xml:lang="de">eine intensive Kristallqualität, die die periodische geometrische Anordnung von Einheiten in einem Kristallgitter verkörpert.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
 
@@ -6077,6 +6150,25 @@ A manufacturing process is always a transformative process.</skos:definition>
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0000845 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000845">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020335"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000081"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/pmd/co/PMD_0020002"/>
+        <rdfs:label xml:lang="en">matrix role</rdfs:label>
+        <skos:definition xml:lang="en">Matrix is the role of a &apos;PortionOfConnectedMatter&apos; that implies to host the Filler.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0000848 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000848"/>
@@ -6456,8 +6548,43 @@ A manufacturing process is always a transformative process.</skos:definition>
         <obo:IAO_0000117>PERSON: Joerg Waitelonis</obo:IAO_0000117>
         <rdfs:label xml:lang="de">Simulationsprozess</rdfs:label>
         <rdfs:label xml:lang="en">simulation process</rdfs:label>
-        <skos:definition xml:lang="en">A computing process that models the behavior of a system over time using mathematical or computational techniques.</skos:definition>
-        <skos:definition xml:lang="de">Ein Datenverarbeitungsprozess, der das Verhalten eines Systems im Laufe der Zeit mit mathematischen oder rechnerischen Techniken modelliert</skos:definition>
+        <skos:definition xml:lang="en">A computing process that models the properties, states, or behavior of a system using mathematical or computational techniques.</skos:definition>
+        <skos:definition xml:lang="de">Ein Rechenprozess, der die Eigenschaften, Zustände oder das Verhalten eines Systems mit mathematischen oder rechnerischen Techniken modelliert.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0000942 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000942">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020335"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000080"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000146"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Joerg Waitelonis</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">specific surface area</rdfs:label>
+        <rdfs:label xml:lang="de">spezifische Oberfläche</rdfs:label>
+        <skos:definition xml:lang="en">an intensive quality embodying the total surface area of a material per unit of mass or volume.</skos:definition>
+        <skos:definition xml:lang="de">eine intensive Qualität, die die Gesamtoberfläche eines Materials pro Massen- oder Volumeneinheit verkörpert.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
 
@@ -6956,6 +7083,44 @@ A manufacturing process is always a transformative process.</skos:definition>
         <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
         <rdfs:label xml:lang="en">phase (thermodynamic)</rdfs:label>
         <skos:definition xml:lang="en">A thermodynamic phase is a material entity that forms a homogeneous portion of matter within a thermodynamic system and is characterized by uniform thermodynamic properties.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020002 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020002">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020317"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020335"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000081"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
+                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000845"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">precipitate role</rdfs:label>
+        <skos:definition xml:lang="en">Precipitate is the role of a portion of matter that implies being hosted in a matrix and the Precipitate derives from the matrix or the Precipitate derives from the thing that the matrix derives from.</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
     
@@ -8804,10 +8969,25 @@ A statement that two ratios/fractions are equal (an equation), e.g. 2/3=4/6</rdf
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020101"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020365"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0020256"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000001"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020150"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0020257"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -8871,7 +9051,17 @@ A statement that two ratios/fractions are equal (an equation), e.g. 2/3=4/6</rdf
 
     <!-- https://w3id.org/pmd/co/PMD_0020112 -->
 
-    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020112"/>
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020112">
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <obo:IAO_0100001 rdf:resource="http://purl.obolibrary.org/obo/STATO_0000225"/>
+        <rdfs:label xml:lang="de">Korngrößenverteilung</rdfs:label>
+        <rdfs:label xml:lang="en">OBSOLETE grain size distribution</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <skos:definition xml:lang="en">An intensive quality describing the lower length scale object aggregate (grains) that is part of the material.</skos:definition>
+        <skos:definition xml:lang="de">Eine intensive Qualität, die das Objektaggregat (Körner) auf niedrigerer Längenskala beschreibt, das Teil des Materials ist.</skos:definition>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
     
 
 
@@ -9167,6 +9357,57 @@ A statement that two ratios/fractions are equal (an equation), e.g. 2/3=4/6</rdf
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020160 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020160">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0100003"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000001"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000639"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020280"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020285"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020286"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020300"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020301"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020302"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020303"/>
+        </owl:disjointUnionOf>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:comment xml:lang="en">In metallography the term phase is sometimes used to denote microconstituents. To avoid confusion, the term phase should only be used for thermodynamic phases.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Microconstiutents were coined in the times of light-optical metallography and are related to the differences that can be observed using this experimental process. 
+
+In metallography the term phase is sometimes used to denote microconstituents. To avoid confusion, the term phase should only be used for thermodynamic phases.</rdfs:comment>
+        <rdfs:label xml:lang="en">ferrous metal microconstituent</rdfs:label>
+        <skos:definition xml:lang="en">A portion of matter that is at the same time an object at the microscopic scale which in turn is part of some ferrous metal.</skos:definition>
+        <skos:example xml:lang="en">Pearlite is a microconstituent that has as parts some entities (lamellae) that at the same time are the thermodynamic phases ferrite (α-Fe) and cementite (Fe3C) . The characteristic spatial arrangement is in that case the lamellar orientation of the phases.</skos:example>
+        <skos:example xml:lang="en">Pearlite is a microconstituent that has as parts the thermodynamic phases ferrite (α-Fe) and cementite (Fe3C) as parts. The characteristic spatial arrangement is in that case the lamellar orientation of the phases.
+
+Martensite is a microconstituent that has as part the thermodynamic ferrite phase with characteristic morphologies and chemistry. Its presence and amount is governed by the processing path and kinetics.</skos:example>
+        <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020161 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020161">
@@ -9357,8 +9598,13 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020197">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000147"/>
+        <rdfs:comment>Same as lattice point from CryO</rdfs:comment>
+        <rdfs:label xml:lang="en">DEPRECATED lattice point</rdfs:label>
         <rdfs:label xml:lang="en">lattice point</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000405"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:definition xml:lang="en">A lattice point is a fiat point that represents a position in a crystal lattice at which structural entities are regularly arranged.</skos:definition>
+        <skos:definition xml:lang="en">DEPRECATED A lattice point is a fiat point that represents a position in a crystal lattice at which structural entities are regularly arranged.</skos:definition>
     </owl:Class>
     
 
@@ -9367,8 +9613,13 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020198">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
+        <rdfs:comment>Moved to CryO</rdfs:comment>
+        <rdfs:label xml:lang="en">DEPRECATED interstitial site</rdfs:label>
         <rdfs:label xml:lang="en">interstitial site</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000443"/>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:definition xml:lang="en">An interstitial site is a site that is located between regular lattice points in a crystal structure.</skos:definition>
+        <skos:definition xml:lang="en">DEPRECATED An interstitial site is a site that is located between regular lattice points in a crystal structure.</skos:definition>
     </owl:Class>
     
 
@@ -9402,7 +9653,6 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     <!-- https://w3id.org/pmd/co/PMD_0020205 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020205">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000017"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020335"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -9448,7 +9698,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     <!-- https://w3id.org/pmd/co/PMD_0020213 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020213">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000146"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000024"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002350"/>
@@ -9482,9 +9732,13 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
                 </owl:onClass>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000116 xml:lang="en">the part of a grain that is close to the grain boundary and possibly characterized by disorder is a fiat object part (grain surface layer)</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">the part of a grain that is close to the grain boundary and possibly characterized by disorder is a fiat object part (grain surface layer)
+
+a grain boundary in 3D is characterized by 5 macroscopic grain boundary parameters as defined by:
+- orientation of the grain boundary plane (2 parameters)
+- misorientiation accross the grain boundary plane (3 parameters)</obo:IAO_0000116>
         <rdfs:label xml:lang="en">grain boundary</rdfs:label>
-        <skos:definition xml:lang="en">A grain boundary is a fiat surface that separates adjacent grains in a polycrystalline material and is characterized by structural discontinuity.</skos:definition>
+        <skos:definition xml:lang="en">A grain boundary is a fiat surface that separates adjacent grains in a polycrystalline material and is characterized by a discontinuity in crystallographic orientation.</skos:definition>
     </owl:Class>
     
 
@@ -9658,18 +9912,13 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     <!-- https://w3id.org/pmd/co/PMD_0020230 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020230">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020229"/>
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020293"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020229"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020293"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
+        <obo:IAO_0000116 xml:lang="en">Kamilla: moved solid solution from a sublcass solution directly under portion of matter. The reasoning for the first one: the definiton is &quot;solution in a solid state&quot;, a frozen salt water would be it. But the solid solution in the MSE sense is one type of atoms are uniformaly dispersed in the the &quot;solvent&quot; type of atoms, and this structure is ordeded, i.e., the lattice of the solvent persist.
+ Some thoughts on the second point: maybe a solid solution is a sublcass of phase, cause in our MSE sense it seems to hold all the time (phase diagrams and co)
+
+Old equivalent class axiom: solution and solid</obo:IAO_0000116>
         <rdfs:label xml:lang="en">solid solution</rdfs:label>
-        <skos:definition xml:lang="en">a solution with solid aggregate state</skos:definition>
+        <skos:comment xml:lang="en">OLD DEFINITION: a solution with solid aggregate state</skos:comment>
     </owl:Class>
     
 
@@ -9692,7 +9941,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
                                         <owl:someValuesFrom>
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000001"/>
+                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000004"/>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
                                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020198"/>
@@ -9725,7 +9974,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000001"/>
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000004"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
                                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020198"/>
@@ -9767,9 +10016,9 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
                                         <owl:someValuesFrom>
                                             <owl:Class>
                                                 <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000001"/>
+                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000004"/>
                                                     <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
                                                         <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020197"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
@@ -9800,9 +10049,9 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000001"/>
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000004"/>
                                             <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
                                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020197"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
@@ -9828,7 +10077,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     <!-- https://w3id.org/pmd/co/PMD_0020233 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020233">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000142"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
         <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
         <rdfs:label xml:lang="en">dislocation</rdfs:label>
@@ -10064,7 +10313,6 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020101"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020366"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0020256"/>
@@ -10075,6 +10323,22 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
                                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020150"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0020257"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000001"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020133"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -10218,7 +10482,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020274"/>
-        <rdfs:subClassOf rdf:nodeID="genid1018"/>
+        <rdfs:subClassOf rdf:nodeID="genid1059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0000009"/>
@@ -10252,7 +10516,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
         <skos:definition xml:lang="en">a process which has a thermodyanamic system as participant where entropy remains constant, ΔS=0</skos:definition>
         <skos:example xml:lang="en">perfectly elastic spring-mass oscillator, adiabatic expansion or compression of an ideal gas</skos:example>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid1018">
+    <owl:Restriction rdf:nodeID="genid1059">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
         <owl:someValuesFrom>
             <owl:Class>
@@ -10269,7 +10533,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0020275"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1018"/>
+        <owl:annotatedTarget rdf:nodeID="genid1059"/>
         <rdfs:comment xml:lang="en">Could add a SWRL rule that the difference in entropy between the TQCs is zero</rdfs:comment>
     </owl:Axiom>
     
@@ -10279,7 +10543,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020276">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020274"/>
-        <rdfs:subClassOf rdf:nodeID="genid1033"/>
+        <rdfs:subClassOf rdf:nodeID="genid1074"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
         <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
         <rdfs:label xml:lang="en">dissipative process</rdfs:label>
@@ -10287,7 +10551,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
         <skos:definition xml:lang="en">a process which has a thermodyanamic system as participant where entropy increases, ΔS&gt;0</skos:definition>
         <skos:example xml:lang="en">plastic deformation of a metal, frictional sliding, Joule expansion</skos:example>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid1033">
+    <owl:Restriction rdf:nodeID="genid1074">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
         <owl:someValuesFrom>
             <owl:Class>
@@ -10304,7 +10568,7 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0020276"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1033"/>
+        <owl:annotatedTarget rdf:nodeID="genid1074"/>
         <rdfs:comment xml:lang="en">Could add a SWRL rule that the difference in entropy between the TQCs is larger than zero</rdfs:comment>
     </owl:Axiom>
     
@@ -10328,12 +10592,82 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     
 
 
+    <!-- https://w3id.org/pmd/co/PMD_0020280 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020280">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020160"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0100005"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000134"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000442"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001015"/>
+                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_18248"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">austenite</rdfs:label>
+        <skos:definition xml:lang="en">ferrous metal microconstituent which at the same time is a face-centered cubic iron crystall object or object aggregate</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/co/PMD_0020284 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020284">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020265"/>
         <rdfs:label xml:lang="en">atomistic property</rdfs:label>
         <skos:definition>a property that is commonly associated with the subdomain of atomistics in materials science and engineering</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020285 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020285">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020160"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0026008"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">pearlite</rdfs:label>
+        <skos:definition xml:lang="en">ferrous metal microconstituent which at the same time is a body centered cubic iron crystall object or object aggregate and has part some clearly lamella shaped entities that at the same time are cementite thermodynamic phase</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020286 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020286">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020160"/>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">widmanstatten structure</rdfs:label>
+        <skos:comment>Kamilla: not unique to Fe-C alloys</skos:comment>
+        <skos:definition xml:lang="en">ferrous metal microconstituent which at the same time is a body centered cubic iron crystall object or object aggregate and has part some entities that at the same time are cementite thermodynamic phase</skos:definition>
     </owl:Class>
     
 
@@ -10446,6 +10780,140 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020287"/>
         <rdfs:label xml:lang="en">suprasolid</rdfs:label>
         <skos:definition xml:lang="en">a portion of matter in a suprasolid aggregate state</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020300 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020300">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020160"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020301"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0026005"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002353"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0026017"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">bainite</rdfs:label>
+        <skos:definition xml:lang="en">ferrous metal microconstituent which at the same time is a body centered cubic iron crystall object or object aggregate and has part some finely dispersed entities that at the same time are cementite thermodynamic phase</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020301 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020301">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020160"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0100005"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000135"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000442"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001015"/>
+                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_18248"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:comment>Alternative axiom: &apos;located in&apos; some 
+(&apos;bravais lattice cubic body-centered&apos; and (&apos;has part&apos; some 
+(&apos;lattice point&apos; and (&apos;reference lattice point of&apos; some 
+(&apos;regular atom site&apos; and (&apos;location of&apos; some CHEBI_18248))))))</rdfs:comment>
+        <rdfs:label xml:lang="en">ferrite</rdfs:label>
+        <skos:definition xml:lang="en">ferrous metal microconstituent which at the same time is a body centered cubic iron crystall object or object aggregate</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020302 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020302">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020160"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020280"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0027010"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">ledeburite</rdfs:label>
+        <skos:definition xml:lang="en">ferrous metal microconstituent which at the same time is a face centered cubic iron crystall object or object aggregate and has part some entities that at the same time are cementite thermodynamic phase</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0020303 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0020303">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020160"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0026001"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0026005"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002353"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0026002"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000116 xml:lang="en">The &quot;part of&quot; and &quot;input of&quot; OPs are debatable</obo:IAO_0000116>
+        <obo:IAO_0000117>PERSON: Philipp von Hartrott</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">martensite (microconstituent)</rdfs:label>
+        <skos:comment>TODO: some things to consider: martensite is not only Fe-C microconstituent
+Writing axioms with cementite is too restrictive, it might be nitride, etc.</skos:comment>
+        <skos:definition xml:lang="en">ferrous metal microconstituent which at the same time is a tetragonal body centered iron crystall object or object aggregate</skos:definition>
     </owl:Class>
     
 
@@ -10735,6 +11203,35 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
                                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
                                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000029"/>
                                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000000"/>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000024"/>
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000029"/>
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000140"/>
                                         </owl:unionOf>
                                     </owl:Class>
                                     <owl:Restriction>
@@ -11919,7 +12416,6 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
     <!-- https://w3id.org/pmd/co/PMD_0025029 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0025029">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000017"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020335"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
         <rdfs:subClassOf>
@@ -12294,6 +12790,623 @@ Activity (a_X) is a relational property between a chemical species X and a non-i
         <rdfs:label xml:lang="en">concentration value specification</rdfs:label>
         <skos:definition xml:lang="en">a value specification that contains information about quantitative share of a part relative to a specified whole.</skos:definition>
         <skos:example xml:lang="en">2.05 wt.% of carbon in steel, 4 vol.% of nitric acid in a solution</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026001 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026001">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020000"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000135"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000140"/>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000442"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001015"/>
+                                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_18248"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000443"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001015"/>
+                                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_27594"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002353"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0026002"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000116 xml:lang="en">TBD if phase or microconstituant are specified outputs of transformation</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">martensite (phase)</rdfs:label>
+        <skos:definition xml:lang="en">Martensite (phase) is a ferrous metal phase with either tetragonal body-centered or distorted cubic body-centered crystal lattice. The Fe atoms are located at the lattice points, i.e., regular atom sites, and C atoms are located in interstitial sites.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026002 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026002">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020280"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002234"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020303"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000116>The &quot;rapid cooling&quot; part of the axiom is to be done; the shear displacement of the lattice taking place to be done</obo:IAO_0000116>
+        <rdfs:label xml:lang="en">martensitic transformation</rdfs:label>
+        <skos:definition xml:lang="en">Martensitic transformation is a process which has austenite as specified input and happens similtuneously with rapid cooling of the material</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026005 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026005">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020213"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001000"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020213"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020280"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020213"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001000"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020213"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020280"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">prior aistenite grain boundary</rdfs:label>
+        <skos:definition xml:lang="en">prior aistenite grain boundary is a grain boundary that remained after a phase transformation as the austenite transformed into other phase or microconstituent</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026006 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026006">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000890"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0027002"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">lamellar colony</rdfs:label>
+        <skos:definition xml:lang="en">Lamellar colony is an aggregate of alternating, approximately parallel lamellae of two phases, distinguished from neighbouring colonies by a change in lamellar orientation.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026007 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026007">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0026006"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020301"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0027002"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0027002"/>
+                                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0027010"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">pearlite colony</rdfs:label>
+        <skos:definition xml:lang="en">lamellar colony formed by eutectoid decomposition of austenite, whose lamellae are ferrite and cementite</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026008 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026008">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000890"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0026007"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">pearlite block</rdfs:label>
+        <skos:altLabel xml:lang="en">pearlite nodule</skos:altLabel>
+        <skos:definition xml:lang="en">aggregate of pearlite colonies</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026017 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026017">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020280"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002234"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020300"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">bainitic transformation</rdfs:label>
+        <skos:comment>TODO add nature of the transformation: diffusionless shear of austenite into ferrite and limited diffusion and thus precipitation of carbides (what to do with carbide-free bainite tho)</skos:comment>
+        <skos:definition xml:lang="en">bainitic transformation is a solid-state phase transformation that occurs simultaneously with cooling at intermediate rates, has austenite as input and bainite as output.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026018 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026018">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023007"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0026019"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000092"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020213"/>
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020233"/>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
+                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020002"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CHEBI_33250"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
+                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020227"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">strengthening disposition</rdfs:label>
+        <skos:altLabel xml:lang="en">dislocation obstacle disposition</skos:altLabel>
+        <skos:definition xml:lang="en">Disposition of microstructure members, such as grain boundaries, precipitates, solute atoms, and other dislocation structures to hinder dislocation motion and lead to the increase in material strength</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026019 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026019">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000596"/>
+        <rdfs:label xml:lang="en">plastic deformation</rdfs:label>
+        <skos:definition xml:lang="en">plastic defomation is an irreversible change in the material shape</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026021 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026021">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0026018"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000092"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020213"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0026018"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000092"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020213"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">grain boundary strengthening</rdfs:label>
+        <skos:definition xml:lang="en">contribution of grain boundaries to hinder dislocation motion during plastic deformation</skos:definition>
+        <co:PMD_0050117>ΔσGB</co:PMD_0050117>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026022 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026022">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0026018"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000092"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
+                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020002"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0026018"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000092"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
+                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020002"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">precipitate strengthening</rdfs:label>
+        <skos:definition xml:lang="en">contribution of precipitates in microstructure to hinder dislocation motion during plastic deformation</skos:definition>
+        <co:PMD_0050117>ΔσPS</co:PMD_0050117>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026023 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026023">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0026018"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000092"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CHEBI_33250"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
+                                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020227"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0026018"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000092"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CHEBI_33250"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
+                                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020227"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">solid solution strengthening</rdfs:label>
+        <skos:definition xml:lang="en">contribution of solute atoms in solid solution to hinder dislocation motion during plastic deformation</skos:definition>
+        <co:PMD_0050117>Δσss</co:PMD_0050117>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0026024 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0026024">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0026018"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000092"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020233"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0026018"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000092"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000027"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0020233"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">dislocation strengthening</rdfs:label>
+        <skos:definition xml:lang="en">contribution of dislocation forest in microstructure to hinder dislocation motion during plastic deformation</skos:definition>
+        <co:PMD_0050117>ΔσDIS</co:PMD_0050117>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0027001 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0027001">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000663"/>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: PMDco Team</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">lamella</rdfs:label>
+        <skos:comment>It may part of a lamellae object oggregate</skos:comment>
+        <skos:definition xml:lang="en">lamella is an object that represents a thin, flat, plate-like layer or flake within microstructure.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0027002 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0027002">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002351"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0027001"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000112 xml:lang="en">perlite microconstituent has part ferrite lamellae and has part cementite lamellae. Ferrite lamellae has part ferrite lamella</obo:IAO_0000112>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000117>PERSON: PMDco Team</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">lamellae</rdfs:label>
+        <skos:definition xml:lang="en">lamellae is an object aggregate that is part of some microconstituent and at the same time a single thermodynamic phase</skos:definition>
+        <skos:example xml:lang="en">ferrite lamellae in perlite microcontituent</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0027010 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0027010">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020160"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0100005"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000131"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000442"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001015"/>
+                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_18248"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000442"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001015"/>
+                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_27594"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">cementite</rdfs:label>
+        <skos:definition>ferrous metal microconstituent which at the same time an intermetallic phase of Fe3C with orthorhombic crystal lattice</skos:definition>
     </owl:Class>
     
 
@@ -13004,8 +14117,8 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080108">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020311"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
-        <rdfs:subClassOf rdf:nodeID="genid1517"/>
-        <rdfs:subClassOf rdf:nodeID="genid1523"/>
+        <rdfs:subClassOf rdf:nodeID="genid1770"/>
+        <rdfs:subClassOf rdf:nodeID="genid1776"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
@@ -13019,7 +14132,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
         <skos:example xml:lang="en">A cross-section of a loaded steel column bears a compressive stress of 150 MPa</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1517">
+    <owl:Class rdf:nodeID="genid1770">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -13031,7 +14144,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
             </owl:Restriction>
         </owl:intersectionOf>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1523">
+    <owl:Class rdf:nodeID="genid1776">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -13046,13 +14159,13 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080108"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1517"/>
+        <owl:annotatedTarget rdf:nodeID="genid1770"/>
         <rdfs:comment xml:lang="en">Mechanical view on stress</rdfs:comment>
     </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080108"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1523"/>
+        <owl:annotatedTarget rdf:nodeID="genid1776"/>
         <rdfs:comment xml:lang="en">Thermodynamic view on stress</rdfs:comment>
     </owl:Axiom>
     
@@ -13062,14 +14175,14 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080116">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <rdfs:subClassOf rdf:nodeID="genid1530"/>
+        <rdfs:subClassOf rdf:nodeID="genid1783"/>
         <obo:IAO_0000117>Philipp von Hartrott</obo:IAO_0000117>
         <rdfs:comment xml:lang="en">Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you&apos;re considering.</rdfs:comment>
         <rdfs:label xml:lang="en">potential</rdfs:label>
         <skos:definition xml:lang="en">a partial derivative of energy with respect to its conjugate extensive quantity</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid1530">
+    <owl:Class rdf:nodeID="genid1783">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -13084,7 +14197,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080116"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid1530"/>
+        <owl:annotatedTarget rdf:nodeID="genid1783"/>
         <rdfs:comment xml:lang="en">In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking &quot;how does energy change per unit carrier added?&quot;, you ask &quot;how does energy change per unit carrier moved in space?&quot;</rdfs:comment>
@@ -13236,6 +14349,42 @@ This is the spatial analogue: instead of asking &quot;how does energy change per
         <skos:definition xml:lang="en">Upper yield strength characterizes the maximum stress that can be applied before a material begins to yield plastically</skos:definition>
         <skos:example xml:lang="en">Mild steel exhibits an upper yield strength of about 300 MPa, followed by a yield drop to the lower yield point</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0080597 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080597"/>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0100003 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0100003">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000001"/>
+        <rdfs:comment xml:lang="en">Microconstiutents were coined in the times of light-optical metallography and are related to the differences that can be observed using this experimental process. 
+
+In metallography the term phase is sometimes used to denote microconstituents. To avoid confusion, the term phase should only be used for thermodynamic phases.</rdfs:comment>
+        <rdfs:label xml:lang="en">microconstituent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/PMD_0100005 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0100005">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020000"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0100003"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020000"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0100003"/>
+        <rdfs:label xml:lang="en">monophase microconstituent</rdfs:label>
     </owl:Class>
     
 
@@ -15283,6 +16432,103 @@ Grain orientation can be specified by either texture fibers or texture component
         <rdfs:label xml:lang="en">lattice system value</rdfs:label>
         <skos:definition xml:lang="en">lattice system value is a categorical value specification which describes the grouping of
 lattice system based on the point group symmetries of their empty translational frameworks. The specific values are triclinic, monoclinic, orthorhombic, tetragonal, rhombohedral, hexagonal, and cubic.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000405 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000405">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000147"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Add axioms to PMDco (owl:tOP --&gt; location of /located in)
+1. &apos;solid solution&apos; and (&apos;has member&apos; some 
+(&apos;pure substance&apos; and (&apos;has part&apos; some 
+(entity and (owl:topObjectProperty some &apos;lattice point&apos;))) and (&apos;has role&apos; some &apos;solute role&apos;)))
+2. owl:topObjectProperty some &apos;lattice point&apos;</rdfs:comment>
+        <rdfs:label xml:lang="en">lattice point</rdfs:label>
+        <skos:definition xml:lang="en">A lattice point is a fiat point that represents a position in a crystal lattice at which structural entities are regularly arranged.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000439 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000439">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000001"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000440"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000405"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000116 xml:lang="en">If the atom site and the lattice point have the same coordinates, i.e., the basis vector is (0, 0, 0), one can say that lattice point is located in atom site. 
+
+The nessesity of this class came from the description of different metallic phases, as most of them are characterized by atoms occupying certain atom sites which not always coinside with lattice points.
+
+Additionally, asserting triple &quot;atom located in lattice point&quot; contradicts the RO&apos;s definition of &quot;located in&quot; which states that r1 is located in r2 iff r1 is fully inside r2 (Kamilla&apos;s free interpretation), but here we want to merely express that an atom occupies certain position in a lattice (incl. voids). But the word &quot;occupies&quot; is used in BFO to express the relation between spatial region and any other independent continuant.</obo:IAO_0000116>
+        <rdfs:comment xml:lang="en">TODO: add a class to GDCs to replace value specification with &quot;fractional coordinate&quot; or coordinate specification or smth.</rdfs:comment>
+        <rdfs:label xml:lang="en">atom site</rdfs:label>
+        <skos:definition xml:lang="en">Atom site is a site that is part of crystal lattice whose position is determined by an offset of a basis vector from a lattice point, and that is the location of a single atom</skos:definition>
+        <skos:example xml:lang="en">Octahedral interstitial site in bcc has a reference lattice point with (1/2, 1/2, 0) basis vector</skos:example>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000441 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000441">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+        <rdfs:label xml:lang="en">basis vector</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000442 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000442">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/pmd/cryo/CRYO_0000439"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                        <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000441"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000439"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000441"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000443"/>
+        <rdfs:label xml:lang="en">regular atom site</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/cryo/CRYO_0000443 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/cryo/CRYO_0000443">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/cryo/CRYO_0000439"/>
+        <rdfs:label xml:lang="en">intersitital site</rdfs:label>
+        <skos:altLabel>void</skos:altLabel>
+        <skos:definition xml:lang="en">interstitial site is a site that is located between regular lattice points in a crystal structure.</skos:definition>
     </owl:Class>
     
 
@@ -26780,6 +28026,23 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000503"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000512"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000591"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000595"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000853"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000896"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000942"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000967"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020112"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020160"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0025001"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0080597"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000553"/>
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0000619"/>
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020132"/>
@@ -26812,6 +28075,18 @@ Note: Stress rate is only used in the elastic part of the test.</skos:definition
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020180"/>
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020181"/>
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020182"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020280"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020285"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020286"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020300"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020301"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020302"/>
+            <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020303"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
