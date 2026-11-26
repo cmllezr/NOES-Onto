@@ -2599,6 +2599,16 @@ noes:NOES_0000135 rdf:type owl:Class ;
                   skos:definition "crystallite with rotated cube texture orientation is a crystallite whose family of <110> equivalent directions in a cubic lattice system are oriented approximately parallel to the rolling direction and family of {001} equivalent directions are oriented approximately parallel to the rolling plane."@en .
 
 
+###  https://w3id.org/pmd/noes/NOES_0000136
+noes:NOES_0000136 rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0002350 ;
+                                    owl:someValuesFrom noes:NOES_0000008
+                                  ] ;
+                  rdfs:label "texture intensity datum"@en ;
+                  skos:definition "texture intensity datum is a information content entity that specifies the value of the orientation distribution function f(g) of that texture at a specified crystal orientation g, expressed relative to a uniform orientation distribution"@en .
+
+
 ###  https://w3id.org/pmd/noes/NOES_0000137
 noes:NOES_0000137 rdf:type owl:Class ;
                   rdfs:label "strip"@en ;
@@ -2820,14 +2830,30 @@ noes:NOES_0000168 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/noes/NOES_0000169
 noes:NOES_0000169 rdf:type owl:Class ;
-                  rdfs:label "texture intensity"@en ;
-                  skos:definition "Texture intensity is a relational property that characterizes the volume or area fraction of grains with a given orientation (within 15° tolerance) to the non-textured material"@en .
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:BFO_0000050 ;
+                                    owl:someValuesFrom noes:NOES_0000008
+                                  ] ;
+                  rdfs:label "orientation distribution function section at phi2 = 0°"@en ;
+                  skos:definition "orientation distribution function section at phi2 = 0° is a part of orientation distribution function which illustrates orientations distrubution at phi2 Euler angle value of 0°."@en ;
+                  skos:editorialNote "Only relevant to cubic lattices" .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000170
 noes:NOES_0000170 rdf:type owl:Class ;
                   rdfs:label "dislocation density"@en ;
                   skos:definition "dislocation density is a relation property that represents average dislocation length per unit volume"@en .
+
+
+###  https://w3id.org/pmd/noes/NOES_0000171
+noes:NOES_0000171 rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:BFO_0000050 ;
+                                    owl:someValuesFrom noes:NOES_0000008
+                                  ] ;
+                  rdfs:label "orientation distribution function section at phi2 = 45°"@en ;
+                  skos:definition "orientation distribution function section at phi2 = 45° is a part of orientation distribution function which illustrates orientations distrubution at phi2 Euler angle value of 45°."@en ;
+                  skos:editorialNote "Only relevant to cubic lattices"@en .
 
 
 ###  https://w3id.org/pmd/noes/NOES_0000177

@@ -16854,7 +16854,7 @@ which determines the directions in a sheet material in respect to the rolling di
     <!-- https://w3id.org/pmd/noes/NOES_0000008 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000008">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025005"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
         <rdfs:label xml:lang="en">orientation distribution function</rdfs:label>
         <skos:altLabel xml:lang="en">ODF</skos:altLabel>
         <skos:definition xml:lang="en">Orientation distrubution function (ODF) is a 3D information content entity which quantitively describes texture (preferred crystallographic orientation of grains) in polycrystalline materials. ODF can be caclulated from pole figures obtained from the diffraction patterns.</skos:definition>
@@ -23885,6 +23885,34 @@ Will be inferable in the future</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/pmd/noes/NOES_0000136 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000136">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001938"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0001931"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002350"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000008"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/PMD_0060001"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000853"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">texture intensity datum</rdfs:label>
+        <skos:definition xml:lang="en">texture intensity datum is a information content entity that specifies the value of the orientation distribution function f(g) of that texture at a specified crystal orientation g, expressed relative to a uniform orientation distribution</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/pmd/noes/NOES_0000137 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000137">
@@ -25389,9 +25417,16 @@ TODO: define axiomatically</rdfs:comment>
     <!-- https://w3id.org/pmd/noes/NOES_0000169 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000169">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020101"/>
-        <rdfs:label xml:lang="en">texture intensity</rdfs:label>
-        <skos:definition xml:lang="en">Texture intensity is a relational property that characterizes the volume or area fraction of grains with a given orientation (within 15° tolerance) to the non-textured material</skos:definition>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025005"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000008"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">orientation distribution function section at phi2 = 0°</rdfs:label>
+        <skos:definition xml:lang="en">orientation distribution function section at phi2 = 0° is a part of orientation distribution function which illustrates orientations distrubution at phi2 Euler angle value of 0°.</skos:definition>
+        <skos:editorialNote>Only relevant to cubic lattices</skos:editorialNote>
     </owl:Class>
     
 
@@ -25434,6 +25469,23 @@ TODO: define axiomatically</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">dislocation density</rdfs:label>
         <skos:definition xml:lang="en">dislocation density is a relation property that represents average dislocation length per unit volume</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/noes/NOES_0000171 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/noes/NOES_0000171">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0025005"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/noes/NOES_0000008"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">orientation distribution function section at phi2 = 45°</rdfs:label>
+        <skos:definition xml:lang="en">orientation distribution function section at phi2 = 45° is a part of orientation distribution function which illustrates orientations distrubution at phi2 Euler angle value of 45°.</skos:definition>
+        <skos:editorialNote xml:lang="en">Only relevant to cubic lattices</skos:editorialNote>
     </owl:Class>
     
 
