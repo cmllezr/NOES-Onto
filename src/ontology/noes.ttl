@@ -9248,6 +9248,21 @@ co:PMD_0025029 rdf:type owl:Class ;
                skos:example "Carbon in a smelting of an ore" .
 
 
+###  https://w3id.org/pmd/co/PMD_0025035
+co:PMD_0025035 rdf:type owl:Class ;
+               rdfs:subClassOf obo:IAO_0000027 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:OBI_0000312 ;
+                                 owl:someValuesFrom co:PMD_0000583
+                               ] ;
+               obo:IAO_0000114 obo:IAO_0000122 ;
+               obo:IAO_0000117 "PERSON: Kamilla Zaripova" ;
+               rdfs:label "calculation datum"@en ;
+               skos:definition "calculation datum is a data item that is a specified output of the computing process"@en ;
+               skos:example "An average value calculated from 5 measured values of some material property"@en ;
+               co:PMD_0000064 "The computing process has specified output the calculation datum. The calculation datum is quality calculation of some SDC (i.e., material property). The computing process has triple with \"assay measures characteristic\" with the SDc as object. The latter object property does not have domain contraints, i.e., the subject doesn't have to be assay."@en .
+
+
 ###  https://w3id.org/pmd/co/PMD_0025036
 co:PMD_0025036 rdf:type owl:Class ;
                owl:equivalentClass [ owl:intersectionOf ( co:PMD_0020101
@@ -10498,8 +10513,8 @@ co:PMD_0080104 rdf:type owl:Class ;
 co:PMD_0080108 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020311 ,
                                co:PMD_0023004 ,
-                               _:genid1770 ,
-                               _:genid1776 ,
+                               _:genid1771 ,
+                               _:genid1777 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000052 ;
                                  owl:someValuesFrom co:PMD_0000001
@@ -10511,7 +10526,7 @@ co:PMD_0080108 rdf:type owl:Class ;
                skos:example "A cross-section of a loaded steel column bears a compressive stress of 150 MPa"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid1770 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1771 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020200
                                   ]
@@ -10522,7 +10537,7 @@ _:genid1770 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                 ) ;
              rdf:type owl:Class .
 
-_:genid1776 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1777 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020352
                                   ]
@@ -10536,14 +10551,14 @@ _:genid1776 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1770 ;
+   owl:annotatedTarget _:genid1771 ;
    rdfs:comment "Mechanical view on stress"@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1776 ;
+   owl:annotatedTarget _:genid1777 ;
    rdfs:comment "Thermodynamic view on stress"@en
  ] .
 
@@ -10551,14 +10566,14 @@ _:genid1776 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 ###  https://w3id.org/pmd/co/PMD_0080116
 co:PMD_0080116 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid1783 ;
+                               _:genid1784 ;
                obo:IAO_0000117 "Philipp von Hartrott" ;
                rdfs:comment "Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you're considering."@en ;
                rdfs:label "potential"@en ;
                skos:definition "a partial derivative of energy with respect to its conjugate extensive quantity"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid1783 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid1784 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020142
                                   ]
@@ -10572,7 +10587,7 @@ _:genid1783 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080116 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1783 ;
+   owl:annotatedTarget _:genid1784 ;
    rdfs:comment """In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking \"how does energy change per unit carrier added?\", you ask \"how does energy change per unit carrier moved in space?\""""@en
